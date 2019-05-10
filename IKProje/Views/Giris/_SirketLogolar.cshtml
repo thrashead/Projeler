@@ -1,7 +1,0 @@
-﻿@using TDLibrary
-
-<script type="text/javascript" src="@AppMgr.ScriptPath/Angular/Scripts/giris.js"></script>
-
-<div id="showcase" class="onecell" ng-controller="kontrolSirketLogolar">
-    <a ng-repeat="item in modelSirketLogolar" href="@AppMgr.MainPath/Sirket/Profil/Detay/{{item.Url}}"><img class="adlogo" ng-src="@AppMgr.UploadPath/Sirket/{{item.Guid}}/{{item.Logo}}" /></a>
-</div>

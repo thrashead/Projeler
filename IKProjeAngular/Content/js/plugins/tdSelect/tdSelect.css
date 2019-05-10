@@ -1,8 +1,0 @@
-﻿.tdSelectText {float: left;margin: 30px 0px 0px -1px;width: 168px;height: 40px;line-height: 40px;background-color: #FFF;border: 1px solid lightgray;
-               cursor: pointer;padding: 0px 0px 0px 10px;overflow: hidden;white-space: nowrap;background-position: 165px 15px;outline:none;
-               background-image: url("Content/js/plugins/tdSelect/selectarrow.png");background-repeat: no-repeat;font-family: Verdana;font-size: 14px;}
-.tdSelectList {display: none;float: left;width: 178px;margin: 71px 0px 0px -180px;padding: 0px 0px 0px 0px;list-style: none;background-color: #FFF;
-               border: 1px solid lightgray;z-index: 10000;position: relative;max-height: 80px;overflow-x: hidden;overflow-y: scroll;
-               white-space: nowrap;font-family: Verdana;font-size: 12px;}
-.tdSelectList li {margin: 0px 0px 0px 0px;padding: 3px 6px 3px 6px;cursor: pointer;}
-.tdSelectList li:hover {background-color:lightgray;}
