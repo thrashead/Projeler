@@ -1,0 +1,1920 @@
+﻿@import "fonts.css";
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px 0px 0px 0px;
+    min-width: 1140px;
+}
+
+* {
+    outline: none;
+}
+
+img {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1 {
+    font-family: 'ElYazisi';
+}
+
+h2 {
+    font-family: 'ElYazisi';
+}
+
+h3 {
+    font-family: 'ElYazisi';
+}
+
+.white {
+    color: #fff !important;
+}
+
+.pink {
+    color: #C65378 !important;
+}
+
+.yellow {
+    color: #FDBD1F !important;
+}
+
+.bgwhite {
+    background-color: #fff !important;
+}
+
+.bgpink {
+    background-color: #C65378 !important;
+}
+
+.bgyellow {
+    background-color: #FDBD1F !important;
+}
+
+/* Frame */
+.frame {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+    .frame.top {
+        background-color: #FDBD1F;
+    }
+
+    .frame .mainframe {
+        margin: 0px auto 0px auto;
+        padding: 0px 0px 0px 0px;
+        width: 1140px;
+    }
+/* Frame */
+
+/* Header */
+.header {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    min-height: 600px;
+    width: 1140px;
+}
+
+/*Menu*/
+.menu {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    height: 600px;
+    width: 570px;
+    background-image: url(images/menubg.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+    .menu .container {
+        margin: 100px 0px 0px 135px;
+        width: 300px;
+        text-align: center;
+        float: left;
+    }
+
+        .menu .container h1 {
+            float: left;
+            color: #000;
+            font-weight: 100;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .menu .container ul {
+            float: left;
+            text-align: left;
+            list-style-type: none;
+            margin: 0px 0px 0px 80px;
+            padding: 0px 0px 0px 0px;
+            color: #fff;
+            font-size: 20px;
+            line-height: 32px;
+        }
+
+            .menu .container ul li {
+            }
+
+                .menu .container ul li a {
+                    color: #fff;
+                    font-family: "Arial Narrow", Arial, sans-serif;
+                }
+/*Menu*/
+
+/*Slider*/
+.slider {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    height: 600px;
+    width: 570px;
+    background-color: #FDBD1F;
+}
+
+    .slider img {
+        width: 570px;
+        height: 600px;
+    }
+
+#sliderframe {
+    position: absolute;
+    z-index: 2;
+    margin: -605px 0px 0px 0px;
+    height: 600px;
+    width: 570px;
+    background-image: url(images/sliderframe.png);
+    background-position: right top;
+    background-repeat: repeat-y;
+}
+
+@-moz-document url-prefix() {
+    #sliderframe;
+
+{
+    margin-top: -605px;
+}
+
+}
+/*Slider*/
+
+/* Header */
+
+/*Search Bar*/
+.mainsearch {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    width: 1140px;
+    min-height: 10px;
+}
+
+    .mainsearch input[type='text'] {
+        float: left;
+        margin: 0px 50px 0px 0px;
+        border: 1px solid #FDBD1F;
+        line-height: 40px;
+        width: 182px;
+        font-size: 20px;
+        padding: 0px 20px 0px 20px;
+        height: 40px;
+    }
+
+    .mainsearch input[type='button'] {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 222px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #fff;
+        background-color: #FDBD1F;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+    }
+
+        .mainsearch input[type='button']:hover {
+            background-color: #fff;
+            color: #C65378;
+            border-color: #FDBD1F;
+        }
+
+    .mainsearch button {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 222px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid #fff;
+        background-color: #FDBD1F;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+    }
+
+        .mainsearch button:hover {
+            background-color: #fff;
+            color: #C65378;
+            border-color: #FDBD1F;
+        }
+
+    .mainsearch select {
+        float: left;
+        margin: 0px 0px 0px 0px;
+    }
+/*Search Bar*/
+
+
+/* Main Content */
+.maincontent {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    width: 1060px;
+    min-height: 10px;
+    padding: 40px;
+}
+
+    .maincontent h1 {
+        font-size: 32px;
+    }
+/* Main */
+
+/* Şiir Container */
+.siircontainer {
+    float: left;
+    margin: 0px 3px 0px 0px;
+    width: 350px;
+    text-align: center;
+}
+
+    .siircontainer .siirimage {
+        float: left;
+        margin: 0px 0px 0px 64px;
+        width: 222px;
+        height: 222px;
+        background-size: 222px;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+        .siircontainer .siirimage img {
+            float: left;
+            margin: 0px 0px 0px 0px;
+            width: 222px;
+            height: 222px;
+        }
+
+    .siircontainer .siirimagecropper {
+        position: absolute;
+        margin: 0px 0px 0px 64px;
+        z-index: 1;
+        width: 222px;
+        height: 222px;
+        background-image: url(images/dairecrop.png);
+    }
+
+    .siircontainer .siircontent {
+        float: left;
+        margin: 10px 0px 0px 0px;
+        width: 350px;
+        height: 125px;
+        overflow: hidden;
+        padding-right: 0px;
+        font-size: 14px;
+    }
+
+        .siircontainer .siircontent h1 {
+            font-size: 18px;
+            font-family: "Arial Narrow", Arial, sans-serif;
+        }
+
+    .siircontainer .siirdevam {
+        float: left;
+        margin: 10px 0px 0px 150px;
+        font-size: 11px;
+        border: 1px solid #C65378;
+        padding: 3px;
+        background-color: #C65378;
+        color: #fff;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+        .siircontainer .siirdevam:hover {
+            background-color: #fff;
+            color: #C65378;
+        }
+/* Şiir Container */
+
+/* Main Cerceve */
+.cerceveresim {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    width: 530px;
+    text-align: center;
+}
+
+    .cerceveresim img {
+    }
+
+.cercevebiyografi {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    width: 530px;
+}
+
+    .cercevebiyografi a {
+        font-size: 18px;
+        border: 1px solid #FDBD1F;
+        padding: 3px;
+        background-color: #FDBD1F;
+        color: #fff;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        float: right;
+    }
+
+        .cercevebiyografi a:hover {
+            border-color: #fff;
+        }
+/* Main Cerceve */
+
+/* Şiir */
+.siirresim {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    width: 530px;
+    text-align: center;
+}
+
+    .siirresim img {
+        max-width: 400px;
+    }
+
+.siirmetin {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    width: 480px;
+    padding: 0px 0px 0px 50px;
+}
+
+    .siirmetin .datecity {
+        font-size: 12px;
+        color: #7E6B5D;
+    }
+
+    .siirmetin a {
+        font-size: 12px;
+        color: #C65378;
+        cursor: pointer;
+    }
+/* Şiir */
+
+/* Şiir List */
+#siirliste {
+    list-style-type: none;
+    padding: 0px;
+    float: left;
+    border: 1px solid #C65378;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+    #siirliste li {
+        clear: both;
+        float: left;
+        width: 100%;
+        background-color: #fff;
+    }
+
+        #siirliste li:hover {
+            background-color: #cfcfcf !important;
+            color: #fff !important;
+        }
+
+        #siirliste li a {
+            color: #C65378;
+            font-size: 14px;
+            float: left;
+            padding: 5px;
+        }
+
+            #siirliste li a:hover {
+                color: #fff;
+            }
+
+        #siirliste li .sira {
+            width: 100px;
+        }
+
+        #siirliste li .isim {
+            width: 580px;
+        }
+
+        #siirliste li .tarih {
+            width: 250px;
+        }
+
+        #siirliste li .sehir {
+            width: 88px;
+        }
+
+        #siirliste li.alternate {
+            background-color: #ffe6a8;
+        }
+
+            #siirliste li.alternate a {
+            }
+
+                #siirliste li.alternate a:hover {
+                    color: #fff;
+                }
+
+            #siirliste li.alternate .sira {
+            }
+
+            #siirliste li.alternate .isim {
+            }
+
+            #siirliste li.alternate .tarih {
+            }
+
+            #siirliste li.alternate .sehir {
+            }
+
+        #siirliste li.baslik {
+            background-color: #C65378;
+        }
+
+            #siirliste li.baslik:hover {
+                background-color: #C65378 !important;
+            }
+
+            #siirliste li.baslik div {
+                float: left;
+                padding: 5px;
+                color: #fff;
+            }
+
+            #siirliste li.baslik .sira {
+            }
+
+            #siirliste li.baslik .isim {
+            }
+
+            #siirliste li.baslik .tarih {
+            }
+
+            #siirliste li.baslik .sehir {
+            }
+
+.clearsearchpoetrycontainer {
+    float: right;
+    text-align: right;
+    width: 100%;
+}
+
+    .clearsearchpoetrycontainer a {
+        font-size: 11px;
+        color: #C65378;
+    }
+
+        .clearsearchpoetrycontainer a:hover {
+            text-decoration: underline;
+        }
+/* Şiir List */
+
+/* Şiir Arama List */
+#siirsearchlist {
+    width: 216px;
+    list-style-type: none;
+    padding: 0px 3px 0px 3px;
+    float: left;
+    border-left: 1px solid #FDBD1F;
+    border-right: 1px solid #FDBD1F;
+    border-bottom: 1px solid #FDBD1F;
+    margin: 41px 0px 0px 548px;
+    position: absolute;
+    background-color: #fff;
+    z-index: 5;
+    max-height: 125px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+    #siirsearchlist li {
+        clear: both;
+        float: left;
+        width: 100%;
+        background-color: #fff;
+        overflow: hidden;
+        height: 25px;
+        line-height: 19px;
+    }
+
+        #siirsearchlist li:hover {
+            background-color: #cfcfcf !important;
+            color: #fff !important;
+        }
+
+        #siirsearchlist li.focus {
+            background-color: #cfcfcf !important;
+            color: #fff !important;
+        }
+
+        #siirsearchlist li a {
+            color: #C65378;
+            font-size: 11px;
+            float: left;
+            padding: 5px;
+            width: 100%;
+        }
+
+            #siirsearchlist li a:hover {
+                color: #fff;
+            }
+
+        #siirsearchlist li.focus {
+            background-color: #cfcfcf !important;
+            color: #fff !important;
+        }
+
+/* Şiir Arama List */
+
+/* Process BG */
+#processframe {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 99999;
+    background-image: url(images/processbg.png);
+    display: none;
+    text-align: center;
+}
+
+    #processframe img {
+        width: auto;
+        height: auto;
+    }
+/* Process BG */
+
+
+/* Reviews */
+.reviews {
+    position: fixed;
+    left: 0px;
+    bottom: 10px;
+    display: none;
+    width: 300px;
+    height: 250px;
+    background-color: #FDBD1F;
+    z-index: 9998;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #fff;
+}
+
+    .reviews .closereviews {
+        font-size: 13px;
+        position: absolute;
+        top: 2px;
+        right: 15px;
+        color: #fff;
+        margin-top: 12px;
+    }
+
+        .reviews .closereviews:hover {
+            text-decoration: underline;
+        }
+
+    .reviews h2 {
+        margin: 10px 0px 0px 10px;
+    }
+
+    .reviews .reviewlist {
+        float: left;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: 10px 0px 0px 0px;
+        height: 180px;
+        background-color: #ffe6a9;
+        font-size: 12px;
+    }
+
+        .reviews .reviewlist .reviewcontainer {
+            font-size: 11px;
+        }
+
+            .reviews .reviewlist .reviewcontainer .reviewdate {
+                float: left;
+                width: 161px;
+                border: 1px solid #C65378;
+                background-color: #C65378;
+                color: #fff;
+                padding: 2px;
+            }
+
+            .reviews .reviewlist .reviewcontainer .reviewpoint {
+                float: left;
+                width: 110px;
+                text-align: right;
+                border: 1px solid #C65378;
+                background-color: #C65378;
+                color: #fff;
+                padding: 2px;
+            }
+
+            .reviews .reviewlist .reviewcontainer .reviewsender {
+                float: left;
+                width: 279px;
+                border-left: 1px solid;
+                border-bottom: 1px solid;
+                border-right: 1px solid;
+                color: #C65378;
+                background-color: #fff;
+                padding: 2px;
+            }
+
+            .reviews .reviewlist .reviewcontainer .reviewmessage {
+                float: left;
+                width: 279px;
+                margin-bottom: 10px;
+                border-left: 1px solid #C65378;
+                border-bottom: 1px solid #C65378;
+                border-right: 1px solid #C65378;
+                color: #000;
+                padding: 2px;
+                background-color: #fff;
+            }
+
+.sendreview {
+    position: fixed;
+    right: 0px;
+    bottom: 10px;
+    display: none;
+    width: 300px;
+    height: 290px;
+    background-color: #FDBD1F;
+    z-index: 9998;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #fff;
+}
+
+    .sendreview h2 {
+        margin: 10px 0px 0px 10px;
+    }
+
+    .sendreview .closesendreview {
+        font-size: 13px;
+        position: absolute;
+        top: 2px;
+        right: 15px;
+        color: #fff;
+        margin-top: 12px;
+    }
+
+    .sendreview input[type=text] {
+        width: 237px;
+        border: 1px solid lightgray;
+        padding: 2px;
+        margin: 10px 0px 0px 30px;
+    }
+
+    .sendreview textarea {
+        width: 237px;
+        height: 100px;
+        border: 1px solid lightgray;
+        padding: 2px;
+        margin: 10px 0px 0px 30px;
+    }
+
+    .sendreview button {
+        float: right;
+        margin: 10px 25px 0px 0px;
+        text-align: center;
+        border: 1px solid #fff;
+        background-color: #FDBD1F;
+        cursor: pointer;
+        color: #fff;
+        font-size: 15px;
+    }
+
+        .sendreview button:hover {
+            background-color: #fff;
+            color: #C65378;
+            border-color: #FDBD1F;
+        }
+/* Reviews */
+
+
+
+
+
+@media only screen and (min-width: 961px) and (max-width: 1024px) {
+    /* Tablet Portrait size to standard 960 (devices and browsers) */
+    body {
+        min-width: 940px;
+    }
+
+    /* Frame */
+    .frame .mainframe {
+        width: 940px;
+    }
+    /* Frame */
+
+    /* Header */
+    .header {
+        min-height: 500px;
+        width: 940px;
+    }
+    /* Header */
+
+    /*Menu*/
+    .menu {
+        height: 500px;
+        width: 470px;
+    }
+
+        .menu .container {
+            margin: 90px 0px 0px 90px;
+            width: 300px;
+        }
+
+            .menu .container h1 {
+                font-size: 64px;
+                font-weight: 100;
+                margin-top: 80px;
+                margin-bottom: 30px;
+            }
+
+            .menu .container ul {
+                margin: 0px 0px 0px 50px;
+                font-size: 20px;
+                line-height: 32px;
+            }
+    /*Menu*/
+
+    /*Slider*/
+    .slider {
+        height: 500px;
+        width: 470px;
+    }
+
+        .slider img {
+            width: 470px;
+            height: 500px;
+        }
+
+    #sliderframe {
+        margin: -500px 0px 0px 0px;
+        height: 500px;
+        width: 470px;
+        background-size: 470px 500px;
+    }
+    /*Slider*/
+
+    /*Search Bar*/
+    .mainsearch {
+        width: 870px;
+    }
+
+        .mainsearch input[type='text'] {
+            margin: 0px 30px 10px 0px;
+            line-height: 40px;
+            width: 142px;
+            font-size: 17px;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .mainsearch input[type='button'] {
+            width: 222px;
+            line-height: 40px;
+            font-size: 17px;
+        }
+    /*Search Bar*/
+
+    /* Main Content */
+    .maincontent {
+        width: 880px;
+        padding: 20px;
+    }
+    /* Main */
+
+    /* Şiir Container */
+    .siircontainer {
+        margin: 0px 0px 20px 0px;
+        width: 290px;
+    }
+
+        .siircontainer .siirimage {
+            margin: 0px 0px 0px 34px;
+            width: 222px;
+            height: 222px;
+            background-size: 222px;
+        }
+
+            .siircontainer .siirimage img {
+                width: 222px;
+                height: 222px;
+            }
+
+        .siircontainer .siirimagecropper {
+            margin: 0px 0px 0px 34px;
+            width: 222px;
+            height: 222px;
+        }
+
+        .siircontainer .siircontent {
+            margin: 10px 0px 0px 0px;
+            width: 290px;
+            height: 125px;
+            padding-right: 30px;
+            font-size: 14px;
+        }
+
+            .siircontainer .siircontent h1 {
+                font-size: 18px;
+            }
+
+        .siircontainer .siirdevam {
+            margin: 10px 0px 0px 120px;
+            font-size: 11px;
+            padding: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    /* Şiir Container */
+
+    /* Main Cerceve */
+    .cerceveresim {
+        margin: 0px 0px 0px 0px;
+        width: 440px;
+    }
+
+        .cerceveresim img {
+        }
+
+    .cercevebiyografi {
+        margin: 0px 0px 0px 0px;
+        width: 440px;
+    }
+
+        .cercevebiyografi a {
+            font-size: 18px;
+        }
+    /* Main Cerceve */
+
+    /* Şiir */
+    .siirresim {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 460px;
+        text-align: center;
+    }
+
+        .siirresim img {
+            max-width: 400px;
+        }
+
+    .siirmetin {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 370px;
+        padding: 0px 0px 0px 40px;
+    }
+    /* Şiir */
+
+    /* Şiir List */
+    #siirliste {
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+        #siirliste li a {
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        #siirliste li .sira {
+            width: 80px;
+        }
+
+        #siirliste li .isim {
+            width: 500px;
+        }
+
+        #siirliste li .tarih {
+            width: 175px;
+        }
+
+        #siirliste li .sehir {
+            width: 83px;
+        }
+
+        #siirliste li.baslik div {
+            padding: 5px;
+        }
+    /* Şiir List */
+
+    /* Şiir Arama List */
+    #siirsearchlist {
+        width: 176px;
+        padding: 0px 3px 0px 3px;
+        margin: 41px 0px 0px 428px;
+    }
+
+        #siirsearchlist li a {
+            font-size: 11px;
+            padding: 5px;
+        }
+    /* Şiir Arama List */
+
+    /* Footer */
+
+    /* Footer */
+
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+    /* Tablet Portrait size to standard 960 (devices and browsers) */
+    body {
+        min-width: 768px;
+    }
+
+    /* Frame */
+    .frame .mainframe {
+        width: 768px;
+    }
+    /* Frame */
+
+    /* Header */
+    .header {
+        min-height: 400px;
+        width: 768px;
+    }
+    /* Header */
+
+    /*Menu*/
+    .menu {
+        height: 400px;
+        width: 384px;
+        background-size: 400px 300px;
+    }
+
+        .menu .container {
+            margin: 100px 0px 0px 45px;
+            width: 300px;
+        }
+
+            .menu .container h1 {
+                font-weight: 100;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .menu .container ul {
+                margin: 0px 0px 0px 80px;
+                font-size: 20px;
+                line-height: 32px;
+            }
+    /*Menu*/
+
+    /*Slider*/
+    .slider {
+        height: 400px;
+        width: 384px;
+    }
+
+        .slider img {
+            width: 384px;
+            height: 400px;
+        }
+
+    #sliderframe {
+        margin: -406px 0px 0px 0px;
+        height: 401px;
+        width: 384px;
+        background-size: 384px 400px;
+    }
+    /*Slider*/
+
+    /*Search Bar*/
+    .mainsearch {
+        width: 688px;
+    }
+
+        .mainsearch input[type='text'] {
+            margin: 0px 20px 10px 0px;
+            line-height: 30px;
+            width: 132px;
+            font-size: 16px;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .mainsearch input[type='button'] {
+            width: 102px;
+            line-height: 26px;
+            font-size: 15px;
+        }
+    /*Search Bar*/
+
+    /* Main Content */
+    .maincontent {
+        width: 688px;
+        padding: 40px;
+    }
+    /* Main */
+
+    /* Şiir Container */
+    .siircontainer {
+        margin: 0px 3px 20px 0px;
+        width: 680px;
+    }
+
+        .siircontainer .siirimage {
+            margin: 0px 0px 0px 64px;
+            width: 222px;
+            height: 222px;
+            background-size: 222px;
+        }
+
+            .siircontainer .siirimage img {
+                width: 222px;
+                height: 222px;
+            }
+
+        .siircontainer .siirimagecropper {
+            margin: 0px 0px 0px 64px;
+            width: 222px;
+            height: 222px;
+        }
+
+        .siircontainer .siircontent {
+            margin: 10px 0px 0px 20px;
+            width: 320px;
+            height: 125px;
+            padding-right: 30px;
+            font-size: 14px;
+        }
+
+            .siircontainer .siircontent h1 {
+                font-size: 18px;
+            }
+
+        .siircontainer .siirdevam {
+            margin: 10px 0px 0px 150px;
+            font-size: 11px;
+            padding: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    /* Şiir Container */
+
+    /* Main Cerceve */
+    .cerceveresim {
+        margin: 0px 0px 0px 0px;
+        width: 300px;
+    }
+
+        .cerceveresim img {
+            width: 300px;
+        }
+
+    .cercevebiyografi {
+        margin: 0px 0px 0px 50px;
+        width: 330px;
+        font-size: 13px;
+    }
+
+        .cercevebiyografi a {
+            font-size: 15px;
+        }
+    /* Main Cerceve */
+
+    /* Şiir */
+    .siirresim {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 364px;
+        text-align: center;
+    }
+
+        .siirresim img {
+            max-width: 300px;
+        }
+
+    .siirmetin {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 294px;
+        padding: 0px 0px 0px 30px;
+    }
+    /* Şiir */
+
+    /* Şiir List */
+    #siirliste {
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+        #siirliste li a {
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        #siirliste li .sira {
+            width: 60px;
+        }
+
+        #siirliste li .isim {
+            width: 400px;
+        }
+
+        #siirliste li .tarih {
+            width: 103px;
+        }
+
+        #siirliste li .sehir {
+            width: 83px;
+        }
+
+        #siirliste li.baslik div {
+            padding: 5px;
+        }
+    /* Şiir List */
+
+    /* Şiir Arama List */
+    #siirsearchlist {
+        width: 166px;
+        padding: 0px 3px 0px 3px;
+        margin: 31px 0px 0px 388px;
+    }
+
+        #siirsearchlist li a {
+            font-size: 11px;
+            padding: 5px;
+        }
+    /* Şiir Arama List */
+
+    /* Footer */
+
+    /* Footer */
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+    body {
+        min-width: 553px;
+    }
+
+    /* Frame */
+    .frame .mainframe {
+        width: 553px;
+    }
+    /* Frame */
+
+    /* Header */
+    .header {
+        min-height: 600px;
+        width: 553px;
+    }
+    /* Header */
+
+    /*Menu*/
+    .menu {
+        height: 500px;
+        width: 553px;
+    }
+
+        .menu .container {
+            margin: 100px 0px 0px 135px;
+            width: 300px;
+        }
+
+            .menu .container h1 {
+                font-weight: 100;
+                margin-top: 80px;
+                margin-bottom: 30px;
+            }
+
+            .menu .container ul {
+                margin: 0px 0px 0px 80px;
+                font-size: 20px;
+                line-height: 32px;
+            }
+    /*Menu*/
+
+    /*Slider*/
+    .slider {
+        height: 600px;
+        width: 553px;
+    }
+
+        .slider img {
+            width: 553px;
+            height: 590px;
+        }
+
+    #sliderframe {
+        margin: -595px 0px 0px 0px;
+        height: 592px;
+        width: 553px;
+        background-size: 553px 590px;
+    }
+    /*Slider*/
+
+    /*Search Bar*/
+    .mainsearch {
+        width: 490px;
+    }
+
+        .mainsearch input[type='text'] {
+            margin: 0px 30px 10px 0px;
+            line-height: 40px;
+            width: 173px;
+            font-size: 20px;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .mainsearch input[type='button'] {
+            width: 216px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+    /*Search Bar*/
+
+    /* Main Content */
+    .maincontent {
+        width: 473px;
+        padding: 40px;
+    }
+    /* Main */
+
+    /* Şiir Container */
+    .siircontainer {
+        margin: 0px 3px 20px 40px;
+        width: 350px;
+    }
+
+        .siircontainer .siirimage {
+            margin: 0px 0px 0px 64px;
+            width: 222px;
+            height: 222px;
+            background-size: 222px;
+        }
+
+            .siircontainer .siirimage img {
+                width: 222px;
+                height: 222px;
+            }
+
+        .siircontainer .siirimagecropper {
+            margin: 0px 0px 0px 64px;
+            width: 222px;
+            height: 222px;
+        }
+
+        .siircontainer .siircontent {
+            margin: 10px 0px 0px 0px;
+            width: 340px;
+            height: 125px;
+            padding-right: 30px;
+            font-size: 14px;
+        }
+
+            .siircontainer .siircontent h1 {
+                font-size: 18px;
+            }
+
+        .siircontainer .siirdevam {
+            margin: 10px 0px 0px 145px;
+            font-size: 11px;
+            padding: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    /* Şiir Container */
+
+    /* Main Cerceve */
+    .cerceveresim {
+        margin: 0px 0px 0px 0px;
+        width: 473px;
+    }
+
+        .cerceveresim img {
+        }
+
+    .cercevebiyografi {
+        margin: 20px 0px 0px 0px;
+        width: 473px;
+    }
+
+        .cercevebiyografi a {
+            font-size: 17px;
+        }
+    /* Main Cerceve */
+
+    /* Şiir */
+    .siirresim {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 473px;
+        text-align: center;
+    }
+
+        .siirresim img {
+            max-width: 400px;
+        }
+
+    .siirmetin {
+        float: left;
+        margin: 40px 0px 0px 0px;
+        width: 433px;
+        padding: 0px 0px 0px 40px;
+    }
+    /* Şiir */
+
+    /* Şiir List */
+    #siirliste {
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-topright: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+        #siirliste li a {
+            font-size: 14px;
+            padding: 3px;
+        }
+
+        #siirliste li .sira {
+            width: 40px;
+        }
+
+        #siirliste li .isim {
+            width: 226px;
+        }
+
+        #siirliste li .tarih {
+            width: 98px;
+        }
+
+        #siirliste li .sehir {
+            width: 83px;
+        }
+
+        #siirliste li.baslik div {
+            padding: 3px;
+        }
+    /* Şiir List */
+
+    /* Şiir Arama List */
+    #siirsearchlist {
+        width: 207px;
+        padding: 0px 3px 0px 3px;
+        margin: 93px 0px 0px 0px;
+    }
+
+        #siirsearchlist li a {
+            font-size: 11px;
+            padding: 5px;
+        }
+    /* Şiir Arama List */
+
+    /* Process BG */
+    #processframe img {
+        width: 200px;
+        height: 284px;
+    }
+    /* Process BG */
+
+    /* Footer */
+
+    /* Footer */
+
+
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    body {
+        min-width: 305px;
+    }
+
+    /* Frame */
+    .frame .mainframe {
+        width: 295px;
+    }
+    /* Frame */
+
+    /* Header */
+    .header {
+        min-height: 480px;
+        width: 295px;
+    }
+    /* Header */
+
+    /*Menu*/
+    .menu {
+        height: 320px;
+        width: 295px;
+        background-size: 320px;
+    }
+
+        .menu .container {
+            margin: 100px 0px 0px 15px;
+            width: 280px;
+        }
+
+            .menu .container h1 {
+                font-weight: 100;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .menu .container ul {
+                margin: 0px 0px 0px 70px;
+                font-size: 20px;
+                line-height: 32px;
+            }
+    /*Menu*/
+
+    /*Slider*/
+    .slider {
+        height: 320px;
+        width: 295px;
+    }
+
+        .slider img {
+            width: 295px;
+            height: 300px;
+        }
+
+    #sliderframe {
+        margin: -305px 0px 0px 0px;
+        height: 301px;
+        width: 295px;
+        background-size: 295px 300px;
+    }
+    /*Slider*/
+
+    /*Search Bar*/
+    .mainsearch {
+        width: 240px;
+    }
+
+        .mainsearch input[type='text'] {
+            margin: 0px 50px 10px 0px;
+            line-height: 40px;
+            width: 182px;
+            font-size: 20px;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .mainsearch input[type='button'] {
+            width: 222px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+    /*Search Bar*/
+
+    /* Main Content */
+    .maincontent {
+        width: 240px;
+        padding: 30px;
+        font-size: 11px;
+    }
+
+        .maincontent h1 {
+            font-size: 21px;
+        }
+    /* Main */
+
+    /* Şiir Container */
+    .siircontainer {
+        margin: 0px 0px 20px 0px;
+        width: 240px;
+    }
+
+        .siircontainer .siirimage {
+            margin: 0px 0px 0px 14px;
+            width: 222px;
+            height: 222px;
+            background-size: 222px;
+        }
+
+            .siircontainer .siirimage img {
+                width: 222px;
+                height: 222px;
+            }
+
+        .siircontainer .siirimagecropper {
+            margin: 0px 0px 0px 14px;
+            width: 222px;
+            height: 222px;
+        }
+
+        .siircontainer .siircontent {
+            margin: 10px 0px 0px 0px;
+            width: 240px;
+            height: 110px;
+            padding-right: 0px;
+            font-size: 12px;
+        }
+
+            .siircontainer .siircontent h1 {
+                font-size: 15px;
+            }
+
+        .siircontainer .siirdevam {
+            margin: 10px 0px 0px 100px;
+            font-size: 11px;
+            padding: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    /* Şiir Container */
+
+    /* Main Cerceve */
+    .cerceveresim {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 240px;
+        text-align: center;
+    }
+
+        .cerceveresim img {
+            width: 240px;
+        }
+
+    .cercevebiyografi {
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 240px;
+    }
+
+        .cercevebiyografi a {
+            font-size: 10px;
+            float: left;
+            margin: 10px 0px 0px 95px;
+        }
+    /* Main Cerceve */
+
+    /* Şiir */
+    .siirresim {
+        margin: 0px 0px 0px 0px;
+        width: 240px;
+    }
+
+        .siirresim img {
+            max-width: 200px;
+        }
+
+    .siirmetin {
+        margin: 20px 0px 0px 0px;
+        width: 220px;
+        padding: 0px 0px 0px 20px;
+    }
+    /* Şiir */
+
+    /* Şiir List */
+    #siirliste {
+        -webkit-border-top-left-radius: 2px;
+        -webkit-border-top-right-radius: 2px;
+        -moz-border-radius-topleft: 2px;
+        -moz-border-radius-topright: 2px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+
+        #siirliste li a {
+            font-size: 10px;
+            padding: 2px;
+        }
+
+        #siirliste li .sira {
+            width: 20px;
+        }
+
+        #siirliste li .isim {
+            width: 80px;
+        }
+
+        #siirliste li .tarih {
+            width: 64px;
+        }
+
+        #siirliste li .sehir {
+            width: 58px;
+        }
+
+        #siirliste li.baslik div {
+            padding: 2px;
+        }
+    /* Şiir List */
+
+    /* Şiir Arama List */
+    #siirsearchlist {
+        width: 216px;
+        padding: 0px 3px 0px 3px;
+        margin: 145px 0px 0px 0px;
+    }
+
+        #siirsearchlist li a {
+            font-size: 11px;
+            padding: 5px;
+        }
+    /* Şiir Arama List */
+
+    /* Process BG */
+    #processframe img {
+        width: 100px;
+        height: 142px;
+    }
+    /* Process BG */
+
+    /* Footer */
+
+    /* Footer */
+
+
+
+}
+
+@media only screen and (max-width: 320px) {
+    body {
+        min-width: 305px;
+    }
+
+    /* Frame */
+    .frame .mainframe {
+        width: 295px;
+    }
+    /* Frame */
+
+    /* Header */
+    .header {
+        min-height: 480px;
+        width: 295px;
+    }
+    /* Header */
+
+    /*Menu*/
+    .menu {
+        height: 320px;
+        width: 295px;
+        background-size: 320px;
+    }
+
+        .menu .container {
+            margin: 100px 0px 0px 15px;
+            width: 280px;
+        }
+
+            .menu .container h1 {
+                font-weight: 100;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .menu .container ul {
+                margin: 0px 0px 0px 70px;
+                font-size: 20px;
+                line-height: 32px;
+            }
+    /*Menu*/
+
+    /*Slider*/
+    .slider {
+        height: 310px;
+        width: 295px;
+    }
+
+        .slider img {
+            width: 295px;
+            height: 300px;
+        }
+
+    #sliderframe {
+        margin: -305px 0px 0px 0px;
+        height: 301px;
+        width: 295px;
+        background-size: 295px 300px;
+    }
+    /*Slider*/
+
+    /*Search Bar*/
+    .mainsearch {
+        width: 240px;
+    }
+
+        .mainsearch input[type='text'] {
+            margin: 0px 50px 10px 0px;
+            line-height: 40px;
+            width: 182px;
+            font-size: 20px;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .mainsearch input[type='button'] {
+            width: 222px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+    /*Search Bar*/
+
+    /* Main Content */
+    .maincontent {
+        width: 240px;
+        padding: 30px;
+        font-size: 11px;
+    }
+
+        .maincontent h1 {
+            font-size: 21px;
+        }
+    /* Main */
+
+    /* Şiir Container */
+    .siircontainer {
+        margin: 0px 0px 20px 0px;
+        width: 240px;
+    }
+
+        .siircontainer .siirimage {
+            margin: 0px 0px 0px 14px;
+            width: 222px;
+            height: 222px;
+            background-size: 222px;
+        }
+
+            .siircontainer .siirimage img {
+                width: 222px;
+                height: 222px;
+            }
+
+        .siircontainer .siirimagecropper {
+            margin: 0px 0px 0px 14px;
+            width: 222px;
+            height: 222px;
+        }
+
+        .siircontainer .siircontent {
+            margin: 10px 0px 0px 0px;
+            width: 240px;
+            height: 110px;
+            padding-right: 0px;
+            font-size: 12px;
+        }
+
+            .siircontainer .siircontent h1 {
+                font-size: 15px;
+            }
+
+        .siircontainer .siirdevam {
+            margin: 10px 0px 0px 100px;
+            font-size: 11px;
+            padding: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    /* Şiir Container */
+
+    /* Main Cerceve */
+    .cerceveresim {
+        margin: 0px 0px 0px 0px;
+        width: 240px;
+    }
+
+        .cerceveresim img {
+            width: 240px;
+        }
+
+    .cercevebiyografi {
+        margin: 0px 0px 0px 0px;
+        width: 240px;
+    }
+
+        .cercevebiyografi a {
+            font-size: 10px;
+            margin: 10px 0px 0px 95px;
+            float: left;
+        }
+    /* Main Cerceve */
+
+    /* Şiir */
+    .siirresim {
+        margin: 0px 0px 0px 0px;
+        width: 240px;
+    }
+
+        .siirresim img {
+            max-width: 200px;
+        }
+
+    .siirmetin {
+        margin: 20px 0px 0px 0px;
+        width: 220px;
+        padding: 0px 0px 0px 20px;
+    }
+    /* Şiir */
+
+    /* Şiir List */
+    #siirliste {
+        -webkit-border-top-left-radius: 2px;
+        -webkit-border-top-right-radius: 2px;
+        -moz-border-radius-topleft: 2px;
+        -moz-border-radius-topright: 2px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+
+        #siirliste li a {
+            font-size: 10px;
+            padding: 2px;
+        }
+
+        #siirliste li .sira {
+            width: 20px;
+        }
+
+        #siirliste li .isim {
+            width: 80px;
+        }
+
+        #siirliste li .tarih {
+            width: 64px;
+        }
+
+        #siirliste li .sehir {
+            width: 58px;
+        }
+
+        #siirliste li.baslik div {
+            padding: 2px;
+        }
+    /* Şiir List */
+
+    /* Şiir Arama List */
+    #siirsearchlist {
+        width: 216px;
+        padding: 0px 3px 0px 3px;
+        margin: 145px 0px 0px 0px;
+    }
+
+        #siirsearchlist li a {
+            font-size: 11px;
+            padding: 5px;
+        }
+    /* Şiir Arama List */
+
+    /* Process BG */
+    #processframe img {
+        width: 100px;
+        height: 142px;
+    }
+    /* Process BG */
+}

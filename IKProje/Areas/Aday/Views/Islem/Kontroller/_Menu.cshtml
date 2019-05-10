@@ -1,0 +1,10 @@
+﻿@using Lib;
+
+<ul id="loginmenu">
+    <li><a class="home" href="@Url.Action("AnaSayfa", "Ozgecmis", new { area = "Aday" })">Profilim</a></li>
+    <li><a href="@Url.Action("Goster", "Ozgecmis", new { area = "Aday" })">Özgeçmişim</a></li>
+    <li><a class="writing" href="@Url.Action("Onyazilar", "Ozgecmis", new { area = "Aday" })">Ön Yazılarım</a></li>
+    <li><a class="applications" href="@Url.Action("Basvurular", "Ozgecmis", new { area = "Aday" })">Başvurularım</a></li>
+    <li><a class="logout" onclick="javascript:;">Çıkış</a></li>
+</ul>
+<a id="loginbutton" onclick="javascript:;">HoşGeldiniz<br /><b>@(SabitDegerler.AktifKullanici.Ad + " " + SabitDegerler.AktifKullanici.Soyad) </b></a>

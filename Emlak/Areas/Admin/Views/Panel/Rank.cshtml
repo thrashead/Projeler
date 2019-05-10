@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Ziyaretler";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="right_content">
+    <div class="FilterContainer">
+        <span>IP Adresi : </span> <!-- Puanlama İsmi olacak orijinalde -->
+        <input type="text" id="rankName" name="rankName" />
+        @*<span>Aktif : </span>
+        <select id="active">
+            <option value="-">Hepsi</option>
+            <option value="active">Aktif</option>
+            <option value="passive">Pasif</option>
+        </select>*@<!-- Olacak orijinalde -->
+        <input type="button" id="filterButton" value="Filtrele" />
+    </div>
+    <div id="RankTableContainer"></div>
+</div>

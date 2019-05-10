@@ -1,0 +1,12 @@
+﻿<div class="puzzle">
+    <div id="puzzle">
+        <img class="oResim" />
+    </div>
+    <div class="clear"></div>
+    <div class="oyunkontrol">
+        <button (click)="puzzle()" id="yeniOyun">Yeni Oyun</button>
+        <button (click)="geri()" id="geriResim">< Önceki</button>
+        <button (click)="ileri()" id="ileriResim">Sonraki ></button>
+        <img (mouseover)="Goster()" (mouseleave)="Gizle()" class="oResim" />
+    </div>
+</div>

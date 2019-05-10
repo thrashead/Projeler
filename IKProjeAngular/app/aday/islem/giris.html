@@ -1,0 +1,40 @@
+﻿<div class="twocell rmargin">
+    <div id="loginmessage" class="ralign">
+        <h2>Aradığınız İş Burada</h2>
+        Siz de mi iş arıyorsanız?
+        <br />
+        <br />
+        Aradığınız işi burada bulma şansınız çok fazla.
+        <br />
+        <br />
+        Hemen üye olun ve kariyerinize en uygun işten başlayın.
+    </div>
+</div>
+
+<div class="twocell">
+    <div id="logincontrol">
+        <form [formGroup]="girisForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="left ralign">Kullanıcı Adı</div>
+                <div class="right">
+                    <input type="text" formControlName="username" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="left ralign">Şifre</div>
+                <div class="right">
+                    <input type="password" formControlName="password" />
+                </div>
+            </div>
+            <div class="row ralign">
+                <button type="submit" class="orange" [disabled]="!girisForm.valid">Giriş Yap</button>
+            </div>
+        </form>
+        <div class="row ralign">
+            <div class="left hide"></div>
+            <div class="right">
+                <a routerLink="/Aday/Islem/Sifre">Şifremi Unuttum</a> / <a routerLink="/Aday/Islem/Kayit">Kayıt Ol</a>
+            </div>
+        </div>
+    </div>
+</div>

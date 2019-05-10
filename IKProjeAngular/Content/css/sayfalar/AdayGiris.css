@@ -1,0 +1,113 @@
+﻿#photoedit {width: 150px;float: left;margin: 0px 0px 0px 0px;text-align: center;padding: 20px 0px 20px 0px;}
+#photoedit img {border: 1px solid #FF6000;width:108px;}
+#photobuttons {width: 108px;position: absolute;margin: 0px 0px 0px 21px;text-align: center;color: #FF6000;}
+#photobuttons a {color:#FF6000;}
+#photobuttons a:hover {text-decoration:underline;}
+
+#lastvisit {float:left;margin: 20px 0px 0px 0px;width: 528px;padding: 0px 20px 0px 0px;font-size: 10px;color: gray;}
+
+#useroptions {float:left;margin: 20px 0px 0px 0px;width:528px;padding: 0px 20px 0px 0px;}
+#useroptions .row {float:left;margin: 10px 0px 0px 0px;width: 100%;}
+#useroptions .row .subject {float:left;margin: 0px 0px 0px 0px;width: 150px;font-weight: bold;color: #9A9A9A;min-height: 10px;}
+#useroptions .row .object {float:left;margin: 0px 0px 0px 0px;width: 378px;}
+#useroptions .row .object a {color:#FF6000;}
+#useroptions .row .object a:hover {text-decoration:underline;}
+
+#useroptions .row .object a#resumestatus {float:left;margin:0px 0px 0px 0px;padding:10px;width: 100px;text-align: center;font-size: 18px;color: #fff;}
+#useroptions .row .object a#resumestatus:hover {text-decoration:none;}
+#useroptions .row .object a#resumestatus.active {background-color: #1BA260;}
+#useroptions .row .object a#resumestatus.passive {background-color:#808080;}
+#useroptions .row .object #statusnote {float:left;margin: 5px 0px 0px 0px;width: 328px;padding: 0px 20px 0px 0px;font-size: 11px;color: gray;
+                                       height: 30px;}
+
+#adaylinks {float:left;margin: 20px 0px 10px 20px;width: 658px;}
+
+.linkcolumn {margin: 0px 0px 20px 10px;float: left;background-image: url(../../Resim/icons/blue/resume.png);background-repeat: no-repeat;
+             padding-left: 30px;border: 1px solid lightgray;padding: 0px 30px 0px 40px;width: 80px;height: 70px;line-height: 70px;overflow: hidden;
+             background-position: 10px 25px;text-align: center;background-color: #FFF;}
+.linkcolumn.smalltext {line-height: normal;padding-top: 23px;height: 47px;}
+.linkcolumn.update {background-image: url(../../Resim/icons/blue/resumeupdate.png);}
+.linkcolumn.home {background-image: url(../../Resim/icons/blue/home.png);}
+.linkcolumn.print {background-image: url(../../Resim/icons/blue/resumeprint.png);}
+.linkcolumn.writing {background-image: url(../../Resim/icons/blue/writing.png);}
+.linkcolumn.files {background-image: url(../../Resim/icons/blue/files.png);}
+.linkcolumn.favorite {background-image: url(../../Resim/icons/blue/favorite.png);}
+.linkcolumn.block {background-image: url(../../Resim/icons/blue/block.png);}
+.linkcolumn.applications {background-image: url(../../Resim/icons/blue/applications.png);}
+.linkcolumn.message {background-image: url(../../Resim/icons/blue/message.png);}
+.linkcolumn.logout {background-image: url(../../Resim/icons/blue/logout.png);width: 242px;background-position: 115px 25px;}
+
+#updatearea .subject {color:#FF6000!important;}
+#updatearea .subject, #updatearea .object {margin-bottom:5px!important;}
+#updatearea .updbutton {float:left;margin: 10px 10px 0px 0px;height:40px;text-align:center;line-height:40px;border:1px solid #FF6000;width: 80px;}
+#updatearea .object textarea {float:left;width:300px;height:100px;border:1px solid #FF6000;}
+#updatearea .object input[type=text] {float:left;border:1px solid #FF6000;padding:5px;}
+#updatearea .object input[type=password] {float:left;border:1px solid #FF6000;padding:5px;}
+#updatearea .object label {float:left;color:gray;font-size: 11px;width:100%;}
+
+.select {width: 169px;cursor:pointer;border: 1px solid #FF6000;padding: 5px;height: 30px;line-height: 30px;color: gray;overflow: hidden;float: left;
+        margin: 0px 0px 0px 0px;background-position: 163px 15px!important;}
+.select img {margin: -6px 3px 0px 0px;float: right;}
+.options {background-color:#FFF;position: absolute;margin: 41px 0px 0px 0px;border: 1px solid #FF6000;width: 169px;list-style: none;padding: 5px;
+        max-height:90px;overflow-x:hidden;overflow-y: auto;}
+.options li {padding:5px;color:#000;cursor:pointer;}
+.options li:hover {background-color:lightgray;}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px)
+{
+#userhome {width: 768px;}
+#photoedit img {margin-left: 2px;}
+#lastvisit {width: 596px;}
+#useroptions {width: 596px;}
+#useroptions .row .object {width: 446px;}
+#useroptions .row .object #statusnote {width: 446px;}
+#adaylinks {width: 746px;}
+.linkcolumn {width: 97px;}
+.linkcolumn.logout {width: 275px;background-position: 115px 25px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#userhome {width: 568px;}
+#photoedit img {margin-left: 2px;}
+#photobuttons {margin-left: 230px;}
+#photoedit {width: 100%;}
+#lastvisit {width: 536px;margin-left: 10px;margin-top: 0px;}
+#useroptions {width: 536px;margin-left: 10px;}
+#useroptions .row .object {width: 386px;}
+#useroptions .row .object #statusnote {width: 386px;}
+#adaylinks {width: 546px;}
+.linkcolumn {width: 90px;}
+.linkcolumn.logout {width: 262px;background-position: 115px 25px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#userhome {width: 480px;}
+#photoedit img {margin-left: -4px;}
+#photobuttons {margin-left: 183px;}
+#photoedit {width: 100%;}
+#lastvisit {width: 448px;margin-left: 10px;margin-top: 0px;}
+#useroptions {width: 458px;}
+#useroptions {width: 448px;margin-left: 10px;}
+#useroptions .row .object {width: 298px;}
+#useroptions .row .object #statusnote {width: 298px;}
+#adaylinks {width: 458px;}
+.linkcolumn {width: 133px;}
+.linkcolumn.logout {width: 348px;background-position: 170px 25px;}
+}
+@media only screen and (max-width: 480px)
+{
+#userhome {width: 320px;}
+#photoedit img {margin-left: 10px;}
+#photobuttons {margin-left: 110px;}
+#photoedit {width: 100%;}
+#lastvisit {width: 288px;margin-top: 0px;margin-left: 10px;}
+#useroptions {width: 303px;margin-left: 10px;padding-right: 5px;}
+#useroptions .row .subject {width: 100%;}
+#useroptions .row .object {width: 100%;}
+#useroptions .row .object #statusnote {width: 138px;height: 60px;}
+#adaylinks {width: 298px;}
+.linkcolumn {width: 182px;}
+.linkcolumn.logout {width: 182px;background-position: 10px 25px;}
+#updatearea .object textarea {width: 292px;}
+#useroptions .row .object a#resumestatus {margin-top: 5px;margin-right: 10px;}
+}

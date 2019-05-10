@@ -1,0 +1,942 @@
+﻿@import url("yapi.css");
+@import url("ust.css");
+@import url("sol.css");
+@import url("icerik.css");
+@import url("alt.css");
+@import url("emlakdetay.css");
+@import url("detayliarama.css");
+@import url("iletisim.css");
+
+body {
+    height: 100%;
+    margin: 0px;
+    background-color: white;
+    font-family: Verdana;
+    color: black;
+    font-size: 12px;
+    background-attachment: scroll;
+}
+
+* {
+    outline: none;
+}
+
+img {
+    border: none;
+}
+
+a {
+    font-family: Verdana;
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+    a:hover {
+        font-family: Verdana;
+        font-size: 12px;
+        color: gray;
+        text-decoration: none;
+    }
+
+input[type=text] {
+    border: 1px solid lightgrey;
+}
+
+input[type=text].kisa {
+    width: 71px;
+}
+
+#AnaIskelet {
+    width: 1040px;
+    margin: 0px auto;
+}
+
+#UstBolge {
+    font-family: Verdana;
+    font-size: 13px;
+    text-align: center;
+    height: 298px;
+    width: 1018px;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    border: 1px solid lightgrey;
+}
+
+#SolMenu {
+    font-family: Verdana;
+    font-size: 13px;
+    position: relative;
+    float: left;
+    width: 192px;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+#Icerik {
+    font-family: Verdana;
+    font-size: 13px;
+    float: left;
+    width: 830px;
+    margin: 0px 0px 20px 18px;
+    min-height: 600px;
+}
+
+#AltBolge {
+    text-align: center;
+    clear: both;
+    min-height: 100px;
+    width: 1040px;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+#EnAltBolge {
+    font-family: Verdana;
+    font-size: 13px;
+    text-align: center;
+    clear: both;
+    min-height: 110px;
+    width: 1030px;
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid lightgrey;
+}
+
+.sttb {
+    width: 190px;
+    border-bottom: 0px;
+}
+
+#stUI3_cnt {
+    border-bottom: 1px solid lightgrey;
+}
+
+#ResimVertical {
+    width: 828px;
+    height: 253px;
+    display: block;
+    overflow: hidden;
+    border: 1px solid lightgrey;
+}
+
+#TickerVertical {
+    width: 830px;
+    height: 255px;
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    #TickerVertical li {
+        width: 830px;
+        margin: 0;
+        float: left;
+        height: 255px;
+        display: inline;
+    }
+
+        #TickerVertical li img {
+            width: 830px;
+            height: 255px;
+        }
+
+#scrolltop {
+    position: fixed;
+    bottom: 3px;
+    right: 3px;
+    background-image: url('../img/scrolltop.png');
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position-x: -40px;
+    display: none;
+    z-index: 999999;
+}
+
+    #scrolltop:hover {
+        background-position-x: 0px;
+    }
+
+#reloader {
+    position: fixed;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    background-color: #000000;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    padding-top: 60px;
+    display: none;
+}
+
+.IcerikMetin.Map {
+    display: none;
+    margin: 20px 0px 15px 0px;
+}
+
+#mapcanvas {
+    width: 828px;
+    height: 270px;
+    border: 1px solid lightgray;
+}
+
+.mapsayimg {
+    margin: 10px 0px 0px 8px;
+    float: left;
+}
+
+
+#detailmap {
+    height: 150px;
+    width: 808px;
+    border: 1px solid lightgray;
+    margin: 20px 0px 0px 20px;
+    float: left;
+}
+
+.IcerikMetin.Paging
+{
+    float:left;
+    margin: 0px 0px 0px 0px;
+    text-align:right;
+    display:none;
+}
+
+.IcerikMetin.Paging .pageButton
+{
+    border:1px solid lightgray;
+    padding:3px 6px 3px 6px;
+    margin-left:3px;
+}
+
+.IcerikMetin.Paging .pageButton:hover
+{
+    border-color:#000;
+    color:#000;
+}
+
+.IcerikMetin.Paging .pageButton.selected
+{
+    border-color:#000;
+    background-color:#000;
+    color:#fff;
+    cursor: default;
+}
+
+.IcerikMetin.Result
+{
+    margin: 20px 0px 0px 0px;
+}
+
+.IcerikMetin.Paging #pages
+{
+    float:right;
+}
+
+.IcerikMetin.Paging .pageSelect
+{
+    display:none;
+    float: right;
+}
+
+/* Responsive Kısım */
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+body { min-width: 768px; }
+
+#AnaIskelet { width: 760px; }
+#UstBolge { height: 200px; width: 740px; padding: 10px; margin-top:0px; margin-bottom:20px; background-size: 760px 220px; }
+#SolMenu { position: relative; margin-bottom:20px; }
+#Icerik { width: 550px; margin-bottom:20px; }
+#AltBolge { clear: both; min-height:100px; width: 760px; margin-bottom:20px; }
+#EnAltBolge { clear: both; min-height: 120px; width: 750px; padding: 5px; margin-top:10px; margin-bottom:20px; }
+.sttb { width: 190px; }
+#ResimVertical { width: 548px; height: 165px; position: relative; }
+#TickerVertical { width: 550px; height: 167px; margin: 0; padding: 0; }
+#TickerVertical li { width: 550px; margin: 0; height: 167px; }
+#TickerVertical li img { width:550px; height:167px; }
+
+.BannerLinkler { margin-top: 155px; }
+
+.EnUstAlan { width: 760px; padding-top: 0px; height: 130px; }
+
+.EnUstLinkler { margin: 10px 0px 10px 0px; }
+
+.Logo { margin-top: 0px; margin-left: 0px; height: 110px; }
+
+.PanelGiris { margin-top: -56px; padding-right: 0px; width: 420px;}
+
+.Lang { width: 300px; margin-right: 0px;margin-top: 0px;}
+
+.SolBaslik { text-align: center; padding-left: 0px; width: 190px; }
+.SolBaslik.haberler { display:none; }
+.SolBaslik.yeniler { display:none; }
+
+.SolIcerik.haberler { display:none; }
+.SolIcerik.yeniler { display:none; }
+
+.IcerikBaslik { width: 540px; }
+
+.IcerikMetin { width: 550px; padding-top: 10px;}
+
+.AnaSayfaIkiliKolon { width: 250px; margin-left:3px!important; height: 220px;}
+
+.AnaSayfaIkiliKolonBaslik { width: 250px; }
+
+.AnaSayfaIkiliKolonIcerik { width: 250px; height: 140px;}
+
+.AnaSayfaIkiliKolonResim { display: none; }
+
+.AnaSayfaIkiliKolonMetin { height: 140px; }
+
+.SolIcerik.haberler marquee { height: 120px!important; width: 170px!important; }
+
+.ShowroomArka { margin-left: 11px; }
+.ShowroomArka.hide { display:none; }
+
+.YasalUyari { font-size: 12px; }
+
+.Developer { margin-top: 10px; text-align: right; padding-right: 20px; }
+
+.Siralama { margin-top: -20px; margin-right: 10px; }
+
+
+.EmlakDetayBaslik { width: 530px; }
+.EmlakDetayGaleri { width: 360px; }
+.EmlakDetayBilgiler {width: 188px; font-size: 12px; }
+.EmlakDetayAlt { margin-top: 10px; width: 499px; height: auto; }
+.EmlakDetayAltKolon { width: 155px; font-size: 10px; }
+#slider { margin-left: 0px!important; }
+
+.Ziyaretci { width: 680px; }
+
+.DetayliAramaUstKolon { width: 100%; padding-top: 5px; }
+
+.IletisimKolon1 img { width: 80%!important; height: auto!important; }
+
+.Developer a { font-size:11px; }
+
+.ad-gallery { width: 310px!important; }
+.ad-gallery .ad-image-wrapper { height: 225px!important; }
+
+.DetayliAramaSatir { height:40px; }
+
+#slider img { width: 550px; }
+
+.AnaSayfaIkiliKolonMetin marquee { height: 120px; }
+.AnaSayfaIkiliKolonMetin font { height: 120px; }
+
+#mapcanvas { width: 550px; height: 228px; }
+
+#detailmap { width: 520px; margin-left: 29px; }
+
+.pageSelect { display: block!important; }
+
+.pageButton { display:none; }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 569px)
+{
+body { min-width: 553px; }
+
+#AnaIskelet { width: 550px; }
+#UstBolge { height: 150px; width: 530px; padding: 10px; margin-top:0px; margin-bottom:20px; background-size: 550px 170px; }
+#SolMenu { position: relative; margin-bottom:20px; }
+#Icerik { width: 340px; margin-bottom:20px; }
+#AltBolge { clear: both; min-height:100px; width: 550px; margin-bottom:20px; }
+#EnAltBolge { clear: both; min-height:110px; width: 540px; padding: 5px; margin-top:10px; margin-bottom:20px; }
+.sttb { width: 190px; }
+#ResimVertical { width: 338px; height: 135px; position: relative; }
+#TickerVertical { width: 340px; height: 137px; margin: 0; padding: 0; }
+#TickerVertical li { width: 340px; margin: 0; height: 137px; }
+#TickerVertical li img { width:340px; height:137px; }
+
+.BannerLinkler { display: none; }
+
+.EnUstAlan { width: 550px; padding-top: 0px; height: 110px; }
+
+.EnUstLinkler { margin: 0px 0px 10px 0px; }
+
+.Logo { margin-top: 0px; margin-left: 0px; height: 110px; width: 270px;}
+
+.PanelGiris { margin-top: -75px; padding-right: 0px; width: 220px;}
+
+.Lang { width: 250px; margin-top: -5px; margin-right: 0px;}
+
+.SolBaslik { text-align: center; padding-left: 0px; width: 190px; }
+.SolBaslik.haberler { display:block; }
+.SolBaslik.yeniler { display:none; }
+
+.SolIcerik.haberler { display:block; }
+.SolIcerik.yeniler { display:none; }
+
+.IcerikBaslik { width: 330px; }
+
+.IcerikMetin { width: 340px; padding-top: 10px;}
+
+.AnaSayfaIkiliKolon { width: 315px; margin-left:3px!important; height: 180px;}
+.AnaSayfaIkiliKolon.haberler { display:none; }
+
+.AnaSayfaIkiliKolonBaslik { width: 250px; margin-top: 10px; font-size: 10px;}
+
+.AnaSayfaIkiliKolonIcerik { width: 315px; height: 140px; margin-top: 10px;}
+
+.AnaSayfaIkiliKolonResim { display: block; width: 80px; height: 130px;}
+.AnaSayfaIkiliKolonResim img { height: 130px; }
+
+.AnaSayfaIkiliKolonMetin { height: 126px; width: 180px; margin-left: 50px; text-align: right;}
+.AnaSayfaIkiliKolonMetin font { font-size:10px!important; width: 180px; height: 120px;}
+.AnaSayfaIkiliKolonMetin a { font-size:10px!important; }
+
+.SolIcerik.haberler marquee { height: 120px!important; width: 170px!important; }
+
+.ShowroomArka { margin-left: 11px; width: 318px;}
+.ShowroomArka.hide { display:none; }
+
+.YasalUyari { font-size: 12px; margin-top: 50px;}
+
+.Developer { margin-top: 30px; text-align: center; padding-right: 0px;}
+
+.Siralama { margin-top: -20px; margin-right: 10px; }
+
+
+.EmlakDetayBaslik { width: 342px; font-size: 10px; padding-left: 0px;}
+.EmlakDetayGaleri { width: 350px; margin-left: -10px;}
+.EmlakDetayBilgiler {width: 340px; font-size: 11px; margin-top: 20px;margin-left: 0px;text-align: center;}
+.EmlakDetayAlt { margin-top: 20px; width: 320px; height: auto;}
+.EmlakDetayAltKolon { width: 148px; font-size: 10px; }
+
+.Ziyaretci { display: none; }
+
+.DetayliAramaUstKolon { width: 100%; padding-top: 5px; }
+
+.IletisimKolon1 img { width: 80%!important; height: auto!important; }
+
+.Developer a { font-size: 15px;}
+
+.EnAltLinkler { font-size: 11px; }
+.EnAltLinkler a:link { font-size: 11px; line-height: 25px;}
+
+.BaslikMetin { width: 320px; }
+
+.DetayliAramaUstKolonSorgu { width: 188px; }
+
+.DetayliAramaAltKolon {width: 100%;text-align: center;}
+
+.IletisimKolon2 { font-size: 11px; width: 100%;}
+.IletisimKolon2 a { font-size: 11px; }
+
+.SolIcerik span { font-size:9px; }
+.EmlakDetayAltKolon a { background-size: 6px!important; width: 6px!important; height: 6px!important;}
+.EmlakDetayAltKolon input { width: 6px!important; height: 6px!important;}
+.aspNetDisabled { width: 6px!important; height: 6px!important; }
+#slider { margin-left: 10px!important; }
+
+.ad-gallery { width: 300px!important; }
+.ad-gallery .ad-image-wrapper { height: 225px!important; }
+
+.Logo img { max-height: 100px!important; max-width: 300px!important; }
+
+.IletisimKolon1 { width: 90%; }
+
+.IletisimAdres { width:100%; }
+
+.IletisimKolonBaslik { width: 34%; }
+
+.IletisimKolonIcerik { width:50%; }
+
+.DetayliAramaSatir { height:40px; }
+
+#slider img { width: 340px; }
+
+.EmlakYeni {  }
+
+#solarasonuclist { width:350px; }
+
+#solarasonuckapat { margin-left:345px; }
+
+#lblsonuc { width: 108px; }
+
+#mapcanvas { width: 340px; height: 228px; }
+
+.ShowroomBaslik { width:190px; }
+
+#detailmap { width: 340px; margin-left: -2px; }
+
+.pageSelect { display: block!important; }
+
+.pageButton { display:none; }
+
+.PanelGiris .clear { display: block;}
+}
+
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+body { min-width: 480px; }
+
+#AnaIskelet { width: 470px; }
+#UstBolge { display:none; }
+#SolMenu { position: relative; margin-bottom:20px; }
+#Icerik { width: 260px; margin-bottom:20px; }
+#AltBolge { clear: both; min-height:100px; width: 550px; margin-bottom:20px; }
+#EnAltBolge { clear: both; min-height:110px; width: 460px; padding: 5px; margin-top:10px; margin-bottom:20px; }
+.sttb { width: 190px; }
+#ResimVertical { width: 268px; height: 125px; position: relative; }
+#TickerVertical { width: 340px; height: 137px; margin: 0; padding: 0; }
+#TickerVertical li { width: 270px; margin: 0; height: 125px; }
+#TickerVertical li img { width: 270px; height: 125px; }
+
+.BannerLinkler { display: none; }
+
+.EnUstAlan { width: 470px; padding-top: 0px; height: 110px; }
+
+.EnUstLinkler { margin: 0px 0px 0px 0px; }
+
+.Logo { margin-top: 0px; margin-left: 0px; height: 110px; width: 240px;}
+
+.PanelGiris { margin-top: -80px; padding-right: 0px; width: 220px;}
+
+.Lang { width: 150px; margin-top: 5px; margin-right: 0px;}
+
+.SolBaslik { text-align: center; padding-left: 0px; width: 190px; }
+.SolBaslik.haberler { display:block; }
+.SolBaslik.yeniler { display:none; }
+
+.SolIcerik.haberler { display:block; }
+.SolIcerik.yeniler { display:none; }
+
+.IcerikBaslik { width: 260px;}
+
+.IcerikMetin { width: 270px; padding-top: 0px; padding-bottom: 10px;}
+
+.AnaSayfaIkiliKolon { width: 248px; margin-left: 0px!important; height: 180px;}
+.AnaSayfaIkiliKolon.haberler { display:none; }
+
+.AnaSayfaIkiliKolonBaslik { width: 250px; margin-top: 10px; font-size: 10px;}
+
+.AnaSayfaIkiliKolonIcerik { width: 245px; height: 140px; margin-top: 10px;}
+
+.AnaSayfaIkiliKolonResim { display: none;}
+.AnaSayfaIkiliKolonResim img { height: 130px; }
+
+.AnaSayfaIkiliKolonMetin { height: 130px; width: 250px; margin-left: 0px; text-align: right;}
+.AnaSayfaIkiliKolonMetin font { font-size:10px!important; width: 250px; height: 120px;}
+.AnaSayfaIkiliKolonMetin a { font-size:10px!important; }
+
+.SolIcerik.haberler marquee { height: 120px!important; width: 170px!important; }
+
+.ShowroomArka { margin-left: 11px; width: 248px; height: 150px; margin-bottom: 10px;}
+.ShowroomArka.hide { display:none; }
+
+.YasalUyari { font-size: 11px; margin-top: 50px;}
+
+.Developer { margin-top: 35px; text-align: center; padding-right: 0px;}
+
+.Siralama { margin-top: -20px; margin-right: 10px; }
+
+
+.EmlakDetayBaslik { width: 268px; font-size: 10px; padding-left: 2px; margin-top: 5px;}
+.EmlakDetayGaleri { width: 270px; margin-left: -10px;}
+.EmlakDetayBilgiler {width: 270px; font-size: 10px; margin-top: 10px;margin-left: 0px;text-align: center;}
+.EmlakDetayAlt { margin-top: 10px; width: 250px; height: auto;}
+.EmlakDetayAltKolon { width: 244px; font-size: 11px; }
+#slider { margin-left:8px!important; width: 270px!important; }
+.tdSlider .tdLists { width: 270px!important; }
+.tdSlider .tdThumbs { width: 220px!important; }
+
+.Ziyaretci { display: none; }
+
+.DetayliAramaUstKolon { width: 100%; padding-top: 5px; }
+
+.IletisimKolon1 img { width: 80%!important; height: auto!important; }
+
+.Developer a { font-size: 9px; }
+
+.EnAltLinkler { font-size: 8px; }
+.EnAltLinkler a:link { font-size: 11px; line-height: 25px;}
+
+.BaslikMetin { width: 250px; font-size: 10px;}
+
+.DetayliAramaUstKolonBaslik {width: 100%;text-align: center;}
+.DetayliAramaUstKolonSorgu {width: 100%;text-align: center;}
+
+.DetayliAramaAltKolon {width: 100%;text-align: center;}
+
+.IletisimKolon2 { font-size: 11px; width: 100%;}
+.IletisimKolon2 a { font-size: 11px; }
+
+.SolIcerik span { font-size:9px; }
+.EmlakDetayAltKolon a { background-size: 6px!important; width: 6px!important; height: 6px!important;}
+.EmlakDetayAltKolon input { width: 6px!important; height: 6px!important;}
+.aspNetDisabled { width: 6px!important; height: 6px!important; }
+
+.ad-gallery { width: 230px!important; }
+.ad-gallery .ad-image-wrapper { height: 165px!important; }
+
+.Logo img { max-height: 100px!important; max-width: 300px!important; }
+
+.ShowroomMetin { font-size: 9px; width: 127px;}
+.ShowroomResim { margin-top: 0px; height: 90px;}
+.ShowroomResim img { max-width: 80px!important; max-height: 80px!important; }
+
+#detayliara { display:none; }
+
+.IletisimKolon1 { width: 90%; }
+
+.IletisimAdres { width:100%; }
+
+.IletisimKolonBaslik { width: 34%; }
+
+.IletisimKolonIcerik { width:50%; }
+
+.DetayliAramaSatir { height:40px; }
+
+#slider img { width: 270px; }
+
+#lblsonuc { width: 108px; font-size: 12px; }
+
+#mapcanvas { width: 270px; height: 228px; margin-top:10px; }
+
+#detailmap { width: 270px; margin-left: -2px; }
+
+.pageSelect { display: block!important; }
+
+.pageButton { display:none; }
+
+.PanelGiris .clear { display:block; }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px)
+{
+body { min-width: 310px; }
+
+#AnaIskelet { width: 300px; }
+#UstBolge { display:none; }
+#SolMenu { position: relative; width: 300px; margin-bottom: 0px;}
+ul#catmenu{width: 292px!important;}
+ul#catmenu li {width: 282px;}
+#Icerik { width: 300px; margin-bottom:20px; min-height: 100px; margin-left: 0px;}
+#AltBolge { clear: both; min-height:100px; width: 550px; margin-bottom:20px; }
+#EnAltBolge { clear: both; min-height: 0px!important; width: 288px; padding: 5px; margin-top:10px; margin-bottom:20px; height: 90px;}
+.sttb { width: 298px; }
+#ResimVertical { width: 298px; height: 125px; position: relative; }
+#TickerVertical { width: 340px; height: 137px; margin: 0; padding: 0; }
+#TickerVertical li { width: 300px; margin: 0; height: 125px; }
+#TickerVertical li img { width: 300px; height: 125px; }
+
+.BannerLinkler { display: none; }
+
+.EnUstAlan { width: 300px; padding-top: 0px; height: 110px; }
+
+.EnUstLinkler { display: block; margin-top: 10px; float: left; margin-right: 0px; width: 100%; text-align: center;}
+
+.Logo { margin-top: 0px; margin-left: 0px; height: 110px; width: 300px; text-align: center;}
+
+.PanelGiris { margin-top: 10px; padding-right: 0px; width: 220px; float: left; margin-left: 10px;}
+
+.Lang { width: 100%; text-align: center; margin-top: 15px; margin-right: 0px;}
+
+.SolBaslik { text-align: center; padding-left: 0px; width: 298px; }
+.SolBaslik.haberler { display:block; }
+.SolBaslik.yeniler { display:none; }
+
+.SolIcerik.haberler { display:block; }
+.SolIcerik.yeniler { display:none; }
+
+.IcerikBaslik { width: 288px;}
+
+.IcerikMetin { width: 300px; padding-top: 0px; padding-bottom: 10px; font-size: 11px;}
+
+.AnaSayfaIkiliKolon { width: 278px; margin-left: 0px!important; height: 180px;}
+.AnaSayfaIkiliKolon.haberler { display:none; }
+
+.AnaSayfaIkiliKolonBaslik { width: 278px; margin-top: 10px; font-size: 10px;}
+
+.AnaSayfaIkiliKolonIcerik { width: 278px; height: 140px; margin-top: 0px;}
+
+.AnaSayfaIkiliKolonResim { display: none;}
+.AnaSayfaIkiliKolonResim img { height: 130px; }
+
+.AnaSayfaIkiliKolonMetin { height: 130px; width: 278px; margin-left: 0px; text-align: right;}
+.AnaSayfaIkiliKolonMetin font { font-size: 12px!important; float: left; width: 278px; height: 115px; overflow: hidden; margin-bottom: 5px;}
+.AnaSayfaIkiliKolonMetin a { font-size: 12px!important; }
+
+.SolIcerik.haberler marquee { height: 120px!important; width: 170px!important; }
+
+.ShowroomArka { margin-left: 11px; width: 276px; height: 150px; margin-bottom: 10px;}
+.ShowroomArka.hide { display:none; }
+
+.YasalUyari { font-size: 10px; }
+
+.Developer { margin-top: 35px; text-align: center; padding-right: 0px;}
+
+.Siralama { margin-top: -15px; margin-right: 10px; }
+
+
+.EmlakDetayBaslik { width: 298px; font-size: 10px; padding-left: 2px; margin-top: 5px;}
+.EmlakDetayGaleri { width: 315px; margin-left: 0px;}
+.EmlakDetayBilgiler {width: 300px; font-size: 11px; margin-top: 10px;margin-left: 0px;text-align: center;}
+.EmlakDetayAlt { margin-top: 10px; width: 278px; height: auto; float: left;}
+.EmlakDetayAltKolon { width: 128px; font-size: 9px; }
+#slider { margin-left:0px!important; width: 300px!important; }
+.tdSlider .tdLists { width: 300px!important; }
+.tdSlider .tdThumbs { width: 250px!important; }
+
+.Ziyaretci { display: none; }
+
+.DetayliAramaUstKolon { width: 100%; padding-top: 5px; }
+
+.IletisimKolon1 img { width: 80%!important; height: auto!important; }
+
+.Developer a { font-size: 9px; }
+
+.EnAltLinkler { display: none;}
+.EnAltLinkler a:link { font-size: 8px; }
+
+.BaslikMetin { width: 190px; font-size: 10px;}
+
+.DetayliAramaUstKolonBaslik {width: 100%;text-align: center;}
+.DetayliAramaUstKolonSorgu {width: 100%;text-align: center;}
+
+.DetayliAramaAltKolon {width: 100%;text-align: center;}
+
+.IletisimKolon2 { font-size: 11px; width: 100%;}
+.IletisimKolon2 a { font-size: 11px; }
+
+.SolIcerik span { font-size:9px; }
+.EmlakDetayAltKolon a { background-size: 6px!important; width: 6px!important; height: 6px!important;}
+.EmlakDetayAltKolon input { width: 6px!important; height: 6px!important;}
+.aspNetDisabled { width: 6px!important; height: 6px!important; }
+
+.ad-gallery { width: 245px!important; }
+.ad-gallery .ad-image-wrapper { height: 165px!important; }
+
+.Logo img { max-height: 100px!important; max-width: 300px!important; }
+
+.ShowroomMetin { font-size: 9px; width: 127px;}
+.ShowroomResim { margin-top: 20px; height: 90px;}
+.ShowroomResim img { max-width: 80px!important; max-height: 80px!important; }
+
+#detayliara { display:none; }
+
+.SolBaslik.gununnesne { display:none; }
+.SolIcerik.gununnesne { display:none; }
+.SolIcerik { width: 278px; }
+.AnaSayfaAlt a { font-size: 9px;  }
+
+.IletisimKolon1 { width: 90%; }
+
+.IletisimAdres { width:100%; }
+
+.IletisimKolonBaslik { width: 34%; }
+
+.IletisimKolonIcerik { width:50%; }
+
+.ShowroomBaslik { width: 180px; }
+
+.DetayliAramaSatir { height:40px; }
+
+ul.solmenu { width: 300px;}
+ul.solmenu li ul { margin: -18px 0px 0px 109px!important;}
+
+#slider img { width: 300px; }
+
+#solarasonuclist { display:none!important; width:0px; }
+
+#lblsonuc { width: 108px; }
+
+#mapcanvas { width: 298px; height: 200px; margin-top:10px; }
+
+#detailmap { margin-left: 0px; width: 298px; }
+
+.pageSelect { display: block!important; }
+
+.pageButton { display:none; }
+
+.PanelGiris .clear { display:block; }
+}
+
+@media only screen and (max-width: 320px)
+{
+body { min-width: 230px; }
+
+#AnaIskelet { width: 210px; }
+#UstBolge { display:none; }
+#SolMenu { position: relative; width: 210px; margin-bottom: 0px;}
+#Icerik { width: 210px; margin-bottom:20px; min-height: 100px; margin-left: 0px;}
+#AltBolge { clear: both; min-height:100px; width: 550px; margin-bottom:20px; }
+#EnAltBolge { clear: both; min-height: 0px!important; width: 198px; padding: 5px; margin-top: 10px; margin-bottom:20px; height: 100px;}
+.sttb { width: 208px; }
+#ResimVertical { display: none; }
+#TickerVertical { width: 210px; height: 137px; margin: 0; padding: 0; }
+#TickerVertical li { width: 210px; margin: 0; height: 125px; }
+#TickerVertical li img { width: 210px; height: 125px; }
+
+.BannerLinkler { display: none; }
+
+.EnUstAlan { width: 210px; padding-top: 0px; height: 110px; }
+
+.EnUstLinkler { display: block; margin-top: 10px; float: left; margin-right: 0px; width: 100%; text-align: center;}
+
+.Logo { margin-top: 0px; margin-left: 0px; height: 110px; width: 210px; text-align: center;}
+
+.PanelGiris { margin-top: 10px; padding-right: 0px; width: 210px; float: left; margin-left: 0px;}
+
+.Lang {
+    width: 100%;  text-align: center;  margin-top: 15px;
+ 
+    margin-right: 0px;
+}
+
+.SolBaslik { text-align: center; padding-left: 0px; width: 208px; }
+.SolBaslik.haberler { display:block; }
+.SolBaslik.yeniler { display:none; }
+
+.SolIcerik.haberler { display:block; }
+.SolIcerik.yeniler { display:none; }
+
+.DetayliAramaSatir { height:40px; }
+
+.IcerikBaslik { width: 203px; padding-left: 5px; padding-top: 5px; height: 20px; font-size: 10px;}
+
+.IcerikMetin { width: 210px; padding-top: 0px; padding-bottom: 10px; font-size: 10px;}
+
+.AnaSayfaIkiliKolon { width: 188px; margin-left: 0px!important; height: 180px;}
+.AnaSayfaIkiliKolon.haberler { display:none; }
+
+.AnaSayfaIkiliKolonBaslik { width: 188px; margin-top: 10px; font-size: 10px;}
+
+.AnaSayfaIkiliKolonIcerik { width: 189px; height: 140px; margin-top: 10px;}
+
+.AnaSayfaIkiliKolonResim { display: none;}
+.AnaSayfaIkiliKolonResim img { height: 130px; }
+
+.AnaSayfaIkiliKolonMetin { height: 130px; width: 188px; margin-left: 0px; text-align: right;}
+.AnaSayfaIkiliKolonMetin font { font-size: 10px!important; height: 115px; float: left; overflow: hidden; width: 188px;}
+.AnaSayfaIkiliKolonMetin a { font-size: 10px!important; }
+
+.SolIcerik.haberler marquee { height: 120px!important; width: 170px!important; }
+
+.ShowroomArka { width: 208px; height: 112px; margin-bottom: 10px; margin-left: 0px;}
+.ShowroomArka.hide { display:none; }
+
+.YasalUyari { font-size: 9px; }
+
+.Developer { margin-top: 50px; text-align: center; padding-right: 0px;}
+
+.Siralama { display: none; }
+
+.EmlakDetayBaslik { width: 208px; font-size: 10px; padding-left: 2px; margin-top: 5px;}
+.EmlakDetayGaleri { width: 210px; margin-left: 0px;}
+.EmlakDetayBilgiler {width: 210px; font-size: 9px; margin-top: 10px;margin-left: 0px;text-align: center;}
+.EmlakDetayAlt { margin-top: 10px; width: 188px; height: auto; float: left;}
+.EmlakDetayAltKolon { width: 177px; font-size: 10px; }
+
+#slider { margin-left:0px!important; width: 210px!important; }
+.tdSlider .tdLists { width: 210px!important; }
+.tdSlider .tdThumbs { width: 160px!important; }
+
+.Ziyaretci { display: none; }
+
+.DetayliAramaUstKolon { width: 100%; padding-top: 5px; }
+
+.IletisimKolon1 img { width: 80%!important; height: auto!important; }
+
+.Developer a { font-size: 9px; }
+
+.EnAltLinkler { display: none;}
+.EnAltLinkler a:link { font-size: 8px; }
+
+.BaslikMetin { width: 190px; font-size: 10px;}
+
+.DetayliAramaUstKolonBaslik {width: 100%;text-align: center;}
+.DetayliAramaUstKolonSorgu {width: 100%;text-align: center;}
+
+.DetayliAramaAltKolon {width: 100%;text-align: center;}
+
+.IletisimKolon2 { font-size: 11px; width: 90%;}
+.IletisimKolon2 a { font-size: 10px; }
+
+.SolIcerik span { font-size:9px; }
+.EmlakDetayAltKolon a { background-size: 6px!important; width: 6px!important; height: 6px!important;}
+.EmlakDetayAltKolon input { width: 6px!important; height: 6px!important;}
+.aspNetDisabled { width: 6px!important; height: 6px!important; }
+
+.ad-gallery { width: 145px!important; }
+.ad-gallery .ad-image-wrapper { height: 105px!important; }
+
+.Logo img { max-height: 100px!important; max-width: 300px!important; }
+
+.ShowroomMetin { font-size: 9px; width: 117px; margin-top: 0px;}
+.ShowroomResim { margin-top: 0px; height: 70px; width: 70px; margin-left: 0px;}
+.ShowroomResim img { max-width: 60px!important; max-height: 60px!important; }
+
+#detayliara { display:none; }
+
+.SolBaslik.gununnesne { display:none; }
+.SolIcerik.gununnesne { display:none; }
+.SolIcerik { width: 188px; }
+.AnaSayfaAlt a { font-size:8px;  }
+
+.EnUstAlan a { font-size:10px!important; }
+
+.EmlakYeni { height: 30px;}
+.EmlakYeni img { width: 30px; }
+.ShowroomBaslik { width: 132px; font-size: 9px; margin-top: 5px; height: 34px;}
+
+.ShowroomMetin img { height: 13px; }
+
+.IcerikBaslik img { height: 5px; }
+.IcerikBaslik a { font-size: 9px; }
+
+.IletisimKolon1 { width: 90%; }
+
+.IletisimAdres { width:100%; }
+
+.IletisimKolonBaslik { width: 34%; }
+
+.IletisimKolonIcerik { width:50%; }
+
+.IcerikMetin a { font-size:10px; }
+
+ul.solmenu { width: 208px;}
+ul.solmenu li  a { width: 188px;}
+ul.solmenu li ul  { margin: -1px 0px 0px 109px!important; width: 98px;}
+ul.solmenu li ul li a { width: 78px; font-size: 9px; padding: 3px;}
+
+#slider img { width: 210px; }
+
+#solarasonuclist { display:none!important; width:0px; }
+
+#lblsonuc { font-size: 10px; }
+
+#mapcanvas { width: 208px; height: 200px; margin-top:10px; }
+
+.mapsayimg { height: 25px; margin-top: 5px; }
+
+#detailmap { margin-left: 0px; width: 208px; }
+
+.pageSelect { display: block!important; }
+
+.pageButton { display:none; }
+
+.PanelGiris b { font-size:11px; }
+
+.PanelGiris .clear { display:block; }
+
+.tdMenuFrame { margin-left: 10px!important; }
+}

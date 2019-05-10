@@ -1,0 +1,60 @@
+﻿#page {float:left;margin:30px 0px 0px 0px;width: 1010px;}
+
+#left {float:left;margin: 0px 0px 0px 0px;width: 698px;border: 1px solid;}
+#left h2 {float:left;margin: 0px 0px 0px 0px;width: 678px;padding: 10px;font-size: 14px;}
+
+#right {float:left;margin: 0px 0px 0px 10px;width: 300px;}
+#right .row {float:left;margin: 0px 0px 20px 0px;width: 298px;border: 1px solid;}
+#right .row h2 {float:left;margin: 0px 0px 0px 0px;width: 278px;padding: 10px;background-color: #000;color: #FFF;font-weight: bold;font-size:12px;}
+#right .row .rowcontent {float:left;margin: 0px 0px 0px 0px;width: 278px;padding: 10px;}
+
+#page.orange #left {border-color: #FF6000;}
+#page.blue #left {border-color: #2188F3;}
+#page.orange #left h2 {color: #FF6000;}
+#page.blue #left h2 {color: #2188F3;}
+
+#page.orange #right .row {border-color: #FF6000;}
+#page.blue #right .row {border-color: #2188F3;}
+#page.orange #right .row h2 {background-color: #FF6000;}
+#page.blue #right .row h2 {background-color: #2188F3;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#page {width: 766px;}
+#left {width: 766px;}
+#left h2 {width: 746px;}
+#right {width: 769px;margin-left: 0px;margin-top: 20px;}
+#right .row {width: 766px;}
+#right .row h2 {width: 746px;}
+#right .row .rowcontent {width: 766px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#page {width: 566px;}
+#left {width: 566px;}
+#left h2 {width: 546px;}
+#right {width: 568px;margin-left: 0px;margin-top: 10px;}
+#right .row {width: 566px;}
+#right .row h2 {width: 546px;}
+#right .row .rowcontent {width: 546px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#page {width: 478px;}
+#left {width: 478px;}
+#left h2 {width: 458px;}
+#right {width: 480px;margin-left: 0px;margin-top: 10px;}
+#right .row {width: 478px;}
+#right .row h2 {width: 458px;}
+#right .row .rowcontent {width: 458px;}
+}
+@media only screen and (max-width: 480px)
+{
+#page {width: 318px;}
+#left {width: 318px;}
+#left h2 {width: 298px;}
+#right {width: 320px;margin-left: 0px;margin-top: 10px;}
+#right .row {width: 318px;}
+#right .row h2 {width: 298px;}
+#right .row .rowcontent {width: 298px;}
+}

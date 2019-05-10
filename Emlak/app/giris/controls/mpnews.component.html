@@ -1,0 +1,23 @@
+﻿<div class="AnaSayfaIkiliKolon haberler">
+    <div class="AnaSayfaIkiliKolonBaslik">
+        {{haberlerText}}
+    </div>
+    <div class="AnaSayfaIkiliKolonIcerik">
+        <div class="AnaSayfaIkiliKolonResim">
+            <img src="img/haberler.png" alt="" style="max-width: 120px; max-height: 200px;" />
+        </div>
+        <div class="AnaSayfaIkiliKolonMetin">
+            <marquee scrollamount="3" height="180" width="250" direction="up">
+                <span *ngFor="let item of haberler">
+                    <a [routerLink]="['/Icerik/Haberler/' + item?.RouteUrl]">{{item?.ContentName}}</a>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </span>
+            </marquee>
+            <br />
+            <a [routerLink]="['/Icerik/Haberler']" style="float: right;">{{haberLinkText}}</a>
+        </div>
+    </div>
+</div>

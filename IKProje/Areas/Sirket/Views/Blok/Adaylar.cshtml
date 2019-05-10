@@ -1,0 +1,63 @@
+﻿@using TDLibrary;
+@{
+    ViewBag.Title = "Engellenen Adaylar";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="blue">
+    <div id="left">
+        <h2>Engellenen Adaylar</h2>
+        <div id="block">
+            <div class="content blue" data-tab="genel">
+                <div class="row">
+                    <div class="title">Aday Ad Soyadı</div>
+                    <div class="word">
+                        <input type="text" id="company" class="select blue" />
+                        <ul id="companyoptions" class="options blue">
+                            <li data-value="0" data-selected="true" style="display: none!important; padding: 0px; height: 0px;"></li>
+                            <li data-value="1">Ad Soyad 1</li>
+                            <li data-value="2">Ad Soyad 2</li>
+                            <li data-value="3">Ad Soyad 3</li>
+                            <li data-value="3">Ad Soyad 4</li>
+                            <li data-value="3">Ad Soyad 5</li>
+                            <li data-value="3">Ad Soyad 6</li>
+                            <li data-value="3">Ad Soyad 7</li>
+                        </ul>
+                        <a id="addcompany" class="addbutton" onclick="javascript:;"></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Engellenen Adaylar</div>
+                    <div class="word">
+                        <ul id="addedcompanies" class="addeditems">
+                            <li data-value="3">Ad Soyad 1</li>
+                            <li data-value="3">Ad Soyad 4</li>
+                            <li data-value="3">Ad Soyad 6</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Sirket/Views/Profil/Kontroller/_SirketLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/SirketLinkler.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/SirketBlokAday.css" />
+}
+@section Scriptler{
+    <script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/SirketBlokAday.js"></script>
+}
+
+

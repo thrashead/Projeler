@@ -1,0 +1,1232 @@
+﻿@using Lib
+@using TDLibrary
+@using TDFramework
+@using TDFramework.Common
+@using Models.SehirModel
+@using Models.DepartmanModel
+@using Models.PozisyonModel
+@using Models.SektorModel
+@using Models.OzgecmisDeneyimModel
+@using Models.OzgecmisReferansModel
+@using Models.EgitimSeviyeModel
+@using Models.EgitimBursModel
+@using Models.OzgecmisEgitimModel
+@using Models.OzgecmisSertifikaModel
+@using Models.OzgecmisSinavModel
+@using Models.OzgecmisDilModel
+@using Models.OzgecmisBilgisayarModel
+@using Models.OzgecmisDosyaModel
+@using Models.CinsiyetModel
+@using Models.MaasModel
+
+@{
+    ViewBag.Title = "Özgeçmiş Güncelle";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="orange">
+    <div id="left">
+        <h2>
+            Özgeçmiş Güncelle
+        </h2>
+        <div id="updatecv">
+            <div class="content orange" data-tab="genel">
+                <h3>Genel Bilgiler</h3>
+                <div class="row">
+                    <div class="title">Yaşadığı Yer</div>
+                    <div class="word">
+                        <div id="city" class="select"></div>
+                        <ul class="options">
+                            @{
+                                Table<Sehir> tablo = new Table<Sehir>();
+                                tablo.SelectSettings.OrderColumn = SehirColumns.Sira;
+                                tablo.WhereList.Add(new Where(SehirColumns.Kod, 99, true));
+                                tablo.WhereList.Add(new Where(SehirColumns.Kod, 340, true));
+                                tablo.WhereList.Add(new Where(SehirColumns.Kod, 34, true));
+
+                                tablo.Select();
+
+                                int i = 0;
+                            }
+
+                            @foreach (var item in tablo.Data as List<Sehir>)
+                            {
+                                if (i == 0)
+                                {
+                                    <li data-value="@item.Kod" data-selected="true">@item.SehirAdi</li>
+                                    i++;
+                                }
+                                else
+                                {
+                                    <li data-value="@item.Kod">@item.SehirAdi</li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Cep Telefonu</div>
+                    <div class="word">
+                        <input type="text" id="phone" class="orange" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">E-Posta Adresi</div>
+                    <div class="word">
+                        <input type="text" id="mail" class="orange" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Doğum Tarihi</div>
+                    <div class="word">
+                        <input type="text" id="birth" class="orange" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Cinsiyet</div>
+                    <div class="word">
+                        <div id="gender" class="select"></div>
+                        <ul class="options">
+                            @{
+                                Table<Cinsiyet> tabloCinsiyet = new Table<Cinsiyet>();
+                                tabloCinsiyet.WhereList.Add(new Where(CinsiyetColumns.Aktif, true));
+                                tabloCinsiyet.WhereList.Add(new Where(CinsiyetColumns.Kod, 0, true));
+                                tabloCinsiyet.SelectSettings = new Select();
+                                tabloCinsiyet.SelectSettings.OrderColumn = CinsiyetColumns.Kod;
+
+                                tabloCinsiyet.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloCinsiyet.Data as List<Cinsiyet>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Medeni Hal</div>
+                    <div class="word">
+                        <div id="marriage" class="select"></div>
+                        <ul class="options">
+                            <li data-value="1" data-selected="true">Bekar</li>
+                            <li data-value="2">Evli</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Askerlik</div>
+                    <div class="word">
+                        <label>
+                            <input name="military" type="radio" id="militaryno" checked="checked" />
+                            Yapılmadı
+                        </label>
+                        <label>
+                            <input name="military" type="radio" id="militaryno2" />
+                            Muaf
+                        </label>
+                        <label>
+                            <input name="military" type="radio" id="militaryok" />
+                            Yapıldı
+                        </label>
+                        <br />
+                        <label>
+                            Terhis Tarihi :
+                            <input type="text" id="militarydate" disabled="disabled" class="orange" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Ehliyet</div>
+                    <div class="word">
+                        <label>
+                            <input name="driver" type="radio" id="driverno" checked="checked" />
+                            Yok
+                        </label>
+                        <label>
+                            <input name="driver" type="radio" id="driverok" />
+                            Var
+                        </label>
+                        <br />
+                        <label>
+                            Sınıfı :
+                            <input type="text" id="driverclass" disabled="disabled" class="orange" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Sigara Kullanımı</div>
+                    <div class="word">
+                        <div id="smoking" class="select"></div>
+                        <ul class="options">
+                            <li data-value="1" data-selected="true">Yok</li>
+                            <li data-value="2">Var</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="savegeneral" onclick="javascript:;" class="orange button savegeneral">Kaydet</a>
+                </div>
+            </div>
+            <div class="content blue" data-tab="calisma" style="display: none;">
+                <h3>Çalışma Bilgileri</h3>
+                <div class="row">
+                    <div class="title">Meslek / Ünvan</div>
+                    <div class="word">
+                        <input type="text" id="jobname" class="blue" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Çalışma Durumu</div>
+                    <div class="word">
+                        <div id="workingstatus" class="select blue"></div>
+                        <ul class="options blue">
+                            <li data-value="1" data-selected="true">Çalışmıyor</li>
+                            <li data-value="2">Çalışıyor</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Toplam İş Deneyimi</div>
+                    <div class="word">
+                        <div id="workingtime" class="select blue"></div>
+                        <ul class="options blue">
+                            <li data-value="1" data-selected="true">0-1 Yıl</li>
+                            <li data-value="2">1-3 Yıl</li>
+                            <li data-value="3">3-5 Yıl</li>
+                            <li data-value="4">5-10 Yıl</li>
+                            <li data-value="5">10+ Yıl</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Kişisel / Mesleki Bilgi</div>
+                    <div class="word">
+                        <textarea id="perjobinfo" class="blue"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="savepersonal" onclick="javascript:;" class="blue button savepersonal">Kaydet</a>
+                </div>
+                <h3>Tercihler</h3>
+                <div class="row">
+                    <div class="title">Çalışmak İstediği Sektörler</div>
+                    <div class="word">
+                        <input type="text" id="sector" class="select blue" />
+                        <ul id="sectoroptions" class="options blue">
+                            @{
+                                Table<Sektor> tabloSektor = new Table<Sektor>();
+                                tabloSektor.SelectSettings = new Select();
+                                tabloSektor.SelectSettings.OrderColumn = SektorColumns.Kod;
+
+                                tabloSektor.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloSektor.Data as List<Sektor>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <a id="addsector" class="addbutton" onclick="javascript:;"></a>
+                        <br />
+                        <br />
+                        <ul id="addedsectors" class="addeditems"></ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Çalışmak İstediği Bölümler</div>
+                    <div class="word">
+                        <input type="text" id="division" class="select blue" />
+                        <ul id="divisionoptions" class="options blue">
+                            @{
+                                Table<Departman> tabloDepartman = new Table<Departman>();
+                                tabloDepartman.SelectSettings = new Select();
+                                tabloDepartman.SelectSettings.OrderColumn = DepartmanColumns.Kod;
+
+                                tabloDepartman.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloDepartman.Data as List<Departman>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <a id="adddivision" class="addbutton" onclick="javascript:;"></a>
+                        <br />
+                        <br />
+                        <ul id="addeddivisions" class="addeditems"></ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Çalışmak İstediği Pozisyonlar</div>
+                    <div class="word">
+                        <input type="text" id="position" class="select blue" />
+                        <ul id="positionoptions" class="options blue">
+                            @{
+                                Table<Pozisyon> tabloPozisyon = new Table<Pozisyon>();
+                                tabloPozisyon.SelectSettings = new Select();
+                                tabloPozisyon.SelectSettings.OrderColumn = PozisyonColumns.Kod;
+
+                                tabloPozisyon.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloPozisyon.Data as List<Pozisyon>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <a id="addposition" class="addbutton" onclick="javascript:;"></a>
+                        <br />
+                        <br />
+                        <ul id="addedpositions" class="addeditems"></ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Maaş Beklentisi</div>
+                    <div class="word">
+                        <div id="salary" class="select blue"></div>
+                        <ul class="options blue">
+                            @{
+                                Table<Maas> tabloMaas = new Table<Maas>();
+                                tabloMaas.SelectSettings = new Select();
+                                tabloMaas.SelectSettings.OrderColumn = MaasColumns.Kod;
+                                tabloMaas.SelectSettings.OrderBy = OrderBy.ASC;
+
+                                tabloMaas.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloMaas.Data as List<Maas>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="saveprefer" onclick="javascript:;" class="blue button saveprefer">Kaydet</a>
+                </div>
+            </div>
+            <div class="content green" data-tab="is" style="display: none;">
+                <h3 data-type="work">Deneyimler</h3>
+                <div class="row">
+                    <div class="title">Deneyim Türü</div>
+                    <div class="word">
+                        <label>
+                            <input name="jobtype" id="jobJob" type="radio" checked="checked" />
+                            İş
+                        </label>
+                        <label>
+                            <input name="jobtype" id="jobIntern" type="radio" />
+                            Staj
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Şirket İsmi</div>
+                    <div class="word">
+                        <input id="jobCompany" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Şehir</div>
+                    <div class="word">
+                        <div id="jobcity" class="select green"></div>
+                        <ul class="options green">
+                            @{
+                                i = 0;
+
+                                foreach (var item in tablo.Data as List<Sehir>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.SehirAdi</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.SehirAdi</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Şirket Sektörü</div>
+                    <div class="word">
+                        <input type="text" id="jobsector" class="select green" />
+                        <ul id="jobsectoroptions" class="options green">
+                            @{
+                                i = 0;
+
+                                foreach (var item in tabloSektor.Data as List<Sektor>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Bölüm</div>
+                    <div class="word">
+                        <input type="text" id="jobdivision" class="select green" />
+                        <ul id="jobdivisionoptions" class="options green">
+                            @{
+                                i = 0;
+
+                                foreach (var item in tabloDepartman.Data as List<Departman>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Pozisyon</div>
+                    <div class="word">
+                        <input type="text" id="jobposition" class="select green" />
+                        <ul id="jobpositionoptions" class="options green">
+                            @{
+                                i = 0;
+
+                                foreach (var item in tabloPozisyon.Data as List<Pozisyon>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.Kod" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.Kod">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Giriş Tarihi</div>
+                    <div class="word">
+                        <input id="jobStartDate" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Çıkış Tarihi</div>
+                    <div class="word">
+                        <input id="jobEndDate" type="text" class="green lfloat" />
+                        <label class="clear lfloat"><input type="checkbox" id="jobContinue" /> Devam Ediyor</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Açıklama</div>
+                    <div class="word">
+                        <textarea id="jobDescription" class="green small"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="canceljob" onclick="javascript:;" class="green button">İptal</a>
+                    <a id="addjob" onclick="javascript:;" class="green button">Kaydet</a> 
+                </div>
+                @{
+                    Table<OzgecmisDeneyim> tabloDeneyim = new Table<OzgecmisDeneyim>();
+                    tabloDeneyim.WhereList.Add(new Where(OzgecmisDeneyimColumns.KullaniciID, Lib.SabitDegerler.AktifKullanici.ID));
+                    tabloDeneyim.WhereList.Add(new Where(OzgecmisDeneyimColumns.Tip, 1));
+                    tabloDeneyim.Select();
+
+                    if (tabloDeneyim.HasData)
+                    {
+                        <h3 data-type="1">İş Deneyimleri</h3>
+                    }
+
+                    foreach (var item in tabloDeneyim.Data as List<OzgecmisDeneyim>)
+                    {
+                        <div class="row" data-type="1" data-guid="@item.Guid">
+                            <div class="title">
+                                @item.SirketIsmi<br />
+                                <br />
+                                <span>
+                                    @Metodlar.SektorGetir(item.Sektor)<br />
+                                    @Metodlar.BolumGetir(item.Bolum)<br />
+                                    <i>@Metodlar.PozisyonGetir(item.Pozisyon)</i><br />
+                                    <br />
+                                    @item.GirisTarih<br />
+                                    @(item.Devam ? "Devam Ediyor" : item.CikisTarih)
+                                    <br />
+                                    <br />
+                                    @Metodlar.SehirGetir(item.Sehir)
+                                </span>
+                            </div>
+                            <div class="word">
+                                @item.Aciklama
+                            </div>
+                            <a onclick="javascript:;" data-type="1" data-guid="@item.Guid" class="red button removejob">Sil</a>
+                            <a onclick="javascript:;" data-type="1" data-guid="@item.Guid" class="orange button editjob">Düzenle</a>
+                        </div>
+                    }
+                }
+
+                @{
+                    tabloDeneyim = new Table<OzgecmisDeneyim>();
+                    tabloDeneyim.WhereList.Add(new Where(OzgecmisDeneyimColumns.KullaniciID, Lib.SabitDegerler.AktifKullanici.ID));
+                    tabloDeneyim.WhereList.Add(new Where(OzgecmisDeneyimColumns.Tip, 2));
+                    tabloDeneyim.Select();
+
+                    if (tabloDeneyim.HasData)
+                    {
+                        <h3 data-type="2">Staj Deneyimleri</h3>
+                    }
+
+                    foreach (var item in tabloDeneyim.Data as List<OzgecmisDeneyim>)
+                    {
+                        <div class="row" data-type="2" data-guid="@item.Guid">
+                            <div class="title">
+                                @item.SirketIsmi<br />
+                                <br />
+                                <span>
+                                    @Metodlar.SektorGetir(item.Sektor)<br />
+                                    @Metodlar.BolumGetir(item.Bolum)<br />
+                                    <i>@Metodlar.PozisyonGetir(item.Pozisyon)</i><br />
+                                    <br />
+                                    @item.GirisTarih<br />
+                                    @item.CikisTarih<br />
+                                    <br />
+                                    @Metodlar.SehirGetir(item.Sehir)
+                                </span>
+                            </div>
+                            <div class="word">
+                                @item.Aciklama
+                            </div>
+                            <a onclick="javascript:;" data-type="2" data-guid="@item.Guid" class="red button removejob">Sil</a>
+                            <a onclick="javascript:;" data-type="2" data-guid="@item.Guid" class="orange button editjob">Düzenle</a>
+                        </div>
+                    }
+                }
+
+                <h3 data-type="reference">Referanslar</h3>
+                <div class="row">
+                    <div class="title">Ad Soyad</div>
+                    <div class="word">
+                        <input id="refName" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Şirket</div>
+                    <div class="word">
+                        <input id="refCompany" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Görevi</div>
+                    <div class="word">
+                        <input id="refPosition" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Telefon</div>
+                    <div class="word">
+                        <input id="refPhone" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Mail</div>
+                    <div class="word">
+                        <input id="refMail" type="text" class="green" />
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="cancelref" onclick="javascript:;" class="green button">İptal</a>
+                    <a id="addref" onclick="javascript:;" class="green button">Kaydet</a>
+                </div>
+                @{
+                    Table<OzgecmisReferans> tabloReferans = new Table<OzgecmisReferans>();
+                    tabloReferans.WhereList.Add(new Where(OzgecmisReferansColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                    tabloReferans.Select();
+
+                    foreach (var item in tabloReferans.Data as List<OzgecmisReferans>)
+                    {
+                        <div class="row" data-guid="@item.Guid">
+                            <div class="title">
+                                @item.AdSoyad
+                                <br />
+                                <br />
+                                <span>
+                                    @item.Sirket<br />
+                                    @item.Gorev
+                                </span>
+                            </div>
+                            <div class="word">
+                                @item.Telefon
+                                <br />
+                                @item.Mail
+                            </div>
+                            <a onclick="javascript:;" data-guid="@item.Guid" class="red button removeref">Sil</a>
+                            <a onclick="javascript:;" data-guid="@item.Guid" class="orange button editref">Düzenle</a>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="content purple" data-tab="egitim" style="display: none;">
+                <h3>Eğitim Bilgileri</h3>
+                <div class="row">
+                    <div class="title">Eğitim Seviyeniz</div>
+                    <div class="word">
+                        <div id="eduselect" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            @{
+                                Table<EgitimSeviye> tabloEgitim = new Table<EgitimSeviye>();
+                                tabloEgitim.WhereList.Add(new Where(EgitimSeviyeColumns.Kod, 0, true));
+                                tabloEgitim.WhereList.Add(new Where(EgitimSeviyeColumns.Aktif, true));
+                                tabloEgitim.SelectSettings.OrderColumn = EgitimSeviyeColumns.Kod;
+                                tabloEgitim.Select();
+
+                                var egitimID = Metodlar.EgitimSeviyeGetir();
+
+                                foreach (var item in tabloEgitim.Data as List<EgitimSeviye>)
+                                {
+                                    if (item.ID == egitimID)
+                                    {
+                                        <li data-value="@item.ID" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.ID">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <h3 data-type="school">Okullar</h3>
+                <div class="row">
+                    <div class="title">Seviye</div>
+                    <div class="word">
+                        <div id="edulevel" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            @{
+                                tabloEgitim = new Table<EgitimSeviye>();
+                                tabloEgitim.WhereList.Add(new Where(EgitimSeviyeColumns.Aktif, false));
+                                tabloEgitim.SelectSettings.OrderColumn = EgitimSeviyeColumns.Kod;
+                                tabloEgitim.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloEgitim.Data as List<EgitimSeviye>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.ID" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.ID">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Okul İsmi</div>
+                    <div class="word">
+                        <input id="eduSchool" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Fakülte / Okul Tipi</div>
+                    <div class="word">
+                        <input id="eduFaculty" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Bölüm / Alan</div>
+                    <div class="word">
+                        <input id="eduDivision" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Şehir</div>
+                    <div class="word">
+                        <div id="educity" class="select purple"></div>
+                        <ul class="options purple">
+                            @{
+                                i = 0;
+                            }
+
+                            @foreach (var item in tablo.Data as List<Sehir>)
+                            {
+                                if (i == 0)
+                                {
+                                    <li data-value="@item.Kod" data-selected="true">@item.SehirAdi</li>
+                                    i++;
+                                }
+                                else
+                                {
+                                    <li data-value="@item.Kod">@item.SehirAdi</li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Başlangıç Tarihi</div>
+                    <div class="word">
+                        <input id="eduStartDate" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Mezuniyet Tarihi</div>
+                    <div class="word">
+                        <input id="eduEndDate" type="text" class="purple lfloat" />
+                        <label class="clear lfloat">
+                            <input type="checkbox" id="eduContinue" />
+                            Devam Ediyor
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Burs</div>
+                    <div class="word">
+                        <div id="eduticket" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            @{
+                                Table<EgitimBurs> tabloBurs = new Table<EgitimBurs>();
+                                tabloBurs.SelectSettings.OrderColumn = EgitimBursColumns.Kod;
+                                tabloBurs.Select();
+
+                                i = 0;
+
+                                foreach (var item in tabloBurs.Data as List<EgitimBurs>)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-value="@item.ID" data-selected="true">@item.Baslik</li>
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        <li data-value="@item.ID">@item.Baslik</li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Not Ortalaması</div>
+                    <div class="word">
+                        <input id="eduNote" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="cancelschool" onclick="javascript:;" class="purple button">İptal</a>
+                    <a id="addschool" onclick="javascript:;" class="purple button">Kaydet</a>
+                </div>
+
+                @{
+                    Table<OzgecmisEgitim> tabloOzgecmisEgitim = new Table<OzgecmisEgitim>();
+                    tabloOzgecmisEgitim.WhereList.Add(new Where(OzgecmisEgitimColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                    tabloOzgecmisEgitim.Select();
+
+                    if (tabloOzgecmisEgitim.HasData)
+                    {
+                        foreach (var item in tabloOzgecmisEgitim.Data as List<OzgecmisEgitim>)
+                        {
+                            <div class="row" data-guid="@item.Guid">
+                                <div class="title">
+                                    @item.Okul<br />
+                                    <br />
+                                    <span>
+                                        @item.BaslangicTarih<br />
+                                        @(item.Devam ? "Devam Ediyor" : item.BitisTarih)<br />
+                                        <br />
+                                        @Metodlar.SehirGetir(item.Sehir)
+                                    </span>
+                                </div>
+                                <div class="word">
+                                    @item.Fakulte<br />
+                                    <span>
+                                        @item.Bolum<br />
+                                        @Metodlar.SeviyeGetir(item.Seviye)<br />
+                                        @Metodlar.BursGetir(item.Burs)<br />
+                                        @item.Ortalama
+                                    </span>
+                                </div>
+                                <a onclick="javascript:;" data-guid="@item.Guid" class="red button removeschool">Sil</a>
+                                <a onclick="javascript:;" data-guid="@item.Guid" class="orange button editschool">Düzenle</a>
+                            </div>
+                        }
+                    }
+                }
+                <h3 data-type="certificate">Sertifikalar</h3>
+                <div class="row">
+                    <div class="title">Sertifika İsmi</div>
+                    <div class="word">
+                        <input id="certName" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Kurum İsmi</div>
+                    <div class="word">
+                        <input id="certCompany" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Tarih</div>
+                    <div class="word">
+                        <input id="certDate" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Açıklama</div>
+                    <div class="word">
+                        <textarea id="certDescription" class="purple small"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="cancelcert" onclick="javascript:;" class="purple button">İptal</a>
+                    <a id="addcert" onclick="javascript:;" class="purple button">Kaydet</a>
+                </div>
+
+                @{
+                    Table<OzgecmisSertifika> tabloSertifika = new Table<OzgecmisSertifika>();
+                    tabloSertifika.WhereList.Add(new Where(OzgecmisSertifikaColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                    tabloSertifika.Select();
+
+                    if (tabloSertifika.HasData)
+                    {
+                        foreach (var item in tabloSertifika.Data as List<OzgecmisSertifika>)
+                        {
+                            <div class="row" data-guid="@item.Guid">
+                                <div class="title">
+                                    @item.Baslik<br />
+                                    <br />
+                                    <span>
+                                        @item.Kurum<br />
+                                        <br />
+                                        @item.Tarih
+                                    </span>
+                                </div>
+                                <div class="word">
+                                    <span>@item.Aciklama</span>
+                                </div>
+                                <a onclick="javascript:;" data-guid="@item.Guid" class="red button removecert">Sil</a>
+                                <a onclick="javascript:;" data-guid="@item.Guid" class="orange button editcert">Düzenle</a>
+                            </div>
+                        }
+                    }
+                }
+
+                <h3 data-type="exam">Sınavlar</h3>
+                <div class="row">
+                    <div class="title">Sınav İsmi</div>
+                    <div class="word">
+                        <input id="examName" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Kurum İsmi</div>
+                    <div class="word">
+                        <input id="examCompany" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Tarih</div>
+                    <div class="word">
+                        <input id="examDate" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Puan</div>
+                    <div class="word">
+                        <input id="examPoint" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Açıklama</div>
+                    <div class="word">
+                        <textarea id="examDescription" class="purple small"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="cancelexam" onclick="javascript:;" class="purple button">İptal</a>
+                    <a id="addexam" onclick="javascript:;" class="purple button">Kaydet</a>
+                </div>
+
+                @{
+                    Table<OzgecmisSinav> tabloSinav = new Table<OzgecmisSinav>();
+                    tabloSinav.WhereList.Add(new Where(OzgecmisSinavColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                    tabloSinav.Select();
+
+                    if (tabloSinav.HasData)
+                    {
+                        foreach (var item in tabloSinav.Data as List<OzgecmisSinav>)
+                        {
+                            <div class="row" data-guid="@item.Guid">
+                                <div class="title">
+                                    @item.Baslik<br />
+                                    <span>
+                                        @item.Kurum<br />
+                                        @item.Tarih
+                                    </span>
+                                </div>
+                                <div class="word">
+                                    @item.Puan
+                                    <br />
+                                    <br />
+                                    <span>@item.Aciklama</span>
+                                </div>
+                                <a onclick="javascript:;" data-guid="@item.Guid" class="red button removeexam">Sil</a>
+                                <a onclick="javascript:;" data-guid="@item.Guid" class="orange button editexam">Düzenle</a>
+                            </div>
+                        }
+                    }
+                }
+
+                <h3>Yabancı Dil</h3>
+
+                <div class="row">
+                    <div class="title">Dil</div>
+                    <div class="word">
+                        <input id="langName" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Okuma</div>
+                    <div class="word">
+                        <div id="langreading" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            <li data-value="1" data-selected="true">Çok Az</li>
+                            <li data-value="2">Az</li>
+                            <li data-value="3">Orta</li>
+                            <li data-value="4">İyi</li>
+                            <li data-value="5">Çok İyi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Yazma</div>
+                    <div class="word">
+                        <div id="langwriting" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            <li data-value="1" data-selected="true">Çok Az</li>
+                            <li data-value="2">Az</li>
+                            <li data-value="3">Orta</li>
+                            <li data-value="4">İyi</li>
+                            <li data-value="5">Çok İyi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Konuşma</div>
+                    <div class="word">
+                        <div id="langspeaking" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            <li data-value="1" data-selected="true">Çok Az</li>
+                            <li data-value="2">Az</li>
+                            <li data-value="3">Orta</li>
+                            <li data-value="4">İyi</li>
+                            <li data-value="5">Çok İyi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="addlang" onclick="javascript:;" class="purple button">Ekle</a>
+                </div>
+                @{
+                    Table<OzgecmisDil> tabloDil = new Table<OzgecmisDil>();
+                    tabloDil.WhereList.Add(new Where(OzgecmisDilColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                    tabloDil.Select();
+
+                    if (tabloDil.HasData)
+                    {
+                        foreach (var item in tabloDil.Data as List<OzgecmisDil>)
+                        {
+                            <div class="row" data-guid="@item.Guid">
+                                <div class="title">@item.Dil</div>
+                                <div class="word">Okuma (@item.Okuma), Yazma (@item.Yazma), Konuşma (@item.Konusma)</div>
+                                <a onclick="javascript:;" class="red button removelang" data-guid="@item.Guid">Sil</a>
+                            </div>
+                        }
+                    }
+                }
+
+                <h3>Bilgisayar Bilgileri</h3>
+
+                <div class="row">
+                    <div class="title">Tip</div>
+                    <div class="word">
+                        <div id="comptype" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            <li data-value="1" data-selected="true">Yazılım</li>
+                            <li data-value="2">Donanım</li>
+                            <li data-value="3">Veritabanı</li>
+                            <li data-value="4">Tasarım</li>
+                            <li data-value="5">Diğer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">İsim</div>
+                    <div class="word">
+                        <input id="compName" type="text" class="purple" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Seviye</div>
+                    <div class="word">
+                        <div id="comppoint" class="select purple">
+                        </div>
+                        <ul class="options purple">
+                            <li data-value="1" data-selected="true">Çok Az</li>
+                            <li data-value="2">Az</li>
+                            <li data-value="3">Orta</li>
+                            <li data-value="4">İyi</li>
+                            <li data-value="5">Çok İyi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="addcomp" onclick="javascript:;" class="purple button">Ekle</a>
+                </div>
+
+                <div class="row">
+                    <div class="title">Yazılım</div>
+                    <div id="compsoftware" class="word">
+                        @{
+                            Table<OzgecmisBilgisayar> tabloBilgisayar = new Table<OzgecmisBilgisayar>();
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.Tip, 1));
+                            tabloBilgisayar.Select();
+
+                            if (tabloBilgisayar.HasData)
+                            {
+                                foreach (var item in tabloBilgisayar.Data as List<OzgecmisBilgisayar>)
+                                {
+                                    <label class="remover">@item.Baslik (@item.Seviye) <a class="removecomp" onclick="javascript:;" data-guid="@item.Guid"></a></label>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Donanım</div>
+                    <div id="comphardware" class="word">
+                        @{
+                            tabloBilgisayar = new Table<OzgecmisBilgisayar>();
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.Tip, 2));
+                            tabloBilgisayar.Select();
+
+                            if (tabloBilgisayar.HasData)
+                            {
+                                foreach (var item in tabloBilgisayar.Data as List<OzgecmisBilgisayar>)
+                                {
+                                    <label class="remover">@item.Baslik (@item.Seviye) <a class="removecomp" onclick="javascript:;" data-guid="@item.Guid"></a></label>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">VeriTabanı</div>
+                    <div id="compdata" class="word">
+                        @{
+                            tabloBilgisayar = new Table<OzgecmisBilgisayar>();
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.Tip, 3));
+                            tabloBilgisayar.Select();
+
+                            if (tabloBilgisayar.HasData)
+                            {
+                                foreach (var item in tabloBilgisayar.Data as List<OzgecmisBilgisayar>)
+                                {
+                                    <label class="remover">@item.Baslik (@item.Seviye) <a class="removecomp" onclick="javascript:;" data-guid="@item.Guid"></a></label>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Tasarım</div>
+                    <div id="compdesign" class="word">
+                        @{
+                            tabloBilgisayar = new Table<OzgecmisBilgisayar>();
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.Tip, 4));
+                            tabloBilgisayar.Select();
+
+                            if (tabloBilgisayar.HasData)
+                            {
+                                foreach (var item in tabloBilgisayar.Data as List<OzgecmisBilgisayar>)
+                                {
+                                    <label class="remover">@item.Baslik (@item.Seviye) <a class="removecomp" onclick="javascript:;" data-guid="@item.Guid"></a></label>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Diğer</div>
+                    <div id="compother" class="word">
+                        @{
+                            tabloBilgisayar = new Table<OzgecmisBilgisayar>();
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                            tabloBilgisayar.WhereList.Add(new Where(OzgecmisBilgisayarColumns.Tip, 5));
+                            tabloBilgisayar.Select();
+
+                            if (tabloBilgisayar.HasData)
+                            {
+                                foreach (var item in tabloBilgisayar.Data as List<OzgecmisBilgisayar>)
+                                {
+                                    <label class="remover">@item.Baslik (@item.Seviye) <a class="removecomp" onclick="javascript:;" data-guid="@item.Guid"></a></label>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="content yellow" data-tab="dosya" style="display: none;">
+                <h3>Dosyalar</h3>
+                <div class="row">
+                    <div class="title">Başlık</div>
+                    <div class="word">
+                        <input id="fileName" type="text" class="yellow" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Dosya</div>
+                    <div class="word">
+                        <form id="upload" enctype="multipart/form-data">
+                            <input type="file" name="fileFile" id="fileFile" accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .pps, .ppsx" class="yellow" />
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="addfile" onclick="javascript:;" class="yellow button">Ekle</a>
+                </div>
+                @{
+                    Table<OzgecmisDosya> tabloDosya = new Table<OzgecmisDosya>();
+                    tabloDosya.WhereList.Add(new Where(OzgecmisDosyaColumns.KullaniciID, SabitDegerler.AktifKullanici.ID));
+                    tabloDosya.Select();
+
+                    if (tabloDosya.HasData)
+                    {
+                        foreach (var item in tabloDosya.Data as List<OzgecmisDosya>)
+                        {
+                            <div class="row" data-guid="@item.Guid">
+                                <div class="title">@item.Baslik</div>
+                                <div class="word"><a target="_blank" href="@(AppMgr.UploadPath + "/Aday/" + SabitDegerler.AktifKullanici.Guid + "/" + item.Dosya)">@item.Dosya</a></div>
+                                <a onclick="javascript:;" class="red button removefile" data-guid="@item.Guid">Sil</a>
+                            </div>
+                        }
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            @{ Html.RenderPartial("~/Areas/Aday/Views/Ozgecmis/Kontroller/_OzgecmisGuncelle.cshtml"); }
+        </div>
+        <div class="row">
+            <h2>
+                Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Aday/Views/Ozgecmis/Kontroller/_OzgecmisLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/GuncelleCV.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/OzgecmisLinkler.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/OzgecmisGuncelle.css" />
+}
+@section Scriptler{
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/GuncelleCV.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Kontroller/OzgecmisGuncelle.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Jquery/jquery.mask.js"></script>
+}

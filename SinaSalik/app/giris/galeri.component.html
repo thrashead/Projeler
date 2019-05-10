@@ -1,0 +1,5 @@
+﻿<div class="galeriickisim">
+    <div id="slider">
+        <img *ngFor="let resim of galeri" src="Content/files/Galeri/{{resim.Yol}}/{{resim.Resim}}" [attr.data-tab]="resim.Grup" />
+    </div>
+</div>

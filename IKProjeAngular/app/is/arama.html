@@ -1,0 +1,226 @@
+﻿<div class="onecell">
+    <div id="jobs">
+        <div id="jobsearch">
+            <a id="leftclick"></a>
+
+            <div *ngIf="aktifKullanici != ''" class="row">
+                <div class="cellheader">Kayıtlı Aramalar</div>
+                <div class="cellcontent">
+                    <ul id="searchoptions" class="options bigoptions">
+                        <li [attr.data-value]="0" [attr.data-selected]="true">Seçilmedi</li>
+                        <li *ngFor="let item of kayitliAramalar" [attr.data-value]="item.ID">{{item.Baslik}}</li>
+                    </ul>
+                    <br />
+                    <input id="applysearch" type="button" value="Getir" class="orange srcbutton" />
+                    <input id="deletesearch" type="button" value="Sil" class="orange srcbutton" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cellheader">Anahtar Kelime</div>
+                <div class="cellcontent">
+                    <input id="keyword" type="text" class="bigselect blue" />
+                    <label>
+                        <input id="headertext" type="radio" name="keyword" checked="checked" />
+                        İlan Başlığında Ara
+                    </label><br />
+                    <label>
+                        <input id="alltext" type="radio" name="keyword" />
+                        Tümünde Ara
+                    </label><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">Şehir</div>
+                <div class="cellcontent">
+                    <ul id="cityoptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of sehirler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Sehir1}}</li>
+                    </ul>
+                    <a id="addcity" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addedcities" class="addeditems"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">İlan Güncelliği</div>
+                <div class="cellcontent">
+                    <ul id="jobtimeoptions" class="options bigoptions">
+                        <li (click)="onLiClick($event)" *ngFor="let item of guncellikler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cellheader">Çalışma Şekli</div>
+                <div class="cellcontent">
+                    <ul id="worktypeoptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of calismalar; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="addworktype" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addedworktypes" class="addeditems"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">Sektör</div>
+                <div class="cellcontent">
+                    <ul id="sectoroptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of sektorler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="addsector" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addedsectors" class="addeditems"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">Departman</div>
+                <div class="cellcontent">
+                    <ul id="departoptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of departmanlar; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="adddepart" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addeddeparts" class="addeditems"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">Pozisyon</div>
+                <div class="cellcontent">
+                    <ul id="positionoptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of pozisyonlar; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="addposition" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addedpositions" class="addeditems"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">Eğitim Seviyesi</div>
+                <div class="cellcontent">
+                    <ul id="eduoptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of egitimler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="addedu" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addededus" class="addeditems"></ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cellheader">Tecrübe</div>
+                <div class="cellcontent">
+                    <ul id="experoptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of tecrubeler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="addexper" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addedexpers" class="addeditems"></ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cellheader">Diğer Seçenekler</div>
+                <div class="cellcontent">
+                    <ul id="otheroptions" class="options">
+                        <li (click)="onLiClick($event)" *ngFor="let item of digersecenekler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                    <a id="addother" class="addbutton" (click)="onAdd($event)"></a>
+                    <ul id="addedothers" class="addeditems"></ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cellheader">Cinsiyet</div>
+                <div class="cellcontent">
+                    <ul id="genderoptions" class="options bigoptions">
+                        <li (click)="onLiClick($event)" *ngFor="let item of cinsiyetler; let i = index;" [attr.data-value]="item?.Kod" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Baslik}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div *ngIf="aktifKullanici != ''">
+                    <input id="search" type="button" value="Uygula" class="orange buttonsearch" onclick="javascript:;" />
+                    <div class="saveSearchArea" style="z-index: 999999;">
+                        <div id="middlesaveArea">
+                            <span>Başlık : </span><input id="searchHeader" type="text" />
+                            <br />
+                            <br />
+                            <input id="searchSave" type="button" value="Kaydet" class="blue" />
+                            <input id="searchCancel" type="button" value="İptal" class="blue" />
+                        </div>
+                        <img id="loadimg" src="Content/img/loading.gif" />
+                    </div>
+                    <div class="saveSearchArea" style="opacity:0.5;filter: alpha(opacity=50);background-color:#FF6000;">
+                    </div>
+                    <input id="savesearch" type="button" value="Kaydet" class="orange buttonsearch" onclick="javascript:;" />
+                </div>
+                <div *ngIf="aktifKullanici == ''">
+                    <input id="search" type="button" value="Uygula" class="orange buttonsearch" style="width: 298px; margin-left: 0px;" onclick="javascript:;" />
+                </div>
+            </div>
+
+        </div>
+
+        <div id="jobresult">
+            <div id="table" class="blue">
+                <div class="row theader">
+                    <div class="column first">
+                        Logo
+                    </div>
+                    <div class="column second">
+                        İlan Başlığı
+                    </div>
+                    <div class="column third">
+                        Şehir
+                    </div>
+                    <div class="column fourth">
+                        İşlemler
+                    </div>
+                </div>
+                <div *ngFor="let item of [].constructor(22); let i = index;" class="row job1G43J4KE3" [ngClass]="{'alternate': 0 === i % 2}">
+                    <div class="column first">
+                        <img src="Content/img/logo.png" />
+                    </div>
+                    <div class="column second">
+                        <a class="jobtitle" title="İlan önizlemesi için tıklayın." onclick="javascript:;">Web Yazılım Uzmanı</a>
+                        <br />
+                        <a class="companyname" href="#">IKProje Bilgi Teknolojileri</a>
+                        <div class="hiddeninfo">
+                            <h2>Web Yazılım Uzmanı</h2>
+                            (1G43J4KE3)<br />
+                            <br />
+                            <b>Şirket : </b>IKProje Bilgi Teknolojileri<br />
+                            <br />
+                            <b>İlan Tarihi : </b>12.03.2016 - 16.03.2016<br />
+                            <br />
+                            <b>Şehir : </b>İstanbul (Asya), İstanbul (Avrupa)<br />
+                            <b>Deneyim : </b>Tecrübesiz, 0-2 Yıl Tecrübeli<br />
+                            <b>Eğitim : </b>Önlisans, Lisans<br />
+                            <br />
+                            <b>Sektör / Departman : </b>BİLİŞİM / Yazılım Uygulama Ve Geliştirme<br />
+                            <b>Pozisyon : </b>Uzman<br />
+                            <b>Çalışma Şekli : </b>Tam Zamanlı<br />
+                            <b>Cinsiyet : </b>Bay ve Bayan<br />
+                            <br />
+                            This library is free for commercial and non-commercial use as long as the following conditions are aheared to.
+                            <br />
+                            <br />
+                            The following conditions apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, etc., code; not just the SSL code.  The SSL documentation included with this distribution is covered by the same copyright terms except that the holder is Tim Hudson (tjh@cryptsoft.com). This library is free for commercial and non-commercial use as long as the following conditions are aheared to.  The following conditions apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, etc., code; not just the SSL code.<br />
+                            <br />
+                            The SSL documentation included with this distribution is covered by the same copyright terms except that the holder is Tim Hudson (tjh@cryptsoft.com).
+                        </div>
+                    </div>
+                    <div class="column third">
+                        İstanbul
+                    </div>
+                    <div class="column fourth">
+                        <a routerLink="/Is/Ilan/Detay/1G43J4KE3">İlana Git</a><br />
+                        <a href="#">Hızlı Başvur</a>
+                    </div>
+                </div>
+
+                <div class="row tfooter">
+                    <div class="column first">
+                        Toplam 22 Sonuç Bulundu.
+                    </div>
+                    <div class="column second">
+                        <a href="#">|<</a> <a href="#"><</a> <a href="#">></a> <a href="#">>|</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

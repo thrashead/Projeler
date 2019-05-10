@@ -1,0 +1,41 @@
+﻿@using TDLibrary
+
+<h1>tdSelect by Sina SALIK</h1>
+( <a href="downloads/tdSelect.zip?v=1.1">İndir</a> )
+
+<h3>Notlar</h3>
+tdSelect oluşturmak için önce aşağıdaki resimlerdeki gibi herhangi bir ul list nesnesi oluşturulur. Oluşturulan ul nesnesinin id'si ile aşağıdaki iki örnekteki gibi tdSelect fonksiyonu uygulanır.
+                    <br />
+                    <br />
+<img src="@AppMgr.MainPath/images/tdselect.jpg" />
+                    <br />
+                <pre style="width: 350px; padding-top: 10px;">
+    $("#selectItem1").tdSelect();
+                    <br />
+    $("#selectItem2").tdSelect(true);
+                </pre>
+İkinci örnekte parametre olarak true gönderilerek select oluşturulan nesne textbox nesnesi ile oluşturulmuştur. Bu özellik ile autocomplete özellikli bir select oluşturulmuştur. Oluşturulan listede seçilen li nesnesinin data-selected özelliği true değer alır. Bunun yanında ikinci örnekte li nesnelerine data-value attribute'ü eklenmiştir. Listeden herhangi biri seçilince ul nesnesinin data-value özelliği de seçili nesnenin data-value değerini almaktadır. Sizde böyle bir select nesnesi oluşturmak isterseniz tdSelect uygulayacağınız ul nesnesinin li nesnelerine data-value ile id gibi değerleri ekleyebilirsiniz.
+                    <br />
+
+<ul id="selectItem1">
+    <li data-selected="true">Tüm Türkiye</li>
+    <li>İstanbul (Tümü)</li>
+    <li>İstanbul (Asya)</li>
+    <li>İstanbul (Avrupa)</li>
+    <li>Ankara</li>
+    <li>İzmir</li>
+    <li>Antalya</li>
+    <li>Yurt Dışı</li>
+</ul> 
+
+<ul id="selectItem2">
+    <li data-value="0" data-selected="true">Tüm Türkiye</li>
+    <li data-value="34">İstanbul (Tümü)</li>
+    <li data-value="341">İstanbul (Asya)</li>
+    <li data-value="342">İstanbul (Avrupa)</li>
+    <li data-value="6">Ankara</li>
+    <li data-value="35">İzmir</li>
+    <li data-value="7">Antalya</li>
+    <li data-value="99">Yurt Dışı</li>
+</ul>
+

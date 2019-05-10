@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Linkler (Dilsiz)";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="right_content">
+    <div class="FilterContainer">
+        <span>Link : </span>
+        <input type="text" id="urlinkName" name="urlinkName" />
+        <span>Aktif : </span>
+        <select id="active">
+            <option value="-">Hepsi</option>
+            <option value="active">Aktif</option>
+            <option value="passive">Pasif</option>
+        </select>
+        <input type="button" id="filterButton" value="Filtrele" />
+    </div>
+    <div id="URLinkNoLangTableContainer"></div>
+</div>

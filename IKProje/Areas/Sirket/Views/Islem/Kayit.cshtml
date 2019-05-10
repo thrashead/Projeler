@@ -1,0 +1,167 @@
+﻿@using TDLibrary
+
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<script src="@AppMgr.ScriptPath/Angular/Scripts/Admin/Sirket/islem.js"></script>
+
+<div class="onecell">
+    <div id="signup" class="company">
+        <div class="row">
+            <div class="left ralign">
+                Şirket İsmi (Ünvan)
+            </div>
+            <div class="right">
+                <input id="companyname" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Adınız
+            </div>
+            <div class="right">
+                <input id="name" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Soyadınız
+            </div>
+            <div class="right">
+                <input id="surname" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Kullanıcı Adınız
+            </div>
+            <div class="right">
+                <input id="username" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Mail Adresi
+            </div>
+            <div class="right">
+                <input id="mail" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Şifreniz
+            </div>
+            <div class="right">
+                <input id="password" type="password" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Şifreniz (Tekrar)
+            </div>
+            <div class="right">
+                <input id="password2" type="password" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                TC Kimlik No
+            </div>
+            <div class="right">
+                <input id="idnumber" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Şirket Sektörü
+            </div>
+            <div class="right">
+                <div id="sectorselect" class="select">
+                </div>
+                <ul id="sectoroptions" class="options" ng-controller="kontrolSektorler">
+                    <li ng-if="$index == 0" ng-repeat="item in modelSektorler" data-value="{{item.Kod}}" data-selected="true">{{item.Baslik}}</li>
+                    <li ng-if="$index > 0" ng-repeat="item in modelSektorler" data-value="{{item.Kod}}">{{item.Baslik}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Şehir
+            </div>
+            <div class="right">
+                <div id="cityselect" class="select">
+                </div>
+                <ul id="cityoptions" class="options" ng-controller="kontrolSehirler">
+                    <li ng-if="$index == 0" ng-repeat="item in modelSehirler" data-value="{{item.Kod}}" data-selected="true">{{item.SehirAdi}}</li>
+                    <li ng-if="$index > 0" ng-repeat="item in modelSehirler" data-value="{{item.Kod}}">{{item.SehirAdi}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Telefon Numarası
+            </div>
+            <div class="right">
+                <input id="phone" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Cep Numarası
+            </div>
+            <div class="right">
+                <input id="cellphone" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Faks Numarası
+            </div>
+            <div class="right">
+                <input id="fax" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Web Sitesi
+            </div>
+            <div class="right">
+                <input id="website" type="text" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="left ralign">
+                Şirket Hakkında (Tanıtıcı Cümleniz)
+            </div>
+            <div class="right">
+                <textarea id="about"></textarea>
+            </div>
+        </div>
+        <div class="row calign">
+            <label>
+                <input id="contract" type="checkbox" />
+                Şirket <a href="#" target="_blank">Üyelik Sözleşmesini</a> kabul ediyorum.
+            </label>
+            <label>
+                <br />
+                <input id="newsletter" type="checkbox" />
+                Bana uygun ilan ve haberlerden beni mail ile haberdar et.
+            </label>
+        </div>
+        <div class="row calign">
+            <input type="submit" id="save" class="blue" value="Kaydet" />
+        </div>
+    </div>
+</div>
+
+@section Scriptler{
+    <script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/SirketKayit.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Jquery/jquery.mask.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Jquery/jquery.watermark.min.js"></script>
+}
+@section Stiller{
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Kayit.css" />
+}

@@ -1,0 +1,65 @@
+﻿#jobs {float:left;margin:0px 0px 0px 0px;width: 1010px;}
+#jobsearch {float:left;margin: 0px 0px 0px 0px;width: 298px;border: 1px solid #2188F3;background-color: #FFF;}
+#jobsearch .row {float:left;margin:0px 0px 0px 0px;width: 298px;min-height: 51px;}
+#jobsearch .row .cellheader {float:left;margin:0px 0px 0px 0px;padding: 10px 10px 10px 10px;width: 278px;background-color: #2188F3;color: #FFF;font-weight: bold;font-size: 14px;}
+#jobsearch .row .cellcontent {float:left;margin:0px 0px 0px 0px;padding: 10px 10px 10px 10px;width: 278px;color: gray;}
+#jobsearch .row .cellcontent.selected {background-color:#ff6600;}
+#jobsearch .row .cellcontent input[type=text] {float:left;margin: 0px 0px 7px 0px;padding: 3px 10px 3px 10px;height: 24px;line-height: 24px;color: gray;width: 224px;background-position: 230px 8px!important;}
+
+#search {margin: 0px 0px 0px 149px;position: absolute;bottom: 0px;width: 149px;height: 50px;font-size: 18px;font-weight: bold;z-index: 100;}
+#savesearch {margin: 0px 0px 0px 0px;position: absolute;bottom: 0px;width: 149px;height: 50px;font-size: 18px;font-weight: bold;z-index: 100;}
+.srcbutton{float: right;padding: 5px;width: 60px;font-size: 14px;margin-left: 5px;}
+#leftclick {display:none;position:absolute;margin: 0px 0px 0px 298px;width: 40px;height: 90px;background-image: url(../../Resim/icons/blue/leftsearchbutton.png);}
+#leftclick:hover {background-image: url(../../Resim/icons/blue/leftsearchbuttonhover.png);}
+#leftclick:active {background-image: url(../../Resim/icons/blue/leftsearchbuttonactive.png);}
+.addbutton {float:left;margin:0px 0px 0px 0px;width:32px;height:32px;background-image:url(../../Resim/icons/blue/addicon.png);}
+.addbutton:hover {background-image:url(../../Resim/icons/blue/addiconhover.png);}
+.addbutton:active {background-image:url(../../Resim/icons/blue/addiconactive.png);}
+.addeditems {float:left;margin: 0px 0px 0px 0px;padding: 0px 0px 0px 0px;list-style-type: none;width: 280px;}
+.addeditems li {float:left;margin: 5px 10px 5px 0px;cursor: pointer;background-color: #2A8DF3;border: 1px solid;padding: 5px 5px 5px 30px;color: #FFF;background-image: url(../../Resim/icons/cancel.png);background-repeat: no-repeat;background-position: 5px center;}
+.addeditems li:hover {background-color: #FFF; color:#2A8DF3;background-image: url(../../Resim/icons/blue/cancel.png);}
+
+#jobresult {float:left;margin: 0px 0px 0px 10px;width: 698px;border: 1px solid #2188F3;}
+
+.select {width: 224px;cursor:pointer;border: 1px solid #D3D3D3;padding: 3px 10px 3px 10px;height: 24px;line-height: 24px;color: gray;overflow: hidden;float: left;margin: 0px 0px 7px 0px;background-position: 230px 8px!important;background-color:#fff;}
+.select img {margin: -12px 3px 0px 0px;float: right;}
+.options {background-color:#FFF;position: absolute;margin: 31px 0px 0px 0px;border: 1px solid #D3D3D3;width: 235px;list-style: none;padding: 5px;max-height:90px;overflow-x:hidden;overflow-y:scroll;z-index: 200;}
+.options li {padding:5px;color:#000;cursor:pointer;}
+.options li:hover {background-color:lightgray;}
+
+.bigselect {width: 256px;background-position: 262px 8px!important;background-color:#fff;}
+.bigoptions {width: 267px;overflow-y:auto;}
+#jobsearch .row .cellcontent input[type=text].bigselect {background-position: 262px 8px!important;width: 257px;}
+
+.saveSearchArea {display:none;position: fixed;top:0px;left:0px;width:100%;height:100%;z-index: 99999;}
+.saveSearchArea #middlesaveArea{display:none;margin:70px auto 0px auto;width: 240px;text-align: center;padding: 20px;background-color: #FFF;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;color: #2188F3;border:1px solid #2188F3;font-weight: bold;}
+.saveSearchArea #loadimg{display:none;margin:70px auto 0px auto;width: 60px;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#jobs {width: 768px;}
+#jobsearch {position: absolute;left: -300px;}
+#jobresult {width: 766px;margin-left: 0px;}
+#leftclick {display:block;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#jobs {width: 568px;}
+#jobsearch {position: absolute;left: -300px;}
+#jobresult {width: 566px;margin-left: 0px;}
+#leftclick {display:block;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#jobs {width: 480px;}
+#jobsearch {position: absolute;left: -300px;}
+#jobresult {width: 478px;margin-left: 0px;}
+#leftclick {display:block;}
+}
+@media only screen and (max-width: 480px)
+{
+#jobs {width: 320px;}
+#jobsearch {position: absolute;left: -300px;}
+#jobresult {width: 318px;margin-left: 0px;}
+#leftclick {display:block;}
+}

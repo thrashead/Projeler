@@ -1,0 +1,44 @@
+﻿@using Lib
+@using TDLibrary
+@using Emlak
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @{
+        Users user = ToolBox.UserKontrol();
+    }
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @{ 
+        Html.RenderPartial("~/Areas/Admin/Views/Div/_Scripts.cshtml");
+
+        if (Urling.FullURL.ToLower().Contains("panel") && !Urling.FullURL.ToLower().Contains("sitedesign"))
+        {
+            Html.RenderPartial("~/Areas/Admin/Views/Div/_ListScripts.cshtml");
+        }
+        else if (Urling.FullURL.ToLower().Contains("panel") && Urling.FullURL.ToLower().Contains("sitedesign"))
+        {
+            <link type="text/css" href="@AppMgr.StylePath/admin/sitedesign.css" rel="stylesheet" />
+            <script type="text/javascript" src="@AppMgr.ScriptPath/admin/sitedesign.js"></script>
+        }
+    }
+</head>
+<body>
+    <div id="main_container">
+        @{ Html.RenderPartial("~/Areas/Admin/Views/Div/_Header.cshtml", user); }
+        <div class="main_content">
+            @{ Html.RenderAction("Menu", "Div"); }
+            <div class="center_content">
+                @RenderBody()
+            </div>
+            <div class="clear"></div>
+        </div>
+        @{ Html.RenderPartial("~/Areas/Admin/Views/Div/_Footer.cshtml"); }
+    </div>
+    <input type="hidden" id="hdnUrl" value="@Urling.URLWithParams" />
+    <input type="hidden" id="hdnUserID" value="@user.ID" />
+</body>
+</html>

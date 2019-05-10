@@ -1,0 +1,195 @@
+@using TDLibrary
+@{
+    Layout = "~/Views/TDControls/_TDLayout.cshtml";
+}
+
+<div class="tabs">
+    <a class="tabheader selected" data-name="tdSlider" onclick="javascript:;">tdSlider</a>
+    <a class="tabheader" data-name="tdTable" onclick="javascript:;">tdTable</a>
+    <a class="tabheader" data-name="tdCalendar" onclick="javascript:;">tdCalendar</a>
+    <a class="tabheader" data-name="tdCompleter" onclick="javascript:;">tdCompleter</a>
+    <a class="tabheader" data-name="tdMenu" onclick="javascript:;">tdMenu</a>
+    <a class="tabheader" data-name="tdSelect" onclick="javascript:;">tdSelect</a>
+    <div class="tab selected" data-name="tdSlider">
+        @{Html.RenderPartial("~/Views/TDControls/Controls/_TDSlider.cshtml");}
+    </div>
+    <div class="tab" data-name="tdTable">
+        @{Html.RenderPartial("~/Views/TDControls/Controls/_TDTable.cshtml");}
+    </div>
+    <div class="tab" data-name="tdCalendar">
+        @{Html.RenderPartial("~/Views/TDControls/Controls/_TDCalendar.cshtml");}
+    </div>
+    <div class="tab" data-name="tdCompleter">
+        @{Html.RenderPartial("~/Views/TDControls/Controls/_TDCompleter.cshtml");}
+    </div>
+    <div class="tab" data-name="tdMenu">
+        @{Html.RenderPartial("~/Views/TDControls/Controls/_TDMenu.cshtml");}
+    </div>
+    <div class="tab" data-name="tdSelect">
+        @{Html.RenderPartial("~/Views/TDControls/Controls/_TDSelect.cshtml");}
+    </div>
+</div>
+
+@section Scripts{
+    <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdSlider/tdSlider.css?v=1.5" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.MainPath/js/tdControls/tdSlider/tdSlider.js?v=1.5"></script>
+
+    <!--[if IE 7]>
+        <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdTable/ie7.css?v=1.2" rel="stylesheet" />
+    <![endif]-->
+    <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdTable/tdTable.css?v=1.2" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.MainPath/js/tdControls/tdTable/tdTable.js?v=1.2"></script>
+
+    <!--[if IE 7]>
+        <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdMenu/ie7.css?v=1.1" rel="stylesheet" />
+    <![endif]-->
+    <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdMenu/tdMenu.css?v=1.1" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.MainPath/js/tdControls/tdMenu/tdMenu.js?v=1.1"></script>
+
+    <!--[if IE]>
+        <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdCompleter/ie.css?v=1.5" rel="stylesheet" />
+    <![endif]-->
+    <!--[if IE 7]>
+        <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdCompleter/ie7.css?v=1.5" rel="stylesheet" />
+    <![endif]-->
+    <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdCompleter/tdCompleter.css?v=1.5" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.MainPath/js/tdControls/tdCompleter/tdCompleter.js?v=1.5"></script>
+
+    <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdSelect/tdSelect.css?v=1.1" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.MainPath/js/tdControls/tdSelect/tdSelect.js?v=1.1"></script>
+
+    <link type="text/css" href="@AppMgr.MainPath/js/tdControls/tdCalendar/tdCalendar.css?v=1.2" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.MainPath/js/tdControls/tdCalendar/tdCalendar.js?v=1.2"></script>
+
+    <script type="text/javascript">
+        /* tdSlider */
+        $(document).ready(function () {
+            $("#slider").tdSlider({
+                autostart: false,
+                slideonclick: true,
+                imagestretch: true,
+                width: 830,
+                height: 255,
+                direction: "LTR",
+                duration: 1000,
+                effect: "slide",
+                showbuttons: true,
+                buttonstyle: "thumb",
+                thumbheight: 40,
+                thumbwidth: 100,
+                tabeffect: "fade",
+                tabbed: true,
+                border: 0
+            });
+
+            $("#slider2").tdSlider({
+                autostart: true,
+                slideonclick: false,
+                imagestretch: true,
+                direction: "UTD",
+                duration: 1500,
+                effect: "fade",
+                showbuttons: false,
+                tabbed: false,
+                border: 1
+            });
+            /* tdSlider */
+
+            /* tdTable */
+            $("#tablo").tdTable(
+            {
+                rootfolder: "@AppMgr.MainPath/js/tdControls/tdTable",
+                title: "Kullanýcýlar",
+                listmethod: "@AppMgr.MainPath/Ajax/UsersTable",
+            itemperpage: 5,
+            tablewidth: 550,
+            enablesorting: true,
+            showfooter: true,
+            showcommands: true,
+            theme: "blue",
+            conditions: {
+                OrderBy: "ID",
+                Fields: {
+                    ID: {
+                        Title: "ID",
+                        CssClass: "first"
+                    },
+                    Username: {
+                        Title: "Kullanýcý Adý",
+                        CssClass: "second"
+                    },
+                    Active: {
+                        Title: "Aktif",
+                        CssClass: "fourth"
+                    }
+                }
+            },
+            commands: {
+                AddText: "Kayýt Ekle",
+                AddLink: "Kullanici/Ekle",
+                DetailLink: "Kullanici/Detay/{ID}",
+                UpdateLink: "Kullanici/Duzenle/{ID}"
+            }
+            });
+            /* tdTable */
+
+            /* tdMenu */
+            $("#menu").tdMenu({
+                listmethod: "@AppMgr.MainPath/Ajax/MenuGetir",
+                loadingimage: "@AppMgr.MainPath/js/tdControls/tdMenu/images/loading.gif"
+            });
+            /* tdMenu */
+
+            /* tdCompleter */
+            $("#completeText1").tdCompleter({
+                listmethod: "@AppMgr.MainPath/Ajax/Sehirler",
+                linkroot: "@AppMgr.MainPath/",
+                redirect: true
+            });
+
+            $("#completeText2").tdCompleter({
+                listmethod: "@AppMgr.MainPath/Ajax/Sehirler",
+                withvoice: true,
+                redirect: false
+            });
+
+            $("#completeText3").tdCompleter({
+                listmethod: "@AppMgr.MainPath/Ajax/Sehirler",
+                linkroot: "@AppMgr.MainPath/",
+                linktext: "#-sehri",
+                redirect: true
+            });
+
+            $("#completeText4").tdCompleter({
+                listmethod: "@AppMgr.MainPath/Ajax/Sehirler2",
+                linkroot: "@AppMgr.MainPath/",
+                linktext: "sehir-#",
+                redirect: true
+            });
+
+            $("#completeText5").tdCompleter({
+                listmethod: "@AppMgr.MainPath/Ajax/Sehirler3",
+                linkroot: "@AppMgr.MainPath/",
+                linktext: "sehir-#",
+                redirect: false
+            });
+
+            $("#completeText6").tdCompleter({
+                listmethod: "@AppMgr.MainPath/Ajax/Sehirler3",
+                linkroot: "@AppMgr.MainPath/",
+                redirect: true
+            });
+            /* tdCompleter */
+
+            /* tdSelect */
+            $("#selectItem1").tdSelect();
+
+            $("#selectItem2").tdSelect(true);
+            /* tdSelect */
+
+            /* tdCalendar */
+            $("#calendar1").tdCalendar();
+            /* tdCalendar */
+        });
+    </script>
+}

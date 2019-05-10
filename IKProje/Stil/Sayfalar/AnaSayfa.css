@@ -1,0 +1,211 @@
+﻿#showcase {padding-left: 6px;width: 1004px;}
+#showcase a {float:left;margin:0px 4px 4px 0px;padding:5px 5px 5px 5px;border: 1px solid lightgray;width: 151px;height: 43px;}
+#showcase a:hover {border-color:gray;}
+#showcase a img.adlogo {width: 151px;height: 43px;}
+
+
+#lastfive {float: left;margin: 0px 0px 0px 0px;padding: 0px 0px 0px 0px;list-style: none;width: 2450px;height: 300px;}
+#lastfive li {float: left;width: 490px;height: 300px;background-repeat: no-repeat;background-size: 490px 300px;}
+#lastfive li a {float: left;font-size: 14px;clear: both;font-weight: bold;margin: 253px 0px 0px 20px;color:#fff;
+                  z-index: 200;position: relative;width: 380px;white-space: nowrap;overflow:hidden;}
+#lastfive li a:hover {color:lightgray;}
+.shadowback {float: left;margin: -70px 0px 0px 0px;width: 100%;height: 70px;background-image: url(../../Resim/shadowblue.png);z-index: 100;
+             position: relative;}
+.shadowback a {border-radius: 20px;padding: 8px;background-color: #FF6600;color: #fff;font-weight: bold;
+                float: right;margin: 20px 10px 0px 0px;}
+.shadowback a:hover {background-color:#ED9A2C;color:#fff;}
+.shadowback a:active {background-color:#EFA338;color:#fff;}
+
+
+#membersuccess {float:left;margin:0px 0px 0px 0px;width: 450px;height: 260px;background-color: #FFC107;color: #fff;text-align: justify;
+                padding: 20px;}
+#membersuccess img {display: inline-block;float: left;margin: 0px 20px 10px 0px;width: 100px;height: 120px;border: 3px solid #fff;}
+#membersuccess h2 {float: left;width: 324px;text-align: left;margin: 0px 0px 10px 0px;}
+#membersuccess h3 {float: left;width: 324px;text-align: left;margin: 0px 0px 10px 0px;}
+
+
+#urglogo {float:left;margin:0px 0px 0px 0px;width:60px;height:50px;background-color:#DD0000;color:#FFF;line-height:50px;text-align:center;
+          font-weight:bold;font-size:14px;}
+#urgent {float:left;margin:0px 0px 0px 0px;width: 948px;height: 48px;border: 1px solid #DD0000;}
+#urgjobs {float:left;margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px;list-style: none;width:100%;height:250px;}
+#urgjobs li {float:left;margin:0px 0px 0px 0px;width:100%;height:50px;}
+#urgjobs li a {float:left;margin:0px 0px 0px 0px;padding: 10px 0px 10px 20px;width: 910px;height: 30px;line-height: 30px;font-size:14px;
+                 white-space: nowrap;overflow: hidden;}
+
+
+#cities {list-style: none;padding: 0px 0px 10px 0px;margin: 0px 0px 0px 0px;float: left;width: 314px;height: 338px;border: 1px solid #1BA260;}
+#cities li {float: left;padding: 10px 20px 10px 20px;width: 97px;margin: 0px 0px 0px 20px;}
+#cities li#cityheader {margin: 0px 0px 10px 0px;width: 274px;height: 50px;line-height: 50px;background-color: #1BA260;
+                       padding: 0px 20px 0px 20px;color: #FFF;font-weight: bold;font-size: 16px;}
+#cities li a {color: #1BA260;text-decoration:underline;}
+#cities li a:hover {color:#45B37E;}
+
+
+#jobstatus {float:left;margin:0px 0px 0px 0px;list-style:none;padding:0px 0px 0px 0px;width: 316px;}
+#jobstatus li {float:left;margin: 0px 0px 11px 0px;width: 316px;}
+#jobstatus li img {float:left;margin: 6px 6px 3px 6px;width: 50px;height: 50px;}
+#jobstatus li h3 {float:left;margin: 14px 0px 0px 10px;width: 242px;font-size: 15px;color: #0064cb;}
+#jobstatus li span {float:left;margin: 2px 0px 0px 10px;width: 242px;font-size: 12px;color: #0064cb;}
+#jobstatus li a {float:left;margin:0px 0px 0px 0px;width: 314px;border: 1px solid #0064cb;}
+#jobstatus li a:hover {border-color:#A8CAED;}
+
+
+#poll {float:left;margin:0px 0px 0px 0px;width: 314px;height: 347px;border: 1px solid #FF6600;}
+#pollheader {float:left;margin:0px 0px 0px 0px;width: 274px;height: 50px;line-height: 50px;background-color: #FF6600;padding: 0px 20px 0px 20px;
+             color: #FFF;font-weight: bold;font-size: 16px;}
+#pollquestion {float:left;margin:0px 0px 0px 0px;width: 314px;height: 247px;background-color: #FFF;}
+#pollquestion span {float:left;margin:0px 0px 0px 0px;padding: 10px 5px 10px 5px;color: #FF6600;font-size: 12px;font-weight: bold;
+                    border-bottom: 1px solid #FFAE79;width: 304px;}
+#pollquestion label {float:left;margin: 20px 0px 0px 10px;clear: both;width: 284px;overflow: hidden;white-space: nowrap;color: #FF6600;}
+#pollquestion label input[type=radio] {float:left;margin: 0px 4px 0px 0px;}
+#pollbuttons {float:left;margin:0px 0px 0px 0px;width: 314px;height: 50px;background-color: #FF6600;}
+#pollbuttons a {float:left;margin: 18px 0px 0px 10px;color: #FFF;}
+#pollbuttons a:hover {text-decoration: underline;}
+#pollbuttons #pollbutton {float: right;margin: 6px 6px 0px 0px;clear: both;padding: 10px;border: 1px solid #FFF;
+                          text-align: center;}
+#pollbuttons #pollbutton:hover {text-decoration: none;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#showcase {width: 762px;}
+#showcase a {width: 236px;height: 67px;}
+#showcase a img.adlogo {width: 236px;height: 67px;}
+
+
+#lastfive {height: 226px;width: 1845px;}
+#lastfive li {background-size: 369px 226px;width: 369px;height: 226px;}
+#lastfive li a {margin-top:183px;max-width: 200px;}
+
+
+#membersuccess {width: 349px;height: 206px;padding: 10px;font-size: 9px;}
+#membersuccess img {width: 70px;height: 80px;margin: 0px 5px 5px 0px;}
+#membersuccess h2 {width: 268px;margin-bottom: 4px;}
+#membersuccess h3 {width: 268px;font-size: 10px;}
+
+
+#urgent {width: 706px;}
+#urgjobs li a {width: 666px;padding-right: 0px;}
+
+
+#poll {width: 367px;height: 345px;}
+#pollheader {width: 327px;}
+#pollquestion {width: 367px;height: 245px;}
+#pollbuttons {width: 367px;}
+#pollquestion span {width: 357px;}
+
+
+#jobstatus {width: 369px;}
+#jobstatus li {width: 369px;}
+#jobstatus li h3 {width: 295px;}
+#jobstatus li span {width: 295px;}
+#jobstatus li a {width: 367px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#showcase {width: 562px;}
+#showcase a {width: 170px;height: 48px;}
+#showcase a img.adlogo {width: 170px;height: 48px;}
+
+
+#lastfive {width: 2840px;height: 348px;}
+#lastfive li {background-size: 568px 348px;width: 568px;height: 348px;}
+#lastfive li a {margin-top: 303px;width: 460px;}
+
+
+#membersuccess {width: 528px;height: 308px;font-size: 14px;}
+#membersuccess h2 {width: 402px;}
+#membersuccess h3 {width: 402px;}
+
+
+#urgent {width: 506px;}
+#urgjobs li a {width: 466px;padding-right: 0px;}
+
+
+#poll {width: 267px;}
+#pollheader {width: 227px;}
+#pollquestion {width: 267px;}
+#pollbuttons {width: 267px;}
+#pollquestion span {width: 257px;}
+
+
+#jobstatus {width: 269px;}
+#jobstatus li {width: 269px;}
+#jobstatus li h3 {width: 195px;}
+#jobstatus li span {width: 195px;}
+#jobstatus li a {width: 267px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#showcase {width: 474px;}
+#showcase a {width: 142px;height: 40px;}
+#showcase a img.adlogo {width: 142px;height: 40px;}
+
+
+#lastfive {width: 2400px;height: 296px;}
+#lastfive li {background-size: 480px 296px;width: 480px;height: 296px;}
+#lastfive li a {margin-top: 253px;width: 370px;}
+
+
+#membersuccess {width: 440px;height: 256px;}
+#membersuccess h2 {width: 314px;}
+#membersuccess h3 {width: 314px;}
+
+
+#urgent {width: 418px;}
+#urgjobs li a {width: 378px;padding-right: 0px;}
+
+
+#poll {width: 225px;}
+#pollheader {width: 185px;}
+#pollquestion {width: 225px;}
+#pollbuttons {width: 225px;}
+#pollquestion span {width: 215px;}
+
+
+#jobstatus {width: 225px;}
+#jobstatus li {width: 225px;}
+#jobstatus li h3 {width: 151px;font-size: 11px;}
+#jobstatus li span {width: 151px;}
+#jobstatus li a {width: 223px;}
+}
+@media only screen and (max-width: 480px)
+{
+#showcase {width: 314px;}
+#showcase a {width: 140px;height: 40px;}
+#showcase a img.adlogo {width: 140px;height: 40px;}
+
+
+#lastfive {height: 196px;width: 1600px;}
+#lastfive li {background-size: 320px 196px;width: 320px;height: 196px;}
+#lastfive li a {margin-top: 153px;width: 210px;}
+
+
+#membersuccess {width: 300px;height: 176px;font-size: 8px;padding: 10px;}
+#membersuccess img {width: 70px;height: 80px;margin: 0px 5px 5px 0px;}
+#membersuccess h2 {width: 219px;margin-bottom: 5px;}
+#membersuccess h3 {width: 219px;margin-bottom: 5px;font-size: 8px;}
+
+
+#urgent {width: 258px;}
+#urgjobs li a {width: 254px;padding-right: 0px;padding-left: 2px;}
+
+
+#cities {width: 318px;}
+#cities li {width: 99px;}
+#cities li#cityheader {width:278px;}
+
+
+#jobstatus {width: 320px;}
+#jobstatus li {width: 320px;}
+#jobstatus li h3 {width: 246px;}
+#jobstatus li span {width: 246px;}
+#jobstatus li a {width: 318px;}
+
+
+#poll {width: 318px;}
+#poll #pollheader {width: 278px;}
+#poll #pollquestion {width: 318px;}
+#poll #pollquestion span {width: 308px;}
+#poll #pollquestion label {width: 288px;}
+#poll #pollbuttons {width: 318px;}
+}

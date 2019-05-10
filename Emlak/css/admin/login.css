@@ -1,0 +1,28 @@
+﻿body { margin:0px 0px 0px 0px; background: url(../../img/admin/bodybg.jpg) no-repeat center top #0F0B32; }
+img { border:none; }
+* { outline:none; }
+.clear { clear:both; }
+
+/* Login Page */
+.logoframe {margin: 0px auto 0px auto;width:508px;text-align: right;height: 100px;}
+.logoframe .logo {margin: 140px 0px 0px 340px;max-width:508px;max-height:50px;position: absolute;}
+.logoframe .logo img {max-width:508px;max-height:50px;}
+
+.loginframe {margin:0px auto 0px auto;width:508px;height: 157px;background:url(../../img/admin/logincontrolbg.png) no-repeat center top transparent;padding-top: 105px;}
+.loginframe .loginframeleft { float:left; margin: 0px 0px 3px 0px; width: 173px; text-align:right; height: 35px; color: #fff; font-family: Arial Narrow; letter-spacing: 2px; font-size: 14px; line-height: 26px; padding-right: 10px; font-weight: bold;}
+.loginframe .loginframeright { float:left; margin: 0px 0px 3px 0px; width: 325px; height: 35px; }
+.loginframe .loginframeleft.whole {width: 166px;text-align: right;padding-left: 42px;font-size: 15px;margin-bottom: 10px;letter-spacing: 0px;color: #0F0B32;font-family: Arial;}
+.loginframe .loginframeright.whole {width: 230px;text-align: right;font-size: 14px;margin-bottom: 10px;}
+.loginframe .loginframeright.whole img { float: right; margin: 0px 0px 0px 0px; }
+.loginframe .loginframeright.whole a { text-decoration:none; color: #0F0B32; font-family: Arial; font-size: 10px; float: right; margin: 2px 2px 0px 0px; }
+.loginframe .loginframeright.whole a:hover { text-decoration:underline; }
+.loginframe .loginframeright input { border:none; }
+.loginframe .loginframeright input[type=text] { float:left; margin: 3px 0px 0px 5px; width: 190px; padding: 2px 5px 5px 5px; font-family: Arial Narrow;  letter-spacing: 2px; background: url(../../img/admin/logintextbg.png) no-repeat left top transparent; height: 20px; color: #fff;}
+.loginframe .loginframeright input[type=password] { float:left; margin: 0px 0px 0px 5px; width: 190px; padding: 2px 5px 5px 5px; font-family: Arial Narrow;  letter-spacing: 2px; background: url(../../img/admin/logintextbg.png) no-repeat left top transparent; height: 20px;  color: #fff;}
+.loginframe .loginframeright input[type=button] {float: right;margin: 0px 25px 0px 0px;background:url(../../img/admin/loginbuttonbg.png) no-repeat 0px 2px transparent;cursor:pointer;width:76px;height:33px;text-align:center;color: #fff;font-size: 11px;font-weight: bold;font-family: Arial Narrow;letter-spacing: 1px;}
+.loginframe .loginframeright input[type=button]:hover { background:url(../../img/admin/loginbuttonbg.png) no-repeat 0px -32px transparent; }
+
+/* Login Page */
+
+
+

@@ -1,0 +1,39 @@
+﻿#searcharea {float:left;margin: 0px 0px 0px 0px;width: 100%;}
+#searcharea .searchbox {float:left;margin: 0px 0px 0px 0px;width: 329px;padding: 10px;}
+#searcharea .searchbox.large {width: 678px;padding: 10px;border-bottom: none;height: 40px;}
+#searcharea .searchbox input[type=text] {float:left;margin: 0px 0px 0px 0px;width: 96%;height: 20px;line-height: 30px;padding: 5px;}
+#searchbtn {float:right;margin: 0px 0px 0px 0px;padding: 10px;width: 120px;}
+
+#table .row .column.first {width:26%;}
+#table .row .column.first img {max-width:33%;}
+#table .row .column.first span {max-width:55%;margin-left:5px;}
+#table .row .column.second {width:30%;}
+#table .row .column.second span.ilanno{margin-top: -23px;float: left;line-height: normal;color:#AAAAAB;}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px)
+{
+#detail {width: 768px;}
+#searcharea .searchbox {width: 363px;}
+#searcharea .searchbox.large {width: 742px;padding-right: 14px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#detail {width: 568px;}
+#searcharea .searchbox {width: 263px;}
+#searcharea .searchbox.large {width: 546px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#detail {width: 480px;}
+#searcharea .searchbox {width: 463px;}
+#searcharea .searchbox.large {width: 456px;}
+}
+@media only screen and (max-width: 480px)
+{
+#detail {width: 320px;}
+#searcharea .searchbox {width: 298px;}
+#searcharea .searchbox.large {width: 298px;}
+#table .row .column.first {width: 46%;}
+#table .row .column.second {width: 46%;}
+#table .row .column.second span.ilanno {float:right;}
+}

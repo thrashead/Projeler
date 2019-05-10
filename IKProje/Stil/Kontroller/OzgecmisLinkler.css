@@ -1,0 +1,34 @@
+﻿#resumelinks {float:left;margin: 0px 0px 0px 0px;padding: 0px;width: 100%;list-style-type: none;}
+#resumelinks li {margin: 10px 0px 0px 0px;width: 100%;padding: 0px 0px 10px 0px;border-bottom: 1px dotted lightgray;line-height: 23px;height: 23px;}
+#resumelinks li img {margin: 0px 0px 0px 0px;float: left;}
+#resumelinks li a {margin: 0px 0px 0px 0px;float: left;background-image: url(../../Resim/icons/blue/resume.png);background-repeat: no-repeat;
+                   padding-left: 30px;}
+#resumelinks li a.update {background-image: url(../../Resim/icons/blue/resumeupdate.png);}
+#resumelinks li a.home {background-image: url(../../Resim/icons/blue/home.png);}
+#resumelinks li a.print {background-image: url(../../Resim/icons/blue/resumeprint.png);}
+#resumelinks li a.writing {background-image: url(../../Resim/icons/blue/writing.png);}
+#resumelinks li a.files {background-image: url(../../Resim/icons/blue/files.png);}
+#resumelinks li a.favorite {background-image: url(../../Resim/icons/blue/favorite.png);}
+#resumelinks li a.block {background-image: url(../../Resim/icons/blue/block.png);}
+#resumelinks li a.applications {background-image: url(../../Resim/icons/blue/applications.png);}
+#resumelinks li a.message {background-image: url(../../Resim/icons/blue/message.png);}
+#resumelinks li a.logout {background-image: url(../../Resim/icons/blue/logout.png);}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#resumelinks {width: 746px;}
+#resumelinks li {width: 373px;float:left;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+
+}
+@media only screen and (max-width: 480px)
+{
+
+}

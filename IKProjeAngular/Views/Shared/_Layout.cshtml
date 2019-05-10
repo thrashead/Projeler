@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>@ViewBag.Title</title>
+
+    <base href="/IKProjeAngular/" />
+
+    @{ Html.RenderPartial("~/Views/Shared/Controls/_Scripts.cshtml"); }
+
+    @if (IsSectionDefined("Stiller"))
+    {
+        @RenderSection("Stiller", required: false)
+    }
+    @if (IsSectionDefined("Scriptler"))
+    {
+        @RenderSection("Scriptler", required: false)
+    }
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

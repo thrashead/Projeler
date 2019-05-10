@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="74a94a41ef3b4b9db5db7282f73c54b2" Name="Diagram1">
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.Assignments" Width="1.5" PointX="8.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.Category" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.CategoryLang" Width="1.5" PointX="2.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.Content" Width="1.5" PointX="12.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.ContentLang" Width="1.5" PointX="10.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.Gallery" Width="1.5" PointX="12.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.PicturesNoLang" Width="1.5" PointX="12.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.Rank" Width="1.5" PointX="4.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceyhanpolatdbModel.RankPoint" Width="1.5" PointX="12.75" PointY="13" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

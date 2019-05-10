@@ -1,0 +1,56 @@
+﻿<div class="frame bgyellow">
+    <div class="mainframe">
+        <div class="header" data-href="ana-sayfa">
+
+            <div class="menu">
+                <div class="container">
+                    <h1>Ceyhan Polat</h1>
+                    <ul>
+                        <li *ngFor="let item of menu">
+                            <a [routerLink]="[item.RouteUrl]">{{ item.CategoryName }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slider">
+                <div id="slider">
+                    <ul class="slides">
+                        <li *ngFor="let item of slider">
+                            <a href="#">
+                                <img src="Uploads/Gallery/{{item.PictureName}}" alt="" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="sliderframe">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="frame bgpink">
+    <div class="mainframe">
+        <div id="searchcontainer" class="frame white bgpink">
+            <div class="mainframe">
+                <div class="maincontent">
+                    <div class="mainsearch">
+                        <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)">
+                            <input type="text" #firstdate id="firstdate" formControlName="firstdate" data-type="date" autocomplete="off" />
+                            <input type="text" #lastdate id="lastdate" formControlName="lastdate" data-type="date" autocomplete="off" />
+                            <input type="text" #poetryname id="poetryname" formControlName="poetryname" autocomplete="off" (keyup)="onKeyUp(poetryname.value)" (focus)="onFocus()" (blur)="onBlur()" />
+                            <button type="submit" id="searchpoetry">Ara</button>
+                            <ul #siirsearchlist id="siirsearchlist" style="display:none;">
+                                <li *ngFor="let item of siirAramaListe">
+                                    <a [routerLink]="['/Siirleri/' + item.RouteUrl]" [innerHtml]="item.ContentName"></a>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

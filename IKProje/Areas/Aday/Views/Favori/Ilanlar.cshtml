@@ -1,0 +1,74 @@
+﻿@using TDLibrary;
+@{
+    ViewBag.Title = "Favori İlanlarım";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="orange">
+    <div id="left">
+        <h2>Favori İlanlarım</h2>
+        <div id="table" class="orange">
+            <div class="row theader">
+                <div class="column first">
+                    Logo
+                </div>
+                <div class="column second">
+                    İlan Başlığı
+                </div>
+                <div class="column third">
+                    Tarih
+                </div>
+                <div class="column fourth">
+                    İşlemler
+                </div>
+            </div>
+            @for (int i = 0; i < 10; i++)
+            {
+                string s = i % 2 == 1 ? " alternate" : "";
+                <div class="row@(s)">
+                    <div class="column first">
+                        <img src="@AppMgr.ImagePath/logo.png" />
+                    </div>
+                    <div class="column second">
+                        <a class="jobtitle" title="İlan önizlemesi için tıklayın." onclick="javascript:;">Web Yazılım Uzmanı</a>
+                        <br />
+                        <a class="companyname" href="#">IKProje Bilgi Teknolojileri</a>
+                    </div>
+                    <div class="column third">
+                        12.03.2016
+                    </div>
+                    <div class="column fourth">
+                        <a href="#">Kaldır</a>
+                    </div>
+                </div>
+            }
+            <div class="row tfooter">
+                <div class="column first">
+                    Toplam 36 Sonuç Bulundu.
+                </div>
+                <div class="column second">
+                    <a href="#">|<</a> <a href="#"><</a> <a href="#">></a> <a href="#">>|</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Aday/Views/Ozgecmis/Kontroller/_OzgecmisLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/OzgecmisLinkler.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/Tablo.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/AdayFavoriIlan.css" />
+}
+@section Scriptler{
+<script type="text/javascript" src="@AppMgr.ScriptPath/Kontroller/Tablo.js"></script>
+}

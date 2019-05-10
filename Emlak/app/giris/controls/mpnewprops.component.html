@@ -1,0 +1,38 @@
+﻿<div class="IcerikBaslik">
+    <div class="BaslikMetin">
+        <img src="img/ok.png" alt="" border="0" />
+        {{yeniIlanlarText}}
+    </div>
+</div>
+<div class="IcerikMetin">
+    <div id="hideDiv" *ngFor="let item of ilanlar; let i = index" class="ShowroomArka{{ i==2 ? ' hide' : '' }}">
+        <div class="ShowroomBaslik">
+            {{item?.CategoryName}}
+        </div>
+        <div class="EmlakYeni">
+            <img src="img/{{yeniIlanlarResimText}}.png" alt="" border="0" />
+        </div>
+        <div class="ShowroomResim">
+            <a [routerLink]="['/Emlak/Detay/' + item?.RouteUrl]">
+                <img border="0" alt="" style="max-width:100px; max-height:100px;" src="{{item?.Picture}}" />
+                <br />
+            </a>
+        </div>
+        <div class="ShowroomMetin">
+            {{item?.Baslik}}
+            <br />
+            <br />
+            <b>
+                {{item?.Fiyat}} TL
+            </b>
+            <br />
+            <br />
+            <a [routerLink]="['/Emlak/Detay/' + item?.RouteUrl]">
+                <img border="0" src="img/{{ detayLinkText }}.png" height="20" />
+            </a>
+        </div>
+    </div>
+    <div class="AnaSayfaAlt">
+        <a [routerLink]="['/Emlak/Listele/Yeni']" title="{{yeniIlanlarText}}">{{yeniIlanlarText}}</a>
+    </div>
+</div>

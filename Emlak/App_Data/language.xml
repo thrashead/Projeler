@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LangCollection>
+  <Lang Code="usna" TR="Kullanıcı Adı" EN="Username"></Lang>
+  <Lang Code="pass" TR="Şifre" EN="Pass"></Lang>
+  <Lang Code="entr" TR="Giriş" EN="Login"></Lang>
+  <Lang Code="srch" TR="İlan Arama" EN="Search"></Lang>
+  <Lang Code="sbyw" TR="Kelime ile Arama" EN="Search by Word"></Lang>
+  <Lang Code="sbyc" TR="İlan Kodu ile Arama" EN="Search by Code"></Lang>
+  <Lang Code="sdet" TR="Detaylı Arama" EN="Detailed Search"></Lang>
+  <Lang Code="serc" TR="Ara" EN="Search"></Lang>
+  <Lang Code="akbu" TR="İlan Bulunamadı..." EN="Couldn't find result..."></Lang>
+  <Lang Code="ikbu" TR="İlan Kodu Bulunamadı..." EN="Couldn't find code..."></Lang>
+  <Lang Code="iktg" TR="İlan kodunu tam girin..." EN="Type a correct code..."></Lang>
+  <Lang Code="akgi" TR="Aranacak kelimeyi girin..." EN="Type a word to search..."></Lang>
+  <Lang Code="guil" TR="Günün İlanı" EN="Today's Property"></Lang>
+  <Lang Code="news" TR="Haberler" EN="News"></Lang>
+  <Lang Code="ilan" TR="İlanlar" EN="Properties"></Lang>
+  <Lang Code="ziya" TR="Ziyaretçi Sayısı" EN="Visitor Count"></Lang>
+  <Lang Code="sres" TR="Arama Sonuçları" EN="Search Result"></Lang>
+  <Lang Code="atoz" TR="A'dan Z'ye" EN="A to Z"></Lang>
+  <Lang Code="ztoa" TR="Z'den A'ya" EN="Z to A"></Lang>
+  <Lang Code="1to9" TR="Fiyat Artan" EN="Low to High (Price)"></Lang>
+  <Lang Code="9to1" TR="Fiyat Azalan" EN="High to Low (Price)"></Lang>
+  <Lang Code="dto9" TR="Tarih Artan" EN="Older to Newer (Date)"></Lang>
+  <Lang Code="dto1" TR="Tarih Azalan" EN="Newer to Older (Date)"></Lang>
+  <Lang Code="nopr" TR="Aradığınız kriterlere uygun ilan bulunamadı..." EN="Couldn't find any result..."></Lang>
+  <Lang Code="newr" TR="yeni" EN="new"></Lang>
+  <Lang Code="anws" TR="Tüm Haberler..." EN="All News..."></Lang>
+  <Lang Code="devm" TR="Devamı..." EN="More..."></Lang>
+  <Lang Code="fors" TR="SATILIK İLANLARI" EN="FOR SALE"></Lang>
+  <Lang Code="forr" TR="KİRALIK İLANLARI" EN="FOR RENT"></Lang>
+  <Lang Code="sctm" TR="Tümü" EN="All"></Lang>
+  <Lang Code="scfs" TR="Satılık" EN="For Sale"></Lang>
+  <Lang Code="scfr" TR="Kiralık" EN="For Rent"></Lang>
+  <Lang Code="dstc" TR="Detaylı İlan Arama" EN="Detailed Property Search"></Lang>
+  <Lang Code="ctgy" TR="Kategori" EN="Category"></Lang>
+  <Lang Code="sctg" TR="Alt Kategori" EN="Subcategory"></Lang>
+  <Lang Code="stts" TR="Durumu" EN="Status"></Lang>
+  <Lang Code="romc" TR="Oda Sayısı" EN="Num. Of Rooms"></Lang>
+  <Lang Code="ttle" TR="İlan Başlığı" EN="Title"></Lang>
+  <Lang Code="drmc" TR="Salon Sayısı" EN="Num. Of Dr. Rooms"></Lang>
+  <Lang Code="city" TR="Şehir" EN="City"></Lang>
+  <Lang Code="flrc" TR="Kat Sayısı" EN="Num. Of Floor"></Lang>
+  <Lang Code="arlk" TR="Aralık" EN="Interval"></Lang>
+  <Lang Code="flrn" TR="Bulunduğu Kat" EN="Floor Number"></Lang>
+  <Lang Code="ilce" TR="İlçe" EN="County"></Lang>
+  <Lang Code="semt" TR="Semt" EN="District"></Lang>
+  <Lang Code="area" TR="Alan" EN="Area"></Lang>
+  <Lang Code="pric" TR="Fiyat" EN="Price"></Lang>
+  <Lang Code="prcd" TR="TL" EN="TRY"></Lang>
+  <Lang Code="ftyp" TR="Yakıt Tipi" EN="Fuel Type"></Lang>
+  <Lang Code="fall" TR="Farketmez" EN="All Type"></Lang>
+  <Lang Code="fdgz" TR="Doğalgaz" EN="Natural Gas"></Lang>
+  <Lang Code="fwoc" TR="Odun-Kömür" EN="Wood-Coal"></Lang>
+  <Lang Code="flif" TR="Akaryakıt" EN="Liquid Fuel"></Lang>
+  <Lang Code="felc" TR="Elektrik" EN="Electric"></Lang>
+  <Lang Code="foth" TR="Diğer" EN="Others"></Lang>
+  <Lang Code="bage" TR="Bina Yaşı" EN="Age"></Lang>
+  <Lang Code="wtyp" TR="Isınma Tipi" EN="Warm Type"></Lang>
+  <Lang Code="wall" TR="Farketmez" EN="All Type"></Lang>
+  <Lang Code="wsun" TR="Güneş Enerjisi" EN="Sun Energy"></Lang>
+  <Lang Code="wkat" TR="Kat Kaloriferi" EN="Floor Heating"></Lang>
+  <Lang Code="wair" TR="Klima" EN="Air Conditioning"></Lang>
+  <Lang Code="wcom" TR="Kombi" EN="Combi"></Lang>
+  <Lang Code="wcen" TR="Merkezi" EN="Central"></Lang>
+  <Lang Code="wsto" TR="Soba" EN="Stove"></Lang>
+  <Lang Code="woth" TR="Diğer" EN="Others"></Lang>
+  <Lang Code="sall" TR="Tümü" EN="All Type"></Lang>
+  <Lang Code="sclr" TR="Sıfır" EN="New Cars"></Lang>
+  <Lang Code="susd" TR="İkinci El" EN="Used Cars"></Lang>
+  <Lang Code="sdmg" TR="Masraflı" EN="Damaged Cars"></Lang>
+  <Lang Code="cady" TR="Caddeye Yakın" EN="Close to Street"></Lang>
+  <Lang Code="merk" TR="Merkezde" EN="Close to City Center"></Lang>
+  <Lang Code="asan" TR="Asansör" EN="Elevator"></Lang>
+  <Lang Code="mant" TR="Mantolama" EN="Sheathing"></Lang>
+  <Lang Code="bahc" TR="Bahçeli" EN="Garden"></Lang>
+  <Lang Code="otop" TR="Otopark" EN="Car Park"></Lang>
+  <Lang Code="siti" TR="Site İçerisinde" EN="Site"></Lang>
+  <Lang Code="alar" TR="Alarm" EN="Alarms"></Lang>
+  <Lang Code="gord" TR="Görüntülü Diafon" EN="Camera"></Lang>
+  <Lang Code="klim" TR="Klima" EN="Air Conditioning"></Lang>
+  <Lang Code="once" TR="Ön Cephe" EN="Frontage"></Lang>
+  <Lang Code="manz" TR="Manzaralı" EN="Scenic"></Lang>
+  <Lang Code="touy" TR="Toplu Ulaşıma Yakın" EN="Close to Public Transportation"></Lang>
+  <Lang Code="hidr" TR="Hidrofor" EN="Booster"></Lang>
+  <Lang Code="metr" TR="Metroya Yakın" EN="Close to Metro"></Lang>
+  <Lang Code="jene" TR="Jeneratör" EN="Generator"></Lang>
+  <Lang Code="pvcd" TR="PVC Doğrama" EN="PVC Window"></Lang>
+  <Lang Code="yuzh" TR="Yüzme Havuzu" EN="Swimming Pool"></Lang>
+  <Lang Code="celk" TR="Çelik Kapı" EN="Steel Door"></Lang>
+  <Lang Code="katu" TR="Kablo TV-Uydu" EN="Cable TV-Satellite"></Lang>
+  <Lang Code="arkc" TR="Arka Cephe" EN="Rear"></Lang>
+  <Lang Code="deny" TR="Denize Yakın" EN="Near the Sea"></Lang>
+  <Lang Code="otoy" TR="Otobana Yakın" EN="Near Highway"></Lang>
+  <Lang Code="guve" TR="Güvenlik" EN="Security"></Lang>
+  <Lang Code="dens" TR="Denize Sıfır" EN="Seashore"></Lang>
+  <Lang Code="kapi" TR="Kapıcı" EN="Doorman"></Lang>
+  <Lang Code="oyup" TR="Oyun Parkı" EN="Play Garden"></Lang>
+  <Lang Code="yanm" TR="Yangın Merdiveni" EN="Fire Escape"></Lang>
+  <Lang Code="balk" TR="Balkon" EN="Balcony"></Lang>
+  <Lang Code="jaku" TR="Jakuzi" EN="Jacuzzi"></Lang>
+  <Lang Code="dsbt" TR="Arama Yap" EN="Search"></Lang>
+  <Lang Code="ilnw" TR="Yeni İlanlarımız" EN="New Properties"></Lang>
+  <Lang Code="ilfs" TR="Satılık İlanlarımız" EN="For Sale"></Lang>
+  <Lang Code="ilfr" TR="Kiralık İlanlarımız" EN="For Rent"></Lang>
+  <Lang Code="ilti" TR="Tüm İlanlarımız" EN="All Properties"></Lang>
+  <Lang Code="dtyr" TR="detayicon" EN="detailicon"></Lang>
+  <Lang Code="newb" TR="YENİ İLANLARIMIZ" EN="NEW PROPERTIES"></Lang>
+  <Lang Code="allb" TR="TÜM İLANLARIMIZ" EN="ALL PROPERTIES"></Lang>
+  <Lang Code="ilil" TR="İlanlarımız" EN="Properties"></Lang>
+  <Lang Code="dtys" TR="Satılık İlanı" EN="For Sale"></Lang>
+  <Lang Code="dtyk" TR="Kiralık İlanı" EN="For Rent"></Lang>
+  <Lang Code="code" TR="İlan Kodu" EN="Code"></Lang>
+  <Lang Code="ownr" TR="Emlak Sahibi" EN="Owner"></Lang>
+  <Lang Code="iacc" TR="Giriş Başarısız!!!" EN="Invalid Access"></Lang>
+  <Lang Code="dsrs" TR="Detaylı Arama Sonuçları" EN="Detailed Search Result"></Lang>
+  <Lang Code="tlfn" TR="Telefon" EN="Phone"></Lang>
+  <Lang Code="faks" TR="Faks" EN="Fax"></Lang>
+  <Lang Code="cell" TR="Cep" EN="Cell"></Lang>
+  <Lang Code="mail" TR="Mail" EN="Mail"></Lang>
+  <Lang Code="iltr" TR="iletisim" EN="contact"></Lang>
+  <Lang Code="abus" TR="Hakkımızda" EN="About Us"></Lang>
+  <Lang Code="cont" TR="İletişim" EN="Contact"></Lang>
+  <Lang Code="newi" TR="Yeni İlanlar" EN="New Properties"></Lang>
+  <Lang Code="alli" TR="Tüm İlanlar" EN="All Properties"></Lang>
+  <Lang Code="stlk" TR="Satılık İlanlar" EN="For Sale"></Lang>
+  <Lang Code="krlk" TR="Kiralık İlanlar" EN="For Rent"></Lang>
+  <Lang Code="mnpg" TR="Ana Sayfa" EN="Main Page"></Lang>
+  <Lang Code="load" TR="Yükleniyor..." EN="Loading..."></Lang>
+  <Lang Code="swrm" TR="Vitrin" EN="Showroom"></Lang>
+  <Lang Code="page" TR="Sayfa" EN="Page"></Lang>
+</LangCollection>

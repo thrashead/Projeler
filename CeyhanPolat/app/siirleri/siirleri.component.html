@@ -1,0 +1,26 @@
+﻿<div class="frame pink bgwhite">
+    <div class="mainframe">
+        <div class="maincontent">
+            <div *ngIf="siirleri?.length > 0 && siirleri[0].CPoetryContainer.Visible" id="clearsearchpoetrycontainer" class="clearsearchpoetrycontainer">
+                <a id="clearsearchpoetry" href="javascript:;" title="Hepsini Kaldır" (click)="onClick(null)">Tüm Arama Kriterlerini Temizle [x]</a><br />
+                <a *ngIf="siirleri[0].CPoetryName.Visible" id="clearpoetryname" (click)="onClick('clearpoetryname')" href="javascript:;" title="Kaldır" [innerHtml]="siirleri[0].CPoetryName.Text"></a>
+                <a *ngIf="siirleri[0].CFirstDate.Visible" id="clearfirstdate" (click)="onClick('clearfirstdate')" href="javascript:;" title="Kaldır" [innerHtml]="siirleri[0].CFirstDate.Text"></a>
+                <a *ngIf="siirleri[0].CLastDate.Visible" id="clearlastdate" (click)="onClick('clearlastdate')" href="javascript:;" title="Kaldır" [innerHtml]="siirleri[0].CLastDate.Text"></a>
+            </div>
+            <ul id="siirliste">
+                <li class="baslik">
+                    <div class="sira">Sıra</div>
+                    <div class="isim">Şiir Adı</div>
+                    <div class="tarih">Tarih</div>
+                    <div class="sehir">Şehir</div>
+                </li>
+                <li *ngFor="let item of siirleri; let index = index;" [ngClass]="{'alternate': 0 === index % 2}">
+                    <a class="sira" [routerLink]="[item.RouteUrl]">{{ item.Queue }}</a>
+                    <a class="isim" [routerLink]="[item.RouteUrl]">{{ item.PoetryName }}</a>
+                    <a class="tarih" [routerLink]="[item.RouteUrl]">{{ item.Date }}</a>
+                    <a class="sehir" [routerLink]="[item.RouteUrl]">{{ item.City }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,267 @@
+﻿@using TDLibrary
+@using Lib
+@using TDFramework
+@using TDFramework.Common
+@using Models.OnyaziModel
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="blue">
+    <div id="left">
+        <div id="jobinfo">
+            <h1>Web Yazılım Uzmanı</h1>
+            <a href="#">IKProje Bilgi Teknolojileri</a>
+            <a id="companyname" href="#">
+                <img id="companylogo" src="@AppMgr.ImagePath/logo.png" /></a>
+            <hr />
+            <div class="row">
+                <div class="left">
+                    İlan Tarihi
+                </div>
+                <div class="right">
+                    12.03.2016 - 16.03.2016
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Şehir
+                </div>
+                <div class="right">
+                    İstanbul (Asya), İstanbul (Avrupa)
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Deneyim
+                </div>
+                <div class="right">
+                    Tecrübesiz, 0-2 Yıl Tecrübeli
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Eğitim
+                </div>
+                <div class="right">
+                    Önlisans, Lisans
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Sektör / Departman
+                </div>
+                <div class="right">
+                    BİLİŞİM / Yazılım Uygulama Ve Geliştirme
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Pozisyon
+                </div>
+                <div class="right">
+                    Uzman
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Çalışma Şekli
+                </div>
+                <div class="right">
+                    Tam Zamanlı
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Cinsiyet
+                </div>
+                <div class="right">
+                    Bay ve Bayan
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    İlan No
+                </div>
+                <div class="right">
+                    1G43J4KE3
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <h2>Detaylar</h2>
+            This library is free for commercial and non-commercial use as long as the following conditions are aheared to.
+                            <br />
+            <br />
+            The following conditions apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, etc., code; not just the SSL code.  The SSL documentation included with this distribution is covered by the same copyright terms except that the holder is Tim Hudson (tjh@cryptsoft.com). This library is free for commercial and non-commercial use as long as the following conditions are aheared to.  The following conditions apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, etc., code; not just the SSL code.<br />
+            <br />
+            The SSL documentation included with this distribution is covered by the same copyright terms except that the holder is Tim Hudson (tjh@cryptsoft.com).
+        </div>
+    </div>
+    <div id="right">
+
+        @if (SabitDegerler.AktifKullanici != null)
+    {
+        <!--İlan İşlemleri-->
+        <div class="row">
+            <h2>
+                İlan İşlemleri
+            </h2>
+            <div class="rowcontent">
+                <div id="hiddencontent">
+                    <div class="item">
+                        <span>Önyazı :</span>
+                        <div id="introletter" class="selectdiv"></div>
+                        <ul id="introletterlist" class="select">
+                            <li data-value="0">Seçilmemiş</li>
+                            @{
+                            if (SabitDegerler.AktifKullanici != null)
+                            {
+                                Table<Onyazi> tablo = new Table<Onyazi>();
+                                tablo.Columns = new List<OnyaziColumns>()
+                                                                                                                                {
+                                                                                                                                    OnyaziColumns.ID,
+                                                                                                                                    OnyaziColumns.Baslik
+                                                                                                                                };
+
+                                tablo.WhereList.Add(new Where() { Column = OnyaziColumns.Aktif, Values = new List<dynamic>() { true } });
+                                tablo.WhereList.Add(new Where() { Column = OnyaziColumns.KullaniciID, Values = new List<dynamic>() { SabitDegerler.AktifKullanici.ID } });
+
+                                tablo.Select();
+
+                                if (tablo.HasData)
+                                {
+                                    foreach (Onyazi item in tablo.Data as List<Onyazi>)
+                                    {
+                                        <li data-value="@item.ID">@item.Baslik</li>
+                                }
+                            }
+                        }
+                            }
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <span>Şehir :</span>
+                        <div id="cityjob" class="selectdiv"></div>
+                        <ul id="cityjoblist" class="select">
+                            <li data-value="0">Seçilmemiş</li>
+                            <li data-value="1">İstanbul (Tümü)</li>
+                            <li data-value="2">İstanbul (Asya)</li>
+                            <li data-value="3">İstanbul (Avrupa)</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <span>Maaş Aralığı :</span>
+                        <div id="salaryjob" class="selectdiv"></div>
+                        <ul id="salaryjoblist" class="select">
+                            <li data-value="0">Seçilmemiş</li>
+                            <li data-value="1">0-1000 TL</li>
+                            <li data-value="2">1000-2000 TL</li>
+                            <li data-value="3">2000 TL ve üzeri</li>
+                        </ul>
+                    </div>
+                </div>
+                <a id="acceptjob" class="orange" onclick="javascript:;">Başvur</a>
+                <hr />
+                <label>
+                    <img src="@AppMgr.ImagePath/icons/blue/favorite-small.png" />
+                    <a href="#">İlanı Favorilerime ekle</a>
+                </label>
+                <label>
+                    <img src="@AppMgr.ImagePath/icons/blue/list-small.png" />
+                    <a href="#">Şirketin Diğer İlanları</a>
+                </label>
+                <label>
+                    <img src="@AppMgr.ImagePath/icons/blue/favorite-small.png" />
+                    <a href="#">Şirketi Favorilerime ekle</a>
+                </label>
+                <label>
+                    <img src="@AppMgr.ImagePath/icons/blue/facebook-small.png" />
+                    <a href="#">Facebook'ta paylaş</a>
+                </label>
+                <label>
+                    <img src="@AppMgr.ImagePath/icons/blue/twitter-small.png" />
+                    <a href="#">Twitter'da paylaş</a>
+                </label>
+            </div>
+        </div>
+}
+
+        <!--Benzer İlanlar-->
+        <div class="row">
+            <h2>
+                Benzer İlanlar
+            </h2>
+            <div class="rowcontent">
+                <ul class="leftjobs">
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        @if (SabitDegerler.AktifKullanici != null)
+        {
+        <!--Size Uygun İlanlar-->
+        <div class="row">
+            <h2>
+                Size Uygun İlanlar
+            </h2>
+            <div class="rowcontent">
+
+                <ul class="leftjobs">
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                    <li>
+                        <a class="titlejob" href="#">Web Yazılım Uzmanı</a><br />
+                        <a class="companyjob" href="#">IKProje Bilişim Teknolojileri</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+@section Stiller{
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/IsDetay.css" />
+}
+@section Scriptler{
+    <script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/IsDetay.js"></script>
+}

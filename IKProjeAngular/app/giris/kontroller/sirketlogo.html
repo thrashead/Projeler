@@ -1,0 +1,3 @@
+﻿<div id="showcase" class="onecell">
+    <a *ngFor="let item of sirketLogolar" [routerLink]="['/Sirket/Profil/Detay/' + item?.Url]"><img class="adlogo" src="Content/files/Sirket/{{item?.Guid}}/{{item?.Logo}}" /></a>
+</div>

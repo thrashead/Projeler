@@ -1,0 +1,72 @@
+﻿@using TDLibrary
+
+<h1>tdMenu by Sina SALIK</h1>
+( <a href="downloads/tdMenu.zip?v=1.1">İndir</a> )
+                <br />
+<h3>Notlar</h3>
+Menu oluşturulacak ul'ye aşağıdaki şekilde eklenir.
+                <pre style="width: 750px;">
+    $("#menu").tdMenu({
+        listmethod: "@AppMgr.MainPath/Ajax/Menu",
+    });
+                </pre>
+<ul id="menu">
+</ul>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+Aşağıda bütün özelliklere ait varsayılan değerler ve ne şekilde kullanıldıkları belirtilmiştir.
+                <pre style="width: 750px;">
+            listmethod: "",
+            width: 120,
+            height: "auto",
+            topmenuid: 0,
+            showtopmenubutton: true,
+            topmenubuttontext: "Ana Menü",
+            showbackbutton: true,
+            backbuttontext: "Geri",
+            submenutext: "+",
+            loadingimage: ""
+                </pre>
+
+<b>listmethod : </b>Listeye veri dönen ajax web metodu. Tek boyutlu string List (List&#60string&#62) veya string dizi string[], üç boyutlu Tuple (List&#60Tuple&#60string, string, string&#62&#62) veya kendi oluşturduğunuz üç boyutlu bir Generic Class (List&#60MyGeneric&#60string, string, string&#62&#62) List dönen metodlar yazılır. Eğer Tek boyutlu string List (List&#60string&#62) veya string dizi (string[]) dönen metod gelirse listeye eklenen string değerler araları virgül ile ayrılarak ilk olarak kolon ID'si sonra kolon ismi ve son olarakta tıklanınca gidecek link (Örn : list.Add(ID.ToString(), CategoryName, CategoryName.ToHyperText()); yada dizi[0] = ID.ToString(), CategoryName, CategoryName.ToHyperText();) şeklinde olmalıdır. Bunun dışında üç boyutlu bir Tuple (List&#60Tuple&#60string, string, string&#62&#62) veya kendi oluşturduğunuz üç boyutlu bir Generic Class (List&#60MyGeneric&#60string, string, string&#62&#62) List dönen metod gelirse listeye yine sırasıyla kolon ID'si sonra kolon ismi ve son olarakta tıklanınca gidecek link (Örn : list.Add(new List&#60MyGeneric&#60string, string, string&#62&#62(ID.ToString(), CategoryName, CategoryName.ToHyperLink())); ) şeklinde değerler eklenir.
+                <br />
+<br />
+<b>width : </b>Listenin eni belirtilir.
+                <br />
+<br />
+<b>height : </b>Listenin boyu belirtilir.
+                <br />
+<br />
+<b>topmenuid : </b>Oluşturulacak menüde en üst gidilebilecek menünün ID'si belirtilir. Belirtilen menünün üst menüsü olsada oraya erişim olmaz.
+                <br />
+<br />
+<b>showtopmenubutton : </b>Alt menülere girildiğinde en üst menü (Ana Menü) linkinin gösterilip gösterilmemesi sağlanır.
+                <br />
+<br />
+<b>topmenubuttontext : </b>En üst menü (Ana Menü) linki gösterilirse ne yazacağı belirtilir.
+                <br />
+<br />
+<b>showbackbutton : </b>Alt menülere girildiğinde geri dön linkinin gösterilip gösterilmemesi sağlanır.
+                <br />
+<br />
+<b>backbuttontext : </b>Geri dön linki gösterilirse ne yazacağı belirtilir.
+                <br />
+<br />
+<b>submenutext : </b>Alt menüleri açan butonun içindeki metin (+) kısmı değiştirilebilir.
+                <br />
+<br />
+<b>loadingimage : </b>Alt menüye geçerken loading efektli bir gif veya resim gösterilmesini isterseniz buraya resmin tam yolunu belirtebilirsiniz.
+                <br />
+<br />

@@ -1,0 +1,81 @@
+﻿@using TDLibrary;
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="orange">
+    <div id="left">
+        <h2>Mesajlarınız</h2>
+        <div id="table" class="orange">
+            <div class="row theader">
+                <div class="column first">Şirket</div>
+                <div class="column second">Başlık</div>
+                <div class="column third">Tarih</div>
+                <div class="column fourth">İşlemler</div>
+            </div>
+            @for (int i = 0; i < 10; i++)
+            {
+                string s = i % 2 == 1 ? " alternate" : "";
+                string s2 = i == 0 || i == 1 ? " unread" : "";
+                <div class="row@(s)@(s2)" data-id="1G43J4KE3">
+                    <div class="column first">IK Proje</div>
+                    <div class="column second">
+                        <a onclick="javascript:;">Web Yazılım Elemanı</a>
+                        <div class="hiddeninfo">
+                            <h2>Web Yazılım Uzmanı</h2>
+                            (1G43J4KE3)<br />
+                            <br />
+                            <b>Şirket : </b>IKProje Bilgi Teknolojileri<br />
+                            <br />
+                            <b>Mesaj Tarihi : </b>12.03.2016<br />
+                            <br />
+                            <b>Başlık : </b>Standart Ulaştı Mektubu
+                            <br />
+                            <br />
+                            This library is free for commercial and non-commercial use as long as the following conditions are aheared to.
+                                <br />
+                            <br />
+                            The following conditions apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, etc., code; not just the SSL code.  The SSL documentation included with this distribution is covered by the same copyright terms except that the holder is Tim Hudson (tjh@cryptsoft.com). This library is free for commercial and non-commercial use as long as the following conditions are aheared to.  The following conditions apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, etc., code; not just the SSL code.<br />
+                            <br />
+                            The SSL documentation included with this distribution is covered by the same copyright terms except that the holder is Tim Hudson (tjh@cryptsoft.com).
+                        </div>
+                    </div>
+                    <div class="column third">03.03.2016</div>
+                    <div class="column fourth">
+                        <a href="#">Sil</a><br />
+                        <a href="#">Cevapla</a>
+                    </div>
+                </div>
+            }
+            <div class="row tfooter">
+                <div class="column first">
+                    Toplam 12 mesajınız var.
+                </div>
+                <div class="column second">
+                    <a href="#">|<</a> <a href="#"><</a> <a href="#">></a> <a href="#">>|</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Aday/Views/Ozgecmis/Kontroller/_OzgecmisLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/OzgecmisLinkler.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/Tablo.css" />
+}
+@section Scriptler{
+<script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/AdayMesaj.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/Kontroller/Tablo.js"></script>
+}
+

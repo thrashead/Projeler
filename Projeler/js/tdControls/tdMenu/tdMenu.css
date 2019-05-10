@@ -1,0 +1,19 @@
+﻿.tdMenuFrame { float:left; margin:0px 0px 0px 0px; text-align:center; }
+.tdMenuFrame .tdMenu { list-style-type:none; padding: 3px 3px 3px 3px; 
+ border: 1px solid #8F8F8F; 
+margin: 0px 0px 0px 0px; position: absolute; background-color: #fff; overflow-y: hidden; 
+overflow-x: hidden; }
+.tdMenuFrame .tdMenu li { clear: both; float: left; background-color: #fff; overflow: hidden; height: 20px; 
+                  line-height: 20px; font-size: 11px; color: #000; cursor:pointer; width: 100%;}
+.tdMenuFrame .tdMenu a.plus { color: #000; font-size: 11px; padding: 0px 2px 0px 2px; text-decoration: none; 
+                                 float: right; border: 1px solid #000; text-align: center; height: 17px; 
+                                 background-color: #fff;}
+.tdMenuFrame .tdMenu a.plus:hover { background-color: #000; color: #fff; }
+.tdMenuFrame .tdMenu li:hover { background-color: #cfcfcf!important; color: #fff!important;}
+.tdMenuFrame .tdMenu li.focus { background-color: #cfcfcf!important; color: #fff!important;}
+.tdMenuFrame .tdMenu li a { color: #000; font-size: 11px; float: left; padding: 0px; text-decoration: none;
+                            cursor: pointer; }
+.tdMenuFrame .tdMenu li a:hover { color: #000; }
+.tdMenuFrame .tdMenu li.focus { background-color: #cfcfcf!important; color: #fff!important; }
+.tdMenuFrame .tdMenu img#loading { width:20px; }
+.tdMenuFrame .tdMenu hr {width: 100%;border: none; float:left;margin: 2px 0px 2px 0px;border-top: 1px solid gray;}

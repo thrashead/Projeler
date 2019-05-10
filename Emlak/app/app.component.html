@@ -1,0 +1,31 @@
+﻿<a href="javascript:;" id="scrolltop"></a>
+
+<div id="AnaIskelet">
+    <emlak-header></emlak-header>
+    <emlak-banner></emlak-banner>
+
+    <div id="SolMenu">
+        <emlak-kategorimenu></emlak-kategorimenu>
+        <emlak-sayfagetir></emlak-sayfagetir>
+        <emlak-aramasol></emlak-aramasol>
+        <emlak-haberlersol></emlak-haberlersol>
+        <emlak-gununemlagi></emlak-gununemlagi>
+        <emlak-yeniilansol></emlak-yeniilansol>
+    </div>
+
+    <div id="Icerik">
+        <router-outlet></router-outlet>
+    </div>
+
+    <emlak-footer></emlak-footer>
+</div>
+
+<!--@{ string url = Urling.FullURL.Replace("http://", "").TrimEnd('/').Replace("localhost/", "").TrimEnd('/'); }
+<input type="hidden" id="hdnUrl" value="@url" />
+<input type="hidden" id="hdnFullUrl" value="@Urling.FullURL" />-->
+<!--@{string lang = Session["Lang"] == null ? "tr" : @Session["Lang"].ToString(); }
+<input type="hidden" id="hdnLang" value="@lang" />-->
+<!--<div id="reloader">
+    @LangBaslik.KodlaGetir("load")
+</div>-->
+<!--@RenderSection("scripts", required: false)-->

@@ -1,0 +1,31 @@
+﻿<div class="mailickisim">
+    <h1>İletişim</h1>
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+        <div class="mailcerceve">
+            <div class="row">
+                <div class="column">Ad Soyad : </div>
+                <div class="control">
+                    <input id="txtGonderen" formControlName="adsoyad" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">Konu : </div>
+                <div class="control">
+                    <input id="txtKonu" type="text" formControlName="konu" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="column double">Mesaj : </div>
+                <div class="column double">
+                    <textarea rows="1" cols="1" id="txtIcerik" formControlName="mesaj"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column double textright">
+                    <input id="btnTemizle" type="button" value="Temizle" (click)="temizle()" />
+                    <button id="btnGonder" type="submit" [disabled]="!reviewForm.valid">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

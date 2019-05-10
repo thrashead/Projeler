@@ -1,0 +1,48 @@
+﻿@using TDLibrary;
+@using Lib;
+<!DOCTYPE html>
+
+<html ng-app="IKapp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>IK Sitesi</title>
+    @{ Html.RenderPartial("~/Views/Kontroller/_Scriptler.cshtml"); }
+    @if (IsSectionDefined("Stiller"))
+    {
+        @RenderSection("Stiller", required: false)
+    }
+    @if (IsSectionDefined("Scriptler"))
+    {
+        @RenderSection("Scriptler", required: false)
+    }
+</head>
+<body>
+    <div class="frame">
+        @{ Html.RenderPartial("~/Views/Kontroller/UstBolge/_Ust.cshtml"); }
+        <div class="headcase bgyellow">
+            <div class="middle">
+                @{ Html.RenderPartial("~/Views/Kontroller/UstBolge/_UstMenu.cshtml"); }
+            </div>
+        </div>
+        <div class="middle">
+            <div class="content">
+                @RenderBody()
+            </div>
+        </div>
+        @{ Html.RenderPartial("~/Views/Kontroller/AltBolge/_Alt.cshtml"); }
+    </div>
+    @if (SabitDegerler.AktifKullanici != null)
+    {
+        <input id="hdnLoginGuid" type="hidden" value="@SabitDegerler.AktifKullanici.Guid" />
+    }
+
+    @if (SabitDegerler.AktifFirma != null)
+    {
+        <input id="hdnLoginGuid" type="hidden" value="@SabitDegerler.AktifFirma.Guid" />
+    }
+    <input id="hdnLoginType" type="hidden" value="@GirisYonetimi.Tip.ToString()" />
+    <input id="hdnUrl" type="hidden" value="@Urling.FullURL" />
+</body>
+</html>

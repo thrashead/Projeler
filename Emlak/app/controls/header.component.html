@@ -1,0 +1,36 @@
+﻿<div class="EnUstAlan">
+    <div class="Logo">
+        <a [routerLink]="['Giris']">
+            <img src="img/logo.png" alt="Logo" style="max-height: 135px; max-width: 400px;" />
+        </a>
+    </div>
+
+    <div class="EnUstLinkler">
+        <a [routerLink]="['Giris']">{{ anaSayfaText }}</a> |
+        <a [routerLink]="['Icerik/Hakkimizda']">{{ hakkimizdaText }}</a> |
+        <a [routerLink]="['Icerik/Iletisim']">{{ iletisimText }}</a>
+    </div>
+
+    <div class="Lang">
+        <a *ngFor="let item of diller" class="btnLang" href="javascript:;" title="{{item.LangName}}" (click)="onClick(item.ShortName)">
+            <img src="Uploads/Gallery/{{item.FlagImage}}" />
+        </a>
+    </div>
+
+    <form [formGroup]="girisForm" (ngSubmit)="onSubmit()">
+        <div class="PanelGiris">
+            <div class="PanelColumn">
+                <b>{{ kullaniciAdiText }} : </b>
+                <input type="text" id="adminuser" formControlName="kullanici" class="PanelTextBox" (onkeydown)="onKeyDown($event)" />
+            </div>
+            <div class="PanelColumn">
+                <b>{{ sifreText }} : </b>
+                <input type="password" id="adminpass" formControlName="sifre" class="PanelTextBox" (onkeydown)="onKeyDown($event)" />
+            </div>
+            <div class="PanelColumn">
+                <span id="lblsonuc">{{ lblSonucText }}</span>
+                <input type="submit" id="btnAdminGiris" class="Button" value="{{ btnGirisText }}" [disabled]="!girisForm.valid" />
+            </div>
+        </div>
+    </form>
+</div>

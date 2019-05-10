@@ -1,0 +1,24 @@
+﻿@using TDLibrary
+
+@{
+    ViewBag.Title = "AnaSayfa";
+    Layout = "~/Views/_IKLayoutArama.cshtml";
+}
+
+@{ Html.RenderPartial("~/Views/Giris/_SirketLogolar.cshtml"); }
+@{ Html.RenderPartial("~/Views/Giris/_SonBesIs.cshtml"); }
+@{ Html.RenderPartial("~/Views/Giris/_BasariHikaye.cshtml"); }
+@{ Html.RenderPartial("~/Views/Giris/_AcilIsler.cshtml"); }
+@{ Html.RenderPartial("~/Views/Giris/_Anket.cshtml"); }
+@{ Html.RenderPartial("~/Views/Giris/_IsDurumlari.cshtml"); }
+@{ Html.RenderPartial("~/Views/Giris/_Sehirler.cshtml"); }
+
+@section Stiller{
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/AnaSayfa.css" />
+}
+@section Scriptler{
+<script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDRoller.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/AnaSayfa.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/Jquery/jquery.watermark.min.js"></script>
+}

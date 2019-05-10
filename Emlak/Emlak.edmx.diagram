@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b35f383d6d3749b39778fca81aa05bc5" Name="Diagram1">
+        <EntityTypeShape EntityType="EmlakSiteModel.Assignments" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Category" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.CategoryLang" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Content" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.ContentLang" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Files" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.FilesLang" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.FilesNoLang" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Gallery" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.GalleryLang" Width="1.5" PointX="5.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Lang" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.PanelMenu" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Pictures" Width="1.5" PointX="3" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.PicturesLang" Width="1.5" PointX="5.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.PicturesNoLang" Width="1.5" PointX="3" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Rank" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.RankPoint" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.RealEstateAds" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.RealEstateAdsLang" Width="1.5" PointX="10.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.SiteDesign" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.URLink" Width="1.5" PointX="3" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.URLinkLang" Width="1.5" PointX="5.25" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.URLinkNoLang" Width="1.5" PointX="3" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmlakSiteModel.Users" Width="1.5" PointX="0.75" PointY="25.625" IsExpanded="true" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Category_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Category_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_CategoryLang_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RealEstateAds_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RealEstateAds_Category1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_CategoryLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Content_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Content_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_ContentLang_Content" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_ContentLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Files_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Files_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_FilesLang_Files" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_FilesLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_FilesNoLang_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_FilesNoLang_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Gallery_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Gallery_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_GalleryLang_Gallery" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_GalleryLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_PicturesLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RealEstateAdsLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_URLinkLang_Lang" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Pictures_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_Pictures_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_PicturesLang_Pictures" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_PicturesNoLang_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_PicturesNoLang_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RankPoint_Rank" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RealEstateAds_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RealEstateAds_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_RealEstateAdsLang_RealEstateAds" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_URLink_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_URLink_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_URLinkLang_URLink" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_URLinkNoLang_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EmlakSiteModel.FK_URLinkNoLang_Users1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

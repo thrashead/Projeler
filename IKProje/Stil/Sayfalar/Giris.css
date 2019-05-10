@@ -1,0 +1,77 @@
+﻿#logincontrol {float:left;margin:0px 0px 0px 0px;width: 488px;border: 1px solid#FF6000;padding-top: 10px;}
+#logincontrol .row {float:left;margin:0px 0px 0px 0px;width:100%;}
+#logincontrol .row label {margin: 0px 40px 0px 0px;font-size: 15px;}
+#logincontrol .row a {margin: 0px 0px 0px 0px;font-size: 15px;line-height: 40px;text-decoration: underline;color: #FF6000;}
+#logincontrol .row a:hover {color:#ED9A2C;}
+#logincontrol .row .left {float:left;margin:0px 0px 0px 0px;width: 154px;font-weight: bold;color: gray;padding: 29px 10px 29px 10px;font-size: 16px;}
+#logincontrol .row .right {float:left;margin:0px 0px 0px 0px;width: 274px;padding: 20px 20px 20px 0px;color: #FF6000;}
+#logincontrol .row .right input[type=text] {float:left;margin: 0px 0px 0px 10px;width: 252px;height: 24px;line-height: 24px;padding: 5px;font-size: 16px;border: 1px solid#FF6000;color: gray;}
+#logincontrol .row .right input[type=text]:hover {border-color:#ED9A2C;}
+#logincontrol .row .right input[type=password] {float:left;margin: 0px 0px 0px 10px;width: 252px;height: 24px;line-height: 24px;padding: 5px;font-size: 16px;border: 1px solid#FF6000;color: gray;}
+#logincontrol .row .right input[type=password]:hover {border-color:#ED9A2C;}
+#logincontrol .row input[type=button] {margin: 10px 40px 0px 0px;padding: 10px 30px 10px 30px;}
+
+#loginmessage {float:left;margin:0px 0px 0px 0px;width: 468px;border: 1px solid #FF6000;padding: 169px 20px 0px 0px;height: 121px;background-image:url(../../Resim/loginleftback.png);background-repeat: no-repeat;color: #484A4A;}
+#loginmessage h2{float:right;margin: 0px 0px 10px 0px;width: 468px;}
+
+#logincontrol.company {border-color:#2188F3;}
+#logincontrol.company .row .right input[type=text] {border-color:#2188F3;}
+#logincontrol.company .row .right input[type=text]:hover {border-color:#4E9FF4;}
+#logincontrol.company .row .right input[type=password] {border-color:#2188F3;}
+#logincontrol.company .row .right input[type=password]:hover {border-color:#4E9FF4;}
+#logincontrol.company .row a {color:#2188F3;}
+#logincontrol.company .row a:hover {color:#4E9FF4;}
+#logincontrol.company .row .right {color:#2188F3;}
+#loginmessage.company {border-color:#2188F3;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#logincontrol {width: 367px;}
+#logincontrol .row .left {width: 347px;text-align: left;padding: 10px 10px 10px 10px;}
+#logincontrol .row .left.hide {display:none;}
+#logincontrol .row .right {width:100%;padding: 0px 0px 0px 0px;}
+#logincontrol .row .right input[type=text] {width: 335px;}
+#logincontrol .row .right input[type=password] {width: 335px;}
+#logincontrol .row label {margin: 20px 10px 10px 0px;float: right;}
+#logincontrol .row input[type=button] {margin: 10px 10px 0px 0px;}
+#logincontrol .row a {line-height:50px; margin-right:10px;}
+
+#loginmessage {width: 347px;}
+#loginmessage h2{width: 347px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#logincontrol {width: 566px;}
+#logincontrol .row .left {width: 205px;}
+#logincontrol .row label {margin-right: 67px;}
+#logincontrol .row input[type=button] {margin-right: 67px;}
+#logincontrol .row .left.hide {display:block;}
+
+#loginmessage {width: 546px;}
+#loginmessage h2{width: 546px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#logincontrol .row .left.hide {display:block;}
+#logincontrol {width: 478px;}
+#logincontrol .row label {margin-right: 32px;}
+#logincontrol .row input[type=button] {margin-right: 32px;}
+
+#loginmessage {width: 458px;}
+#loginmessage h2{width: 458px;}
+}
+@media only screen and (max-width: 480px)
+{
+#logincontrol {width: 318px;}
+#logincontrol .row .left {width: 298px;text-align: left;padding: 10px 10px 10px 10px;}
+#logincontrol .row .left.hide {display:none;}
+#logincontrol .row .right {width:100%;padding: 0px 0px 0px 0px;}
+#logincontrol .row .right input[type=text] {width: 286px;}
+#logincontrol .row .right input[type=password] {width: 286px;}
+#logincontrol .row label {margin: 20px 10px 10px 0px;float: right;}
+#logincontrol .row input[type=button] {margin: 10px 10px 0px 0px;}
+#logincontrol .row a {line-height:50px; margin-right:10px;}
+
+#loginmessage {width: 298px;font-size: 10px;}
+#loginmessage h2{width: 298px;}
+}

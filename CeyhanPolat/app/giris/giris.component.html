@@ -1,0 +1,37 @@
+﻿<div class="frame yellow bgwhite">
+    <div class="mainframe">
+        <div class="maincontent">
+
+            <div class="siircontainer" *ngFor="let item of rasgeleSiir">
+                <div class="siirimage" id="imgSiir" [ngStyle]="{'background-image': 'url(' + item.Picture + ')'}"></div>
+                <div class="siirimagecropper">
+                </div>
+                <div class="siircontent">
+                    <h1>{{ item.PoetryName }}</h1>
+                    <span [innerHTML]="item.Poetry"></span>
+                </div>
+                <a [routerLink]="['/Siirleri/' + item?.RouteUrl]" class="siirdevam">
+                    Devamı...
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="frame bgyellow white">
+    <div class="mainframe">
+        <div class="maincontent">
+
+            <div class="cerceveresim">
+                <img id="imgCerceve" src="{{ kisaBiyografi?.Picture }}" />
+            </div>
+            <div class="cercevebiyografi">
+                <span [innerHTML]="kisaBiyografi?.Text"></span>
+                <br />
+                <a [routerLink]="['/' + kisaBiyografi?.RouteUrl]">Devamı...</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

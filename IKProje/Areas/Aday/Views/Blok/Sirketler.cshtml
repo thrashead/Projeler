@@ -1,0 +1,62 @@
+﻿@using TDLibrary;
+@{
+    ViewBag.Title = "Bloklu Şirketler";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="orange">
+    <div id="left">
+        <h2>Engellenen Şirketler</h2>
+        <div id="block">
+            <div class="content orange" data-tab="genel">
+                <div class="row">
+                    <div class="title">Şirket İsmi</div>
+                    <div class="word">
+                        <input type="text" id="company" class="select blue" />
+                        <ul id="companyoptions" class="options blue">
+                            <li data-value="0" data-selected="true" style="display: none!important; padding: 0px; height: 0px;"></li>
+                            <li data-value="1">Şirket 1</li>
+                            <li data-value="2">Şirket 2</li>
+                            <li data-value="3">Şirket 3</li>
+                            <li data-value="3">Şirket 4</li>
+                            <li data-value="3">Şirket 5</li>
+                            <li data-value="3">Şirket 6</li>
+                            <li data-value="3">Şirket 7</li>
+                        </ul>
+                        <a id="addcompany" class="addbutton" onclick="javascript:;"></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="title">Engellenen Şirketler</div>
+                    <div class="word">
+                        <ul id="addedcompanies" class="addeditems">
+                            <li data-value="3">Şirket 1</li>
+                            <li data-value="3">Şirket 4</li>
+                            <li data-value="3">Şirket 6</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Aday/Views/Ozgecmis/Kontroller/_OzgecmisLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/OzgecmisLinkler.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/AdayBlokSirket.css" />
+}
+@section Scriptler{
+    <script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/AdayBlokSirket.js"></script>
+}
+

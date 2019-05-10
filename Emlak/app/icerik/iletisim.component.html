@@ -1,0 +1,14 @@
+﻿<div>
+    <div class="IcerikBaslik">
+        <img src="img/ok.png" alt="" border="0" />
+        <span [innerHtml]="iletisim?.Baslik"></span>
+    </div>
+    <div class="IcerikMetin">
+        <div class="IletisimKolon1">
+            <img id="imgContact" alt="" style="height: 276px; width: 304px" src="{{iletisim?.Resim}}" />
+        </div>
+        <div class="IletisimKolon2">
+            <span [innerHtml]="iletisim?.Aciklama"></span>
+        </div>
+    </div>
+</div>

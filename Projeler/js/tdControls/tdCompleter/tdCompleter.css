@@ -1,0 +1,17 @@
+﻿.tdCompleterFrame { float:left; margin:0px 0px 0px 0px; }
+#tdCompleter { width: 165px; list-style-type:none; padding: 0px 3px 0px 3px; 
+border-left: 1px solid #8F8F8F; border-right: 1px solid #8F8F8F; border-bottom: 1px solid #8F8F8F; 
+margin: 0px 0px 0px 0px; position: absolute; background-color: #fff; z-index: 5; 
+max-height: 100px; overflow-y: scroll; overflow-x: hidden; display:none;}
+#tdCompleter li { clear: both; float: left; width: 100%; background-color: #fff; overflow: hidden; height: 20px; 
+                  line-height: 20px; font-size: 11px; color: #000; cursor:pointer; }
+#tdCompleter li:hover { background-color: #cfcfcf!important; color: #fff!important;}
+#tdCompleter li.focus { background-color: #cfcfcf!important; color: #fff!important;}
+#tdCompleter li a { color: #000; font-size: 11px; float: left; padding: 0px; width: 100%; text-decoration: none;}
+#tdCompleter li a:hover { color: #000; }
+#tdCompleter li.focus { background-color: #cfcfcf!important; color: #fff!important; }
+#tdCompleter li a img { float: right; margin: 1px 1px 0px 0px; width: 17px; height: 17px; border: 0px;}
+#tdCompleter li img { float: right; margin: 1px 1px 0px 0px; width: 17px; height: 17px; border: 0px;}
+
+
+

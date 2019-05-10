@@ -1,0 +1,57 @@
+﻿#resumeupdate {float:left;margin: 0px 0px 0px 0px;padding: 0px;width: 100%;list-style-type: none;}
+#resumeupdate li {margin: 0px 0px 0px 0px;width: 100%;float: left;}
+#resumeupdate li a {margin: 0px 0px 0px 0px;float: left;font-size: 15px;color: #FFF;padding: 20px 20px 20px 30px;width: 248px;font-weight: bold;background-repeat: no-repeat;background-position: 5px 19px;}
+#resumeupdate li a:hover {background-image: url(../../Resim/icons/leftarrow.png);}
+#resumeupdate li a.active {background-image: url(../../Resim/icons/leftarrow.png);}
+
+#resumeupdate li a.orange {background-color: #FF9759;}
+#resumeupdate li a.orange:hover {background-color: #FF6000;}
+#resumeupdate li a.orange.active {background-color: #FF6000;}
+#resumeupdate li a.orange.active:hover {background-color: #FF6000;}
+
+#resumeupdate li a.blue {background-color: #6EB1F7;}
+#resumeupdate li a.blue:hover {background-color: #2188F3;}
+#resumeupdate li a.blue.active {background-color: #2188F3;}
+#resumeupdate li a.blue.active:hover {background-color: #2188F3;}
+
+#resumeupdate li a.green {background-color: #24CB79;}
+#resumeupdate li a.green:hover {background-color: #1BA260;}
+#resumeupdate li a.green.active {background-color: #1BA260;}
+#resumeupdate li a.green.active:hover {background-color: #1BA260;}
+
+#resumeupdate li a.purple {background-color: #B791C8;}
+#resumeupdate li a.purple:hover {background-color: #744887;}
+#resumeupdate li a.purple.active {background-color: #744887;}
+#resumeupdate li a.purple.active:hover {background-color: #744887;}
+
+#resumeupdate li a.yellow {background-color: #F8D05E;}
+#resumeupdate li a.yellow:hover {background-color: #F8CE0D;}
+#resumeupdate li a.yellow.active {background-color: #F8CE0D;}
+#resumeupdate li a.yellow.active:hover {background-color: #F8CE0D;}
+
+#right > div.row:first-of-type {border: none;width:100%;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#resumeupdate li a {width: 718px;background-position:370px 2px;}
+#resumeupdate li a:hover {background-image: url(../../Resim/icons/uparrow.png);}
+#resumeupdate li a.active {background-image:url(../../Resim/icons/uparrow.png);}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#resumeupdate li a {width: 518px;background-position:275px 2px;}
+#resumeupdate li a:hover {background-image: url(../../Resim/icons/uparrow.png);}
+#resumeupdate li a.active {background-image:url(../../Resim/icons/uparrow.png);}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#resumeupdate li a {width: 430px;background-position:235px 2px;}
+#resumeupdate li a:hover {background-image: url(../../Resim/icons/uparrow.png);}
+#resumeupdate li a.active {background-image:url(../../Resim/icons/uparrow.png);}
+}
+@media only screen and (max-width: 480px)
+{
+#resumeupdate li a {width: 270px;background-position:155px 2px;}
+#resumeupdate li a:hover {background-image: url(../../Resim/icons/uparrow.png);}
+#resumeupdate li a.active {;background-image:url(../../Resim/icons/uparrow.png);}
+}

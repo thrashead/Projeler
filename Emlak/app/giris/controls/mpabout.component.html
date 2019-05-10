@@ -1,0 +1,18 @@
+﻿<div class="AnaSayfaIkiliKolon hakkimizda" style="margin-left: 25px;">
+    <div class="AnaSayfaIkiliKolonBaslik">
+        {{hakkimizdaText}}
+    </div>
+    <div class="AnaSayfaIkiliKolonIcerik">
+        <div class="AnaSayfaIkiliKolonResim">
+            <img src="img/hakkimizda.png" alt="" style="max-width: 120px; max-height: 200px;" />
+        </div>
+        <div class="AnaSayfaIkiliKolonMetin">
+            <font style="font-family: Verdana; font-size: 12px; font-style: normal;">
+                <span [innerHtml]="about?.Aciklama"></span>
+            </font>
+            <br />
+            <br />
+            <a [routerLink]="['/Icerik/Hakkimizda']" style="float: right;">{{devamText}}</a>
+        </div>
+    </div>
+</div>

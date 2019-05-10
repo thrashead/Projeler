@@ -1,0 +1,86 @@
+﻿#updatecv {float:left;margin:0px 0px 0px 0px;width:698px;padding-bottom: 10px;}
+#updatecv .content {float:left;margin: 0px 0px 0px 0px;width: 678px;padding: 0px 10px 0px 10px;}
+#updatecv .content h3 {float:left;margin:0px 0px 0px 0px;width: 658px;padding:10px;font-size: 12px;}
+#updatecv .content .row {float:left;margin:0px 0px 0px 0px;width: 658px;padding:10px;}
+#updatecv .content .row .title {float:left;margin: 0px 10px 0px 0px;width: 158px;font-weight:bold;color:#3A3A3A;}
+#updatecv .content .row .word {float:left;margin:0px 0px 0px 0px;width: 490px;color: #4D4D4D;line-height: 20px;}
+#updatecv .content .row .word a {color: #4D4D4D;}
+#updatecv .content .row .word a:hover {color: #3A3A3A;}
+#updatecv .content .row span {float:left;margin: 0px 0px 10px 0px;font-weight: normal;font-size: 11px;width: 100%;}
+
+#updatecv .content.orange .row {border-color: #FF9759;}
+#updatecv .content.orange h3 {background-color:#FF9759;color:#FFF;}
+#updatecv .content.blue .row {border-color: #6EB1F7;}
+#updatecv .content.blue h3 {background-color:#6EB1F7;color:#FFF;}
+#updatecv .content.green .row {border-color: #24CB79;}
+#updatecv .content.green h3 {background-color: #24CB79;color:#FFF;}
+#updatecv .content.purple .row {border-color: #B791C8;}
+#updatecv .content.purple h3 {background-color: #B791C8;color:#FFF;}
+#updatecv .content.yellow .row {border-color: #F8D05E;}
+#updatecv .content.yellow h3 {background-color: #F8D05E;color:#FFF;}
+
+#left h2 {font-size: 16px;font-weight: normal;}
+
+.addbutton {float:left;margin:0px 0px 0px 0px;width:32px;height:32px;background-image:url(../../Resim/icons/blue/addicon.png);}
+.addbutton:hover {background-image:url(../../Resim/icons/blue/addiconhover.png);}
+.addbutton:active {background-image:url(../../Resim/icons/blue/addiconactive.png);}
+.addeditems {float:left;margin: 0px 0px 0px 0px;padding: 0px 5px 0px 0px;list-style-type: none;width: 270px;}
+.addeditems li {float:left;margin: 5px 10px 5px 0px;cursor: pointer;background-color: #2188F3;border: 1px solid;padding: 5px 5px 5px 30px;color: #FFF;background-image: url(../../Resim/icons/cancel.png);background-repeat: no-repeat;background-position: 5px center;}
+.addeditems li:hover {background-color: #FFF;color: #2188F3;background-image: url(../../Resim/icons/blue/cancel.png);}
+
+.select {width: 160px;cursor:pointer;border: 1px solid #FF6000;padding: 5px;height: 20px;line-height: 20px;color: gray;overflow: hidden;float: left;margin: 0px 0px 0px 0px;background-position: 155px 10px!important;}
+.select.blue {border-color: #2188F3;}
+.select.green {border-color: #1BA260;}
+.select.purple {border-color: #744887;}
+.select img {margin: -6px 3px 0px 0px;float: right;}
+.options {background-color:#FFF;position: absolute;margin: 31px 0px 0px 0px;border: 1px solid #FF6000;width: 160px;list-style: none;padding: 5px;max-height:90px;overflow-x:hidden;overflow-y: auto;}
+.options.blue {border-color: #2188F3;}
+.options.green {border-color: #1BA260;}
+.options.purple {border-color: #744887;}
+.options li {padding:5px;color:#000;cursor:pointer;}
+.options li:hover {background-color:lightgray;}
+
+input[type=text] {padding: 5px;height: 20px;line-height: 20px;width: 160px;}
+textarea {width: 100%;height: 250px;}
+textarea.small {width: 100%;height: 100px;}
+
+.button {float: right;margin: 0px -5px 0px 10px;padding: 10px;width: 100px;text-align: center;}
+
+.row .word label.remover {float:left;margin:0px 0px 0px 0px;clear: both;}
+.removecomp {background-image:url(../../Resim/icons/delete.png);background-repeat:no-repeat;float:right;margin: 3px 0px 0px 5px;width: 15px;height: 15px;background-size: 15px 15px;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+#updatecv {width: 766px;}
+#updatecv .content {width: 746px;}
+#updatecv .content h3 {width: 726px;}
+#updatecv .content .row {width: 726px;}
+#updatecv .content .row .title {width: 226px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+#updatecv {width: 566px;}
+#updatecv .content {width: 546px;}
+#updatecv .content h3 {width: 526px;}
+#updatecv .content .row {width: 526px;}
+#updatecv .content .row .title {width: 526px;}
+#updatecv .content .row .word {width: 526px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+#updatecv {width: 478px;}
+#updatecv .content {width: 458px;}
+#updatecv .content h3 {width: 438px;}
+#updatecv .content .row {width: 438px;}
+#updatecv .content .row .title {width: 438px;}
+#updatecv .content .row .word {width: 438px;}
+}
+@media only screen and (max-width: 480px)
+{
+#updatecv {width: 318px;}
+#updatecv .content {width: 298px;}
+#updatecv .content h3 {width: 278px;}
+#updatecv .content .row {width: 278px;}
+#updatecv .content .row .title {width: 278px;}
+#updatecv .content .row .word {width: 278px;}
+}

@@ -1,0 +1,28 @@
+﻿@using TDLibrary
+
+<link rel="shortcut icon" href="@AppMgr.MainPath/favicon.ico" type="image/x-icon">
+<link rel="icon" href="@AppMgr.MainPath/favicon.ico" type="image/x-icon">
+
+<link type="text/css" href="@AppMgr.StylePath/main.css" rel="stylesheet" />
+
+<!--[if IE 7]>
+    <link type="text/css" href="@AppMgr.StylePath/ie7.css" rel="stylesheet" />
+<![endif]-->
+
+<script type="text/javascript" src="@AppMgr.ScriptPath/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/jquery/json2.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/jquery/jquery.watermark.min.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/jquery/jquery.mask.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/jquery/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<script type="text/javascript" src="@AppMgr.ScriptPath/pathscript.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/main.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/top.js"></script>
+
+<script src="@AppMgr.MainPath/node_modules/core-js/client/shim.min.js"></script>
+<script src="@AppMgr.MainPath/node_modules/zone.js/dist/zone.js"></script>
+<script src="@AppMgr.MainPath/node_modules/systemjs/dist/system.src.js"></script>
+<script src="@AppMgr.MainPath/systemjs.config.js"></script>
+<script>
+    System.import('app').catch(function (err) { console.error(err); });
+</script>

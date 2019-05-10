@@ -1,0 +1,44 @@
+﻿.EmlakDetayUst
+{
+    float:left;
+    width:100%;
+}
+
+.EmlakDetayBaslik
+{
+    float:left;
+    width:810px;
+    margin-bottom:10px;
+    padding-left:20px;
+}
+
+.EmlakDetayGaleri
+{
+    float:left;
+    width:445px;
+}
+
+.EmlakDetayBilgiler
+{
+    float:left;
+    width: 375px;
+}
+
+.EmlakDetayAlt
+{
+    float:right;
+    margin-top:20px;
+    background-repeat:no-repeat;
+    width: 788px;
+    padding: 10px;
+    min-height: 300px;
+    border: 1px solid lightgrey;
+}
+
+.EmlakDetayAltKolon
+{
+    float:left;
+    width: 250px;
+    margin-top:10px;
+    margin-left: 10px;
+}

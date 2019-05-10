@@ -1,0 +1,94 @@
+﻿@using TDLibrary
+
+@{
+    ViewBag.Title = "Aday Ana Sayfa";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<script src="@AppMgr.ScriptPath/Angular/Scripts/Admin/Aday/ozgecmis.js"></script>
+
+<div id="page" class="orange" ng-controller="kontrolKullanici">
+    <div id="left">
+        <h2>
+            İş Arayan Ana Sayfa
+        </h2>
+        <div id="photoedit">
+            <img ng-if="modelKullanici.Resim != null" id="userphoto" src="@AppMgr.UploadPath/Aday/{{modelKullanici.Guid}}/{{modelKullanici.Resim}}" />
+            <img ng-if="modelKullanici.Resim == null" id="userphoto" src="@AppMgr.ImagePath/resimyok.jpg" />
+            <div id="photobuttons">
+                <a id="deletephoto" onclick="javascript:;">Sil</a> / <a id="changephoto" onclick="javascript:;">Değiştir</a>
+                <form id="upload" enctype="multipart/form-data">
+                    <input type="file" name="Resim" id="Resim" accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp" style="display:none;" />
+                </form>
+            </div>
+        </div>
+        <div id="lastvisit">
+            <b>Son Ziyaret Tarihi : </b>{{modelKullanici.SonGiris}}
+        </div>
+        <div id="useroptions">
+            <div class="row">
+                <div class="subject">Adınız Soyadınız : </div>
+                <div id="namesurname" class="object">{{modelKullanici.Ad}} {{modelKullanici.Soyad}}</div>
+            </div>
+            <div class="row">
+                <div class="subject">Kullanıcı Adınız : </div>
+                <div id="username" class="object">{{modelKullanici.KullaniciAdi}}</div>
+            </div>
+            <div class="row">
+                <div class="subject">E-Mail Adresiniz : </div>
+                <div id="mail" class="object">{{modelKullanici.Eposta}}</div>
+            </div>
+            <div class="row">
+                <div class="subject"></div>
+                <div class="object">
+                    <a id="updateprofile" href="javascript:;">Bilgilerimi Güncelle</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="subject">Özgeçmiş Durumu : </div>
+                <div class="object">
+                    <a ng-if="modelKullanici.OzgecmisAktif" id="resumestatus" class="active" onclick="javascript:;">Aktif</a>
+                    <div ng-if="modelKullanici.OzgecmisAktif" id="statusnote">
+                        Özgeçmişin tüm firmalar tarafından görüntülenecektir.
+                    </div>
+
+                    <a ng-if="!modelKullanici.OzgecmisAktif" id="resumestatus" class="passive" onclick="javascript:;">Pasif</a>
+                    <div ng-if="!modelKullanici.OzgecmisAktif" id="statusnote">
+                        Özgeçmişin sadece başvuru yaptığınız firmalar tarafından görüntülenecektir.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="adaylinks">
+            <a class="linkcolumn" href="@Url.Action("Goster", "Ozgecmis", new { area = "Aday" })">Özgeçmişim</a>
+            <a class="linkcolumn update smalltext" href="@Url.Action("Guncelle", "Ozgecmis", new { area = "Aday" })">Özgeçmişimi Güncelle</a>
+            <a class="linkcolumn writing" href="@Url.Action("Onyazilar", "Ozgecmis", new { area = "Aday" })">Önyazılarım</a>
+            <a class="linkcolumn applications" href="@Url.Action("Basvurular", "Ozgecmis", new { area = "Aday" })">Başvurularım</a>
+            <a class="linkcolumn message" href="@Url.Action("Mesajlar", "Ozgecmis", new { area = "Aday" })">Mesajlarım</a>
+            <a class="linkcolumn files" href="@Url.Action("Dosyalar", "Ozgecmis", new { area = "Aday" })">Dosyalarım</a>
+            <a class="linkcolumn favorite smalltext" href="@Url.Action("Ilanlar", "Favori", new { area = "Aday" })">Favori İlanlarım</a>
+            <a class="linkcolumn block smalltext" href="@Url.Action("Sirketler", "Blok", new { area = "Aday" })">Engellenen Şirketler</a>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>
+                Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Aday/Views/Ozgecmis/Kontroller/_OzgecmisLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/AdayGiris.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/OzgecmisLinkler.css" />
+}
+@section Scriptler{
+    <script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Jquery/jquery.mask.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/AdayGiris.js"></script>
+}

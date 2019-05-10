@@ -1,0 +1,94 @@
+﻿@using TDLibrary;
+@{
+    ViewBag.Title = "İlanlar";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+<div id="page" class="blue">
+    <div id="left">
+        <h2>İlanlar
+        </h2>
+        <div id="searcharea">
+            <div class="searchbox">
+                <input id="appname" type="text" class="blue" />
+            </div>
+            <div class="searchbox">
+                <input id="appnumber" type="text" class="blue" />
+            </div>
+            <div class="searchbox">
+                <input id="appstartdate" type="text" class="blue" />
+            </div>
+            <div class="searchbox">
+                <input id="appenddate" type="text" class="blue" />
+            </div>
+            <div class="searchbox large">
+                <input id="searchbtn" type="button" class="blue" value="Uygula" />
+            </div>
+        </div>
+        <div id="table" class="blue">
+            <div class="row theader">
+                <div class="column first">
+                    İlan No
+                </div>
+                <div class="column second">
+                    İlan
+                </div>
+                <div class="column third">
+                    Tarih
+                </div>
+                <div class="column fourth">
+                    İşlemler
+                </div>
+            </div>
+            @for (int i = 0; i < 10; i++)
+            {
+                string s = i % 2 == 1 ? " alternate" : "";
+                <div class="row@(s)">
+                    <div class="column first">
+                        1G43J4KE3
+                    </div>
+                    <div class="column second">
+                        <a class="jobtitle" title="İlan önizlemesi için tıklayın." onclick="javascript:;">Web Yazılım Uzmanı</a>
+                    </div>
+                    <div class="column third">
+                        12.03.2016
+                    </div>
+                    <div class="column fourth">
+                        @Html.ActionLink("Güncelle", "Guncelle", "Ilan", new { area = "Sirket", ilan = "Web-Yazilim-Uzmani", id = "1G43J4KE3" }, null)<br />
+                        <a onclick="javascript:;">İşlemler</a>
+                    </div>
+                </div>
+            }
+            <div class="row tfooter">
+                <div class="column first">
+                    Toplam 36 Sonuç Bulundu.
+                </div>
+                <div class="column second">
+                    <a href="#">|<</a> <a href="#"><</a> <a href="#">></a> <a href="#">>|</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>Şirket Linkler
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Sirket/Views/Profil/Kontroller/_SirketLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/SirketLinkler.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/Tablo.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.ScriptPath/TDScripts/tdCalendar/tdCalendar.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/SirketIlanlar.css" />
+}
+@section Scriptler{
+<script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/SirketIlanlar.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/tdCalendar/tdCalendar.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/Jquery/jquery.watermark.min.js"></script>
+}

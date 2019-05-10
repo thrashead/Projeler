@@ -1,0 +1,85 @@
+﻿.frame .headerline {float:left;margin:0px 0px 0px 0px;width:100%;height:3px;}
+
+.frame .header {height:80px;}
+
+#logo {float:left;margin:12px 0px 0px 0px;}
+#logo img {float:left;margin:0px 0px 0px 0px;max-width:145px;}
+
+#toplogin {float:right;margin:0px 0px 0px 0px;height:80px;width:175px;}
+#toplogin a {float:right;margin:0px 0px 0px 5px;height:40px;font-weight:bold;line-height:40px;padding:0px 5px 0px 5px;}
+
+.frame .headcase {float:left;margin:0px 0px 0px 0px;width:100%;background-image:url(../Resim/headcaseback.png);
+                  background-repeat:no-repeat;background-position:center 0px;}
+
+#topmenu {float:left;margin:10px 0px 10px 0px;padding:0px 0px 0px 0px;list-style-type:none;}
+#topmenu li {float:left;margin:0px 20px 0px 0px;padding:0px 0px 0px 0px;}
+#topmenu li a {color:#FFF;font-size:14px;font-weight:bold;}
+#topmenu li a:hover {color:#FFEB3B;}
+
+#searchbox {margin:70px auto 0px auto;width:758px;height:105px;border:1px solid #fff;background-color:transparent;}
+#msrctext {float:left;margin:30px 0px 0px 40px;width:440px;height:30px;line-height:30px;font-size:20px;padding:5px;}
+#msrcselect {float:left;margin:30px 0px 0px -1px;width:168px;height:40px;line-height:40px;background-color:#FFF;border:1px solid #FF6000;
+             cursor:pointer;padding:0px 0px 0px 10px;overflow:hidden;white-space:nowrap;background-position:165px 15px!important;}
+#msrcselect img {float:right;margin:0px 0px 0px 0px;}
+@-moz-document url-prefix() {#msrcselect img {margin-top:-40px;}}
+#msrcoptions {display:none;float:left;width:178px;margin:71px 0px 0px 491px;padding:0px 0px 0px 0px;list-style:none;background-color:#FFF;
+              border:1px solid #FF6000;z-index:10000;position:absolute;max-height:100px;overflow-x:hidden;overflow-y:scroll;
+              white-space:nowrap;}
+#msrcoptions li {margin:0px 0px 0px 0px;padding:3px 6px 3px 6px;cursor:pointer;}
+#msrcoptions li:hover {background-color:lightgray;}
+#msrcbutton {float:left;margin:30px 0px 0px 0px;width:47px;height:40px;text-align:center;line-height:40px;border:1px solid #FF6000;}
+
+#slogan {text-align:center;color:#fff;padding-top:20px;margin:0px 0px 37px 0px;}
+#slogan span.big {font-size:20px;font-weight:bold;}
+#slogan span.small {font-size:14px;}
+
+/*Login Aday*/
+#toplogin #loginmenu {float:left;margin: 0px 0px 0px 10px;padding:10px;height:auto;border: 1px solid #2188F3;border-top: none;font-size:12px;
+                     font-weight:normal;background-color: #FFF;position:absolute;display:none;list-style-type:none;width: 143px;z-index:20000;}
+#toplogin #loginmenu li {float:left;margin: 0px 0px 0px 0px;padding: 0px 0px 0px 0px;}
+#toplogin #loginmenu li a {padding: 10px 10px 10px 40px;float: left;line-height: normal;height: auto;margin: 0px 0px 0px -10px;font-weight: normal;
+                           width: 113px;background-image: url(../Resim/icons/blue/resume.png);background-repeat: no-repeat;
+                           background-position: 10px 8px;}
+
+#toplogin #loginmenu li a.home {background-image: url(../Resim/icons/blue/home.png);}
+#toplogin #loginmenu li a.writing {background-image: url(../Resim/icons/blue/writing.png);}
+#toplogin #loginmenu li a.applications {background-image: url(../Resim/icons/blue/applications.png);}
+#toplogin #loginmenu li a.announce {background-image: url(../Resim/icons/blue/announce.png);}
+#toplogin #loginmenu li a.about {background-image: url(../Resim/icons/blue/about.png);}
+#toplogin #loginmenu li a.logout {background-image: url(../Resim/icons/blue/logout.png);}
+
+#toplogin a#loginbutton {float:left;margin: 0px 0px 0px 10px;padding:10px;line-height:20px;height:auto;border: 1px solid #2188F3;border-top: none;
+                        font-size:12px;font-weight:normal;background-color: #2188F3;position:absolute;text-align:center;z-index:20001;color: #FFF;
+                        width: 143px;}
+
+@media only screen and (min-width:769px) and (max-width:1024px)
+{
+#searchbox {width:766px;}
+}
+@media only screen and (min-width:569px) and (max-width:768px)
+{
+#searchbox {width:566px;}
+#msrctext {width:282px;}
+#msrcselect {width:140px;background-position:135px 15px!important;}
+#msrcoptions {width:150px;margin-left:333px;}
+}
+@media only screen and (min-width:481px) and (max-width:568px)
+{
+#searchbox {width:478px;}
+#msrctext {width:218px;}
+#msrcselect {width:128px;padding-left:2px;background-position:115px 15px!important;}
+#msrcoptions {width:130px;margin-left:269px;}
+}
+@media only screen and (max-width:480px)
+{
+#searchbox {width:318px;height:180px;margin-top:40px;}
+#topmenu li {margin-right:15px;}
+#topmenu li a {font-size: 11px;}
+#msrctext {width:222px;margin-bottom:5px;margin-top:21px;}
+#msrcselect {width:222px;margin-top:0px;margin-left:40px;background-position:215px 15px!important;margin-bottom:5px;}
+#msrcbutton {width:232px;margin-top:0px;margin-left:40px;}
+#slogan {padding-top:10px;margin-bottom:10px;}
+#slogan span.big {font-size:14px;}
+#slogan span.small {font-size:10px;}
+#msrcoptions {width:232px;margin-left:40px;margin-top:113px;}
+}

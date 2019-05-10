@@ -1,0 +1,82 @@
+﻿.ikform {float:left;margin:0px 0px 0px 0px;width: 1008px;border: 1px solid #FF6000;padding: 20px 0px 40px 0px;background-image: url(Content/img/loginbackorange.png);
+         background-repeat: no-repeat;}
+.ikform .row {float:left;margin:0px 0px 0px 0px;width:100%;}
+.ikform .row label {margin: 0px 40px 0px 0px;font-size: 15px;}
+.ikform .row a {margin: 0px 0px 0px 0px;font-size: 15px;line-height: 40px;text-decoration: underline;color: #FF6000;}
+.ikform .row a:hover {color:#ED9A2C;}
+.ikform .row .left {float:left;margin:0px 0px 0px 0px;width: 484px;font-weight: bold;color: gray;padding: 29px 10px 29px 10px;font-size: 16px;}
+.ikform .row .right {float:left;margin:0px 0px 0px 0px;width: 484px;padding: 20px 20px 20px 0px;color: #FF6000;}
+.ikform .row .right input[type=text] {float:left;margin: 0px 0px 0px 10px;width: 400px;height: 24px;line-height: 24px;padding: 5px;font-size: 16px;border: 1px solid #FF6000;
+                                      color: gray;}
+.ikform .row .right input[type=text]:hover {border-color:#ED9A2C;}
+.ikform .row .right input[type=password] {float:left;margin: 0px 0px 0px 10px;width: 400px;height: 24px;line-height: 24px;padding: 5px;font-size: 16px;border: 1px solid #FF6000;
+                                          color: gray;}
+.ikform .row .right input[type=password]:hover {border-color:#ED9A2C;}
+.ikform .row .right textarea {float:left;margin: 0px 0px 0px 10px;width: 400px;height: 100px;line-height: 24px;padding: 5px;font-size: 16px;border: 1px solid #FF6000;
+                              color: gray;letter-spacing: -1px;}
+.ikform .row .right textarea:hover {border-color:#ED9A2C;}
+.ikform .row input[type=submit], .ikform .row input[type=button] {margin: 30px 0px 0px 0px;padding: 10px 30px 10px 30px;}
+
+.select {width: 150px;cursor:pointer;border: 1px solid #FF6000;padding: 5px;height: 30px;line-height: 30px;color: gray;overflow: hidden;float: left;
+         margin: 0px 0px 0px 10px;background-position: 145px 15px!important;}
+.select.blue {border-color:#2188F3!important;}
+.select img {margin: -6px 3px 0px 0px;float: right;}
+.options {background-color:#FFF;position: absolute;margin: 41px 0px 0px 10px;border: 1px solid #FF6000;width: 150px;list-style: none;padding: 5px;
+          max-height:90px;overflow-x:hidden;overflow-y: auto;}
+.options li {padding:5px;color:#000;cursor:pointer;}
+.options li:hover {background-color:lightgray;}
+
+.ikform.company {border-color: #2188F3;background-image: url(Content/img/loginbackblue.png);}
+.ikform.company .row a {color:#2188F3;}
+.ikform.company .row a:hover {color:#4E9FF4;}
+.ikform.company .row .right {color:#2188F3;}
+.ikform.company .row .right input[type=text] {border-color:#2188F3;}
+.ikform.company .row .right input[type=text]:hover {border-color:#4E9FF4;}
+.ikform.company .row .right input[type=password] {border-color:#2188F3;}
+.ikform.company .row .right input[type=password]:hover {border-color:#4E9FF4;}
+.ikform.company .row .right textarea {border-color:#2188F3;}
+.ikform.company .row .right textarea:hover {border-color:#4E9FF4;}
+.ikform.company #genderselect {border-color:#2188F3;}
+.ikform.company #genderoptions {border-color:#2188F3;}
+.ikform.company #cityselect {border-color:#2188F3;}
+.ikform.company #cityoptions {border-color:#2188F3;}
+.ikform.company #sectorselect {border-color:#2188F3;}
+.ikform.company #sectoroptions {border-color:#2188F3;}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+.ikform {width: 766px;}
+.ikform .row .left{width: 363px;}
+.ikform .row .right{width: 363px;}
+.ikform .row .right input[type=text]{width: 340px;}
+.ikform .row .right input[type=password]{width: 340px;}
+.ikform .row .right textarea{width: 340px;}
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+.ikform {width: 566px;padding-top: 40px;}
+.ikform .row .left{width: 546px;text-align: left;padding: 0px 0px 10px 10px;}
+.ikform .row .right{width: 546px;padding: 0px 0px 20px 0px;}
+.ikform .row .right input[type=text]{width: 534px;}
+.ikform .row .right input[type=password]{width: 534px;}
+.ikform .row .right textarea{width: 534px;}
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+.ikform {width: 478px;padding-top: 40px;}
+.ikform .row .left{width: 468px;text-align: left;padding: 0px 0px 10px 10px;}
+.ikform .row .right{width: 478px;padding: 0px 0px 20px 0px;}
+.ikform .row .right input[type=text]{width: 446px;}
+.ikform .row .right input[type=password]{width: 446px;}
+.ikform .row .right textarea{width: 446px;}
+}
+@media only screen and (max-width: 480px)
+{
+.ikform {width: 318px;padding-top: 40px;}
+.ikform .row .left{width: 308px;text-align: left;padding: 0px 0px 10px 10px;}
+.ikform .row .right{width: 318px;padding: 0px 0px 20px 0px;}
+.ikform .row .right input[type=text]{width: 286px;}
+.ikform .row .right input[type=password]{width: 286px;}
+.ikform .row .right textarea{width: 286px;}
+}

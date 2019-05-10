@@ -1,0 +1,21 @@
+﻿#table .row .column.fourth {line-height:16px;}
+#table .row .column.second a.jobtitle {line-height:32px;}
+#table .row .column.second {width:61%;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+
+}
+@media only screen and (max-width: 480px)
+{
+#table .row .column.fourth {width:96%;}
+#table .row .column.second {width:64%;}
+}

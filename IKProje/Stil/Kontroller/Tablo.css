@@ -1,0 +1,66 @@
+﻿#table {float:left;margin: 0px 0px 0px 0px;width: 100%;}
+#table .row {float:left;margin: 0px 0px 0px 0px;width: 100%;height: 50px;}
+#table .row.alternate {background-color: #F1F0EE;}
+#table .row.unread {font-weight:bold;}
+#table .row .column {float: left;margin: 0px 0px 0px 0px;height: 50px;line-height: 50px;overflow: hidden;white-space: nowrap;padding: 0px 2% 0px 2%;}
+#table .row .column.first {width: 14%;}
+#table .row .column.first img {width: auto;max-height: 40px;float: left;margin: 5px 0px 0px 0px;max-width: 100%;}
+#table .row .column.second {width: 42%;}
+#table .row .column.second .hiddeninfo {background-color:#FFF;position: absolute;overflow-x: hidden;overflow-y: auto;border: 1px solid;padding: 20px;line-height: 14px;font-size: 12px;margin: 0px 0px 0px 0px;z-index: 1000;display:none;white-space: normal;text-align: justify;height:auto;}
+#table .row .column.second .hiddeninfo h2 {margin-bottom: 5px;}
+#table .row .column.second a.jobtitle{margin-top: 7px;float: left;line-height: normal;}
+#table .row .column.second a.jobtitle:hover{color:#000;text-decoration:underline;}
+#table .row .column.second a.companyname{margin-top: -23px;float: left;line-height: normal;color:#AAAAAB;}
+#table .row .column.second a.companyname:hover{text-decoration:underline;}
+#table .row .column.third {width: 15%;}
+#table .row .column.fourth {width: 13%;line-height: 25px;text-align: center;}
+#table .row.theader {font-size: 14px;font-weight: bold;cursor: auto;}
+#table .row.theader .column.fourth {line-height: 50px;}
+#table .row.tfooter {font-size: 14px;font-weight: bold;height: 57px;line-height: 57px;cursor: auto;}
+#table .row.tfooter .column.first {width: 66%;height: 57px;line-height: 57px;}
+#table .row.tfooter .column.second{width: 26%;text-align: right;height: 57px;line-height: 57px;}
+#table .row.tfooter .column.second a {font-weight:bold;}
+#table .row.tfooter .column.second a:hover {color:lightgray;}
+
+#table.orange .row .column.second .hiddeninfo {border-color: #FF6000;}
+#table.orange .row .column.second .hiddeninfo h2 {color: #FF6000;width: 100%;margin: 0px 0px 20px 0px;padding: 0px 0px 0px 0px;white-space: nowrap;overflow: hidden;}
+#table.orange .row .column.second .hiddeninfo b {color: #2188F3;}
+#table.orange .row.theader .column.fourth {color: #FFF;}
+#table.orange .row .column.fourth a {color: #FF6000;}
+#table.orange .row .column.fourth a:hover {color: #ED9A2C;}
+#table.orange .row .column.fourth a:active {color: #EFA338;}
+#table.orange .row.theader {background-color: #FF6000;color: #FFF;}
+#table.orange .row.tfooter {background-color: #FF6000;color: #FFF;}
+#table.orange .row.tfooter .column.second a {color:#FFF;}
+
+#table.blue .row .column.second .hiddeninfo {border-color: #2188F3;}
+#table.blue .row .column.second .hiddeninfo h2 {color: #2188F3;}
+#table.blue .row .column.second .hiddeninfo b {color: #2188F3;}
+#table.blue .row.theader .column.fourth {color: #FFF;}
+#table.blue .row .column.fourth a {color: #2188F3;}
+#table.blue .row .column.fourth a:hover {color: #4E9FF4;}
+#table.blue .row .column.fourth a:active {color: #64AAF4;}
+#table.blue .row.theader {background-color: #2188F3;color: #FFF;}
+#table.blue .row.tfooter {background-color: #2188F3;color: #FFF;}
+#table.blue .row.tfooter .column.second a {color:#FFF;}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+}
+@media only screen and (min-width: 569px) and (max-width: 768px)
+{
+}
+@media only screen and (min-width: 481px) and (max-width: 568px)
+{
+}
+@media only screen and (max-width: 480px)
+{
+#table .row {height: 100px;}
+#table .row .column.first{width: 28%;}
+#table .row .column.second{text-align: right!important;width: 64%;}
+#table .row .column.second a.jobtitle {float:right;}
+#table .row .column.second a.companyname {float:right;}
+#table .row .column.third{width: 30%;}
+#table .row .column.fourth{text-align:right;width: 62%;}
+#table .row .column.second .hiddeninfo{margin-left: -17%;}
+}

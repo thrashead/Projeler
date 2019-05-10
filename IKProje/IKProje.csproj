@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6602B7E4-8B85-451D-86B1-2ABCD2329704}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IKProje</RootNamespace>
+    <AssemblyName>IKProje</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TDFramework, Version=3.2.1.1, Culture=neutral, PublicKeyToken=fd9a3dd75c0bf6e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\TDFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="TDLibrary">
+      <HintPath>..\..\..\Dll\TDLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Aday\Controllers\BlokController.cs" />
+    <Compile Include="Areas\Aday\Controllers\FavoriController.cs" />
+    <Compile Include="Areas\Ajax\AjaxAreaRegistration.cs" />
+    <Compile Include="Areas\Ajax\Controllers\AramaController.cs" />
+    <Compile Include="Areas\Ajax\Controllers\FirmaController.cs" />
+    <Compile Include="Areas\Ajax\Controllers\GenelController.cs" />
+    <Compile Include="Areas\Ajax\Controllers\KayitController.cs" />
+    <Compile Include="Areas\Ajax\Controllers\KullaniciController.cs" />
+    <Compile Include="Areas\Ajax\Controllers\GirisController.cs" />
+    <Compile Include="Areas\Is\Controllers\IlanController.cs" />
+    <Compile Include="Areas\Sirket\Controllers\BlokController.cs" />
+    <Compile Include="Areas\Sirket\Controllers\IlanController.cs" />
+    <Compile Include="Areas\Sirket\Controllers\ProfilController.cs" />
+    <Compile Include="Areas\Yonet\YonetAreaRegistration.cs" />
+    <Compile Include="Areas\Sirket\Controllers\IslemController.cs" />
+    <Compile Include="Areas\Sirket\SirketAreaRegistration.cs" />
+    <Compile Include="Areas\Aday\Controllers\IslemController.cs" />
+    <Compile Include="Areas\Aday\Controllers\OzgecmisController.cs" />
+    <Compile Include="Areas\Aday\AdayAreaRegistration.cs" />
+    <Compile Include="Areas\Is\IsAreaRegistration.cs" />
+    <Compile Include="Controllers\AnketController.cs" />
+    <Compile Include="Controllers\GirisController.cs" />
+    <Compile Include="Controllers\KontrollerController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\Metodlar.cs" />
+    <Compile Include="Lib\Sabitler.cs" />
+    <Compile Include="Lib\Enums.cs" />
+    <Compile Include="Lib\GirisYonetimi.cs" />
+    <Compile Include="Lib\AramaNesnesi.cs" />
+    <Compile Include="Models\AramaKayit.cs" />
+    <Compile Include="Models\CalismaTipi.cs" />
+    <Compile Include="Models\Cinsiyet.cs" />
+    <Compile Include="Models\Departman.cs" />
+    <Compile Include="Models\EgitimBurs.cs" />
+    <Compile Include="Models\EgitimSeviye.cs" />
+    <Compile Include="Models\FirmaIlan.cs" />
+    <Compile Include="Models\FirmaIlanSart.cs" />
+    <Compile Include="Models\FirmaIlanSorular.cs" />
+    <Compile Include="Models\Kullanici.cs" />
+    <Compile Include="Models\Maas.cs" />
+    <Compile Include="Models\Onyazi.cs" />
+    <Compile Include="Models\OzgecmisBilgisayar.cs" />
+    <Compile Include="Models\OzgecmisCalisma.cs" />
+    <Compile Include="Models\OzgecmisDeneyim.cs" />
+    <Compile Include="Models\OzgecmisDil.cs" />
+    <Compile Include="Models\OzgecmisDosya.cs" />
+    <Compile Include="Models\OzgecmisEgitim.cs" />
+    <Compile Include="Models\OzgecmisGenel.cs" />
+    <Compile Include="Models\OzgecmisReferans.cs" />
+    <Compile Include="Models\OzgecmisSertifika.cs" />
+    <Compile Include="Models\OzgecmisSinav.cs" />
+    <Compile Include="Models\OzgecmisTercih.cs" />
+    <Compile Include="Models\Pozisyon.cs" />
+    <Compile Include="Models\Sehir.cs" />
+    <Compile Include="Models\Firma.cs" />
+    <Compile Include="Models\Sektor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="bin\TDFramework.dll" />
+    <Content Include="favicon.ico" />
+    <Content Include="Resim\icons\blue\about.png" />
+    <Content Include="Resim\icons\blue\announce.png" />
+    <Content Include="Resim\icons\blue\cancel.png" />
+    <Content Include="Resim\icons\blue\giveannounce.png" />
+    <Content Include="Resim\icons\blue\home.png" />
+    <Content Include="Resim\icons\blue\logout.png" />
+    <Content Include="Resim\icons\blue\message.png" />
+    <Content Include="Resim\icons\blue\pool.png" />
+    <Content Include="Resim\icons\cancel.png" />
+    <Content Include="Resim\icons\blue\addicon.png" />
+    <Content Include="Resim\icons\blue\addiconactive.png" />
+    <Content Include="Resim\icons\blue\addiconhover.png" />
+    <Content Include="Resim\icons\blue\applications.png" />
+    <Content Include="Resim\icons\blue\block.png" />
+    <Content Include="Resim\icons\blue\facebook-small.png" />
+    <Content Include="Resim\icons\blue\favorite.png" />
+    <Content Include="Resim\icons\blue\files.png" />
+    <Content Include="Resim\icons\blue\resumeprint.png" />
+    <Content Include="Resim\icons\blue\resumeupdate.png" />
+    <Content Include="Resim\icons\blue\writing.png" />
+    <Content Include="Resim\icons\delete.png" />
+    <Content Include="Resim\icons\facebook.png" />
+    <Content Include="Resim\icons\blue\favorite-small.png" />
+    <Content Include="Resim\icons\green\addicon.png" />
+    <Content Include="Resim\icons\green\addiconactive.png" />
+    <Content Include="Resim\icons\green\addiconhover.png" />
+    <Content Include="Resim\icons\green\cancel.png" />
+    <Content Include="Resim\icons\leftarrow.png" />
+    <Content Include="Resim\icons\orange\about.png" />
+    <Content Include="Resim\icons\orange\addicon.png" />
+    <Content Include="Resim\icons\orange\addiconactive.png" />
+    <Content Include="Resim\icons\orange\addiconhover.png" />
+    <Content Include="Resim\icons\orange\announce.png" />
+    <Content Include="Resim\icons\orange\applications.png" />
+    <Content Include="Resim\icons\orange\block.png" />
+    <Content Include="Resim\icons\orange\cancel.png" />
+    <Content Include="Resim\icons\orange\favorite-small.png" />
+    <Content Include="Resim\icons\blue\freelance.png" />
+    <Content Include="Resim\icons\blue\fulltime.png" />
+    <Content Include="Resim\icons\blue\internship.png" />
+    <Content Include="Resim\icons\blue\leftsearchbutton.png" />
+    <Content Include="Resim\icons\blue\leftsearchbuttonhover.png" />
+    <Content Include="Resim\icons\blue\leftsearchbuttonactive.png" />
+    <Content Include="Resim\icons\linkedin.png" />
+    <Content Include="Resim\icons\blue\list-small.png" />
+    <Content Include="Resim\icons\blue\parttime.png" />
+    <Content Include="Resim\icons\blue\periodical.png" />
+    <Content Include="Resim\icons\blue\resume.png" />
+    <Content Include="Resim\icons\blue\twitter-small.png" />
+    <Content Include="Resim\icons\orange\favorite.png" />
+    <Content Include="Resim\icons\orange\files.png" />
+    <Content Include="Resim\icons\orange\giveannounce.png" />
+    <Content Include="Resim\icons\orange\home.png" />
+    <Content Include="Resim\icons\orange\logout.png" />
+    <Content Include="Resim\icons\orange\message.png" />
+    <Content Include="Resim\icons\orange\pool.png" />
+    <Content Include="Resim\icons\orange\resumeprint.png" />
+    <Content Include="Resim\icons\orange\resume.png" />
+    <Content Include="Resim\icons\orange\resumeupdate.png" />
+    <Content Include="Resim\icons\orange\writing.png" />
+    <Content Include="Resim\icons\twitter.png" />
+    <Content Include="Resim\icons\uparrow.png" />
+    <Content Include="Resim\loading.gif" />
+    <Content Include="Resim\loginleftback.png" />
+    <Content Include="Resim\logo\big1.jpg" />
+    <Content Include="Resim\logo\big2.jpg" />
+    <Content Include="Resim\logo\big3.jpg" />
+    <Content Include="Resim\logo\big4.jpg" />
+    <Content Include="Resim\logo\big5.jpg" />
+    <Content Include="Resim\loginbackblue.png" />
+    <Content Include="Resim\loginbackorange.png" />
+    <Content Include="Resim\icons\selectarrow.png" />
+    <Content Include="Resim\resim.jpg" />
+    <Content Include="Resim\resimyok.jpg" />
+    <Content Include="Resim\shadowblue.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Resim\headcaseback.png" />
+    <Content Include="Resim\logo.png" />
+    <Content Include="Resim\logo\1.JPG" />
+    <Content Include="Resim\logo\10.JPG" />
+    <Content Include="Resim\logo\11.JPG" />
+    <Content Include="Resim\logo\12.JPG" />
+    <Content Include="Resim\logo\13.JPG" />
+    <Content Include="Resim\logo\14.JPG" />
+    <Content Include="Resim\logo\15.JPG" />
+    <Content Include="Resim\logo\16.JPG" />
+    <Content Include="Resim\logo\17.JPG" />
+    <Content Include="Resim\logo\18.JPG" />
+    <Content Include="Resim\logo\2.JPG" />
+    <Content Include="Resim\logo\3.JPG" />
+    <Content Include="Resim\logo\4.JPG" />
+    <Content Include="Resim\logo\5.JPG" />
+    <Content Include="Resim\logo\6.JPG" />
+    <Content Include="Resim\logo\7.JPG" />
+    <Content Include="Resim\logo\8.JPG" />
+    <Content Include="Resim\logo\9.JPG" />
+    <Content Include="Resim\shadowwhite.png" />
+    <Content Include="Script\Angular\angular-sanitize.min.js" />
+    <Content Include="Script\Angular\angular.min.js" />
+    <Content Include="Script\Angular\angularmain.js" />
+    <Content Include="Script\Angular\Scripts\Admin\Aday\ozgecmis.js" />
+    <Content Include="Script\Angular\Scripts\Admin\Aday\islem.js" />
+    <Content Include="Script\Angular\Scripts\Admin\Sirket\islem.js" />
+    <Content Include="Script\Angular\Scripts\giris.js" />
+    <Content Include="Script\Angular\Scripts\kontroller.js" />
+    <Content Include="Script\Kontroller\ckeditor\adapters\jquery.js" />
+    <Content Include="Script\Kontroller\ckeditor\CHANGES.html" />
+    <Content Include="Script\Kontroller\ckeditor\ckeditor.js" />
+    <Content Include="Script\Kontroller\ckeditor\ckeditor_basic.js" />
+    <Content Include="Script\Kontroller\ckeditor\config.js" />
+    <Content Include="Script\Kontroller\ckeditor\contents.css" />
+    <Content Include="Script\Kontroller\ckeditor\images\spacer.gif" />
+    <Content Include="Script\Kontroller\ckeditor\INSTALL.html" />
+    <Content Include="Script\Kontroller\ckeditor\lang\af.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ar.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\bg.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\bn.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\bs.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ca.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\cs.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\cy.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\da.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\de.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\el.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\en-au.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\en-ca.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\en-gb.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\en.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\eo.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\es.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\et.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\eu.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\fa.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\fi.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\fo.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\fr-ca.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\fr.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\gl.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\gu.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\he.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\hi.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\hr.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\hu.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\is.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\it.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ja.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\km.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ko.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\lt.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\lv.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\mn.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ms.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\nb.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\nl.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\no.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\pl.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\pt-br.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\pt.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ro.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\ru.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\sk.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\sl.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\sr-latn.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\sr.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\sv.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\th.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\tr.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\uk.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\vi.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\zh-cn.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\zh.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\_languages.js" />
+    <Content Include="Script\Kontroller\ckeditor\lang\_translationstatus.txt" />
+    <Content Include="Script\Kontroller\ckeditor\LICENSE.html" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\a11yhelp\lang\en.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\a11yhelp\lang\he.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\adobeair\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\ajax\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\autogrow\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\div\dialogs\div.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\find\dialogs\find.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\flash\dialogs\flash.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\flash\images\placeholder.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\button.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\form.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\select.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\iframedialog\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\link\images\anchor.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\pastetext\dialogs\pastetext.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\placeholder\dialogs\placeholder.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\placeholder\lang\en.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\placeholder\lang\he.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\placeholder\placeholder.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\placeholder\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\heart.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\specialchar\lang\en.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\styles\styles\default.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\tableresize\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\dialogs\uicolor.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\lang\en.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\lang\he.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\uicolor.gif" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\yui\assets\hue_bg.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\yui\assets\hue_thumb.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\yui\assets\picker_mask.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\yui\assets\picker_thumb.png" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\yui\assets\yui.css" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\uicolor\yui\yui.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Script\Kontroller\ckeditor\plugins\xml\plugin.js" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\dialog.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\editor.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\icons.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\icons_rtl.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\dialog_sides.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\dialog_sides.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\dialog_sides_rtl.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\mini.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\noimage.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\sprites.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\sprites_ie6.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\images\toolbar_start.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\skin.js" />
+    <Content Include="Script\Kontroller\ckeditor\skins\kama\templates.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\dialog.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\editor.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\icons.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\icons_rtl.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\dialog_sides.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\dialog_sides.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\dialog_sides_rtl.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\mini.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\noimage.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\sprites.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\images\sprites_ie6.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\skin.js" />
+    <Content Include="Script\Kontroller\ckeditor\skins\office2003\templates.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\dialog.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\editor.css" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\icons.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\icons_rtl.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\dialog_sides.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\dialog_sides.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\dialog_sides_rtl.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\mini.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\noimage.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\sprites.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\sprites_ie6.png" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\images\toolbar_start.gif" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\skin.js" />
+    <Content Include="Script\Kontroller\ckeditor\skins\v2\templates.css" />
+    <Content Include="Script\Kontroller\ckeditor\themes\default\theme.js" />
+    <Content Include="Script\Kontroller\IlanEkle.js" />
+    <Content Include="Script\Sayfalar\AraKaydet.js" />
+    <Content Include="Script\Sayfalar\SirketGiris.js" />
+    <Content Include="Script\Sayfalar\SirketKayit.js" />
+    <Content Include="Script\Sayfalar\SirketOzgecmis.js" />
+    <Content Include="Script\Sayfalar\SirketIlanlar.js" />
+    <Content Include="Script\Sayfalar\SirketDosyalar.js" />
+    <Content Include="Script\Sayfalar\SirketBlokAday.js" />
+    <Content Include="Script\Sayfalar\SirketMesaj.js" />
+    <Content Include="Script\Sayfalar\Giris.js" />
+    <Content Include="Script\Sayfalar\AdayBlokSirket.js" />
+    <Content Include="Script\Sayfalar\AdayMesaj.js" />
+    <Content Include="Script\Sayfalar\SirketHakkimizda.js" />
+    <Content Include="Script\Sayfalar\SirketBasvuru.js" />
+    <Content Include="Script\Sayfalar\SirketIlanVer.js" />
+    <Content Include="Script\TDScripts\tdCalendar\tdCalendar.css" />
+    <Content Include="Script\TDScripts\tdCalendar\tdCalendar.js" />
+    <Content Include="Script\UstBolge.js" />
+    <Content Include="Script\Yonet\Script.js" />
+    <Content Include="Script\Kontroller\Tablo.js" />
+    <Content Include="Script\Sayfalar\Basvurular.js" />
+    <Content Include="Script\Sayfalar\IsDetay.js" />
+    <Content Include="Script\Sayfalar\Ara.js" />
+    <Content Include="Script\Sayfalar\AdayKayit.js" />
+    <Content Include="Script\Kontroller\OzgecmisGuncelle.js" />
+    <Content Include="Script\Sayfalar\OnyaziCV.js" />
+    <Content Include="Script\Sayfalar\DosyalarCV.js" />
+    <Content Include="Script\Sayfalar\GuncelleCV.js" />
+    <Content Include="Script\Sayfalar\AdayGiris.js" />
+    <Content Include="Script\TDScripts\TDDropDown.js" />
+    <Content Include="Script\Sayfalar\AnaSayfa.js" />
+    <Content Include="Script\TDScripts\TDRoller.js" />
+    <Content Include="Script\Jquery\jquery-1.10.2.min.js" />
+    <Content Include="Script\Jquery\jquery.mask.js" />
+    <Content Include="Script\Jquery\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Script\Jquery\jquery.watermark.min.js" />
+    <Content Include="Script\Jquery\json2.js" />
+    <Content Include="Script\Yollar.js" />
+    <Content Include="Script\Script.js" />
+    <Content Include="Script\temp.js" />
+    <Content Include="Stil\Kontroller\IlanEkle.css" />
+    <Content Include="Stil\Kontroller\SirketLinkler.css" />
+    <Content Include="Stil\Sayfalar\AdayFavoriSirket.css" />
+    <Content Include="Stil\Sayfalar\AdayFavoriIlan.css" />
+    <Content Include="Stil\Sayfalar\AdayBlokSirket.css" />
+    <Content Include="Stil\Sayfalar\SirketOzgecmis.css" />
+    <Content Include="Stil\Sayfalar\SirketIlanlar.css" />
+    <Content Include="Stil\Sayfalar\SirketDosyalar.css" />
+    <Content Include="Stil\Sayfalar\SirketHakkimizda.css" />
+    <Content Include="Stil\Sayfalar\SirketBlokAday.css" />
+    <Content Include="Stil\Sayfalar\SirketGiris.css" />
+    <Content Include="Stil\Sayfalar\SirketBasvuru.css" />
+    <Content Include="Stil\Sayfalar\SirketIlanVer.css" />
+    <Content Include="Stil\Yonet\Stil.css" />
+    <Content Include="Stil\Kontroller\OzgecmisGuncelle.css" />
+    <Content Include="Stil\Kontroller\OzgecmisLinkler.css" />
+    <Content Include="Stil\Kontroller\Tablo.css" />
+    <Content Include="Stil\Sayfalar\Basvurular.css" />
+    <Content Include="Stil\Sayfalar\IsDetay.css" />
+    <Content Include="Stil\Sayfalar\DosyalarCV.css" />
+    <Content Include="Stil\Sayfalar\OnyaziCV.css" />
+    <Content Include="Stil\Sayfalar\Ara.css" />
+    <Content Include="Stil\Sayfalar\Kayit.css" />
+    <Content Include="Stil\Sayfalar\Sayfa.css" />
+    <Content Include="Stil\Sayfalar\GosterCV.css" />
+    <Content Include="Stil\Sayfalar\GuncelleCV.css" />
+    <Content Include="Stil\Sayfalar\AdayGiris.css" />
+    <Content Include="Stil\temp.css" />
+    <Content Include="Stil\Sayfalar\Giris.css" />
+    <Content Include="Stil\Sayfalar\AnaSayfa.css" />
+    <Content Include="Stil\AltBolge.css" />
+    <Content Include="Stil\UstBolge.css" />
+    <Content Include="Stil\Stil.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Aday\Models\" />
+    <Folder Include="Areas\Aday\Views\Shared\" />
+    <Folder Include="Areas\Ajax\Models\" />
+    <Folder Include="Areas\Ajax\Views\Shared\" />
+    <Folder Include="Areas\Is\Models\" />
+    <Folder Include="Areas\Is\Views\Shared\" />
+    <Folder Include="Areas\Sirket\Models\" />
+    <Folder Include="Areas\Sirket\Views\Shared\" />
+    <Folder Include="Areas\Yonet\Controllers\" />
+    <Folder Include="Areas\Yonet\Models\" />
+    <Folder Include="Areas\Yonet\Views\Shared\" />
+    <Folder Include="Dosya\" />
+    <Folder Include="Resim\Yonet\" />
+    <Folder Include="Script\Angular\Scripts\Admin\Is\" />
+    <Folder Include="Views\Kontroller\Yonet\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sirket\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Aday\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_IKLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\AnaSayfa.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Yonet\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\_Scriptler.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\UstBolge\_Ust.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\AltBolge\_Alt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sirket\Views\Islem\Giris.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Is\Views\Ilan\Ara.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Aday\Views\Islem\Kayit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Aday\Views\Islem\Giris.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_SirketLogolar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_SonBesIs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Script\Jquery\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_BasariHikaye.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_AcilIsler.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_Sehirler.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_IsDurumlari.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\UstBolge\_Ara.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Giris\_Anket.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\UstBolge\_UstMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\UstBolge\_Slogan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_IKLayoutArama.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\AltBolge\_Linkler.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Kontroller\AltBolge\_Mesaj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Aday\Views\Islem\Kontroller\_Giris.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Aday\Views\Islem\Kontroller\_GirisMesaj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sirket\Views\Islem\Kontroller\_Giris.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sirket\Views\Islem\Kontroller\_GirisMesaj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sirket\Views\Islem\Kayit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Is\Views\Ilan\Detay.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Aday\Views\Ozgecmis\AnaSayfa.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Basvurular.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Kontroller\_OzgecmisLinkler.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Goster.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Kontroller\_OzgecmisGuncelle.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Guncelle.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Onyazilar.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Yazdir.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Dosyalar.cshtml" />
+    <Content Include="Areas\Aday\Views\Islem\Kontroller\_Menu.cshtml" />
+    <Content Include="Areas\Sirket\Views\Islem\Kontroller\_Menu.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\AnaSayfa.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Basvurular.cshtml" />
+    <Content Include="Areas\Ajax\Views\Web.config" />
+    <Content Include="Areas\Aday\Views\Favori\Ilanlar.cshtml" />
+    <Content Include="Areas\Aday\Views\Favori\Sirketler.cshtml" />
+    <Content Include="Areas\Aday\Views\Blok\Sirketler.cshtml" />
+    <Content Include="Areas\Aday\Views\Ozgecmis\Mesajlar.cshtml" />
+    <Content Include="Areas\Is\Views\Web.config" />
+    <Content Include="Areas\Is\Views\Ilan\Sehir.cshtml" />
+    <Content Include="Areas\Is\Views\Ilan\IsTuru.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Kontroller\_SirketLinkler.cshtml" />
+    <Content Include="Areas\Sirket\Views\Ilan\Listele.cshtml" />
+    <Content Include="Areas\Sirket\Views\Ilan\Ver.cshtml" />
+    <Content Include="Areas\Sirket\Views\Blok\Adaylar.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Hakkimizda.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Mesajlar.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Ozgecmisler.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Dosyalar.cshtml" />
+    <Content Include="Areas\Sirket\Views\Ilan\Kontroller\_IlanEkle.cshtml" />
+    <Content Include="Areas\Sirket\Views\Ilan\Guncelle.cshtml" />
+    <Content Include="Areas\Sirket\Views\Profil\Detay.cshtml" />
+    <None Include="Properties\PublishProfiles\PublishIKProje.pubxml" />
+    <Content Include="Views\Kontroller\UstBolge\_Giris.cshtml" />
+    <Content Include="Script\Kontroller\ckeditor\.htaccess" />
+    <Content Include="Views\Anket\Sonuclar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1781</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/IKProje</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/IKProje</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

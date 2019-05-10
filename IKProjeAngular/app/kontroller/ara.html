@@ -1,0 +1,9 @@
+﻿<div class="middle clear">
+    <div id="searchbox">
+        <input type="text" id="msrctext" class="orange" />
+        <ul id="msrcoptions">
+            <li (click)="onClick($event)" *ngFor="let item of sehirler; let i = index;" data-value="{{item?.Kod}}" [attr.data-selected]="i == 0 ? 'true' : ''">{{item?.Sehir1}}</li>
+        </ul>
+        <a id="msrcbutton" class="orange" onclick="javascript:;">Ara</a>
+    </div>
+</div>

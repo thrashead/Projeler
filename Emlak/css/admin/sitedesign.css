@@ -1,0 +1,15 @@
+﻿#sitedesign { float:left; margin: 10px 0px 0px 75px; list-style:none; padding:0px 0px 0px 0px; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid; border-color: lightgray;}
+#sitedesign li { margin:0px 0px 0px 0px; padding:0px 0px 0px 0px; clear: both; border-bottom: 1px solid lightgray; float: left;}
+#sitedesign li.top { background-color: #60C8F2;  color: #fff; font-weight: bold;}
+#sitedesign li div { float:left; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px; width: 150px; text-align: center; line-height: 25px;}
+#sitedesign li input[type=text] {  width: 20px; text-align: center; }
+
+.savebtn { cursor: pointer; border:1px solid #60C8F2; background-color:#60C8F2; color:#fff; }
+.savebtn:hover { color:#60C8F2; background-color:#fff;  }
+
+.whichside { float:left; margin: 20px 0px 0px 75px; }
+.whichside h2 { float:left; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;}
+
+
+
+

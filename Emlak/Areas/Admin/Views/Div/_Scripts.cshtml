@@ -1,0 +1,61 @@
+﻿@using TDLibrary
+
+<script type="text/javascript" src="@AppMgr.ScriptPath/admin/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/admin/json2.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/admin/pathscript.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/admin/script.js"></script>
+
+<link rel="shortcut icon" href="@AppMgr.ImagePath/admin/icons/favicon.ico" type="image/x-icon">
+<link rel="icon" href="@AppMgr.ImagePath/admin/icons/favicon.ico" type="image/x-icon">
+@{
+    if (TDLibrary.Urling.URL.ToLower() == "login" || TDLibrary.Urling.URL.ToLower() == "forgotpassword")
+    {
+
+    <link type="text/css" href="@AppMgr.StylePath/admin/login.css" rel="stylesheet" />
+    }
+    else
+    {
+    <link type="text/css" href="@AppMgr.StylePath/admin/style.css" rel="stylesheet" />
+    <link type="text/css" href="@AppMgr.StylePath/admin/screen.css" rel="stylesheet" />
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/easySlider1.7.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/jquery.watermark.min.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/clockp.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/clockh.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/ddaccordion.js"></script>
+    <script type="text/javascript" src="@AppMgr.ScriptPath/admin/jconfirmaction.jquery.js"></script>
+    <script type="text/javascript">
+        ddaccordion.init({
+            headerclass: "submenuheader",
+            contentclass: "submenu",
+            revealtype: "click",
+            mouseoverdelay: 200,
+            collapseprev: true,
+            defaultexpanded: [],
+            onemustopen: false,
+            animatedefault: false,
+            persiststate: true,
+            toggleclass: ["", ""],
+            togglehtml: ["suffix", "<img src='@AppMgr.AdminPath/admin/plus.gif' class='statusicon' />", "<img src='@AppMgr.ImagePath/admin/minus.gif' class='statusicon' />"],
+            animatespeed: "fast",
+            oninit: function (headers, expandedindices) {
+
+            },
+            onopenclose: function (header, index, state, isuseractivated) {
+
+            }
+        });
+    </script>
+    }
+}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73262463-3', 'auto');
+  ga('send', 'pageview');
+
+</script>

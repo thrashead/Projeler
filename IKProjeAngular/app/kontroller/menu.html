@@ -1,0 +1,14 @@
+﻿<div class="headcase bgyellow">
+    <div class="middle">
+        <ul id="topmenu">
+            <li><a routerLink="/Giris">Ana Sayfa</a></li>
+            <li><a routerLink="/Is/Ilan/Ara">İş Ara</a></li>
+            <li *ngIf="!Durum"><a routerLink="/Aday/Islem/Kayit">Aday Kayıt</a></li>
+            <li *ngIf="!Durum"><a routerLink="/Sirket/Islem/Kayit">Şirket Kayıt</a></li>
+            <li *ngIf="Giris == 'Aday'"><a routerLink="/Aday/Ozgecmis/AnaSayfa">Profilim</a></li>
+            <li *ngIf="Giris == 'Aday'"><a routerLink="/Aday/Ozgecmis/Basvurular">Başvurularım</a></li>
+            <li *ngIf="Giris == 'Sirket'"><a routerLink="/Sirket/Profil/AnaSayfa">Şirketim</a></li>
+            <li *ngIf="Giris == 'Sirket'"><a routerLink="/Sirket/Profil/Basvurular">Başvurular</a></li>
+        </ul>
+    </div>
+</div>

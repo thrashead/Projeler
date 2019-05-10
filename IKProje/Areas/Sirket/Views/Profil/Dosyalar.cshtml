@@ -1,0 +1,58 @@
+﻿@using TDLibrary;
+@{
+    ViewBag.Title = "Dosyalar";
+    Layout = "~/Views/_IKLayout.cshtml";
+}
+
+
+<div id="page" class="blue">
+    <div id="left">
+        <h2>Dosyalar
+        </h2>
+        <div id="filescv">
+            <div class="content">
+                <div class="row">
+                    <div class="title">Başlık</div>
+                    <div class="word"><input id="fileName" type="text" class="blue" /></div>
+                </div>
+                <div class="row">
+                    <div class="title">Dosya</div>
+                    <div class="word"><input id="fileFile" type="file" /></div>
+                </div>
+                <div class="row">
+                    <a id="addfile" onclick="javascript:;" class="button blue">Ekle</a>
+                </div>
+
+                <div class="row">
+                    <div class="title">Kısa Özgeçmiş</div>
+                    <div class="word"><a target="_blank" href="#">Ozgeçmis.pdf</a></div>
+                    <a onclick="javascript:;" class="red button removefile">Sil</a>
+                </div>
+                <div class="row">
+                    <div class="title">Projeler</div>
+                    <div class="word"><a target="_blank" href="#">Projeler.doc</a></div>
+                    <a onclick="javascript:;" class="red button removefile">Sil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="row">
+            <h2>Özgeçmiş
+            </h2>
+            <div class="rowcontent">
+                @{ Html.RenderPartial("~/Areas/Sirket/Views/Profil/Kontroller/_SirketLinkler.cshtml"); }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Stiller{
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/Sayfa.css" />
+<link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Sayfalar/SirketDosyalar.css" />
+    <link rel="stylesheet" type="text/css" href="@AppMgr.StylePath/Kontroller/SirketLinkler.css" />
+}
+@section Scriptler{
+<script type="text/javascript" src="@AppMgr.ScriptPath/Sayfalar/SirketDosyalar.js"></script>
+<script type="text/javascript" src="@AppMgr.ScriptPath/TDScripts/TDDropDown.js"></script>
+}

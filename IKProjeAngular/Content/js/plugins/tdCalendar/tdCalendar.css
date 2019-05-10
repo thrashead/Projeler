@@ -1,0 +1,11 @@
+﻿.tdCalendar {float: left;margin: 0px 0px 0px 0px;}
+.tdCalendar .tdconts {float: left;margin: 0px 0px 0px 0px;width: 100%;text-align: center;}
+.tdCalendar .tdconts a {cursor:pointer;width: 20px;      height: 20px;      line-height: 20px;      text-align: center;}
+.tdCalendar .tdconts a.tdprev {float: left;margin: 0px 0px 0px 0px;}
+.tdCalendar .tdconts a.tdnext {float: right;margin: 0px 0px 0px 0px;}
+.tdCalendar .tdconts .tdmonthname {float: left;margin: 0px 0px 0px 0px;width: 114px;text-align: center;line-height: 20px;height: 20px;}
+.tdCalendar .tdmonth {border: 1px solid;width: 154px;margin: 0px 0px 0px 0px;position: absolute;z-index:9999;display:none;background-color: #fff;}
+.tdCalendar .tdmonth .tdday {width: 18px;float: left;height: 18px;cursor: pointer;border: 1px solid;margin: 1px;text-align: center;}
+.tdCalendar .tdmonth .tdday.selected {background-color:#000; color:#fff;}
+.tdCalendar .tdmonth .tdday.inactive {border-color:gray;}
+.tdCalendar .tdmonth .tdday.weekday {border-color: gray;background-color: lightgray;color: #000;}

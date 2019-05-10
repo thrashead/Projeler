@@ -1,0 +1,20 @@
+﻿@model List<Emlak.PanelMenu>
+@using Emlak
+@using TDLibrary
+
+@{
+    ViewBag.Title = "Emlak Sitesi Admin Panel Ana Sayfa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="right_content">
+    <h2>Emlak Sitesi Admin Panel Ana Sayfa</h2>
+    <ul id="adminlist">
+        @{
+            foreach (PanelMenu item in Model)
+            {
+            <li><a href="@(AppMgr.AdminPath + "/Panel/" + item.MenuLink)">@(item.MenuName != null ? item.MenuName : "")</a></li>
+            }
+        }
+    </ul>
+</div>
