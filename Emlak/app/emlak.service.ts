@@ -10,7 +10,7 @@ export class EmlakService {
     private linkKodlaGetir: string = "Shared/KodlaGetir";
     private linkLangs: string = "Shared/GetLangs";
     private linkChangeLang: string = "Shared/ChangeLang";
-    private linkAdminGiris: string = "Ajax/Emlak/Login";
+    private linkAdminGiris: string = "Ajax/Ajax/Login";
     private linkRasgeleBanner: string = "Shared/RasgeleBanner";
     private linkIcerikGetir: string = "Shared/IcerikGetir";
     private linkKategoriler: string = "Shared/Kategoriler";

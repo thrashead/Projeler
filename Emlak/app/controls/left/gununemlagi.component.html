@@ -2,7 +2,7 @@
     {{ gununIlaniText }}
 </div>
 <div class="SolIcerik gununnesne">
-    <a [routerLink]="['Emlak/Detay/' + emlak?.RouteUrl]">
+    <a [routerLink]="['Emlak/Detay/' + emlak?.Url]">
         <img border="0" alt="" style="max-width:100px; max-height:100px;" src="{{emlak?.Picture}}" />
     </a>
     <br />
@@ -14,7 +14,7 @@
     </b>
     <br />
     <br />
-    <a [routerLink]="['Emlak/Detay/' + emlak?.RouteUrl]">
-        <img border="0" src="img/{{ detayLinkText }}.png" height="20" />
+    <a [routerLink]="['Emlak/Detay/' + emlak?.Url]">
+        <img border="0" src="Content/img/{{ detayLinkText }}.png" height="20" />
     </a>
 </div>

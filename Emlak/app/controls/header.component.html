@@ -1,7 +1,7 @@
 ﻿<div class="EnUstAlan">
     <div class="Logo">
         <a [routerLink]="['Giris']">
-            <img src="img/logo.png" alt="Logo" style="max-height: 135px; max-width: 400px;" />
+            <img src="Content/img/logo.png" alt="Logo" style="max-height: 135px; max-width: 400px;" />
         </a>
     </div>
 
@@ -13,7 +13,7 @@
 
     <div class="Lang">
         <a *ngFor="let item of diller" class="btnLang" href="javascript:;" title="{{item.LangName}}" (click)="onClick(item.ShortName)">
-            <img src="Uploads/Gallery/{{item.FlagImage}}" />
+            <img src="Uploads/{{item.FlagImage}}" />
         </a>
     </div>
 

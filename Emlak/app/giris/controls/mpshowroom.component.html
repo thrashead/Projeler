@@ -1,6 +1,6 @@
 ﻿<div class="IcerikBaslik">
     <div class="BaslikMetin">
-        <img src="img/ok.png" alt="" border="0" />
+        <img src="Content/img/ok.png" alt="" border="0" />
         {{vitrinIlanlarText}}
     </div>
 </div>
@@ -10,10 +10,10 @@
             {{item?.CategoryName}}
         </div>
         <div class="EmlakYeni" *ngIf="item?.Yeni">
-            <img src="img/{{vitrinIlanlarResimText}}.png" alt="" border="0" />
+            <img src="Content/img/{{vitrinIlanlarResimText}}.png" alt="" border="0" />
         </div>
         <div class="ShowroomResim">
-            <a [routerLink]="['/Emlak/Detay/' + item?.RouteUrl]">
+            <a [routerLink]="['/Emlak/Detay/' + item?.Url]">
                 <img border="0" alt="" style="max-width:100px; max-height:100px;" src="{{item?.Picture}}" />
                 <br />
             </a>
@@ -27,8 +27,8 @@
             </b>
             <br />
             <br />
-            <a [routerLink]="['/Emlak/Detay/' + item?.RouteUrl]">
-                <img border="0" src="img/{{ detayLinkText }}.png" height="20" />
+            <a [routerLink]="['/Emlak/Detay/' + item?.Url]">
+                <img border="0" src="Content/img/{{ detayLinkText }}.png" height="20" />
             </a>
         </div>
     </div>

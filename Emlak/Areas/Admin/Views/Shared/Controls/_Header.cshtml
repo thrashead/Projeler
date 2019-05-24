@@ -1,0 +1,45 @@
+﻿@using Models
+@using TDLibrary
+@using Emlak
+
+@{
+    Kullanicilar user = AppTools.User;
+}
+
+<div id="header">
+    <h1><a><img src="@AppMgr.AdminImagePath/logo.png" /></a></h1>
+</div>
+
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        @*<li class="dropdown" id="profile-messages">
+            <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Hoşgeldiniz @user.Username</span><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-user"></i> Şifre De</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="icon-check"></i> Görevlerim</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:;" class="logout"><i class="icon-key"></i> Çıkış</a></li>
+            </ul>
+            </li>
+            <li class="dropdown" id="menu-messages">
+                <a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Mesajlar</span> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> yeni mesaj</a></li>
+                    <li class="divider"></li>
+                    <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> gelen</a></li>
+                    <li class="divider"></li>
+                    <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> giden</a></li>
+                    <li class="divider"></li>
+                    <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> çöp</a></li>
+                </ul>
+            </li>*@
+        <li class=""><a title="" href="@AppMgr.AdminPath/Kullanicilar/Duzenle/@user.ID"><i class="icon icon-user"></i>  <span class="text">Hoşgeldiniz @user.Username</span></a></li>
+        <li class=""><a href="javascript:;" class="logout"><i class="icon icon-share-alt"></i> <span class="text">Çıkış</span></a></li>
+    </ul>
+</div>
+
+<div id="search">
+    <input id="txtMainSearch" type="text" placeholder="Kelime..." />
+    <button id="btnMainSearch" type="button" class="tip-bottom" title="Ara"><i class="icon-search icon-white"></i></button>
+</div>

@@ -31,8 +31,8 @@ export class REService {
     }
 
     //Emlak Detaylı Arama Session
-    getEmlakDetayliArama(realCP: any) {
-        return this._http.get(this.linkEmlakDetayliAraSession, { params: { "realCP": JSON.stringify(realCP) } })
+    getEmlakDetayliArama(realCP: any): Observable<boolean> {
+        return this._http.post(this.linkEmlakDetayliAraSession, { realCP })
             .map((response: Response) => response.json())
             .catch(this._errorHandler);
     }

@@ -20,6 +20,7 @@ Projeler/*
 */validationEngine*/*
 */flexslider/*
 */Properties/*
+*/Global.asax
 */app/*.js
 *.jpg
 *.jpeg

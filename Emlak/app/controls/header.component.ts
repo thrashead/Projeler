@@ -38,7 +38,7 @@ export class HeaderComponent {
         this._emlakService.getAdminGiris(this.girisData)
             .subscribe((answer) => {
                 if (answer == true) {
-                    window.location.href = "Admin/Panel/Index";
+                    window.location.href = "Admin/Giris/AnaSayfa";
                 }
                 else {
                     this._emlakService.getKodlaGetir("iacc")

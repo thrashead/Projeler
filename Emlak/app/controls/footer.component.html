@@ -2,7 +2,7 @@
     <div class="EnAltLinkler">
         <span>» <a [routerLink]="['Giris']">{{ anaSayfaText }}</a></span>
         <span *ngFor="let item of kategoriler">
-            » <a [routerLink]="['Emlak/Listele/' + item.RouteUrl ]">{{ item.CategoryName }}</a>
+            » <a [routerLink]="['Emlak/Listele/' + item.Url ]">{{ item.CategoryName }}</a>
         </span>
         <span>
         » <a [routerLink]="['Emlak/Listele/Yeni']">{{ yeniIlanlarText}}</a> 

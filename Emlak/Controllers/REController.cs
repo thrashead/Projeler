@@ -1,10 +1,9 @@
-﻿using Lib;
+﻿using Emlak.Data;
+using Lib;
 using Models;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Xml;
 using TDLibrary;
@@ -13,7 +12,7 @@ namespace Emlak.Controllers
 {
     public class REController : Controller
     {
-        EmlakSiteEntities entity = new EmlakSiteEntities();
+        EmlakEntities entity = new EmlakEntities();
 
         [HttpGet]
         public JsonResult Detay(string link)
@@ -22,14 +21,13 @@ namespace Emlak.Controllers
 
             link = link.IsNull() == true ? Urling.URLBlocks[3] : link;
 
-            var realestateads = entity.RealEstateAds.Where(a => a.RouteUrl == link).FirstOrDefault();
+            var realestateads = entity.sp_RealEstatesByUrl(ToolBox.LangCode, link).FirstOrDefault();
 
             if (realestateads != null)
             {
                 model.ID = realestateads.ID;
-                model.KatID = realestateads.KatID;
-                model.AltKatID = realestateads.AltKatID;
-                model.Baslik = realestateads.Baslik;
+                model.Baslik = realestateads.TBaslik;
+                model.Aciklama = realestateads.Aciklama;
                 model.Code = realestateads.Code;
                 model.Fiyat = realestateads.Fiyat;
                 model.Yeni = realestateads.Yeni;
@@ -79,41 +77,13 @@ namespace Emlak.Controllers
                 model.KabloTVUydu = realestateads.KabloTVUydu;
                 model.Klima = realestateads.Klima;
                 model.Active = realestateads.Active;
-                model.AddDate = realestateads.AddDate;
-                model.AddUser = realestateads.AddUser;
-                model.UpdateDate = realestateads.UpdateDate;
-                model.UpdateUser = realestateads.UpdateUser;
-                model.Queue = realestateads.Queue;
-                model.RouteUrl = realestateads.RouteUrl;
+                model.RouteUrl = realestateads.Url;
                 model.Enlem = realestateads.Enlem;
                 model.Boylam = realestateads.Boylam;
 
-                var realestateadslang = entity.RealEstateAdsLang.Where(a => a.EmlakID == realestateads.ID && a.Language == ToolBox.LangID).FirstOrDefault();
+                var pictures = entity.sp_RealEstatePicturesByID(realestateads.ID).ToList();
 
-                if (realestateadslang != null)
-                {
-                    model.Baslik = realestateadslang.Baslik;
-                    model.Aciklama = realestateadslang.Aciklama;
-                    model.Language = realestateadslang.Language;
-                }
-
-                List<Assignments> assignList = ToolBox.GetAssignmentList(
-                    new Assignments()
-                    {
-                        MainType = "PicturesNoLang",
-                        TargetType = "RealEstateAds",
-                        TargetTypeID = realestateads.ID
-                    });
-
-                foreach (var assign in assignList)
-                {
-                    var picturesnolang = entity.PicturesNoLang.Where(a => a.ID == assign.MainTypeID).FirstOrDefault();
-
-                    if (picturesnolang != null)
-                    {
-                        model.Pictures.Add(picturesnolang.PictureName);
-                    }
-                }
+                model.Pictures.AddRange(pictures);
             }
 
             return Json(model, JsonRequestBehavior.AllowGet);
@@ -135,78 +105,48 @@ namespace Emlak.Controllers
             listRE.OrderBy = listRE.OrderBy == null ? "" : listRE.OrderBy;
             listRE.Page = listRE.Page < 1 ? 1 : listRE.Page;
 
-            var list = entity.RealEstateAds.ToList();
+            List<sp_RealEstatesForListSelect_Result> list = new List<sp_RealEstatesForListSelect_Result>();
 
             string pageHeader = "";
             int count = 0;
 
             if (Session["Emlaklar"] == null)
             {
-                list = list.Where(a => a.Active == true).ToList();
-
                 if (listRE.Word.ToLower() == "satilik")
                 {
-                    list = list.Where(a => a.Satilik == true).ToList();
+                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, true, null, null, null, null).ToList();
 
                     pageHeader = LangBaslik.KodlaGetir("stlk");
                 }
                 else if (listRE.Word.ToLower() == "kiralik")
                 {
-                    list = list.Where(a => a.Satilik == false).ToList();
+                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, false, null, null, null, null).ToList();
 
                     pageHeader = LangBaslik.KodlaGetir("krlk");
                 }
                 else if (listRE.Word.ToLower() == "yeni")
                 {
-                    list = list.Where(a => a.Yeni == true).ToList();
+                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, true, null, null, null).ToList();
 
                     pageHeader = LangBaslik.KodlaGetir("newi");
                 }
                 else if (listRE.Word.ToLower() == "tumu")
                 {
-                    pageHeader = LangBaslik.KodlaGetir("alli");
+                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, null, null, null, null).ToList();
                 }
                 else
                 {
-                    var _category = entity.Category.Where(a => a.Active == true && a.RouteUrl == listRE.Word).FirstOrDefault();
+                    pageHeader = entity.sp_CategoryNameByUrlAndTransCode(listRE.Word, ToolBox.LangCode).FirstOrDefault();
 
-                    if (_category != null)
+                    if (!pageHeader.IsNull())
                     {
-                        var _categoryLang = entity.CategoryLang.Where(a => a.CategoryID == _category.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                        if (_categoryLang != null)
-                        {
-                            pageHeader = _categoryLang.CategoryName;
-                        }
-                        else
-                        {
-                            pageHeader = _category.CategoryName;
-                        }
-
-                        if (_category.ParentID == 0)
-                        {
-                            list = list.Where(a => a.KatID == _category.ID).ToList();
-                        }
-                        else
-                        {
-                            list = list.Where(a => a.AltKatID == _category.ID).ToList();
-                        }
+                        list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, listRE.Word, null, null, null, null, null, null).ToList();
                     }
                     else
                     {
                         pageHeader = listRE.Word;
 
-                        List<RealEstateAds> listTemp = new List<RealEstateAds>();
-
-                        var rbLang = entity.RealEstateAdsLang.Where(a => a.Baslik.Contains(listRE.Word) && a.Language == ToolBox.LangID).ToList();
-
-                        foreach (var item in rbLang)
-                        {
-                            listTemp.Add(list.Where(a => a.ID == item.EmlakID).FirstOrDefault());
-                        }
-
-                        list = new List<RealEstateAds>();
-                        list.AddRange(listTemp);
+                        list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, listRE.Word, null, null, null, null, null).ToList();
                     }
                 }
 
@@ -244,19 +184,19 @@ namespace Emlak.Controllers
             }
             else
             {
-                list = Session["Emlaklar"] as List<RealEstateAds>;
+                list = Session["Emlaklar"] as List<sp_RealEstatesForListSelect_Result>;
 
                 pageHeader = LangBaslik.KodlaGetir("dsrs");
 
                 switch (listRE.OrderBy)
                 {
-                    case "atoz": list = list.OrderBy(a => a.Baslik).ToList(); break;
-                    case "ztoa": list = list.OrderByDescending(a => a.Baslik).ToList(); break;
+                    case "atoz": list = list.OrderBy(a => a.TBaslik).ToList(); break;
+                    case "ztoa": list = list.OrderByDescending(a => a.TBaslik).ToList(); break;
                     case "1to9": list = list.OrderBy(a => a.Fiyat).ToList(); break;
                     case "9to1": list = list.OrderByDescending(a => a.Fiyat).ToList(); break;
                     case "dto9": list = list.OrderBy(a => a.ID).ToList(); break;
                     case "dto1": list = list.OrderByDescending(a => a.ID).ToList(); break;
-                    default: list = list.OrderBy(a => a.Baslik).ToList(); break;
+                    default: list = list.OrderBy(a => a.TBaslik).ToList(); break;
                 }
 
                 count = list.Count;
@@ -276,15 +216,18 @@ namespace Emlak.Controllers
 
             List<ListeleItem> returnList = new List<ListeleItem>();
 
-            foreach (RealEstateAds item in list)
+            foreach (sp_RealEstatesForListSelect_Result item in list)
             {
                 ListeleItem reItem = new ListeleItem();
 
+                reItem.Baslik = item.TBaslik;
                 reItem.Yeni = item.Yeni;
                 reItem.Fiyat = item.Fiyat;
-                reItem.RouteUrl = item.RouteUrl;
+                reItem.Url = item.Url;
                 reItem.Enlem = item.Enlem;
                 reItem.Boylam = item.Boylam;
+                reItem.CategoryName = item.CategoryName;
+                reItem.PictureName = item.Picture;
                 reOutputItem.Adet = count;
                 reOutputItem.DetayLogo = ToolBox.DetailLogo;
                 reItem.NewLogo = ToolBox.NewLogo;
@@ -296,75 +239,6 @@ namespace Emlak.Controllers
                 else
                 {
                     reOutputItem.Baslik = LangBaslik.KodlaGetir("alli");
-                }
-
-                var rbRealLang = entity.RealEstateAdsLang.Where(a => a.EmlakID == item.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                if (rbRealLang != null)
-                {
-                    reItem.Baslik = rbRealLang.Baslik;
-                }
-                else
-                {
-                    reItem.Baslik = item.Baslik;
-                }
-
-                var rbCat = entity.Category.Where(a => a.Active == true && a.ID == item.KatID).FirstOrDefault();
-
-                if (rbRealLang != null)
-                {
-                    int? catID = rbCat.ID;
-
-                    var rbCatLang = entity.CategoryLang.Where(a => a.CategoryID == catID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                    if (rbCat != null)
-                    {
-                        if (rbCatLang != null)
-                        {
-                            reItem.CategoryName = rbCatLang.CategoryName;
-                        }
-                        else
-                        {
-                            reItem.CategoryName = rbCat.CategoryName;
-                        }
-                    }
-                    else
-                    {
-                        reItem.CategoryName = rbCat.CategoryName;
-                    }
-                }
-                else
-                {
-                    reItem.CategoryName = "";
-                }
-
-                List<Assignments> assignList = ToolBox.GetAssignmentList(
-                    new Assignments()
-                    {
-                        TargetType = "RealEstateAds",
-                        MainType = "PicturesNoLang",
-                        TargetTypeID = item.ID
-                    });
-
-                List<PicturesNoLang> _picNoLang = new List<PicturesNoLang>();
-
-                foreach (Assignments itemAss in assignList)
-                {
-                    var rbPic = entity.PicturesNoLang.Where(a => a.ID == itemAss.MainTypeID).FirstOrDefault();
-
-                    if (rbPic != null)
-                    {
-                        _picNoLang.Add(rbPic);
-                    }
-                }
-
-                if (_picNoLang.Count > 0)
-                {
-                    reItem.PictureName = _picNoLang.FirstOrDefault().PictureName;
-                }
-                else
-                {
-                    reItem.PictureName = "";
                 }
 
                 returnList.Add(reItem);
@@ -381,7 +255,7 @@ namespace Emlak.Controllers
             public int Page { get; set; }
             public bool Detail { get; set; }
         }
-        public class ListeleItem : RealEstateAds
+        public class ListeleItem : RealEstates
         {
             public string CategoryName { get; set; }
             public string NewLogo { get; set; }
@@ -402,13 +276,12 @@ namespace Emlak.Controllers
             public int Sayfa { get; set; }
         }
 
-        [HttpGet]
-        public JsonResult DetayliAramaSession(string realCP)
+        [HttpPost]
+        public JsonResult DetayliAramaSession([System.Web.Http.FromBody] RealEstateAdsExt realCP)
         {
-            RealEstateAdsExt listReCP = JsonConvert.DeserializeObject<RealEstateAdsExt>(realCP);
-            Session["DetayKriter"] = listReCP;
+            Session["DetayKriter"] = realCP;
 
-            return Json(true, JsonRequestBehavior.AllowGet);
+            return Json(true);
         }
 
         public ListeleOutputItem DetayliArama(ListeleInputItem listRE)
@@ -424,20 +297,29 @@ namespace Emlak.Controllers
                 listReCP = (RealEstateAdsExt)Session["DetayKriter"];
             }
 
-            var rb = entity.RealEstateAds.Where(a => a.Active == true).ToList();
+            List<sp_RealEstatesForListSelect_Result> rb = new List<sp_RealEstatesForListSelect_Result>();
+
+            if (listReCP.KatID <= 0 && listReCP.AltKatID <= 0)
+            {
+                rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, null, null, null, null).ToList();
+            }
+            else if (listReCP.AltKatID > 0)
+            {
+                rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, listReCP.AltKatID, null, null, null, null, null, null, null).ToList();
+            }
+            else if (listReCP.KatID > 0)
+            {
+                rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, listReCP.KatID, null, null, null, null, null, null, null).ToList();
+            }
 
             if (!listReCP.Baslik.IsNull())
-                rb = rb.Where(a => a.Baslik == listReCP.Baslik).ToList();
-            if (listReCP.KatID > 0)
-                rb = rb.Where(a => a.KatID == listReCP.KatID).ToList();
-            if (listReCP.AltKatID > 0)
-                rb = rb.Where(a => a.AltKatID == listReCP.AltKatID).ToList();
+                rb = rb.Where(a => a.Baslik.ToLower().Contains(listReCP.Baslik.ToLower()) || a.TBaslik.ToLower().Contains(listReCP.Baslik.ToLower())).ToList();
             if (listReCP.Sehir != "Tümü")
-                rb = rb.Where(a => a.Sehir == listReCP.Sehir).ToList();
+                rb = rb.Where(a => a.Sehir.ToLower().Contains(listReCP.Sehir.ToLower())).ToList();
             if (!listReCP.Ilce.IsNull())
-                rb = rb.Where(a => a.Ilce == listReCP.Ilce).ToList();
+                rb = rb.Where(a => a.Ilce.ToLower().Contains(listReCP.Ilce.ToLower())).ToList();
             if (!listReCP.Semt.IsNull())
-                rb = rb.Where(a => a.Semt == listReCP.Semt).ToList();
+                rb = rb.Where(a => a.Semt.ToLower().Contains(listReCP.Semt.ToLower())).ToList();
             if (listReCP.Durum != "Tümü")
                 rb = rb.Where(a => a.Durum == listReCP.Durum).ToList();
             if (listReCP.IsinmaTipi != "Farketmez")
@@ -608,87 +490,22 @@ namespace Emlak.Controllers
 
                 rb = rb.Skip(12 * (listRE.Page - 1)).Take(12).ToList();
 
-                reOutputItem.Emlaklar = rb.ChangeModelList<ListeleItem, RealEstateAds>();
+                reOutputItem.Emlaklar = rb.ChangeModelList<ListeleItem, sp_RealEstatesForListSelect_Result>();
 
                 List<ListeleItem> returnList = new List<ListeleItem>();
 
-                foreach (RealEstateAds item in rb)
+                foreach (sp_RealEstatesForListSelect_Result item in rb)
                 {
                     ListeleItem reItem = new ListeleItem();
 
+                    reItem.Baslik = item.TBaslik;
                     reItem.Yeni = item.Yeni;
                     reItem.Fiyat = item.Fiyat;
-                    reItem.RouteUrl = item.RouteUrl;
                     reItem.NewLogo = ToolBox.NewLogo;
-
-                    var rbRealLang = entity.RealEstateAdsLang.Where(a => a.EmlakID == item.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                    if (rbRealLang != null)
-                    {
-                        reItem.Baslik = rbRealLang.Baslik;
-                    }
-                    else
-                    {
-                        reItem.Baslik = item.Baslik;
-                    }
-
-                    var rbCat = entity.Category.Where(a => a.Active == true && a.ID == item.KatID).FirstOrDefault();
-
-                    if (rbRealLang != null)
-                    {
-                        int? catID = rbCat.ID;
-
-                        var rbCatLang = entity.CategoryLang.Where(a => a.CategoryID == catID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                        if (rbCat != null)
-                        {
-                            if (rbCatLang != null)
-                            {
-                                reItem.CategoryName = rbCatLang.CategoryName;
-                            }
-                            else
-                            {
-                                reItem.CategoryName = rbCat.CategoryName;
-                            }
-                        }
-                        else
-                        {
-                            reItem.CategoryName = rbCat.CategoryName;
-                        }
-                    }
-                    else
-                    {
-                        reItem.CategoryName = "";
-                    }
-
-                    List<Assignments> assignList = ToolBox.GetAssignmentList(
-                        new Assignments()
-                        {
-                            TargetType = "RealEstateAds",
-                            MainType = "PicturesNoLang",
-                            TargetTypeID = item.ID
-                        });
-
-                    List<PicturesNoLang> _picNoLang = new List<PicturesNoLang>();
-
-                    foreach (Assignments itemAss in assignList)
-                    {
-                        var rbPic = entity.PicturesNoLang.Where(a => a.ID == itemAss.MainTypeID).FirstOrDefault();
-
-                        if (rbPic != null)
-                        {
-                            _picNoLang.Add(rbPic);
-                        }
-                    }
-
-                    if (_picNoLang.Count > 0)
-                    {
-                        reItem.PictureName = _picNoLang.FirstOrDefault().PictureName;
-                    }
-                    else
-                    {
-                        reItem.PictureName = "";
-                    }
+                    reItem.Url = item.Url;
+                    reItem.CategoryName = item.CategoryName;
+                    reItem.Baslik = item.TBaslik;
+                    reItem.PictureName = item.Picture;
 
                     returnList.Add(reItem);
                 }
@@ -698,8 +515,64 @@ namespace Emlak.Controllers
 
             return reOutputItem;
         }
-        public class RealEstateAdsExt : RealEstateAds
+        public class RealEstateAdsExt
         {
+            public int? ID { get; set; }
+            public int? KatID { get; set; }
+            public int? AltKatID { get; set; }
+            public string Baslik { get; set; }
+            public string Code { get; set; }
+            public int? Fiyat { get; set; }
+            public bool? Yeni { get; set; }
+            public bool? GununEmlagi { get; set; }
+            public string Sehir { get; set; }
+            public string Ilce { get; set; }
+            public string Semt { get; set; }
+            public string Sahibi { get; set; }
+            public int? OdaSayisi { get; set; }
+            public int? KatSayisi { get; set; }
+            public string IsinmaTipi { get; set; }
+            public int? SalonSayisi { get; set; }
+            public int? BulunduguKat { get; set; }
+            public string YakitTipi { get; set; }
+            public int? Alan { get; set; }
+            public string Durum { get; set; }
+            public int? BinaYasi { get; set; }
+            public bool? ArkaCephe { get; set; }
+            public bool? OnCephe { get; set; }
+            public bool? CaddeyeYakin { get; set; }
+            public bool? DenizeSifir { get; set; }
+            public bool? DenizeYakin { get; set; }
+            public bool? Manzara { get; set; }
+            public bool? Merkezde { get; set; }
+            public bool? Metro { get; set; }
+            public bool? Otoban { get; set; }
+            public bool? TopluUlasim { get; set; }
+            public bool? Asansor { get; set; }
+            public bool? Bahce { get; set; }
+            public bool? Guvenlik { get; set; }
+            public bool? Hidrofor { get; set; }
+            public bool? Mantolama { get; set; }
+            public bool? Jenerator { get; set; }
+            public bool? Kapici { get; set; }
+            public bool? Satilik { get; set; }
+            public bool? Otopark { get; set; }
+            public bool? OyunParki { get; set; }
+            public bool? PVCDograma { get; set; }
+            public bool? SiteIci { get; set; }
+            public bool? YanginMerdiveni { get; set; }
+            public bool? YuzmeHavuzu { get; set; }
+            public bool? Alarm { get; set; }
+            public bool? Balkon { get; set; }
+            public bool? CelikKapi { get; set; }
+            public bool? GoruntuluDiafon { get; set; }
+            public bool? Jakuzi { get; set; }
+            public bool? KabloTVUydu { get; set; }
+            public bool? Klima { get; set; }
+            public bool? Active { get; set; }
+            public string RouteUrl { get; set; }
+            public string Enlem { get; set; }
+            public string Boylam { get; set; }
             public int? Fiyat2 { get; set; }
             public int? OdaSayisi2 { get; set; }
             public int? KatSayisi2 { get; set; }
@@ -707,6 +580,7 @@ namespace Emlak.Controllers
             public int? BulunduguKat2 { get; set; }
             public int? Alan2 { get; set; }
             public int? BinaYasi2 { get; set; }
+            public bool? Kiralik { get; set; }
         }
 
         [HttpGet]
@@ -716,23 +590,11 @@ namespace Emlak.Controllers
 
             _result.Add(new FillCategoryReturnJson() { ID = 0, CategoryName = LangBaslik.KodlaGetir("sctm") });
 
-            var rb = entity.Category.Where(a => a.Active == true && a.ParentID == parentID).ToList();
+            var rb = entity.sp_CategoriesByParentID(parentID, ToolBox.LangCode).ToList();
 
-            if (rb.Count > 0)
+            foreach (var item in rb)
             {
-                foreach (var item in rb)
-                {
-                    var rbLang = entity.CategoryLang.Where(a => a.CategoryID == item.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                    if (rbLang != null)
-                    {
-                        _result.Add(new FillCategoryReturnJson() { ID = (int)rbLang.CategoryID, CategoryName = rbLang.CategoryName });
-                    }
-                    else
-                    {
-                        _result.Add(new FillCategoryReturnJson() { ID = (int)item.ID, CategoryName = item.CategoryName });
-                    }
-                }
+                _result.Add(new FillCategoryReturnJson() { ID = item.ID, CategoryName = item.CategoryName });
             }
 
             return Json(_result, JsonRequestBehavior.AllowGet);

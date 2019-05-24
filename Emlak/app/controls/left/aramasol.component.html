@@ -15,7 +15,7 @@
                 </div>
                 <div class="ShowroomResim">
                     <a [routerLink]="['Emlak/Detay/' + item.RouteUrl]">
-                        <img src="Uploads/Gallery/Thumb/{{ item.PictureName }}" style="max-width: 100px; max-height: 100px" />
+                        <img src="Uploads/{{ item.PictureName }}" style="max-width: 100px; max-height: 100px" />
                     </a>
                 </div>
                 <div class="ShowroomMetin">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <a id="solarasonuckapat" href="javascript:;" (click)="closeArama()">
-            <img alt="Kapat" src="img/kapat.png" />
+            <img alt="Kapat" src="Content/img/kapat.png" />
         </a>
         <br />
         <br />

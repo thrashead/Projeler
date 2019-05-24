@@ -4,7 +4,7 @@
 <div class="SolIcerik yeniler">
     <marquee scrollamount="1" height="114" width="170" direction="up" scrolldelay="20">
         <div class="YeniEmlaklar" *ngFor="let item of ilanlar">
-            <a [routerLink]="['Emlak/Detay/' + item?.RouteUrl]">
+            <a [routerLink]="['Emlak/Detay/' + item?.Url]">
                 <img border="0" alt="" style="max-width:100px; max-height:100px;" src="{{item?.Picture}}" />
             </a>
             <br />
@@ -16,8 +16,8 @@
             </b>
             <br />
             <br />
-            <a [routerLink]="['Emlak/Detay/' + item?.RouteUrl]">
-                <img border="0" src="img/{{ detayLinkText }}.png" height="20" />
+            <a [routerLink]="['Emlak/Detay/' + item?.Url]">
+                <img border="0" src="Content/img/{{ detayLinkText }}.png" height="20" />
             </a>
             <br />
             <br />

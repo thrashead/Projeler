@@ -1,6 +1,6 @@
 ﻿<div class="IcerikBaslik">
     <div class="BaslikMetin">
-        <img src="img/ok.png" alt="" border="0" />
+        <img src="Content/img/ok.png" alt="" border="0" />
         <label id="LabelBaslik">{{ liste?.Baslik }}</label>
     </div>
     <div class="Siralama">
@@ -25,12 +25,12 @@
             <img src="{{ item?.NewLogo }}">
         </div>
         <div class="ShowroomResim">
-            <a [routerLink]="['/Emlak/Detay/' + item?.RouteUrl]">
-                <img src="Uploads/Gallery/Thumb/{{ item?.PictureName }}" style="max-width: 100px; max-height: 100px">
+            <a [routerLink]="['/Emlak/Detay/' + item?.Url]">
+                <img src="Uploads/{{ item?.PictureName }}" style="max-width: 100px; max-height: 100px">
             </a>
-        </div><div [attr.data-link]="item?.RouteUrl" [attr.data-emlak]="item?.Baslik" class="ShowroomMetin ShowMap">
+        </div><div [attr.data-link]="item?.Url" [attr.data-emlak]="item?.Baslik" class="ShowroomMetin ShowMap">
             {{ item?.Baslik }}<br><br><b>{{ item?.Fiyat }} TL</b><br><br>
-            <a [routerLink]="['/Emlak/Detay/' + item?.RouteUrl]">
+            <a [routerLink]="['/Emlak/Detay/' + item?.Url]">
                 <img border="0" src="{{ liste?.DetayLogo }}" height="20">
             </a>
         </div>

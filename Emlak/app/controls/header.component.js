@@ -35,7 +35,7 @@ var HeaderComponent = /** @class */ (function () {
         this._emlakService.getAdminGiris(this.girisData)
             .subscribe(function (answer) {
             if (answer == true) {
-                window.location.href = "Admin/Panel/Index";
+                window.location.href = "Admin/Giris/AnaSayfa";
             }
             else {
                 _this._emlakService.getKodlaGetir("iacc")

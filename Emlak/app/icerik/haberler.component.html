@@ -1,10 +1,10 @@
 ﻿<div class="IcerikBaslik">
-    <img src="img/ok.png" alt="" border="0" />
+    <img src="Content/img/ok.png" alt="" border="0" />
     {{haberlerText}}
 </div>
 <div class="IcerikMetin">
     <span *ngFor="let item of haberler">
-        <a [routerLink]="['/Icerik/Haberler/' + item?.RouteUrl]">{{item?.ContentName}}</a>
+        <a [routerLink]="['/Icerik/Haberler/' + item?.Url]">{{item?.ContentName}}</a>
         <br />
         <br />
     </span>

@@ -1,0 +1,62 @@
+﻿@using TDLibrary
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Emlak Sitesi - Admin Panel Giriş</title>
+
+    <link rel="shortcut icon" href="@AppMgr.MainPath/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="@AppMgr.MainPath/favicon.ico" type="image/x-icon">
+
+    <link href="@AppMgr.AdminStylePath/bootstrap.min.css" rel="stylesheet" />
+    <link href="@AppMgr.AdminStylePath/bootstrap-responsive.min.css" rel="stylesheet" />
+
+    <link href="@AppMgr.AdminStylePath/matrix-login.css" rel="stylesheet" />
+    <link href="@AppMgr.AdminStylePath/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    
+    <style>
+        #imgLoading { float: left; margin: 5px 5px 0px 0px; height: 20px; display: none; }
+    </style>
+
+    <script src="@AppMgr.AdminScriptPath/jquery.min.js"></script>
+
+    <script src="@AppMgr.AdminScriptPath/pathscript.js"></script>
+    <script src="@AppMgr.AdminScriptPath/script.js"></script>
+</head>
+<body>
+    <input id="hdnUrl" type="hidden" value="@Urling.FullURL" />
+
+    <div id="loginbox">
+        <div class="control-group normal_text"> <h3><img src="@AppMgr.AdminImagePath/logo.png" alt="Logo" /></h3></div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input id="txtUserName" type="text" placeholder="Kullanıcı Adı" />
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input id="txtPassword" type="password" placeholder="Şifre" />
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-error" style="display:none;">
+            <button class="close" data-dismiss="alert">×</button>
+            <strong>Hata!</strong> <span id="hataMesaj"></span>
+        </div>
+        <div class="form-actions">
+            <span class="pull-right"><img id="imgLoading" src="@AppMgr.AdminImagePath/loading.gif" /><input id="btnGiris" type="button" class="btn btn-success" value="Giriş Yap"></span>
+        </div>
+    </div>
+</body>
+</html>

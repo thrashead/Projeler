@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using System.Web.UI.HtmlControls;
-using System.Web.Http.Metadata;
 using TDLibrary;
 using System.Web;
 using System;
 using Emlak;
-using System.Xml;
 using Newtonsoft.Json;
+using Emlak.Data;
+using Models;
 
 namespace Lib
 {
@@ -176,38 +175,15 @@ namespace Lib
 
         public static string ShuffleBanner()
         {
-            EmlakSiteEntities entity = new EmlakSiteEntities();
-
-            List<PicturesNoLang> _listPicturesNoLang = new List<PicturesNoLang>();
+            EmlakEntities entity = new EmlakEntities();
 
             string BannerImage = AppMgr.ImagePath + "/banner.jpg";
 
-            var rb = entity.Gallery.Where(a => a.Active == true && a.Code == "banner").FirstOrDefault();
+            List<Resim> pictures = entity.sp_PictureByCodeSelect("banner").ToList().ChangeModelList<Resim, sp_PictureByCodeSelect_Result>();
 
-            if (rb != null)
+            if (pictures.Count > 0)
             {
-                List<Assignments> assignList = ToolBox.GetAssignmentList(
-                new Assignments()
-                {
-                    TargetType = "Gallery",
-                    MainType = "PicturesNoLang",
-                    TargetTypeID = rb.ID
-                });
-
-                foreach (Assignments item in assignList)
-                {
-                    var rbPic = entity.PicturesNoLang.Where(a => a.ID == item.MainTypeID).ToList();
-
-                    if (rbPic.Count > 0)
-                    {
-                        _listPicturesNoLang.AddRange(rbPic);
-                    }
-                }
-            }
-
-            if (_listPicturesNoLang.Count > 0)
-            {
-                BannerImage = AppMgr.UploadPath + "/Gallery/" + _listPicturesNoLang.Shuffle().FirstOrDefault().PictureName;
+                BannerImage = AppMgr.UploadPath + "/" + pictures.Shuffle().FirstOrDefault().PictureUrl;
             }
 
             return BannerImage;
@@ -215,58 +191,29 @@ namespace Lib
 
         public static string GetLogo()
         {
-            EmlakSiteEntities entity = new EmlakSiteEntities();
+            EmlakEntities entity = new EmlakEntities();
 
-            var rbPic = entity.PicturesNoLang.Where(a => a.Active == true && a.Code == "Logo").FirstOrDefault();
+            Resim picture = entity.sp_PictureByCodeSelect("logo").FirstOrDefault().ChangeModel<Resim>();
 
-            if (rbPic != null)
+            if (picture != null)
             {
-                return AppMgr.UploadPath + "/Gallery/" + rbPic.PictureName;
+                return AppMgr.UploadPath + "/" + picture.PictureUrl;
             }
 
             return AppMgr.ImagePath + "/logo.png";
-        }
-
-        public static List<Assignments> GetAssignmentList(Assignments _assignProps)
-        {
-            EmlakSiteEntities entity = new EmlakSiteEntities();
-
-            var rb = entity.Assignments.ToList();
-
-            if (_assignProps.TargetType != null)
-            {
-                rb = rb.Where(a => a.TargetType == _assignProps.TargetType).ToList();
-            }
-
-            if (_assignProps.MainType != null)
-            {
-                rb = rb.Where(a => a.MainType == _assignProps.MainType).ToList();
-            }
-
-            if (_assignProps.TargetTypeID != null)
-            {
-                rb = rb.Where(a => a.TargetTypeID == _assignProps.TargetTypeID).ToList();
-            }
-
-            if (_assignProps.MainTypeID != null)
-            {
-                rb = rb.Where(a => a.MainTypeID == _assignProps.MainTypeID).ToList();
-            }
-
-            return rb.JsonConverter<List<Assignments>>();
         }
 
         public static int LangID
         {
             get
             {
-                EmlakSiteEntities entity = new EmlakSiteEntities();
+                EmlakEntities entity = new EmlakEntities();
 
-                var rbLang = entity.Lang.Where(a => a.ShortName == ToolBox.LangCode).FirstOrDefault();
+                int? langID = entity.sp_TranslationIDByShortName(LangCode).FirstOrDefault();
 
-                if (rbLang != null)
+                if (langID != null)
                 {
-                    return rbLang.ID;
+                    return (int)langID;
                 }
 
                 return 1;
@@ -287,28 +234,11 @@ namespace Lib
         {
             get
             {
-                EmlakSiteEntities entity = new EmlakSiteEntities();
+                EmlakEntities entity = new EmlakEntities();
 
-                string sayac = "0";
+                int? sayac = entity.sp_VisitorCounterCheck(HttpContext.Current.Request.UserHostAddress, DateTime.Now.ToShortDateString()).FirstOrDefault();
 
-                string date = DateTime.Now.ToShortDateString();
-
-                var rb = entity.Rank.Where(a => a.Code == date && a.RankName == HttpContext.Current.Request.UserHostAddress && a.Active == true).FirstOrDefault();
-
-                if (rb == null)
-                {
-                    entity.Rank.Add(new Rank() { Code = date, RankName = HttpContext.Current.Request.UserHostAddress, Active = true });
-                    entity.SaveChanges();
-                }
-
-                var rbSayac = entity.Rank.ToList();
-
-                if (rbSayac.Count > 0)
-                {
-                    sayac = rbSayac.Count.ToString();
-                }
-
-                return sayac;
+                return sayac.ToString();
             }
         }
 
@@ -316,23 +246,18 @@ namespace Lib
         {
             get
             {
-                EmlakSiteEntities entity = new EmlakSiteEntities();
+                EmlakEntities entity = new EmlakEntities();
 
-                string newLogo = ToolBox.LangCode == "TR" ? AppMgr.ImagePath + "/yeni.png" : AppMgr.ImagePath + "/new.png";
+                string code = LangCode == "TR" ? "yeniikon" : "newicon";
 
-                var rbPic = entity.Pictures.Where(a => a.Code == "yeniikon" && a.Active == true).FirstOrDefault();
+                var rbPic = entity.sp_PictureByCodeSelect(code).FirstOrDefault();
 
                 if (rbPic != null)
                 {
-                    var rbPicLang = entity.PicturesLang.Where(a => a.PictureID == rbPic.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                    if (rbPicLang != null)
-                    {
-                        newLogo = AppMgr.UploadPath + "/Gallery/" + rbPicLang.PictureName;
-                    }
+                    return AppMgr.UploadPath + "/" + rbPic.PictureUrl;
                 }
 
-                return newLogo;
+                return LangCode == "TR" ? AppMgr.ImagePath + "/yeni.png" : AppMgr.ImagePath + "/new.png";
             }
         }
 
@@ -340,23 +265,18 @@ namespace Lib
         {
             get
             {
-                EmlakSiteEntities entity = new EmlakSiteEntities();
+                EmlakEntities entity = new EmlakEntities();
 
-                string detailLogo = ToolBox.LangCode == "TR" ? AppMgr.ImagePath + "/detayicon.png" : AppMgr.ImagePath + "/detailicon.png";
+                string code = LangCode == "TR" ? "detayicon" : "detailicon";
 
-                var rbPic = entity.Pictures.Where(a => a.Code == "detayikon" && a.Active == true).FirstOrDefault();
+                var rbPic = entity.sp_PictureByCodeSelect(code).FirstOrDefault();
 
                 if (rbPic != null)
                 {
-                    var rbPicLang = entity.PicturesLang.Where(a => a.PictureID == rbPic.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                    if (rbPicLang != null)
-                    {
-                        detailLogo = AppMgr.UploadPath + "/Gallery/" + rbPicLang.PictureName;
-                    }
+                    return AppMgr.UploadPath + "/" + rbPic.PictureUrl;
                 }
 
-                return detailLogo;
+                return AppMgr.ImagePath + "/" + code + ".png";
             }
         }
 
@@ -364,70 +284,37 @@ namespace Lib
         {
             get
             {
-                EmlakSiteEntities entity = new EmlakSiteEntities();
+                EmlakEntities entity = new EmlakEntities();
 
-                string resim = ToolBox.LangCode == "TR" ? AppMgr.ImagePath + "/iletisim.png" : AppMgr.ImagePath + "/contact.png";
+                string code = LangCode == "TR" ? "iletisim" : "contact";
 
-                var rbPic = entity.Pictures.Where(a => a.Code == "iletisim" && a.Active == true).FirstOrDefault();
+                var rbPic = entity.sp_PictureByCodeSelect(code).FirstOrDefault();
 
                 if (rbPic != null)
                 {
-                    var rbPicLang = entity.PicturesLang.Where(a => a.PictureID == rbPic.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                    if (rbPicLang != null)
-                    {
-                        resim = AppMgr.UploadPath + "/Gallery/" + rbPicLang.PictureName;
-                    }
+                    return AppMgr.UploadPath + "/" + rbPic.PictureUrl;
                 }
 
-                return resim;
+                return AppMgr.ImagePath + "/" + code + ".png";
             }
         }
 
         public static string CategoryNameFromURL(string url)
         {
-            EmlakSiteEntities entity = new EmlakSiteEntities();
+            EmlakEntities entity = new EmlakEntities();
 
-            var rb = entity.Category.Where(a => a.RouteUrl == url).FirstOrDefault();
+            string rbCategoryName = entity.sp_CategoryNameByUrlAndTransCode(url, LangCode).FirstOrDefault();
 
-            if (rb != null)
-            {
-                var rbLang = entity.CategoryLang.Where(a => a.CategoryID == rb.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                if (rbLang != null)
-                {
-                    return rbLang.CategoryName;
-                }
-            }
-            else
-            {
-                return url;
-            }
-
-            return rb.CategoryName;
+            return rbCategoryName;
         }
 
         public static string ContentNameFromURL(string url)
         {
-            EmlakSiteEntities entity = new EmlakSiteEntities();
+            EmlakEntities entity = new EmlakEntities();
 
-            var rb = entity.Content.Where(a => a.RouteUrl == url).FirstOrDefault();
+            string rbContentName = entity.sp_ContentNameByUrlAndTransCode(url, LangCode).FirstOrDefault();
 
-            if (rb != null)
-            {
-                var rbLang = entity.ContentLang.Where(a => a.ContentID == rb.ID && a.Language == ToolBox.LangID).FirstOrDefault();
-
-                if (rbLang != null)
-                {
-                    return rbLang.ContentName;
-                }
-            }
-            else
-            {
-                return url;
-            }
-
-            return rb.ContentName;
+            return rbContentName;
         }
 
         public static Users UserKontrol()
