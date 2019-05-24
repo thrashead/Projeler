@@ -27,7 +27,7 @@ export class EmlakDetayComponent {
                     $("#slider").html("");
 
                     for (var i = 0; i < resData.Pictures.length; i++) {
-                        $("#slider").append("<img src=\"Uploads\/Gallery\/" + resData.Pictures[i] + "\" data-tab=\"" + resData.Baslik + "\" />")
+                        $("#slider").append("<img src=\"Uploads\/" + resData.Pictures[i] + "\" data-tab=\"" + resData.Baslik + "\" />")
                     }
 
                     $("#slider").tdSlider({
