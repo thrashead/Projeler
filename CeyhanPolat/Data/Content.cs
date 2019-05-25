@@ -7,20 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Content
     {
         public int ID { get; set; }
-        public Nullable<int> ParentID { get; set; }
-        public string CategoryName { get; set; }
+        public string ContentName { get; set; }
         public Nullable<int> RoutePageID { get; set; }
         public string Code { get; set; }
         public bool Active { get; set; }
-        public bool Display { get; set; }
         public Nullable<System.DateTime> AddDate { get; set; }
         public Nullable<int> AddUser { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }

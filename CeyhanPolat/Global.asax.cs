@@ -20,7 +20,7 @@ namespace CeyhanPolat
                 Application["Poetries"] = Poetries.GettAllPoetries();
             }
 
-            AreaRegistration.RegisterAllAreas();
+            //AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }

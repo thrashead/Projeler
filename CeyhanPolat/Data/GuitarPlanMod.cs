@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class RankPoint
+    public partial class GuitarPlanMod
     {
         public int ID { get; set; }
-        public Nullable<int> RankID { get; set; }
-        public Nullable<int> RankPoint1 { get; set; }
-        public string IPAddress { get; set; }
-        public string Sender { get; set; }
-        public string SendDate { get; set; }
-        public string Subject { get; set; }
-        public string Message { get; set; }
-        public bool Active { get; set; }
+        public int PlanID { get; set; }
+        public int NotaID { get; set; }
+        public int ModID { get; set; }
+    
+        public virtual GuitarMod GuitarMod { get; set; }
+        public virtual GuitarNota GuitarNota { get; set; }
+        public virtual GuitarPlanlar GuitarPlanlar { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using CeyhanPolat.Lib;
 using CeyhanPolat.Models;
 using TDLibrary;
+using CeyhanPolat.Data;
 
 namespace CeyhanPolat.Controllers
 {
@@ -17,7 +18,7 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult Menu()
         {
-            var categories = entity.Category.Where(a => a.Active == true && a.Display == true).ToList();
+            var categories = entity.sp_Menu().ToList();
 
             foreach (var item in categories)
             {
@@ -31,30 +32,9 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult Slider()
         {
-            List<PicturesNoLang> listPicturesNoLang = new List<PicturesNoLang>();
+            var pictures = entity.sp_Slider().ToList();
 
-            var galleries = entity.Gallery.Where(a => a.Code == "slider").ToList();
-
-            var galID = galleries.FirstOrDefault().ID;
-
-            if (galleries.Count > 0)
-            {
-                var assignments = entity.Assignments.Where(a => a.TargetType == "Gallery"
-                                                           && a.MainType == "PicturesNoLang"
-                                                           && a.TargetTypeID == galID).ToList();
-
-                foreach (var item in assignments)
-                {
-                    var picturesnolangs = entity.PicturesNoLang.Where(a => a.ID == item.MainTypeID).ToList();
-
-                    if (picturesnolangs.Count > 0)
-                    {
-                        listPicturesNoLang.Add(picturesnolangs.FirstOrDefault());
-                    }
-                }
-            }
-
-            return Json(listPicturesNoLang, JsonRequestBehavior.AllowGet);
+            return Json(pictures, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -63,28 +43,19 @@ namespace CeyhanPolat.Controllers
             List<Siir> siirler = new List<Siir>();
             Siir siir;
 
-            Random r = new Random();
+            var rb = entity.sp_Poetries(null, 3, true).ToList();
 
-            for (int i = 0; i < 3; i++)
+            foreach (var item in rb)
             {
                 siir = new Siir();
 
-                int rr = r.Next(3, 170);
+                siir.PoetryName = item.Baslik;
+                siir.Poetry = item.Siir;
+                siir.RouteUrl = item.RouteUrl.FirstCharToUpperCase(true, '-');
 
-                var content = entity.Content.Where(a => a.ID == rr).FirstOrDefault();
-                int contID = content.ID;
+                var picture = entity.sp_Pictures("galeri", 1, true).FirstOrDefault();
 
-                var contentlang = entity.ContentLang.Where(a => a.ContentID == contID).FirstOrDefault();
-
-                siir.PoetryName = contentlang.ContentName;
-                siir.Poetry = contentlang.LongText;
-                siir.RouteUrl = content.RouteUrl.FirstCharToUpperCase(true, '-');
-
-                int randID = r.Next(14, 45);
-
-                var picturesnolang = entity.PicturesNoLang.Where(a => a.ID == randID).FirstOrDefault();
-
-                siir.Picture = AppMgr.UploadPath + "/Gallery/Thumb/" + picturesnolang.PictureName;
+                siir.Picture = AppMgr.UploadPath + "/Gallery/Thumb/" + picture;
 
                 siirler.Add(siir);
             }
@@ -97,15 +68,12 @@ namespace CeyhanPolat.Controllers
         {
             Biyografi biyografi = new Biyografi();
 
-            biyografi.Picture = AppMgr.UploadPath + "/Gallery/" + entity.PicturesNoLang.Where(a => a.Active == true && a.Code == "cerceve").FirstOrDefault().PictureName;
+            var cerceve = entity.sp_Pictures("cerceve", 1, null).FirstOrDefault();
+            biyografi.Picture = AppMgr.UploadPath + "/Gallery/" + cerceve;
 
-            var category = entity.Category.Where(a => a.Code == "biyografi").FirstOrDefault();
-            int catID = category.ID;
-
-            var categorylang = entity.CategoryLang.Where(a => a.CategoryID == catID).FirstOrDefault();
-
-            biyografi.Text = categorylang.ShortText + "<br /><br />" + categorylang.LongText.SplitText(0, 1200);
-            biyografi.RouteUrl = category.RouteUrl.FirstCharToUpperCase();
+            var rbBiy = entity.sp_Category("biyografi", null, 1, null).FirstOrDefault();
+            biyografi.Text = rbBiy.ShortText + "<br /><br />" + rbBiy.LongText.SplitText(0, 1200);
+            biyografi.RouteUrl = rbBiy.RouteUrl.FirstCharToUpperCase();
 
             return Json(biyografi, JsonRequestBehavior.AllowGet);
         }
@@ -115,13 +83,10 @@ namespace CeyhanPolat.Controllers
         {
             CategoryLang catLang = new CategoryLang();
 
-            var category = entity.Category.Where(a => a.RouteUrl == "biyografi" && a.Active == true).FirstOrDefault();
-            int catID = category.ID;
+            var rbBiy = entity.sp_Category("biyografi", null, 1, null).FirstOrDefault();
 
-            var categorylang = entity.CategoryLang.Where(a => a.CategoryID == catID).FirstOrDefault();
-
-            catLang.ShortText = categorylang.CategoryName;
-            catLang.LongText = categorylang.LongText;
+            catLang.ShortText = rbBiy.CategoryName;
+            catLang.LongText = rbBiy.LongText;
 
             return Json(catLang, JsonRequestBehavior.AllowGet);
         }
@@ -129,23 +94,9 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult Galeri()
         {
-            List<PicturesNoLang> _listPicturesNoLang = new List<PicturesNoLang>();
+            var pictures = entity.sp_Pictures("galeri", null, null).ToList();
 
-            var gallery = entity.Gallery.Where(a => a.Code == "galeri").FirstOrDefault();
-            int galID = gallery.ID;
-
-            var assignments = entity.Assignments.Where(a => a.TargetType == "Gallery"
-                                                         && a.TargetTypeID == galID
-                                                         && a.MainType == "PicturesNoLang").ToList();
-
-            foreach (var item in assignments)
-            {
-                PicturesNoLang picturesnolang = entity.PicturesNoLang.Where(a => a.ID == item.MainTypeID).FirstOrDefault();
-
-                _listPicturesNoLang.Add(picturesnolang);
-            }
-
-            return Json(_listPicturesNoLang, JsonRequestBehavior.AllowGet);
+            return Json(pictures, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -163,7 +114,7 @@ namespace CeyhanPolat.Controllers
 
                 SearchPoetryJson _searchPoetry = Session["SearchPoetry"] as SearchPoetryJson;
 
-                _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_searchPoetry.PoetryName.ToUpper())).OrderBy(a => a.Queue).ToList();
+                _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_searchPoetry.PoetryName.ToUpper())).ToList();
 
                 if (!String.IsNullOrEmpty(_searchPoetry.PoetryName))
                 {
@@ -218,7 +169,7 @@ namespace CeyhanPolat.Controllers
                     _poetryListTemp.AddRange(_poetryListEmpties);
                 }
 
-                _poetryList = _poetryListTemp.OrderBy(a => a.Queue).ToList();
+                _poetryList = _poetryListTemp.ToList();
             }
             else
             {
@@ -241,33 +192,25 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult Siir(string link)
         {
+            var rbPoetry = entity.sp_Poetries(link, 1, null).FirstOrDefault();
+
             Poetries poetry = new Poetries();
-            Random r = new Random();
 
             link = link.ToHyperLinkText(true);
 
-            var content = entity.Content.Where(a => a.RouteUrl == link).FirstOrDefault();
-            int contID = content.ID;
+            var assignment = entity.sp_Assignments("Rank", "Content", null, rbPoetry.ID, 1).FirstOrDefault();
 
-            var contentlang = entity.ContentLang.Where(a => a.ContentID == contID).FirstOrDefault();
-
-            var assignment = entity.Assignments.Where(a => a.TargetType == "Content"
-                                                         && a.MainType == "Rank"
-                                                         && a.TargetTypeID == content.ID).FirstOrDefault();
-
-            poetry.ID = content.ID;
+            poetry.ID = rbPoetry.ID;
             poetry.RankID = assignment.MainTypeID;
-            poetry.PoetryName = contentlang.ContentName;
-            poetry.Poetry = contentlang.LongText;
-            poetry.City = contentlang.ShortText;
-            poetry.Date = contentlang.Code;
+            poetry.PoetryName = rbPoetry.Baslik;
+            poetry.Poetry = rbPoetry.Siir;
+            poetry.City = rbPoetry.Sehir;
+            poetry.Date = rbPoetry.Tarih;
             poetry.RouteUrl = link;
 
-            int randID = r.Next(14, 45);
+            var picture = entity.sp_Pictures(null, 1, true).FirstOrDefault();
 
-            var picturesnolang = entity.PicturesNoLang.Where(a => a.ID == randID).FirstOrDefault();
-
-            poetry.Picture = AppMgr.UploadPath + "/Gallery/" + picturesnolang.PictureName;
+            poetry.Picture = AppMgr.UploadPath + "/Gallery/" + picture;
 
             poetry.Reviews = Yorumlar(assignment.MainTypeID);
 
@@ -276,7 +219,7 @@ namespace CeyhanPolat.Controllers
 
         public List<RankPoint> Yorumlar(int? rankid)
         {
-            var rankpoints = entity.RankPoint.Where(a => a.Active == true && a.RankID == rankid).ToList();
+            var rankpoints = entity.sp_Reviews(rankid, null).ToList().ChangeModelList<RankPoint, sp_Reviews_Result>();
 
             return rankpoints;
         }
@@ -284,25 +227,16 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult YorumGonder(string yorum)
         {
-            RankReviewJson _type = JsonConvert.DeserializeObject<RankReviewJson>(yorum);
+            RankReviewJson _yorum = JsonConvert.DeserializeObject<RankReviewJson>(yorum);
 
-            ceyhanpolatdbEntities entity = new ceyhanpolatdbEntities();
-
-            var rankpoint = new RankPoint()
-            {
-                Active = false,
-                RankID = _type.RankID.ToInteger(),
-                Sender = _type.NameSurname,
-                Subject = "",
-                SendDate = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(),
-                Message = _type.Message,
-                RankPoint1 = _type.Point.ToInteger(),
-                IPAddress = Request.UserHostAddress
-            };
-
-            entity.RankPoint.Add(rankpoint);
-
-            int result = entity.SaveChanges();
+            int? result = entity.sp_SendReview(_yorum.RankID.ToInteger(),
+                                               _yorum.Point.ToInteger(),
+                                               Request.UserHostAddress,
+                                               _yorum.NameSurname,
+                                               DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(),
+                                               "",
+                                               _yorum.Message,
+                                               false).FirstOrDefault();
 
             return Json(result > 0 ? true : false, JsonRequestBehavior.AllowGet);
         }
@@ -315,12 +249,10 @@ namespace CeyhanPolat.Controllers
             public string Message { get; set; }
         }
 
-        //
-
         [HttpGet]
         public ActionResult SiirAramaListe(string kelime)
         {
-            List<Content> _contentItems = new List<Content>(); ;
+            List<sp_ContentSearch_Result> _contentItems = new List<sp_ContentSearch_Result>(); ;
 
             if (kelime != null)
             {
@@ -328,8 +260,7 @@ namespace CeyhanPolat.Controllers
 
                 foreach (string item in splitContent)
                 {
-                    ceyhanpolatdbEntities cpEntity = new ceyhanpolatdbEntities();
-                    var contents = cpEntity.Content.Where(a => a.ContentName.Contains(item.ToUpper())).ToList();
+                    var contents = entity.sp_ContentSearch(item.ToUpper()).ToList();
 
                     foreach (var content in contents)
                     {
@@ -338,7 +269,7 @@ namespace CeyhanPolat.Controllers
                         content.RouteUrl = content.RouteUrl.FirstCharToUpperCase(true, '-');
                     }
 
-                    _contentItems.AddRange(contents as List<Content>);
+                    _contentItems.AddRange(contents as List<sp_ContentSearch_Result>);
                 }
             }
 
@@ -363,7 +294,7 @@ namespace CeyhanPolat.Controllers
             List<Poetries> _poetryListYear;
             List<Poetries> _poetryList = System.Web.HttpContext.Current.Application["Poetries"] as List<Poetries>;
 
-            _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_kelime.PoetryName.ToUpper())).OrderBy(a => a.Queue).ToList();
+            _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_kelime.PoetryName.ToUpper())).ToList();
 
             _poetryListDate = _poetryList.Where(a => a.Date.Length > 4).ToList();
             if (!String.IsNullOrEmpty(_kelime.FirstDate))
@@ -394,7 +325,7 @@ namespace CeyhanPolat.Controllers
                 _poetryListTemp.AddRange(_poetryListEmpties);
             }
 
-            _poetryList = _poetryListTemp.OrderBy(a => a.Queue).ToList();
+            _poetryList = _poetryListTemp.ToList();
 
             if (_poetryList.Count > 0)
             {

@@ -7,23 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PicturesNoLang
+    public partial class sp_Content_Result
     {
         public int ID { get; set; }
-        public string PictureName { get; set; }
-        public string Code { get; set; }
+        public string RouteUrl { get; set; }
+        public string ContentName { get; set; }
         public string ShortText { get; set; }
         public string LongText { get; set; }
-        public bool Active { get; set; }
-        public Nullable<System.DateTime> AddDate { get; set; }
-        public Nullable<int> AddUser { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
-        public Nullable<int> UpdateUser { get; set; }
-        public Nullable<int> Queue { get; set; }
+        public string Code { get; set; }
     }
 }

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using CeyhanPolat.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace CeyhanPolat.Lib
 {
@@ -49,17 +48,16 @@ namespace CeyhanPolat.Lib
 
             ceyhanpolatdbEntities entity = new ceyhanpolatdbEntities();
 
-            var contents = entity.Content.Where(a => a.Active == true && a.Code == "siir").ToList();
+            var poetries = entity.sp_Poetries(null, null, null).ToList();
 
-            foreach (var item in contents)
+            foreach (var item in poetries)
             {
                 var contentlang = entity.ContentLang.Where(a => a.ContentID == item.ID).FirstOrDefault();
 
                 Poetries _poetry = new Poetries();
                 _poetry.PoetryID = item.ID;
                 _poetry.RouteUrl = item.RouteUrl;
-                _poetry.PoetryName = item.ContentName;
-                _poetry.Queue = item.Queue;
+                _poetry.PoetryName = item.Baslik;
                 _poetry.PoetryLangID = contentlang.ID;
                 _poetry.Date = contentlang.Code;
                 _poetry.City = contentlang.ShortText;

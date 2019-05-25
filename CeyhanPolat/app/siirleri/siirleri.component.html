@@ -15,7 +15,7 @@
                     <div class="sehir">Şehir</div>
                 </li>
                 <li *ngFor="let item of siirleri; let index = index;" [ngClass]="{'alternate': 0 === index % 2}">
-                    <a class="sira" [routerLink]="[item.RouteUrl]">{{ item.Queue }}</a>
+                    <a class="sira" [routerLink]="[item.RouteUrl]">{{ index + 1 }}</a>
                     <a class="isim" [routerLink]="[item.RouteUrl]">{{ item.PoetryName }}</a>
                     <a class="tarih" [routerLink]="[item.RouteUrl]">{{ item.Date }}</a>
                     <a class="sehir" [routerLink]="[item.RouteUrl]">{{ item.City }}</a>

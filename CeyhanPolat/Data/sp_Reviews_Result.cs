@@ -7,18 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CategoryLang
+    public partial class sp_Reviews_Result
     {
         public int ID { get; set; }
-        public Nullable<int> CategoryID { get; set; }
-        public string CategoryName { get; set; }
-        public string ShortText { get; set; }
-        public string LongText { get; set; }
-        public Nullable<int> Language { get; set; }
+        public Nullable<int> RankID { get; set; }
+        public Nullable<int> RankPoint { get; set; }
+        public string IPAddress { get; set; }
+        public string Sender { get; set; }
+        public string SendDate { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
+        public bool Active { get; set; }
     }
 }

@@ -7,17 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Rank
+    public partial class sp_Menu_Result
     {
-        public int ID { get; set; }
-        public string RankName { get; set; }
-        public string Code { get; set; }
-        public Nullable<int> MaxRankPoint { get; set; }
-        public bool Active { get; set; }
+        public string CategoryName { get; set; }
+        public string RouteUrl { get; set; }
     }
 }

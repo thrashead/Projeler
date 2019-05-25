@@ -7,19 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ContentLang
+    public partial class GuitarPlanAkor
     {
         public int ID { get; set; }
-        public Nullable<int> ContentID { get; set; }
-        public string ContentName { get; set; }
-        public string Code { get; set; }
-        public string ShortText { get; set; }
-        public string LongText { get; set; }
-        public Nullable<int> Language { get; set; }
+        public int PlanID { get; set; }
+        public int NotaID { get; set; }
+        public int AkorID { get; set; }
+    
+        public virtual GuitarAkor GuitarAkor { get; set; }
+        public virtual GuitarNota GuitarNota { get; set; }
+        public virtual GuitarPlanlar GuitarPlanlar { get; set; }
     }
 }

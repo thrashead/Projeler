@@ -7,17 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CeyhanPolat
+namespace CeyhanPolat.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Assignments
+    public partial class RankPoint
     {
         public int ID { get; set; }
-        public string MainType { get; set; }
-        public Nullable<int> MainTypeID { get; set; }
-        public string TargetType { get; set; }
-        public Nullable<int> TargetTypeID { get; set; }
+        public Nullable<int> RankID { get; set; }
+        public Nullable<int> RankPoint1 { get; set; }
+        public string IPAddress { get; set; }
+        public string Sender { get; set; }
+        public string SendDate { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
+        public bool Active { get; set; }
     }
 }
