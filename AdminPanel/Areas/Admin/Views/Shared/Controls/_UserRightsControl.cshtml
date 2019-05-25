@@ -1,0 +1,102 @@
+﻿@model string
+@using Models
+
+@{
+    Kullanicilar user = AppTools.User;
+
+    <script type="text/javascript">
+        var iRight = @user.HasRight(Model, "i").ToString().ToLower();
+        var uRight = @user.HasRight(Model, "u").ToString().ToLower();
+        var dRight = @user.HasRight(Model, "d").ToString().ToLower();
+        var cRight = @user.HasRight(Model, "c").ToString().ToLower();
+        var cgRight = @user.HasRight(Model, "cg").ToString().ToLower();
+        var rdRight = @user.HasRight(Model, "rd").ToString().ToLower();
+
+        $(function () {
+            if (!iRight) {
+                LinkSil("i");
+            }
+
+            if (!uRight) {
+                LinkSil("u");
+            }
+
+            if (!dRight) {
+                LinkSil("d");
+            }
+
+            if (!cRight) {
+                LinkSil("c");
+            }
+
+            if (!cgRight) {
+                LinkSil("cg");
+            }
+
+            if (!rdRight) {
+                LinkSil("rd");
+            }
+
+            $(document).on("click", ".fg-button", function () {
+                setTimeout(function () {
+                    if (!iRight) {
+                        LinkSil("i");
+                    }
+
+                    if (!uRight) {
+                        LinkSil("u");
+                    }
+
+                    if (!dRight) {
+                        LinkSil("d");
+                    }
+
+                    if (!cRight) {
+                        LinkSil("c");
+                    }
+
+                    if (!cgRight) {
+                        LinkSil("cg");
+                    }
+
+                    if (!rdRight) {
+                        LinkSil("rd");
+                    }
+
+                    if ($(".dropdown-menu").first().find("a").length <= 0) {
+                        $(".btn-group").remove();
+                    }
+                }, 1);
+            });
+
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        });
+
+        function LinkSil(tip) {
+            switch (tip) {
+                case "i":
+                    $("a[data-type='@Model'].btn-add").remove();
+                    break;
+                case "u":
+                    $("a[data-type='@Model'].updLink").remove();
+                    break;
+                case "d":
+                    $("a[data-type='@Model'].dltLink").remove();
+                    $("a[data-type='@Model'].btn-clear").remove();
+                    break;
+                case "c":
+                    $("a[data-type='@Model'].cpyLink").remove();
+                    break;
+                case "cg":
+                    $("a[data-type='@Model'].cngLink").remove();
+                    break;
+                case "rd":
+                    $("a[data-type='@Model'].rdltLink").remove();
+                    $("a[data-type='@Model'].btn-clear").remove();
+                    break;
+            }
+        }
+    </script>
+}

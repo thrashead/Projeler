@@ -1,0 +1,39 @@
+﻿@using TDLibrary
+@using Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@{ 
+    Kullanicilar user = AppTools.User;
+}
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Ana Sayfa</a></div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="quick-actions_homepage">
+            <ul class="quick-actions">
+                @{ if(user.HasRight("Kategori") && "Kategori".ShowType() == true) { <li class="bg_lb"> <a href="@AppMgr.AdminPath/Kategori"> <i class="icon-sitemap"></i> Kategoriler</a> </li> } }
+                @{ if(user.HasRight("Icerik") && "Icerik".ShowType() == true) { <li class="bg_lg"> <a href="@AppMgr.AdminPath/Icerik"> <i class="icon-edit"></i> İçerikler</a> </li> } }
+                @{ if(user.HasRight("Urun") && "Urun".ShowType() == true) { <li class="bg_ly"> <a href="@AppMgr.AdminPath/Urun"> <i class="icon-barcode"></i> Ürünler</a> </li> } }
+                @{ if(user.HasRight("Galeri") && "Galeri".ShowType() == true) { <li class="bg_lo"> <a href="@AppMgr.AdminPath/Galeri"> <i class="icon-picture"></i> Galeri</a> </li> } }
+                @{ if(user.HasRight("Resim") && "Resim".ShowType() == true) { <li class="bg_ls"> <a href="@AppMgr.AdminPath/Resim"> <i class="icon-camera-retro"></i> Resimler</a> </li> } }
+                @{ if(user.HasRight("Dosya") && "Dosya".ShowType() == true) { <li class="bg_lr"> <a href="@AppMgr.AdminPath/Dosya"> <i class="icon-file"></i> Dosyalar</a> </li> } }
+                @{ if(user.HasRight("Meta") && "Meta".ShowType() == true) { <li class="bg_lv"> <a href="@AppMgr.AdminPath/Meta"> <i class="icon-tags"></i> Meta</a> </li> } }
+                @{ if(user.HasRight("FormEleman") && "FormEleman".ShowType() == true) { <li class="bg_lb"> <a href="@AppMgr.AdminPath/FormEleman"> <i class="icon-tasks"></i> Form Elemanları</a> </li> } }
+                @{ if(user.HasRight("BagliTipler") && "BagliTipler".ShowType() == true) { <li class="bg_lg"> <a href="@AppMgr.AdminPath/BagliTipler"> <i class="icon-link"></i> Bağlı Tipler</a> </li> } }
+                @{ if(user.HasRight("Dil") && "Dil".ShowType() == true) { <li class="bg_ly"> <a href="@AppMgr.AdminPath/Dil"> <i class="icon-globe"></i> Diller</a> </li> } }
+                @{ if(user.HasRight("Loglar") && "Loglar".ShowType() == true) { <li class="bg_lo"> <a href="@AppMgr.AdminPath/Loglar"> <i class="icon-eye-open"></i> Loglar</a> </li> } }
+                @{ if(user.HasRight("Ziyaretci") && "Ziyaretci".ShowType() == true) { <li class="bg_ls"> <a href="@AppMgr.AdminPath/Ziyaretci"> <i class="icon-plane"></i> Ziyaretci</a> </li> } }
+                @{ if(user.HasRight("Kullanicilar") && "Kullanicilar".ShowType() == true) { <li class="bg_lr"> <a href="@AppMgr.AdminPath/Kullanicilar"> <i class="icon-user"></i> Kullanıcılar</a> </li> } }
+                @{ if(user.HasRight("Tipler") && "Tipler".ShowType() == true) { <li class="bg_lv"> <a href="@AppMgr.AdminPath/Tipler"> <i class="icon-pushpin"></i> Tipler</a> </li> } }
+            </ul>
+        </div>
+    </div>
+</div>
+
