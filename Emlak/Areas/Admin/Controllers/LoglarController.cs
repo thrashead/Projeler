@@ -18,7 +18,7 @@ namespace Emlak.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
             }
 
-            List<usp_LogsDetailSelect_Result> log = _entity.usp_LogsDetailSelect(null).ToList();
+            List<usp_LogsDetailSelect_Result> log = _entity.usp_LogsDetailSelect(null, curUser.GroupID).ToList();
 
             curUser.Log<usp_LogsDetailSelect_Result>(null, "s", "Loglar");
 

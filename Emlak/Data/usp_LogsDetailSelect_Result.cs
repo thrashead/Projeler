@@ -19,6 +19,7 @@ namespace Emlak.Data
         public string ProcessTime { get; set; }
         public string Description { get; set; }
         public string UsersAdi { get; set; }
+        public int GroupID { get; set; }
         public string LogTypesAdi { get; set; }
         public string LogProcessAdi { get; set; }
         public string LogProcessKisaAdi { get; set; }
