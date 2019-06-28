@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class BaglantiController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_LinksDetailSelect_Result> link = _entity.usp_LinksDetailSelect().ToList();
+            List<usp_LinksDetailSelect_Result> link = entity.usp_LinksDetailSelect().ToList();
 
             curUser.Log<Baglantilar>(null, "s", "Bağlantılar");
 
@@ -31,11 +31,11 @@ namespace Emlak.Areas.Admin.Controllers
 
             Baglantilar link = new Baglantilar();
 
-            List<LinkTypes> tableLinkTypes = _entity.LinkTypes.ToList();
+            List<LinkTypes> tableLinkTypes = entity.LinkTypes.ToList();
 
             if (tableLinkTypes.Count > 0)
             {
-                link.LinkedItemList = ReturnList(_entity, tableLinkTypes.FirstOrDefault().LinkedTypeID);
+                link.LinkedItemList = ReturnList(entity, tableLinkTypes.FirstOrDefault().LinkedTypeID);
                 link.LinkTypesList = tableLinkTypes.ToSelectList("ID", "Title");
             }
             else
@@ -54,7 +54,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && link.LinkID > 0 && link.LinkTypeID > 0)
             {
-                var result = _entity.usp_LinksCheckInsert(link.LinkID, link.LinkTypeID).FirstOrDefault();
+                var result = entity.usp_LinksCheckInsert(link.LinkID, link.LinkTypeID).FirstOrDefault();
 
                 if (result != null)
                 {
@@ -68,11 +68,11 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 link.Mesaj = "Model uygun değil.";
 
-            List<LinkTypes> tableLinkTypes = _entity.LinkTypes.ToList();
+            List<LinkTypes> tableLinkTypes = entity.LinkTypes.ToList();
 
             if (tableLinkTypes.Count > 0)
             {
-                link.LinkedItemList = ReturnList(_entity, null, link.LinkID, link.LinkTypeID);
+                link.LinkedItemList = ReturnList(entity, null, link.LinkID, link.LinkTypeID);
                 link.LinkTypesList = tableLinkTypes.ToSelectList("ID", "Title", link.LinkTypeID);
             }
             else
@@ -89,12 +89,12 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_LinksDetailSelectTop_Result table = _entity.usp_LinksDetailSelectTop(id, 1).FirstOrDefault();
+            usp_LinksDetailSelectTop_Result table = entity.usp_LinksDetailSelectTop(id, 1).FirstOrDefault();
 
             Baglantilar link = table.ChangeModel<Baglantilar>();
 
-            usp_LinkTypesSelectTop_Result tableLinkTypes = _entity.usp_LinkTypesSelectTop(table.LinkTypeID, 1).FirstOrDefault();
-            link.LinkedItemList = ReturnList(_entity, table.LinkedTypeID, table.LinkID);
+            usp_LinkTypesSelectTop_Result tableLinkTypes = entity.usp_LinkTypesSelectTop(table.LinkTypeID, 1).FirstOrDefault();
+            link.LinkedItemList = ReturnList(entity, table.LinkedTypeID, table.LinkID);
             link.LinkedTypeAdi = tableLinkTypes.Title;
 
             return View(link);
@@ -108,7 +108,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LinksCheckUpdate(link.ID, link.LinkID, link.LinkTypeID).FirstOrDefault();
+                var result = entity.usp_LinksCheckUpdate(link.ID, link.LinkID, link.LinkTypeID).FirstOrDefault();
 
                 if (result != null)
                 {
@@ -122,8 +122,8 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 link.Mesaj = "Model uygun değil.";
 
-            usp_LinkTypesSelectTop_Result tableLinkTypes = _entity.usp_LinkTypesSelectTop(link.LinkTypeID, 1).FirstOrDefault();
-            link.LinkedItemList = ReturnList(_entity, null, link.LinkID, link.LinkTypeID);
+            usp_LinkTypesSelectTop_Result tableLinkTypes = entity.usp_LinkTypesSelectTop(link.LinkTypeID, 1).FirstOrDefault();
+            link.LinkedItemList = ReturnList(entity, null, link.LinkID, link.LinkTypeID);
             link.LinkedTypeAdi = tableLinkTypes.Title;
 
             return View("Duzenle", link);
@@ -136,7 +136,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("BagliTipler", "d"))
                 {
-                    _entity.usp_LinksDelete(id);
+                    entity.usp_LinksDelete(id);
 
                     curUser.Log(id, "rd", "Bağlantılar");
 
@@ -154,7 +154,7 @@ namespace Emlak.Areas.Admin.Controllers
         [HttpGet]
         public JsonResult FillObject(string linkTypeID)
         {
-            return Json(ReturnList(_entity, null, null, linkTypeID.ToInteger()), JsonRequestBehavior.AllowGet);
+            return Json(ReturnList(entity, null, null, linkTypeID.ToInteger()), JsonRequestBehavior.AllowGet);
         }
 
         private static List<SelectListItem> ReturnList(EmlakEntities entity, int? linkedTypeID = 1, int? linkID = null, int? linkTypeID = null)

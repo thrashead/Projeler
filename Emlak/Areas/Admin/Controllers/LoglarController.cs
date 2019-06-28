@@ -8,7 +8,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
 	public class LoglarController : Controller
 	{
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,7 +18,7 @@ namespace Emlak.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
             }
 
-            List<usp_LogsDetailSelect_Result> log = _entity.usp_LogsDetailSelect(null, curUser.GroupID).ToList();
+            List<usp_LogsDetailSelect_Result> log = entity.usp_LogsDetailSelect(null, curUser.GroupID).ToList();
 
             curUser.Log<usp_LogsDetailSelect_Result>(null, "s", "Loglar");
 

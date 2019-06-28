@@ -158,7 +158,7 @@
             }
         }
 
-        @{ if (user.HasRight("Tipler"))
+        @{ if (user.HasRight("Tipler") && "Tipler".ShowType() == true)
             {
                 <li data-url="Tipler">
                     <a href="@AppMgr.AdminPath/Tipler"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>

@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class MetaDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_MetaTLinkedSelect_Result> meta = _entity.usp_MetaTLinkedSelect(null).ToList();
+            List<usp_MetaTLinkedSelect_Result> meta = entity.usp_MetaTLinkedSelect(null).ToList();
 
             curUser.Log<MetalarDil>(null, "s", "Metalar (Dil)");
 
@@ -33,10 +33,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             MetalarDil meta = new MetalarDil();
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
+            List<usp_MetaSelect_Result> tableMeta = entity.usp_MetaSelect(null).ToList();
             meta.MetaList = tableMeta.ToSelectList("ID", "Title", linkID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
 
             return View(meta);
@@ -50,7 +50,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && meta.MetaID > 0)
             {
-                var result = _entity.usp_MetaTCheckInsert(meta.MetaID, meta.TransID, meta.Name, meta.Content);
+                var result = entity.usp_MetaTCheckInsert(meta.MetaID, meta.TransID, meta.Name, meta.Content);
 
                 if (result != null)
                 {
@@ -64,10 +64,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
+            List<usp_MetaSelect_Result> tableMeta = entity.usp_MetaSelect(null).ToList();
             meta.MetaList = tableMeta.ToSelectList("ID", "Title", meta.MetaID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName", meta.TransID);
 
             return View("Ekle", meta);
@@ -79,14 +79,14 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_MetaTSelectTop_Result table = _entity.usp_MetaTSelectTop(id, 1).FirstOrDefault();
+            usp_MetaTSelectTop_Result table = entity.usp_MetaTSelectTop(id, 1).FirstOrDefault();
 
             MetalarDil meta = table.ChangeModel<MetalarDil>();
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
+            List<usp_MetaSelect_Result> tableMeta = entity.usp_MetaSelect(null).ToList();
             meta.MetaList = tableMeta.ToSelectList("ID", "Title", meta.MetaID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName", meta.TransID);
 
             return View(meta);
@@ -100,7 +100,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_MetaTCheckUpdate(meta.ID, meta.MetaID, meta.TransID, meta.Name, meta.Content);
+                var result = entity.usp_MetaTCheckUpdate(meta.ID, meta.MetaID, meta.TransID, meta.Name, meta.Content);
 
                 if (result != null)
                 {
@@ -114,10 +114,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
+            List<usp_MetaSelect_Result> tableMeta = entity.usp_MetaSelect(null).ToList();
             meta.MetaList = tableMeta.ToSelectList("ID", "Title", meta.MetaID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName", meta.TransID);
 
             return View("Duzenle", meta);
@@ -130,7 +130,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Meta", "d"))
                 {
-                    _entity.usp_MetaTSetDeleted(id);
+                    entity.usp_MetaTSetDeleted(id);
 
                     curUser.Log(id, "d", "Metalar (Dil)");
 
@@ -152,7 +152,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Meta", "rd"))
                 {
-                    _entity.usp_MetaTDelete(id);
+                    entity.usp_MetaTDelete(id);
 
                     curUser.Log(id, "rd", "Metalar (Dil)");
 

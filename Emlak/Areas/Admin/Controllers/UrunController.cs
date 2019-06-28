@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class UrunController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ProductSelect_Result> urun = _entity.usp_ProductSelect(null).ToList();
+            List<usp_ProductSelect_Result> urun = entity.usp_ProductSelect(null).ToList();
 
             curUser.Log<Urun>(null, "s", "Ürünler");
 
@@ -44,7 +44,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 urun.Url = urun.Title.ToHyperLinkText();
 
-                var result = _entity.usp_ProductInsert(urun.Title, urun.Url, urun.Code, urun.Active);
+                var result = entity.usp_ProductInsert(urun.Title, urun.Url, urun.Code, urun.Active);
 
                 if (result != null)
                 {
@@ -67,11 +67,11 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ProductSelectTop_Result table = _entity.usp_ProductSelectTop(id, 1).FirstOrDefault();
+            usp_ProductSelectTop_Result table = entity.usp_ProductSelectTop(id, 1).FirstOrDefault();
 
             Urun urun = table.ChangeModel<Urun>();
 
-            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = _entity.usp_ProductTByLinkedIDSelect(id).ToList();
+            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = entity.usp_ProductTByLinkedIDSelect(id).ToList();
             urun.ProductTList.AddRange(urunDilList.ChangeModelList<UrunDil, usp_ProductTByLinkedIDSelect_Result>());
 
             return View(urun);
@@ -87,7 +87,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 urun.Url = urun.Title.ToHyperLinkText();
 
-                var result = _entity.usp_ProductUpdate(urun.ID, urun.Title, urun.Url, urun.Code, urun.Active);
+                var result = entity.usp_ProductUpdate(urun.ID, urun.Title, urun.Url, urun.Code, urun.Active);
 
                 if (result != null)
                 {
@@ -101,7 +101,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = _entity.usp_ProductTByLinkedIDSelect(urun.ID).ToList();
+            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = entity.usp_ProductTByLinkedIDSelect(urun.ID).ToList();
             urun.ProductTList.AddRange(urunDilList.ChangeModelList<UrunDil, usp_ProductTByLinkedIDSelect_Result>());
 
             return View("Duzenle", urun);
@@ -114,7 +114,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Urun", "d"))
                 {
-                    _entity.usp_ProductCheckSetDeleted(id);
+                    entity.usp_ProductCheckSetDeleted(id);
 
                     curUser.Log(id, "d", "Ürünler");
 
@@ -136,7 +136,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Urun", "rd"))
                 {
-                    _entity.usp_ProductCheckDelete(id);
+                    entity.usp_ProductCheckDelete(id);
 
                     curUser.Log(id, "rd", "Ürünler");
 
@@ -158,7 +158,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Urun", "d"))
                 {
-                    var result = _entity.usp_ProductCopy(id);
+                    var result = entity.usp_ProductCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Ürünler");

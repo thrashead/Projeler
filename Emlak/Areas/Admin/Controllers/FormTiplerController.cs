@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class FormTiplerController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PropertyTypesSelect_Result> formeleman = _entity.usp_PropertyTypesSelect(null).ToList();
+            List<usp_PropertyTypesSelect_Result> formeleman = entity.usp_PropertyTypesSelect(null).ToList();
 
             curUser.Log<FormTipler>(null, "s", "Form Tipleri");
 
@@ -42,7 +42,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyTypesInsert(formeleman.Name, formeleman.Type, formeleman.ShortName, formeleman.HasValue);
+                var result = entity.usp_PropertyTypesInsert(formeleman.Name, formeleman.Type, formeleman.ShortName, formeleman.HasValue);
 
                 if (result != null)
                 {
@@ -65,7 +65,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PropertyTypesSelectTop_Result table = _entity.usp_PropertyTypesSelectTop(id, 1).FirstOrDefault();
+            usp_PropertyTypesSelectTop_Result table = entity.usp_PropertyTypesSelectTop(id, 1).FirstOrDefault();
 
             FormTipler formeleman = table.ChangeModel<FormTipler>();
 
@@ -80,7 +80,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyTypesUpdate(formeleman.ID, formeleman.Name, formeleman.Type, formeleman.ShortName, formeleman.HasValue);
+                var result = entity.usp_PropertyTypesUpdate(formeleman.ID, formeleman.Name, formeleman.Type, formeleman.ShortName, formeleman.HasValue);
 
                 if (result != null)
                 {
@@ -103,7 +103,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("FormEleman", "d"))
                 {
-                    _entity.usp_PropertyTypesCheckDelete(id);
+                    entity.usp_PropertyTypesCheckDelete(id);
 
                     curUser.Log(id, "rd", "Form Tipleri");
 

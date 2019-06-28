@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class KategoriController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_CategorySelect_Result> kategori = _entity.usp_CategorySelect(null).ToList();
+            List<usp_CategorySelect_Result> kategori = entity.usp_CategorySelect(null).ToList();
 
             curUser.Log<Kategori>(null, "s", "Kategoriler");
 
@@ -31,7 +31,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             Kategori kategori = new Kategori();
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(null).ToList();
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(null).ToList();
             kategori.ParentCategories = parentList.ToSelectList("ID", "Title", null, true);
 
             return View(kategori);
@@ -47,7 +47,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 kategori.Url = kategori.Title.ToHyperLinkText();
 
-                var result = _entity.usp_CategoryInsert(kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active);
+                var result = entity.usp_CategoryInsert(kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active);
 
                 if (result != null)
                 {
@@ -61,7 +61,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(null).ToList();
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(null).ToList();
             kategori.ParentCategories = parentList.ToSelectList("ID", "Title", kategori.ParentID, true);
 
             return View("Ekle", kategori);
@@ -73,13 +73,13 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_CategorySelectTop_Result table = _entity.usp_CategorySelectTop(id, 1).FirstOrDefault();
+            usp_CategorySelectTop_Result table = entity.usp_CategorySelectTop(id, 1).FirstOrDefault();
             Kategori kategori = table.ChangeModel<Kategori>();
 
-            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = _entity.usp_CategoryTByLinkedIDSelect(id).ToList();
+            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = entity.usp_CategoryTByLinkedIDSelect(id).ToList();
             kategori.CategoryTList.AddRange(kategoriDilList.ChangeModelList<KategoriDil, usp_CategoryTByLinkedIDSelect_Result>());
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(id).ToList();
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(id).ToList();
             kategori.ParentCategories = parentList.ToSelectList("ID", "Title", kategori.ParentID, true);
 
             return View(kategori);
@@ -95,7 +95,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 kategori.Url = kategori.Title.ToHyperLinkText();
 
-                var result = _entity.usp_CategoryUpdate(kategori.ID, kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active);
+                var result = entity.usp_CategoryUpdate(kategori.ID, kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active);
 
                 if (result != null)
                 {
@@ -109,10 +109,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = _entity.usp_CategoryTByLinkedIDSelect(kategori.ID).ToList();
+            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = entity.usp_CategoryTByLinkedIDSelect(kategori.ID).ToList();
             kategori.CategoryTList.AddRange(kategoriDilList.ChangeModelList<KategoriDil, usp_CategoryTByLinkedIDSelect_Result>());
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(kategori.ID).ToList();
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(kategori.ID).ToList();
             kategori.ParentCategories = parentList.ToSelectList("ID", "Title", kategori.ParentID, true);
 
             return View("Duzenle", kategori);
@@ -125,7 +125,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kategori", "d"))
                 {
-                    _entity.usp_CategoryCheckSetDeleted(id);
+                    entity.usp_CategoryCheckSetDeleted(id);
 
                     curUser.Log(id, "d", "Kategoriler");
 
@@ -147,7 +147,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kategori", "rd"))
                 {
-                    _entity.usp_CategoryCheckDelete(id);
+                    entity.usp_CategoryCheckDelete(id);
 
                     curUser.Log(id, "rd", "Kategoriler");
 
@@ -169,7 +169,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kategori", "c"))
                 {
-                    var result = _entity.usp_CategoryCopy(id);
+                    var result = entity.usp_CategoryCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Kategoriler");

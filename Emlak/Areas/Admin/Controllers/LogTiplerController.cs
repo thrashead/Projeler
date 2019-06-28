@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class LogTiplerController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_LogTypesSelect_Result> log = _entity.usp_LogTypesSelect(null).ToList();
+            List<usp_LogTypesSelect_Result> log = entity.usp_LogTypesSelect(null).ToList();
 
             curUser.Log<LogTipler>(null, "s", "Log Tipleri");
 
@@ -42,7 +42,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LogTypesInsert(log.Name, log.ShortName);
+                var result = entity.usp_LogTypesInsert(log.Name, log.ShortName);
 
                 if (result != null)
                 {
@@ -65,11 +65,11 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_LogTypesSelectTop_Result table = _entity.usp_LogTypesSelectTop(id, 1).FirstOrDefault();
+            usp_LogTypesSelectTop_Result table = entity.usp_LogTypesSelectTop(id, 1).FirstOrDefault();
 
             LogTipler log = table.ChangeModel<LogTipler>();
 
-            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = _entity.usp_LogProcessByLogTypeIDSelect(id).ToList();
+            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = entity.usp_LogProcessByLogTypeIDSelect(id).ToList();
             log.LogProcessList.AddRange(logTipList.ChangeModelList<LogIslem, usp_LogProcessByLogTypeIDSelect_Result>());
 
             return View(log);
@@ -83,7 +83,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LogTypesUpdate(log.ID, log.Name, log.ShortName);
+                var result = entity.usp_LogTypesUpdate(log.ID, log.Name, log.ShortName);
 
                 if (result != null)
                 {
@@ -97,7 +97,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 log.Mesaj = "Model uygun deðil.";
 
-            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = _entity.usp_LogProcessByLogTypeIDSelect(log.ID).ToList();
+            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = entity.usp_LogProcessByLogTypeIDSelect(log.ID).ToList();
             log.LogProcessList.AddRange(logTipList.ChangeModelList<LogIslem, usp_LogProcessByLogTypeIDSelect_Result>());
 
             return View("Duzenle", log);
@@ -109,7 +109,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Loglar", "d"))
                 {
-                    _entity.usp_LogTypesCheckDelete(id);
+                    entity.usp_LogTypesCheckDelete(id);
 
                     curUser.Log(id, "rd", "Log Tipleri");
 

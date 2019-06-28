@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class KullaniciGrupController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupsSelect_Result> kullanici = _entity.usp_UserGroupsSelect(null).ToList();
+            List<usp_UserGroupsSelect_Result> kullanici = entity.usp_UserGroupsSelect(null).ToList();
 
             curUser.Log<KullaniciGrup>(null, "s", "Kullanýcý Gruplarý");
 
@@ -42,7 +42,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupsInsert(kullanici.Name, kullanici.ShortName, kullanici.Description);
+                var result = entity.usp_UserGroupsInsert(kullanici.Name, kullanici.ShortName, kullanici.Description);
 
                 if (result != null)
                 {
@@ -65,12 +65,12 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UserGroupsSelectTop_Result table = _entity.usp_UserGroupsSelectTop(id, 1).FirstOrDefault();
+            usp_UserGroupsSelectTop_Result table = entity.usp_UserGroupsSelectTop(id, 1).FirstOrDefault();
 
             KullaniciGrup kullanici = table.ChangeModel<KullaniciGrup>();
 
-            kullanici.UserGroupTablesList = _entity.usp_UserGroupTablesDetailSelect(id).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
-            kullanici.UserGroupRightsList = _entity.usp_UserGroupRightsDetailSelect(id).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
+            kullanici.UserGroupTablesList = entity.usp_UserGroupTablesDetailSelect(id).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
+            kullanici.UserGroupRightsList = entity.usp_UserGroupRightsDetailSelect(id).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
 
             return View(kullanici);
         }
@@ -83,7 +83,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupsUpdate(kullanici.ID, kullanici.Name, kullanici.ShortName, kullanici.Description);
+                var result = entity.usp_UserGroupsUpdate(kullanici.ID, kullanici.Name, kullanici.ShortName, kullanici.Description);
 
                 if (result != null)
                 {
@@ -96,8 +96,8 @@ namespace Emlak.Areas.Admin.Controllers
             }
             kullanici.Mesaj = "Model uygun deðil.";
 
-            kullanici.UserGroupTablesList = _entity.usp_UserGroupTablesDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
-            kullanici.UserGroupRightsList = _entity.usp_UserGroupRightsDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
+            kullanici.UserGroupTablesList = entity.usp_UserGroupTablesDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
+            kullanici.UserGroupRightsList = entity.usp_UserGroupRightsDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
 
             return View("Duzenle", kullanici);
         }
@@ -108,7 +108,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kullanicilar", "d"))
                 {
-                    _entity.usp_UserGroupsCheckDelete(id);
+                    entity.usp_UserGroupsCheckDelete(id);
 
                     curUser.Log(id, "rd", "Kullanýcý Gruplarý");
 

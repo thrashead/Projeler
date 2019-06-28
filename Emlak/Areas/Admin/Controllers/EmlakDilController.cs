@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class EmlakDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Emlak"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_RealEstatesTLinkedSelect_Result> emlak = _entity.usp_RealEstatesTLinkedSelect(null).ToList();
+            List<usp_RealEstatesTLinkedSelect_Result> emlak = entity.usp_RealEstatesTLinkedSelect(null).ToList();
 
             curUser.Log<EmlakDil>(null, "s", "Emlaklar (Dil)");
 
@@ -33,10 +33,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             EmlakDil emlak = new EmlakDil();
 
-            List<RealEstates> tableEmlak = _entity.RealEstates.ToList();
+            List<RealEstates> tableEmlak = entity.RealEstates.ToList();
             emlak.RealEstatesList = tableEmlak.ToSelectList("ID", "Baslik", linkID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<Translation> tableTranslation = entity.Translation.ToList();
             emlak.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
 
             return View(emlak);
@@ -50,7 +50,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && emlak.RealEsID > 0)
             {
-                var result = _entity.usp_RealEstatesTCheckInsert(emlak.RealEsID, emlak.TransID, emlak.Baslik, emlak.Code, emlak.Aciklama);
+                var result = entity.usp_RealEstatesTCheckInsert(emlak.RealEsID, emlak.TransID, emlak.Baslik, emlak.Code, emlak.Aciklama);
 
                 if (result != null)
                 {
@@ -64,10 +64,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 emlak.Mesaj = "Model uygun deðil.";
 
-            List<RealEstates> tableEmlak = _entity.RealEstates.ToList();
+            List<RealEstates> tableEmlak = entity.RealEstates.ToList();
             emlak.RealEstatesList = tableEmlak.ToSelectList("ID", "Baslik", emlak.RealEsID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<Translation> tableTranslation = entity.Translation.ToList();
             emlak.TranslationList = tableTranslation.ToSelectList("ID", "TransName", emlak.TransID);
 
             return View("Ekle", emlak);
@@ -79,13 +79,13 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Emlak", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_RealEstatesSelectTop_Result table = _entity.usp_RealEstatesSelectTop(id, 1).FirstOrDefault();
+            usp_RealEstatesSelectTop_Result table = entity.usp_RealEstatesSelectTop(id, 1).FirstOrDefault();
             EmlakDil emlak = table.ChangeModel<EmlakDil>();
 
-            List<RealEstates> tableEmlak = _entity.RealEstates.ToList();
+            List<RealEstates> tableEmlak = entity.RealEstates.ToList();
             emlak.RealEstatesList = tableEmlak.ToSelectList("ID", "Baslik", emlak.RealEsID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<Translation> tableTranslation = entity.Translation.ToList();
             emlak.TranslationList = tableTranslation.ToSelectList("ID", "TransName", emlak.TransID);
 
             return View(emlak);
@@ -99,7 +99,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_RealEstatesTCheckUpdate(emlak.ID, emlak.RealEsID, emlak.TransID, emlak.Baslik, emlak.Code, emlak.Aciklama);
+                var result = entity.usp_RealEstatesTCheckUpdate(emlak.ID, emlak.RealEsID, emlak.TransID, emlak.Baslik, emlak.Code, emlak.Aciklama);
 
                 if (result != null)
                 {
@@ -113,10 +113,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 emlak.Mesaj = "Model uygun deðil.";
 
-            List<RealEstates> tableEmlak = _entity.RealEstates.ToList();
+            List<RealEstates> tableEmlak = entity.RealEstates.ToList();
             emlak.RealEstatesList = tableEmlak.ToSelectList("ID", "Baslik", emlak.RealEsID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<Translation> tableTranslation = entity.Translation.ToList();
             emlak.TranslationList = tableTranslation.ToSelectList("ID", "TransName", emlak.TransID);
 
             return View("Duzenle", emlak);
@@ -129,7 +129,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Emlak", "d"))
                 {
-                    _entity.usp_RealEstatesTSetDeleted(id);
+                    entity.usp_RealEstatesTSetDeleted(id);
 
                     curUser.Log(id, "d", "Emlaklar (Dil)");
 
@@ -151,7 +151,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Emlak", "rd"))
                 {
-                    _entity.usp_RealEstatesTDelete(id);
+                    entity.usp_RealEstatesTDelete(id);
 
                     curUser.Log(id, "rd", "Emlaklar (Dil)");
 

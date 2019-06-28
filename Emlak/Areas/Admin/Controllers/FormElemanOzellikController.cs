@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class FormElemanOzellikController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PropertyAttributesWithPropertyNameSelect_Result> formeleman = _entity.usp_PropertyAttributesWithPropertyNameSelect(null).ToList();
+            List<usp_PropertyAttributesWithPropertyNameSelect_Result> formeleman = entity.usp_PropertyAttributesWithPropertyNameSelect(null).ToList();
 
             curUser.Log<FormElemanOzellik>(null, "s", "Form Eleman Özellikleri");
 
@@ -33,7 +33,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             FormElemanOzellik formeleman = new FormElemanOzellik();
 
-            List<Property> tableProperties = _entity.Property.ToList();
+            List<Property> tableProperties = entity.Property.ToList();
             formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", linkID);
 
             return View(formeleman);
@@ -47,7 +47,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && formeleman.PropID > 0)
             {
-                var result = _entity.usp_PropertyAttributesInsert(formeleman.PropID, formeleman.Name, formeleman.Value);
+                var result = entity.usp_PropertyAttributesInsert(formeleman.PropID, formeleman.Name, formeleman.Value);
 
                 if (result != null)
                 {
@@ -61,7 +61,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<Property> tableProperties = _entity.Property.ToList();
+            List<Property> tableProperties = entity.Property.ToList();
             formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", formeleman.PropID);
 
             return View("Ekle", formeleman);
@@ -73,11 +73,11 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PropertyAttributesSelectTop_Result table = _entity.usp_PropertyAttributesSelectTop(id, 1).FirstOrDefault();
+            usp_PropertyAttributesSelectTop_Result table = entity.usp_PropertyAttributesSelectTop(id, 1).FirstOrDefault();
 
             FormElemanOzellik formeleman = table.ChangeModel<FormElemanOzellik>();
 
-            List<Property> tableProperties = _entity.Property.ToList();
+            List<Property> tableProperties = entity.Property.ToList();
             formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", formeleman.PropID);
 
             return View(formeleman);
@@ -91,7 +91,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyAttributesUpdate(formeleman.ID, formeleman.PropID, formeleman.Name, formeleman.Value);
+                var result = entity.usp_PropertyAttributesUpdate(formeleman.ID, formeleman.PropID, formeleman.Name, formeleman.Value);
 
                 if (result != null)
                 {
@@ -105,7 +105,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<Property> tableProperties = _entity.Property.ToList();
+            List<Property> tableProperties = entity.Property.ToList();
             formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", formeleman.PropID);
 
             return View("Duzenle", formeleman);
@@ -118,7 +118,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("FormEleman", "d"))
                 {
-                    _entity.usp_PropertyAttributesDelete(id);
+                    entity.usp_PropertyAttributesDelete(id);
 
                     curUser.Log(id, "rd", "Form Eleman Özellikleri");
 
@@ -140,7 +140,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("FormEleman", "c"))
                 {
-                    var result = _entity.usp_PropertyAttributesCopy(id);
+                    var result = entity.usp_PropertyAttributesCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Form Eleman Özellikleri");

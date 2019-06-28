@@ -10,7 +10,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class EmlakController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,7 +18,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Emlak"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_RealEstatesSelect_Result> emlak = _entity.usp_RealEstatesSelect(null).ToList();
+            List<usp_RealEstatesSelect_Result> emlak = entity.usp_RealEstatesSelect(null).ToList();
 
             curUser.Log<Emlaklar>(null, "s", "Emlaklar");
 
@@ -45,7 +45,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 emlak.Url = emlak.Baslik.ToHyperLinkText();
 
-                var result = _entity.usp_RealEstatesInsert(emlak.Baslik, emlak.Code, emlak.Fiyat, emlak.Yeni, emlak.GununEmlagi,
+                var result = entity.usp_RealEstatesInsert(emlak.Baslik, emlak.Code, emlak.Fiyat, emlak.Yeni, emlak.GununEmlagi,
                     emlak.Sehir, emlak.Ilce, emlak.Semt, emlak.Sahibi, emlak.OdaSayisi, emlak.KatSayisi, emlak.IsinmaTipi, 
                     emlak.SalonSayisi, emlak.BulunduguKat, emlak.YakitTipi, emlak.Alan, emlak.Durum, emlak.BinaYasi,
                     emlak.ArkaCephe, emlak.OnCephe, emlak.CaddeyeYakin, emlak.DenizeSifir, emlak.DenizeYakin, emlak.Manzara,
@@ -75,10 +75,10 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Emlak", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_RealEstatesSelectTop_Result table = _entity.usp_RealEstatesSelectTop(id, 1).FirstOrDefault();
+            usp_RealEstatesSelectTop_Result table = entity.usp_RealEstatesSelectTop(id, 1).FirstOrDefault();
             Emlaklar emlak = table.ChangeModel<Emlaklar>();
 
-            List<usp_RealEstatesTByLinkedIDSelect_Result> emlakDilList = _entity.usp_RealEstatesTByLinkedIDSelect(id).ToList();
+            List<usp_RealEstatesTByLinkedIDSelect_Result> emlakDilList = entity.usp_RealEstatesTByLinkedIDSelect(id).ToList();
             emlak.RealEstatesTList.AddRange(emlakDilList.ChangeModelList<EmlakDil, usp_RealEstatesTByLinkedIDSelect_Result>());
 
             return View(emlak);
@@ -94,7 +94,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 emlak.Url = emlak.Baslik.ToHyperLinkText();
 
-                var result = _entity.usp_RealEstatesUpdate(emlak.ID, emlak.Baslik, emlak.Code, emlak.Fiyat, emlak.Yeni, emlak.GununEmlagi,
+                var result = entity.usp_RealEstatesUpdate(emlak.ID, emlak.Baslik, emlak.Code, emlak.Fiyat, emlak.Yeni, emlak.GununEmlagi,
                     emlak.Sehir, emlak.Ilce, emlak.Semt, emlak.Sahibi, emlak.OdaSayisi, emlak.KatSayisi, emlak.IsinmaTipi,
                     emlak.SalonSayisi, emlak.BulunduguKat, emlak.YakitTipi, emlak.Alan, emlak.Durum, emlak.BinaYasi,
                     emlak.ArkaCephe, emlak.OnCephe, emlak.CaddeyeYakin, emlak.DenizeSifir, emlak.DenizeYakin, emlak.Manzara,
@@ -115,7 +115,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 emlak.Mesaj = "Model uygun deðil.";
 
-            List<usp_RealEstatesTByLinkedIDSelect_Result> emlakDilList = _entity.usp_RealEstatesTByLinkedIDSelect(emlak.ID).ToList();
+            List<usp_RealEstatesTByLinkedIDSelect_Result> emlakDilList = entity.usp_RealEstatesTByLinkedIDSelect(emlak.ID).ToList();
             emlak.RealEstatesTList.AddRange(emlakDilList.ChangeModelList<EmlakDil, usp_RealEstatesTByLinkedIDSelect_Result>());
 
             return View("Duzenle", emlak);
@@ -128,7 +128,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Emlak", "d"))
                 {
-                    _entity.usp_RealEstatesCheckSetDeleted(id);
+                    entity.usp_RealEstatesCheckSetDeleted(id);
 
                     curUser.Log(id, "d", "Emlaklar");
 
@@ -150,7 +150,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Emlak", "rd"))
                 {
-                    _entity.usp_RealEstatesCheckDelete(id);
+                    entity.usp_RealEstatesCheckDelete(id);
 
                     curUser.Log(id, "rd", "Emlaklar");
 
@@ -172,7 +172,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Emlak", "c"))
                 {
-                    var result = _entity.usp_RealEstatesCopy(id);
+                    var result = entity.usp_RealEstatesCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Emlaklar");

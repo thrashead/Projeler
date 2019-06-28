@@ -9,14 +9,14 @@ namespace Emlak.Areas.Ajax.Controllers
 {
     public class AjaxController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
 
         [HttpPost]
         public JsonResult LoginAdmin(string login)
         {
             Kullanicilar kullanici = JsonConvert.DeserializeObject<Kullanicilar>(login);
 
-            usp_UsersSelectLogin_Result rb = _entity.usp_UsersSelectLogin(kullanici.Username, kullanici.Password.ToMD5()).FirstOrDefault();
+            usp_UsersSelectLogin_Result rb = entity.usp_UsersSelectLogin(kullanici.Username, kullanici.Password.ToMD5()).FirstOrDefault();
 
             if (rb != null)
             {
@@ -26,7 +26,7 @@ namespace Emlak.Areas.Ajax.Controllers
 
                 string loginTime = AppTools.GetTime;
 
-                var result = _entity.usp_UsersLoginTimeUpdate(kullanici.ID, loginTime);
+                var result = entity.usp_UsersLoginTimeUpdate(kullanici.ID, loginTime);
 
                 if (result != null)
                 {
@@ -42,7 +42,7 @@ namespace Emlak.Areas.Ajax.Controllers
         [HttpPost]
         public JsonResult Login([System.Web.Http.FromBody] Kullanicilar login)
         {
-            usp_UsersSelectLogin_Result rb = _entity.usp_UsersSelectLogin(login.Username, login.Password.ToMD5()).FirstOrDefault();
+            usp_UsersSelectLogin_Result rb = entity.usp_UsersSelectLogin(login.Username, login.Password.ToMD5()).FirstOrDefault();
 
             if (rb != null)
             {
@@ -52,7 +52,7 @@ namespace Emlak.Areas.Ajax.Controllers
 
                 string loginTime = AppTools.GetTime;
 
-                var result = _entity.usp_UsersLoginTimeUpdate(login.ID, loginTime);
+                var result = entity.usp_UsersLoginTimeUpdate(login.ID, loginTime);
 
                 if (result != null)
                 {

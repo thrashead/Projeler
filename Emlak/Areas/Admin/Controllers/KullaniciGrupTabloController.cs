@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class KullaniciGrupTabloController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupTablesDetailSelect_Result> kullanici = _entity.usp_UserGroupTablesDetailSelect(null).ToList();
+            List<usp_UserGroupTablesDetailSelect_Result> kullanici = entity.usp_UserGroupTablesDetailSelect(null).ToList();
 
             curUser.Log<KullaniciGrupTablo>(null, "s", "Kullanýcý Grup Tablolarý");
 
@@ -33,10 +33,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             KullaniciGrupTablo kullanici = new KullaniciGrupTablo();
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", linkID);
 
-            List<Types> tableTypes = _entity.Types.ToList();
+            List<Types> tableTypes = entity.Types.ToList();
             kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName");
 
             return View(kullanici);
@@ -50,7 +50,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupTablesCheckInsert(kullanici.TypeID, kullanici.UserGroupID);
+                var result = entity.usp_UserGroupTablesCheckInsert(kullanici.TypeID, kullanici.UserGroupID);
 
                 if (result != null)
                 {
@@ -64,10 +64,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.UserGroupID);
 
-            List<Types> tableTypes = _entity.Types.ToList();
+            List<Types> tableTypes = entity.Types.ToList();
             kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName", kullanici.TypeID);
 
             return View("Ekle", kullanici);
@@ -79,14 +79,14 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UserGroupTablesSelectTop_Result table = _entity.usp_UserGroupTablesSelectTop(id, 1).FirstOrDefault();
+            usp_UserGroupTablesSelectTop_Result table = entity.usp_UserGroupTablesSelectTop(id, 1).FirstOrDefault();
 
             KullaniciGrupTablo kullanici = table.ChangeModel<KullaniciGrupTablo>();
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.UserGroupID);
 
-            List<Types> tableTypes = _entity.Types.ToList();
+            List<Types> tableTypes = entity.Types.ToList();
             kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName", kullanici.TypeID);
 
             return View(kullanici);
@@ -100,7 +100,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupTablesCheckUpdate(kullanici.ID, kullanici.TypeID, kullanici.UserGroupID);
+                var result = entity.usp_UserGroupTablesCheckUpdate(kullanici.ID, kullanici.TypeID, kullanici.UserGroupID);
 
                 if (result != null)
                 {
@@ -114,10 +114,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.UserGroupID);
 
-            List<Types> tableTypes = _entity.Types.ToList();
+            List<Types> tableTypes = entity.Types.ToList();
             kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName", kullanici.TypeID);
 
             return View("Duzenle", kullanici);
@@ -129,7 +129,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kullanicilar", "d"))
                 {
-                    _entity.usp_UserGroupTablesCheckDelete(id);
+                    entity.usp_UserGroupTablesCheckDelete(id);
 
                     curUser.Log(id, "rd", "Kullanýcý Grup Tablolarý");
 

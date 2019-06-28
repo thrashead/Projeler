@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class DilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Dil"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_TranslationSelect_Result> ceviri = _entity.usp_TranslationSelect(null).ToList();
+            List<usp_TranslationSelect_Result> ceviri = entity.usp_TranslationSelect(null).ToList();
 
             curUser.Log<Dil>(null, "s", "Diller");
 
@@ -48,7 +48,7 @@ namespace Emlak.Areas.Admin.Controllers
                 {
                     ceviri.Flag = flag.FileName;
 
-                    var result = _entity.usp_TranslationInsert(ceviri.TransName, ceviri.ShortName, ceviri.Flag, ceviri.Active);
+                    var result = entity.usp_TranslationInsert(ceviri.TransName, ceviri.ShortName, ceviri.Flag, ceviri.Active);
 
                     if (result != null)
                     {
@@ -74,7 +74,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Dil", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_TranslationSelectTop_Result table = _entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+            usp_TranslationSelectTop_Result table = entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
 
             Dil ceviri = table.ChangeModel<Dil>();
 
@@ -109,7 +109,7 @@ namespace Emlak.Areas.Admin.Controllers
                         }
                     }
 
-                    var result = _entity.usp_TranslationUpdate(ceviri.ID, ceviri.TransName, ceviri.ShortName, ceviri.Flag, ceviri.Active);
+                    var result = entity.usp_TranslationUpdate(ceviri.ID, ceviri.TransName, ceviri.ShortName, ceviri.Flag, ceviri.Active);
 
                     if (result != null)
                     {
@@ -136,9 +136,9 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Dil", "d"))
                 {
-                    usp_TranslationSelectTop_Result table = _entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+                    usp_TranslationSelectTop_Result table = entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
 
-                    _entity.usp_TranslationSetDeleted(id);
+                    entity.usp_TranslationSetDeleted(id);
 
                     System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.Flag), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.Flag + ".bak"));
 
@@ -162,9 +162,9 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Dil", "rd"))
                 {
-                    usp_TranslationSelectTop_Result table = _entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+                    usp_TranslationSelectTop_Result table = entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
 
-                    _entity.usp_TranslationDelete(id);
+                    entity.usp_TranslationDelete(id);
 
                     System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.Flag));
 

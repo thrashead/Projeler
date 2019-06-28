@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class KullanicilarController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UsersDetailSelect_Result> kullanici = _entity.usp_UsersDetailSelect(null).ToList();
+            List<usp_UsersDetailSelect_Result> kullanici = entity.usp_UsersDetailSelect(null).ToList();
 
             curUser.Log<Kullanicilar>(null, "s", "Kullanýcýlar");
 
@@ -31,7 +31,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             Kullanicilar kullanici = new Kullanicilar();
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name");
 
             return View(kullanici);
@@ -45,7 +45,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UsersInsert(null, kullanici.Username, kullanici.Password.ToMD5(), kullanici.Active, null);
+                var result = entity.usp_UsersInsert(null, kullanici.Username, kullanici.Password.ToMD5(), kullanici.Active, null);
 
                 if (result != null)
                 {
@@ -59,7 +59,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.GroupID);
 
             return View("Ekle", kullanici);
@@ -72,12 +72,12 @@ namespace Emlak.Areas.Admin.Controllers
                 if (!curUser.HasRight("Kullanicilar", "u"))
                     return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UsersSelectTop_Result table = _entity.usp_UsersSelectTop(id, 1).FirstOrDefault();
+            usp_UsersSelectTop_Result table = entity.usp_UsersSelectTop(id, 1).FirstOrDefault();
             Kullanicilar kullanici = table.ChangeModel<Kullanicilar>();
 
             kullanici.Password = "";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.GroupID);
 
             return View(kullanici);
@@ -92,19 +92,19 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                string password = kullanici.Password == null ? _entity.usp_UsersOldPasswordSelect(kullanici.ID).FirstOrDefault() : kullanici.Password.ToMD5();
+                string password = kullanici.Password == null ? entity.usp_UsersOldPasswordSelect(kullanici.ID).FirstOrDefault() : kullanici.Password.ToMD5();
 
                 if (curUser.ID == kullanici.ID)
                     kullanici.Active = true;
 
-                var result = _entity.usp_UsersUpdate(kullanici.ID, kullanici.Username, password, kullanici.Active, null);
+                var result = entity.usp_UsersUpdate(kullanici.ID, kullanici.Username, password, kullanici.Active, null);
 
                 if (result != null)
                 {
                     curUser.Log(kullanici, "u", "Kullanýcýlar");
 
                     if (curUser.ID == kullanici.ID)
-                        Session["CurrentUser"] = _entity.usp_UsersSelectTop(kullanici.ID, 1).FirstOrDefault().ChangeModel<Users>();
+                        Session["CurrentUser"] = entity.usp_UsersSelectTop(kullanici.ID, 1).FirstOrDefault().ChangeModel<Users>();
 
                     return RedirectToAction("Index");
                 }
@@ -116,7 +116,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             kullanici.Password = "";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.GroupID);
 
             return View("Duzenle", kullanici);
@@ -128,11 +128,11 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "cg"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UsersSelectTop_Result table = _entity.usp_UsersSelectTop(id, 1).FirstOrDefault();
+            usp_UsersSelectTop_Result table = entity.usp_UsersSelectTop(id, 1).FirstOrDefault();
 
             Kullanicilar kullanici = table.ChangeModel<Kullanicilar>();
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.GroupID);
 
             return View(kullanici);
@@ -146,7 +146,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             try
             {
-                var result = _entity.usp_UsersGroupUpdate(kullanici.ID, kullanici.GroupID);
+                var result = entity.usp_UsersGroupUpdate(kullanici.ID, kullanici.GroupID);
 
                 if (result != null)
                 {
@@ -162,7 +162,7 @@ namespace Emlak.Areas.Admin.Controllers
                 kullanici.Mesaj = "Model uygun deðil.";
             }
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
+            List<UserGroups> tableUserGroups = entity.UserGroups.ToList();
             kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.GroupID);
 
             return View("GrupDegistir", kullanici);
@@ -177,7 +177,7 @@ namespace Emlak.Areas.Admin.Controllers
                 {
                     if (curUser?.ID != id)
                     {
-                        _entity.usp_UsersSetDeleted(id);
+                        entity.usp_UsersSetDeleted(id);
 
                         curUser.Log(id, "d", "Kullanýcýlar");
 
@@ -206,7 +206,7 @@ namespace Emlak.Areas.Admin.Controllers
                 {
                     if (curUser?.ID != id)
                     {
-                        _entity.usp_UsersCheckDelete(id);
+                        entity.usp_UsersCheckDelete(id);
 
                         curUser.Log(id, "rd", "Kullanýcýlar");
 

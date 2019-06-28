@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class GaleriController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_GallerySelect_Result> galeri = _entity.usp_GallerySelect(null).ToList();
+            List<usp_GallerySelect_Result> galeri = entity.usp_GallerySelect(null).ToList();
 
             curUser.Log<Galeri>(null, "s", "Galeriler");
 
@@ -44,7 +44,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 galeri.Url = galeri.Title.ToHyperLinkText();
 
-                var result = _entity.usp_GalleryInsert(galeri.Title, galeri.Url, galeri.Code, galeri.Active);
+                var result = entity.usp_GalleryInsert(galeri.Title, galeri.Url, galeri.Code, galeri.Active);
 
                 if (result != null)
                 {
@@ -67,11 +67,11 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_GallerySelectTop_Result table = _entity.usp_GallerySelectTop(id, 1).FirstOrDefault();
+            usp_GallerySelectTop_Result table = entity.usp_GallerySelectTop(id, 1).FirstOrDefault();
 
             Galeri galeri = table.ChangeModel<Galeri>();
 
-            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = _entity.usp_GalleryTByLinkedIDSelect(id).ToList();
+            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = entity.usp_GalleryTByLinkedIDSelect(id).ToList();
             galeri.GalleryTList.AddRange(galeriDilList.ChangeModelList<GaleriDil, usp_GalleryTByLinkedIDSelect_Result>());
 
             return View(galeri);
@@ -87,7 +87,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 galeri.Url = galeri.Title.ToHyperLinkText();
 
-                var result = _entity.usp_GalleryUpdate(galeri.ID, galeri.Title, galeri.Url, galeri.Code, galeri.Active);
+                var result = entity.usp_GalleryUpdate(galeri.ID, galeri.Title, galeri.Url, galeri.Code, galeri.Active);
 
                 if (result != null)
                 {
@@ -101,7 +101,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = _entity.usp_GalleryTByLinkedIDSelect(galeri.ID).ToList();
+            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = entity.usp_GalleryTByLinkedIDSelect(galeri.ID).ToList();
             galeri.GalleryTList.AddRange(galeriDilList.ChangeModelList<GaleriDil, usp_GalleryTByLinkedIDSelect_Result>());
 
             return View("Duzenle", galeri);
@@ -114,7 +114,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Galeri", "d"))
                 {
-                    _entity.usp_GalleryCheckSetDeleted(id);
+                    entity.usp_GalleryCheckSetDeleted(id);
 
                     curUser.Log(id, "d", "Galeriler");
 
@@ -136,7 +136,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Galeri", "rd"))
                 {
-                    _entity.usp_GalleryCheckDelete(id);
+                    entity.usp_GalleryCheckDelete(id);
 
                     curUser.Log(id, "rd", "Galeriler");
 
@@ -158,7 +158,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Galeri", "c"))
                 {
-                    var result = _entity.usp_GalleryCopy(id);
+                    var result = entity.usp_GalleryCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Galeriler");

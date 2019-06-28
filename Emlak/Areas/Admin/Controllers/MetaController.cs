@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class MetaController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_MetaSelect_Result> meta = _entity.usp_MetaSelect(null).ToList();
+            List<usp_MetaSelect_Result> meta = entity.usp_MetaSelect(null).ToList();
 
             curUser.Log<Metalar>(null, "s", "Metalar");
 
@@ -42,7 +42,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_MetaInsert(meta.Title, meta.Code, meta.Active);
+                var result = entity.usp_MetaInsert(meta.Title, meta.Code, meta.Active);
 
                 if (result != null)
                 {
@@ -65,11 +65,11 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_MetaSelectTop_Result table = _entity.usp_MetaSelectTop(id, 1).FirstOrDefault();
+            usp_MetaSelectTop_Result table = entity.usp_MetaSelectTop(id, 1).FirstOrDefault();
 
             Metalar meta = table.ChangeModel<Metalar>();
 
-            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = _entity.usp_MetaTByLinkedIDSelect(id).ToList();
+            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = entity.usp_MetaTByLinkedIDSelect(id).ToList();
             meta.MetaTList.AddRange(metaDilList.ChangeModelList<MetalarDil, usp_MetaTByLinkedIDSelect_Result>());
 
             return View(meta);
@@ -83,7 +83,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_MetaUpdate(meta.ID, meta.Title, meta.Code, meta.Active);
+                var result = entity.usp_MetaUpdate(meta.ID, meta.Title, meta.Code, meta.Active);
 
                 if (result != null)
                 {
@@ -97,7 +97,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = _entity.usp_MetaTByLinkedIDSelect(meta.ID).ToList();
+            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = entity.usp_MetaTByLinkedIDSelect(meta.ID).ToList();
             meta.MetaTList.AddRange(metaDilList.ChangeModelList<MetalarDil, usp_MetaTByLinkedIDSelect_Result>());
 
             return View("Duzenle", meta);
@@ -110,7 +110,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kullanicilar", "d"))
                 {
-                    _entity.usp_MetaCheckSetDeleted(id);
+                    entity.usp_MetaCheckSetDeleted(id);
 
                     curUser.Log(id, "d", "Metalar");
 
@@ -132,7 +132,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kullanicilar", "rd"))
                 {
-                    _entity.usp_MetaCheckDelete(id);
+                    entity.usp_MetaCheckDelete(id);
 
                     curUser.Log(id, "rd", "Metalar");
 
@@ -154,7 +154,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kullanicilar", "c"))
                 {
-                    var result = _entity.usp_MetaCopy(id);
+                    var result = entity.usp_MetaCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Metalar");

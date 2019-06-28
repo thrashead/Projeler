@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class KullaniciGrupHakController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupRightsDetailSelect_Result> kullanici = _entity.usp_UserGroupRightsDetailSelect(null).ToList();
+            List<usp_UserGroupRightsDetailSelect_Result> kullanici = entity.usp_UserGroupRightsDetailSelect(null).ToList();
 
             curUser.Log<KullaniciGrupHak>(null, "s", "Kullanýcý Grup Haklarý");
 
@@ -31,11 +31,11 @@ namespace Emlak.Areas.Admin.Controllers
 
             KullaniciGrupHak kullanici = new KullaniciGrupHak();
 
-            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = _entity.usp_UserGroupTablesDetailSelect(null).ToList();
+            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = entity.usp_UserGroupTablesDetailSelect(null).ToList();
             foreach (usp_UserGroupTablesDetailSelect_Result item in tableUserGroupTables)
                 kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi });
 
-            List<UserGroupProcess> tableUserGroupProcess = _entity.UserGroupProcess.ToList();
+            List<UserGroupProcess> tableUserGroupProcess = entity.UserGroupProcess.ToList();
             kullanici.UserGroupProcessList = tableUserGroupProcess.ToSelectList("ID", "Name");
 
             return View(kullanici);
@@ -49,7 +49,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupRightsCheckInsert(kullanici.UserGroupTableID, kullanici.UserGroupProcessID, kullanici.Allow);
+                var result = entity.usp_UserGroupRightsCheckInsert(kullanici.UserGroupTableID, kullanici.UserGroupProcessID, kullanici.Allow);
 
                 if (result != null)
                 {
@@ -63,14 +63,14 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = _entity.usp_UserGroupTablesDetailSelect(null).ToList();
+            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = entity.usp_UserGroupTablesDetailSelect(null).ToList();
             foreach (usp_UserGroupTablesDetailSelect_Result item in tableUserGroupTables)
                 if (item.ID == kullanici.UserGroupTableID)
                     kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi, Selected = true });
                 else
                     kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi });
 
-            List<UserGroupProcess> tableUserGroupProcess = _entity.UserGroupProcess.ToList();
+            List<UserGroupProcess> tableUserGroupProcess = entity.UserGroupProcess.ToList();
             kullanici.UserGroupProcessList = tableUserGroupProcess.ToSelectList("ID", "Name", kullanici.UserGroupProcessID);
 
             return View("Ekle", kullanici);
@@ -82,17 +82,17 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UserGroupRightsSelectTop_Result table = _entity.usp_UserGroupRightsSelectTop(id, 1).FirstOrDefault();
+            usp_UserGroupRightsSelectTop_Result table = entity.usp_UserGroupRightsSelectTop(id, 1).FirstOrDefault();
             KullaniciGrupHak kullanici = table.ChangeModel<KullaniciGrupHak>();
 
-            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = _entity.usp_UserGroupTablesDetailSelect(null).ToList();
+            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = entity.usp_UserGroupTablesDetailSelect(null).ToList();
             foreach (usp_UserGroupTablesDetailSelect_Result item in tableUserGroupTables)
                 if (item.ID == kullanici.UserGroupTableID)
                     kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi, Selected = true });
                 else
                     kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi });
 
-            List<UserGroupProcess> tableUserGroupProcess = _entity.UserGroupProcess.ToList();
+            List<UserGroupProcess> tableUserGroupProcess = entity.UserGroupProcess.ToList();
             kullanici.UserGroupProcessList = tableUserGroupProcess.ToSelectList("ID", "Name", kullanici.UserGroupProcessID);
 
             return View(kullanici);
@@ -106,7 +106,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupRightsCheckUpdate(kullanici.ID, kullanici.UserGroupTableID, kullanici.UserGroupProcessID, kullanici.Allow);
+                var result = entity.usp_UserGroupRightsCheckUpdate(kullanici.ID, kullanici.UserGroupTableID, kullanici.UserGroupProcessID, kullanici.Allow);
 
                 if (result != null)
                 {
@@ -120,14 +120,14 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = _entity.usp_UserGroupTablesDetailSelect(null).ToList();
+            List<usp_UserGroupTablesDetailSelect_Result> tableUserGroupTables = entity.usp_UserGroupTablesDetailSelect(null).ToList();
             foreach (usp_UserGroupTablesDetailSelect_Result item in tableUserGroupTables)
                 if (item.ID == kullanici.UserGroupTableID)
                     kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi, Selected = true });
                 else
                     kullanici.UserGroupTablesList.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.UserGroupAdi + " > " + item.TypeAdi });
 
-            List<UserGroupProcess> tableUserGroupProcess = _entity.UserGroupProcess.ToList();
+            List<UserGroupProcess> tableUserGroupProcess = entity.UserGroupProcess.ToList();
             kullanici.UserGroupProcessList = tableUserGroupProcess.ToSelectList("ID", "Name", kullanici.UserGroupProcessID);
 
             return View("Duzenle", kullanici);
@@ -139,7 +139,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kullanicilar", "d"))
                 {
-                    _entity.usp_UserGroupRightsDelete(id);
+                    entity.usp_UserGroupRightsDelete(id);
 
                     curUser.Log(id, "rd", "Kullanýcý Grup Haklarý");
 

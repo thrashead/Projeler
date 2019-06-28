@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class KategoriDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_CategoryTLinkedSelect_Result> kategori = _entity.usp_CategoryTLinkedSelect(null).ToList();
+            List<usp_CategoryTLinkedSelect_Result> kategori = entity.usp_CategoryTLinkedSelect(null).ToList();
 
             curUser.Log<KategoriDil>(null, "s", "Kategoriler (Dil)");
 
@@ -33,10 +33,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             KategoriDil kategori = new KategoriDil();
 
-            List<Data.Category> tableCategory = _entity.Category.ToList();
+            List<usp_CategorySelect_Result> tableCategory = entity.usp_CategorySelect(null).ToList();
             kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", linkID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
 
             return View(kategori);
@@ -50,7 +50,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && kategori.CatID > 0)
             {
-                var result = _entity.usp_CategoryTCheckInsert(kategori.CatID, kategori.TransID, kategori.CategoryName, kategori.ShortText1, kategori.ShortText2, kategori.Description);
+                var result = entity.usp_CategoryTCheckInsert(kategori.CatID, kategori.TransID, kategori.CategoryName, kategori.ShortText1, kategori.ShortText2, kategori.Description);
 
                 if (result != null)
                 {
@@ -64,10 +64,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<Data.Category> tableCategory = _entity.Category.ToList();
+            List<usp_CategorySelect_Result> tableCategory = entity.usp_CategorySelect(null).ToList();
             kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", kategori.CatID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName", kategori.TransID);
 
             return View("Ekle", kategori);
@@ -79,14 +79,14 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_CategoryTSelectTop_Result table = _entity.usp_CategoryTSelectTop(id, 1).FirstOrDefault();
+            usp_CategoryTSelectTop_Result table = entity.usp_CategoryTSelectTop(id, 1).FirstOrDefault();
 
             KategoriDil kategori = table.ChangeModel<KategoriDil>();
 
-            List<Data.Category> tableCategory = _entity.Category.ToList();
+            List<usp_CategorySelect_Result> tableCategory = entity.usp_CategorySelect(null).ToList();
             kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", kategori.CatID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName", kategori.TransID);
 
             return View(kategori);
@@ -100,7 +100,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_CategoryTCheckUpdate(kategori.ID, kategori.CatID, kategori.TransID, kategori.CategoryName, kategori.ShortText1, kategori.ShortText2, kategori.Description);
+                var result = entity.usp_CategoryTCheckUpdate(kategori.ID, kategori.CatID, kategori.TransID, kategori.CategoryName, kategori.ShortText1, kategori.ShortText2, kategori.Description);
 
                 if (result != null)
                 {
@@ -114,10 +114,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<Data.Category> tableCategory = _entity.Category.ToList();
+            List<usp_CategorySelect_Result> tableCategory = entity.usp_CategorySelect(null).ToList();
             kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", kategori.CatID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName", kategori.TransID);
 
             return View("Duzenle", kategori);
@@ -130,7 +130,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kategori", "d"))
                 {
-                    _entity.usp_CategoryTSetDeleted(id);
+                    entity.usp_CategoryTSetDeleted(id);
 
                     curUser.Log(id, "d", "Kategoriler (Dil)");
 
@@ -152,7 +152,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Kategori", "rd"))
                 {
-                    _entity.usp_CategoryTDelete(id);
+                    entity.usp_CategoryTDelete(id);
 
                     curUser.Log(id, "rd", "Kategoriler (Dil)");
 

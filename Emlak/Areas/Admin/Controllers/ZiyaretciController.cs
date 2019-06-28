@@ -8,7 +8,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class ZiyaretciController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -16,7 +16,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Ziyaretci"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_VisitorCounterSelect_Result> ziyaretci = _entity.usp_VisitorCounterSelect(null).ToList();
+            List<usp_VisitorCounterSelect_Result> ziyaretci = entity.usp_VisitorCounterSelect(null).ToList();
 
             curUser.Log<Ziyaretci>(null, "s", "Ziyaretçiler");
 
@@ -30,7 +30,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Ziyaretci", "d"))
                 {
-                    _entity.usp_VisitorCounterClear();
+                    entity.usp_VisitorCounterClear();
 
                     curUser.Log<Ziyaretci>(null, "rd", "Ziyaretçiler");
 

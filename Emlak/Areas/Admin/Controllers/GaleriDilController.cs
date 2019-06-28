@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class GaleriDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_GalleryTLinkedSelect_Result> galeri = _entity.usp_GalleryTLinkedSelect(null).ToList();
+            List<usp_GalleryTLinkedSelect_Result> galeri = entity.usp_GalleryTLinkedSelect(null).ToList();
 
             curUser.Log<GaleriDil>(null, "s", "Galeriler (Dil)");
 
@@ -33,10 +33,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             GaleriDil galeri = new GaleriDil();
 
-            List<Data.Gallery> tableGallery = _entity.Gallery.ToList();
+            List<usp_GallerySelect_Result> tableGallery = entity.usp_GallerySelect(null).ToList();
             galeri.GalleryList = tableGallery.ToSelectList("ID", "Title", linkID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             galeri.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
 
             return View(galeri);
@@ -50,7 +50,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && galeri.GalID > 0)
             {
-                var result = _entity.usp_GalleryTCheckInsert(galeri.GalID, galeri.TransID, galeri.GalleryName, galeri.ShortText1, galeri.ShortText2, galeri.Description);
+                var result = entity.usp_GalleryTCheckInsert(galeri.GalID, galeri.TransID, galeri.GalleryName, galeri.ShortText1, galeri.ShortText2, galeri.Description);
 
                 if (result != null)
                 {
@@ -64,10 +64,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<Data.Gallery> tableGallery = _entity.Gallery.ToList();
+            List<usp_GallerySelect_Result> tableGallery = entity.usp_GallerySelect(null).ToList();
             galeri.GalleryList = tableGallery.ToSelectList("ID", "Title", galeri.GalID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             galeri.TranslationList = tableTranslation.ToSelectList("ID", "TransName", galeri.TransID);
 
             return View("Ekle", galeri);
@@ -79,13 +79,13 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_GalleryTSelectTop_Result table = _entity.usp_GalleryTSelectTop(id, 1).FirstOrDefault();
+            usp_GalleryTSelectTop_Result table = entity.usp_GalleryTSelectTop(id, 1).FirstOrDefault();
             GaleriDil galeri = table.ChangeModel<GaleriDil>();
 
-            List<Data.Gallery> tableGallery = _entity.Gallery.ToList();
+            List<usp_GallerySelect_Result> tableGallery = entity.usp_GallerySelect(null).ToList();
             galeri.GalleryList = tableGallery.ToSelectList("ID", "Title", galeri.GalID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             galeri.TranslationList = tableTranslation.ToSelectList("ID", "TransName", galeri.TransID);
 
             return View(galeri);
@@ -99,7 +99,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_GalleryTCheckUpdate(galeri.ID, galeri.GalID, galeri.TransID, galeri.GalleryName, galeri.ShortText1, galeri.ShortText2, galeri.Description);
+                var result = entity.usp_GalleryTCheckUpdate(galeri.ID, galeri.GalID, galeri.TransID, galeri.GalleryName, galeri.ShortText1, galeri.ShortText2, galeri.Description);
 
                 if (result != null)
                 {
@@ -113,10 +113,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<Data.Gallery> tableGallery = _entity.Gallery.ToList();
+            List<usp_GallerySelect_Result> tableGallery = entity.usp_GallerySelect(null).ToList();
             galeri.GalleryList = tableGallery.ToSelectList("ID", "Title", galeri.GalID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             galeri.TranslationList = tableTranslation.ToSelectList("ID", "TransName", galeri.TransID);
 
             return View("Duzenle", galeri);
@@ -129,7 +129,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Galeri", "d"))
                 {
-                    _entity.usp_GalleryTSetDeleted(id);
+                    entity.usp_GalleryTSetDeleted(id);
 
                     curUser.Log(id, "d", "Galeriler (Dil)");
 
@@ -151,7 +151,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Galeri", "rd"))
                 {
-                    _entity.usp_GalleryTDelete(id);
+                    entity.usp_GalleryTDelete(id);
 
                     curUser.Log(id, "rd", "Galeriler (Dil)");
 

@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class DosyaController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Dosya"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_FileSelect_Result> dosya = _entity.usp_FileSelect(null).ToList();
+            List<usp_FileSelect_Result> dosya = entity.usp_FileSelect(null).ToList();
 
             curUser.Log<Dosya>(null, "s", "Dosya");
 
@@ -48,7 +48,7 @@ namespace Emlak.Areas.Admin.Controllers
                 {
                     dosya.FileUrl = file.FileName;
 
-                    var result = _entity.usp_FileInsert(dosya.Title, dosya.Description, dosya.FileUrl, dosya.Code, dosya.Active);
+                    var result = entity.usp_FileInsert(dosya.Title, dosya.Description, dosya.FileUrl, dosya.Code, dosya.Active);
 
                     if (result != null)
                     {
@@ -74,7 +74,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Dosya", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_FileSelectTop_Result table = _entity.usp_FileSelectTop(id, 1).FirstOrDefault();
+            usp_FileSelectTop_Result table = entity.usp_FileSelectTop(id, 1).FirstOrDefault();
 
             Dosya dosya = table.ChangeModel<Dosya>();
 
@@ -109,7 +109,7 @@ namespace Emlak.Areas.Admin.Controllers
                         }
                     }
 
-                    var result = _entity.usp_FileUpdate(dosya.ID, dosya.Title, dosya.Description, dosya.FileUrl, dosya.Code, dosya.Active);
+                    var result = entity.usp_FileUpdate(dosya.ID, dosya.Title, dosya.Description, dosya.FileUrl, dosya.Code, dosya.Active);
 
                     if (result != null)
                     {
@@ -138,9 +138,9 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Dosya", "d"))
                 {
-                    usp_FileSelectTop_Result table = _entity.usp_FileSelectTop(id, 1).FirstOrDefault();
+                    usp_FileSelectTop_Result table = entity.usp_FileSelectTop(id, 1).FirstOrDefault();
 
-                    _entity.usp_FileCheckSetDeleted(id);
+                    entity.usp_FileCheckSetDeleted(id);
 
                     System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.FileUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.FileUrl + ".bak"));
 
@@ -164,9 +164,9 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Dosya", "rd"))
                 {
-                    usp_FileSelectTop_Result table = _entity.usp_FileSelectTop(id, 1).FirstOrDefault();
+                    usp_FileSelectTop_Result table = entity.usp_FileSelectTop(id, 1).FirstOrDefault();
 
-                    _entity.usp_FileCheckDelete(id);
+                    entity.usp_FileCheckDelete(id);
 
                     System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.FileUrl));
 

@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class IcerikController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ContentSelect_Result> icerik = _entity.usp_ContentSelect(null).ToList();
+            List<usp_ContentSelect_Result> icerik = entity.usp_ContentSelect(null).ToList();
 
             curUser.Log<Icerik>(null, "s", "Ýçerikler");
 
@@ -44,7 +44,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 icerik.Url = icerik.Title.ToHyperLinkText();
 
-                var result = _entity.usp_ContentInsert(icerik.Title, icerik.Url, icerik.Code, icerik.Active);
+                var result = entity.usp_ContentInsert(icerik.Title, icerik.Url, icerik.Code, icerik.Active);
 
                 if (result != null)
                 {
@@ -67,10 +67,10 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ContentSelectTop_Result table = _entity.usp_ContentSelectTop(id, 1).FirstOrDefault();
+            usp_ContentSelectTop_Result table = entity.usp_ContentSelectTop(id, 1).FirstOrDefault();
             Icerik icerik = table.ChangeModel<Icerik>();
 
-            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = _entity.usp_ContentTByLinkedIDSelect(id).ToList();
+            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = entity.usp_ContentTByLinkedIDSelect(id).ToList();
             icerik.ContentTList.AddRange(icerikDilList.ChangeModelList<IcerikDil, usp_ContentTByLinkedIDSelect_Result>());
 
             return View(icerik);
@@ -86,7 +86,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 icerik.Url = icerik.Title.ToHyperLinkText();
 
-                var result = _entity.usp_ContentUpdate(icerik.ID, icerik.Title, icerik.Url, icerik.Code, icerik.Active);
+                var result = entity.usp_ContentUpdate(icerik.ID, icerik.Title, icerik.Url, icerik.Code, icerik.Active);
 
                 if (result != null)
                 {
@@ -100,7 +100,7 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 icerik.Mesaj = "Model uygun deðil.";
 
-            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = _entity.usp_ContentTByLinkedIDSelect(icerik.ID).ToList();
+            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = entity.usp_ContentTByLinkedIDSelect(icerik.ID).ToList();
             icerik.ContentTList.AddRange(icerikDilList.ChangeModelList<IcerikDil, usp_ContentTByLinkedIDSelect_Result>());
 
             return View("Duzenle", icerik);
@@ -113,7 +113,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Icerik", "d"))
                 {
-                    _entity.usp_ContentCheckSetDeleted(id);
+                    entity.usp_ContentCheckSetDeleted(id);
 
                     curUser.Log(id, "d", "Ýçerikler");
 
@@ -135,7 +135,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Icerik", "rd"))
                 {
-                    _entity.usp_ContentCheckDelete(id);
+                    entity.usp_ContentCheckDelete(id);
 
                     curUser.Log(id, "rd", "Ýçerikler");
 
@@ -157,7 +157,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Icerik", "c"))
                 {
-                    var result = _entity.usp_ContentCopy(id);
+                    var result = entity.usp_ContentCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Ýçerikler");

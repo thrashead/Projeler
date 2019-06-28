@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class UrunDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ProductTLinkedSelect_Result> urun = _entity.usp_ProductTLinkedSelect(null).ToList();
+            List<usp_ProductTLinkedSelect_Result> urun = entity.usp_ProductTLinkedSelect(null).ToList();
 
             curUser.Log<Urun>(null, "s", "Ürünler (Dil)");
 
@@ -33,10 +33,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             UrunDil urun = new UrunDil();
 
-            List<Product> tableProduct = _entity.Product.ToList();
+            List<usp_ProductSelect_Result> tableProduct = entity.usp_ProductSelect(null).ToList();
             urun.ProductList = tableProduct.ToSelectList("ID", "Title", linkID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
 
             return View(urun);
@@ -50,7 +50,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid && urun.ProdID > 0)
             {
-                var result = _entity.usp_ProductTCheckInsert(urun.ProdID, urun.TransID, urun.ProductName, urun.ShortText1, urun.ShortText2, urun.Description);
+                var result = entity.usp_ProductTCheckInsert(urun.ProdID, urun.TransID, urun.ProductName, urun.ShortText1, urun.ShortText2, urun.Description);
 
                 if (result != null)
                 {
@@ -64,10 +64,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<Product> tableProduct = _entity.Product.ToList();
+            List<usp_ProductSelect_Result> tableProduct = entity.usp_ProductSelect(null).ToList();
             urun.ProductList = tableProduct.ToSelectList("ID", "Title", urun.ProdID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName", urun.TransID);
 
             return View("Ekle", urun);
@@ -79,14 +79,14 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ProductTSelectTop_Result table = _entity.usp_ProductTSelectTop(id, 1).FirstOrDefault();
+            usp_ProductTSelectTop_Result table = entity.usp_ProductTSelectTop(id, 1).FirstOrDefault();
 
             UrunDil urun = table.ChangeModel<UrunDil>();
 
-            List<Product> tableProduct = _entity.Product.ToList();
+            List<usp_ProductSelect_Result> tableProduct = entity.usp_ProductSelect(null).ToList();
             urun.ProductList = tableProduct.ToSelectList("ID", "Title", urun.ProdID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName", urun.TransID);
 
             return View(urun);
@@ -100,7 +100,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_ProductTCheckUpdate(urun.ID, urun.ProdID, urun.TransID, urun.ProductName, urun.ShortText1, urun.ShortText2, urun.Description);
+                var result = entity.usp_ProductTCheckUpdate(urun.ID, urun.ProdID, urun.TransID, urun.ProductName, urun.ShortText1, urun.ShortText2, urun.Description);
 
                 if (result != null)
                 {
@@ -114,10 +114,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<Product> tableProduct = _entity.Product.ToList();
+            List<usp_ProductSelect_Result> tableProduct = entity.usp_ProductSelect(null).ToList();
             urun.ProductList = tableProduct.ToSelectList("ID", "Title", urun.ProdID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
+            List<usp_TranslationSelect_Result> tableTranslation = entity.usp_TranslationSelect(null).ToList();
             urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName", urun.TransID);
 
             return View("Duzenle", urun);
@@ -130,7 +130,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Urun", "d"))
                 {
-                    _entity.usp_ProductTSetDeleted(id);
+                    entity.usp_ProductTSetDeleted(id);
 
                     curUser.Log(id, "d", "Ürünler (Dil)");
 
@@ -152,7 +152,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Urun", "rd"))
                 {
-                    _entity.usp_ProductTDelete(id);
+                    entity.usp_ProductTDelete(id);
 
                     curUser.Log(id, "rd", "Ürünler (Dil)");
 

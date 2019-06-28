@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class ResimController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Resim"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PictureSelect_Result> resim = _entity.usp_PictureSelect(null).ToList();
+            List<usp_PictureSelect_Result> resim = entity.usp_PictureSelect(null).ToList();
 
             curUser.Log<Resim>(null, "s", "Resimler");
 
@@ -49,7 +49,7 @@ namespace Emlak.Areas.Admin.Controllers
                     resim.PictureUrl = pic.FileName;
                     resim.ThumbUrl = pic.ThumbName;
 
-                    var result = _entity.usp_PictureInsert(resim.Title, resim.Description, resim.PictureUrl, resim.ThumbUrl, resim.Code, resim.Active);
+                    var result = entity.usp_PictureInsert(resim.Title, resim.Description, resim.PictureUrl, resim.ThumbUrl, resim.Code, resim.Active);
 
                     if (result != null)
                     {
@@ -75,7 +75,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Resim", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PictureSelectTop_Result table = _entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
+            usp_PictureSelectTop_Result table = entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
 
             Resim resim = table.ChangeModel<Resim>();
 
@@ -113,7 +113,7 @@ namespace Emlak.Areas.Admin.Controllers
                         }
                     }
 
-                    var result = _entity.usp_PictureUpdate(resim.ID, resim.Title, resim.Description, resim.PictureUrl, resim.ThumbUrl, resim.Code, resim.Active);
+                    var result = entity.usp_PictureUpdate(resim.ID, resim.Title, resim.Description, resim.PictureUrl, resim.ThumbUrl, resim.Code, resim.Active);
 
                     if (result != null)
                     {
@@ -140,9 +140,9 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Resim", "d"))
                 {
-                    usp_PictureSelectTop_Result table = _entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
+                    usp_PictureSelectTop_Result table = entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
 
-                    _entity.usp_PictureCheckSetDeleted(id);
+                    entity.usp_PictureCheckSetDeleted(id);
 
                     System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.PictureUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.PictureUrl + ".bak"));
                     System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.ThumbUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.ThumbUrl + ".bak"));
@@ -167,9 +167,9 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Resim", "rd"))
                 {
-                    usp_PictureSelectTop_Result table = _entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
+                    usp_PictureSelectTop_Result table = entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
 
-                    _entity.usp_PictureCheckDelete(id);
+                    entity.usp_PictureCheckDelete(id);
 
                     System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.PictureUrl));
                     System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.ThumbUrl));

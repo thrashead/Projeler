@@ -9,7 +9,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class TiplerController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Tipler"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_TypesSelect_Result> tip = _entity.usp_TypesSelect(null).ToList();
+            List<usp_TypesSelect_Result> tip = entity.usp_TypesSelect(null).ToList();
 
             curUser.Log<Tipler>(null, "s", "Tipler");
 
@@ -42,7 +42,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_TypesInsert(tip.TypeName, tip.Url, tip.TableName, tip.Linkable, tip.Show);
+                var result = entity.usp_TypesInsert(tip.TypeName, tip.Url, tip.TableName, tip.Linkable, tip.Show);
 
                 if (result != null)
                 {
@@ -65,7 +65,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("Tipler", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_TypesSelectTop_Result table = _entity.usp_TypesSelectTop(id, 1).FirstOrDefault();
+            usp_TypesSelectTop_Result table = entity.usp_TypesSelectTop(id, 1).FirstOrDefault();
             Tipler tip = table.ChangeModel<Tipler>();
 
             return View(tip);
@@ -79,7 +79,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_TypesUpdate(tip.ID, tip.TypeName, tip.Url, tip.TableName, tip.Linkable, tip.Show);
+                var result = entity.usp_TypesUpdate(tip.ID, tip.TypeName, tip.Url, tip.TableName, tip.Linkable, tip.Show);
 
                 if (result != null)
                 {
@@ -102,7 +102,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("Tipler", "d"))
                 {
-                    _entity.usp_TypesCheckDelete(id);
+                    entity.usp_TypesCheckDelete(id);
 
                     curUser.Log(id, "rd", "Tipler");
 

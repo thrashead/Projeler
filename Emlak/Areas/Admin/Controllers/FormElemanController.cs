@@ -10,7 +10,7 @@ namespace Emlak.Areas.Admin.Controllers
 {
     public class FormElemanController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly EmlakEntities entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,7 +18,7 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PropertyWithTypeNameSelect_Result> formeleman = _entity.usp_PropertyWithTypeNameSelect(null).ToList();
+            List<usp_PropertyWithTypeNameSelect_Result> formeleman = entity.usp_PropertyWithTypeNameSelect(null).ToList();
 
             curUser.Log<FormEleman>(null, "s", "Form Elemanları");
 
@@ -34,10 +34,10 @@ namespace Emlak.Areas.Admin.Controllers
 
             FormEleman formeleman = new FormEleman();
 
-            List<PropertyGroup> tablePropertyGroups = _entity.PropertyGroup.ToList();
+            List<PropertyGroup> tablePropertyGroups = entity.PropertyGroup.ToList();
             formeleman.PropertyGroupList.AddRange(tablePropertyGroups.ToSelectList("ID", "Title", linkID, true));
 
-            List<PropertyTypes> tablePropertyTypes = _entity.PropertyTypes.ToList();
+            List<PropertyTypes> tablePropertyTypes = entity.PropertyTypes.ToList();
             formeleman.PropertyTypesList.AddRange(tablePropertyTypes.ToSelectList("ID", "Name"));
 
             return View(formeleman);
@@ -51,7 +51,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyInsert(formeleman.PropTypeID, formeleman.GroupID, formeleman.Title, formeleman.Description, formeleman.ErrorMessage, formeleman.Code, formeleman.OrderNumber);
+                var result = entity.usp_PropertyInsert(formeleman.PropTypeID, formeleman.GroupID, formeleman.Title, formeleman.Description, formeleman.ErrorMessage, formeleman.Code, formeleman.OrderNumber);
 
                 if (result != null)
                 {
@@ -65,10 +65,10 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<PropertyGroup> tablePropertyGroups = _entity.PropertyGroup.ToList();
+            List<PropertyGroup> tablePropertyGroups = entity.PropertyGroup.ToList();
             formeleman.PropertyGroupList.AddRange(tablePropertyGroups.ToSelectList("ID", "Title", formeleman.GroupID, true));
 
-            List<PropertyTypes> tablePropertyTypes = _entity.PropertyTypes.ToList();
+            List<PropertyTypes> tablePropertyTypes = entity.PropertyTypes.ToList();
             formeleman.PropertyTypesList.AddRange(tablePropertyTypes.ToSelectList("ID", "Name", formeleman.PropTypeID));
 
             return View("Ekle", formeleman);
@@ -80,21 +80,21 @@ namespace Emlak.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PropertySelectTop_Result table = _entity.usp_PropertySelectTop(id, 1).FirstOrDefault();
+            usp_PropertySelectTop_Result table = entity.usp_PropertySelectTop(id, 1).FirstOrDefault();
             FormEleman formeleman = table.ChangeModel<FormEleman>();
 
-            List<usp_PropertyAttributesByPropIDSelect_Result> formelemanTanimlariList = _entity.usp_PropertyAttributesByPropIDSelect(id).ToList();
+            List<usp_PropertyAttributesByPropIDSelect_Result> formelemanTanimlariList = entity.usp_PropertyAttributesByPropIDSelect(id).ToList();
             formeleman.PropertyAttributesList.AddRange(formelemanTanimlariList.ChangeModelList<FormElemanOzellik, usp_PropertyAttributesByPropIDSelect_Result>());
 
-            formeleman.HasValue = _entity.usp_PropertyHasValueCheck(id).FirstOrDefault();
+            formeleman.HasValue = entity.usp_PropertyHasValueCheck(id).FirstOrDefault();
 
-            List<usp_PropertyValuesByPropIDSelect_Result> formelemanDegerleriList = _entity.usp_PropertyValuesByPropIDSelect(id).ToList();
+            List<usp_PropertyValuesByPropIDSelect_Result> formelemanDegerleriList = entity.usp_PropertyValuesByPropIDSelect(id).ToList();
             formeleman.PropertyValuesList.AddRange(formelemanDegerleriList.ChangeModelList<FormElemanDeger, usp_PropertyValuesByPropIDSelect_Result>());
 
-            List<PropertyGroup> tablePropertyGroups = _entity.PropertyGroup.ToList();
+            List<PropertyGroup> tablePropertyGroups = entity.PropertyGroup.ToList();
             formeleman.PropertyGroupList.AddRange(tablePropertyGroups.ToSelectList("ID", "Title", formeleman.GroupID, true));
 
-            List<PropertyTypes> tablePropertyTypes = _entity.PropertyTypes.ToList();
+            List<PropertyTypes> tablePropertyTypes = entity.PropertyTypes.ToList();
             formeleman.PropertyTypesList.AddRange(tablePropertyTypes.ToSelectList("ID", "Name", formeleman.PropTypeID));
 
             return View(formeleman);
@@ -108,7 +108,7 @@ namespace Emlak.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyUpdate(formeleman.ID, formeleman.PropTypeID, formeleman.GroupID, formeleman.Title, formeleman.Description, formeleman.ErrorMessage, formeleman.Code, formeleman.OrderNumber);
+                var result = entity.usp_PropertyUpdate(formeleman.ID, formeleman.PropTypeID, formeleman.GroupID, formeleman.Title, formeleman.Description, formeleman.ErrorMessage, formeleman.Code, formeleman.OrderNumber);
 
                 if (result != null)
                 {
@@ -122,16 +122,16 @@ namespace Emlak.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<usp_PropertyAttributesByPropIDSelect_Result> formelemanTanimlariList = _entity.usp_PropertyAttributesByPropIDSelect(formeleman.ID).ToList();
+            List<usp_PropertyAttributesByPropIDSelect_Result> formelemanTanimlariList = entity.usp_PropertyAttributesByPropIDSelect(formeleman.ID).ToList();
             formeleman.PropertyAttributesList.AddRange(formelemanTanimlariList.ChangeModelList<FormElemanOzellik, usp_PropertyAttributesByPropIDSelect_Result>());
 
-            List<usp_PropertyValuesByPropIDSelect_Result> formelemanDegerleriList = _entity.usp_PropertyValuesByPropIDSelect(formeleman.ID).ToList();
+            List<usp_PropertyValuesByPropIDSelect_Result> formelemanDegerleriList = entity.usp_PropertyValuesByPropIDSelect(formeleman.ID).ToList();
             formeleman.PropertyValuesList.AddRange(formelemanDegerleriList.ChangeModelList<FormElemanDeger, usp_PropertyValuesByPropIDSelect_Result>());
 
-            List<PropertyGroup> tablePropertyGroups = _entity.PropertyGroup.ToList();
+            List<PropertyGroup> tablePropertyGroups = entity.PropertyGroup.ToList();
             formeleman.PropertyGroupList.AddRange(tablePropertyGroups.ToSelectList("ID", "Title", formeleman.GroupID, true));
 
-            List<PropertyTypes> tablePropertyTypes = _entity.PropertyTypes.ToList();
+            List<PropertyTypes> tablePropertyTypes = entity.PropertyTypes.ToList();
             formeleman.PropertyTypesList.AddRange(tablePropertyTypes.ToSelectList("ID", "Name", formeleman.PropTypeID));
 
             return View("Duzenle", formeleman);
@@ -144,7 +144,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("FormEleman", "d"))
                 {
-                    _entity.usp_PropertyCheckDelete(id);
+                    entity.usp_PropertyCheckDelete(id);
 
                     curUser.Log(id, "rd", "Form Elemanları");
 
@@ -166,7 +166,7 @@ namespace Emlak.Areas.Admin.Controllers
             {
                 if (curUser.HasRight("FormEleman", "c"))
                 {
-                    var result = _entity.usp_PropertyCopy(id);
+                    var result = entity.usp_PropertyCopy(id);
 
                     if (result != null)
                         curUser.Log(id, "c", "Form Elemanları");
