@@ -14,7 +14,7 @@ export class AdminMetaEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: MetaService, private router: Router, private formBuilder: FormBuilder) {
     }

@@ -16,7 +16,7 @@ export class AdminKategoriDilEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: KategoriDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

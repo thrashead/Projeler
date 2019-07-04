@@ -18,8 +18,8 @@ export interface IFormEleman {
 
     HasValue: boolean,
 
-    PropertyTypesList: string[],
-    PropertyGroupList: string[],
+    PropertyTypesList: any[],
+    PropertyGroupList: any[],
 
     PropertyAttributesList: Array<IFormElemanOzellik>,
     PropertyValuesList: Array<IFormElemanDeger>

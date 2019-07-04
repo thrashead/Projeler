@@ -15,7 +15,7 @@ export class AdminKullanicilarGrupDegistirComponent {
     grupDegistirForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: KullanicilarService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

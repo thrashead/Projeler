@@ -12,6 +12,5 @@ export interface IGaleri {
 
     Mesaj: string,
 
-    GalleryTList: Array<IGaleriDil>,
-    TypesList: string[]
+    GalleryTList: Array<IGaleriDil>
 }

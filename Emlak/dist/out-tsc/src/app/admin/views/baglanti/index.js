@@ -65,6 +65,12 @@ var AdminBaglantiIndexComponent = /** @class */ (function () {
                                     case 7:
                                         resData[i].LinkedAdi = resData[i].LinkedMetaAdi;
                                         break;
+                                    case 8:
+                                        resData[i].LinkedAdi = resData[i].LinkedPropertyGroupAdi;
+                                        break;
+                                    case 17:
+                                        resData[i].LinkedAdi = resData[i].LinkedRealEstatesAdi;
+                                        break;
                                 }
                             }
                             _this.BaglantiList = resData;

@@ -15,7 +15,7 @@ export class AdminMetaDilDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: MetaDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

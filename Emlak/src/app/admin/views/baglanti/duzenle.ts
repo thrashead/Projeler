@@ -15,7 +15,7 @@ export class AdminBaglantiDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: BaglantiService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

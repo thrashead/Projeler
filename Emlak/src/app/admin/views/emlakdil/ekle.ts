@@ -16,7 +16,7 @@ export class AdminEmlakDilEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: EmlakDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

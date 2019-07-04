@@ -14,7 +14,7 @@ export class AdminUrunEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: UrunService,  private router: Router, private formBuilder: FormBuilder) {
     }

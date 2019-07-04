@@ -17,7 +17,7 @@ export class AdminDilDuzenleComponent {
     data: any;
     uploadData: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: DilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

@@ -15,6 +15,6 @@ export interface IMetalarDil {
 
     Mesaj: string,
 
-    TranslationList: string[],
-    MetaList: string[]
+    TranslationList: any[],
+    MetaList: any[]
 }

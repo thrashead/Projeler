@@ -7,8 +7,8 @@ export interface IKullaniciGrupTablo {
 
     Mesaj: string,
 
-    TypesList: string[],
-    UserGroupsList: string[],
+    TypesList: any[],
+    UserGroupsList: any[],
 
     TypeAdi: string,
     UserGroupAdi: string

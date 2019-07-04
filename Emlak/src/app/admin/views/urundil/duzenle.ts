@@ -16,7 +16,7 @@ export class AdminUrunDilDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: UrunDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

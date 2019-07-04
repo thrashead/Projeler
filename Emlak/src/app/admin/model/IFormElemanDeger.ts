@@ -10,5 +10,5 @@ export interface IFormElemanDeger {
 
     Mesaj: string,
 
-    PropertyList: string[]
+    PropertyList: any[]
 }

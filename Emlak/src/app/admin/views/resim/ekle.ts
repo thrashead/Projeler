@@ -16,7 +16,7 @@ export class AdminResimEkleComponent {
     data: any;
     uploadData: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: ResimService, private router: Router, private formBuilder: FormBuilder) {
     }

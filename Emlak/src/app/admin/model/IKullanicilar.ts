@@ -12,5 +12,5 @@ export interface IKullanicilar {
 
     Mesaj: string,
 
-    UserGroupsList: string[]
+    UserGroupsList: any[]
 }

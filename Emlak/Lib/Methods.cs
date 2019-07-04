@@ -160,6 +160,8 @@ namespace Emlak
                 });
             }
 
+            int i = 0;
+
             foreach (var item in itemList)
             {
                 string _value = item.GetType().GetProperties().Where(a => a.Name == value).FirstOrDefault().GetValue(item).ToString();
@@ -178,8 +180,17 @@ namespace Emlak
                 }
                 else
                 {
-                    list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
+                    if (i == 0)
+                    {
+                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
+                    }
+                    else
+                    {
+                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
+                    }
                 }
+
+                i++;
             }
 
             return list;

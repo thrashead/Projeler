@@ -9,8 +9,5 @@ export interface ILoglar {
     ProcessTime: string,
     Description: string,
 
-    Mesaj: string,
-
-    UsersList: string[],
-    LogProcessList: string[]
+    Mesaj: string
 }

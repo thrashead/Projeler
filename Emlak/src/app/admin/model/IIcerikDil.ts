@@ -16,6 +16,6 @@ export interface IIcerikDil {
 
     Mesaj: string,
 
-    ContentList: string[],
-    TranslationList: string[]
+    ContentList: any[],
+    TranslationList: any[]
 }

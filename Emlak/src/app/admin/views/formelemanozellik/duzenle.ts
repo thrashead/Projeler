@@ -15,7 +15,7 @@ export class AdminFormElemanOzellikDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: FormElemanOzellikService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

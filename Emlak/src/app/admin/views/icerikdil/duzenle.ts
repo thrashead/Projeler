@@ -16,7 +16,7 @@ export class AdminIcerikDilDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: IcerikDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

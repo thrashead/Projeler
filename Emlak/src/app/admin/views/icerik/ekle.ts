@@ -14,7 +14,7 @@ export class AdminIcerikEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: IcerikService, private router: Router, private formBuilder: FormBuilder) {
     }

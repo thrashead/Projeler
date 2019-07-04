@@ -15,7 +15,7 @@ export class AdminKullaniciGrupIslemDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: KullaniciGrupIslemService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

@@ -15,7 +15,7 @@ export class AdminLogIslemDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: LogIslemService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

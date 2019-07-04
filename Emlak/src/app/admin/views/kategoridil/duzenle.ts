@@ -16,7 +16,7 @@ export class AdminKategoriDilDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: KategoriDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

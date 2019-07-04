@@ -16,7 +16,7 @@ export class AdminGaleriDilEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: GaleriDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

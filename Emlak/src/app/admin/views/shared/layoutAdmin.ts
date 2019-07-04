@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { SharedService } from '../../services/shared';
 
 @Component({
@@ -11,7 +10,7 @@ import { SharedService } from '../../services/shared';
 export class AdminLayoutComponent {
     errorMsg: string;
 
-    constructor(private router: Router, private service: SharedService) {
+    constructor(private service: SharedService) {
     }
 
     ngOnInit() {

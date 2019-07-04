@@ -20,7 +20,7 @@ export class AdminKullaniciGrupDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     insertShow: boolean;
     updateShow: boolean;

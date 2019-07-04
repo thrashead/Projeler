@@ -82,6 +82,12 @@ var AdminBagliTiplerIndexComponent = /** @class */ (function () {
                                         case 7:
                                             resData[i].MainAdi = resData[i].MainMetaAdi;
                                             break;
+                                        case 8:
+                                            resData[i].MainAdi = resData[i].MainPropertyGroupAdi;
+                                            break;
+                                        case 17:
+                                            resData[i].MainAdi = resData[i].MainRealEstatesAdi;
+                                            break;
                                     }
                                 }
                                 _this.BagliTiplerList = resData;

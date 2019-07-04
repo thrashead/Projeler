@@ -14,7 +14,5 @@ export interface IDosya {
     Mesaj: string,
 
     OldFileUrl: string,
-    HasFile: boolean,
-
-    TypesList: string[]
+    HasFile: boolean
 }

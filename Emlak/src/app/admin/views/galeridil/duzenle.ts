@@ -16,7 +16,7 @@ export class AdminGaleriDilDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: GaleriDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

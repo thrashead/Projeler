@@ -15,7 +15,7 @@ export class AdminKullaniciGrupTabloDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: KullaniciGrupTabloService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

@@ -18,7 +18,7 @@ export class AdminMetaDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     insertShow: boolean;
     updateShow: boolean;

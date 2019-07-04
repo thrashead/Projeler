@@ -14,7 +14,7 @@ export class AdminFormTiplerEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: FormTiplerService, private router: Router, private formBuilder: FormBuilder) {
     }

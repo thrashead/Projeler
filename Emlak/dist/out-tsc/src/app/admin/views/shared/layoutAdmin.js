@@ -1,10 +1,8 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { SharedService } from '../../services/shared';
 var AdminLayoutComponent = /** @class */ (function () {
-    function AdminLayoutComponent(router, service) {
-        this.router = router;
+    function AdminLayoutComponent(service) {
         this.service = service;
     }
     AdminLayoutComponent.prototype.ngOnInit = function () {
@@ -21,7 +19,7 @@ var AdminLayoutComponent = /** @class */ (function () {
             templateUrl: './layoutAdmin.html',
             providers: [SharedService]
         }),
-        tslib_1.__metadata("design:paramtypes", [Router, SharedService])
+        tslib_1.__metadata("design:paramtypes", [SharedService])
     ], AdminLayoutComponent);
     return AdminLayoutComponent;
 }());

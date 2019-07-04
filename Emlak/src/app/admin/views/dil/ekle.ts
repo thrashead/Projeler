@@ -16,7 +16,7 @@ export class AdminDilEkleComponent {
     data: any;
     uploadData: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: DilService, private router: Router, private formBuilder: FormBuilder) {
     }

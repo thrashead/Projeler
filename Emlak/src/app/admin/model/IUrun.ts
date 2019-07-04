@@ -12,6 +12,5 @@ export interface IUrun {
 
     Mesaj: string,
 
-    ProductTList: Array<IUrunDil>,
-    TypesList: string[]
+    ProductTList: Array<IUrunDil>
 }

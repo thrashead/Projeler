@@ -11,6 +11,5 @@ export interface IMetalar {
 
     Mesaj: string,
 
-    MetaTList: Array<IMetalarDil>,
-    TypesList: string[]
+    MetaTList: Array<IMetalarDil>
 }

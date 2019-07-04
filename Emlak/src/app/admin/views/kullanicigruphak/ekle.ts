@@ -15,7 +15,7 @@ export class AdminKullaniciGrupHakEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: KullaniciGrupHakService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

@@ -12,6 +12,5 @@ export interface IIcerik {
 
     Mesaj: string,
 
-    ContentTList: Array<IIcerikDil>,
-    TypesList: string[]
+    ContentTList: Array<IIcerikDil>
 }

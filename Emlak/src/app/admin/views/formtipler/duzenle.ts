@@ -15,7 +15,7 @@ export class AdminFormTiplerDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: FormElemanService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

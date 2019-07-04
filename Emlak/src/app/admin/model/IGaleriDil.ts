@@ -16,6 +16,6 @@ export interface IGaleriDil {
 
     Mesaj: string,
 
-    GalleryList: string[],
-    TranslationList: string[]
+    GalleryList: any[],
+    TranslationList: any[]
 }

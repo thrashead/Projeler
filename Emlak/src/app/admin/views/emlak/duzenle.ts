@@ -18,7 +18,7 @@ export class AdminEmlakDuzenleComponent {
     duzenleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     insertShow: boolean;
     updateShow: boolean;

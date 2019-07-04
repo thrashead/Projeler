@@ -12,5 +12,5 @@ export interface ILogIslem {
 
     Mesaj: string,
 
-    LogTypesList: string[]
+    LogTypesList: any[]
 }

@@ -16,7 +16,5 @@ export interface IResim {
 
     OldPictureUrl: string,
     OldThumbUrl: string,
-    HasFile: boolean,
-
-    TypesList: string[]
+    HasFile: boolean
 }

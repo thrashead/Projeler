@@ -15,7 +15,7 @@ export class AdminLogIslemEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: LogIslemService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

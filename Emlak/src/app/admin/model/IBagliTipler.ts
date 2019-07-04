@@ -15,9 +15,9 @@ export interface IBagliTipler {
 
     Mesaj: string,
 
-    MainTypeList: string[],
-    LinkedTypeList: string[],
-    MainList: string[],
+    MainTypeList: any[],
+    LinkedTypeList: any[],
+    MainList: any[],
     LinkList: Array<IBaglantilar>,
 
     MainAdi: string,
@@ -28,5 +28,6 @@ export interface IBagliTipler {
     MainPictureAdi: string,
     MainFileAdi: string,
     MainMetaAdi: string,
-    MainPropertyGroupAdi: string
+    MainPropertyGroupAdi: string,
+    MainRealEstatesAdi: string
 }

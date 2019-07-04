@@ -16,7 +16,7 @@ export class AdminDosyaEkleComponent {
     data: any;
     uploadData: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: DosyaService, private router: Router, private formBuilder: FormBuilder) {
     }

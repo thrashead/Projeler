@@ -69,6 +69,8 @@ export class AdminBaglantiIndexComponent {
                                     case 5: resData[i].LinkedAdi = resData[i].LinkedPictureAdi; break;
                                     case 6: resData[i].LinkedAdi = resData[i].LinkedFileAdi; break;
                                     case 7: resData[i].LinkedAdi = resData[i].LinkedMetaAdi; break;
+                                    case 8: resData[i].LinkedAdi = resData[i].LinkedPropertyGroupAdi; break;
+                                    case 17: resData[i].LinkedAdi = resData[i].LinkedRealEstatesAdi; break;
                                 }
                             }
 

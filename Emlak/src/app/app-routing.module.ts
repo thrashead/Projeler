@@ -202,6 +202,7 @@ const routes: Routes = [
             { path: 'Admin/EmlakDil', component: AdminEmlakDilIndexComponent },
             { path: 'Admin/EmlakDil/Index', component: AdminEmlakDilIndexComponent },
             { path: 'Admin/EmlakDil/Ekle', component: AdminEmlakDilEkleComponent },
+            { path: 'Admin/EmlakDil/Ekle/:linkID', component: AdminEmlakDilEkleComponent },
             { path: 'Admin/EmlakDil/Duzenle/:id', component: AdminEmlakDilDuzenleComponent },
 
             { path: 'Admin/FormEleman', component: AdminFormElemanIndexComponent },

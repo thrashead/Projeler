@@ -8,8 +8,8 @@ export interface IKullaniciGrupHak {
 
     Mesaj: string,
 
-    UserGroupTablesList: string[],
-    UserGroupProcessList: string[],
+    UserGroupTablesList: any[],
+    UserGroupProcessList: any[],
 
     UserGroupTablesAdi: string,
     UserGroupProcessAdi: string

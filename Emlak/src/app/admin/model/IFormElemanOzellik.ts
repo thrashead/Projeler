@@ -11,5 +11,5 @@ export interface IFormElemanOzellik {
 
     Mesaj: string,
 
-    PropertyList: string[]
+    PropertyList: any[]
 }

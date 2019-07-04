@@ -16,6 +16,6 @@ export interface IUrunDil {
 
     Mesaj: string,
 
-    TranslationList: string[],
-    ProductList: string[]
+    TranslationList: any[],
+    ProductList: any[]
 }

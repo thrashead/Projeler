@@ -7,8 +7,8 @@ export interface IBaglantilar {
 
     Mesaj: string,
 
-    LinkTypesList: string[],
-    LinkedItemList: string[],
+    LinkTypesList: any[],
+    LinkedItemList: any[],
 
     LinkedTypeID: number,
     LinkedTypeAdi: string,
@@ -21,5 +21,6 @@ export interface IBaglantilar {
     LinkedPictureAdi: string,
     LinkedFileAdi: string,
     LinkedMetaAdi: string,
-    LinkedPropertyGroupAdi: string
+    LinkedPropertyGroupAdi: string,
+    LinkedRealEstatesAdi: string
 }

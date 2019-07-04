@@ -15,6 +15,5 @@ export interface IKategori {
     Mesaj: string,
 
     CategoryTList: Array<IKategoriDil>,
-    ParentCategories: string[],
-    TypesList: string[]
+    ParentCategories: any[]
 }

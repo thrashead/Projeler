@@ -16,6 +16,6 @@ export interface IKategoriDil {
 
     Mesaj: string,
 
-    TranslationList: string[],
-    CategoryList: string[]
+    TranslationList: any[],
+    CategoryList: any[]
 }

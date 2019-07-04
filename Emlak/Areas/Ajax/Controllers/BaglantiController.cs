@@ -241,6 +241,15 @@ namespace Emlak.Areas.Ajax.Controllers
                         else
                             linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title });
                     break;
+                case 17:
+                    List<usp_RealEstatesSelect_Result> tableRealEstatesItems = entity.usp_RealEstatesSelect(null).ToList();
+
+                    foreach (var item in tableRealEstatesItems)
+                        if (item.ID == linkID)
+                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Baslik, Selected = true });
+                        else
+                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Baslik });
+                    break;
             }
 
             return linkItems;

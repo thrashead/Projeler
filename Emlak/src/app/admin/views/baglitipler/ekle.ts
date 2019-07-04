@@ -14,7 +14,7 @@ export class AdminBagliTiplerEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: BagliTiplerService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

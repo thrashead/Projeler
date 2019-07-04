@@ -17,7 +17,7 @@ export class AdminDosyaDuzenleComponent {
     data: any;
     uploadData: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: DosyaService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

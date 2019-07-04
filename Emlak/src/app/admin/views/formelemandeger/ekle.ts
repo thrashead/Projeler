@@ -15,7 +15,7 @@ export class AdminFormElemanDegerEkleComponent {
     ekleForm: FormGroup;
     data: any;
 
-    model: {};
+    model: any;
 
     constructor(private service: FormElemanDegerService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }

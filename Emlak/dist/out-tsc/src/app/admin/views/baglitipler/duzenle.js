@@ -117,6 +117,12 @@ var AdminBagliTiplerDuzenleComponent = /** @class */ (function () {
                                         case 7:
                                             resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi;
                                             break;
+                                        case 8:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPropertyGroupAdi;
+                                            break;
+                                        case 17:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedRealEstatesAdi;
+                                            break;
                                     }
                                 }
                                 _this.model = resData;

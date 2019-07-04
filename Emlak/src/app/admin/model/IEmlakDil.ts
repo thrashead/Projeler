@@ -14,6 +14,6 @@ export interface IEmlakDil {
 
     Mesaj: string,
 
-    RealEstatesList: string[],
-    TranslationList: string[]
+    RealEstatesList: any[],
+    TranslationList: any[]
 }
