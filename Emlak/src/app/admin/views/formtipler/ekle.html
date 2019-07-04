@@ -1,0 +1,58 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a class="tip-bottom"><i class="icon-tasks"></i> Form Tipi Ekle</a></div>
+    </div>
+    <div class="container-fluid">
+        <form [formGroup]="ekleForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    İsim
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" />
+                    <!--Name-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Tip
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Type" [ngModel]="model?.Type" formControlName="Type" type="text" />
+                    <!--Type-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kısa İsim
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortName" [ngModel]="model?.ShortName" formControlName="ShortName" type="text" />
+                    <!--ShortName-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Değer Alma
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="HasValue" [ngModel]="model?.HasValue" formControlName="HasValue" type="checkbox" />
+                    <!--HasValue-->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!ekleForm.valid" />
+                    <a routerLink="/Admin/FormTipler" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+        </form>
+    </div>
+</div>

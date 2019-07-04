@@ -1,0 +1,23 @@
+﻿<div id="EnAltBolge" ng-controller="controlFooter">
+    <div class="EnAltLinkler">
+        <span>» <a [routerLink]="['Giris']">{{ anaSayfaText }}</a></span>
+        <span *ngFor="let item of kategoriler">
+            » <a [routerLink]="['/Emlak/Listele/' + item.Url ]">{{ item.CategoryName }}</a>
+        </span>
+        <span>
+        » <a [routerLink]="['/Emlak/Listele/Yeni']">{{ yeniIlanlarText}}</a> 
+        » <a [routerLink]="['/Emlak/Listele']">{{ tumIlanlarText }}</a> 
+        » <a [routerLink]="['/Icerik/Hakkimizda']">{{ hakkimizdaText }}</a> 
+        » <a [routerLink]="['/Icerik/Iletisim']">{{ iletisimText }}</a></span>
+    </div>
+    <div class="YasalUyari">
+        <i [innerHtml]="yasalUyari?.Aciklama"></i>
+    </div>
+    <div class="Developer">
+        <div class="Ziyaretci">
+        </div>
+        <a href="http://www.sinasalik.net/" title="Sina SALIK" target="_blank">
+            <font color="black" style="font-weight: bold;">Developed by Sina SALIK</font>
+        </a>
+    </div>
+</div>

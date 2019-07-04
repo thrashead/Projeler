@@ -14,12 +14,6 @@ namespace Emlak
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Admin",
-                url: "Admin/{controller}/{action}/{id}",
-                defaults: new { controller = "Panel", action = "Login", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
                 name: "Ajax",
                 url: "Ajax/{controller}/{action}/{login}",
                 defaults: new { controller = "Ajax", action = "Login", login = UrlParameter.Optional }
@@ -28,7 +22,8 @@ namespace Emlak
             routes.MapRoute(
                 name: "Shared",
                 url: "Shared/{action}/{id}",
-                defaults: new { controller = "Shared", action = "GetLangs", id = UrlParameter.Optional }
+                defaults: new { controller = "Shared", action = "GetLangs", id = UrlParameter.Optional },
+                new[] { "Emlak.Controllers" }
             );
 
             routes.MapRoute(

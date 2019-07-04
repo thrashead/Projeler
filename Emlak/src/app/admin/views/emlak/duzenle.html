@@ -1,0 +1,676 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-home"></i> Emlak Düzenle</a></div>
+    </div>
+    <div class="container-fluid">
+        <form [formGroup]="duzenleForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+
+                <div class="editor-label">
+                    Başlık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Baslik" [ngModel]="model?.Baslik" formControlName="Baslik" type="text" value="{{ model?.Baslik }}" />
+                    <br />
+                    <!--Baslik-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kod
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" value="{{ model?.Code }}" />
+                    <br />
+                    <!--Code-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Aktif mi?
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Active" [ngModel]="model?.Active" formControlName="Active" type="checkbox" checked="checked" *ngIf="model?.Active" />
+                    <input id="Active" [ngModel]="model?.Active" formControlName="Active" type="checkbox" *ngIf="model?.Active" />
+                    <br />
+                    <!--Active-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Yeni mi?
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Yeni" [ngModel]="model?.Yeni" formControlName="Yeni" type="checkbox" checked="checked" *ngIf="model?.Yeni" />
+                    <input id="Yeni" [ngModel]="model?.Yeni" formControlName="Yeni" type="checkbox" *ngIf="model?.Yeni" />
+                    <br />
+                    <!--Yeni-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Günün Emlağı mı?
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="GununEmlagi" [ngModel]="model?.GununEmlagi" formControlName="GununEmlagi" type="checkbox" checked="checked" *ngIf="model?.GununEmlagi" />
+                    <input id="GununEmlagi" [ngModel]="model?.GununEmlagi" formControlName="GununEmlagi" type="checkbox" *ngIf="model?.GununEmlagi" />
+                    <br />
+                    <!--GununEmlagi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Durum
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Durum" [ngModel]="model?.Durum" formControlName="Durum" type="text" value="{{ model?.Durum }}" />
+                    <br />
+                    <!--Durum-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Isınma Tipi
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="IsinmaTipi" [ngModel]="model?.IsinmaTipi" formControlName="IsinmaTipi" type="text" value="{{ model?.IsinmaTipi }}" />
+                    <br />
+                    <!--IsinmaTipi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Yakıt Tipi
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="YakitTipi" [ngModel]="model?.YakitTipi" formControlName="YakitTipi" type="text" value="{{ model?.YakitTipi }}" />
+                    <br />
+                    <!--YakitTipi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Şehir
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Sehir" [ngModel]="model?.Sehir" formControlName="Sehir" type="text" value="{{ model?.Sehir }}" />
+                    <br />
+                    <!--Sehir-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    İlçe
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Ilce" [ngModel]="model?.Ilce" formControlName="Ilce" type="text" value="{{ model?.Ilce }}" />
+                    <br />
+                    <!--Ilce-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Semt
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Semt" [ngModel]="model?.Semt" formControlName="Semt" type="text" value="{{ model?.Semt }}" />
+                    <br />
+                    <!--Semt-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Sahibi
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Sahibi" [ngModel]="model?.Sahibi" formControlName="Sahibi" type="text" value="{{ model?.Sahibi }}" />
+                    <br />
+                    <!--Sahibi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Enlem
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Enlem" [ngModel]="model?.Enlem" formControlName="Enlem" type="text" value="{{ model?.Enlem }}" />
+                    <br />
+                    <!--Enlem-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Boylam
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Boylam" [ngModel]="model?.Boylam" formControlName="Boylam" type="text" value="{{ model?.Boylam }}" />
+                    <br />
+                    <!--Boylam-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Fiyat
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Fiyat" [ngModel]="model?.Fiyat" formControlName="Fiyat"type="number" value="{{ model?.Fiyat }}" />
+                    <br />
+                    <!--Fiyat-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Oda Sayısı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="OdaSayisi" [ngModel]="model?.OdaSayisi" formControlName="OdaSayisi"type="number" value="{{ model?.OdaSayisi }}" />
+                    <br />
+                    <!--OdaSayisi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kat Sayısı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="KatSayisi" [ngModel]="model?.KatSayisi" formControlName="KatSayisi"type="number" value="{{ model?.KatSayisi }}" />
+                    <br />
+                    <!--KatSayisi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Salon Sayısı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="SalonSayisi" [ngModel]="model?.SalonSayisi" formControlName="SalonSayisi"type="number" value="{{ model?.SalonSayisi }}" />
+                    <br />
+                    <!--SalonSayisi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Bulunduğu Kat
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="BulunduguKat" [ngModel]="model?.BulunduguKat" formControlName="BulunduguKat"type="number" value="{{ model?.BulunduguKat }}" />
+                    <br />
+                    <!--BulunduguKat-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Alan
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Alan" [ngModel]="model?.Alan" formControlName="Alan"type="number" value="{{ model?.Alan }}" />
+                    <br />
+                    <!--Alan-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Bina Yaşı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="BinaYasi" [ngModel]="model?.BinaYasi" formControlName="BinaYasi"type="number" value="{{ model?.BinaYasi }}" />
+                    <br />
+                    <!--BinaYasi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Arka Cephe
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ArkaCephe" [ngModel]="model?.ArkaCephe" formControlName="ArkaCephe" type="checkbox" checked="checked" *ngIf="model?.ArkaCephe" />
+                    <input id="ArkaCephe" [ngModel]="model?.ArkaCephe" formControlName="ArkaCephe" type="checkbox" *ngIf="model?.ArkaCephe" />
+                    <br />
+                    <!--ArkaCephe-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Ön Cephe
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="OnCephe" [ngModel]="model?.OnCephe" formControlName="OnCephe" type="checkbox" checked="checked" *ngIf="model?.OnCephe" />
+                    <input id="OnCephe" [ngModel]="model?.OnCephe" formControlName="OnCephe" type="checkbox" *ngIf="model?.OnCephe" />
+                    <br />
+                    <!--OnCephe-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Caddeye Yakın
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="CaddeyeYakin" [ngModel]="model?.CaddeyeYakin" formControlName="CaddeyeYakin" type="checkbox" checked="checked" *ngIf="model?.CaddeyeYakin" />
+                    <input id="CaddeyeYakin" [ngModel]="model?.CaddeyeYakin" formControlName="CaddeyeYakin" type="checkbox" *ngIf="model?.CaddeyeYakin" />
+                    <br />
+                    <!--CaddeyeYakin-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Denize Sıfır
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="DenizeSifir" [ngModel]="model?.DenizeSifir" formControlName="DenizeSifir" type="checkbox" checked="checked" *ngIf="model?.DenizeSifir" />
+                    <input id="DenizeSifir" [ngModel]="model?.DenizeSifir" formControlName="DenizeSifir" type="checkbox" *ngIf="model?.DenizeSifir" />
+                    <br />
+                    <!--DenizeSifir-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Denize Yakın
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="DenizeYakin" [ngModel]="model?.DenizeYakin" formControlName="DenizeYakin" type="checkbox" checked="checked" *ngIf="model?.DenizeYakin" />
+                    <input id="DenizeYakin" [ngModel]="model?.DenizeYakin" formControlName="DenizeYakin" type="checkbox" *ngIf="model?.DenizeYakin" />
+                    <br />
+                    <!--DenizeYakin-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Manzara
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Manzara" [ngModel]="model?.Manzara" formControlName="Manzara" type="checkbox" checked="checked" *ngIf="model?.Manzara" />
+                    <input id="Manzara" [ngModel]="model?.Manzara" formControlName="Manzara" type="checkbox" *ngIf="model?.Manzara" />
+                    <br />
+                    <!--Manzara-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Merkezde
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Merkezde" [ngModel]="model?.Merkezde" formControlName="Merkezde" type="checkbox" checked="checked" *ngIf="model?.Merkezde" />
+                    <input id="Merkezde" [ngModel]="model?.Merkezde" formControlName="Merkezde" type="checkbox" *ngIf="model?.Merkezde" />
+                    <br />
+                    <!--Merkezde-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Metro
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Metro" [ngModel]="model?.Metro" formControlName="Metro" type="checkbox" checked="checked" *ngIf="model?.Metro" />
+                    <input id="Metro" [ngModel]="model?.Metro" formControlName="Metro" type="checkbox" *ngIf="model?.Metro" />
+                    <br />
+                    <!--Metro-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Otoban
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Otoban" [ngModel]="model?.Otoban" formControlName="Otoban" type="checkbox" checked="checked" *ngIf="model?.Otoban" />
+                    <input id="Otoban" [ngModel]="model?.Otoban" formControlName="Otoban" type="checkbox" *ngIf="model?.Otoban" />
+                    <br />
+                    <!--Otoban-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Toplu Ulaşım
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="TopluUlasim" [ngModel]="model?.TopluUlasim" formControlName="TopluUlasim" type="checkbox" checked="checked" *ngIf="model?.TopluUlasim" />
+                    <input id="TopluUlasim" [ngModel]="model?.TopluUlasim" formControlName="TopluUlasim" type="checkbox" *ngIf="model?.TopluUlasim" />
+                    <br />
+                    <!--TopluUlasim-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Asansör
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Asansor" [ngModel]="model?.Asansor" formControlName="Asansor" type="checkbox" checked="checked" *ngIf="model?.Asansor" />
+                    <input id="Asansor" [ngModel]="model?.Asansor" formControlName="Asansor" type="checkbox" *ngIf="model?.Asansor" />
+                    <br />
+                    <!--Asansor-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Bahçe
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Bahce" [ngModel]="model?.Bahce" formControlName="Bahce" type="checkbox" checked="checked" *ngIf="model?.Bahce" />
+                    <input id="Bahce" [ngModel]="model?.Bahce" formControlName="Bahce" type="checkbox" *ngIf="model?.Bahce" />
+                    <br />
+                    <!--Bahce-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Güvenlik
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Guvenlik" [ngModel]="model?.Guvenlik" formControlName="Guvenlik" type="checkbox" checked="checked" *ngIf="model?.Guvenlik" />
+                    <input id="Guvenlik" [ngModel]="model?.Guvenlik" formControlName="Guvenlik" type="checkbox" *ngIf="model?.Guvenlik" />
+                    <br />
+                    <!--Guvenlik-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Hidrofor
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Hidrofor" [ngModel]="model?.Hidrofor" formControlName="Hidrofor" type="checkbox" checked="checked" *ngIf="model?.Hidrofor" />
+                    <input id="Hidrofor" [ngModel]="model?.Hidrofor" formControlName="Hidrofor" type="checkbox" *ngIf="model?.Hidrofor" />
+                    <br />
+                    <!--Hidrofor-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Mantolama
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Mantolama" [ngModel]="model?.Mantolama" formControlName="Mantolama" type="checkbox" checked="checked" *ngIf="model?.Mantolama" />
+                    <input id="Mantolama" [ngModel]="model?.Mantolama" formControlName="Mantolama" type="checkbox" *ngIf="model?.Mantolama" />
+                    <br />
+                    <!--Mantolama-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Jenerator
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Jenerator" [ngModel]="model?.Jenerator" formControlName="Jenerator" type="checkbox" checked="checked" *ngIf="model?.Jenerator" />
+                    <input id="Jenerator" [ngModel]="model?.Jenerator" formControlName="Jenerator" type="checkbox" *ngIf="model?.Jenerator" />
+                    <br />
+                    <!--Jenerator-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kapıcı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Kapici" [ngModel]="model?.Kapici" formControlName="Kapici" type="checkbox" checked="checked" *ngIf="model?.Kapici" />
+                    <input id="Kapici" [ngModel]="model?.Kapici" formControlName="Kapici" type="checkbox" *ngIf="model?.Kapici" />
+                    <br />
+                    <!--Kapici-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Satılık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Satilik" [ngModel]="model?.Satilik" formControlName="Satilik" type="checkbox" checked="checked" *ngIf="model?.Satilik" />
+                    <input id="Satilik" [ngModel]="model?.Satilik" formControlName="Satilik" type="checkbox" *ngIf="model?.Satilik" />
+                    <br />
+                    <!--Satilik-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Otopark
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Otopark" [ngModel]="model?.Otopark" formControlName="Otopark" type="checkbox" checked="checked" *ngIf="model?.Otopark" />
+                    <input id="Otopark" [ngModel]="model?.Otopark" formControlName="Otopark" type="checkbox" *ngIf="model?.Otopark" />
+                    <br />
+                    <!--Otopark-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Oyun Parkı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="OyunParki" [ngModel]="model?.OyunParki" formControlName="OyunParki" type="checkbox" checked="checked" *ngIf="model?.OyunParki" />
+                    <input id="OyunParki" [ngModel]="model?.OyunParki" formControlName="OyunParki" type="checkbox" *ngIf="model?.OyunParki" />
+                    <br />
+                    <!--OyunParki-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    PVC Dograma
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="PVCDograma" [ngModel]="model?.PVCDograma" formControlName="PVCDograma" type="checkbox" checked="checked" *ngIf="model?.PVCDograma" />
+                    <input id="PVCDograma" [ngModel]="model?.PVCDograma" formControlName="PVCDograma" type="checkbox" *ngIf="model?.PVCDograma" />
+                    <br />
+                    <!--PVCDograma-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Site İci
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="SiteIci" [ngModel]="model?.SiteIci" formControlName="SiteIci" type="checkbox" checked="checked" *ngIf="model?.SiteIci" />
+                    <input id="SiteIci" [ngModel]="model?.SiteIci" formControlName="SiteIci" type="checkbox" *ngIf="model?.SiteIci" />
+                    <br />
+                    <!--SiteIci-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Yangın Merdiveni
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="YanginMerdiveni" [ngModel]="model?.YanginMerdiveni" formControlName="YanginMerdiveni" type="checkbox" checked="checked" *ngIf="model?.YanginMerdiveni" />
+                    <input id="YanginMerdiveni" [ngModel]="model?.YanginMerdiveni" formControlName="YanginMerdiveni" type="checkbox" *ngIf="model?.YanginMerdiveni" />
+                    <br />
+                    <!--YanginMerdiveni-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Yüzme Havuzu
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="YuzmeHavuzu" [ngModel]="model?.YuzmeHavuzu" formControlName="YuzmeHavuzu" type="checkbox" checked="checked" *ngIf="model?.YuzmeHavuzu" />
+                    <input id="YuzmeHavuzu" [ngModel]="model?.YuzmeHavuzu" formControlName="YuzmeHavuzu" type="checkbox" *ngIf="model?.YuzmeHavuzu" />
+                    <br />
+                    <!--YuzmeHavuzu-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Alarm
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Alarm" [ngModel]="model?.Alarm" formControlName="Alarm" type="checkbox" checked="checked" *ngIf="model?.Alarm" />
+                    <input id="Alarm" [ngModel]="model?.Alarm" formControlName="Alarm" type="checkbox" *ngIf="model?.Alarm" />
+                    <br />
+                    <!--Alarm-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Balkon
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Balkon" [ngModel]="model?.Balkon" formControlName="Balkon" type="checkbox" checked="checked" *ngIf="model?.Balkon" />
+                    <input id="Balkon" [ngModel]="model?.Balkon" formControlName="Balkon" type="checkbox" *ngIf="model?.Balkon" />
+                    <br />
+                    <!--Balkon-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Çelik Kapı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="CelikKapi" [ngModel]="model?.CelikKapi" formControlName="CelikKapi" type="checkbox" checked="checked" *ngIf="model?.CelikKapi" />
+                    <input id="CelikKapi" [ngModel]="model?.CelikKapi" formControlName="CelikKapi" type="checkbox" *ngIf="model?.CelikKapi" />
+                    <br />
+                    <!--CelikKapi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Görüntülü Diafon
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="GoruntuluDiafon" [ngModel]="model?.GoruntuluDiafon" formControlName="GoruntuluDiafon" type="checkbox" checked="checked" *ngIf="model?.GoruntuluDiafon" />
+                    <input id="GoruntuluDiafon" [ngModel]="model?.GoruntuluDiafon" formControlName="GoruntuluDiafon" type="checkbox" *ngIf="model?.GoruntuluDiafon" />
+                    <br />
+                    <!--GoruntuluDiafon-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Jakuzi
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Jakuzi" [ngModel]="model?.Jakuzi" formControlName="Jakuzi" type="checkbox" checked="checked" *ngIf="model?.Jakuzi" />
+                    <input id="Jakuzi" [ngModel]="model?.Jakuzi" formControlName="Jakuzi" type="checkbox" *ngIf="model?.Jakuzi" />
+                    <br />
+                    <!--Jakuzi-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kablo TV Uydu
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="KabloTVUydu" [ngModel]="model?.KabloTVUydu" formControlName="KabloTVUydu" type="checkbox" checked="checked" *ngIf="model?.KabloTVUydu" />
+                    <input id="KabloTVUydu" [ngModel]="model?.KabloTVUydu" formControlName="KabloTVUydu" type="checkbox" *ngIf="model?.KabloTVUydu" />
+                    <br />
+                    <!--KabloTVUydu-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Klima
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Klima" [ngModel]="model?.Klima" formControlName="Klima" type="checkbox" checked="checked" *ngIf="model?.Klima" />
+                    <input id="Klima" [ngModel]="model?.Klima" formControlName="Klima" type="checkbox" *ngIf="model?.Klima" />
+                    <br />
+                    <!--Klima-->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!duzenleForm.valid" />
+                    <a routerLink="/Admin/Emlak" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+        </form>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-home"></i></span>
+                        <h5>Bağlı Emlaklar (Dil)</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Başlık</th>
+                                    <th>Kod</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of model?.RealEstatesAdsTList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.Baslik }}</td>
+                                    <td>{{ item?.Code }}</td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/EmlakDil/Duzenle/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-link]="RealEstatesAdsT" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="rdltLink" *ngIf="realDeleteShow" data-toggle="modal" href="#rdltData" [attr.data-link]="RealEstatesAdsT" [attr.data-id]="item?.ID">Kaldır</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a [routerLink]="['/Admin/EmlakDil/Ekle/' + model?.ID]" class="btn btn-primary btn-add" *ngIf="insertShow">Emlak (Dil) Ekle</a>
+        </div>
+
+        <input id="hdnModel" type="hidden" value="Emlak" />
+    </div>
+</div>
+
+<admin-copydelete></admin-copydelete>

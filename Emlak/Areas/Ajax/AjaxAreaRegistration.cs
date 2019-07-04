@@ -2,17 +2,17 @@
 
 namespace Emlak.Areas.Ajax
 {
-    public class AjaxAreaRegistration : AreaRegistration 
+    public class AjaxAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Ajax";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Ajax_default",

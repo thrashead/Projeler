@@ -1,0 +1,100 @@
+﻿<div id="sidebar">
+    <a href="javascript:;" class="visible-phone"><i class="icon icon-reorder"></i> Menü</a>
+    <ul>
+        <li data-url="AnaSayfa" class="active">
+            <a routerLink="/Admin/AnaSayfa"><i class="icon icon-home"></i> <span>Ana Sayfa</span></a>
+        </li>
+        <li class="submenu" *ngIf="hasRightEmlak && showTypeEmlak">
+            <a href="javascript:;"><i class="icon icon-home"></i> <span>Emlaklar</span></a>
+            <ul>
+                <li data-url="Emlak"><a routerLink="/Admin/Emlak">Emlaklar</a></li>
+                <li data-url="EmlakDil"><a routerLink="/Admin/EmlakDil">Emlaklar (Dil)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightKategori && showTypeKategori">
+            <a href="javascript:;"><i class="icon icon-sitemap"></i> <span>Kategoriler</span></a>
+            <ul>
+                <li data-url="Kategori"><a routerLink="/Admin/Kategori">Kategoriler</a></li>
+                <li data-url="KategoriDil"><a routerLink="/Admin/KategoriDil">Kategoriler (Dil)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightIcerik && showTypeIcerik">
+            <a href="javascript:;"><i class="icon icon-edit"></i> <span>İçerikler</span></a>
+            <ul>
+                <li data-url="Icerik"><a routerLink="/Admin/Icerik">İçerikler</a></li>
+                <li data-url="IcerikDil"><a routerLink="/Admin/IcerikDil">İçerikler (Dil)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightUrun && showTypeUrun">
+            <a href="javascript:;"><i class="icon icon-barcode"></i> <span>Ürünler</span></a>
+            <ul>
+                <li data-url="Urun"><a routerLink="/Admin/Urun">Ürünler</a></li>
+                <li data-url="UrunDil"><a routerLink="/Admin/UrunDil">Ürünler (Dil)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightGaleri && showTypeGaleri">
+            <a href="javascript:;"><i class="icon icon-picture"></i> <span>Galeri</span></a>
+            <ul>
+                <li data-url="Galeri"><a routerLink="/Admin/Galeri">Galeri</a></li>
+                <li data-url="GaleriDil"><a routerLink="/Admin/GaleriDil">Galeri (Dil)</a></li>
+            </ul>
+        </li>
+        <li data-url="Resim" *ngIf="hasRightResim && showTypeResim">
+            <a routerLink="/Admin/Resim"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
+        </li>
+        <li data-url="Dosya" *ngIf="hasRightDosya && showTypeDosya">
+            <a routerLink="/Admin/Dosya"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
+        </li>
+        <li class="submenu" *ngIf="hasRightMeta && showTypeMeta">
+            <a href="javascript:;"><i class="icon icon-tags"></i> <span>Meta</span></a>
+            <ul>
+                <li data-url="Meta"><a routerLink="/Admin/Meta">Meta</a></li>
+                <li data-url="MetaDil"><a routerLink="/Admin/MetaDil">Meta (Dil)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightFormEleman && showTypeFormEleman">
+            <a href="javascript:;"><i class="icon icon-tasks"></i> <span>Form Elemanları</span></a>
+            <ul>
+                <li data-url="FormEleman"><a routerLink="/Admin/FormEleman">Form Elemanları</a></li>
+                <li data-url="FormElemanGrup"><a routerLink="/Admin/FormElemanGrup">Form Grupları</a></li>
+                <li data-url="FormElemanOzellik"><a routerLink="/Admin/FormElemanOzellik">Form Eleman Özellikleri</a></li>
+                <li data-url="FormElemanDeger"><a routerLink="/Admin/FormElemanDeger">Form Eleman Değerleri</a></li>
+                <li data-url="FormTipler"><a routerLink="/Admin/FormTipler">Form Tipleri</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightBagliTipler && showTypeBagliTipler">
+            <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
+            <ul>
+                <li data-url="BagliTipler"><a routerLink="/Admin/BagliTipler">Bağlı Tipler</a></li>
+                <li data-url="Baglanti"><a routerLink="/Admin/Baglanti">Bağlantılar</a></li>
+            </ul>
+        </li>
+        <li data-url="Dil" *ngIf="hasRightDil && showTypeDil">
+            <a routerLink="/Admin/Dil"><i class="icon icon-globe"></i> <span>Diller</span></a>
+        </li>
+        <li class="submenu" *ngIf="hasRightLoglar && showTypeLoglar">
+            <a href="javascript:;"><i class="icon icon-eye-open"></i> <span>Loglar</span></a>
+            <ul>
+                <li data-url="Loglar"><a routerLink="/Admin/Loglar">Loglar</a></li>
+                <li data-url="LogTipler"><a routerLink="/Admin/LogTipler">Log Tipleri</a></li>
+                <li data-url="LogIslem"><a routerLink="/Admin/LogIslem">Log İşlemleri</a></li>
+            </ul>
+        </li>
+        <li data-url="Ziyaretci" *ngIf="hasRightZiyaretci && showTypeZiyaretci">
+            <a routerLink="/Admin/Ziyaretci"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
+        </li>
+        <li class="submenu" *ngIf="hasRightKullanicilar && showTypeKullanicilar">
+            <a href="javascript:;"><i class="icon icon-user"></i> <span>Kullanıcılar</span></a>
+            <ul>
+                <li data-url="Kullanicilar"><a routerLink="/Admin/Kullanicilar">Kullanıcılar</a></li>
+                <li data-url="KullaniciGrup"><a routerLink="/Admin/KullaniciGrup">Kullanıcı Grupları</a></li>
+                <li data-url="KullaniciGrupTablo"><a routerLink="/Admin/KullaniciGrupTablo">Kullanıcı Grup Tabloları</a></li>
+                <li data-url="KullaniciGrupHak"><a routerLink="/Admin/KullaniciGrupHak">Kullanıcı Grup Hakları</a></li>
+                <li data-url="KullaniciGrupIslem"><a routerLink="/Admin/KullaniciGrupIslem">Kullanıcı Grup İşlemleri</a></li>
+            </ul>
+        </li>
+        <li data-url="Tipler" *ngIf="hasRightTipler && showTypeTipler">
+            <a routerLink="/Admin/Tipler"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>
+        </li>
+    </ul>
+</div>

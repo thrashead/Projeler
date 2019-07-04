@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web.Configuration;
 using System;
 using System.Reflection;
-using Models;
 using TDLibrary;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using System.Web.Caching;
+using Cacher = System.Web.HttpRuntime;
 
 namespace Emlak
 {
@@ -21,11 +22,11 @@ namespace Emlak
             }
         }
 
-        public static Kullanicilar User
+        public static Users User
         {
             get
             {
-                return HttpContext.Current.Session["CurrentUser"] != null ? HttpContext.Current.Session["CurrentUser"] as Kullanicilar : null;
+                return HttpContext.Current.Session["CurrentUser"] != null ? HttpContext.Current.Session["CurrentUser"] as Users : null;
             }
         }
 
@@ -40,25 +41,53 @@ namespace Emlak
 
     public static class UserProcesses
     {
-        public static bool HasRight(this Kullanicilar user, string url, string islem = "s")
+        public static List<usp_UserGroupRightsByUserIDAndUrl_Result> UserRights(this Users user, string url = null, string process = null)
+        {
+            EmlakEntities entity = new EmlakEntities();
+
+            List<usp_UserGroupRightsByUserIDAndUrl_Result> result;
+
+            if (Cacher.Cache["CurrentUserRights_" + user.ID.ToString()] == null)
+            {
+                List<usp_UserGroupRightsByUserIDAndUrl_Result> userRights = entity.usp_UserGroupRightsByUserIDAndUrl().Where(a=> a.UserID == user.ID).ToList();
+
+                Cacher.Cache.Insert("CurrentUserRights_" + user.ID.ToString(), userRights, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
+            }
+
+            result = Cacher.Cache["CurrentUserRights_" + user.ID.ToString()] as List<usp_UserGroupRightsByUserIDAndUrl_Result>;
+
+            if(url != null)
+            {
+                result = result.Where(a => a.Url == url).ToList();
+            }
+
+            if (process != null)
+            {
+                result = result.Where(a => a.ShortName == process).ToList();
+            }
+
+            return result;
+        }
+
+        public static bool HasRight(this Users user, string url, string process = "s")
         {
             if (user == null)
             {
                 return false;
             }
 
-            EmlakEntities _entity = new EmlakEntities();
+            List<usp_UserGroupRightsByUserIDAndUrl_Result> list = user.UserRights(url, process);
 
-            int? result = _entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
+            bool result = list.Count > 0 ? list.FirstOrDefault().Allow : false;
 
-            return result == 1 ? true : false;
+            return result;
         }
 
-        public static void Log<T>(this Kullanicilar user, T model, string processShortName, string description = null, string idName = "ID")
+        public static void Log<T>(this Users user, T model, string processShortName, string description = null, string idName = "ID")
         {
             if (user != null)
             {
-                EmlakEntities _entity = new EmlakEntities();
+                EmlakEntities entity = new EmlakEntities();
 
                 if (model != null)
                 {
@@ -74,19 +103,19 @@ namespace Emlak
 
                 description = description == null ? null : description.SplitText(0, 255);
 
-                _entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
+                entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
             }
         }
 
-        public static void Log(this Kullanicilar user, string processShortName, string description = null)
+        public static void Log(this Users user, string processShortName, string description = null)
         {
             if (user != null)
             {
-                EmlakEntities _entity = new EmlakEntities();
+                EmlakEntities entity = new EmlakEntities();
 
                 description = description == null ? null : description.SplitText(0, 255);
 
-                _entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
+                entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
             }
         }
 
@@ -158,9 +187,37 @@ namespace Emlak
 
         public static bool? ShowType(this string url)
         {
-            EmlakEntities _entity = new EmlakEntities();
+            List<usp_TypesSelect_Result> list = Lib.ShowTypes(url);
 
-            return _entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
+            bool result = list.Count > 0 ? list.FirstOrDefault().Show : false;
+
+            return result;
+        }
+    }
+
+    public class Lib
+    {
+        public static List<usp_TypesSelect_Result> ShowTypes(string url = null)
+        {
+            EmlakEntities entity = new EmlakEntities();
+
+            List<usp_TypesSelect_Result> result;
+
+            if (Cacher.Cache["ShowTypes"] == null)
+            {
+                List<usp_TypesSelect_Result> showTypes = entity.usp_TypesSelect(null).ToList();
+
+                Cacher.Cache.Insert("ShowTypes", showTypes, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
+            }
+
+            result = Cacher.Cache["ShowTypes"] as List<usp_TypesSelect_Result>;
+
+            if (url != null)
+            {
+                result = result.Where(a => a.TypeName == url).ToList();
+            }
+
+            return result;
         }
     }
 }

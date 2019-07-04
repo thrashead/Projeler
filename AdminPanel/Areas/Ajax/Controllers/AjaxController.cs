@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Ajax.Controllers
 {
     public class AjaxController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly EmlakEntities _entity = new EmlakEntities();
 
         [HttpPost]
         public JsonResult Login(string login)

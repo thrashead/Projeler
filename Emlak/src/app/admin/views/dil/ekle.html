@@ -1,0 +1,51 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-globe"></i> Dil Ekle</a></div>
+    </div>
+    <div class="container-fluid">
+        <form [formGroup]="ekleForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    Dil
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="TransName" [ngModel]="model?.TransName" formControlName="TransName" type="text" />
+                    <br />
+                    <!--TransName-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kısaltma
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortName" [ngModel]="model?.ShortName" formControlName="ShortName" type="text" />
+                    <br />
+                    <!--ShortName-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Bayrak
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Flag" [ngModel]="model?.Flag" formControlName="Flag" type="file" (change)="onFileSelect($event)" name="flagTemp" />
+                    <br />
+                    <!--Flag-->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!ekleForm.valid" />
+                    <a routerLink="/Admin/Dil" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿<div class="SolBaslik gununnesne">
+    {{ gununIlaniText }}
+</div>
+<div class="SolIcerik gununnesne">
+    <a [routerLink]="['/Emlak/Detay/' + emlak?.Url]">
+        <img border="0" alt="" style="max-width:100px; max-height:100px;" src="{{emlak?.Picture}}" />
+    </a>
+    <br />
+    {{emlak?.Baslik}}
+    <br />
+    <b>
+        {{emlak?.Fiyat}}
+        TL
+    </b>
+    <br />
+    <br />
+    <a [routerLink]="['/Emlak/Detay/' + emlak?.Url]">
+        <img border="0" src="Content/img/{{ detayLinkText }}.png" height="20" />
+    </a>
+</div>

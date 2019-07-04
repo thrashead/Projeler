@@ -1,0 +1,111 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-link"></i> Bağlı Tip Düzenle</a></div>
+    </div>
+    <div class="container-fluid">
+        <form [formGroup]="duzenleForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+
+                <div class="editor-label">
+                    Başlık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" value="{{ model?.Title }}" />
+                    <br />
+                    <!--Title-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Ana Tip
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="MainTypeID" class="mainType" (change)="onChange($event)" [ngModel]="model?.MainTypeID" formControlName="MainTypeID"><option *ngFor="let item of model?.MainTypeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--MainTypeID-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Ana Nesne
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="MainID" class="selectMain" [ngModel]="model?.MainID" formControlName="MainID"><option *ngFor="let item of model?.MainList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--MainID-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Bağlanacak Tip
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="LinkedTypeID" class="linkedType" [ngModel]="model?.LinkedTypeID" formControlName="LinkedTypeID"><option *ngFor="let item of model?.LinkedTypeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--LinkedTypeID-->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!duzenleForm.valid" />
+                    <a routerLink="/Admin/BagliTipler" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+        </form>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-link"></i></span>
+                        <h5>Bağlı Nesneler</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Başlık</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of model?.LinkList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.LinkedAdi }}</td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Baglanti/Duzenle/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-link]="Links" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a [routerLink]="['/Admin/Baglanti/Ekle/' + model?.ID]" class="btn btn-primary btn-add" *ngIf="insertShow">Bağlantı Ekle</a>
+        </div>
+
+        <input id="hdnModel" type="hidden" value="BagliTipler" />
+    </div>
+</div>
+
+<admin-copydelete></admin-copydelete>

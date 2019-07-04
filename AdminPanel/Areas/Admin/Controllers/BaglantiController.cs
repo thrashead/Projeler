@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class BaglantiController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly EmlakEntities _entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -157,7 +157,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             return Json(ReturnList(_entity, null, null, linkTypeID.ToInteger()), JsonRequestBehavior.AllowGet);
         }
 
-        private static List<SelectListItem> ReturnList(AdminPanelEntities entity, int? linkedTypeID = 1, int? linkID = null, int? linkTypeID = null)
+        private static List<SelectListItem> ReturnList(EmlakEntities entity, int? linkedTypeID = 1, int? linkID = null, int? linkTypeID = null)
         {
             List<SelectListItem> linkItems = new List<SelectListItem>();
 

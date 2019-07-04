@@ -1,9 +1,0 @@
-﻿<div class="SolIcerik menuler">
-    <a [routerLink]="['Giris']">{{ anaSayfaText }}</a><hr />
-    <span *ngFor="let item of sayfalar">
-        <a [routerLink]="['Icerik/' + item?.Url]">{{item?.ContentName}}</a>
-        <hr />
-    </span>
-    <br />
-    <b>{{ziyaretciText}} : </b>{{sayac}}
-</div>

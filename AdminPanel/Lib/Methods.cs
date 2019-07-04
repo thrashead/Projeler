@@ -47,7 +47,7 @@ namespace AdminPanel
                 return false;
             }
 
-            AdminPanelEntities _entity = new AdminPanelEntities();
+            EmlakEntities _entity = new EmlakEntities();
 
             int? result = _entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
 
@@ -58,7 +58,7 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                AdminPanelEntities _entity = new AdminPanelEntities();
+                EmlakEntities _entity = new EmlakEntities();
 
                 if (model != null)
                 {
@@ -82,7 +82,7 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                AdminPanelEntities _entity = new AdminPanelEntities();
+                EmlakEntities _entity = new EmlakEntities();
 
                 description = description == null ? null : description.SplitText(0, 255);
 
@@ -158,7 +158,7 @@ namespace AdminPanel
 
         public static bool? ShowType(this string url)
         {
-            AdminPanelEntities _entity = new AdminPanelEntities();
+            EmlakEntities _entity = new EmlakEntities();
 
             return _entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
         }

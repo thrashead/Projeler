@@ -4,7 +4,8 @@
 }
 
 html, body {
-    height: 100%
+    height: 100%;
+    margin-top: -5px !important
 }
 /* Main */
 
@@ -52,6 +53,10 @@ tr.odd {
 .userphoto img {
     width: 19px;
     height: 19px;
+}
+
+.alert {
+    display: none;
 }
 
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input, .label, .dropdown-menu, .btn, .well, .progress, .table-bordered, .btn-group > .btn:first-child, .btn-group > .btn:last-child, .btn-group > .btn:last-child, .btn-group > .dropdown-toggle, .alert {
@@ -232,6 +237,7 @@ hr {
                 padding: 9px 10px;
                 display: block;
                 font-size: 11px;
+                cursor: pointer;
             }
 
                 #user-nav > ul > li > a:hover, #user-nav > ul > li.open > a {
@@ -294,7 +300,7 @@ hr {
                 }
 
             #sidebar > ul > li.active > a {
-                background: url("../img/menu-active.png") no-repeat scroll right center transparent !important;
+                background: url(/Emlak/Content/admin/img/menu-active.png) no-repeat scroll right center transparent !important;
                 text-decoration: none;
             }
 
@@ -388,7 +394,7 @@ hr {
     #breadcrumb a {
         padding: 8px 20px 8px 10px;
         display: inline-block;
-        background-image: url('../img/breadcrumb.png');
+        background-image: url('/../img/breadcrumb.png');
         background-position: center right;
         background-repeat: no-repeat;
         font-size: 16px;
@@ -1456,7 +1462,7 @@ div.dataTables_wrapper .ui-widget-header {
     }
 
 .line {
-    background: url("../img/line.png") repeat-x scroll 0 0 transparent;
+    background: url("/../img/line.png") repeat-x scroll 0 0 transparent;
     display: block;
     height: 8px;
 }
@@ -1544,7 +1550,7 @@ form {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(overlay.png) repeat #000;
+    background: url(/overlay.png) repeat #000;
     text-align: center;
     z-index: 9999;
 }
@@ -1574,7 +1580,7 @@ form {
     top: 0px;
     width: 100%;
     height: 100%;
-    background: url(overlay.png) repeat #000;
+    background: url(/overlay.png) repeat #000;
     text-align: center;
     z-index: 21;
 }
@@ -1851,7 +1857,7 @@ form {
             }
 
             #sidebar > ul li a i {
-                background-image: url("../img/glyphicons-halflings-white.png");
+                background-image: url("/../img/glyphicons-halflings-white.png");
                 margin-top: 4px;
                 vertical-align: top;
             }

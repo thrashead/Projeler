@@ -1,0 +1,57 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-tasks"></i> Form Tipleri</a></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-tasks"></i></span>
+                        <h5>Form Tipleri</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>İsim</th>
+                                    <th class="hideColumn2">Tip</th>
+                                    <th class="hideColumn">Kısa İsim</th>
+                                    <th>Değer Alma</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of FormTiplerList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.Name }}</td>
+                                    <td class="hideColumn2">{{ item?.Type }}</td>
+                                    <td class="hideColumn">{{ item?.ShortName }}</td>
+                                    <td style="text-align:center;"><img *ngIf="item?.HasValue" class="active" /><img *ngIf="!item?.HasValue" class="passive" /></td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/FormTipler/Duzenle/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a routerLink="/Admin/FormTipler/Ekle" class="btn btn-primary btn-add" *ngIf="insertShow">Form Tipi Ekle</a>
+        </div>
+
+        <input id="hdnModel" type="hidden" value="FormEleman" />
+    </div>
+</div>
+
+<admin-copydelete></admin-copydelete>

@@ -16,14 +16,19 @@ input[type='number'] {width: 100px;}
 select {width: 546px;}
 label > select {width: auto!important; }
 label > input[type='text'] {width: auto!important; }
-input[type='checkbox'] {-webkit-appearance: none;height: 30px;width: 30px;background-image: url('../img/passive.png');background-size: 30px 30px;}
+input[type='checkbox'] {-webkit-appearance: none;height: 30px;width: 30px;background-image: url(/Emlak/Content/admin/img/passive.png);background-size: 30px 30px;}
 input[type='checkbox']:hover {opacity:0.7;}
-input[type='checkbox']:checked {background-image: url('../img/active.png');}
+input[type='checkbox']:checked {background-image: url(/Emlak/Content/admin/img/active.png);}
 
 .pagelinks {width: 220px;margin: 20px auto 0px auto;text-align: center;}
 
-img.active {background-image:url(../img/active.png);width:20px;height:20px;background-size: 20px 20px;background-repeat: no-repeat;}
-img.passive {background-image:url(../img/passive.png);width:20px;height:20px;background-size: 20px 20px;background-repeat: no-repeat;}
+img.active {background-image:url(/Emlak/Content/admin/img/active.png);width:20px;height:20px;background-size: 20px 20px;background-repeat: no-repeat;}
+img.passive {background-image:url(/Emlak/Content/admin/img/passive.png);width:20px;height:20px;background-size: 20px 20px;background-repeat: no-repeat;}
+
+.tdAlert {position:fixed;top:10px;right:10px;list-style-type:none;padding: 0px 0px 0px 0px;z-index:9999;top: 10px; right: 10px;}
+.tdAlert li {margin: 0px 0px 20px 0px;padding: 5px 5px 5px 5px;background-color: red; border-color: red;display:none;width:200px;
+          -webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+.tdAlert li .tdAlertMessage {margin-top: 5px;color: white; background-color: red;}
 
 @media only screen and (min-width: 414px) and (max-width: 600px) {
     fieldset {width: 378px;}

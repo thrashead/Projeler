@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupIslemController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly EmlakEntities _entity = new EmlakEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
