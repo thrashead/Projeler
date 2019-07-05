@@ -1,19 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app';
 
 import { LayoutComponent } from './shared/layout';
+
+//giris
+import { GirisComponent } from './giris/giris';
+
+//giris//controls
+import { MPAboutComponent } from './giris/controls/mpabout';
+import { MPNewPropsComponent } from './giris/controls/mpnewprops';
+import { MPNewsComponent } from './giris/controls/mpnews';
+import { MPShowroomComponent } from './giris/controls/mpshowroom';
+import { SliderComponent } from './giris/controls/slider';
 
 //controls/
 import { BannerComponent } from './controls/banner';
 import { FooterComponent } from './controls/footer';
 import { HeaderComponent } from './controls/header';
 import { ScriptsComponent } from './controls/scripts';
+
 //controls///left
 import { AramaSolComponent } from './controls/left/aramasol';
 import { GununEmlagiComponent } from './controls/left/gununemlagi';
@@ -21,15 +32,6 @@ import { HaberlerSolComponent } from './controls/left/haberlersol';
 import { KategoriMenuComponent } from './controls/left/kategorimenu';
 import { SayfaGetirComponent } from './controls/left/sayfagetir';
 import { YeniIlanSolComponent } from './controls/left/yeniilansol';
-
-//giris
-import { GirisComponent } from './giris/giris';
-//giris//controls
-import { MPAboutComponent } from './giris/controls/mpabout';
-import { MPNewPropsComponent } from './giris/controls/mpnewprops';
-import { MPNewsComponent } from './giris/controls/mpnews';
-import { MPShowroomComponent } from './giris/controls/mpshowroom';
-import { SliderComponent } from './giris/controls/slider';
 
 //emlak
 import { EmlakDetayComponent } from './emlak/emlakdetay';

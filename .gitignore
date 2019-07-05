@@ -22,6 +22,10 @@ validationEngine*/
 flexslider/
 Properties/
 Global.asax
+*/src/*/*/*/*.js
+*/src/*/*/*.js
+*/src/*/*.js
+*/src/*.js
 */app/*/*/*.js
 */app/*/*.js
 */app/*.js
