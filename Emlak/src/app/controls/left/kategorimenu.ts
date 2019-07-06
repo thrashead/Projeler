@@ -8,7 +8,7 @@ import { SolService } from "../../services/sol.service";
 })
 
 export class KategoriMenuComponent {
-    kategoriMenu: {};
+    kategoriMenu: any;
 
     errorMsg: string;
 

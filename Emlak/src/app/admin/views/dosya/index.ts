@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminDosyaIndexComponent {
     errorMsg: string;
-    DosyaList: {};
+    DosyaList: any;
 
     insertShow: boolean;
     updateShow: boolean;

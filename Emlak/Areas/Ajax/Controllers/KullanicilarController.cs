@@ -33,7 +33,9 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Kullanicilar", "i"))
                 return Json(null);
 
-            var result = entity.usp_UsersInsert(null, kullanici.Username, kullanici.Password.ToMD5(), kullanici.Active, null).FirstOrDefault();
+            kullanici.Password = kullanici.Password.ToMD5();
+
+            var result = entity.usp_UsersInsert(null, kullanici.Username, kullanici.Password, kullanici.Active, null).FirstOrDefault();
 
             if (result != null)
             {
@@ -57,6 +59,7 @@ namespace Emlak.Areas.Ajax.Controllers
                 return Json(null, JsonRequestBehavior.AllowGet);
 
             usp_UsersSelectTop_Result table = entity.usp_UsersSelectTop(id, 1).FirstOrDefault();
+
             Kullanicilar kullanici = table.ChangeModel<Kullanicilar>();
 
             kullanici.Password = "";
@@ -77,10 +80,12 @@ namespace Emlak.Areas.Ajax.Controllers
             {
                 string password = kullanici.Password == null ? entity.usp_UsersOldPasswordSelect(kullanici.ID).FirstOrDefault() : kullanici.Password.ToMD5();
 
+                kullanici.Password = password;
+
                 if (curUser.ID == kullanici.ID)
                     kullanici.Active = true;
 
-                var result = entity.usp_UsersUpdate(kullanici.ID, kullanici.Username, password, kullanici.Active, null).FirstOrDefault();
+                var result = entity.usp_UsersUpdate(kullanici.ID, kullanici.Username, kullanici.Password, kullanici.Active, null).FirstOrDefault();
 
                 if (result != null)
                 {

@@ -9,7 +9,7 @@ import { SolService } from "../../services/sol.service";
 })
 
 export class GununEmlagiComponent{
-    emlak: {};
+    emlak: any;
 
     constructor(private _emlakService: EmlakService, private _solService: SolService) {
     }

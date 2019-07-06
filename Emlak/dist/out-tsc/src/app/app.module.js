@@ -275,7 +275,7 @@ var AppModule = /** @class */ (function () {
                 ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
                 HttpClientModule
             ],
-            //'/Emlak/' -> '/' Bu �ekilde de�i�ecek
+            //'/' -> '/Emlak/' Bu �ekilde de�i�ecek
             providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' }],
             bootstrap: [AppComponent]
         })

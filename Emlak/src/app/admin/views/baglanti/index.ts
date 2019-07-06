@@ -11,7 +11,7 @@ import * as $ from "jquery";
 export class AdminBaglantiIndexComponent {
     errorMsg: string;
     linkTypeTitle: string;
-    BaglantiList: {};
+    BaglantiList: any;
 
     insertShow: boolean;
     updateShow: boolean;

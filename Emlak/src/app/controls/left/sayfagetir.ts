@@ -9,7 +9,7 @@ import { SolService } from "../../services/sol.service";
 })
 
 export class SayfaGetirComponent{ 
-    sayfalar: {};
+    sayfalar: any;
 
     sayac: string;
 

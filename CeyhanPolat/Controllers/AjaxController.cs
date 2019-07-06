@@ -192,6 +192,8 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult Siir(string link)
         {
+            link = link.ToHyperLinkText(true);
+
             var rbPoetry = entity.sp_Poetries(link, 1, null).FirstOrDefault();
 
             Poetries poetry = new Poetries();
@@ -250,7 +252,7 @@ namespace CeyhanPolat.Controllers
         }
 
         [HttpGet]
-        public ActionResult SiirAramaListe(string kelime)
+        public JsonResult SiirAramaListe(string kelime)
         {
             List<sp_ContentSearch_Result> _contentItems = new List<sp_ContentSearch_Result>(); ;
 
@@ -282,7 +284,7 @@ namespace CeyhanPolat.Controllers
         }
 
         [HttpGet]
-        public ActionResult SiirArama(string kelime)
+        public JsonResult SiirArama(string kelime)
         {
             SearchPoetryJson _kelime = JsonConvert.DeserializeObject<SearchPoetryJson>(kelime);
 
@@ -343,17 +345,15 @@ namespace CeyhanPolat.Controllers
         }
 
         [HttpGet]
-        public ActionResult SiirAramaTemizle(string kelime)
+        public JsonResult SiirAramaTemizle()
         {
-            SearchPoetryJson _data = JsonConvert.DeserializeObject<SearchPoetryJson>(kelime);
-
-            string result = "N";
+            bool result = false;
 
             try
             {
                 System.Web.HttpContext.Current.Session["SearchResult"] = null;
                 System.Web.HttpContext.Current.Session["SearchPoetry"] = null;
-                result = "Y";
+                result = true;
             }
             catch
             {

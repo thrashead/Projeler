@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminDilIndexComponent {
     errorMsg: string;
-    DilList: {};
+    DilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

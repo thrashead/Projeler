@@ -8,7 +8,7 @@ import { EmlakService } from "../services/emlak.service";
 })
 
 export class FooterComponent {
-    kategoriler: {};
+    kategoriler: any;
 
     anaSayfaText: string;
     yeniIlanlarText: string;

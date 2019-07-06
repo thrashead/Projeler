@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminUrunDilIndexComponent {
     errorMsg: string;
-    UrunDilList: {};
+    UrunDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

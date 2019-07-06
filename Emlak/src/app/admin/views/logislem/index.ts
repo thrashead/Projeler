@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminLogIslemIndexComponent {
     errorMsg: string;
-    LogIslemList: {};
+    LogIslemList: any;
 
     insertShow: boolean;
     updateShow: boolean;

@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminKategoriDilIndexComponent {
     errorMsg: string;
-    KategoriDilList: {};
+    KategoriDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminIcerikDilIndexComponent {
     errorMsg: string;
-    IcerikDilList: {};
+    IcerikDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

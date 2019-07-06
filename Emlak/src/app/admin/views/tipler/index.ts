@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminTiplerIndexComponent {
     errorMsg: string;
-    TiplerList: {};
+    TiplerList: any;
 
     insertShow: boolean;
     updateShow: boolean;

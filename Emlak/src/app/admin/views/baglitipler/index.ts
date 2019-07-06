@@ -12,7 +12,7 @@ import * as $ from "jquery";
 export class AdminBagliTiplerIndexComponent {
     errorMsg: string;
     mainTypeTitle: string;
-    BagliTiplerList: {};
+    BagliTiplerList: any;
 
     insertShow: boolean;
     updateShow: boolean;

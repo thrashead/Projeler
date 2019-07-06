@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminGaleriIndexComponent {
     errorMsg: string;
-    GaleriList: {};
+    GaleriList: any;
 
     insertShow: boolean;
     updateShow: boolean;

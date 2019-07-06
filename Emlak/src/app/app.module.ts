@@ -346,7 +346,7 @@ import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
         ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
         HttpClientModule
     ],
-    //'/Emlak/' -> '/' Bu þekilde deðiþecek
+    //'/' -> '/Emlak/' Bu þekilde deðiþecek
     providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' }],
     bootstrap: [AppComponent]
 })

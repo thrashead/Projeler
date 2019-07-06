@@ -8,7 +8,7 @@ import { HomeService } from "../../services/home.service";
 })
 
 export class SliderComponent {
-    slider: {};
+    slider: any;
 
     errorMsg: string;
 

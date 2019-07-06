@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminMetaIndexComponent {
     errorMsg: string;
-    MetaList: {};
+    MetaList: any;
 
     insertShow: boolean;
     updateShow: boolean;

@@ -19,7 +19,7 @@ var AdminLeftMenuComponent = /** @class */ (function () {
     };
     AdminLeftMenuComponent.prototype.DoIt = function () {
         $("#hdnUrl").val(location.href);
-        var AdminPath = "http://localhost/Emlak/Admin";
+        var AdminPath = "http://emlak.sinasalik.net/Admin";
         var Url = location.href;
         var Urling = Object();
         if (Url != undefined) {

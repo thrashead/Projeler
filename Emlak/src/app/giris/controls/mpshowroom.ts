@@ -9,7 +9,7 @@ import { HomeService } from "../../services/home.service";
 })
 
 export class MPShowroomComponent {
-    ilanlar: {};
+    ilanlar: any;
 
     constructor(private _emlakService: EmlakService, private _homeService: HomeService) {
     }

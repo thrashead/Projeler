@@ -8,7 +8,7 @@ import { EmlakService } from "../../services/emlak.service";
 })
 
 export class MPAboutComponent {
-    about: {};
+    about: any;
 
     constructor(private _emlakService: EmlakService) {
     }

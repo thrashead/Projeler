@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminEmlakDilIndexComponent {
     errorMsg: string;
-    EmlakDilList: {};
+    EmlakDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

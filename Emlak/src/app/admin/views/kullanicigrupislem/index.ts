@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminKullaniciGrupIslemIndexComponent {
     errorMsg: string;
-    KullaniciGrupIslemList: {};
+    KullaniciGrupIslemList: any;
 
     insertShow: boolean;
     updateShow: boolean;

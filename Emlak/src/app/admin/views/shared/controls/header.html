@@ -5,7 +5,7 @@
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
         <li class=""><a title="Bilgilerinizi düzenlemek için tıklayın." routerLink="/Admin/Kullanicilar/Duzenle/{{ kullanici?.ID }}"><i class="icon icon-user"></i>  <span class="text">Hoşgeldiniz ({{ kullanici?.Username }})</span></a></li>
-        <li class=""><a class="logout" (click)="onLogout($event)"><i class="icon icon-share-alt"></i> <span class="text">Çıkış</span></a></li>
+        <li class=""><a class="logout" (click)="onLogout()"><i class="icon icon-share-alt"></i> <span class="text">Çıkış</span></a></li>
     </ul>
 </div>
 

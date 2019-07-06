@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminFormElemanIndexComponent {
     errorMsg: string;
-    FormElemanList: {};
+    FormElemanList: any;
 
     insertShow: boolean;
     updateShow: boolean;

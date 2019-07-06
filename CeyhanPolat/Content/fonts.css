@@ -1,8 +1,8 @@
 ﻿@font-face
 {
     font-family: "ElYazisi";
-    src: url('font/elyazi-webfont.eot');
-    src: url('font/elyazi-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/elyazi-webfont.ttf') format('truetype'),
-         url('font/elyazi-webfont.svg#elyazisi') format('svg');
+    src: url('/CeyhanPolat/Content/font/elyazi-webfont.eot');
+    src: url('/CeyhanPolat/Content/font/elyazi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/CeyhanPolat/Content/font/elyazi-webfont.ttf') format('truetype'),
+         url('/CeyhanPolat/Content/font/elyazi-webfont.svg#elyazisi') format('svg');
 }

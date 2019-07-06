@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminKullaniciGrupIndexComponent {
     errorMsg: string;
-    KullaniciGrupList: {};
+    KullaniciGrupList: any;
 
     insertShow: boolean;
     updateShow: boolean;

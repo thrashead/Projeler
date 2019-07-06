@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminFormElemanGrupIndexComponent {
     errorMsg: string;
-    FormElemanGrupList: {};
+    FormElemanGrupList: any;
 
     insertShow: boolean;
     updateShow: boolean;

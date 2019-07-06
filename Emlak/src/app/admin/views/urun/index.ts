@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminUrunIndexComponent {
     errorMsg: string;
-    UrunList: {};
+    UrunList: any;
 
     insertShow: boolean;
     updateShow: boolean;

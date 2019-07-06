@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminKullanicilarIndexComponent {
     errorMsg: string;
-    KullanicilarList: {};
+    KullanicilarList: any;
     CurrentUserID: number;
 
     insertShow: boolean;

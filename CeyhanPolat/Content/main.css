@@ -88,7 +88,7 @@ h3 {
     margin: 0px 0px 0px 0px;
     height: 600px;
     width: 570px;
-    background-image: url(images/menubg.png);
+    background-image: url(/CeyhanPolat/Content/images/menubg.png);
     background-position: center top;
     background-repeat: no-repeat;
 }
@@ -149,19 +149,19 @@ h3 {
     margin: -605px 0px 0px 0px;
     height: 600px;
     width: 570px;
-    background-image: url(images/sliderframe.png);
+    background-image: url(/CeyhanPolat/Content/images/sliderframe.png);
     background-position: right top;
     background-repeat: repeat-y;
 }
 
-@-moz-document url-prefix() {
+/*@-moz-document url-prefix() {
     #sliderframe;
 
 {
     margin-top: -605px;
 }
+}*/
 
-}
 /*Slider*/
 
 /* Header */
@@ -277,7 +277,7 @@ h3 {
         z-index: 1;
         width: 222px;
         height: 222px;
-        background-image: url(images/dairecrop.png);
+        background-image: url(/CeyhanPolat/Content/images/dairecrop.png);
     }
 
     .siircontainer .siircontent {
@@ -562,7 +562,7 @@ h3 {
     top: 0px;
     left: 0px;
     z-index: 99999;
-    background-image: url(images/processbg.png);
+    background-image: url(/CeyhanPolat/Content/images/processbg.png);
     display: none;
     text-align: center;
 }

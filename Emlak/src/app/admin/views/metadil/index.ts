@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminMetaDilIndexComponent {
     errorMsg: string;
-    MetaDilList: {};
+    MetaDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

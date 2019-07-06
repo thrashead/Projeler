@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminGaleriDilIndexComponent {
     errorMsg: string;
-    GaleriDilList: {};
+    GaleriDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

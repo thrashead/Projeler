@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminZiyaretciIndexComponent {
     errorMsg: string;
-    ZiyaretciList: {};
+    ZiyaretciList: any;
 
     deleteShow: boolean;
 

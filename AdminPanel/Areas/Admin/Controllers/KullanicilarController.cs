@@ -45,7 +45,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UsersInsert(null, kullanici.Username, kullanici.Password.ToMD5(), kullanici.Active, null);
+                kullanici.Password = kullanici.Password.ToMD5();
+
+                var result = _entity.usp_UsersInsert(null, kullanici.Username, kullanici.Password, kullanici.Active, null);
 
                 if (result != null)
                 {
@@ -94,10 +96,12 @@ namespace AdminPanel.Areas.Admin.Controllers
             {
                 string password = kullanici.Password == null ? _entity.usp_UsersOldPasswordSelect(kullanici.ID).FirstOrDefault() : kullanici.Password.ToMD5();
 
+                kullanici.Password = password;
+
                 if (curUser.ID == kullanici.ID)
                     kullanici.Active = true;
 
-                var result = _entity.usp_UsersUpdate(kullanici.ID, kullanici.Username, password, kullanici.Active, null);
+                var result = _entity.usp_UsersUpdate(kullanici.ID, kullanici.Username, kullanici.Password, kullanici.Active, null);
 
                 if (result != null)
                 {

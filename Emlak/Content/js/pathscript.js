@@ -7,8 +7,8 @@ var UploadPath = null;
 var Url = null;
 
 $(document).ready(function () {
-    MainPath = "http://localhost/Emlak";
-    AdminPath = "http://localhost/Emlak/Admin";
+    MainPath = "http://emlak.sinasalik.net";
+    AdminPath = "http://emlak.sinasalik.net/Admin";
     ScriptPath = MainPath + "/Content/js";
     StylePath = MainPath + "/Content/css";
     ImagePath = MainPath + "/Content/img";

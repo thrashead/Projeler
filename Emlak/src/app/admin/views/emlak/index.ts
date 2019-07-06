@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminEmlakIndexComponent {
     errorMsg: string;
-    EmlakList: {};
+    EmlakList: any;
 
     insertShow: boolean;
     updateShow: boolean;

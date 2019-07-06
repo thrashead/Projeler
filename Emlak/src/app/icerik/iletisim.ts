@@ -7,7 +7,7 @@ import { EmlakService } from "../services/emlak.service";
 })
 
 export class IletisimComponent {
-    iletisim: {};
+    iletisim: any;
 
     errorMsg: string;
 

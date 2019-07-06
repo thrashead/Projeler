@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminKategoriIndexComponent {
     errorMsg: string;
-    KategoriList: {};
+    KategoriList: any;
 
     insertShow: boolean;
     updateShow: boolean;

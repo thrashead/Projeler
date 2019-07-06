@@ -11,7 +11,7 @@ import * as $ from "jquery";
 
 export class AdminIcerikIndexComponent {
     errorMsg: string;
-    IcerikList: {};
+    IcerikList: any;
 
     insertShow: boolean;
     updateShow: boolean;

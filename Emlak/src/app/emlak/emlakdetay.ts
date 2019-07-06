@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 
 export class EmlakDetayComponent {
-    emlak: {};
+    emlak: any;
     public link: string;
 
     constructor(private _emlakService: EmlakService, private _reService: REService, private route: ActivatedRoute) {

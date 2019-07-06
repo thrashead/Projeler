@@ -9,7 +9,7 @@ import * as $ from "jquery";
 
 export class AdminLoglarIndexComponent {
     errorMsg: string;
-    LoglarList: {};
+    LoglarList: any;
 
     constructor(private service: LoglarService) {
     }

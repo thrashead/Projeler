@@ -8,7 +8,7 @@ import { SolService } from "../services/sol.service";
 })
 
 export class HaberlerComponent {
-    haberler: {};
+    haberler: any;
 
     constructor(private _emlakService: EmlakService, private _solService: SolService) {
     }

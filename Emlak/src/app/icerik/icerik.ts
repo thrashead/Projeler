@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 
 export class IcerikComponent {
-    icerik: {};
+    icerik: any;
     public link: string;
 
     errorMsg: string;

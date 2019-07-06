@@ -10,7 +10,7 @@ import * as $ from "jquery";
 
 export class AdminResimIndexComponent {
     errorMsg: string;
-    ResimList: {};
+    ResimList: any;
 
     insertShow: boolean;
     updateShow: boolean;

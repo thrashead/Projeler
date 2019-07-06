@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class AramaSolComponent {
-    ilanlar: {};
+    ilanlar: any;
 
     solAraForm: FormGroup;
     kelime: string;
