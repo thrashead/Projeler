@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_LinksDetailSelect_Result> link = entity.usp_LinksDetailSelect().ToList();
 
-            curUser.Log<Baglantilar>(null, "s", "Bağlantılar");
-
             return Json(link, JsonRequestBehavior.AllowGet);
         }
 

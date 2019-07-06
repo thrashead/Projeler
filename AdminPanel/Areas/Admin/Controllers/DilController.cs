@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class DilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_TranslationSelect_Result> ceviri = _entity.usp_TranslationSelect(null).ToList();
-
-            curUser.Log<Dil>(null, "s", "Diller");
 
             return View(ceviri);
         }

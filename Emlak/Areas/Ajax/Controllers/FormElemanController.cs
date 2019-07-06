@@ -21,8 +21,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_PropertyWithTypeNameSelect_Result> formeleman = entity.usp_PropertyWithTypeNameSelect(null).ToList();
 
-            curUser.Log<FormEleman>(null, "s", "Form Elemanları");
-
             return Json(formeleman, JsonRequestBehavior.AllowGet);
         }
 

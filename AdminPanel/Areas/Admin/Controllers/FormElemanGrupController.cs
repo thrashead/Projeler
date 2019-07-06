@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormElemanGrupController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_PropertyGroupSelect_Result> formeleman = _entity.usp_PropertyGroupSelect(null).ToList();
-
-            curUser.Log<FormElemanGrup>(null, "s", "Form Eleman Gruplarý");
 
             return View(formeleman);
         }

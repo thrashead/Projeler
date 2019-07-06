@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class UrunController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_ProductSelect_Result> urun = _entity.usp_ProductSelect(null).ToList();
-
-            curUser.Log<Urun>(null, "s", "Ürünler");
 
             return View(urun);
         }

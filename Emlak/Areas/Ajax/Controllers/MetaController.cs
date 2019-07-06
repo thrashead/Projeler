@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_MetaSelect_Result> meta = entity.usp_MetaSelect(null).ToList();
 
-            curUser.Log<Metalar>(null, "s", "Metalar");
-
             return Json(meta, JsonRequestBehavior.AllowGet);
         }
 

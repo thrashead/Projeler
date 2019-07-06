@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class GaleriDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_GalleryTLinkedSelect_Result> galeri = _entity.usp_GalleryTLinkedSelect(null).ToList();
-
-            curUser.Log<GaleriDil>(null, "s", "Galeriler (Dil)");
 
             return View(galeri);
         }

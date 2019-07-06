@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_TypesSelect_Result> tip = entity.usp_TypesSelect(null).ToList();
 
-            curUser.Log<Tipler>(null, "s", "Tipler");
-
             return Json(tip, JsonRequestBehavior.AllowGet);
         }
 

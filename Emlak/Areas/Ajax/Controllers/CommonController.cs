@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -18,9 +16,9 @@ namespace Emlak.Areas.Ajax.Controllers
         {
             Response.ContentType = "application/json";
             Response.ContentEncoding = Encoding.UTF8;
-            System.IO.Stream body = Request.InputStream;
-            System.Text.Encoding encoding = Request.ContentEncoding;
-            System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
+            Stream body = Request.InputStream;
+            Encoding encoding = Request.ContentEncoding;
+            StreamReader reader = new StreamReader(body, encoding);
             string value = reader.ReadToEnd();
 
             HttpPostedFileBase uploadedFile = Request.Files["FileData"];
@@ -49,9 +47,9 @@ namespace Emlak.Areas.Ajax.Controllers
         {
             Response.ContentType = "application/json";
             Response.ContentEncoding = Encoding.UTF8;
-            System.IO.Stream body = Request.InputStream;
-            System.Text.Encoding encoding = Request.ContentEncoding;
-            System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
+            Stream body = Request.InputStream;
+            Encoding encoding = Request.ContentEncoding;
+            StreamReader reader = new StreamReader(body, encoding);
             string value = reader.ReadToEnd();
 
             HttpPostedFileBase uploadedFile = Request.Files["FileData"];

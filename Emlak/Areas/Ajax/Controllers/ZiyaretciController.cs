@@ -19,8 +19,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_VisitorCounterSelect_Result> ziyaretci = entity.usp_VisitorCounterSelect(null).ToList();
 
-            curUser.Log<Ziyaretci>(null, "s", "Ziyaretçiler");
-
             return Json(ziyaretci, JsonRequestBehavior.AllowGet);
         }
 

@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_LogProcessDetailSelect_Result> log = entity.usp_LogProcessDetailSelect(null).ToList();
 
-            curUser.Log<LogIslem>(null, "s", "Log Ýþlemleri");
-
             return Json(log, JsonRequestBehavior.AllowGet);
         }
 

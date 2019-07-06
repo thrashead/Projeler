@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_ProductSelect_Result> urun = entity.usp_ProductSelect(null).ToList();
 
-            curUser.Log<Urun>(null, "s", "Ürünler");
-
             return Json(urun, JsonRequestBehavior.AllowGet);
         }
 

@@ -1,7 +1,5 @@
 ﻿using Emlak.Data;
 using System.Web.Mvc;
-using System.Web.Caching;
-using Cacher = System.Web.HttpRuntime;
 using System;
 using TDLibrary;
 using System.Globalization;
@@ -27,17 +25,19 @@ namespace Emlak.Areas.Ajax.Controllers
 
                 entity.usp_UsersLoginTimeUpdate(user.ID, DateTime.Now.ToString(CultureInfo.CurrentCulture));
 
+                AppTools.User.Log("grs");
+
                 return Json(true);
             }
-            else
-            {
-                return Json(false);
-            }
+
+            return Json(false);
         }
 
         [HttpGet]
         public JsonResult Logout()
         {
+            AppTools.User.Log("cks");
+
             Session["CurrentUser"] = null;
 
             return Json(true, JsonRequestBehavior.AllowGet);

@@ -22,8 +22,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_UsersDetailSelect_Result> kullanici = entity.usp_UsersDetailSelect(null).ToList();
 
-            curUser.Log<Kullanicilar>(null, "s", "Kullanýcýlar");
-
             return Json(kullanici, JsonRequestBehavior.AllowGet);
         }
 

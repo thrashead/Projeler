@@ -61,7 +61,7 @@ export class AdminLeftMenuComponent implements AfterContentInit {
     DoIt() {
         $("#hdnUrl").val(location.href);
 
-        var AdminPath = "http://emlak.sinasalik.net/Admin";
+        var AdminPath = "http://localhost/Emlak/Admin";
         var Url = location.href;
         var Urling = Object();
 

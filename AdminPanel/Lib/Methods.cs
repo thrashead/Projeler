@@ -43,11 +43,9 @@ namespace AdminPanel
         public static bool HasRight(this Kullanicilar user, string url, string islem = "s")
         {
             if (user == null)
-            {
                 return false;
-            }
 
-            EmlakEntities _entity = new EmlakEntities();
+            AdminPanelEntities _entity = new AdminPanelEntities();
 
             int? result = _entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
 
@@ -58,18 +56,14 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                EmlakEntities _entity = new EmlakEntities();
+                AdminPanelEntities _entity = new AdminPanelEntities();
 
                 if (model != null)
                 {
                     if (model.GetType() == typeof(int))
-                    {
                         description += CreateLogValues(model.ToString(), idName);
-                    }
                     else
-                    {
                         description += model.CreateLogValues(idName);
-                    }
                 }
 
                 description = description == null ? null : description.SplitText(0, 255);
@@ -82,7 +76,7 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                EmlakEntities _entity = new EmlakEntities();
+                AdminPanelEntities _entity = new AdminPanelEntities();
 
                 description = description == null ? null : description.SplitText(0, 255);
 
@@ -131,6 +125,8 @@ namespace AdminPanel
                 });
             }
 
+            int i = 0;
+
             foreach (var item in itemList)
             {
                 string _value = item.GetType().GetProperties().Where(a => a.Name == value).FirstOrDefault().GetValue(item).ToString();
@@ -139,18 +135,19 @@ namespace AdminPanel
                 if (selectedItem != null)
                 {
                     if (_value == selectedItem.ToString())
-                    {
                         list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
-                    }
                     else
-                    {
                         list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
-                    }
                 }
                 else
                 {
-                    list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
+                    if (i == 0)
+                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
+                    else
+                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
                 }
+
+                i++;
             }
 
             return list;
@@ -158,7 +155,7 @@ namespace AdminPanel
 
         public static bool? ShowType(this string url)
         {
-            EmlakEntities _entity = new EmlakEntities();
+            AdminPanelEntities _entity = new AdminPanelEntities();
 
             return _entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
         }

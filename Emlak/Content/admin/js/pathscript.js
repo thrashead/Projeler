@@ -18,13 +18,13 @@ var Url = null;
 var Urling = new Object();
 
 $(document).ready(function () {
-    MainPath = "http://emlak.sinasalik.net";
+    MainPath = "http://localhost/Emlak";
     ScriptPath = MainPath + "/Content/js";
     StylePath = MainPath + "/Content/css";
     ImagePath = MainPath + "/Content/img";
     AjaxPath = MainPath + "/Ajax";
 
-    AdminPath = "http://emlak.sinasalik.net/Admin";
+    AdminPath = "http://localhost/Emlak/Admin";
     AdminScriptPath = MainPath + "/Content/admin/js";
     AdminStylePath = MainPath + "/Content/admin/css";
     AdminImagePath = MainPath + "/Content/admin/img";

@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_FileSelect_Result> dosya = entity.usp_FileSelect(null).ToList();
 
-            curUser.Log<Dosya>(null, "s", "Dosya");
-
             return Json(dosya, JsonRequestBehavior.AllowGet);
         }
 

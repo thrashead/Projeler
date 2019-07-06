@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class BaglantiController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_LinksDetailSelect_Result> link = _entity.usp_LinksDetailSelect().ToList();
-
-            curUser.Log<Baglantilar>(null, "s", "Bağlantılar");
 
             return View(link);
         }
@@ -157,7 +155,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             return Json(ReturnList(_entity, null, null, linkTypeID.ToInteger()), JsonRequestBehavior.AllowGet);
         }
 
-        private static List<SelectListItem> ReturnList(EmlakEntities entity, int? linkedTypeID = 1, int? linkID = null, int? linkTypeID = null)
+        private static List<SelectListItem> ReturnList(AdminPanelEntities entity, int? linkedTypeID = 1, int? linkID = null, int? linkTypeID = null)
         {
             List<SelectListItem> linkItems = new List<SelectListItem>();
 

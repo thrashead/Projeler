@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class IcerikDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_ContentTLinkedSelect_Result> icerik = _entity.usp_ContentTLinkedSelect(null).ToList();
-
-            curUser.Log<IcerikDil>(null, "s", "Ýçerikler (Dil)");
 
             return View(icerik);
         }

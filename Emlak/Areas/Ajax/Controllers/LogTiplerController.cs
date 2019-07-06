@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_LogTypesSelect_Result> log = entity.usp_LogTypesSelect(null).ToList();
 
-            curUser.Log<LogTipler>(null, "s", "Log Tipleri");
-
             return Json(log, JsonRequestBehavior.AllowGet);
         }
 

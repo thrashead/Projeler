@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_MetaTLinkedSelect_Result> meta = entity.usp_MetaTLinkedSelect(null).ToList();
 
-            curUser.Log<MetalarDil>(null, "s", "Metalar (Dil)");
-
             return Json(meta, JsonRequestBehavior.AllowGet);
         }
 

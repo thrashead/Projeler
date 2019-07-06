@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupIslemController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_UserGroupProcessSelect_Result> kullanici = _entity.usp_UserGroupProcessSelect(null).ToList();
-
-            curUser.Log<KullaniciGrupIslem>(null, "s", "Kullanýcý Grup Ýþlemleri");
 
             return View(kullanici);
         }

@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_UserGroupProcessSelect_Result> kullanici = entity.usp_UserGroupProcessSelect(null).ToList();
 
-            curUser.Log<KullaniciGrupIslem>(null, "s", "Kullanýcý Grup Ýþlemleri");
-
             return Json(kullanici, JsonRequestBehavior.AllowGet);
         }
 

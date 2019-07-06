@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_CategorySelect_Result> kategori = entity.usp_CategorySelect(null).ToList();
 
-            curUser.Log<Kategori>(null, "s", "Kategoriler");
-
             return Json(kategori, JsonRequestBehavior.AllowGet);
         }
 

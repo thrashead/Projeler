@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_RealEstatesTLinkedSelect_Result> emlak = entity.usp_RealEstatesTLinkedSelect(null).ToList();
 
-            curUser.Log<EmlakDil>(null, "s", "Emlaklar (Dil)");
-
             return Json(emlak, JsonRequestBehavior.AllowGet);
         }
 

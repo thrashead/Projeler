@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormTiplerController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_PropertyTypesSelect_Result> formeleman = _entity.usp_PropertyTypesSelect(null).ToList();
-
-            curUser.Log<FormTipler>(null, "s", "Form Tipleri");
 
             return View(formeleman);
         }

@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_ContentTLinkedSelect_Result> icerik = entity.usp_ContentTLinkedSelect(null).ToList();
 
-            curUser.Log<IcerikDil>(null, "s", "Ýçerikler (Dil)");
-
             return Json(icerik, JsonRequestBehavior.AllowGet);
         }
 

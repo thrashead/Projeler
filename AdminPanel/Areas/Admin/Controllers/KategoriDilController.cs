@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KategoriDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_CategoryTLinkedSelect_Result> kategori = _entity.usp_CategoryTLinkedSelect(null).ToList();
-
-            curUser.Log<KategoriDil>(null, "s", "Kategoriler (Dil)");
 
             return View(kategori);
         }

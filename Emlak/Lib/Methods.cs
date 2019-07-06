@@ -170,24 +170,16 @@ namespace Emlak
                 if (selectedItem != null)
                 {
                     if (_value == selectedItem.ToString())
-                    {
                         list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
-                    }
                     else
-                    {
                         list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
-                    }
                 }
                 else
                 {
                     if (i == 0)
-                    {
                         list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
-                    }
                     else
-                    {
                         list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
-                    }
                 }
 
                 i++;

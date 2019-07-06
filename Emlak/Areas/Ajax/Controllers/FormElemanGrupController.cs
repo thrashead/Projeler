@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_PropertyGroupSelect_Result> formeleman = entity.usp_PropertyGroupSelect(null).ToList();
 
-            curUser.Log<FormElemanGrup>(null, "s", "Form Eleman Gruplarý");
-
             return Json(formeleman, JsonRequestBehavior.AllowGet);
         }
 

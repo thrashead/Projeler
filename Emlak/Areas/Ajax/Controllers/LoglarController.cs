@@ -19,8 +19,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_LogsDetailSelect_Result> log = entity.usp_LogsDetailSelect(null, curUser.GroupID).ToList();
 
-            curUser.Log<usp_LogsDetailSelect_Result>(null, "s", "Loglar");
-
             return Json(log, JsonRequestBehavior.AllowGet);
         }
     }

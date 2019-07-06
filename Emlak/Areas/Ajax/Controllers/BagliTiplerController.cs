@@ -21,8 +21,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_LinkTypesDetailSelect_Result> link = entity.usp_LinkTypesDetailSelect().ToList();
 
-            curUser.Log<BagliTipler>(null, "s", "Baðlý Tipler");
-
             return Json(link, JsonRequestBehavior.AllowGet);
         }
 

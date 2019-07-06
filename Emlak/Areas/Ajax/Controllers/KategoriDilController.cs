@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_CategoryTLinkedSelect_Result> kategori = entity.usp_CategoryTLinkedSelect(null).ToList();
 
-            curUser.Log<KategoriDil>(null, "s", "Kategoriler (Dil)");
-
             return Json(kategori, JsonRequestBehavior.AllowGet);
         }
 

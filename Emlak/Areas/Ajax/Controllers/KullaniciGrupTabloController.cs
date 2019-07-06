@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_UserGroupTablesDetailSelect_Result> kullanici = entity.usp_UserGroupTablesDetailSelect(null).ToList();
 
-            curUser.Log<KullaniciGrupTablo>(null, "s", "Kullanýcý Grup Tablolarý");
-
             return Json(kullanici, JsonRequestBehavior.AllowGet);
         }
 

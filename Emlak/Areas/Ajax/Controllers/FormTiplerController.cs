@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_PropertyTypesSelect_Result> formeleman = entity.usp_PropertyTypesSelect(null).ToList();
 
-            curUser.Log<FormTipler>(null, "s", "Form Tipleri");
-
             return Json(formeleman, JsonRequestBehavior.AllowGet);
         }
 

@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_ContentSelect_Result> icerik = entity.usp_ContentSelect(null).ToList();
 
-            curUser.Log<Icerik>(null, "s", "Ýçerikler");
-
             return Json(icerik, JsonRequestBehavior.AllowGet);
         }
 

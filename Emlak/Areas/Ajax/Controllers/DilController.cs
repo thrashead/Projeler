@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_TranslationSelect_Result> ceviri = entity.usp_TranslationSelect(null).ToList();
 
-            curUser.Log<Dil>(null, "s", "Diller");
-
             return Json(ceviri, JsonRequestBehavior.AllowGet);
         }
 

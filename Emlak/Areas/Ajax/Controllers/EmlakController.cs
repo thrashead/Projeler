@@ -21,8 +21,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_RealEstatesSelect_Result> emlak = entity.usp_RealEstatesSelect(null).ToList();
 
-            curUser.Log<Emlaklar>(null, "s", "Emlaklar");
-
             return Json(emlak, JsonRequestBehavior.AllowGet);
         }
 

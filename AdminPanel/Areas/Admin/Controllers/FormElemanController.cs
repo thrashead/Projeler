@@ -10,7 +10,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormElemanController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -19,8 +19,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_PropertyWithTypeNameSelect_Result> formeleman = _entity.usp_PropertyWithTypeNameSelect(null).ToList();
-
-            curUser.Log<FormEleman>(null, "s", "Form Elemanları");
 
             return View(formeleman);
         }

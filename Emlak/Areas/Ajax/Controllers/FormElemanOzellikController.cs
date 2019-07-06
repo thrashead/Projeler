@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_PropertyAttributesWithPropertyNameSelect_Result> formeleman = entity.usp_PropertyAttributesWithPropertyNameSelect(null).ToList();
 
-            curUser.Log<FormElemanOzellik>(null, "s", "Form Eleman Özellikleri");
-
             return Json(formeleman, JsonRequestBehavior.AllowGet);
         }
 

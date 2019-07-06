@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class MetaDilController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_MetaTLinkedSelect_Result> meta = _entity.usp_MetaTLinkedSelect(null).ToList();
-
-            curUser.Log<MetalarDil>(null, "s", "Metalar (Dil)");
 
             return View(meta);
         }

@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_PictureSelect_Result> resim = entity.usp_PictureSelect(null).ToList();
 
-            curUser.Log<Resim>(null, "s", "Resimler");
-
             return Json(resim, JsonRequestBehavior.AllowGet);
         }
 

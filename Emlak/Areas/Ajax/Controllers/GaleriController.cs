@@ -20,8 +20,6 @@ namespace Emlak.Areas.Ajax.Controllers
 
             List<usp_GallerySelect_Result> galeri = entity.usp_GallerySelect(null).ToList();
 
-            curUser.Log<Galeri>(null, "s", "Galeriler");
-
             return Json(galeri, JsonRequestBehavior.AllowGet);
         }
 

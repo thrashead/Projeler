@@ -9,7 +9,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LogIslemController : Controller
     {
-        readonly EmlakEntities _entity = new EmlakEntities();
+        readonly AdminPanelEntities _entity = new AdminPanelEntities();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,8 +18,6 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             List<usp_LogProcessDetailSelect_Result> log = _entity.usp_LogProcessDetailSelect(null).ToList();
-
-            curUser.Log<LogIslem>(null, "s", "Log Ýþlemleri");
 
             return View(log);
         }
