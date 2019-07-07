@@ -21,6 +21,8 @@ syntaxhighligher*/
 validationEngine*/
 flexslider/
 Properties/
+*/src/environments/
+*/src/assets/
 Global.asax
 */src/*/*/*/*.js
 */src/*/*/*.js
@@ -76,6 +78,11 @@ clockp.js
 uploadify.swf
 .refsignored
 notlar.txt
+karma.conf.js
+browserslist
+main.ts
+polyfill.ts
+test.ts
 
 
 # User-specific files
