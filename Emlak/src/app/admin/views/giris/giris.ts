@@ -36,8 +36,6 @@ export class AdminGirisComponent {
             username: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
             password: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(25)])
         });
-
-        $("#hdnUrl").val(location.href);
     }
 
     onSubmit() {

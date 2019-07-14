@@ -10,7 +10,6 @@ import { Router, RouterEvent, ActivationEnd } from '@angular/router';
 
 export class AdminLeftMenuComponent implements AfterContentInit {
     errorMsg: string;
-    kontrol: boolean;
 
     hasRightEmlak: boolean;
     hasRightKategori: boolean;
@@ -48,7 +47,6 @@ export class AdminLeftMenuComponent implements AfterContentInit {
     }
 
     ngAfterContentInit() {
-        this.kontrol = true;
         this.HasRightShowTypeControl();
 
         this.router.events.subscribe((event: RouterEvent) => {

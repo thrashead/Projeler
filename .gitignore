@@ -8,6 +8,7 @@ AdminPanelAngular/
 IKProjeAngular/
 IKProje/
 Projeler/
+RentACar/
 Uploads/
 images/
 img/
@@ -78,6 +79,7 @@ clockp.js
 uploadify.swf
 .refsignored
 notlar.txt
+mvc2ng7.txt
 karma.conf.js
 browserslist
 main.ts
