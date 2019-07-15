@@ -49,14 +49,14 @@ namespace Emlak
 
             if (Cacher.Cache["CurrentUserRights_" + user.ID.ToString()] == null)
             {
-                List<usp_UserGroupRightsByUserIDAndUrl_Result> userRights = entity.usp_UserGroupRightsByUserIDAndUrl().Where(a=> a.UserID == user.ID).ToList();
+                List<usp_UserGroupRightsByUserIDAndUrl_Result> userRights = entity.usp_UserGroupRightsByUserIDAndUrl().Where(a => a.UserID == user.ID).ToList();
 
                 Cacher.Cache.Insert("CurrentUserRights_" + user.ID.ToString(), userRights, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
             }
 
             result = Cacher.Cache["CurrentUserRights_" + user.ID.ToString()] as List<usp_UserGroupRightsByUserIDAndUrl_Result>;
 
-            if(url != null)
+            if (url != null)
             {
                 result = result.Where(a => a.Url == url).ToList();
             }
@@ -160,8 +160,6 @@ namespace Emlak
                 });
             }
 
-            int i = 0;
-
             foreach (var item in itemList)
             {
                 string _value = item.GetType().GetProperties().Where(a => a.Name == value).FirstOrDefault().GetValue(item).ToString();
@@ -176,13 +174,8 @@ namespace Emlak
                 }
                 else
                 {
-                    if (i == 0)
-                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
-                    else
-                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
+                    list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
                 }
-
-                i++;
             }
 
             return list;

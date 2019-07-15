@@ -9,7 +9,6 @@ var AdminLeftMenuComponent = /** @class */ (function () {
     }
     AdminLeftMenuComponent.prototype.ngAfterContentInit = function () {
         var _this = this;
-        this.kontrol = true;
         this.HasRightShowTypeControl();
         this.router.events.subscribe(function (event) {
             if (event instanceof ActivationEnd) {
