@@ -3,16 +3,21 @@ import { Component } from "@angular/core";
 import { FormElemanDegerService } from "../../services/formelemandeger";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 var AdminFormElemanDegerIndexComponent = /** @class */ (function () {
     function AdminFormElemanDegerIndexComponent(service, sharedService, router) {
         this.service = service;
         this.sharedService = sharedService;
         this.router = router;
+        this.subscription = new Subscription();
     }
     AdminFormElemanDegerIndexComponent.prototype.ngOnInit = function () {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    };
+    AdminFormElemanDegerIndexComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AdminFormElemanDegerIndexComponent.prototype.onDelete = function (id) {
         var _this = this;
@@ -30,7 +35,7 @@ var AdminFormElemanDegerIndexComponent = /** @class */ (function () {
     };
     AdminFormElemanDegerIndexComponent.prototype.onCopy = function (id) {
         var _this = this;
-        this.service.getKopyala(id).subscribe(function (resData) {
+        this.subscription.add(this.service.getKopyala(id).subscribe(function (resData) {
             if (resData == true) {
                 _this.ShowAlert("Copy");
                 var currentUrl_1 = _this.router.url;
@@ -39,7 +44,7 @@ var AdminFormElemanDegerIndexComponent = /** @class */ (function () {
             else {
                 _this.ShowAlert("CopyNot");
             }
-        }, function (resError) { return _this.errorMsg = resError; });
+        }, function (resError) { return _this.errorMsg = resError; }, function () { _this.subscription.unsubscribe(); }));
     };
     AdminFormElemanDegerIndexComponent.prototype.ShowAlert = function (type) {
         $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
@@ -106,8 +111,7 @@ var AdminFormElemanDegerIndexComponent = /** @class */ (function () {
     };
     AdminFormElemanDegerIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [FormElemanDegerService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormElemanDegerService, SharedService, Router])
     ], AdminFormElemanDegerIndexComponent);

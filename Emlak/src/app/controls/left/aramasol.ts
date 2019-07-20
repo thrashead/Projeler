@@ -1,13 +1,12 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
     selector: "emlak-aramasol",
-    templateUrl: './aramasol.html',
-    providers: [EmlakService, SolService]
+    templateUrl: './aramasol.html'
 })
 
 export class AramaSolComponent {
@@ -19,7 +18,7 @@ export class AramaSolComponent {
     araKelime: string;
     araTip: string;
 
-    constructor(private _emlakService: EmlakService, private _solService: SolService, private _formBuilder: FormBuilder, private _router: Router) {
+    constructor(private _emlakService: EmlakAjaxService, private _solService: SolAjaxService, private _formBuilder: FormBuilder, private _router: Router) {
     }
 
     ngOnInit() {

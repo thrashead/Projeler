@@ -105,8 +105,7 @@ var AdminKategoriDilIndexComponent = /** @class */ (function () {
     };
     AdminKategoriDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [KategoriDilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KategoriDilService, SharedService])
     ], AdminKategoriDilIndexComponent);

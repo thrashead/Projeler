@@ -139,8 +139,7 @@ var AdminIcerikDuzenleComponent = /** @class */ (function () {
     };
     AdminIcerikDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [IcerikService, IcerikDilService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [IcerikService, IcerikDilService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminIcerikDuzenleComponent);

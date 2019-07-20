@@ -64,8 +64,7 @@ var AdminUrunDilDuzenleComponent = /** @class */ (function () {
     };
     AdminUrunDilDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [UrunDilService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [UrunDilService, ActivatedRoute, Router, FormBuilder])
     ], AdminUrunDilDuzenleComponent);

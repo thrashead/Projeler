@@ -2,11 +2,11 @@
 import { FormElemanGrupService } from "../../services/formelemangrup";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './index.html',
-    providers: [FormElemanGrupService, SharedService]
+    templateUrl: './index.html'
 })
 
 export class AdminFormElemanGrupIndexComponent {
@@ -20,12 +20,18 @@ export class AdminFormElemanGrupIndexComponent {
 
     callTable: boolean;
 
+    private subscription: Subscription = new Subscription();
+
     constructor(private service: FormElemanGrupService, private sharedService: SharedService, private router: Router) {
     }
 
     ngOnInit() {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     onDelete(id) {
@@ -44,7 +50,7 @@ export class AdminFormElemanGrupIndexComponent {
     }
 
     onCopy(id) {
-        this.service.getKopyala(id).subscribe((resData) => {
+        this.subscription.add(this.service.getKopyala(id).subscribe((resData) => {
             if (resData == true) {
                 this.ShowAlert("Copy");
 
@@ -54,7 +60,8 @@ export class AdminFormElemanGrupIndexComponent {
             else {
                 this.ShowAlert("CopyNot");
             }
-        }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError,
+            () => { this.subscription.unsubscribe(); }));
     }
 
     ShowAlert(type: string) {

@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 var BannerComponent = /** @class */ (function () {
     function BannerComponent(_emlakService) {
         this._emlakService = _emlakService;
@@ -27,10 +27,9 @@ var BannerComponent = /** @class */ (function () {
     BannerComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-banner",
-            templateUrl: './banner.html',
-            providers: [EmlakService]
+            templateUrl: './banner.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService])
     ], BannerComponent);
     return BannerComponent;
 }());

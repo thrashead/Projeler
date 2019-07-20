@@ -7,8 +7,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms"
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [IcerikService, IcerikDilService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminIcerikDuzenleComponent {

@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './giris.html',
-    providers: [SharedService],
     styleUrls: [
         '../../../../../Content/admin/css/bootstrap.min.css',
         '../../../../../Content/admin/css/bootstrap-responsive.min.css',

@@ -45,8 +45,7 @@ var AdminFormElemanDegerEkleComponent = /** @class */ (function () {
     };
     AdminFormElemanDegerEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [FormElemanDegerService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormElemanDegerService, ActivatedRoute, Router, FormBuilder])
     ], AdminFormElemanDegerEkleComponent);

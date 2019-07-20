@@ -139,8 +139,7 @@ var AdminMetaDuzenleComponent = /** @class */ (function () {
     };
     AdminMetaDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [MetaService, MetaDilService, SharedService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [MetaService, MetaDilService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminMetaDuzenleComponent);

@@ -47,8 +47,7 @@ var AdminMetaDilDuzenleComponent = /** @class */ (function () {
     };
     AdminMetaDilDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [MetaDilService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [MetaDilService, ActivatedRoute, Router, FormBuilder])
     ], AdminMetaDilDuzenleComponent);

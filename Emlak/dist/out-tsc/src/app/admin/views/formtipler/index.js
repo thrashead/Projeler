@@ -80,8 +80,7 @@ var AdminFormTiplerIndexComponent = /** @class */ (function () {
     };
     AdminFormTiplerIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [FormTiplerService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormTiplerService, SharedService])
     ], AdminFormTiplerIndexComponent);

@@ -4,8 +4,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [KullanicilarService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminKullanicilarDuzenleComponent {

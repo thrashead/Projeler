@@ -62,8 +62,7 @@ var AdminEmlakDilDuzenleComponent = /** @class */ (function () {
     };
     AdminEmlakDilDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [EmlakDilService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [EmlakDilService, ActivatedRoute, Router, FormBuilder])
     ], AdminEmlakDilDuzenleComponent);

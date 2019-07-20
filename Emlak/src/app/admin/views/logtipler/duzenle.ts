@@ -7,8 +7,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms"
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [LogTiplerService, LogIslemService, SharedService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminLogTiplerDuzenleComponent {

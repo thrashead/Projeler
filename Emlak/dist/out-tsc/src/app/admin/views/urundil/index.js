@@ -105,8 +105,7 @@ var AdminUrunDilIndexComponent = /** @class */ (function () {
     };
     AdminUrunDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [UrunDilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [UrunDilService, SharedService])
     ], AdminUrunDilIndexComponent);

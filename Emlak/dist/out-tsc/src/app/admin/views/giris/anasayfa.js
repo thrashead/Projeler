@@ -107,8 +107,7 @@ var AdminAnaSayfaComponent = /** @class */ (function () {
     };
     AdminAnaSayfaComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './anasayfa.html',
-            providers: [SharedService]
+            templateUrl: './anasayfa.html'
         }),
         tslib_1.__metadata("design:paramtypes", [SharedService])
     ], AdminAnaSayfaComponent);

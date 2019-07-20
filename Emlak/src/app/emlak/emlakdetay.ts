@@ -1,18 +1,17 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
-import { REService } from "../services/re.service";
+import { EmlakAjaxService } from "../services/emlakajax";
+import { REAjaxService } from "../services/reajax";
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-    templateUrl: './emlakdetay.html',
-    providers: [EmlakService, REService]
+    templateUrl: './emlakdetay.html'
 })
 
 export class EmlakDetayComponent {
     emlak: any;
     public link: string;
 
-    constructor(private _emlakService: EmlakService, private _reService: REService, private route: ActivatedRoute) {
+    constructor(private _emlakService: EmlakAjaxService, private _reService: REAjaxService, private route: ActivatedRoute) {
 
     }
 

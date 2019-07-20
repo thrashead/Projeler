@@ -45,8 +45,7 @@ var AdminKullanicilarDuzenleComponent = /** @class */ (function () {
     };
     AdminKullanicilarDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [KullanicilarService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullanicilarService, ActivatedRoute, Router, FormBuilder])
     ], AdminKullanicilarDuzenleComponent);

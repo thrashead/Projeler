@@ -62,8 +62,7 @@ var AdminUrunDilEkleComponent = /** @class */ (function () {
     };
     AdminUrunDilEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [UrunDilService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [UrunDilService, ActivatedRoute, Router, FormBuilder])
     ], AdminUrunDilEkleComponent);

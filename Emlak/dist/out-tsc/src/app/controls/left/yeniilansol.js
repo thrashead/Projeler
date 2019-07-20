@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 var YeniIlanSolComponent = /** @class */ (function () {
     function YeniIlanSolComponent(_emlakService, _solService) {
         this._emlakService = _emlakService;
@@ -24,10 +24,9 @@ var YeniIlanSolComponent = /** @class */ (function () {
     YeniIlanSolComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-yeniilansol",
-            templateUrl: './yeniilansol.html',
-            providers: [EmlakService, SolService]
+            templateUrl: './yeniilansol.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, SolService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, SolAjaxService])
     ], YeniIlanSolComponent);
     return YeniIlanSolComponent;
 }());

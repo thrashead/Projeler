@@ -35,8 +35,7 @@ var AdminKullaniciGrupIslemEkleComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupIslemEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [KullaniciGrupIslemService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupIslemService, Router, FormBuilder])
     ], AdminKullaniciGrupIslemEkleComponent);

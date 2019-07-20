@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-    templateUrl: './ekle.html',
-    providers: [DosyaService]
+    templateUrl: './ekle.html'
 })
 
 export class AdminDosyaEkleComponent {

@@ -5,8 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms"
 import ClassicEditor from '../../../../../Content/admin/js/ckeditor/ckeditor.js';
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [UrunDilService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminUrunDilDuzenleComponent {

@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 import { FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 var AramaSolComponent = /** @class */ (function () {
@@ -105,10 +105,9 @@ var AramaSolComponent = /** @class */ (function () {
     AramaSolComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-aramasol",
-            templateUrl: './aramasol.html',
-            providers: [EmlakService, SolService]
+            templateUrl: './aramasol.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, SolService, FormBuilder, Router])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, SolAjaxService, FormBuilder, Router])
     ], AramaSolComponent);
     return AramaSolComponent;
 }());

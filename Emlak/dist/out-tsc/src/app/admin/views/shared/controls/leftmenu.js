@@ -154,8 +154,7 @@ var AdminLeftMenuComponent = /** @class */ (function () {
     AdminLeftMenuComponent = tslib_1.__decorate([
         Component({
             selector: 'admin-leftmenu',
-            templateUrl: './leftmenu.html',
-            providers: [SharedService]
+            templateUrl: './leftmenu.html'
         }),
         tslib_1.__metadata("design:paramtypes", [SharedService, Router])
     ], AdminLeftMenuComponent);

@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { HomeService } from "../../services/home.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { HomeAjaxService } from "../../services/homeajax";
 var MPShowroomComponent = /** @class */ (function () {
     function MPShowroomComponent(_emlakService, _homeService) {
         this._emlakService = _emlakService;
@@ -29,10 +29,9 @@ var MPShowroomComponent = /** @class */ (function () {
     MPShowroomComponent = tslib_1.__decorate([
         Component({
             selector: 'emlak-mpshowroom',
-            templateUrl: './mpshowroom.html',
-            providers: [EmlakService, HomeService]
+            templateUrl: './mpshowroom.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, HomeService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, HomeAjaxService])
     ], MPShowroomComponent);
     return MPShowroomComponent;
 }());

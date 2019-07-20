@@ -55,8 +55,7 @@ var AdminDosyaEkleComponent = /** @class */ (function () {
     };
     AdminDosyaEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [DosyaService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [DosyaService, Router, FormBuilder])
     ], AdminDosyaEkleComponent);

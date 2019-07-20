@@ -21,8 +21,7 @@ var AdminLoglarIndexComponent = /** @class */ (function () {
     };
     AdminLoglarIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [LoglarService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LoglarService])
     ], AdminLoglarIndexComponent);

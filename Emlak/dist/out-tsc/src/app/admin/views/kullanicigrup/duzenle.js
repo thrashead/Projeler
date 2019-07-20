@@ -183,8 +183,7 @@ var AdminKullaniciGrupDuzenleComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [KullaniciGrupService, KullaniciGrupTabloService, KullaniciGrupHakService, KullanicilarService, SharedService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupService, KullaniciGrupTabloService, KullaniciGrupHakService, KullanicilarService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminKullaniciGrupDuzenleComponent);

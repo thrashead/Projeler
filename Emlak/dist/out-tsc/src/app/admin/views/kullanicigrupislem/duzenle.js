@@ -45,8 +45,7 @@ var AdminKullaniciGrupIslemDuzenleComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupIslemDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [KullaniciGrupIslemService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupIslemService, ActivatedRoute, Router, FormBuilder])
     ], AdminKullaniciGrupIslemDuzenleComponent);

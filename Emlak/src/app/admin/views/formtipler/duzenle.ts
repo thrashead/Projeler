@@ -1,11 +1,10 @@
 ﻿import { Component } from "@angular/core";
-import { FormElemanService } from "../../services/formeleman";
+import { FormTiplerService } from '../../services/formtipler';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [FormElemanService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminFormTiplerDuzenleComponent {
@@ -17,7 +16,7 @@ export class AdminFormTiplerDuzenleComponent {
 
     model: any;
 
-    constructor(private service: FormElemanService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: FormTiplerService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {

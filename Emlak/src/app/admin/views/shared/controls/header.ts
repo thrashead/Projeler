@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'admin-header',
-    templateUrl: './header.html',
-    providers: [SharedService]
+    templateUrl: './header.html'
 })
 
 export class AdminHeaderComponent {

@@ -3,16 +3,21 @@ import { Component } from "@angular/core";
 import { FormElemanOzellikService } from "../../services/formelemanozellik";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 var AdminFormElemanOzellikIndexComponent = /** @class */ (function () {
     function AdminFormElemanOzellikIndexComponent(service, sharedService, router) {
         this.service = service;
         this.sharedService = sharedService;
         this.router = router;
+        this.subscription = new Subscription();
     }
     AdminFormElemanOzellikIndexComponent.prototype.ngOnInit = function () {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    };
+    AdminFormElemanOzellikIndexComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AdminFormElemanOzellikIndexComponent.prototype.onDelete = function (id) {
         var _this = this;
@@ -30,7 +35,7 @@ var AdminFormElemanOzellikIndexComponent = /** @class */ (function () {
     };
     AdminFormElemanOzellikIndexComponent.prototype.onCopy = function (id) {
         var _this = this;
-        this.service.getKopyala(id).subscribe(function (resData) {
+        this.subscription.add(this.service.getKopyala(id).subscribe(function (resData) {
             if (resData == true) {
                 _this.ShowAlert("Copy");
                 var currentUrl_1 = _this.router.url;
@@ -39,7 +44,7 @@ var AdminFormElemanOzellikIndexComponent = /** @class */ (function () {
             else {
                 _this.ShowAlert("CopyNot");
             }
-        }, function (resError) { return _this.errorMsg = resError; });
+        }, function (resError) { return _this.errorMsg = resError; }, function () { _this.subscription.unsubscribe(); }));
     };
     AdminFormElemanOzellikIndexComponent.prototype.ShowAlert = function (type) {
         $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");

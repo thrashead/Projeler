@@ -4,8 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-    templateUrl: './ekle.html',
-    providers: [KategoriService]
+    templateUrl: './ekle.html'
 })
 
 export class AdminKategoriEkleComponent {

@@ -47,8 +47,7 @@ var AdminLogIslemDuzenleComponent = /** @class */ (function () {
     };
     AdminLogIslemDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [LogIslemService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LogIslemService, ActivatedRoute, Router, FormBuilder])
     ], AdminLogIslemDuzenleComponent);

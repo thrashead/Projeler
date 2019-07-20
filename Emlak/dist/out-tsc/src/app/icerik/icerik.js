@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 import { ActivatedRoute } from '@angular/router';
 var IcerikComponent = /** @class */ (function () {
     function IcerikComponent(_emlakService, route) {
@@ -19,10 +19,9 @@ var IcerikComponent = /** @class */ (function () {
     };
     IcerikComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './icerik.html',
-            providers: [EmlakService]
+            templateUrl: './icerik.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, ActivatedRoute])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, ActivatedRoute])
     ], IcerikComponent);
     return IcerikComponent;
 }());

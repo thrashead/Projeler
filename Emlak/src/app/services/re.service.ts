@@ -7,7 +7,7 @@ import { IRealEstatesForList } from '../model/IRealEstatesForList';
 import { IListResult } from '../model/IListResult';
 
 @Injectable()
-export class REService {
+export class REAjaxService {
     private linkEmlakDetay: string = "RE/Detay";
     private linkEmlakListele: string = "RE/Listele";
     private linkEmlakDetayliAraSession: string = "RE/DetayliAramaSession";

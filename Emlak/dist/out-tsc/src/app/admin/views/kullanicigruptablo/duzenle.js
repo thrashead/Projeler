@@ -43,8 +43,7 @@ var AdminKullaniciGrupTabloDuzenleComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupTabloDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [KullaniciGrupTabloService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupTabloService, ActivatedRoute, Router, FormBuilder])
     ], AdminKullaniciGrupTabloDuzenleComponent);

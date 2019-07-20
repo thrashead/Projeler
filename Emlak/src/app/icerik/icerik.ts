@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-    templateUrl: './icerik.html',
-    providers: [EmlakService]
+    templateUrl: './icerik.html'
 })
 
 export class IcerikComponent {
@@ -13,7 +12,7 @@ export class IcerikComponent {
 
     errorMsg: string;
 
-    constructor(private _emlakService: EmlakService, private route: ActivatedRoute) {
+    constructor(private _emlakService: EmlakAjaxService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {

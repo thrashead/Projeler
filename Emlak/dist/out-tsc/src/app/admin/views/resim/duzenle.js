@@ -76,8 +76,7 @@ var AdminResimDuzenleComponent = /** @class */ (function () {
     };
     AdminResimDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [ResimService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [ResimService, ActivatedRoute, Router, FormBuilder])
     ], AdminResimDuzenleComponent);

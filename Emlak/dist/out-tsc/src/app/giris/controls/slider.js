@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { HomeService } from "../../services/home.service";
+import { HomeAjaxService } from "../../services/homeajax";
 var SliderComponent = /** @class */ (function () {
     function SliderComponent(_homeService) {
         this._homeService = _homeService;
@@ -22,10 +22,9 @@ var SliderComponent = /** @class */ (function () {
     SliderComponent = tslib_1.__decorate([
         Component({
             selector: 'emlak-slider',
-            templateUrl: './slider.html',
-            providers: [HomeService]
+            templateUrl: './slider.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [HomeService])
+        tslib_1.__metadata("design:paramtypes", [HomeAjaxService])
     ], SliderComponent);
     return SliderComponent;
 }());

@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component, HostListener } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 import { SharedService } from '../admin/services/shared';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -86,10 +86,9 @@ var HeaderComponent = /** @class */ (function () {
     HeaderComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-header",
-            templateUrl: './header.html',
-            providers: [EmlakService, SharedService]
+            templateUrl: './header.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [SharedService, EmlakService, FormBuilder, Router])
+        tslib_1.__metadata("design:paramtypes", [SharedService, EmlakAjaxService, FormBuilder, Router])
     ], HeaderComponent);
     return HeaderComponent;
 }());

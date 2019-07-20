@@ -178,6 +178,47 @@ import { AdminUrunDilDuzenleComponent } from './admin/views/urundil/duzenle';
 
 import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
 
+//Services
+import { EmlakAjaxService } from './services/emlakajax';
+import { SolAjaxService } from './services/solajax';
+import { REAjaxService } from './services/reajax';
+import { HomeAjaxService } from './services/homeajax';
+
+//Admin Services
+import { SharedService } from './admin/services/shared';
+import { KategoriService } from './admin/services/kategori';
+import { KategoriDilService } from './admin/services/kategoridil';
+import { IcerikService } from './admin/services/icerik';
+import { IcerikDilService } from './admin/services/icerikdil';
+import { DosyaService } from './admin/services/dosya';
+import { GaleriService } from './admin/services/galeri';
+import { GaleriDilService } from './admin/services/galeridil';
+import { BaglantiService } from './admin/services/baglanti';
+import { BagliTiplerService } from './admin/services/baglitipler';
+import { LogIslemService } from './admin/services/logislem';
+import { LoglarService } from './admin/services/loglar';
+import { LogTiplerService } from './admin/services/logtipler';
+import { MetaService } from './admin/services/meta';
+import { MetaDilService } from './admin/services/metadil';
+import { ResimService } from './admin/services/resim';
+import { UrunService } from './admin/services/urun';
+import { UrunDilService } from './admin/services/urundil';
+import { FormElemanService } from './admin/services/formeleman';
+import { FormElemanOzellikService } from './admin/services/formelemanozellik';
+import { FormElemanGrupService } from './admin/services/formelemangrup';
+import { FormTiplerService } from './admin/services/formtipler';
+import { FormElemanDegerService } from './admin/services/formelemandeger';
+import { EmlakService } from './admin/services/emlak';
+import { EmlakDilService } from './admin/services/emlakdil';
+import { DilService } from './admin/services/dil';
+import { TiplerService } from './admin/services/tipler';
+import { KullaniciGrupIslemService } from './admin/services/kullanicigrupislem';
+import { KullaniciGrupHakService } from './admin/services/kullanicigruphak';
+import { KullaniciGrupService } from './admin/services/kullanicigrup';
+import { KullaniciGrupTabloService } from './admin/services/kullanicigruptablo';
+import { KullanicilarService } from './admin/services/kullanicilar';
+import { ZiyaretciService } from './admin/services/ziyaretci';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -347,7 +388,46 @@ import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
         HttpClientModule
     ],
     //'/' -> '/Emlak/' Bu þekilde deðiþecek
-    providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' }],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' },
+        EmlakAjaxService,
+        HomeAjaxService,
+        REAjaxService,
+        SolAjaxService,
+
+        SharedService,
+        KategoriService,
+        KategoriDilService,
+        IcerikService,
+        IcerikDilService,
+        DosyaService,
+        GaleriService,
+        GaleriDilService,
+        BaglantiService,
+        BagliTiplerService,
+        LogIslemService,
+        LoglarService,
+        LogTiplerService,
+        MetaService,
+        MetaDilService,
+        ResimService,
+        UrunService,
+        UrunDilService,
+        FormElemanService,
+        FormElemanOzellikService,
+        FormElemanGrupService,
+        FormTiplerService,
+        FormElemanDegerService,
+        EmlakService,
+        EmlakDilService,
+        DilService,
+        TiplerService,
+        KullaniciGrupHakService,
+        KullaniciGrupIslemService,
+        KullaniciGrupService,
+        KullaniciGrupTabloService,
+        KullanicilarService,
+        ZiyaretciService
+],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

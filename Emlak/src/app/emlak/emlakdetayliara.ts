@@ -1,19 +1,18 @@
 ﻿import { Component, AfterContentInit } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
-import { REService } from "../services/re.service";
+import { EmlakAjaxService } from "../services/emlakajax";
+import { REAjaxService } from "../services/reajax";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Component({
-    templateUrl: './emlakdetayliara.html',
-    providers: [EmlakService, REService]
+    templateUrl: './emlakdetayliara.html'
 })
 
 export class EmlakDetayliAraComponent implements AfterContentInit {
     detayliAraForm: FormGroup;
     realCPList: any;
 
-    constructor(private _emlakService: EmlakService, private _reService: REService, private _router: Router, private _formBuilder: FormBuilder) {
+    constructor(private _emlakService: EmlakAjaxService, private _reService: REAjaxService, private _router: Router, private _formBuilder: FormBuilder) {
     }
 
     ngOnInit() {

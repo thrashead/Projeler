@@ -105,8 +105,7 @@ var AdminGaleriDilIndexComponent = /** @class */ (function () {
     };
     AdminGaleriDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [GaleriDilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [GaleriDilService, SharedService])
     ], AdminGaleriDilIndexComponent);

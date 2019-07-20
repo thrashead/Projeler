@@ -2,8 +2,7 @@
 import { SharedService } from '../../services/shared';
 
 @Component({
-    templateUrl: './anasayfa.html',
-    providers: [SharedService]
+    templateUrl: './anasayfa.html'
 })
 
 export class AdminAnaSayfaComponent {

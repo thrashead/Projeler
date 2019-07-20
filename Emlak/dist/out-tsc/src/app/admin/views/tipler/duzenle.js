@@ -49,8 +49,7 @@ var AdminTiplerDuzenleComponent = /** @class */ (function () {
     };
     AdminTiplerDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [TiplerService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [TiplerService, ActivatedRoute, Router, FormBuilder])
     ], AdminTiplerDuzenleComponent);

@@ -111,8 +111,7 @@ var AdminKullanicilarIndexComponent = /** @class */ (function () {
     };
     AdminKullanicilarIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [KullanicilarService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullanicilarService, SharedService])
     ], AdminKullanicilarIndexComponent);

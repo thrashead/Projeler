@@ -105,8 +105,7 @@ var AdminMetaDilIndexComponent = /** @class */ (function () {
     };
     AdminMetaDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [MetaDilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [MetaDilService, SharedService])
     ], AdminMetaDilIndexComponent);

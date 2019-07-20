@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 var GununEmlagiComponent = /** @class */ (function () {
     function GununEmlagiComponent(_emlakService, _solService) {
         this._emlakService = _emlakService;
@@ -24,10 +24,9 @@ var GununEmlagiComponent = /** @class */ (function () {
     GununEmlagiComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-gununemlagi",
-            templateUrl: './gununemlagi.html',
-            providers: [EmlakService, SolService]
+            templateUrl: './gununemlagi.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, SolService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, SolAjaxService])
     ], GununEmlagiComponent);
     return GununEmlagiComponent;
 }());

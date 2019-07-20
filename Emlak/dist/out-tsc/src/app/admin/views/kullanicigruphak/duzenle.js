@@ -45,8 +45,7 @@ var AdminKullaniciGrupHakDuzenleComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupHakDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [KullaniciGrupHakService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupHakService, ActivatedRoute, Router, FormBuilder])
     ], AdminKullaniciGrupHakDuzenleComponent);

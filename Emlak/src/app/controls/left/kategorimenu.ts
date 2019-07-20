@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { SolService } from "../../services/sol.service";
+import { SolAjaxService } from "../../services/solajax";
 
 @Component({
     selector: "emlak-kategorimenu",
-    templateUrl: './kategorimenu.html',
-    providers: [SolService]
+    templateUrl: './kategorimenu.html'
 })
 
 export class KategoriMenuComponent {
@@ -12,7 +11,7 @@ export class KategoriMenuComponent {
 
     errorMsg: string;
 
-    constructor(private _solService: SolService) {
+    constructor(private _solService: SolAjaxService) {
     }
 
     ngOnInit() {

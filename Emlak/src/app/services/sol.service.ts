@@ -8,7 +8,7 @@ import { IListResult } from '../model/IListResult';
 import { ICategoriesByParentID } from '../model/ICategoriesByParentID';
 
 @Injectable()
-export class SolService {
+export class SolAjaxService {
     private linkSolAraSonuc: string = "Sol/AramaSonuc";
     private linkGununIlani: string = "Sol/GununIlani";
     private linkYeniIlanlar: string = "Sol/YeniIlanlar";

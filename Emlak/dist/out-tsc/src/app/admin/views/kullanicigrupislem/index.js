@@ -80,8 +80,7 @@ var AdminKullaniciGrupIslemIndexComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupIslemIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [KullaniciGrupIslemService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupIslemService, SharedService])
     ], AdminKullaniciGrupIslemIndexComponent);

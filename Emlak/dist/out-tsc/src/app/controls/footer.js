@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 var FooterComponent = /** @class */ (function () {
     function FooterComponent(_emlakService) {
         this._emlakService = _emlakService;
@@ -25,10 +25,9 @@ var FooterComponent = /** @class */ (function () {
     FooterComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-footer",
-            templateUrl: './footer.html',
-            providers: [EmlakService]
+            templateUrl: './footer.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService])
     ], FooterComponent);
     return FooterComponent;
 }());

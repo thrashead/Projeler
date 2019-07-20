@@ -72,8 +72,7 @@ var AdminDosyaDuzenleComponent = /** @class */ (function () {
     };
     AdminDosyaDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [DosyaService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [DosyaService, ActivatedRoute, Router, FormBuilder])
     ], AdminDosyaDuzenleComponent);

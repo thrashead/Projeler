@@ -80,8 +80,7 @@ var AdminLogIslemIndexComponent = /** @class */ (function () {
     };
     AdminLogIslemIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [LogIslemService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LogIslemService, SharedService])
     ], AdminLogIslemIndexComponent);

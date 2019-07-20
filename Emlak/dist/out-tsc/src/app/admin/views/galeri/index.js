@@ -3,16 +3,21 @@ import { Component } from "@angular/core";
 import { GaleriService } from "../../services/galeri";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 var AdminGaleriIndexComponent = /** @class */ (function () {
     function AdminGaleriIndexComponent(service, sharedService, router) {
         this.service = service;
         this.sharedService = sharedService;
         this.router = router;
+        this.subscription = new Subscription();
     }
     AdminGaleriIndexComponent.prototype.ngOnInit = function () {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    };
+    AdminGaleriIndexComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AdminGaleriIndexComponent.prototype.onDelete = function (id) {
         var _this = this;
@@ -44,7 +49,7 @@ var AdminGaleriIndexComponent = /** @class */ (function () {
     };
     AdminGaleriIndexComponent.prototype.onCopy = function (id) {
         var _this = this;
-        this.service.getKopyala(id).subscribe(function (resData) {
+        this.subscription.add(this.service.getKopyala(id).subscribe(function (resData) {
             if (resData == true) {
                 _this.ShowAlert("Copy");
                 var currentUrl_1 = _this.router.url;
@@ -53,7 +58,7 @@ var AdminGaleriIndexComponent = /** @class */ (function () {
             else {
                 _this.ShowAlert("CopyNot");
             }
-        }, function (resError) { return _this.errorMsg = resError; });
+        }, function (resError) { return _this.errorMsg = resError; }, function () { _this.subscription.unsubscribe(); }));
     };
     AdminGaleriIndexComponent.prototype.ShowAlert = function (type) {
         $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
@@ -131,8 +136,7 @@ var AdminGaleriIndexComponent = /** @class */ (function () {
     };
     AdminGaleriIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [GaleriService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [GaleriService, SharedService, Router])
     ], AdminGaleriIndexComponent);

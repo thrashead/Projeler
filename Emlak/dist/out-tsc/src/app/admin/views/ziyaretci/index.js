@@ -67,8 +67,7 @@ var AdminZiyaretciIndexComponent = /** @class */ (function () {
     };
     AdminZiyaretciIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [ZiyaretciService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [ZiyaretciService, SharedService, Router])
     ], AdminZiyaretciIndexComponent);

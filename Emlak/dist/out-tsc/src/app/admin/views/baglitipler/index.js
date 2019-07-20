@@ -3,16 +3,21 @@ import { Component } from "@angular/core";
 import { BagliTiplerService } from "../../services/baglitipler";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 var AdminBagliTiplerIndexComponent = /** @class */ (function () {
     function AdminBagliTiplerIndexComponent(service, sharedService, router) {
         this.service = service;
         this.sharedService = sharedService;
         this.router = router;
+        this.subscription = new Subscription();
     }
     AdminBagliTiplerIndexComponent.prototype.ngOnInit = function () {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    };
+    AdminBagliTiplerIndexComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AdminBagliTiplerIndexComponent.prototype.onDelete = function (id) {
         var _this = this;
@@ -30,7 +35,7 @@ var AdminBagliTiplerIndexComponent = /** @class */ (function () {
     };
     AdminBagliTiplerIndexComponent.prototype.onCopy = function (id) {
         var _this = this;
-        this.service.getKopyala(id).subscribe(function (resData) {
+        this.subscription.add(this.service.getKopyala(id).subscribe(function (resData) {
             if (resData == true) {
                 _this.ShowAlert("Copy");
                 var currentUrl_1 = _this.router.url;
@@ -39,7 +44,7 @@ var AdminBagliTiplerIndexComponent = /** @class */ (function () {
             else {
                 _this.ShowAlert("CopyNot");
             }
-        }, function (resError) { return _this.errorMsg = resError; });
+        }, function (resError) { return _this.errorMsg = resError; }, function () { _this.subscription.unsubscribe(); }));
     };
     AdminBagliTiplerIndexComponent.prototype.ShowAlert = function (type) {
         $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
@@ -137,8 +142,7 @@ var AdminBagliTiplerIndexComponent = /** @class */ (function () {
     };
     AdminBagliTiplerIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [BagliTiplerService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [BagliTiplerService, SharedService, Router])
     ], AdminBagliTiplerIndexComponent);

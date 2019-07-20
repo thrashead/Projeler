@@ -43,8 +43,7 @@ var AdminFormElemanOzellikEkleComponent = /** @class */ (function () {
     };
     AdminFormElemanOzellikEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [FormElemanOzellikService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormElemanOzellikService, ActivatedRoute, Router, FormBuilder])
     ], AdminFormElemanOzellikEkleComponent);

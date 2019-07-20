@@ -1,16 +1,15 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
 
 @Component({
     selector: 'emlak-mpabout',
-    templateUrl: './mpabout.html',
-    providers: [EmlakService]
+    templateUrl: './mpabout.html'
 })
 
 export class MPAboutComponent {
     about: any;
 
-    constructor(private _emlakService: EmlakService) {
+    constructor(private _emlakService: EmlakAjaxService) {
     }
 
     ngOnInit() {

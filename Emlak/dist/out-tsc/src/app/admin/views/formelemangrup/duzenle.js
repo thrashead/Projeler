@@ -5,6 +5,7 @@ import { FormElemanService } from '../../services/formeleman';
 import { SharedService } from '../../services/shared';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 var AdminFormElemanGrupDuzenleComponent = /** @class */ (function () {
     function AdminFormElemanGrupDuzenleComponent(service, serviceProperty, sharedService, route, router, formBuilder) {
@@ -14,6 +15,7 @@ var AdminFormElemanGrupDuzenleComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this.formBuilder = formBuilder;
+        this.subscription = new Subscription();
     }
     AdminFormElemanGrupDuzenleComponent.prototype.ngOnInit = function () {
         this.callTable = true;
@@ -25,6 +27,9 @@ var AdminFormElemanGrupDuzenleComponent = /** @class */ (function () {
             Code: new FormControl(null),
             Active: new FormControl(null),
         });
+    };
+    AdminFormElemanGrupDuzenleComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AdminFormElemanGrupDuzenleComponent.prototype.onSubmit = function () {
         var _this = this;
@@ -61,7 +66,7 @@ var AdminFormElemanGrupDuzenleComponent = /** @class */ (function () {
     };
     AdminFormElemanGrupDuzenleComponent.prototype.onPropertyCopy = function (id) {
         var _this = this;
-        this.serviceProperty.getKopyala(id).subscribe(function (resData) {
+        this.subscription.add(this.serviceProperty.getKopyala(id).subscribe(function (resData) {
             if (resData == true) {
                 _this.ShowAlert("Copy");
                 var currentUrl_1 = _this.router.url;
@@ -70,7 +75,7 @@ var AdminFormElemanGrupDuzenleComponent = /** @class */ (function () {
             else {
                 _this.ShowAlert("CopyNot");
             }
-        }, function (resError) { return _this.errorMsg = resError; });
+        }, function (resError) { return _this.errorMsg = resError; }, function () { _this.subscription.unsubscribe(); }));
     };
     AdminFormElemanGrupDuzenleComponent.prototype.ShowAlert = function (type) {
         $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
@@ -140,8 +145,7 @@ var AdminFormElemanGrupDuzenleComponent = /** @class */ (function () {
     };
     AdminFormElemanGrupDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [FormElemanGrupService, FormElemanService, SharedService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormElemanGrupService, FormElemanService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminFormElemanGrupDuzenleComponent);

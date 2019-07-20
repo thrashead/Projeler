@@ -35,8 +35,7 @@ var AdminIcerikEkleComponent = /** @class */ (function () {
     };
     AdminIcerikEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [IcerikService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [IcerikService, Router, FormBuilder])
     ], AdminIcerikEkleComponent);

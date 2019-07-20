@@ -135,8 +135,7 @@ var AdminEmlakEkleComponent = /** @class */ (function () {
     };
     AdminEmlakEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [EmlakService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [EmlakService, Router, FormBuilder])
     ], AdminEmlakEkleComponent);

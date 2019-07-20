@@ -4,8 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-    templateUrl: './ekle.html',
-    providers: [FormElemanService]
+    templateUrl: './ekle.html'
 })
 
 export class AdminFormElemanEkleComponent {

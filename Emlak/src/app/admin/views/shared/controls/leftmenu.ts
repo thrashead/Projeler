@@ -4,8 +4,7 @@ import { Router, RouterEvent, ActivationEnd } from '@angular/router';
 
 @Component({
     selector: 'admin-leftmenu',
-    templateUrl: './leftmenu.html',
-    providers: [SharedService]
+    templateUrl: './leftmenu.html'
 })
 
 export class AdminLeftMenuComponent implements AfterContentInit {

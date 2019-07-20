@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 var SayfaGetirComponent = /** @class */ (function () {
     function SayfaGetirComponent(_emlakService, _solService) {
         this._emlakService = _emlakService;
@@ -25,10 +25,9 @@ var SayfaGetirComponent = /** @class */ (function () {
     SayfaGetirComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-sayfagetir",
-            templateUrl: './sayfagetir.html',
-            providers: [EmlakService, SolService]
+            templateUrl: './sayfagetir.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, SolService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, SolAjaxService])
     ], SayfaGetirComponent);
     return SayfaGetirComponent;
 }());

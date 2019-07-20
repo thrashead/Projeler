@@ -42,7 +42,6 @@ var AdminGirisComponent = /** @class */ (function () {
     AdminGirisComponent = tslib_1.__decorate([
         Component({
             templateUrl: './giris.html',
-            providers: [SharedService],
             styleUrls: [
                 '../../../../../Content/admin/css/bootstrap.min.css',
                 '../../../../../Content/admin/css/bootstrap-responsive.min.css',

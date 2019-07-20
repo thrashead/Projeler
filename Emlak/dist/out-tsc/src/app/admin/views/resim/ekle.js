@@ -56,8 +56,7 @@ var AdminResimEkleComponent = /** @class */ (function () {
     };
     AdminResimEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [ResimService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [ResimService, Router, FormBuilder])
     ], AdminResimEkleComponent);

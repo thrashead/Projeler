@@ -16,8 +16,7 @@ var AdminLayoutComponent = /** @class */ (function () {
     AdminLayoutComponent = tslib_1.__decorate([
         Component({
             selector: 'admin-layout',
-            templateUrl: './layoutAdmin.html',
-            providers: [SharedService]
+            templateUrl: './layoutAdmin.html'
         }),
         tslib_1.__metadata("design:paramtypes", [SharedService])
     ], AdminLayoutComponent);

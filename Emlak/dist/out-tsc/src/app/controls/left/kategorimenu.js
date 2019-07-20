@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { SolService } from "../../services/sol.service";
+import { SolAjaxService } from "../../services/solajax";
 var KategoriMenuComponent = /** @class */ (function () {
     function KategoriMenuComponent(_solService) {
         this._solService = _solService;
@@ -13,10 +13,9 @@ var KategoriMenuComponent = /** @class */ (function () {
     KategoriMenuComponent = tslib_1.__decorate([
         Component({
             selector: "emlak-kategorimenu",
-            templateUrl: './kategorimenu.html',
-            providers: [SolService]
+            templateUrl: './kategorimenu.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [SolService])
+        tslib_1.__metadata("design:paramtypes", [SolAjaxService])
     ], KategoriMenuComponent);
     return KategoriMenuComponent;
 }());

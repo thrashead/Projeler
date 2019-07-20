@@ -58,8 +58,7 @@ var AdminBaglantiEkleComponent = /** @class */ (function () {
     };
     AdminBaglantiEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [BaglantiService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [BaglantiService, ActivatedRoute, Router, FormBuilder])
     ], AdminBaglantiEkleComponent);

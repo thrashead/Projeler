@@ -108,8 +108,7 @@ var AdminHeaderComponent = /** @class */ (function () {
     AdminHeaderComponent = tslib_1.__decorate([
         Component({
             selector: 'admin-header',
-            templateUrl: './header.html',
-            providers: [SharedService]
+            templateUrl: './header.html'
         }),
         tslib_1.__metadata("design:paramtypes", [SharedService, Router])
     ], AdminHeaderComponent);

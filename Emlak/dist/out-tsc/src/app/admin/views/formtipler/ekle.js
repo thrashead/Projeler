@@ -37,8 +37,7 @@ var AdminFormTiplerEkleComponent = /** @class */ (function () {
     };
     AdminFormTiplerEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [FormTiplerService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormTiplerService, Router, FormBuilder])
     ], AdminFormTiplerEkleComponent);

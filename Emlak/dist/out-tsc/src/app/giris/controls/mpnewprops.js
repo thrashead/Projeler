@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 var MPNewPropsComponent = /** @class */ (function () {
     function MPNewPropsComponent(_emlakService, _solService) {
         this._emlakService = _emlakService;
@@ -27,10 +27,9 @@ var MPNewPropsComponent = /** @class */ (function () {
     MPNewPropsComponent = tslib_1.__decorate([
         Component({
             selector: 'emlak-mpnewprops',
-            templateUrl: './mpnewprops.html',
-            providers: [EmlakService, SolService]
+            templateUrl: './mpnewprops.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, SolService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, SolAjaxService])
     ], MPNewPropsComponent);
     return MPNewPropsComponent;
 }());

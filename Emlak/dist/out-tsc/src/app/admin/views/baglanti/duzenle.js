@@ -43,8 +43,7 @@ var AdminBaglantiDuzenleComponent = /** @class */ (function () {
     };
     AdminBaglantiDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [BaglantiService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [BaglantiService, ActivatedRoute, Router, FormBuilder])
     ], AdminBaglantiDuzenleComponent);

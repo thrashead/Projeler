@@ -1,13 +1,12 @@
 ﻿import { Component, HostListener } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 import { SharedService } from '../admin/services/shared';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
     selector: "emlak-header",
-    templateUrl: './header.html',
-    providers: [EmlakService, SharedService]
+    templateUrl: './header.html'
 })
 
 export class HeaderComponent {
@@ -16,7 +15,7 @@ export class HeaderComponent {
     girisForm: FormGroup;
     girisData: any;
     
-    constructor(private service: SharedService, private emlakService: EmlakService, private _formBuilder: FormBuilder, private router: Router) {
+    constructor(private service: SharedService, private emlakService: EmlakAjaxService, private _formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {

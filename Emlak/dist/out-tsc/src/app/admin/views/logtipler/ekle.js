@@ -35,8 +35,7 @@ var AdminLogTiplerEkleComponent = /** @class */ (function () {
     };
     AdminLogTiplerEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [LogTiplerService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LogTiplerService, Router, FormBuilder])
     ], AdminLogTiplerEkleComponent);

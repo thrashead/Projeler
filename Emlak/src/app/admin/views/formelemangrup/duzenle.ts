@@ -4,11 +4,11 @@ import { FormElemanService } from '../../services/formeleman';
 import { SharedService } from '../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [FormElemanGrupService, FormElemanService, SharedService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminFormElemanGrupDuzenleComponent {
@@ -27,6 +27,8 @@ export class AdminFormElemanGrupDuzenleComponent {
 
     callTable: boolean;
 
+    private subscription: Subscription = new Subscription();
+
     constructor(private service: FormElemanGrupService, private serviceProperty: FormElemanService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
@@ -41,6 +43,10 @@ export class AdminFormElemanGrupDuzenleComponent {
             Code: new FormControl(null),
             Active: new FormControl(null),
         });
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     onSubmit() {
@@ -80,7 +86,7 @@ export class AdminFormElemanGrupDuzenleComponent {
     }
 
     onPropertyCopy(id) {
-        this.serviceProperty.getKopyala(id).subscribe((resData) => {
+        this.subscription.add(this.serviceProperty.getKopyala(id).subscribe((resData) => {
             if (resData == true) {
                 this.ShowAlert("Copy");
 
@@ -90,7 +96,8 @@ export class AdminFormElemanGrupDuzenleComponent {
             else {
                 this.ShowAlert("CopyNot");
             }
-        }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError,
+            () => { this.subscription.unsubscribe(); }));
     }
 
     ShowAlert(type: string) {

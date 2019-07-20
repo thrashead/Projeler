@@ -105,8 +105,7 @@ var AdminDosyaIndexComponent = /** @class */ (function () {
     };
     AdminDosyaIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [DosyaService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [DosyaService, SharedService])
     ], AdminDosyaIndexComponent);

@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 var IletisimComponent = /** @class */ (function () {
     function IletisimComponent(_emlakService) {
         this._emlakService = _emlakService;
@@ -12,10 +12,9 @@ var IletisimComponent = /** @class */ (function () {
     };
     IletisimComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './iletisim.html',
-            providers: [EmlakService]
+            templateUrl: './iletisim.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService])
     ], IletisimComponent);
     return IletisimComponent;
 }());

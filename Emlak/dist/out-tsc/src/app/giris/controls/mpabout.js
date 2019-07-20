@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
 var MPAboutComponent = /** @class */ (function () {
     function MPAboutComponent(_emlakService) {
         this._emlakService = _emlakService;
@@ -21,10 +21,9 @@ var MPAboutComponent = /** @class */ (function () {
     MPAboutComponent = tslib_1.__decorate([
         Component({
             selector: 'emlak-mpabout',
-            templateUrl: './mpabout.html',
-            providers: [EmlakService]
+            templateUrl: './mpabout.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService])
     ], MPAboutComponent);
     return MPAboutComponent;
 }());

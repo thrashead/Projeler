@@ -1,17 +1,16 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { HomeService } from "../../services/home.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { HomeAjaxService } from "../../services/homeajax";
 
 @Component({
     selector: 'emlak-mpshowroom',
-    templateUrl: './mpshowroom.html',
-    providers: [EmlakService, HomeService]
+    templateUrl: './mpshowroom.html'
 })
 
 export class MPShowroomComponent {
     ilanlar: any;
 
-    constructor(private _emlakService: EmlakService, private _homeService: HomeService) {
+    constructor(private _emlakService: EmlakAjaxService, private _homeService: HomeAjaxService) {
     }
 
     ngOnInit() {

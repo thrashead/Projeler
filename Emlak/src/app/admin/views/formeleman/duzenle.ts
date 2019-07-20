@@ -5,11 +5,11 @@ import { FormElemanDegerService } from '../../services/formelemandeger';
 import { SharedService } from '../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './duzenle.html',
-    providers: [FormElemanService, FormElemanOzellikService, FormElemanDegerService, SharedService]
+    templateUrl: './duzenle.html'
 })
 
 export class AdminFormElemanDuzenleComponent {
@@ -28,6 +28,8 @@ export class AdminFormElemanDuzenleComponent {
 
     callTable: boolean;
 
+    private subscription: Subscription = new Subscription();
+
     constructor(private service: FormElemanService, private servicePropertyAttributes: FormElemanOzellikService, private servicePropertyValues: FormElemanDegerService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
@@ -45,6 +47,10 @@ export class AdminFormElemanDuzenleComponent {
             Code: new FormControl(null),
             OrderNumber: new FormControl(null),
         });
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     onSubmit() {
@@ -87,7 +93,7 @@ export class AdminFormElemanDuzenleComponent {
     }
 
     onPropertyAttributesCopy(id) {
-        this.servicePropertyAttributes.getKopyala(id).subscribe((resData) => {
+        this.subscription.add(this.servicePropertyAttributes.getKopyala(id).subscribe((resData) => {
             if (resData == true) {
                 this.ShowAlert("Copy");
 
@@ -97,7 +103,8 @@ export class AdminFormElemanDuzenleComponent {
             else {
                 this.ShowAlert("CopyNot");
             }
-        }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError,
+            () => { this.subscription.unsubscribe(); }));
     }
 
     onPropertyValuesDelete(id) {
@@ -116,7 +123,7 @@ export class AdminFormElemanDuzenleComponent {
     }
 
     onPropertyValuesCopy(id) {
-        this.servicePropertyValues.getKopyala(id).subscribe((resData) => {
+        this.subscription.add(this.servicePropertyValues.getKopyala(id).subscribe((resData) => {
             if (resData == true) {
                 this.ShowAlert("Copy");
 
@@ -126,7 +133,8 @@ export class AdminFormElemanDuzenleComponent {
             else {
                 this.ShowAlert("CopyNot");
             }
-        }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError,
+            () => { this.subscription.unsubscribe(); }));
     }
 
     ShowAlert(type: string) {

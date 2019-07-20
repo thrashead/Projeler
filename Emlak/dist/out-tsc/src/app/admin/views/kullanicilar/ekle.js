@@ -35,8 +35,7 @@ var AdminKullanicilarEkleComponent = /** @class */ (function () {
     };
     AdminKullanicilarEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [KullanicilarService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullanicilarService, Router, FormBuilder])
     ], AdminKullanicilarEkleComponent);

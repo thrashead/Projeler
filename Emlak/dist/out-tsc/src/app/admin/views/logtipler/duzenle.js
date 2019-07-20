@@ -114,8 +114,7 @@ var AdminLogTiplerDuzenleComponent = /** @class */ (function () {
     };
     AdminLogTiplerDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [LogTiplerService, LogIslemService, SharedService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LogTiplerService, LogIslemService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminLogTiplerDuzenleComponent);

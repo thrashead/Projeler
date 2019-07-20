@@ -80,8 +80,7 @@ var AdminKullaniciGrupHakIndexComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupHakIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [KullaniciGrupHakService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupHakService, SharedService])
     ], AdminKullaniciGrupHakIndexComponent);

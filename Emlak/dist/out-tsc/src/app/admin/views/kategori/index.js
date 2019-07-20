@@ -3,16 +3,21 @@ import { Component } from "@angular/core";
 import { KategoriService } from "../../services/kategori";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 var AdminKategoriIndexComponent = /** @class */ (function () {
     function AdminKategoriIndexComponent(service, sharedService, router) {
         this.service = service;
         this.sharedService = sharedService;
         this.router = router;
+        this.subscription = new Subscription();
     }
     AdminKategoriIndexComponent.prototype.ngOnInit = function () {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    };
+    AdminKategoriIndexComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AdminKategoriIndexComponent.prototype.onDelete = function (id) {
         var _this = this;
@@ -44,7 +49,7 @@ var AdminKategoriIndexComponent = /** @class */ (function () {
     };
     AdminKategoriIndexComponent.prototype.onCopy = function (id) {
         var _this = this;
-        this.service.getKopyala(id).subscribe(function (resData) {
+        this.subscription.add(this.service.getKopyala(id).subscribe(function (resData) {
             if (resData == true) {
                 _this.ShowAlert("Copy");
                 var currentUrl_1 = _this.router.url;
@@ -53,7 +58,7 @@ var AdminKategoriIndexComponent = /** @class */ (function () {
             else {
                 _this.ShowAlert("CopyNot");
             }
-        }, function (resError) { return _this.errorMsg = resError; });
+        }, function (resError) { return _this.errorMsg = resError; }, function () { _this.subscription.unsubscribe(); }));
     };
     AdminKategoriIndexComponent.prototype.ShowAlert = function (type) {
         $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
@@ -131,8 +136,7 @@ var AdminKategoriIndexComponent = /** @class */ (function () {
     };
     AdminKategoriIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [KategoriService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KategoriService, SharedService, Router])
     ], AdminKategoriIndexComponent);

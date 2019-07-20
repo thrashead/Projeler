@@ -2,11 +2,11 @@
 import { MetaService } from "../../services/meta";
 import { SharedService } from '../../services/shared';
 import { Router } from '@angular/router';
+import { Subscription } from "rxjs";
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './index.html',
-    providers: [MetaService, SharedService]
+    templateUrl: './index.html'
 })
 
 export class AdminMetaIndexComponent {
@@ -21,12 +21,18 @@ export class AdminMetaIndexComponent {
 
     callTable: boolean;
 
+    private subscription: Subscription = new Subscription();
+
     constructor(private service: MetaService, private sharedService: SharedService, private router: Router) {
     }
 
     ngOnInit() {
         this.callTable = true;
         this.UserRightsControl($("#hdnModel").val());
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     onDelete(id) {
@@ -60,7 +66,7 @@ export class AdminMetaIndexComponent {
     }
 
     onCopy(id) {
-        this.service.getKopyala(id).subscribe((resData) => {
+        this.subscription.add(this.service.getKopyala(id).subscribe((resData) => {
             if (resData == true) {
                 this.ShowAlert("Copy");
 
@@ -70,7 +76,8 @@ export class AdminMetaIndexComponent {
             else {
                 this.ShowAlert("CopyNot");
             }
-        }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError,
+            () => { this.subscription.unsubscribe(); }));
     }
 
     ShowAlert(type: string) {

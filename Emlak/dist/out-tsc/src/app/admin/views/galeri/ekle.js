@@ -35,8 +35,7 @@ var AdminGaleriEkleComponent = /** @class */ (function () {
     };
     AdminGaleriEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [GaleriService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [GaleriService, Router, FormBuilder])
     ], AdminGaleriEkleComponent);

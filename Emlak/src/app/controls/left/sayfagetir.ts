@@ -1,11 +1,10 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 
 @Component({
     selector: "emlak-sayfagetir",
-    templateUrl: './sayfagetir.html',
-    providers: [EmlakService, SolService]
+    templateUrl: './sayfagetir.html'
 })
 
 export class SayfaGetirComponent{ 
@@ -13,7 +12,7 @@ export class SayfaGetirComponent{
 
     sayac: string;
 
-    constructor(private _emlakService: EmlakService, private _solService: SolService) {
+    constructor(private _emlakService: EmlakAjaxService, private _solService: SolAjaxService) {
     }
 
     ngOnInit() {

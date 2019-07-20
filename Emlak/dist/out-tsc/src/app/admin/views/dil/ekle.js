@@ -53,8 +53,7 @@ var AdminDilEkleComponent = /** @class */ (function () {
     };
     AdminDilEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [DilService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [DilService, Router, FormBuilder])
     ], AdminDilEkleComponent);

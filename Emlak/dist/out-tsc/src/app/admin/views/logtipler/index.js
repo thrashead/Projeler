@@ -80,8 +80,7 @@ var AdminLogTiplerIndexComponent = /** @class */ (function () {
     };
     AdminLogTiplerIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [LogTiplerService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LogTiplerService, SharedService])
     ], AdminLogTiplerIndexComponent);

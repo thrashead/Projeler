@@ -62,8 +62,7 @@ var AdminKategoriDilEkleComponent = /** @class */ (function () {
     };
     AdminKategoriDilEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [KategoriDilService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KategoriDilService, ActivatedRoute, Router, FormBuilder])
     ], AdminKategoriDilEkleComponent);

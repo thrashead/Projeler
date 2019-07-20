@@ -1,17 +1,16 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak.service";
-import { SolService } from "../../services/sol.service";
+import { EmlakAjaxService } from "../../services/emlakajax";
+import { SolAjaxService } from "../../services/solajax";
 
 @Component({
     selector: 'emlak-mpnewprops',
-    templateUrl: './mpnewprops.html',
-    providers: [EmlakService, SolService]
+    templateUrl: './mpnewprops.html'
 })
 
 export class MPNewPropsComponent{ 
     ilanlar: any;
 
-    constructor(private _emlakService: EmlakService, private _solService: SolService) {
+    constructor(private _emlakService: EmlakAjaxService, private _solService: SolAjaxService) {
     }
 
     ngOnInit() {

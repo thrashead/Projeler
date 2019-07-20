@@ -3,8 +3,7 @@ import { LoglarService } from "../../services/loglar";
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './index.html',
-    providers: [LoglarService]
+    templateUrl: './index.html'
 })
 
 export class AdminLoglarIndexComponent {

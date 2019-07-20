@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 
 @Component({
     selector: "emlak-footer",
-    templateUrl: './footer.html',
-    providers: [EmlakService]
+    templateUrl: './footer.html'
 })
 
 export class FooterComponent {
@@ -19,7 +18,7 @@ export class FooterComponent {
 
     errorMsg: string;
 
-    constructor(private _emlakService: EmlakService) {
+    constructor(private _emlakService: EmlakAjaxService) {
     }
 
     ngOnInit() {

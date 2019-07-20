@@ -105,8 +105,7 @@ var AdminIcerikDilIndexComponent = /** @class */ (function () {
     };
     AdminIcerikDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [IcerikDilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [IcerikDilService, SharedService])
     ], AdminIcerikDilIndexComponent);

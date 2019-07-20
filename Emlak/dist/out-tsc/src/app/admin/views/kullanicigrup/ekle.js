@@ -35,8 +35,7 @@ var AdminKullaniciGrupEkleComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [KullaniciGrupService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupService, Router, FormBuilder])
     ], AdminKullaniciGrupEkleComponent);

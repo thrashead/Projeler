@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
-    templateUrl: './ekle.html',
-    providers: [IcerikService]
+    templateUrl: './ekle.html'
 })
 
 export class AdminIcerikEkleComponent {

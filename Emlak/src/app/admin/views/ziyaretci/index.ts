@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './index.html',
-    providers: [ZiyaretciService, SharedService]
+    templateUrl: './index.html'
 })
 
 export class AdminZiyaretciIndexComponent {

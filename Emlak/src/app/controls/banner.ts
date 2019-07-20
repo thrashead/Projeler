@@ -1,14 +1,13 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 
 @Component({
     selector: "emlak-banner",
-    templateUrl: './banner.html',
-    providers: [EmlakService]
+    templateUrl: './banner.html'
 })
 
 export class BannerComponent{ 
-    constructor(private _emlakService: EmlakService) {
+    constructor(private _emlakService: EmlakAjaxService) {
     }
 
     ngOnInit() {

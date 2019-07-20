@@ -41,8 +41,7 @@ var AdminKullanicilarGrupDegistirComponent = /** @class */ (function () {
     };
     AdminKullanicilarGrupDegistirComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './grupdegistir.html',
-            providers: [KullanicilarService]
+            templateUrl: './grupdegistir.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullanicilarService, ActivatedRoute, Router, FormBuilder])
     ], AdminKullanicilarGrupDegistirComponent);

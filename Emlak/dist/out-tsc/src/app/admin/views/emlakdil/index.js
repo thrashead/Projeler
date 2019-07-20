@@ -105,8 +105,7 @@ var AdminEmlakDilIndexComponent = /** @class */ (function () {
     };
     AdminEmlakDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [EmlakDilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [EmlakDilService, SharedService])
     ], AdminEmlakDilIndexComponent);

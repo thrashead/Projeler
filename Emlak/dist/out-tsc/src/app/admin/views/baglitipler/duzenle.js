@@ -164,8 +164,7 @@ var AdminBagliTiplerDuzenleComponent = /** @class */ (function () {
     };
     AdminBagliTiplerDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [BagliTiplerService, BaglantiService, SharedService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [BagliTiplerService, BaglantiService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminBagliTiplerDuzenleComponent);

@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { HomeService } from "../../services/home.service";
+import { HomeAjaxService } from "../../services/homeajax";
 
 @Component({
     selector: 'emlak-slider',
-    templateUrl: './slider.html',
-    providers: [HomeService]
+    templateUrl: './slider.html'
 })
 
 export class SliderComponent {
@@ -12,7 +11,7 @@ export class SliderComponent {
 
     errorMsg: string;
 
-    constructor(private _homeService: HomeService) {
+    constructor(private _homeService: HomeAjaxService) {
     }
 
     ngOnInit() {

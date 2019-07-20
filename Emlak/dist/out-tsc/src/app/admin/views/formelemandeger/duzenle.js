@@ -47,8 +47,7 @@ var AdminFormElemanDegerDuzenleComponent = /** @class */ (function () {
     };
     AdminFormElemanDegerDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [FormElemanDegerService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormElemanDegerService, ActivatedRoute, Router, FormBuilder])
     ], AdminFormElemanDegerDuzenleComponent);

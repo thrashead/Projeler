@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
-import { REService } from "../services/re.service";
+import { EmlakAjaxService } from "../services/emlakajax";
+import { REAjaxService } from "../services/reajax";
 import { ActivatedRoute } from '@angular/router';
 var EmlakDetayComponent = /** @class */ (function () {
     function EmlakDetayComponent(_emlakService, _reService, route) {
@@ -133,10 +133,9 @@ var EmlakDetayComponent = /** @class */ (function () {
     };
     EmlakDetayComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './emlakdetay.html',
-            providers: [EmlakService, REService]
+            templateUrl: './emlakdetay.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [EmlakService, REService, ActivatedRoute])
+        tslib_1.__metadata("design:paramtypes", [EmlakAjaxService, REAjaxService, ActivatedRoute])
     ], EmlakDetayComponent);
     return EmlakDetayComponent;
 }());

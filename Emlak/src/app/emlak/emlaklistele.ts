@@ -1,11 +1,10 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
-import { REService } from "../services/re.service";
+import { EmlakAjaxService } from "../services/emlakajax";
+import { REAjaxService } from "../services/reajax";
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-    templateUrl: './emlaklistele.html',
-    providers: [EmlakService, REService]
+    templateUrl: './emlaklistele.html'
 })
 
 export class EmlakListeleComponent {
@@ -16,7 +15,7 @@ export class EmlakListeleComponent {
     sayfa: number;
     sayfalar: number[] = new Array();
 
-    constructor(private _emlakService: EmlakService, private _reService: REService, private route: ActivatedRoute) {
+    constructor(private _emlakService: EmlakAjaxService, private _reService: REAjaxService, private route: ActivatedRoute) {
 
     }
 

@@ -80,8 +80,7 @@ var AdminKullaniciGrupIndexComponent = /** @class */ (function () {
     };
     AdminKullaniciGrupIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [KullaniciGrupService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KullaniciGrupService, SharedService])
     ], AdminKullaniciGrupIndexComponent);

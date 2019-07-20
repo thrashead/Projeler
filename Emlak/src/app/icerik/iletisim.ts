@@ -1,9 +1,8 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../services/emlak.service";
+import { EmlakAjaxService } from "../services/emlakajax";
 
 @Component({
-    templateUrl: './iletisim.html',
-    providers: [EmlakService]
+    templateUrl: './iletisim.html'
 })
 
 export class IletisimComponent {
@@ -11,7 +10,7 @@ export class IletisimComponent {
 
     errorMsg: string;
 
-    constructor(private _emlakService: EmlakService) {
+    constructor(private _emlakService: EmlakAjaxService) {
     }
 
     ngOnInit() {

@@ -45,8 +45,7 @@ var AdminFormElemanOzellikDuzenleComponent = /** @class */ (function () {
     };
     AdminFormElemanOzellikDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [FormElemanOzellikService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [FormElemanOzellikService, ActivatedRoute, Router, FormBuilder])
     ], AdminFormElemanOzellikDuzenleComponent);

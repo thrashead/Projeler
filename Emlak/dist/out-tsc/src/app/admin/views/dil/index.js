@@ -105,8 +105,7 @@ var AdminDilIndexComponent = /** @class */ (function () {
     };
     AdminDilIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [DilService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [DilService, SharedService])
     ], AdminDilIndexComponent);

@@ -6,7 +6,7 @@ import { ISlider } from '../model/ISlider';
 import { IRealEstatesForList } from '../model/IRealEstatesForList';
 
 @Injectable()
-export class HomeService {
+export class HomeAjaxService {
     private linkSlider: string = "Home/Slider";
     private linkVitrinIlanlar: string = "Home/VitrinIlanlar";
 

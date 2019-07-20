@@ -35,8 +35,7 @@ var AdminMetaEkleComponent = /** @class */ (function () {
     };
     AdminMetaEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [MetaService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [MetaService, Router, FormBuilder])
     ], AdminMetaEkleComponent);

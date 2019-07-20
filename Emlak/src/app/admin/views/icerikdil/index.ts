@@ -4,8 +4,7 @@ import { SharedService } from '../../services/shared';
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './index.html',
-    providers: [IcerikDilService, SharedService]
+    templateUrl: './index.html'
 })
 
 export class AdminIcerikDilIndexComponent {

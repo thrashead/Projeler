@@ -3,8 +3,7 @@ import { SharedService } from '../../services/shared';
 
 @Component({
     selector: 'admin-layout',
-    templateUrl: './layoutAdmin.html',
-    providers: [SharedService]
+    templateUrl: './layoutAdmin.html'
 })
 
 export class AdminLayoutComponent {

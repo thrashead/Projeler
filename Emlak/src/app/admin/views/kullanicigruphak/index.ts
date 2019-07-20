@@ -4,8 +4,7 @@ import { SharedService } from '../../services/shared';
 import * as $ from "jquery";
 
 @Component({
-    templateUrl: './index.html',
-    providers: [KullaniciGrupHakService, SharedService]
+    templateUrl: './index.html'
 })
 
 export class AdminKullaniciGrupHakIndexComponent {

@@ -64,8 +64,7 @@ var AdminGaleriDilDuzenleComponent = /** @class */ (function () {
     };
     AdminGaleriDilDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [GaleriDilService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [GaleriDilService, ActivatedRoute, Router, FormBuilder])
     ], AdminGaleriDilDuzenleComponent);

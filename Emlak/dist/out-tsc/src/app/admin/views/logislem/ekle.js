@@ -45,8 +45,7 @@ var AdminLogIslemEkleComponent = /** @class */ (function () {
     };
     AdminLogIslemEkleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './ekle.html',
-            providers: [LogIslemService]
+            templateUrl: './ekle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [LogIslemService, ActivatedRoute, Router, FormBuilder])
     ], AdminLogIslemEkleComponent);

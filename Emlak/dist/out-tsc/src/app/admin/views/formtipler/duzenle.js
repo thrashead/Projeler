@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
-import { FormElemanService } from "../../services/formeleman";
+import { FormTiplerService } from '../../services/formtipler';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormControl } from "@angular/forms";
 var AdminFormTiplerDuzenleComponent = /** @class */ (function () {
@@ -47,10 +47,9 @@ var AdminFormTiplerDuzenleComponent = /** @class */ (function () {
     };
     AdminFormTiplerDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [FormElemanService]
+            templateUrl: './duzenle.html'
         }),
-        tslib_1.__metadata("design:paramtypes", [FormElemanService, ActivatedRoute, Router, FormBuilder])
+        tslib_1.__metadata("design:paramtypes", [FormTiplerService, ActivatedRoute, Router, FormBuilder])
     ], AdminFormTiplerDuzenleComponent);
     return AdminFormTiplerDuzenleComponent;
 }());

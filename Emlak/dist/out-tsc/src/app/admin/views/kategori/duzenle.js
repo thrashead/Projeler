@@ -141,8 +141,7 @@ var AdminKategoriDuzenleComponent = /** @class */ (function () {
     };
     AdminKategoriDuzenleComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './duzenle.html',
-            providers: [KategoriService, KategoriDilService, SharedService]
+            templateUrl: './duzenle.html'
         }),
         tslib_1.__metadata("design:paramtypes", [KategoriService, KategoriDilService, SharedService, ActivatedRoute, Router, FormBuilder])
     ], AdminKategoriDuzenleComponent);

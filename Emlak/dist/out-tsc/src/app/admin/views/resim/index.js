@@ -105,8 +105,7 @@ var AdminResimIndexComponent = /** @class */ (function () {
     };
     AdminResimIndexComponent = tslib_1.__decorate([
         Component({
-            templateUrl: './index.html',
-            providers: [ResimService, SharedService]
+            templateUrl: './index.html'
         }),
         tslib_1.__metadata("design:paramtypes", [ResimService, SharedService])
     ], AdminResimIndexComponent);
