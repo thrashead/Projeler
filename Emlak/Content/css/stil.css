@@ -148,7 +148,7 @@ input[type=text].kisa {
             height: 255px;
         }
 
-#scrolltop {
+/*#scrolltop {
     position: fixed;
     bottom: 3px;
     right: 3px;
@@ -163,7 +163,7 @@ input[type=text].kisa {
 
     #scrolltop:hover {
         background-position-x: 0px;
-    }
+    }*/
 
 #reloader {
     position: fixed;

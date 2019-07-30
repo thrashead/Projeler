@@ -29,7 +29,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Galeri", "i"))
                 return Json(null);
 
-            galeri.Url = galeri.Title.ToHyperLinkText();
+            galeri.Url = galeri.Title.ToUrl();
 
             var result = entity.usp_GalleryInsert(galeri.Title, galeri.Url, galeri.Code, galeri.Active).FirstOrDefault();
 
@@ -67,7 +67,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Galeri", "u"))
                 return Json(null);
 
-            galeri.Url = galeri.Title.ToHyperLinkText();
+            galeri.Url = galeri.Title.ToUrl();
 
             var result = entity.usp_GalleryUpdate(galeri.ID, galeri.Title, galeri.Url, galeri.Code, galeri.Active).FirstOrDefault();
 

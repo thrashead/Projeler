@@ -45,7 +45,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("BagliTipler", "i"))
                 return Json(null);
 
-            link.Url = link.Title.ToHyperLinkText();
+            link.Url = link.Title.ToUrl();
 
             var result = entity.usp_LinkTypesInsert(link.Title, link.MainTypeID, link.MainID, link.LinkedTypeID, link.Url).FirstOrDefault();
 
@@ -89,7 +89,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("BagliTipler", "u"))
                 return Json(null);
 
-            link.Url = link.Title.ToHyperLinkText();
+            link.Url = link.Title.ToUrl();
 
             var result = entity.usp_LinkTypesCheckUpdate(link.ID, link.Title, link.MainTypeID, link.MainID, link.LinkedTypeID, link.Url).FirstOrDefault();
 

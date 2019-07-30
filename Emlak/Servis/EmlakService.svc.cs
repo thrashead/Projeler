@@ -126,7 +126,7 @@ namespace Emlak.Servis
 
                 foreach (string item in kategori.Split('-'))
                 {
-                    katText += item.FirstCharToUpperCase().ToHyperLinkText() + "-";
+                    katText += item.FirstCharToUpperCase().ToUrl() + "-";
                 }
 
                 kategori = katText.TrimEnd('-');
@@ -177,7 +177,7 @@ namespace Emlak.Servis
                 {
                     ID = item.ID.ToString(),
                     ParentID = item.ParentID.ToString(),
-                    Url = item.Url.ToLower().ToHyperLinkText(true),
+                    Url = item.Url.ToLower().ToUrl(true),
                     CategoryName = item.CategoryName,
                     SubCategories = AltKategoriler(item.ID.ToString())
                 });
@@ -198,7 +198,7 @@ namespace Emlak.Servis
                 {
                     ID = item.ID.ToString(),
                     ParentID = item.ParentID.ToString(),
-                    Url = item.Url.ToLower().ToHyperLinkText(true),
+                    Url = item.Url.ToLower().ToUrl(true),
                     CategoryName = item.CategoryName,
                     SubCategories = AltKategoriler(item.ID.ToString())
                 });
@@ -221,7 +221,7 @@ namespace Emlak.Servis
                 {
                     ID = item.ID.ToString(),
                     ParentID = item.ParentID.ToString(),
-                    Url = item.Url.ToLower().ToHyperLinkText(true),
+                    Url = item.Url.ToLower().ToUrl(true),
                     CategoryName = item.CategoryName,
                     SubCategories = AltKategoriler(item.ID.ToString())
                 });
@@ -322,7 +322,7 @@ namespace Emlak.Servis
 
             foreach (string item in haberurl.Split('-'))
             {
-                url += item.FirstCharToUpperCase().ToHyperLinkText() + "-";
+                url += item.FirstCharToUpperCase().ToUrl() + "-";
             }
 
             haberurl = url.TrimEnd('-');
@@ -346,7 +346,7 @@ namespace Emlak.Servis
                 ContentData icerik = new ContentData();
                 icerik.Name = item.ContentName;
                 icerik.Content = item.Description.Replace("\\r\\n", "");
-                icerik.Url = item.Url.ToHyperLinkText(true);
+                icerik.Url = item.Url.ToUrl(true);
                 icerik.Image = AppMgr.UploadPath + "/" + item.Picture;
 
                 icerikler.Add(icerik);
@@ -363,7 +363,7 @@ namespace Emlak.Servis
 
             foreach (string item in contenturl.Split('-'))
             {
-                url += item.FirstCharToUpperCase().ToHyperLinkText() + "-";
+                url += item.FirstCharToUpperCase().ToUrl() + "-";
             }
 
             contenturl = url.TrimEnd('-');
@@ -374,7 +374,7 @@ namespace Emlak.Servis
             {
                 icerik.Name = rb.ContentName;
                 icerik.Content = rb.Description.Replace("\\r\\n", "");
-                icerik.Url = rb.Url.ToHyperLinkText(true);
+                icerik.Url = rb.Url.ToUrl(true);
                 icerik.Image = AppMgr.UploadPath + "/" + rb.Picture;
             }
 
@@ -429,7 +429,7 @@ namespace Emlak.Servis
         //        }
 
         //        content.ContentName = newsData.Title;
-        //        content.RouteUrl = newsData.Title.ToHyperLinkText();
+        //        content.RouteUrl = newsData.Title.ToUrl();
         //        content.Code = "haber";
         //        content.Active = true;
 

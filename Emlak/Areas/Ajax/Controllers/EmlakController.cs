@@ -30,7 +30,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Emlak", "i"))
                 return Json(null);
 
-            emlak.Url = emlak.Baslik.ToHyperLinkText();
+            emlak.Url = emlak.Baslik.ToUrl();
 
             var result = entity.usp_RealEstatesInsert(emlak.Baslik, emlak.Code, emlak.Fiyat, emlak.Yeni, emlak.GununEmlagi,
                 emlak.Sehir, emlak.Ilce, emlak.Semt, emlak.Sahibi, emlak.OdaSayisi, emlak.KatSayisi, emlak.IsinmaTipi,
@@ -75,7 +75,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Emlak", "u"))
                 return Json(null);
 
-            emlak.Url = emlak.Baslik.ToHyperLinkText();
+            emlak.Url = emlak.Baslik.ToUrl();
 
             var result = entity.usp_RealEstatesUpdate(emlak.ID, emlak.Baslik, emlak.Code, emlak.Fiyat, emlak.Yeni, emlak.GununEmlagi,
                 emlak.Sehir, emlak.Ilce, emlak.Semt, emlak.Sahibi, emlak.OdaSayisi, emlak.KatSayisi, emlak.IsinmaTipi,

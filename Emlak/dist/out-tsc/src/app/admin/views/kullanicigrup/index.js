@@ -53,16 +53,16 @@ var AdminKullaniciGrupIndexComponent = /** @class */ (function () {
                                 if ($(".dropdown-menu").first().find("a").length <= 0) {
                                     $(".btn-group").remove();
                                 }
-                                $(document).on("click", ".fg-button", function () {
+                                $(document).off("click", ".fg-button").on("click", ".fg-button", function () {
                                     setTimeout(function () {
                                         _this.UserRightsControl($("#hdnModel").val());
                                     }, 1);
                                 });
-                                $(document).on("click", "a.dltLink", function () {
+                                $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
                                     $(this).addClass("active-dlt");
                                     $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
                                 });
-                                $(document).on("click", "a.dlt-yes", function () {
+                                $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", function () {
                                     var id = $("a.dlt-yes").attr("data-id");
                                     _this.onDelete(id);
                                 });

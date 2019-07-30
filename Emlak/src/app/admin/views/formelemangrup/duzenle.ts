@@ -136,28 +136,28 @@ export class AdminFormElemanGrupDuzenleComponent {
                                             $(".btn-group").remove();
                                         }
 
-                                        $(document).on("click", ".fg-button", () => {
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                                             setTimeout(() => {
                                                 this.UserRightsControl($("#hdnModel").val());
                                             }, 1);
                                         });
 
-                                        $(document).on("click", "a.dltLink", function () {
+                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
                                             $(this).addClass("active-dlt");
                                             $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
                                         });
 
-                                        $(document).on("click", "a.dlt-yes", () => {
+                                        $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
                                             let id: string = $("a.dlt-yes").attr("data-id");
                                             this.onPropertyDelete(id);
                                         });
 
-                                        $(document).on("click", "a.cpyLink", function () {
+                                        $(document).off("click", "a.cpyLink").on("click", "a.cpyLink", function () {
                                             $(this).addClass("active-cpy");
                                             $("a.cpy-yes").attr("data-id", $(this).attr("data-id"));
                                         });
 
-                                        $(document).on("click", "a.cpy-yes", () => {
+                                        $(document).off("click", "a.cpy-yes").on("click", "a.cpy-yes", () => {
                                             let id: string = $("a.cpy-yes").attr("data-id");
                                             this.onPropertyCopy(id);
                                         });

@@ -50,7 +50,7 @@ var AdminZiyaretciIndexComponent = /** @class */ (function () {
                         if ($(".dropdown-menu").first().find("a").length <= 0) {
                             $(".btn-group").remove();
                         }
-                        $(document).on("click", ".fg-button", function () {
+                        $(document).off("click", ".fg-button").on("click", ".fg-button", function () {
                             setTimeout(function () {
                                 _this.UserRightsControl($("#hdnModel").val());
                             }, 1);

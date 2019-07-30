@@ -13,7 +13,7 @@
 
     <div class="Lang">
         <a *ngFor="let item of diller" class="btnLang" href="javascript:;" title="{{item.LangName}}" (click)="onClick(item.ShortName)">
-            <img src="Emlak/Uploads/{{item.FlagImage}}" />
+            <img src="{{item.FlagImage}}" />
         </a>
     </div>
 

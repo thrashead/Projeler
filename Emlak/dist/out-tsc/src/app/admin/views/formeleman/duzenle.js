@@ -143,37 +143,37 @@ var AdminFormElemanDuzenleComponent = /** @class */ (function () {
                                         if ($(".dropdown-menu").first().find("a").length <= 0) {
                                             $(".btn-group").remove();
                                         }
-                                        $(document).on("click", ".fg-button", function () {
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", function () {
                                             setTimeout(function () {
                                                 _this.UserRightsControl($("#hdnModel").val());
                                             }, 1);
                                         });
-                                        $(document).on("click", "a.dltLink", function () {
+                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
                                             $(this).addClass("active-dlt");
                                             $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
                                             $("a.dlt-yes").attr("data-link", $(this).attr("data-link"));
                                         });
-                                        $(document).on("click", "a.dlt-yes[data-link='PropertyAttributes']", function () {
+                                        $(document).off("click", "a.dlt-yes[data-link='PropertyAttributes']").on("click", "a.dlt-yes[data-link='PropertyAttributes']", function () {
                                             var id = $("a.dlt-yes").attr("data-id");
                                             _this.onPropertyAttributesDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
-                                        $(document).on("click", "a.dlt-yes[data-link='PropertyValues']", function () {
+                                        $(document).off("click", "a.dlt-yes[data-link='PropertyValues']").on("click", "a.dlt-yes[data-link='PropertyValues']", function () {
                                             var id = $("a.dlt-yes").attr("data-id");
                                             _this.onPropertyValuesDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
-                                        $(document).on("click", "a.cpyLink", function () {
+                                        $(document).off("click", "a.cpyLink").on("click", "a.cpyLink", function () {
                                             $(this).addClass("active-cpy");
                                             $("a.cpy-yes").attr("data-id", $(this).attr("data-id"));
                                             $("a.cpy-yes").attr("data-link", $(this).attr("data-link"));
                                         });
-                                        $(document).on("click", "a.cpy-yes[data-link='PropertyAttributes']", function () {
+                                        $(document).off("click", "a.cpy-yes[data-link='PropertyAttributes']").on("click", "a.cpy-yes[data-link='PropertyAttributes']", function () {
                                             var id = $("a.cpy-yes").attr("data-id");
                                             _this.onPropertyAttributesCopy(id);
                                             $("a.cpy-yes").removeAttr("data-link");
                                         });
-                                        $(document).on("click", "a.cpy-yes[data-link='PropertyValues']", function () {
+                                        $(document).off("click", "a.cpy-yes[data-link='PropertyValues']").on("click", "a.cpy-yes[data-link='PropertyValues']", function () {
                                             var id = $("a.cpy-yes").attr("data-id");
                                             _this.onPropertyValuesCopy(id);
                                             $("a.cpy-yes").removeAttr("data-link");

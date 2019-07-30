@@ -66,7 +66,7 @@ export class AdminZiyaretciIndexComponent {
                             $(".btn-group").remove();
                         }
 
-                        $(document).on("click", ".fg-button", () => {
+                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                             setTimeout(() => {
                                 this.UserRightsControl($("#hdnModel").val());
                             }, 1);

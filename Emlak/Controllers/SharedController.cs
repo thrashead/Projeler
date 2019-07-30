@@ -23,7 +23,7 @@ namespace Emlak.Controllers
                 var list = ((from a in rb
                              select new
                              {
-                                 FlagImage = a.Flag == null ? "" : a.Flag,
+                                 FlagImage = a.Flag == null ? "" : AppMgr.UploadPath + "/" + a.Flag,
                                  ShortName = a.ShortName == null ? "" : a.ShortName,
                                  LangName = a.TransName == null ? "" : a.TransName,
                              }).ToList());

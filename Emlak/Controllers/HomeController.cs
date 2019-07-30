@@ -17,6 +17,14 @@ namespace Emlak.Controllers
         {
             List<Resim> pictures = entity.sp_PictureByCodeSelect("slider").ToList().ChangeModelList<Resim, sp_PictureByCodeSelect_Result>();
 
+            foreach (var item in pictures)
+            {
+                if (item.PictureUrl != null)
+                {
+                    item.PictureUrl = AppMgr.UploadPath + "/" + item.PictureUrl;
+                }
+            }
+
             return Json(pictures, JsonRequestBehavior.AllowGet);
         }
 

@@ -29,7 +29,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Icerik", "i"))
                 return Json(null);
 
-            icerik.Url = icerik.Title.ToHyperLinkText();
+            icerik.Url = icerik.Title.ToUrl();
 
             var result = entity.usp_ContentInsert(icerik.Title, icerik.Url, icerik.Code, icerik.Active).FirstOrDefault();
 
@@ -66,7 +66,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Icerik", "u"))
                 return Json(null);
 
-            icerik.Url = icerik.Title.ToHyperLinkText();
+            icerik.Url = icerik.Title.ToUrl();
 
             var result = entity.usp_ContentUpdate(icerik.ID, icerik.Title, icerik.Url, icerik.Code, icerik.Active).FirstOrDefault();
 

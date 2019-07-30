@@ -134,36 +134,36 @@ var AdminKullaniciGrupDuzenleComponent = /** @class */ (function () {
                                         if ($(".dropdown-menu").first().find("a").length <= 0) {
                                             $(".btn-group").remove();
                                         }
-                                        $(document).on("click", ".fg-button", function () {
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", function () {
                                             setTimeout(function () {
                                                 _this.UserRightsControl($("#hdnModel").val());
                                             }, 1);
                                         });
-                                        $(document).on("click", "a.dltLink", function () {
+                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
                                             $(this).addClass("active-dlt");
                                             $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
                                             $("a.dlt-yes").attr("data-link", $(this).attr("data-link"));
                                         });
-                                        $(document).on("click", "a.dlt-yes[data-link='UserGroupRights']", function () {
+                                        $(document).off("click", "a.dlt-yes[data-link='UserGroupRights']").on("click", "a.dlt-yes[data-link='UserGroupRights']", function () {
                                             var id = $("a.dlt-yes").attr("data-id");
                                             _this.onUserGroupRightsDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
-                                        $(document).on("click", "a.dlt-yes[data-link='UserGroupTables']", function () {
+                                        $(document).off("click", "a.dlt-yes[data-link='UserGroupTables']").on("click", "a.dlt-yes[data-link='UserGroupTables']", function () {
                                             var id = $("a.dlt-yes").attr("data-id");
                                             _this.onUserGroupTablesDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
-                                        $(document).on("click", "a.dlt-yes[data-link='Users']", function () {
+                                        $(document).off("click", "a.dlt-yes[data-link='Users']").on("click", "a.dlt-yes[data-link='Users']", function () {
                                             var id = $("a.dlt-yes").attr("data-id");
                                             _this.onUsersDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
-                                        $(document).on("click", "a.rdltLink", function () {
+                                        $(document).off("click", "a.rdltLink").on("click", "a.rdltLink", function () {
                                             $(this).addClass("active-rdlt");
                                             $("a.rdlt-yes").attr("data-id", $(this).attr("data-id"));
                                         });
-                                        $(document).on("click", "a.rdlt-yes", function () {
+                                        $(document).off("click", "a.rdlt-yes").on("click", "a.rdlt-yes", function () {
                                             var id = $("a.rdlt-yes").attr("data-id");
                                             _this.onUsersRealDelete(id);
                                         });

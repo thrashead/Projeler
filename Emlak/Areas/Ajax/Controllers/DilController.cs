@@ -144,7 +144,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Dil", "i"))
                 return Json(null);
 
-            Uploader pic = Uploader.UploadPicture(null, false);
+            Uploader pic = Uploader.UploadPicture(true, null, false);
 
             if (pic.Control)
             {
@@ -166,7 +166,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Dil", "u"))
                 return Json(null);
 
-            Uploader flag = Uploader.UploadPicture(null, false);
+            Uploader flag = Uploader.UploadPicture(true, null, false);
 
             ceviri.HasFile = flag.HasFile;
 

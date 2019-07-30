@@ -387,7 +387,7 @@ import { ZiyaretciService } from './admin/services/ziyaretci';
         ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
         HttpClientModule
     ],
-    //'/' -> '/Emlak/' Bu þekilde deðiþecek
+    //'/Emlak/' -> '/' Bu þekilde deðiþecek
     providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' },
         EmlakAjaxService,
         HomeAjaxService,

@@ -29,7 +29,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Urun", "i"))
                 return Json(null);
 
-            urun.Url = urun.Title.ToHyperLinkText();
+            urun.Url = urun.Title.ToUrl();
 
             var result = entity.usp_ProductInsert(urun.Title, urun.Url, urun.Code, urun.Active).FirstOrDefault();
 
@@ -67,7 +67,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Urun", "u"))
                 return Json(null);
 
-            urun.Url = urun.Title.ToHyperLinkText();
+            urun.Url = urun.Title.ToUrl();
 
             var result = entity.usp_ProductUpdate(urun.ID, urun.Title, urun.Url, urun.Code, urun.Active).FirstOrDefault();
 

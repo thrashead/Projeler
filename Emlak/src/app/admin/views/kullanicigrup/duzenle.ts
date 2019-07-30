@@ -159,42 +159,42 @@ export class AdminKullaniciGrupDuzenleComponent {
                                             $(".btn-group").remove();
                                         }
 
-                                        $(document).on("click", ".fg-button", () => {
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                                             setTimeout(() => {
                                                 this.UserRightsControl($("#hdnModel").val());
                                             }, 1);
                                         });
 
-                                        $(document).on("click", "a.dltLink", function () {
+                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
                                             $(this).addClass("active-dlt");
                                             $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
                                             $("a.dlt-yes").attr("data-link", $(this).attr("data-link"));
                                         });
 
-                                        $(document).on("click", "a.dlt-yes[data-link='UserGroupRights']", () => {
+                                        $(document).off("click", "a.dlt-yes[data-link='UserGroupRights']").on("click", "a.dlt-yes[data-link='UserGroupRights']", () => {
                                             let id: string = $("a.dlt-yes").attr("data-id");
                                             this.onUserGroupRightsDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
 
-                                        $(document).on("click", "a.dlt-yes[data-link='UserGroupTables']", () => {
+                                        $(document).off("click", "a.dlt-yes[data-link='UserGroupTables']").on("click", "a.dlt-yes[data-link='UserGroupTables']", () => {
                                             let id: string = $("a.dlt-yes").attr("data-id");
                                             this.onUserGroupTablesDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
 
-                                        $(document).on("click", "a.dlt-yes[data-link='Users']", () => {
+                                        $(document).off("click", "a.dlt-yes[data-link='Users']").on("click", "a.dlt-yes[data-link='Users']", () => {
                                             let id: string = $("a.dlt-yes").attr("data-id");
                                             this.onUsersDelete(id);
                                             $("a.dlt-yes").removeAttr("data-link");
                                         });
 
-                                        $(document).on("click", "a.rdltLink", function () {
+                                        $(document).off("click", "a.rdltLink").on("click", "a.rdltLink", function () {
                                             $(this).addClass("active-rdlt");
                                             $("a.rdlt-yes").attr("data-id", $(this).attr("data-id"));
                                         });
 
-                                        $(document).on("click", "a.rdlt-yes", () => {
+                                        $(document).off("click", "a.rdlt-yes").on("click", "a.rdlt-yes", () => {
                                             let id: string = $("a.rdlt-yes").attr("data-id");
                                             this.onUsersRealDelete(id);
                                         });

@@ -43,7 +43,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Kategori", "i"))
                 return Json(null);
 
-            kategori.Url = kategori.Title.ToHyperLinkText();
+            kategori.Url = kategori.Title.ToUrl();
 
             var result = entity.usp_CategoryInsert(kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active).FirstOrDefault();
 
@@ -86,7 +86,7 @@ namespace Emlak.Areas.Ajax.Controllers
             if (!curUser.HasRight("Kategori", "u"))
                 return Json(null);
 
-            kategori.Url = kategori.Title.ToHyperLinkText();
+            kategori.Url = kategori.Title.ToUrl();
 
             var result = entity.usp_CategoryUpdate(kategori.ID, kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active).FirstOrDefault();
 

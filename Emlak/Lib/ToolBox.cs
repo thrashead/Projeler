@@ -26,7 +26,7 @@ namespace Lib
 
             if (urlBlocks.Count == 3)
             {
-                if (urlBlocks[1].ToHyperLinkText(true) == "icerik")
+                if (urlBlocks[1].ToUrl(true) == "icerik")
                 {
                     _url = urlBlocks[2];
                 }
@@ -34,34 +34,34 @@ namespace Lib
 
             if (urlBlocks.Count >= 4)
             {
-                if (urlBlocks[2].ToHyperLinkText(true) == "detay")
+                if (urlBlocks[2].ToUrl(true) == "detay")
                 {
                     _url = urlBlocks[3];
                 }
                 else
                 {
-                    if (urlBlocks[3].ToHyperLinkText(true) == "satilik")
+                    if (urlBlocks[3].ToUrl(true) == "satilik")
                     {
                         _viewBag.MetaTags += CreateMetaTags("Title", "Emlak Sitesi - Satılık İlanlar");
                         _viewBag.MetaTags += CreateMetaTags("Keywords", "emlak,emlak sayfası,emlaklar,satılık,emlak ilanları");
                         _viewBag.MetaTags += CreateMetaTags("Description", "Emlak Sitesi, Satılık İlanlar");
                         return;
                     }
-                    else if (urlBlocks[3].ToHyperLinkText(true) == "kiralik")
+                    else if (urlBlocks[3].ToUrl(true) == "kiralik")
                     {
                         _viewBag.MetaTags += CreateMetaTags("Title", "Emlak Sitesi - Kiralık İlanlar");
                         _viewBag.MetaTags += CreateMetaTags("Keywords", "emlak,emlak sayfası,emlaklar,kiralık,emlak ilanları");
                         _viewBag.MetaTags += CreateMetaTags("Description", "Emlak Sitesi, Kiralık İlanlar");
                         return;
                     }
-                    else if (urlBlocks[3].ToHyperLinkText(true) == "yeni")
+                    else if (urlBlocks[3].ToUrl(true) == "yeni")
                     {
                         _viewBag.MetaTags += CreateMetaTags("Title", "Emlak Sitesi - Yeni İlanlar");
                         _viewBag.MetaTags += CreateMetaTags("Keywords", "emlak,emlak sayfası,emlaklar,yeni,emlak ilanları");
                         _viewBag.MetaTags += CreateMetaTags("Description", "Emlak Sitesi, Yeni İlanlar");
                         return;
                     }
-                    else if (urlBlocks[3].ToHyperLinkText(true) == "tumu")
+                    else if (urlBlocks[3].ToUrl(true) == "tumu")
                     {
                         _viewBag.MetaTags += CreateMetaTags("Title", "Emlak Sitesi - Tüm İlanlar");
                         _viewBag.MetaTags += CreateMetaTags("Keywords", "emlak,emlak sayfası,emlaklar,emlak ilanları");
@@ -108,15 +108,15 @@ namespace Lib
                 {
                     if (urlBlocks.Count == 3)
                     {
-                        if (urlBlocks[1].ToHyperLinkText(true) == "icerik")
+                        if (urlBlocks[1].ToUrl(true) == "icerik")
                         {
                             url = urlBlocks[2];
 
                             return "Emlak Sitesi - " + ContentNameFromURL(url);
                         }
-                        else if (urlBlocks[1].ToHyperLinkText(true) == "emlak")
+                        else if (urlBlocks[1].ToUrl(true) == "emlak")
                         {
-                            if (urlBlocks[2].ToHyperLinkText(true) == "detayliara")
+                            if (urlBlocks[2].ToUrl(true) == "detayliara")
                             {
                                 return "Emlak Sitesi - Detaylı Ara";
                             }
@@ -131,25 +131,25 @@ namespace Lib
 
                     if (urlBlocks.Count >= 4)
                     {
-                        if (urlBlocks[2].ToHyperLinkText(true) == "detay")
+                        if (urlBlocks[2].ToUrl(true) == "detay")
                         {
                             url = urlBlocks[3];
                         }
                         else
                         {
-                            if (urlBlocks[3].ToHyperLinkText(true) == "satilik")
+                            if (urlBlocks[3].ToUrl(true) == "satilik")
                             {
                                 return "Emlak Sitesi - Satılık İlanlar";
                             }
-                            else if (urlBlocks[3].ToHyperLinkText(true) == "kiralik")
+                            else if (urlBlocks[3].ToUrl(true) == "kiralik")
                             {
                                 return "Emlak Sitesi - Kiralık İlanlar";
                             }
-                            else if (urlBlocks[3].ToHyperLinkText(true) == "yeni")
+                            else if (urlBlocks[3].ToUrl(true) == "yeni")
                             {
                                 return "Emlak Sitesi - Yeni İlanlar";
                             }
-                            else if (urlBlocks[3].ToHyperLinkText(true) == "tumu")
+                            else if (urlBlocks[3].ToUrl(true) == "tumu")
                             {
                                 return "Emlak Sitesi - Tüm İlanlar";
                             }

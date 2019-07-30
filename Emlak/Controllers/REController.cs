@@ -227,7 +227,7 @@ namespace Emlak.Controllers
                 reItem.Enlem = item.Enlem;
                 reItem.Boylam = item.Boylam;
                 reItem.CategoryName = item.CategoryName;
-                reItem.PictureName = item.Picture;
+                reItem.PictureName = item.Picture != null ? AppMgr.UploadPath + "/" + item.Picture : AppMgr.ImagePath + "/resimyok.png";
                 reOutputItem.Adet = count;
                 reOutputItem.DetayLogo = ToolBox.DetailLogo;
                 reItem.NewLogo = ToolBox.NewLogo;

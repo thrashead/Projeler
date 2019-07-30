@@ -116,38 +116,38 @@ export class AdminMetaIndexComponent {
                                             $(".btn-group").remove();
                                         }
 
-                                        $(document).on("click", ".fg-button", () => {
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                                             setTimeout(() => {
                                                 this.UserRightsControl($("#hdnModel").val());
                                             }, 1);
                                         });
 
-                                        $(document).on("click", "a.dltLink", function () {
+                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
                                             $(this).addClass("active-dlt");
                                             $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
                                         });
 
-                                        $(document).on("click", "a.dlt-yes", () => {
+                                        $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
                                             let id: string = $("a.dlt-yes").attr("data-id");
                                             this.onDelete(id);
                                         });
 
-                                        $(document).on("click", "a.rdltLink", function () {
+                                        $(document).off("click", "a.rdltLink").on("click", "a.rdltLink", function () {
                                             $(this).addClass("active-rdlt");
                                             $("a.rdlt-yes").attr("data-id", $(this).attr("data-id"));
                                         });
 
-                                        $(document).on("click", "a.rdlt-yes", () => {
+                                        $(document).off("click", "a.rdlt-yes").on("click", "a.rdlt-yes", () => {
                                             let id: string = $("a.rdlt-yes").attr("data-id");
                                             this.onRealDelete(id);
                                         });
 
-                                        $(document).on("click", "a.cpyLink", function () {
+                                        $(document).off("click", "a.cpyLink").on("click", "a.cpyLink", function () {
                                             $(this).addClass("active-cpy");
                                             $("a.cpy-yes").attr("data-id", $(this).attr("data-id"));
                                         });
 
-                                        $(document).on("click", "a.cpy-yes", () => {
+                                        $(document).off("click", "a.cpy-yes").on("click", "a.cpy-yes", () => {
                                             let id: string = $("a.cpy-yes").attr("data-id");
                                             this.onCopy(id);
                                         });
