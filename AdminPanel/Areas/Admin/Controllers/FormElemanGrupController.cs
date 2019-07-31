@@ -2,14 +2,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AdminPanel.Data;
+using Repository.FormElemanGrupModel;
+using Repository.FormElemanModel;
+using Repository.KullanicilarModel;
 using TDLibrary;
-using Models;
+
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormElemanGrupController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        FormElemanGrup table = new FormElemanGrup();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +21,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PropertyGroupSelect_Result> formeleman = _entity.usp_PropertyGroupSelect(null).ToList();
-
-            return View(formeleman);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +29,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            FormElemanGrup formeleman = new FormElemanGrup();
-
-            return View(formeleman);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +40,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyGroupInsert(formeleman.Title, formeleman.Description, formeleman.Code, formeleman.Active);
+                bool result = table.Insert(formeleman);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(formeleman, "i", "Form Eleman Gruplarý");
 
@@ -63,10 +63,9 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PropertyGroupSelectTop_Result table = _entity.usp_PropertyGroupSelectTop(id, 1).FirstOrDefault();
-            FormElemanGrup formeleman = table.ChangeModel<FormElemanGrup>();
+            IFormElemanGrup formeleman = table.Select(id);
 
-            List<usp_PropertyByGroupIDSelect_Result> formelemanGrupList = _entity.usp_PropertyByGroupIDSelect(id).ToList();
+            List<usp_PropertyByGroupIDSelect_Result> formelemanGrupList = entity.usp_PropertyByGroupIDSelect(id).ToList();
             formeleman.PropertyList.AddRange(formelemanGrupList.ChangeModelList<FormEleman, usp_PropertyByGroupIDSelect_Result>());
 
             return View(formeleman);
@@ -80,9 +79,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyGroupUpdate(formeleman.ID, formeleman.Title, formeleman.Description, formeleman.Code, formeleman.Active);
+                bool result = table.Update(formeleman);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(formeleman, "u", "Form Eleman Gruplarý");
 
@@ -94,7 +93,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun deðil.";
 
-            List<usp_PropertyByGroupIDSelect_Result> formelemanGrupList = _entity.usp_PropertyByGroupIDSelect(formeleman.ID).ToList();
+            List<usp_PropertyByGroupIDSelect_Result> formelemanGrupList = entity.usp_PropertyByGroupIDSelect(formeleman.ID).ToList();
             formeleman.PropertyList.AddRange(formelemanGrupList.ChangeModelList<FormEleman, usp_PropertyByGroupIDSelect_Result>());
 
             return View("Duzenle", formeleman);
@@ -103,20 +102,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("FormEleman", "d"))
             {
-                if (curUser.HasRight("FormEleman", "d"))
-                {
-                    _entity.usp_PropertyGroupCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Form Eleman Gruplarý");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Form Eleman Gruplarý");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -125,21 +120,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("FormEleman", "c"))
             {
-                if (curUser.HasRight("FormEleman", "c"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_PropertyGroupCopy(id);
+                    curUser.Log(id, "c", "Form Eleman Gruplarý");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Form Eleman Gruplarý");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

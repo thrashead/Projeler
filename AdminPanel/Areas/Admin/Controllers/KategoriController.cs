@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.KategoriModel;
+using Repository.KategoriDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KategoriController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Kategori table = new Kategori();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_CategorySelect_Result> kategori = _entity.usp_CategorySelect(null).ToList();
-
-            return View(kategori);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,12 +28,10 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Kategori kategori = new Kategori();
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(null).ToList();
+            table.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", null, true);
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(null).ToList();
-            kategori.ParentCategories = parentList.ToSelectList("ID", "Title", null, true);
-
-            return View(kategori);
+            return View(table);
         }
 
         [HttpPost]
@@ -43,11 +42,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                kategori.Url = kategori.Title.ToHyperLinkText();
+                kategori.Url = kategori.Title.ToUrl();
 
-                var result = _entity.usp_CategoryInsert(kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active);
+                bool result = table.Insert(kategori);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kategori, "i", "Kategoriler");
 
@@ -59,8 +58,8 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(null).ToList();
-            kategori.ParentCategories = parentList.ToSelectList("ID", "Title", kategori.ParentID, true);
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(kategori.ID).ToList();
+            kategori.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", kategori.ParentID, true);
 
             return View("Ekle", kategori);
         }
@@ -71,14 +70,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_CategorySelectTop_Result table = _entity.usp_CategorySelectTop(id, 1).FirstOrDefault();
-            Kategori kategori = table.ChangeModel<Kategori>();
+            IKategori kategori = table.Select(id);
 
-            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = _entity.usp_CategoryTByLinkedIDSelect(id).ToList();
+            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = entity.usp_CategoryTByLinkedIDSelect(id).ToList();
             kategori.CategoryTList.AddRange(kategoriDilList.ChangeModelList<KategoriDil, usp_CategoryTByLinkedIDSelect_Result>());
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(id).ToList();
-            kategori.ParentCategories = parentList.ToSelectList("ID", "Title", kategori.ParentID, true);
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(null).ToList();
+            kategori.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", kategori.ParentID, true);
 
             return View(kategori);
         }
@@ -91,11 +89,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                kategori.Url = kategori.Title.ToHyperLinkText();
+                kategori.Url = kategori.Title.ToUrl();
 
-                var result = _entity.usp_CategoryUpdate(kategori.ID, kategori.ParentID, kategori.Title, kategori.Url, kategori.Code, kategori.Active);
+                bool result = table.Update(kategori);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kategori, "u", "Kategoriler");
 
@@ -107,11 +105,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = _entity.usp_CategoryTByLinkedIDSelect(kategori.ID).ToList();
+            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = entity.usp_CategoryTByLinkedIDSelect(kategori.ID).ToList();
             kategori.CategoryTList.AddRange(kategoriDilList.ChangeModelList<KategoriDil, usp_CategoryTByLinkedIDSelect_Result>());
 
-            List<usp_CategoryParentSelect_Result> parentList = _entity.usp_CategoryParentSelect(kategori.ID).ToList();
-            kategori.ParentCategories = parentList.ToSelectList("ID", "Title", kategori.ParentID, true);
+            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(kategori.ID).ToList();
+            kategori.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", kategori.ParentID, true);
 
             return View("Duzenle", kategori);
         }
@@ -119,20 +117,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Kategori", "d"))
             {
-                if (curUser.HasRight("Kategori", "d"))
-                {
-                    _entity.usp_CategoryCheckSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Kategoriler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -141,20 +135,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Kategori", "r"))
             {
-                if (curUser.HasRight("Kategori", "rd"))
-                {
-                    _entity.usp_CategoryCheckDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Kategoriler");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Kategoriler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -163,21 +153,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("Kategori", "c"))
             {
-                if (curUser.HasRight("Kategori", "c"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_CategoryCopy(id);
+                    curUser.Log(id, "c", "Kategoriler");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Kategoriler");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

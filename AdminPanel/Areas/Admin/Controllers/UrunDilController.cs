@@ -3,13 +3,15 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.UrunDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class UrunDilController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        UrunDil table = new UrunDil();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +19,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ProductTLinkedSelect_Result> urun = _entity.usp_ProductTLinkedSelect(null).ToList();
-
-            return View(urun);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string prodID)
@@ -29,15 +29,13 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = prodID == null ? 0 : prodID.ToInteger();
 
-            UrunDil urun = new UrunDil();
+            List<usp_ProductSelect_Result> tableUrun = entity.usp_ProductSelect(null).ToList();
+            table.ProductList = tableUrun.ToSelectList<usp_ProductSelect_Result, SelectListItem>("ID", "Title", linkID);
 
-            List<Product> tableProduct = _entity.Product.ToList();
-            urun.ProductList = tableProduct.ToSelectList("ID", "Title", linkID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            table.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName");
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
-
-            return View(urun);
+            return View(table);
         }
 
         [HttpPost]
@@ -48,11 +46,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid && urun.ProdID > 0)
             {
-                var result = _entity.usp_ProductTCheckInsert(urun.ProdID, urun.TransID, urun.ProductName, urun.ShortText1, urun.ShortText2, urun.Description);
+                bool result = table.Insert(urun);
 
-                if (result != null)
+                if (result)
                 {
-                    curUser.Log(urun, "i", "Ürünler (Dil)");
+                    curUser.Log(urun, "i", "Urunler (Dil)");
 
                     return RedirectToAction("Index");
                 }
@@ -62,11 +60,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<Product> tableProduct = _entity.Product.ToList();
-            urun.ProductList = tableProduct.ToSelectList("ID", "Title", urun.ProdID);
+            List<usp_ProductSelect_Result> tableUrun = entity.usp_ProductSelect(null).ToList();
+            urun.ProductList = tableUrun.ToSelectList<usp_ProductSelect_Result, SelectListItem>("ID", "Title", urun.ProdID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName", urun.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            urun.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", urun.TransID);
 
             return View("Ekle", urun);
         }
@@ -77,15 +75,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ProductTSelectTop_Result table = _entity.usp_ProductTSelectTop(id, 1).FirstOrDefault();
+            IUrunDil urun = table.Select(id);
 
-            UrunDil urun = table.ChangeModel<UrunDil>();
+            List<usp_ProductSelect_Result> tableUrun = entity.usp_ProductSelect(null).ToList();
+            urun.ProductList = tableUrun.ToSelectList<usp_ProductSelect_Result, SelectListItem>("ID", "Title", urun.ProdID);
 
-            List<Product> tableProduct = _entity.Product.ToList();
-            urun.ProductList = tableProduct.ToSelectList("ID", "Title", urun.ProdID);
-
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName", urun.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            urun.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", urun.TransID);
 
             return View(urun);
         }
@@ -98,11 +94,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_ProductTCheckUpdate(urun.ID, urun.ProdID, urun.TransID, urun.ProductName, urun.ShortText1, urun.ShortText2, urun.Description);
+                bool result = table.Update(urun);
 
-                if (result != null)
+                if (result)
                 {
-                    curUser.Log(urun, "u", "Ürünler (Dil)");
+                    curUser.Log(urun, "u", "Urunler (Dil)");
 
                     return RedirectToAction("Index");
                 }
@@ -112,11 +108,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<Product> tableProduct = _entity.Product.ToList();
-            urun.ProductList = tableProduct.ToSelectList("ID", "Title", urun.ProdID);
+            List<usp_ProductSelect_Result> tableUrun = entity.usp_ProductSelect(null).ToList();
+            urun.ProductList = tableUrun.ToSelectList<usp_ProductSelect_Result, SelectListItem>("ID", "Title", urun.ProdID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            urun.TranslationList = tableTranslation.ToSelectList("ID", "TransName", urun.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            urun.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", urun.TransID);
 
             return View("Duzenle", urun);
         }
@@ -124,20 +120,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Urun", "d"))
             {
-                if (curUser.HasRight("Urun", "d"))
-                {
-                    _entity.usp_ProductTSetDeleted(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "d", "Ürünler (Dil)");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Urunler (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -146,20 +138,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Urun", "r"))
             {
-                if (curUser.HasRight("Urun", "rd"))
-                {
-                    _entity.usp_ProductTDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Ürünler (Dil)");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Urunler (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

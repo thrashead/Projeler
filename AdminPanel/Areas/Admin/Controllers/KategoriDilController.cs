@@ -3,13 +3,15 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.KategoriDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KategoriDilController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        KategoriDil table = new KategoriDil();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +19,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_CategoryTLinkedSelect_Result> kategori = _entity.usp_CategoryTLinkedSelect(null).ToList();
-
-            return View(kategori);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string catID)
@@ -29,15 +29,13 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = catID == null ? 0 : catID.ToInteger();
 
-            KategoriDil kategori = new KategoriDil();
+            List<usp_CategorySelect_Result> tableKategori = entity.usp_CategorySelect(null).ToList();
+            table.CategoryList = tableKategori.ToSelectList<usp_CategorySelect_Result, SelectListItem>("ID", "Title", linkID);
 
-            List<Category> tableCategory = _entity.Category.ToList();
-            kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", linkID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            table.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName");
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
-
-            return View(kategori);
+            return View(table);
         }
 
         [HttpPost]
@@ -48,9 +46,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid && kategori.CatID > 0)
             {
-                var result = _entity.usp_CategoryTCheckInsert(kategori.CatID, kategori.TransID, kategori.CategoryName, kategori.ShortText1, kategori.ShortText2, kategori.Description);
+                bool result = table.Insert(kategori);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kategori, "i", "Kategoriler (Dil)");
 
@@ -62,11 +60,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<Category> tableCategory = _entity.Category.ToList();
-            kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", kategori.CatID);
+            List<usp_CategorySelect_Result> tableKategori = entity.usp_CategorySelect(null).ToList();
+            kategori.CategoryList = tableKategori.ToSelectList<usp_CategorySelect_Result, SelectListItem>("ID", "Title", kategori.CatID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName", kategori.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            kategori.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", kategori.TransID);
 
             return View("Ekle", kategori);
         }
@@ -77,15 +75,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_CategoryTSelectTop_Result table = _entity.usp_CategoryTSelectTop(id, 1).FirstOrDefault();
+            IKategoriDil kategori = table.Select(id);
 
-            KategoriDil kategori = table.ChangeModel<KategoriDil>();
+            List<usp_CategorySelect_Result> tableKategori = entity.usp_CategorySelect(null).ToList();
+            kategori.CategoryList = tableKategori.ToSelectList<usp_CategorySelect_Result, SelectListItem>("ID", "Title", kategori.CatID);
 
-            List<Category> tableCategory = _entity.Category.ToList();
-            kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", kategori.CatID);
-
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName", kategori.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            kategori.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", kategori.TransID);
 
             return View(kategori);
         }
@@ -98,9 +94,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_CategoryTCheckUpdate(kategori.ID, kategori.CatID, kategori.TransID, kategori.CategoryName, kategori.ShortText1, kategori.ShortText2, kategori.Description);
+                bool result = table.Update(kategori);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kategori, "u", "Kategoriler (Dil)");
 
@@ -112,11 +108,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<Category> tableCategory = _entity.Category.ToList();
-            kategori.CategoryList = tableCategory.ToSelectList("ID", "Title", kategori.CatID);
+            List<usp_CategorySelect_Result> tableKategori = entity.usp_CategorySelect(null).ToList();
+            kategori.CategoryList = tableKategori.ToSelectList<usp_CategorySelect_Result, SelectListItem>("ID", "Title", kategori.CatID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            kategori.TranslationList = tableTranslation.ToSelectList("ID", "TransName", kategori.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            kategori.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", kategori.TransID);
 
             return View("Duzenle", kategori);
         }
@@ -124,20 +120,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Kategori", "d"))
             {
-                if (curUser.HasRight("Kategori", "d"))
-                {
-                    _entity.usp_CategoryTSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Kategoriler (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -146,20 +138,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Kategori", "r"))
             {
-                if (curUser.HasRight("Kategori", "rd"))
-                {
-                    _entity.usp_CategoryTDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Kategoriler (Dil)");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Kategoriler (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

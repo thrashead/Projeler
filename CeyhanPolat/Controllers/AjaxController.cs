@@ -192,13 +192,13 @@ namespace CeyhanPolat.Controllers
         [HttpGet]
         public JsonResult Siir(string link)
         {
-            link = link.ToHyperLinkText(true);
+            link = link.ToUrl(true);
 
             var rbPoetry = entity.sp_Poetries(link, 1, null).FirstOrDefault();
 
             Poetries poetry = new Poetries();
 
-            link = link.ToHyperLinkText(true);
+            link = link.ToUrl(true);
 
             var assignment = entity.sp_Assignments("Rank", "Content", null, rbPoetry.ID, 1).FirstOrDefault();
 

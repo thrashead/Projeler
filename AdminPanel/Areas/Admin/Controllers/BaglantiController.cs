@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
+using System.Collections.Generic;
 using AdminPanel.Data;
+using Repository.BaglantilarModel;
+using Repository.KullanicilarModel;
 using TDLibrary;
-using Models;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class BaglantiController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Baglantilar table = new Baglantilar();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +19,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_LinksDetailSelect_Result> link = _entity.usp_LinksDetailSelect().ToList();
-
-            return View(link);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,21 +27,19 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Baglantilar link = new Baglantilar();
+            List<usp_LinkTypesSelect_Result> tableBagliTipler = entity.usp_LinkTypesSelect(null).ToList();
 
-            List<LinkTypes> tableLinkTypes = _entity.LinkTypes.ToList();
-
-            if (tableLinkTypes.Count > 0)
+            if (tableBagliTipler.Count > 0)
             {
-                link.LinkedItemList = ReturnList(_entity, tableLinkTypes.FirstOrDefault().LinkedTypeID);
-                link.LinkTypesList = tableLinkTypes.ToSelectList("ID", "Title");
+                table.LinkedItemList = ReturnList(entity, tableBagliTipler.FirstOrDefault().LinkedTypeID);
+                table.LinkTypesList = tableBagliTipler.ToSelectList<usp_LinkTypesSelect_Result, SelectListItem>("ID", "Title");
             }
             else
             {
-                link.Mesaj = "Bağlantı oluşturabilmek için önce Bağlı Tip ekleyiniz.";
+                table.Mesaj = "Bağlantı oluşturabilmek için önce Bağlı Tip ekleyiniz.";
             }
 
-            return View(link);
+            return View(table);
         }
 
         [HttpPost]
@@ -52,9 +50,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid && link.LinkID > 0 && link.LinkTypeID > 0)
             {
-                var result = _entity.usp_LinksCheckInsert(link.LinkID, link.LinkTypeID).FirstOrDefault();
+                bool result = table.Insert(link);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(link, "i", "Bağlantılar");
 
@@ -66,12 +64,12 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 link.Mesaj = "Model uygun değil.";
 
-            List<LinkTypes> tableLinkTypes = _entity.LinkTypes.ToList();
+            List<usp_LinkTypesSelect_Result> tableBagliTipler = entity.usp_LinkTypesSelect(null).ToList();
 
-            if (tableLinkTypes.Count > 0)
+            if (tableBagliTipler.Count > 0)
             {
-                link.LinkedItemList = ReturnList(_entity, null, link.LinkID, link.LinkTypeID);
-                link.LinkTypesList = tableLinkTypes.ToSelectList("ID", "Title", link.LinkTypeID);
+                link.LinkedItemList = ReturnList(entity, null, link.LinkID, link.LinkTypeID);
+                link.LinkTypesList = tableBagliTipler.ToSelectList<usp_LinkTypesSelect_Result, SelectListItem>("ID", "Title", link.LinkTypeID);
             }
             else
             {
@@ -87,12 +85,10 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_LinksDetailSelectTop_Result table = _entity.usp_LinksDetailSelectTop(id, 1).FirstOrDefault();
+            IBaglantilar link = table.Select(id);
 
-            Baglantilar link = table.ChangeModel<Baglantilar>();
-
-            usp_LinkTypesSelectTop_Result tableLinkTypes = _entity.usp_LinkTypesSelectTop(table.LinkTypeID, 1).FirstOrDefault();
-            link.LinkedItemList = ReturnList(_entity, table.LinkedTypeID, table.LinkID);
+            usp_LinkTypesSelectTop_Result tableLinkTypes = entity.usp_LinkTypesSelectTop(link.LinkTypeID, 1).FirstOrDefault();
+            link.LinkedItemList = ReturnList(entity, link.LinkedTypeID, link.LinkID);
             link.LinkedTypeAdi = tableLinkTypes.Title;
 
             return View(link);
@@ -106,9 +102,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LinksCheckUpdate(link.ID, link.LinkID, link.LinkTypeID).FirstOrDefault();
+                bool result = table.Update(link);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(link, "u", "Bağlantılar");
 
@@ -120,8 +116,8 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 link.Mesaj = "Model uygun değil.";
 
-            usp_LinkTypesSelectTop_Result tableLinkTypes = _entity.usp_LinkTypesSelectTop(link.LinkTypeID, 1).FirstOrDefault();
-            link.LinkedItemList = ReturnList(_entity, null, link.LinkID, link.LinkTypeID);
+            usp_LinkTypesSelectTop_Result tableLinkTypes = entity.usp_LinkTypesSelectTop(link.LinkTypeID, 1).FirstOrDefault();
+            link.LinkedItemList = ReturnList(entity, null, link.LinkID, link.LinkTypeID);
             link.LinkedTypeAdi = tableLinkTypes.Title;
 
             return View("Duzenle", link);
@@ -130,20 +126,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("BagliTipler", "d"))
             {
-                if (curUser.HasRight("BagliTipler", "d"))
-                {
-                    _entity.usp_LinksDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Bağlantılar");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Bağlantılar");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -152,7 +144,7 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpGet]
         public JsonResult FillObject(string linkTypeID)
         {
-            return Json(ReturnList(_entity, null, null, linkTypeID.ToInteger()), JsonRequestBehavior.AllowGet);
+            return Json(ReturnList(entity, null, null, linkTypeID.ToInteger()), JsonRequestBehavior.AllowGet);
         }
 
         private static List<SelectListItem> ReturnList(AdminPanelEntities entity, int? linkedTypeID = 1, int? linkID = null, int? linkTypeID = null)

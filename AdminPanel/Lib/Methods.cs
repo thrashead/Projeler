@@ -4,10 +4,8 @@ using System.Linq;
 using System.Web.Configuration;
 using System;
 using System.Reflection;
-using Models;
 using TDLibrary;
-using System.Web.Mvc;
-using System.Collections.Generic;
+using Repository.KullanicilarModel;
 
 namespace AdminPanel
 {
@@ -45,9 +43,9 @@ namespace AdminPanel
             if (user == null)
                 return false;
 
-            AdminPanelEntities _entity = new AdminPanelEntities();
+            AdminPanelEntities entity = new AdminPanelEntities();
 
-            int? result = _entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
+            int? result = entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
 
             return result == 1 ? true : false;
         }
@@ -56,7 +54,7 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                AdminPanelEntities _entity = new AdminPanelEntities();
+                AdminPanelEntities entity = new AdminPanelEntities();
 
                 if (model != null)
                 {
@@ -68,7 +66,7 @@ namespace AdminPanel
 
                 description = description == null ? null : description.SplitText(0, 255);
 
-                _entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
+                entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
             }
         }
 
@@ -76,11 +74,11 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                AdminPanelEntities _entity = new AdminPanelEntities();
+                AdminPanelEntities entity = new AdminPanelEntities();
 
                 description = description == null ? null : description.SplitText(0, 255);
 
-                _entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
+                entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
             }
         }
 
@@ -112,52 +110,11 @@ namespace AdminPanel
 
     public static class ExtMethods
     {
-        public static List<SelectListItem> ToSelectList<T>(this List<T> itemList, string value, string text, int? selectedItem = null, bool addEmpty = false, string emptyText = "-", string emptyValue = "0")
-        {
-            List<SelectListItem> list = new List<SelectListItem>();
-
-            if (addEmpty)
-            {
-                list.Add(new SelectListItem()
-                {
-                    Text = emptyText,
-                    Value = emptyValue
-                });
-            }
-
-            int i = 0;
-
-            foreach (var item in itemList)
-            {
-                string _value = item.GetType().GetProperties().Where(a => a.Name == value).FirstOrDefault().GetValue(item).ToString();
-                string _text = item.GetType().GetProperties().Where(a => a.Name == text).FirstOrDefault().GetValue(item).ToString();
-
-                if (selectedItem != null)
-                {
-                    if (_value == selectedItem.ToString())
-                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
-                    else
-                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
-                }
-                else
-                {
-                    if (i == 0)
-                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text, Selected = true });
-                    else
-                        list.Add(new SelectListItem() { Value = _value.ToString(), Text = _text });
-                }
-
-                i++;
-            }
-
-            return list;
-        }
-
         public static bool? ShowType(this string url)
         {
-            AdminPanelEntities _entity = new AdminPanelEntities();
+            AdminPanelEntities entity = new AdminPanelEntities();
 
-            return _entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
+            return entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
         }
     }
 }

@@ -3,20 +3,20 @@ using System.Linq;
 using System.Web.Mvc;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
 
 namespace AdminPanel.Areas.Ajax.Controllers
 {
     public class AjaxController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
 
         [HttpPost]
         public JsonResult Login(string login)
         {
             Kullanicilar kullanici = JsonConvert.DeserializeObject<Kullanicilar>(login);
 
-            usp_UsersSelectLogin_Result rb = _entity.usp_UsersSelectLogin(kullanici.Username, kullanici.Password.ToMD5()).FirstOrDefault();
+            usp_UsersSelectLogin_Result rb = entity.usp_UsersSelectLogin(kullanici.Username, kullanici.Password.ToMD5()).FirstOrDefault();
 
             if (rb != null)
             {
@@ -26,7 +26,7 @@ namespace AdminPanel.Areas.Ajax.Controllers
 
                 string loginTime = AppTools.GetTime;
 
-                var result = _entity.usp_UsersLoginTimeUpdate(kullanici.ID, loginTime);
+                var result = entity.usp_UsersLoginTimeUpdate(kullanici.ID, loginTime);
 
                 if (result != null)
                 {

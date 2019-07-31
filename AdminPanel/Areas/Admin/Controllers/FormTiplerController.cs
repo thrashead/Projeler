@@ -1,15 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
-using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.FormTiplerModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormTiplerController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        FormTipler table = new FormTipler();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +14,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PropertyTypesSelect_Result> formeleman = _entity.usp_PropertyTypesSelect(null).ToList();
-
-            return View(formeleman);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +22,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            FormTipler formeleman = new FormTipler();
-
-            return View(formeleman);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +33,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyTypesInsert(formeleman.Name, formeleman.Type, formeleman.ShortName, formeleman.HasValue);
+                bool result = table.Insert(formeleman);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(formeleman, "i", "Form Tipleri");
 
@@ -63,11 +56,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PropertyTypesSelectTop_Result table = _entity.usp_PropertyTypesSelectTop(id, 1).FirstOrDefault();
-
-            FormTipler formeleman = table.ChangeModel<FormTipler>();
-
-            return View(formeleman);
+            return View(table.Select(id));
         }
 
         [HttpPost]
@@ -78,9 +67,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyTypesUpdate(formeleman.ID, formeleman.Name, formeleman.Type, formeleman.ShortName, formeleman.HasValue);
+                bool result = table.Update(formeleman);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(formeleman, "u", "Form Tipleri");
 
@@ -97,20 +86,16 @@ namespace AdminPanel.Areas.Admin.Controllers
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("FormEleman", "d"))
             {
-                if (curUser.HasRight("FormEleman", "d"))
-                {
-                    _entity.usp_PropertyTypesCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Form Tipleri");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Form Tipleri");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

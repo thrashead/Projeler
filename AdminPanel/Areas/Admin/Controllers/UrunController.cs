@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.UrunModel;
+using Repository.UrunDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class UrunController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Urun table = new Urun();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ProductSelect_Result> urun = _entity.usp_ProductSelect(null).ToList();
-
-            return View(urun);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +28,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Urun urun = new Urun();
-
-            return View(urun);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,11 +39,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                urun.Url = urun.Title.ToHyperLinkText();
+                urun.Url = urun.Title.ToUrl();
 
-                var result = _entity.usp_ProductInsert(urun.Title, urun.Url, urun.Code, urun.Active);
+                bool result = table.Insert(urun);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(urun, "i", "Ürünler");
 
@@ -65,11 +64,9 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ProductSelectTop_Result table = _entity.usp_ProductSelectTop(id, 1).FirstOrDefault();
+            IUrun urun = table.Select(id);
 
-            Urun urun = table.ChangeModel<Urun>();
-
-            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = _entity.usp_ProductTByLinkedIDSelect(id).ToList();
+            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = entity.usp_ProductTByLinkedIDSelect(id).ToList();
             urun.ProductTList.AddRange(urunDilList.ChangeModelList<UrunDil, usp_ProductTByLinkedIDSelect_Result>());
 
             return View(urun);
@@ -83,11 +80,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                urun.Url = urun.Title.ToHyperLinkText();
+                urun.Url = urun.Title.ToUrl();
 
-                var result = _entity.usp_ProductUpdate(urun.ID, urun.Title, urun.Url, urun.Code, urun.Active);
+                bool result = table.Update(urun);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(urun, "u", "Ürünler");
 
@@ -99,7 +96,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = _entity.usp_ProductTByLinkedIDSelect(urun.ID).ToList();
+            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = entity.usp_ProductTByLinkedIDSelect(urun.ID).ToList();
             urun.ProductTList.AddRange(urunDilList.ChangeModelList<UrunDil, usp_ProductTByLinkedIDSelect_Result>());
 
             return View("Duzenle", urun);
@@ -108,20 +105,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Urun", "d"))
             {
-                if (curUser.HasRight("Urun", "d"))
-                {
-                    _entity.usp_ProductCheckSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Ürünler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -130,20 +123,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Urun", "r"))
             {
-                if (curUser.HasRight("Urun", "rd"))
-                {
-                    _entity.usp_ProductCheckDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Ürünler");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Ürünler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -152,21 +141,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("Urun", "c"))
             {
-                if (curUser.HasRight("Urun", "d"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_ProductCopy(id);
+                    curUser.Log(id, "c", "Ürünler");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Ürünler");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

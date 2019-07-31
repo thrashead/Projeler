@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.GaleriModel;
+using Repository.GaleriDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class GaleriController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Galeri table = new Galeri();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_GallerySelect_Result> galeri = _entity.usp_GallerySelect(null).ToList();
-
-            return View(galeri);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +28,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Galeri galeri = new Galeri();
-
-            return View(galeri);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,11 +39,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                galeri.Url = galeri.Title.ToHyperLinkText();
+                galeri.Url = galeri.Title.ToUrl();
 
-                var result = _entity.usp_GalleryInsert(galeri.Title, galeri.Url, galeri.Code, galeri.Active);
+                bool result = table.Insert(galeri);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(galeri, "i", "Galeriler");
 
@@ -65,11 +64,9 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_GallerySelectTop_Result table = _entity.usp_GallerySelectTop(id, 1).FirstOrDefault();
+            IGaleri galeri = table.Select(id);
 
-            Galeri galeri = table.ChangeModel<Galeri>();
-
-            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = _entity.usp_GalleryTByLinkedIDSelect(id).ToList();
+            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = entity.usp_GalleryTByLinkedIDSelect(id).ToList();
             galeri.GalleryTList.AddRange(galeriDilList.ChangeModelList<GaleriDil, usp_GalleryTByLinkedIDSelect_Result>());
 
             return View(galeri);
@@ -83,11 +80,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                galeri.Url = galeri.Title.ToHyperLinkText();
+                galeri.Url = galeri.Title.ToUrl();
 
-                var result = _entity.usp_GalleryUpdate(galeri.ID, galeri.Title, galeri.Url, galeri.Code, galeri.Active);
+                bool result = table.Update(galeri);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(galeri, "u", "Galeriler");
 
@@ -99,7 +96,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = _entity.usp_GalleryTByLinkedIDSelect(galeri.ID).ToList();
+            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = entity.usp_GalleryTByLinkedIDSelect(galeri.ID).ToList();
             galeri.GalleryTList.AddRange(galeriDilList.ChangeModelList<GaleriDil, usp_GalleryTByLinkedIDSelect_Result>());
 
             return View("Duzenle", galeri);
@@ -108,20 +105,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Galeri", "d"))
             {
-                if (curUser.HasRight("Galeri", "d"))
-                {
-                    _entity.usp_GalleryCheckSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Galeriler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -130,20 +123,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Galeri", "r"))
             {
-                if (curUser.HasRight("Galeri", "rd"))
-                {
-                    _entity.usp_GalleryCheckDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Galeriler");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Galeriler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -152,21 +141,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("Galeri", "c"))
             {
-                if (curUser.HasRight("Galeri", "c"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_GalleryCopy(id);
+                    curUser.Log(id, "c", "Galeriler");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Galeriler");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

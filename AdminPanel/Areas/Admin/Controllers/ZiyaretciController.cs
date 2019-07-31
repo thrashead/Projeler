@@ -1,14 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.ZiyaretciModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class ZiyaretciController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        Ziyaretci table = new Ziyaretci();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -16,28 +14,22 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Ziyaretci"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_VisitorCounterSelect_Result> ziyaretci = _entity.usp_VisitorCounterSelect(null).ToList();
-
-            return View(ziyaretci);
+            return View(table.List());
         }
 
         [HttpPost]
         public JsonResult Sil()
         {
-            try
+            if (curUser.HasRight("Ziyaretci", "d"))
             {
-                if (curUser.HasRight("Ziyaretci", "d"))
-                {
-                    _entity.usp_VisitorCounterClear();
+                bool result = table.Clear();
 
-                    curUser.Log<Ziyaretci>(null, "rd", "Ziyaretçiler");
+                if (result)
+                {
+                    curUser.Log<Ziyaretci>(null, "t", "Ziyaretçiler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

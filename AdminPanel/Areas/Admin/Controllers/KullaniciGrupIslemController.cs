@@ -1,15 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
-using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.KullaniciGrupIslemModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupIslemController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        KullaniciGrupIslem table = new KullaniciGrupIslem();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +14,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupProcessSelect_Result> kullanici = _entity.usp_UserGroupProcessSelect(null).ToList();
-
-            return View(kullanici);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +22,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            KullaniciGrupIslem kullanici = new KullaniciGrupIslem();
-
-            return View(kullanici);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +33,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupProcessInsert(kullanici.Name, kullanici.ShortName, kullanici.Description);
+                bool result = table.Insert(kullanici);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kullanici, "i", "Kullanýcý Grup Ýþlemleri");
 
@@ -63,11 +56,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UserGroupProcessSelectTop_Result table = _entity.usp_UserGroupProcessSelectTop(id, 1).FirstOrDefault();
-
-            KullaniciGrupIslem kullanici = table.ChangeModel<KullaniciGrupIslem>();
-
-            return View(kullanici);
+            return View(table.Select(id));
         }
 
         [HttpPost]
@@ -78,9 +67,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupProcessUpdate(kullanici.ID, kullanici.Name, kullanici.ShortName, kullanici.Description);
+                bool result = table.Update(kullanici);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kullanici, "u", "Kullanýcý Grup Ýþlemleri");
 
@@ -97,20 +86,16 @@ namespace AdminPanel.Areas.Admin.Controllers
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Kullanicilar", "d"))
             {
-                if (curUser.HasRight("Kullanicilar", "d"))
-                {
-                    _entity.usp_UserGroupProcessDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Kullanýcý Grup Ýþlemleri");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Kullanýcý Grup Ýþlemleri");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

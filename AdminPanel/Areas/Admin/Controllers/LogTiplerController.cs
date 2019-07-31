@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.LogTiplerModel;
+using Repository.LogIslemModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LogTiplerController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        LogTipler table = new LogTipler();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_LogTypesSelect_Result> log = _entity.usp_LogTypesSelect(null).ToList();
-
-            return View(log);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +28,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            LogTipler log = new LogTipler();
-
-            return View(log);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +39,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LogTypesInsert(log.Name, log.ShortName);
+                bool result = table.Insert(log);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(log, "i", "Log Tipleri");
 
@@ -63,11 +62,9 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_LogTypesSelectTop_Result table = _entity.usp_LogTypesSelectTop(id, 1).FirstOrDefault();
+            ILogTipler log = table.Select(id);
 
-            LogTipler log = table.ChangeModel<LogTipler>();
-
-            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = _entity.usp_LogProcessByLogTypeIDSelect(id).ToList();
+            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = entity.usp_LogProcessByLogTypeIDSelect(id).ToList();
             log.LogProcessList.AddRange(logTipList.ChangeModelList<LogIslem, usp_LogProcessByLogTypeIDSelect_Result>());
 
             return View(log);
@@ -81,9 +78,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LogTypesUpdate(log.ID, log.Name, log.ShortName);
+                bool result = table.Update(log);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(log, "u", "Log Tipleri");
 
@@ -95,7 +92,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 log.Mesaj = "Model uygun deðil.";
 
-            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = _entity.usp_LogProcessByLogTypeIDSelect(log.ID).ToList();
+            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = entity.usp_LogProcessByLogTypeIDSelect(log.ID).ToList();
             log.LogProcessList.AddRange(logTipList.ChangeModelList<LogIslem, usp_LogProcessByLogTypeIDSelect_Result>());
 
             return View("Duzenle", log);
@@ -103,20 +100,16 @@ namespace AdminPanel.Areas.Admin.Controllers
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Loglar", "d"))
             {
-                if (curUser.HasRight("Loglar", "d"))
-                {
-                    _entity.usp_LogTypesCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Log Tipleri");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Log Tipleri");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

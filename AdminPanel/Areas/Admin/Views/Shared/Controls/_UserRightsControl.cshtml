@@ -1,5 +1,5 @@
 ﻿@model string
-@using Models
+@using Repository.KullanicilarModel
 
 @{
     Kullanicilar user = AppTools.User;
@@ -8,9 +8,9 @@
         var iRight = @user.HasRight(Model, "i").ToString().ToLower();
         var uRight = @user.HasRight(Model, "u").ToString().ToLower();
         var dRight = @user.HasRight(Model, "d").ToString().ToLower();
+        var rRight = @user.HasRight(Model, "r").ToString().ToLower();
         var cRight = @user.HasRight(Model, "c").ToString().ToLower();
         var cgRight = @user.HasRight(Model, "cg").ToString().ToLower();
-        var rdRight = @user.HasRight(Model, "rd").ToString().ToLower();
 
         $(function () {
             if (!iRight) {
@@ -25,16 +25,16 @@
                 LinkSil("d");
             }
 
+            if (!rRight) {
+                LinkSil("r");
+            }
+
             if (!cRight) {
                 LinkSil("c");
             }
 
             if (!cgRight) {
                 LinkSil("cg");
-            }
-
-            if (!rdRight) {
-                LinkSil("rd");
             }
 
             $(document).on("click", ".fg-button", function () {
@@ -51,16 +51,16 @@
                         LinkSil("d");
                     }
 
+                    if (!rRight) {
+                        LinkSil("r");
+                    }
+
                     if (!cRight) {
                         LinkSil("c");
                     }
 
                     if (!cgRight) {
                         LinkSil("cg");
-                    }
-
-                    if (!rdRight) {
-                        LinkSil("rd");
                     }
 
                     if ($(".dropdown-menu").first().find("a").length <= 0) {
@@ -86,15 +86,15 @@
                     $("a[data-type='@Model'].dltLink").remove();
                     $("a[data-type='@Model'].btn-clear").remove();
                     break;
+                case "r":
+                    $("a[data-type='@Model'].rmvLink").remove();
+                    $("a[data-type='@Model'].btn-clear").remove();
+                    break;
                 case "c":
                     $("a[data-type='@Model'].cpyLink").remove();
                     break;
                 case "cg":
                     $("a[data-type='@Model'].cngLink").remove();
-                    break;
-                case "rd":
-                    $("a[data-type='@Model'].rdltLink").remove();
-                    $("a[data-type='@Model'].btn-clear").remove();
                     break;
             }
         }

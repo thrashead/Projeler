@@ -3,14 +3,17 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
-using static Models.BagliTipler;
+using Repository.KullanicilarModel;
+using Repository.BagliTiplerModel;
+using Repository.BaglantilarModel;
+using static Repository.BagliTiplerModel.BagliTipler;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class BagliTiplerController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        BagliTipler table = new BagliTipler();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,9 +21,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_LinkTypesDetailSelect_Result> link = _entity.usp_LinkTypesDetailSelect().ToList();
-
-            return View(link);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -28,13 +29,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            BagliTipler link = new BagliTipler();
+            table.MainTypeList.AddRange(ReturnList(0));
+            table.LinkedTypeList.AddRange(ReturnList(0, 2));
+            table.MainList.AddRange(ReturnList(1));
 
-            link.MainTypeList.AddRange(ReturnList(0));
-            link.LinkedTypeList.AddRange(ReturnList(0, 2));
-            link.MainList.AddRange(ReturnList(1));
-
-            return View(link);
+            return View(table);
         }
 
         [HttpPost]
@@ -45,11 +44,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                link.Url = link.Title.ToHyperLinkText();
+                bool result = table.Insert(link);
 
-                var result = _entity.usp_LinkTypesInsert(link.Title, link.MainTypeID, link.MainID, link.LinkedTypeID, link.Url);
-
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(link, "i", "Baðlý Tipler");
 
@@ -74,14 +71,12 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("BagliTipler", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_LinkTypesSelectTop_Result table = _entity.usp_LinkTypesSelectTop(id, 1).FirstOrDefault();
-
-            BagliTipler link = table.ChangeModel<BagliTipler>();
+            IBagliTipler link = table.Select(id);
 
             link.MainTypeList.AddRange(ReturnList(0, link.MainTypeID));
             link.LinkedTypeList.AddRange(ReturnList(0, link.LinkedTypeID));
             link.MainList.AddRange(ReturnList(link.MainTypeID, link.MainID));
-            link.LinkList = _entity.usp_LinksDetailByLinkTypeIDSelect(id).ToList().ChangeModelList<Baglantilar, usp_LinksDetailByLinkTypeIDSelect_Result>();
+            link.LinkList = entity.usp_LinksDetailByLinkTypeIDSelect(id).ToList().ChangeModelList<Baglantilar, usp_LinksDetailByLinkTypeIDSelect_Result>();
 
             return View(link);
         }
@@ -94,11 +89,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                link.Url = link.Title.ToHyperLinkText();
+                bool result = table.Update(link);
 
-                var result = _entity.usp_LinkTypesCheckUpdate(link.ID, link.Title, link.MainTypeID, link.MainID, link.LinkedTypeID, link.Url);
-
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(link, "u", "Baðlý Tipler");
 
@@ -113,7 +106,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             link.MainTypeList.AddRange(ReturnList(0, link.MainTypeID));
             link.LinkedTypeList.AddRange(ReturnList(0, link.LinkedTypeID));
             link.MainList.AddRange(ReturnList(link.MainTypeID, link.MainID));
-            link.LinkList = _entity.usp_LinksDetailByLinkTypeIDSelect(link.ID).ToList().ChangeModelList<Baglantilar, usp_LinksDetailByLinkTypeIDSelect_Result>();
+            link.LinkList = entity.usp_LinksDetailByLinkTypeIDSelect(link.ID).ToList().ChangeModelList<Baglantilar, usp_LinksDetailByLinkTypeIDSelect_Result>();
 
             return View("Duzenle", link);
         }
@@ -121,20 +114,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("BagliTipler", "d"))
             {
-                if (curUser.HasRight("BagliTipler", "d"))
-                {
-                    _entity.usp_LinkTypesCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Baðlý Tipler");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Baðlý Tipler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -143,21 +132,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("BagliTipler", "c"))
             {
-                if (curUser.HasRight("BagliTipler", "c"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_LinkTypesCopy(id);
+                    curUser.Log(id, "c", "Baðlý Tipler");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Baðlý Tipler");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -174,31 +158,31 @@ namespace AdminPanel.Areas.Admin.Controllers
             switch (typeID)
             {
                 case 1:
-                    List<usp_CategorySelect_Result> kategoriler = _entity.usp_CategorySelect(null).ToList();
+                    List<usp_CategorySelect_Result> kategoriler = entity.usp_CategorySelect(null).ToList();
                     return ListeDoldur(kategoriler, BaglantiTipi.Tablo, selectedID);
                 case 2:
-                    List<usp_ContentSelect_Result> icerikler = _entity.usp_ContentSelect(null).ToList();
+                    List<usp_ContentSelect_Result> icerikler = entity.usp_ContentSelect(null).ToList();
                     return ListeDoldur(icerikler, BaglantiTipi.Tablo, selectedID);
                 case 3:
-                    List<usp_ProductSelect_Result> urunler = _entity.usp_ProductSelect(null).ToList();
+                    List<usp_ProductSelect_Result> urunler = entity.usp_ProductSelect(null).ToList();
                     return ListeDoldur(urunler, BaglantiTipi.Tablo, selectedID);
                 case 4:
-                    List<usp_GallerySelect_Result> galeriler = _entity.usp_GallerySelect(null).ToList();
+                    List<usp_GallerySelect_Result> galeriler = entity.usp_GallerySelect(null).ToList();
                     return ListeDoldur(galeriler, BaglantiTipi.Tablo, selectedID);
                 case 5:
-                    List<usp_PictureSelect_Result> resimler = _entity.usp_PictureSelect(null).ToList();
+                    List<usp_PictureSelect_Result> resimler = entity.usp_PictureSelect(null).ToList();
                     return ListeDoldur(resimler, BaglantiTipi.Tablo, selectedID);
                 case 6:
-                    List<usp_FileSelect_Result> dosyalar = _entity.usp_FileSelect(null).ToList();
+                    List<usp_FileSelect_Result> dosyalar = entity.usp_FileSelect(null).ToList();
                     return ListeDoldur(dosyalar, BaglantiTipi.Tablo, selectedID);
                 case 7:
-                    List<usp_MetaSelect_Result> metalar = _entity.usp_MetaSelect(null).ToList();
+                    List<usp_MetaSelect_Result> metalar = entity.usp_MetaSelect(null).ToList();
                     return ListeDoldur(metalar, BaglantiTipi.Tablo, selectedID);
                 case 8:
-                    List<usp_PropertyGroupSelect_Result> formelemanlar = _entity.usp_PropertyGroupSelect(null).ToList();
+                    List<usp_PropertyGroupSelect_Result> formelemanlar = entity.usp_PropertyGroupSelect(null).ToList();
                     return ListeDoldur(formelemanlar, BaglantiTipi.Tablo, selectedID);
                 default:
-                    List<usp_TypesLinkableSelect_Result> tipler = _entity.usp_TypesLinkableSelect(null).ToList();
+                    List<usp_TypesLinkableSelect_Result> tipler = entity.usp_TypesLinkableSelect(null).ToList();
                     return ListeDoldur(tipler, BaglantiTipi.Tip, selectedID);
             }
         }

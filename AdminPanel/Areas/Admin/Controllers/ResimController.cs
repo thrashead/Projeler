@@ -1,15 +1,16 @@
 using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.ResimModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class ResimController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Resim table = new Resim();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +18,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Resim"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PictureSelect_Result> resim = _entity.usp_PictureSelect(null).ToList();
-
-            return View(resim);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +26,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Resim", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Resim resim = new Resim();
-
-            return View(resim);
+            return View(table);
         }
 
         [HttpPost]
@@ -47,9 +44,9 @@ namespace AdminPanel.Areas.Admin.Controllers
                     resim.PictureUrl = pic.FileName;
                     resim.ThumbUrl = pic.ThumbName;
 
-                    var result = _entity.usp_PictureInsert(resim.Title, resim.Description, resim.PictureUrl, resim.ThumbUrl, resim.Code, resim.Active);
+                    bool result = table.Insert(resim);
 
-                    if (result != null)
+                    if (result)
                     {
                         curUser.Log(resim, "i", "Resimler");
 
@@ -73,11 +70,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Resim", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PictureSelectTop_Result table = _entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
-
-            Resim resim = table.ChangeModel<Resim>();
-
-            return View(resim);
+            return View(table.Select(id));
         }
 
         [HttpPost]
@@ -111,9 +104,9 @@ namespace AdminPanel.Areas.Admin.Controllers
                         }
                     }
 
-                    var result = _entity.usp_PictureUpdate(resim.ID, resim.Title, resim.Description, resim.PictureUrl, resim.ThumbUrl, resim.Code, resim.Active);
+                    bool result = table.Update(resim);
 
-                    if (result != null)
+                    if (result)
                     {
                         curUser.Log(resim, "u", "Resimler");
 
@@ -134,25 +127,28 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Resim", "d"))
             {
-                if (curUser.HasRight("Resim", "d"))
+                usp_PictureSelectTop_Result resim = entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
+
+                bool result = table.Delete(id);
+
+                if (result)
                 {
-                    usp_PictureSelectTop_Result table = _entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
-
-                    _entity.usp_PictureCheckSetDeleted(id);
-
-                    System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.PictureUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.PictureUrl + ".bak"));
-                    System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.ThumbUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.ThumbUrl + ".bak"));
+                    try
+                    {
+                        System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + resim.PictureUrl));
+                        System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + resim.ThumbUrl));
+                    }
+                    catch
+                    {
+                        return Json(false);
+                    }
 
                     curUser.Log(id, "d", "Resimler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -161,25 +157,28 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Resim", "r"))
             {
-                if (curUser.HasRight("Resim", "rd"))
+                usp_PictureSelectTop_Result resim = entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
+
+                bool result = table.Remove(id);
+
+                if (result)
                 {
-                    usp_PictureSelectTop_Result table = _entity.usp_PictureSelectTop(id, 1).FirstOrDefault();
+                    try
+                    {
+                        System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + resim.PictureUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + resim.PictureUrl));
+                        System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + resim.ThumbUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + resim.ThumbUrl));
+                    }
+                    catch
+                    {
+                        return Json(false);
+                    }
 
-                    _entity.usp_PictureCheckDelete(id);
-
-                    System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.PictureUrl));
-                    System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.ThumbUrl));
-
-                    curUser.Log(id, "rd", "Resimler");
+                    curUser.Log(id, "r", "Resimler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

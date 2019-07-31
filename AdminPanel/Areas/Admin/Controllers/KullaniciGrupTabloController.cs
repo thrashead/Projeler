@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.KullaniciGrupTabloModel;
+using Repository.TiplerModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupTabloController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        KullaniciGrupTablo table = new KullaniciGrupTablo();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupTablesDetailSelect_Result> kullanici = _entity.usp_UserGroupTablesDetailSelect(null).ToList();
-
-            return View(kullanici);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string groupID)
@@ -29,15 +30,13 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = groupID == null ? 0 : groupID.ToInteger();
 
-            KullaniciGrupTablo kullanici = new KullaniciGrupTablo();
+            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
+            table.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", linkID);
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
-            kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", linkID);
+            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
+            table.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName");
 
-            List<Types> tableTypes = _entity.Types.ToList();
-            kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName");
-
-            return View(kullanici);
+            return View(table);
         }
 
         [HttpPost]
@@ -48,9 +47,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupTablesCheckInsert(kullanici.TypeID, kullanici.UserGroupID);
+                bool result = table.Insert(kullanici);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kullanici, "i", "Kullanýcý Grup Tablolarý");
 
@@ -62,11 +61,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
-            kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.UserGroupID);
+            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
+            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.UserGroupID);
 
-            List<Types> tableTypes = _entity.Types.ToList();
-            kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName", kullanici.TypeID);
+            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
+            kullanici.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName", kullanici.TypeID);
 
             return View("Ekle", kullanici);
         }
@@ -77,15 +76,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UserGroupTablesSelectTop_Result table = _entity.usp_UserGroupTablesSelectTop(id, 1).FirstOrDefault();
+            IKullaniciGrupTablo kullanici = table.Select(id);
 
-            KullaniciGrupTablo kullanici = table.ChangeModel<KullaniciGrupTablo>();
+            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
+            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.UserGroupID);
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
-            kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.UserGroupID);
-
-            List<Types> tableTypes = _entity.Types.ToList();
-            kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName", kullanici.TypeID);
+            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
+            kullanici.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName", kullanici.TypeID);
 
             return View(kullanici);
         }
@@ -98,9 +95,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupTablesCheckUpdate(kullanici.ID, kullanici.TypeID, kullanici.UserGroupID);
+                bool result = table.Update(kullanici);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kullanici, "u", "Kullanýcý Grup Tablolarý");
 
@@ -112,31 +109,27 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<UserGroups> tableUserGroups = _entity.UserGroups.ToList();
-            kullanici.UserGroupsList = tableUserGroups.ToSelectList("ID", "Name", kullanici.UserGroupID);
+            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
+            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.UserGroupID);
 
-            List<Types> tableTypes = _entity.Types.ToList();
-            kullanici.TypesList = tableTypes.ToSelectList("ID", "TypeName", kullanici.TypeID);
+            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
+            kullanici.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName", kullanici.TypeID);
 
             return View("Duzenle", kullanici);
         }
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Kullanicilar", "d"))
             {
-                if (curUser.HasRight("Kullanicilar", "d"))
-                {
-                    _entity.usp_UserGroupTablesCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Kullanýcý Grup Tablolarý");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Kullanýcý Grup Tablolarý");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

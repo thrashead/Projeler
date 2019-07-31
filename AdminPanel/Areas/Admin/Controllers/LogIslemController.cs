@@ -3,13 +3,15 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.LogIslemModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LogIslemController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        LogIslem table = new LogIslem();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +19,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_LogProcessDetailSelect_Result> log = _entity.usp_LogProcessDetailSelect(null).ToList();
-
-            return View(log);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string logID)
@@ -29,12 +29,10 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = logID == null ? 0 : logID.ToInteger();
 
-            LogIslem log = new LogIslem();
+            List<usp_LogTypesSelect_Result> tableLogTipler = entity.usp_LogTypesSelect(null).ToList();
+            table.LogTypesList = tableLogTipler.ToSelectList<usp_LogTypesSelect_Result, SelectListItem>("ID", "Name", linkID);
 
-            List<LogTypes> tableLogTypes = _entity.LogTypes.ToList();
-            log.LogTypesList = tableLogTypes.ToSelectList("ID", "Name", linkID);
-
-            return View(log);
+            return View(table);
         }
 
         [HttpPost]
@@ -45,9 +43,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LogProcessInsert(log.LogTypeID, log.Name, log.ShortName, log.Description);
+                bool result = table.Insert(log);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(log, "i", "Log Ýþlemleri");
 
@@ -59,8 +57,8 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 log.Mesaj = "Model uygun deðil.";
 
-            List<LogTypes> tableLogTypes = _entity.LogTypes.ToList();
-            log.LogTypesList = tableLogTypes.ToSelectList("ID", "Name", log.LogTypeID);
+            List<usp_LogTypesSelect_Result> tableLogTipler = entity.usp_LogTypesSelect(null).ToList();
+            log.LogTypesList = tableLogTipler.ToSelectList<usp_LogTypesSelect_Result, SelectListItem>("ID", "Name", log.LogTypeID);
 
             return View("Ekle", log);
         }
@@ -71,12 +69,10 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_LogProcessSelectTop_Result table = _entity.usp_LogProcessSelectTop(id, 1).FirstOrDefault();
+            ILogIslem log = table.Select(id);
 
-            LogIslem log = table.ChangeModel<LogIslem>();
-
-            List<LogTypes> tableLogTypes = _entity.LogTypes.ToList();
-            log.LogTypesList = tableLogTypes.ToSelectList("ID", "Name", log.LogTypeID);
+            List<usp_LogTypesSelect_Result> tableLogTipler = entity.usp_LogTypesSelect(null).ToList();
+            log.LogTypesList = tableLogTipler.ToSelectList<usp_LogTypesSelect_Result, SelectListItem>("ID", "Name", log.LogTypeID);
 
             return View(log);
         }
@@ -89,9 +85,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_LogProcessUpdate(log.ID, log.LogTypeID, log.Name, log.ShortName, log.Description);
+                bool result = table.Update(log);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(log, "u", "Log Ýþlemleri");
 
@@ -103,28 +99,24 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 log.Mesaj = "Model uygun deðil.";
 
-            List<LogTypes> tableLogTypes = _entity.LogTypes.ToList();
-            log.LogTypesList = tableLogTypes.ToSelectList("ID", "Name", log.LogTypeID);
+            List<usp_LogTypesSelect_Result> tableLogTipler = entity.usp_LogTypesSelect(null).ToList();
+            log.LogTypesList = tableLogTipler.ToSelectList<usp_LogTypesSelect_Result, SelectListItem>("ID", "Name", log.LogTypeID);
 
             return View("Duzenle", log);
         }
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Loglar", "d"))
             {
-                if (curUser.HasRight("Loglar", "d"))
-                {
-                    _entity.usp_LogProcessDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Log Ýþlemleri");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Log Ýþlemleri");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

@@ -1,5 +1,5 @@
-﻿@model List<usp_LinksDetailSelect_Result>
-@using AdminPanel.Data
+﻿@model List<Baglantilar>
+@using Repository.BaglantilarModel
 @using TDLibrary
 
 @{
@@ -32,7 +32,7 @@
                             </thead>
                             <tbody>
                                 @{
-                                    foreach (usp_LinksDetailSelect_Result item in Model)
+                                    foreach (Baglantilar item in Model)
                                     {
                                         string linkTypeTitle = "";
 

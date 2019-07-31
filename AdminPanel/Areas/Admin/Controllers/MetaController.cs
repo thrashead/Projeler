@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.MetalarModel;
+using Repository.MetalarDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
-    public class MetaController : Controller
+    public class MetalarController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Metalar table = new Metalar();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_MetaSelect_Result> meta = _entity.usp_MetaSelect(null).ToList();
-
-            return View(meta);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +28,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Metalar meta = new Metalar();
-
-            return View(meta);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +39,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_MetaInsert(meta.Title, meta.Code, meta.Active);
+                bool result = table.Insert(meta);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(meta, "i", "Metalar");
 
@@ -63,11 +62,9 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_MetaSelectTop_Result table = _entity.usp_MetaSelectTop(id, 1).FirstOrDefault();
+            IMetalar meta = table.Select(id);
 
-            Metalar meta = table.ChangeModel<Metalar>();
-
-            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = _entity.usp_MetaTByLinkedIDSelect(id).ToList();
+            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = entity.usp_MetaTByLinkedIDSelect(id).ToList();
             meta.MetaTList.AddRange(metaDilList.ChangeModelList<MetalarDil, usp_MetaTByLinkedIDSelect_Result>());
 
             return View(meta);
@@ -81,9 +78,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_MetaUpdate(meta.ID, meta.Title, meta.Code, meta.Active);
+                bool result = table.Update(meta);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(meta, "u", "Metalar");
 
@@ -95,7 +92,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = _entity.usp_MetaTByLinkedIDSelect(meta.ID).ToList();
+            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = entity.usp_MetaTByLinkedIDSelect(meta.ID).ToList();
             meta.MetaTList.AddRange(metaDilList.ChangeModelList<MetalarDil, usp_MetaTByLinkedIDSelect_Result>());
 
             return View("Duzenle", meta);
@@ -104,20 +101,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Meta", "d"))
             {
-                if (curUser.HasRight("Kullanicilar", "d"))
-                {
-                    _entity.usp_MetaCheckSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Metalar");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -126,20 +119,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Meta", "r"))
             {
-                if (curUser.HasRight("Kullanicilar", "rd"))
-                {
-                    _entity.usp_MetaCheckDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Metalar");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Metalar");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -148,21 +137,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("Meta", "c"))
             {
-                if (curUser.HasRight("Kullanicilar", "c"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_MetaCopy(id);
+                    curUser.Log(id, "c", "Metalar");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Metalar");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

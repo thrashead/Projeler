@@ -3,13 +3,15 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.MetalarDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
-    public class MetaDilController : Controller
+    public class MetalarDilController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        MetalarDil table = new MetalarDil();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +19,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_MetaTLinkedSelect_Result> meta = _entity.usp_MetaTLinkedSelect(null).ToList();
-
-            return View(meta);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string metaID)
@@ -29,15 +29,13 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = metaID == null ? 0 : metaID.ToInteger();
 
-            MetalarDil meta = new MetalarDil();
+            List<usp_MetaSelect_Result> tableMetalar = entity.usp_MetaSelect(null).ToList();
+            table.MetaList = tableMetalar.ToSelectList<usp_MetaSelect_Result, SelectListItem>("ID", "Title", linkID);
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
-            meta.MetaList = tableMeta.ToSelectList("ID", "Title", linkID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            table.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName");
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
-
-            return View(meta);
+            return View(table);
         }
 
         [HttpPost]
@@ -48,9 +46,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid && meta.MetaID > 0)
             {
-                var result = _entity.usp_MetaTCheckInsert(meta.MetaID, meta.TransID, meta.Name, meta.Content);
+                bool result = table.Insert(meta);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(meta, "i", "Metalar (Dil)");
 
@@ -62,11 +60,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
-            meta.MetaList = tableMeta.ToSelectList("ID", "Title", meta.MetaID);
+            List<usp_MetaSelect_Result> tableMetalar = entity.usp_MetaSelect(null).ToList();
+            meta.MetaList = tableMetalar.ToSelectList<usp_MetaSelect_Result, SelectListItem>("ID", "Title", meta.MetaID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName", meta.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            meta.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", meta.TransID);
 
             return View("Ekle", meta);
         }
@@ -77,15 +75,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_MetaTSelectTop_Result table = _entity.usp_MetaTSelectTop(id, 1).FirstOrDefault();
+            IMetalarDil meta = table.Select(id);
 
-            MetalarDil meta = table.ChangeModel<MetalarDil>();
+            List<usp_MetaSelect_Result> tableMetalar = entity.usp_MetaSelect(null).ToList();
+            meta.MetaList = tableMetalar.ToSelectList<usp_MetaSelect_Result, SelectListItem>("ID", "Title", meta.MetaID);
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
-            meta.MetaList = tableMeta.ToSelectList("ID", "Title", meta.MetaID);
-
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName", meta.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            meta.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", meta.TransID);
 
             return View(meta);
         }
@@ -98,9 +94,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_MetaTCheckUpdate(meta.ID, meta.MetaID, meta.TransID, meta.Name, meta.Content);
+                bool result = table.Update(meta);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(meta, "u", "Metalar (Dil)");
 
@@ -112,11 +108,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<Meta> tableMeta = _entity.Meta.ToList();
-            meta.MetaList = tableMeta.ToSelectList("ID", "Title", meta.MetaID);
+            List<usp_MetaSelect_Result> tableMetalar = entity.usp_MetaSelect(null).ToList();
+            meta.MetaList = tableMetalar.ToSelectList<usp_MetaSelect_Result, SelectListItem>("ID", "Title", meta.MetaID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            meta.TranslationList = tableTranslation.ToSelectList("ID", "TransName", meta.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            meta.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", meta.TransID);
 
             return View("Duzenle", meta);
         }
@@ -124,20 +120,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Meta", "d"))
             {
-                if (curUser.HasRight("Meta", "d"))
-                {
-                    _entity.usp_MetaTSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Metalar (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -146,20 +138,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Meta", "r"))
             {
-                if (curUser.HasRight("Meta", "rd"))
-                {
-                    _entity.usp_MetaTDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Metalar (Dil)");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Metalar (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

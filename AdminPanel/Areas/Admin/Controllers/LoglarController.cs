@@ -1,14 +1,13 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using AdminPanel.Data;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.LoglarModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
 	public class LoglarController : Controller
 	{
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        Loglar table = new Loglar();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -18,9 +17,25 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
             }
 
-            List<usp_LogsDetailSelect_Result> log = _entity.usp_LogsDetailSelect(null).ToList();
+            return View(table.List());
+        }
 
-            return View(log);
+        [HttpPost]
+        public JsonResult Sil()
+        {
+            if (curUser.HasRight("Loglar", "d"))
+            {
+                bool result = table.Clear();
+
+                if (result)
+                {
+                    curUser.Log<Loglar>(null, "t", "Loglar");
+
+                    return Json(true);
+                }
+            }
+
+            return Json(false);
         }
     }
 }

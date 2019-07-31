@@ -1,15 +1,18 @@
 using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.KullaniciGrupModel;
+using Repository.KullaniciGrupTabloModel;
+using Repository.KullaniciGrupHakModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        KullaniciGrup table = new KullaniciGrup();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupsSelect_Result> kullanici = _entity.usp_UserGroupsSelect(null).ToList();
-
-            return View(kullanici);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +28,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            KullaniciGrup kullanici = new KullaniciGrup();
-
-            return View(kullanici);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +39,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupsInsert(kullanici.Name, kullanici.ShortName, kullanici.Description);
+                bool result = table.Insert(kullanici);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kullanici, "i", "Kullanýcý Gruplarý");
 
@@ -63,12 +62,10 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_UserGroupsSelectTop_Result table = _entity.usp_UserGroupsSelectTop(id, 1).FirstOrDefault();
+            IKullaniciGrup kullanici = table.Select(id);
 
-            KullaniciGrup kullanici = table.ChangeModel<KullaniciGrup>();
-
-            kullanici.UserGroupTablesList = _entity.usp_UserGroupTablesDetailSelect(id).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
-            kullanici.UserGroupRightsList = _entity.usp_UserGroupRightsDetailSelect(id).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
+            kullanici.UserGroupTablesList = entity.usp_UserGroupTablesDetailSelect(id).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
+            kullanici.UserGroupRightsList = entity.usp_UserGroupRightsDetailSelect(id).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
 
             return View(kullanici);
         }
@@ -81,9 +78,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_UserGroupsUpdate(kullanici.ID, kullanici.Name, kullanici.ShortName, kullanici.Description);
+                bool result = table.Update(kullanici);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(kullanici, "u", "Kullanýcý Gruplarý");
 
@@ -94,28 +91,24 @@ namespace AdminPanel.Areas.Admin.Controllers
             }
             kullanici.Mesaj = "Model uygun deðil.";
 
-            kullanici.UserGroupTablesList = _entity.usp_UserGroupTablesDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
-            kullanici.UserGroupRightsList = _entity.usp_UserGroupRightsDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
+            kullanici.UserGroupTablesList = entity.usp_UserGroupTablesDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
+            kullanici.UserGroupRightsList = entity.usp_UserGroupRightsDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
 
             return View("Duzenle", kullanici);
         }
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Kullanicilar", "d"))
             {
-                if (curUser.HasRight("Kullanicilar", "d"))
-                {
-                    _entity.usp_UserGroupsCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Kullanýcý Gruplarý");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Kullanýcý Gruplarý");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

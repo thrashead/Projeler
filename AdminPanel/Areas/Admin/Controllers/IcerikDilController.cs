@@ -3,13 +3,15 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.IcerikDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class IcerikDilController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        IcerikDil table = new IcerikDil();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +19,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ContentTLinkedSelect_Result> icerik = _entity.usp_ContentTLinkedSelect(null).ToList();
-
-            return View(icerik);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string contID)
@@ -29,15 +29,13 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = contID == null ? 0 : contID.ToInteger();
 
-            IcerikDil icerik = new IcerikDil();
+            List<usp_ContentSelect_Result> tableIcerik = entity.usp_ContentSelect(null).ToList();
+            table.ContentList = tableIcerik.ToSelectList<usp_ContentSelect_Result, SelectListItem>("ID", "Title", linkID);
 
-            List<Content> tableContent = _entity.Content.ToList();
-            icerik.ContentList = tableContent.ToSelectList("ID", "Title", linkID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            table.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName");
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            icerik.TranslationList = tableTranslation.ToSelectList("ID", "TransName");
-
-            return View(icerik);
+            return View(table);
         }
 
         [HttpPost]
@@ -48,9 +46,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid && icerik.ContID > 0)
             {
-                var result = _entity.usp_ContentTCheckInsert(icerik.ContID, icerik.TransID, icerik.ContentName, icerik.ShortText1, icerik.ShortText2, icerik.Description);
+                bool result = table.Insert(icerik);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(icerik, "i", "Ýçerikler (Dil)");
 
@@ -62,11 +60,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 icerik.Mesaj = "Model uygun deðil.";
 
-            List<Content> tableContent = _entity.Content.ToList();
-            icerik.ContentList = tableContent.ToSelectList("ID", "Title", icerik.ContID);
+            List<usp_ContentSelect_Result> tableIcerik = entity.usp_ContentSelect(null).ToList();
+            icerik.ContentList = tableIcerik.ToSelectList<usp_ContentSelect_Result, SelectListItem>("ID", "Title", icerik.ContID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            icerik.TranslationList = tableTranslation.ToSelectList("ID", "TransName", icerik.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            icerik.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", icerik.TransID);
 
             return View("Ekle", icerik);
         }
@@ -77,15 +75,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ContentTSelectTop_Result table = _entity.usp_ContentTSelectTop(id, 1).FirstOrDefault();
+            IIcerikDil icerik = table.Select(id);
 
-            IcerikDil icerik = table.ChangeModel<IcerikDil>();
+            List<usp_ContentSelect_Result> tableIcerik = entity.usp_ContentSelect(null).ToList();
+            icerik.ContentList = tableIcerik.ToSelectList<usp_ContentSelect_Result, SelectListItem>("ID", "Title", icerik.ContID);
 
-            List<Content> tableContent = _entity.Content.ToList();
-            icerik.ContentList = tableContent.ToSelectList("ID", "Title", icerik.ContID);
-
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            icerik.TranslationList = tableTranslation.ToSelectList("ID", "TransName", icerik.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            icerik.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", icerik.TransID);
 
             return View(icerik);
         }
@@ -98,9 +94,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_ContentTCheckUpdate(icerik.ID, icerik.ContID, icerik.TransID, icerik.ContentName, icerik.ShortText1, icerik.ShortText2, icerik.Description);
+                bool result = table.Update(icerik);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(icerik, "u", "Ýçerikler (Dil)");
 
@@ -112,11 +108,11 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 icerik.Mesaj = "Model uygun deðil.";
 
-            List<Content> tableContent = _entity.Content.ToList();
-            icerik.ContentList = tableContent.ToSelectList("ID", "Title", icerik.ContID);
+            List<usp_ContentSelect_Result> tableIcerik = entity.usp_ContentSelect(null).ToList();
+            icerik.ContentList = tableIcerik.ToSelectList<usp_ContentSelect_Result, SelectListItem>("ID", "Title", icerik.ContID);
 
-            List<Translation> tableTranslation = _entity.Translation.ToList();
-            icerik.TranslationList = tableTranslation.ToSelectList("ID", "TransName", icerik.TransID);
+            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
+            icerik.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", icerik.TransID);
 
             return View("Duzenle", icerik);
         }
@@ -124,20 +120,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Icerik", "d"))
             {
-                if (curUser.HasRight("Icerik", "d"))
-                {
-                    _entity.usp_ContentTSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Ýçerikler (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -146,20 +138,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Icerik", "r"))
             {
-                if (curUser.HasRight("Icerik", "rd"))
-                {
-                    _entity.usp_ContentTDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Ýçerikler (Dil)");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Ýçerikler (Dil)");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

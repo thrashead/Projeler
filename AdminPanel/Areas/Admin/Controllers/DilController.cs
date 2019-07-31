@@ -1,15 +1,16 @@
 using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.DilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class DilController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Dil table = new Dil();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +18,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Dil"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_TranslationSelect_Result> ceviri = _entity.usp_TranslationSelect(null).ToList();
-
-            return View(ceviri);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +26,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Dil", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Dil ceviri = new Dil();
-
-            return View(ceviri);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,15 +37,15 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                Uploader flag = Uploader.UploadPicture(null, false);
+                Uploader flag = Uploader.UploadPicture(true, null, false);
 
                 if (flag.Control)
                 {
                     ceviri.Flag = flag.FileName;
 
-                    var result = _entity.usp_TranslationInsert(ceviri.TransName, ceviri.ShortName, ceviri.Flag, ceviri.Active);
+                    bool result = table.Insert(ceviri);
 
-                    if (result != null)
+                    if (result)
                     {
                         curUser.Log(ceviri, "i", "Diller");
 
@@ -72,11 +69,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Dil", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_TranslationSelectTop_Result table = _entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
-
-            Dil ceviri = table.ChangeModel<Dil>();
-
-            return View(ceviri);
+            return View(table.Select(id));
         }
 
         [HttpPost]
@@ -89,7 +82,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             {
                 string oldFlag = ceviri.Flag;
 
-                Uploader flag = Uploader.UploadPicture(null, false);
+                Uploader flag = Uploader.UploadPicture(true, null, false);
 
                 if (flag.UploadError == null)
                 {
@@ -107,9 +100,9 @@ namespace AdminPanel.Areas.Admin.Controllers
                         }
                     }
 
-                    var result = _entity.usp_TranslationUpdate(ceviri.ID, ceviri.TransName, ceviri.ShortName, ceviri.Flag, ceviri.Active);
+                    bool result = table.Update(ceviri);
 
-                    if (result != null)
+                    if (result)
                     {
                         curUser.Log(ceviri, "u", "Diller");
 
@@ -128,52 +121,58 @@ namespace AdminPanel.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult Sil(int id)
+        public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Dil", "r"))
             {
-                if (curUser.HasRight("Dil", "d"))
+                usp_TranslationSelectTop_Result link = entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+
+                bool result = table.Remove(id);
+
+                if (result)
                 {
-                    usp_TranslationSelectTop_Result table = _entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+                    try
+                    {
+                        System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + link.Flag), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + link.Flag));
+                    }
+                    catch
+                    {
+                        return Json(false);
+                    }
 
-                    _entity.usp_TranslationSetDeleted(id);
-
-                    System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.Flag), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.Flag + ".bak"));
-
-                    curUser.Log(id, "d", "Diller");
+                    curUser.Log(id, "r", "Diller");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
         }
 
         [HttpPost]
-        public JsonResult Kaldir(int id)
+        public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Dil", "d"))
             {
-                if (curUser.HasRight("Dil", "rd"))
+                usp_TranslationSelectTop_Result link = entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+
+                bool result = table.Delete(id);
+
+                if (result)
                 {
-                    usp_TranslationSelectTop_Result table = _entity.usp_TranslationSelectTop(id, 1).FirstOrDefault();
+                    try
+                    {
+                        System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + link.Flag));
+                    }
+                    catch
+                    {
+                        return Json(false);
+                    }
 
-                    _entity.usp_TranslationDelete(id);
-
-                    System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.Flag));
-
-                    curUser.Log(id, "rd", "Diller");
+                    curUser.Log(id, "d", "Diller");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

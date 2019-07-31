@@ -3,13 +3,16 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.IcerikModel;
+using Repository.IcerikDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class IcerikController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Icerik table = new Icerik();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_ContentSelect_Result> icerik = _entity.usp_ContentSelect(null).ToList();
-
-            return View(icerik);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +28,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Icerik icerik = new Icerik();
-
-            return View(icerik);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,11 +39,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                icerik.Url = icerik.Title.ToHyperLinkText();
+                icerik.Url = icerik.Title.ToUrl();
 
-                var result = _entity.usp_ContentInsert(icerik.Title, icerik.Url, icerik.Code, icerik.Active);
+                bool result = table.Insert(icerik);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(icerik, "i", "Ýçerikler");
 
@@ -65,10 +64,9 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_ContentSelectTop_Result table = _entity.usp_ContentSelectTop(id, 1).FirstOrDefault();
-            Icerik icerik = table.ChangeModel<Icerik>();
+            IIcerik icerik = table.Select(id);
 
-            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = _entity.usp_ContentTByLinkedIDSelect(id).ToList();
+            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = entity.usp_ContentTByLinkedIDSelect(id).ToList();
             icerik.ContentTList.AddRange(icerikDilList.ChangeModelList<IcerikDil, usp_ContentTByLinkedIDSelect_Result>());
 
             return View(icerik);
@@ -82,11 +80,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                icerik.Url = icerik.Title.ToHyperLinkText();
+                icerik.Url = icerik.Title.ToUrl();
 
-                var result = _entity.usp_ContentUpdate(icerik.ID, icerik.Title, icerik.Url, icerik.Code, icerik.Active);
+                bool result = table.Update(icerik);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(icerik, "u", "Ýçerikler");
 
@@ -98,7 +96,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 icerik.Mesaj = "Model uygun deðil.";
 
-            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = _entity.usp_ContentTByLinkedIDSelect(icerik.ID).ToList();
+            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = entity.usp_ContentTByLinkedIDSelect(icerik.ID).ToList();
             icerik.ContentTList.AddRange(icerikDilList.ChangeModelList<IcerikDil, usp_ContentTByLinkedIDSelect_Result>());
 
             return View("Duzenle", icerik);
@@ -107,20 +105,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Icerik", "d"))
             {
-                if (curUser.HasRight("Icerik", "d"))
-                {
-                    _entity.usp_ContentCheckSetDeleted(id);
+                bool result = table.Delete(id);
 
+                if (result)
+                {
                     curUser.Log(id, "d", "Ýçerikler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -129,20 +123,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Icerik", "r"))
             {
-                if (curUser.HasRight("Icerik", "rd"))
-                {
-                    _entity.usp_ContentCheckDelete(id);
+                bool result = table.Remove(id);
 
-                    curUser.Log(id, "rd", "Ýçerikler");
+                if (result)
+                {
+                    curUser.Log(id, "r", "Ýçerikler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -151,21 +141,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("Icerik", "c"))
             {
-                if (curUser.HasRight("Icerik", "c"))
+                bool result = table.Copy(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_ContentCopy(id);
+                    curUser.Log(id, "c", "Ýçerikler");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Ýçerikler");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

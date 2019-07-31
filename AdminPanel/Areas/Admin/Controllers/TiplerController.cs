@@ -1,15 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
-using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.TiplerModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class TiplerController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        Tipler table = new Tipler();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +14,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Tipler"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_TypesSelect_Result> tip = _entity.usp_TypesSelect(null).ToList();
-
-            return View(tip);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +22,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Tipler", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Tipler tip = new Tipler();
-
-            return View(tip);
+            return View(table);
         }
 
         [HttpPost]
@@ -40,9 +33,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_TypesInsert(tip.TypeName, tip.Url, tip.TableName, tip.Linkable, tip.Show);
+                bool result = table.Insert(tip);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(tip, "i", "Tipler");
 
@@ -63,10 +56,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Tipler", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_TypesSelectTop_Result table = _entity.usp_TypesSelectTop(id, 1).FirstOrDefault();
-            Tipler tip = table.ChangeModel<Tipler>();
-
-            return View(tip);
+            return View(table.Select(id));
         }
 
         [HttpPost]
@@ -77,9 +67,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_TypesUpdate(tip.ID, tip.TypeName, tip.Url, tip.TableName, tip.Linkable, tip.Show);
+                bool result = table.Update(tip);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(tip, "u", "Tipler");
 
@@ -96,20 +86,16 @@ namespace AdminPanel.Areas.Admin.Controllers
 
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Tipler", "d"))
             {
-                if (curUser.HasRight("Tipler", "d"))
-                {
-                    _entity.usp_TypesCheckDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Tipler");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Tipler");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

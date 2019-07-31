@@ -2,14 +2,17 @@
 using System.Linq;
 using System.Web.Mvc;
 using AdminPanel.Data;
+using Repository.FormElemanDegerModel;
+using Repository.KullanicilarModel;
 using TDLibrary;
-using Models;
+
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormElemanDegerController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        FormElemanDeger table = new FormElemanDeger();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_PropertyValuesWithPropertyNameSelect_Result> formeleman = _entity.usp_PropertyValuesWithPropertyNameSelect(null).ToList();
-
-            return View(formeleman);
+            return View(table.List());
         }
 
         public ActionResult Ekle(string propID)
@@ -29,12 +30,10 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = propID == null ? 0 : propID.ToInteger();
 
-            FormElemanDeger formeleman = new FormElemanDeger();
+            List<usp_PropertyHasValueSelect_Result> tableProperties = entity.usp_PropertyHasValueSelect(null).ToList();
+            table.PropertyList = tableProperties.ToSelectList<usp_PropertyHasValueSelect_Result, SelectListItem>("ID", "Title", linkID);
 
-            List<usp_PropertyHasValueSelect_Result> tableProperties = _entity.usp_PropertyHasValueSelect(null).ToList();
-            formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", linkID);
-
-            return View(formeleman);
+            return View(table);
         }
 
         [HttpPost]
@@ -45,9 +44,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid && formeleman.PropID > 0)
             {
-                var result = _entity.usp_PropertyValuesInsert(formeleman.PropID, formeleman.Text, formeleman.Value, formeleman.Code);
+                bool result = table.Insert(formeleman);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(formeleman, "i", "Form Eleman Değerleri");
 
@@ -61,8 +60,8 @@ namespace AdminPanel.Areas.Admin.Controllers
                 formeleman.Mesaj = "Model uygun değil.";
             }
 
-            List<usp_PropertyHasValueSelect_Result> tableProperties = _entity.usp_PropertyHasValueSelect(null).ToList();
-            formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", formeleman.PropID);
+            List<usp_PropertyHasValueSelect_Result> tableProperties = entity.usp_PropertyHasValueSelect(null).ToList();
+            formeleman.PropertyList = tableProperties.ToSelectList<usp_PropertyHasValueSelect_Result, SelectListItem>("ID", "Title", formeleman.PropID);
 
             return View("Ekle", formeleman);
         }
@@ -73,12 +72,10 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_PropertyValuesSelectTop_Result table = _entity.usp_PropertyValuesSelectTop(id, 1).FirstOrDefault();
+            IFormElemanDeger formeleman = table.Select(id);
 
-            FormElemanDeger formeleman = table.ChangeModel<FormElemanDeger>();
-
-            List<usp_PropertyHasValueSelect_Result> tableProperties = _entity.usp_PropertyHasValueSelect(null).ToList();
-            formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", formeleman.PropID);
+            List<usp_PropertyHasValueSelect_Result> tableProperties = entity.usp_PropertyHasValueSelect(null).ToList();
+            formeleman.PropertyList = tableProperties.ToSelectList<usp_PropertyHasValueSelect_Result, SelectListItem>("ID", "Title", formeleman.PropID);
 
             return View(formeleman);
         }
@@ -91,9 +88,9 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = _entity.usp_PropertyValuesUpdate(formeleman.ID, formeleman.PropID, formeleman.Text, formeleman.Value, formeleman.Code);
+                bool result = table.Update(formeleman);
 
-                if (result != null)
+                if (result)
                 {
                     curUser.Log(formeleman, "u", "Form Eleman Değerleri");
 
@@ -107,8 +104,8 @@ namespace AdminPanel.Areas.Admin.Controllers
                 formeleman.Mesaj = "Model uygun değil.";
             }
 
-            List<usp_PropertyHasValueSelect_Result> tableProperties = _entity.usp_PropertyHasValueSelect(null).ToList();
-            formeleman.PropertyList = tableProperties.ToSelectList("ID", "Title", formeleman.PropID);
+            List<usp_PropertyHasValueSelect_Result> tableProperties = entity.usp_PropertyHasValueSelect(null).ToList();
+            formeleman.PropertyList = tableProperties.ToSelectList<usp_PropertyHasValueSelect_Result, SelectListItem>("ID", "Title", formeleman.PropID);
 
             return View("Duzenle", formeleman);
         }
@@ -116,20 +113,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("FormEleman", "d"))
             {
-                if (curUser.HasRight("FormEleman", "d"))
-                {
-                    _entity.usp_PropertyValuesDelete(id);
+                bool result = table.Delete(id);
 
-                    curUser.Log(id, "rd", "Form Eleman Değerleri");
+                if (result)
+                {
+                    curUser.Log(id, "d", "Form Eleman Değerleri");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -138,21 +131,16 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kopyala(int id)
         {
-            try
+            if (curUser.HasRight("FormEleman", "c"))
             {
-                if (curUser.HasRight("FormEleman", "c"))
+                bool result = table.Delete(id);
+
+                if (result)
                 {
-                    var result = _entity.usp_PropertyValuesCopy(id);
+                    curUser.Log(id, "c", "Form Eleman Değerleri");
 
-                    if (result != null)
-                        curUser.Log(id, "c", "Form Eleman Değerleri");
-
-                    return Json(result == null ? false : true);
+                    return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

@@ -1,15 +1,16 @@
 using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
-using Models;
+using Repository.KullanicilarModel;
+using Repository.DosyaModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class DosyaController : Controller
     {
-        readonly AdminPanelEntities _entity = new AdminPanelEntities();
+        readonly AdminPanelEntities entity = new AdminPanelEntities();
+        Dosya table = new Dosya();
         Kullanicilar curUser = AppTools.User;
 
         public ActionResult Index()
@@ -17,9 +18,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Dosya"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_FileSelect_Result> dosya = _entity.usp_FileSelect(null).ToList();
-
-            return View(dosya);
+            return View(table.List());
         }
 
         public ActionResult Ekle()
@@ -27,9 +26,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Dosya", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            Dosya dosya = new Dosya();
-
-            return View(dosya);
+            return View(table);
         }
 
         [HttpPost]
@@ -46,9 +43,9 @@ namespace AdminPanel.Areas.Admin.Controllers
                 {
                     dosya.FileUrl = file.FileName;
 
-                    var result = _entity.usp_FileInsert(dosya.Title, dosya.Description, dosya.FileUrl, dosya.Code, dosya.Active);
+                    bool result = table.Insert(dosya);
 
-                    if (result != null)
+                    if (result)
                     {
                         curUser.Log(dosya, "i", "Dosya");
 
@@ -72,11 +69,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Dosya", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            usp_FileSelectTop_Result table = _entity.usp_FileSelectTop(id, 1).FirstOrDefault();
-
-            Dosya dosya = table.ChangeModel<Dosya>();
-
-            return View(dosya);
+            return View(table.Select(id));
         }
 
         [HttpPost]
@@ -107,9 +100,9 @@ namespace AdminPanel.Areas.Admin.Controllers
                         }
                     }
 
-                    var result = _entity.usp_FileUpdate(dosya.ID, dosya.Title, dosya.Description, dosya.FileUrl, dosya.Code, dosya.Active);
+                    bool result = table.Update(dosya);
 
-                    if (result != null)
+                    if (result)
                     {
                         curUser.Log(dosya, "u", "Dosya");
 
@@ -132,24 +125,27 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Sil(int id)
         {
-            try
+            if (curUser.HasRight("Dosya", "d"))
             {
-                if (curUser.HasRight("Dosya", "d"))
+                usp_FileSelectTop_Result dosya = entity.usp_FileSelectTop(id, 1).FirstOrDefault();
+
+                bool result = table.Delete(id);
+
+                if (result)
                 {
-                    usp_FileSelectTop_Result table = _entity.usp_FileSelectTop(id, 1).FirstOrDefault();
-
-                    _entity.usp_FileCheckSetDeleted(id);
-
-                    System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + table.FileUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + table.FileUrl + ".bak"));
+                    try
+                    {
+                        System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + dosya.FileUrl));
+                    }
+                    catch
+                    {
+                        return Json(false);
+                    }
 
                     curUser.Log(id, "d", "Dosya");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);
@@ -158,24 +154,27 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Kaldir(int id)
         {
-            try
+            if (curUser.HasRight("Dosya", "r"))
             {
-                if (curUser.HasRight("Dosya", "rd"))
+                usp_FileSelectTop_Result dosya = entity.usp_FileSelectTop(id, 1).FirstOrDefault();
+
+                bool result = table.Remove(id);
+
+                if (result)
                 {
-                    usp_FileSelectTop_Result table = _entity.usp_FileSelectTop(id, 1).FirstOrDefault();
+                    try
+                    {
+                        System.IO.File.Move(Server.MapPath("~" + AppTools.UploadPath + "/" + dosya.FileUrl), Server.MapPath("~" + AppTools.UploadPath + "/Deleted/" + dosya.FileUrl));
+                    }
+                    catch
+                    {
+                        return Json(false);
+                    }
 
-                    _entity.usp_FileCheckDelete(id);
-
-                    System.IO.File.Delete(Server.MapPath("~" + AppTools.UploadPath + "/" + table.FileUrl));
-
-                    curUser.Log(id, "rd", "Dosya");
+                    curUser.Log(id, "r", "Dosya");
 
                     return Json(true);
                 }
-            }
-            catch
-            {
-                return Json(false);
             }
 
             return Json(false);

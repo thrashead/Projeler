@@ -282,12 +282,12 @@ $(function () {
     /* Silme işlemi */
 
     /* Kaldırma işlemi */
-    $(document).on("click", "a.rdltLink", function () {
-        $(this).addClass("active-rdlt");
-        $(".rdlt-yes").attr("data-id", $(this).attr("data-id"));
-        $(".rdlt-yes").attr("data-link", $(this).attr("data-link"));
+    $(document).on("click", "a.rmvLink", function () {
+        $(this).addClass("active-rmv");
+        $(".rmv-yes").attr("data-id", $(this).attr("data-id"));
+        $(".rmv-yes").attr("data-link", $(this).attr("data-link"));
     });
-    $(document).on("click", "a.rdlt-yes", function () {
+    $(document).on("click", "a.rmv-yes", function () {
         var link = $(this);
         var url = link.attr("data-link");
         var dataID = parseInt(link.attr("data-id"));
@@ -306,7 +306,7 @@ $(function () {
                         sticky: false
                     });
 
-                    $("a.rdltLink.active-rdlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
+                    $("a.rmvLink.active-rmv").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
                         $(this).remove();
                     });
                 }
@@ -320,10 +320,10 @@ $(function () {
             }
         });
     });
-    $(document).on("click", "a.rdlt-no", function () {
-        $(".rdlt-yes").removeAttr("data-id");
-        $(".rdlt-yes").removeAttr("data-link");
-        $("a.rdltLink").removeClass("active-rdlt");
+    $(document).on("click", "a.rmv-no", function () {
+        $(".rmv-yes").removeAttr("data-id");
+        $(".rmv-yes").removeAttr("data-link");
+        $("a.rmvLink").removeClass("active-rmv");
     });
     /* Kaldırma işlemi */
 
