@@ -1,17 +1,11 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
-using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.MetalarModel;
-using Repository.MetalarDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class MetalarController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         Metalar table = new Metalar();
         Kullanicilar curUser = AppTools.User;
 
@@ -62,12 +56,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Meta", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IMetalar meta = table.Select(id);
-
-            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = entity.usp_MetaTByLinkedIDSelect(id).ToList();
-            meta.MetaTList.AddRange(metaDilList.ChangeModelList<MetalarDil, usp_MetaTByLinkedIDSelect_Result>());
-
-            return View(meta);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -92,8 +81,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            List<usp_MetaTByLinkedIDSelect_Result> metaDilList = entity.usp_MetaTByLinkedIDSelect(meta.ID).ToList();
-            meta.MetaTList.AddRange(metaDilList.ChangeModelList<MetalarDil, usp_MetaTByLinkedIDSelect_Result>());
+            meta = (Metalar)table.Update(meta.ID, meta);
 
             return View("Duzenle", meta);
         }

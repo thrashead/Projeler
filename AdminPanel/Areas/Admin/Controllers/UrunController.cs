@@ -1,17 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.UrunModel;
-using Repository.UrunDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class UrunController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         Urun table = new Urun();
         Kullanicilar curUser = AppTools.User;
 
@@ -64,12 +59,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Urun", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IUrun urun = table.Select(id);
-
-            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = entity.usp_ProductTByLinkedIDSelect(id).ToList();
-            urun.ProductTList.AddRange(urunDilList.ChangeModelList<UrunDil, usp_ProductTByLinkedIDSelect_Result>());
-
-            return View(urun);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -96,8 +86,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 urun.Mesaj = "Model uygun deðil.";
 
-            List<usp_ProductTByLinkedIDSelect_Result> urunDilList = entity.usp_ProductTByLinkedIDSelect(urun.ID).ToList();
-            urun.ProductTList.AddRange(urunDilList.ChangeModelList<UrunDil, usp_ProductTByLinkedIDSelect_Result>());
+            urun = (Urun)table.Update(urun.ID, urun);
 
             return View("Duzenle", urun);
         }

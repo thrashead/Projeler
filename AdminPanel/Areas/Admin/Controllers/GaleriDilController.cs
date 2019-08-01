@@ -1,7 +1,4 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.GaleriDilModel;
@@ -10,7 +7,6 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class GaleriDilController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         GaleriDil table = new GaleriDil();
         Kullanicilar curUser = AppTools.User;
 
@@ -29,13 +25,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = galID == null ? 0 : galID.ToInteger();
 
-            List<usp_GallerySelect_Result> tableGaleri = entity.usp_GallerySelect(null).ToList();
-            table.GalleryList = tableGaleri.ToSelectList<usp_GallerySelect_Result, SelectListItem>("ID", "Title", linkID);
-
-            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
-            table.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName");
-
-            return View(table);
+            return View(table.Insert(linkID));
         }
 
         [HttpPost]
@@ -60,11 +50,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<usp_GallerySelect_Result> tableGaleri = entity.usp_GallerySelect(null).ToList();
-            galeri.GalleryList = tableGaleri.ToSelectList<usp_GallerySelect_Result, SelectListItem>("ID", "Title", galeri.GalID);
-
-            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
-            galeri.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", galeri.TransID);
+            galeri = (GaleriDil)table.Insert(galeri.GalID, galeri.TransID, galeri);
 
             return View("Ekle", galeri);
         }
@@ -75,15 +61,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IGaleriDil galeri = table.Select(id);
-
-            List<usp_GallerySelect_Result> tableGaleri = entity.usp_GallerySelect(null).ToList();
-            galeri.GalleryList = tableGaleri.ToSelectList<usp_GallerySelect_Result, SelectListItem>("ID", "Title", galeri.GalID);
-
-            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
-            galeri.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", galeri.TransID);
-
-            return View(galeri);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -108,11 +86,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<usp_GallerySelect_Result> tableGaleri = entity.usp_GallerySelect(null).ToList();
-            galeri.GalleryList = tableGaleri.ToSelectList<usp_GallerySelect_Result, SelectListItem>("ID", "Title", galeri.GalID);
-
-            List<usp_TranslationSelect_Result> tableDil = entity.usp_TranslationSelect(null).ToList();
-            galeri.TranslationList = tableDil.ToSelectList<usp_TranslationSelect_Result, SelectListItem>("ID", "TransName", galeri.TransID);
+            galeri = (GaleriDil)table.Update(galeri.ID, galeri);
 
             return View("Duzenle", galeri);
         }

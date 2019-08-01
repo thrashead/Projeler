@@ -1,17 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.KullaniciGrupTabloModel;
-using Repository.TiplerModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupTabloController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         KullaniciGrupTablo table = new KullaniciGrupTablo();
         Kullanicilar curUser = AppTools.User;
 
@@ -30,13 +25,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = groupID == null ? 0 : groupID.ToInteger();
 
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            table.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", linkID);
-
-            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
-            table.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName");
-
-            return View(table);
+            return View(table.Insert(linkID));
         }
 
         [HttpPost]
@@ -61,11 +50,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.UserGroupID);
-
-            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
-            kullanici.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName", kullanici.TypeID);
+            kullanici = (KullaniciGrupTablo)table.Insert(kullanici.UserGroupID, kullanici.TypeID, kullanici);
 
             return View("Ekle", kullanici);
         }
@@ -76,15 +61,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IKullaniciGrupTablo kullanici = table.Select(id);
-
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.UserGroupID);
-
-            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
-            kullanici.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName", kullanici.TypeID);
-
-            return View(kullanici);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -109,11 +86,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.UserGroupID);
-
-            List<Tipler> tableTipler = entity.usp_TypesSelect(null).ToList().ChangeModelList<Tipler, usp_TypesSelect_Result>();
-            kullanici.TypesList = tableTipler.ToSelectList<Tipler, SelectListItem>("ID", "TypeName", kullanici.TypeID);
+            kullanici = (KullaniciGrupTablo)table.Update(kullanici.ID, kullanici);
 
             return View("Duzenle", kullanici);
         }

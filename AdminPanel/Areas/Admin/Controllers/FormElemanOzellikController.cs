@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using AdminPanel.Data;
+﻿using System.Web.Mvc;
 using Repository.FormElemanOzellikModel;
 using Repository.KullanicilarModel;
 using TDLibrary;
@@ -11,7 +8,6 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormElemanOzellikController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         FormElemanOzellik table = new FormElemanOzellik();
         Kullanicilar curUser = AppTools.User;
 
@@ -30,10 +26,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             int linkID = propID == null ? 0 : propID.ToInteger();
 
-            List<usp_PropertySelect_Result> tableFormEleman = entity.usp_PropertySelect(null).ToList();
-            table.PropertyList = tableFormEleman.ToSelectList<usp_PropertySelect_Result, SelectListItem>("ID", "Title", linkID);
-
-            return View(table);
+            return View(table.Insert(linkID));
         }
 
         [HttpPost]
@@ -58,8 +51,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<usp_PropertySelect_Result> tableFormEleman = entity.usp_PropertySelect(null).ToList();
-            formeleman.PropertyList = tableFormEleman.ToSelectList<usp_PropertySelect_Result, SelectListItem>("ID", "Title", formeleman.PropID);
+            formeleman = (FormElemanOzellik)table.Insert(formeleman.PropID, formeleman);
 
             return View("Ekle", formeleman);
         }
@@ -70,12 +62,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IFormElemanOzellik formeleman = table.Select(id);
-
-            List<usp_PropertySelect_Result> tableFormEleman = entity.usp_PropertySelect(null).ToList();
-            formeleman.PropertyList = tableFormEleman.ToSelectList<usp_PropertySelect_Result, SelectListItem>("ID", "Title", formeleman.PropID);
-
-            return View(formeleman);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -100,8 +87,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<usp_PropertySelect_Result> tableFormEleman = entity.usp_PropertySelect(null).ToList();
-            formeleman.PropertyList = tableFormEleman.ToSelectList<usp_PropertySelect_Result, SelectListItem>("ID", "Title", formeleman.PropID);
+            formeleman = (FormElemanOzellik)table.Update(formeleman.ID, formeleman);
 
             return View("Duzenle", formeleman);
         }

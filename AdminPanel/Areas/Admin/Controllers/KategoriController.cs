@@ -1,17 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.KategoriModel;
-using Repository.KategoriDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KategoriController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         Kategori table = new Kategori();
         Kullanicilar curUser = AppTools.User;
 
@@ -28,10 +23,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kategori", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(null).ToList();
-            table.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", null, true);
-
-            return View(table);
+            return View(table.Insert());
         }
 
         [HttpPost]
@@ -58,8 +50,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(kategori.ID).ToList();
-            kategori.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", kategori.ParentID, true);
+            kategori = (Kategori)table.Insert(kategori, null);
 
             return View("Ekle", kategori);
         }
@@ -69,16 +60,8 @@ namespace AdminPanel.Areas.Admin.Controllers
         {
             if (!curUser.HasRight("Kategori", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
-
-            IKategori kategori = table.Select(id);
-
-            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = entity.usp_CategoryTByLinkedIDSelect(id).ToList();
-            kategori.CategoryTList.AddRange(kategoriDilList.ChangeModelList<KategoriDil, usp_CategoryTByLinkedIDSelect_Result>());
-
-            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(null).ToList();
-            kategori.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", kategori.ParentID, true);
-
-            return View(kategori);
+            
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -105,11 +88,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kategori.Mesaj = "Model uygun deðil.";
 
-            List<usp_CategoryTByLinkedIDSelect_Result> kategoriDilList = entity.usp_CategoryTByLinkedIDSelect(kategori.ID).ToList();
-            kategori.CategoryTList.AddRange(kategoriDilList.ChangeModelList<KategoriDil, usp_CategoryTByLinkedIDSelect_Result>());
-
-            List<usp_CategoryParentSelect_Result> parentList = entity.usp_CategoryParentSelect(kategori.ID).ToList();
-            kategori.ParentCategories = parentList.ToSelectList<usp_CategoryParentSelect_Result, SelectListItem>("ID", "Title", kategori.ParentID, true);
+            kategori = (Kategori)table.Update(kategori.ID, kategori);
 
             return View("Duzenle", kategori);
         }

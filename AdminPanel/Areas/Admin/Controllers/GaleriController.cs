@@ -1,17 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.GaleriModel;
-using Repository.GaleriDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class GaleriController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         Galeri table = new Galeri();
         Kullanicilar curUser = AppTools.User;
 
@@ -64,12 +59,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Galeri", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IGaleri galeri = table.Select(id);
-
-            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = entity.usp_GalleryTByLinkedIDSelect(id).ToList();
-            galeri.GalleryTList.AddRange(galeriDilList.ChangeModelList<GaleriDil, usp_GalleryTByLinkedIDSelect_Result>());
-
-            return View(galeri);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -96,8 +86,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 galeri.Mesaj = "Model uygun deðil.";
 
-            List<usp_GalleryTByLinkedIDSelect_Result> galeriDilList = entity.usp_GalleryTByLinkedIDSelect(galeri.ID).ToList();
-            galeri.GalleryTList.AddRange(galeriDilList.ChangeModelList<GaleriDil, usp_GalleryTByLinkedIDSelect_Result>());
+            galeri = (Galeri)table.Update(galeri.ID, galeri);
 
             return View("Duzenle", galeri);
         }

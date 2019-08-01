@@ -1,17 +1,11 @@
-using System.Linq;
 using System.Web.Mvc;
-using AdminPanel.Data;
-using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.KullaniciGrupModel;
-using Repository.KullaniciGrupTabloModel;
-using Repository.KullaniciGrupHakModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullaniciGrupController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         KullaniciGrup table = new KullaniciGrup();
         Kullanicilar curUser = AppTools.User;
 
@@ -62,12 +56,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IKullaniciGrup kullanici = table.Select(id);
-
-            kullanici.UserGroupTablesList = entity.usp_UserGroupTablesDetailSelect(id).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
-            kullanici.UserGroupRightsList = entity.usp_UserGroupRightsDetailSelect(id).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
-
-            return View(kullanici);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -91,8 +80,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             }
             kullanici.Mesaj = "Model uygun deðil.";
 
-            kullanici.UserGroupTablesList = entity.usp_UserGroupTablesDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupTablo, usp_UserGroupTablesDetailSelect_Result>();
-            kullanici.UserGroupRightsList = entity.usp_UserGroupRightsDetailSelect(kullanici.ID).ToList().ChangeModelList<KullaniciGrupHak, usp_UserGroupRightsDetailSelect_Result>();
+            kullanici = (KullaniciGrup)table.Update(kullanici.ID, kullanici);
 
             return View("Duzenle", kullanici);
         }

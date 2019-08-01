@@ -1,17 +1,12 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.IcerikModel;
-using Repository.IcerikDilModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class IcerikController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         Icerik table = new Icerik();
         Kullanicilar curUser = AppTools.User;
 
@@ -64,12 +59,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Icerik", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IIcerik icerik = table.Select(id);
-
-            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = entity.usp_ContentTByLinkedIDSelect(id).ToList();
-            icerik.ContentTList.AddRange(icerikDilList.ChangeModelList<IcerikDil, usp_ContentTByLinkedIDSelect_Result>());
-
-            return View(icerik);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -96,8 +86,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 icerik.Mesaj = "Model uygun deðil.";
 
-            List<usp_ContentTByLinkedIDSelect_Result> icerikDilList = entity.usp_ContentTByLinkedIDSelect(icerik.ID).ToList();
-            icerik.ContentTList.AddRange(icerikDilList.ChangeModelList<IcerikDil, usp_ContentTByLinkedIDSelect_Result>());
+            icerik = (Icerik)table.Update(icerik.ID, icerik);
 
             return View("Duzenle", icerik);
         }

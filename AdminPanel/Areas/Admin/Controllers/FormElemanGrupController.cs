@@ -63,12 +63,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IFormElemanGrup formeleman = table.Select(id);
-
-            List<usp_PropertyByGroupIDSelect_Result> formelemanGrupList = entity.usp_PropertyByGroupIDSelect(id).ToList();
-            formeleman.PropertyList.AddRange(formelemanGrupList.ChangeModelList<FormEleman, usp_PropertyByGroupIDSelect_Result>());
-
-            return View(formeleman);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -93,8 +88,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun deðil.";
 
-            List<usp_PropertyByGroupIDSelect_Result> formelemanGrupList = entity.usp_PropertyByGroupIDSelect(formeleman.ID).ToList();
-            formeleman.PropertyList.AddRange(formelemanGrupList.ChangeModelList<FormEleman, usp_PropertyByGroupIDSelect_Result>());
+            formeleman = (FormElemanGrup)table.Update(formeleman.ID, formeleman);
 
             return View("Duzenle", formeleman);
         }

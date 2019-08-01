@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using AdminPanel.Data;
-using Repository.FormElemanDegerModel;
+﻿using System.Web.Mvc;
 using Repository.FormElemanModel;
-using Repository.FormElemanOzellikModel;
 using Repository.KullanicilarModel;
 using TDLibrary;
 
@@ -12,7 +7,6 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormElemanController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         FormEleman table = new FormEleman();
         Kullanicilar curUser = AppTools.User;
 
@@ -30,14 +24,8 @@ namespace AdminPanel.Areas.Admin.Controllers
                 return RedirectToAction("AnaSayfa", "Giris");
 
             int linkID = groupID == null ? 0 : groupID.ToInteger();
-
-            List<usp_PropertyGroupSelect_Result> tableFormElemanGrup = entity.usp_PropertyGroupSelect(null).ToList();
-            table.PropertyGroupList.AddRange(tableFormElemanGrup.ToSelectList<usp_PropertyGroupSelect_Result, SelectListItem>("ID", "Title", linkID, true));
-
-            List<usp_PropertyTypesSelect_Result> tableFormTipler = entity.usp_PropertyTypesSelect(null).ToList();
-            table.PropertyTypesList.AddRange(tableFormTipler.ToSelectList<usp_PropertyTypesSelect_Result, SelectListItem>("ID", "Name"));
-
-            return View(table);
+            
+            return View(table.Insert(linkID));
         }
 
         [HttpPost]
@@ -62,11 +50,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<usp_PropertyGroupSelect_Result> tableFormElemanGrup = entity.usp_PropertyGroupSelect(null).ToList();
-            formeleman.PropertyGroupList.AddRange(tableFormElemanGrup.ToSelectList<usp_PropertyGroupSelect_Result, SelectListItem>("ID", "Title", formeleman.GroupID, true));
-
-            List<usp_PropertyTypesSelect_Result> tableFormTipler = entity.usp_PropertyTypesSelect(null).ToList();
-            formeleman.PropertyTypesList.AddRange(tableFormTipler.ToSelectList<usp_PropertyTypesSelect_Result, SelectListItem>("ID", "Name", formeleman.PropTypeID));
+            formeleman = (FormEleman)table.Insert(formeleman.GroupID, formeleman.PropTypeID, formeleman);
 
             return View("Ekle", formeleman);
         }
@@ -77,23 +61,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("FormEleman", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IFormEleman formeleman = table.Select(id);
-
-            List<usp_PropertyAttributesByPropIDSelect_Result> formelemanTanimlariList = entity.usp_PropertyAttributesByPropIDSelect(id).ToList();
-            formeleman.PropertyAttributesList.AddRange(formelemanTanimlariList.ChangeModelList<FormElemanOzellik, usp_PropertyAttributesByPropIDSelect_Result>());
-
-            formeleman.HasValue = entity.usp_PropertyHasValueCheck(id).FirstOrDefault();
-
-            List<usp_PropertyValuesByPropIDSelect_Result> formelemanDegerleriList = entity.usp_PropertyValuesByPropIDSelect(id).ToList();
-            formeleman.PropertyValuesList.AddRange(formelemanDegerleriList.ChangeModelList<FormElemanDeger, usp_PropertyValuesByPropIDSelect_Result>());
-
-            List<usp_PropertyGroupSelect_Result> tableFormElemanGrup = entity.usp_PropertyGroupSelect(null).ToList();
-            formeleman.PropertyGroupList.AddRange(tableFormElemanGrup.ToSelectList<usp_PropertyGroupSelect_Result, SelectListItem>("ID", "Title", formeleman.GroupID, true));
-
-            List<usp_PropertyTypesSelect_Result> tableFormTipler = entity.usp_PropertyTypesSelect(null).ToList();
-            formeleman.PropertyTypesList.AddRange(tableFormTipler.ToSelectList<usp_PropertyTypesSelect_Result, SelectListItem>("ID", "Name", formeleman.PropTypeID));
-
-            return View(formeleman);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -118,17 +86,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 formeleman.Mesaj = "Model uygun değil.";
 
-            List<usp_PropertyAttributesByPropIDSelect_Result> formelemanTanimlariList = entity.usp_PropertyAttributesByPropIDSelect(formeleman.ID).ToList();
-            formeleman.PropertyAttributesList.AddRange(formelemanTanimlariList.ChangeModelList<FormElemanOzellik, usp_PropertyAttributesByPropIDSelect_Result>());
-
-            List<usp_PropertyValuesByPropIDSelect_Result> formelemanDegerleriList = entity.usp_PropertyValuesByPropIDSelect(formeleman.ID).ToList();
-            formeleman.PropertyValuesList.AddRange(formelemanDegerleriList.ChangeModelList<FormElemanDeger, usp_PropertyValuesByPropIDSelect_Result>());
-
-            List<usp_PropertyGroupSelect_Result> tableFormElemanGrup = entity.usp_PropertyGroupSelect(null).ToList();
-            formeleman.PropertyGroupList.AddRange(tableFormElemanGrup.ToSelectList<usp_PropertyGroupSelect_Result, SelectListItem>("ID", "Title", formeleman.GroupID, true));
-
-            List<usp_PropertyTypesSelect_Result> tableFormTipler = entity.usp_PropertyTypesSelect(null).ToList();
-            formeleman.PropertyTypesList.AddRange(tableFormTipler.ToSelectList<usp_PropertyTypesSelect_Result, SelectListItem>("ID", "Name", formeleman.PropTypeID));
+            formeleman = (FormEleman)table.Update(formeleman.ID, formeleman);
 
             return View("Duzenle", formeleman);
         }

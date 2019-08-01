@@ -1,17 +1,11 @@
-using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using AdminPanel.Data;
-using TDLibrary;
 using Repository.KullanicilarModel;
 using Repository.LogTiplerModel;
-using Repository.LogIslemModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LogTiplerController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         LogTipler table = new LogTipler();
         Kullanicilar curUser = AppTools.User;
 
@@ -62,12 +56,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Loglar", "u"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            ILogTipler log = table.Select(id);
-
-            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = entity.usp_LogProcessByLogTypeIDSelect(id).ToList();
-            log.LogProcessList.AddRange(logTipList.ChangeModelList<LogIslem, usp_LogProcessByLogTypeIDSelect_Result>());
-
-            return View(log);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -92,8 +81,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 log.Mesaj = "Model uygun deðil.";
 
-            List<usp_LogProcessByLogTypeIDSelect_Result> logTipList = entity.usp_LogProcessByLogTypeIDSelect(log.ID).ToList();
-            log.LogProcessList.AddRange(logTipList.ChangeModelList<LogIslem, usp_LogProcessByLogTypeIDSelect_Result>());
+            log = (LogTipler)table.Update(log.ID, log);
 
             return View("Duzenle", log);
         }

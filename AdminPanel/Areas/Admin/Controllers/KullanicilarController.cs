@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Web.Mvc;
-using System.Collections.Generic;
 using AdminPanel.Data;
 using TDLibrary;
 using Repository.KullanicilarModel;
@@ -26,10 +25,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "i"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            table.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name");
-
-            return View(table);
+            return View(table.Insert());
         }
 
         [HttpPost]
@@ -56,8 +52,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.GroupID);
+            kullanici = (Kullanicilar)table.Insert(kullanici.GroupID, kullanici);
 
             return View("Ekle", kullanici);
         }
@@ -69,14 +64,7 @@ namespace AdminPanel.Areas.Admin.Controllers
                 if (!curUser.HasRight("Kullanicilar", "u"))
                     return RedirectToAction("AnaSayfa", "Giris");
 
-            IKullanicilar kullanici = table.Select(id);
-
-            kullanici.Password = "";
-
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.GroupID);
-
-            return View(kullanici);
+            return View(table.Update(id));
         }
 
         [HttpPost]
@@ -112,10 +100,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 kullanici.Mesaj = "Model uygun deðil.";
 
-            kullanici.Password = "";
-
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.GroupID);
+            kullanici = (Kullanicilar)table.Update(kullanici.ID, kullanici);
 
             return View("Duzenle", kullanici);
         }
@@ -126,12 +111,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             if (!curUser.HasRight("Kullanicilar", "cg"))
                 return RedirectToAction("AnaSayfa", "Giris");
 
-            IKullanicilar kullanici = table.Select(id);
-
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.GroupID);
-
-            return View(kullanici);
+            return View(table.ChangeGroup(id));
         }
 
         [HttpPost]
@@ -158,8 +138,7 @@ namespace AdminPanel.Areas.Admin.Controllers
                 kullanici.Mesaj = "Model uygun deðil.";
             }
 
-            List<usp_UserGroupsSelect_Result> tableKullaniciGrup = entity.usp_UserGroupsSelect(null).ToList();
-            kullanici.UserGroupsList = tableKullaniciGrup.ToSelectList<usp_UserGroupsSelect_Result, SelectListItem>("ID", "Name", kullanici.GroupID);
+            kullanici = (Kullanicilar)table.ChangeGroup(kullanici.ID, kullanici);
 
             return View("GrupDegistir", kullanici);
         }
