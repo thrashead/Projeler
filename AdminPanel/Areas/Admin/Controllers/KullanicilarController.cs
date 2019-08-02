@@ -1,14 +1,10 @@
-using System.Linq;
 using System.Web.Mvc;
-using AdminPanel.Data;
-using TDLibrary;
 using Repository.KullanicilarModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
     public class KullanicilarController : Controller
     {
-        readonly AdminPanelEntities entity = new AdminPanelEntities();
         Kullanicilar table = new Kullanicilar();
         Kullanicilar curUser = AppTools.User;
 
@@ -36,8 +32,6 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                kullanici.Password = kullanici.Password.ToMD5();
-
                 bool result = table.Insert(kullanici);
 
                 if (result)
@@ -76,21 +70,11 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                string password = kullanici.Password == null ? entity.usp_UsersOldPasswordSelect(kullanici.ID).FirstOrDefault() : kullanici.Password.ToMD5();
-
-                kullanici.Password = password;
-
-                if (curUser.ID == kullanici.ID)
-                    kullanici.Active = true;
-
                 bool result = table.Update(kullanici);
 
                 if (result)
                 {
                     curUser.Log(kullanici, "u", "Kullanýcýlar");
-
-                    if (curUser.ID == kullanici.ID)
-                        Session["CurrentUser"] = entity.usp_UsersSelectTop(kullanici.ID, 1).FirstOrDefault().ChangeModel<Kullanicilar>();
 
                     return RedirectToAction("Index");
                 }
