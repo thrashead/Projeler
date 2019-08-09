@@ -1,76 +1,76 @@
 ﻿@using TDLibrary
-@using Repository.KullanicilarModel
+@using Repository.UsersModel
 
 @{
-    Kullanicilar user = AppTools.User;
+    Users user = AppTools.User;
 }
 
 <div id="sidebar">
     <a href="#" class="visible-phone"><i class="icon icon-reorder"></i> Menü</a>
     <ul>
         <li data-url="Giris" class="active">
-            <a href="@AppMgr.AdminPath/Giris/AnaSayfa"><i class="icon icon-home"></i> <span>Ana Sayfa</span></a>
+            <a href="@AppMgr.AdminPath/Home/Index"><i class="icon icon-home"></i> <span>Ana Sayfa</span></a>
         </li>
-        @{ if (user.HasRight("Kategori") && "Kategori".ShowType() == true)
+        @{ if (user.HasRight("Category") && "Category".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-sitemap"></i> <span>Kategoriler</span></a>
                     <ul>
-                        <li data-url="Kategori"><a href="@AppMgr.AdminPath/Kategori">Kategoriler</a></li>
-                        <li data-url="KategoriDil"><a href="@AppMgr.AdminPath/KategoriDil">Kategoriler (Dil)</a></li>
+                        <li data-url="Category"><a href="@AppMgr.AdminPath/Category">Kategoriler</a></li>
+                        <li data-url="CategoryT"><a href="@AppMgr.AdminPath/CategoryT">Kategoriler (Dil)</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Icerik") && "Icerik".ShowType() == true)
+        @{ if (user.HasRight("Content") && "Content".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-edit"></i> <span>İçerikler</span></a>
                     <ul>
-                        <li data-url="Icerik"><a href="@AppMgr.AdminPath/Icerik">İçerikler</a></li>
-                        <li data-url="IcerikDil"><a href="@AppMgr.AdminPath/IcerikDil">İçerikler (Dil)</a></li>
+                        <li data-url="Content"><a href="@AppMgr.AdminPath/Content">İçerikler</a></li>
+                        <li data-url="ContentT"><a href="@AppMgr.AdminPath/ContentT">İçerikler (Dil)</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Urun") && "Urun".ShowType() == true)
+        @{ if (user.HasRight("Product") && "Product".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-barcode"></i> <span>Ürünler</span></a>
                     <ul>
-                        <li data-url="Urun"><a href="@AppMgr.AdminPath/Urun">Ürünler</a></li>
-                        <li data-url="UrunDil"><a href="@AppMgr.AdminPath/UrunDil">Ürünler (Dil)</a></li>
+                        <li data-url="Product"><a href="@AppMgr.AdminPath/Product">Ürünler</a></li>
+                        <li data-url="ProductT"><a href="@AppMgr.AdminPath/ProductT">Ürünler (Dil)</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Galeri") && "Galeri".ShowType() == true)
+        @{ if (user.HasRight("Gallery") && "Gallery".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-picture"></i> <span>Galeri</span></a>
                     <ul>
-                        <li data-url="Galeri"><a href="@AppMgr.AdminPath/Galeri">Galeri</a></li>
-                        <li data-url="GaleriDil"><a href="@AppMgr.AdminPath/GaleriDil">Galeri (Dil)</a></li>
+                        <li data-url="Gallery"><a href="@AppMgr.AdminPath/Gallery">Galeri</a></li>
+                        <li data-url="GalleryT"><a href="@AppMgr.AdminPath/GalleryT">Galeri (Dil)</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Resim") && "Resim".ShowType() == true)
+        @{ if (user.HasRight("Pictures") && "Pictures".ShowType() == true)
             {
-                <li data-url="Resim">
-                    <a href="@AppMgr.AdminPath/Resim"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
+                <li data-url="Pictures">
+                    <a href="@AppMgr.AdminPath/Pictures"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Dosya") && "Dosya".ShowType() == true)
+        @{ if (user.HasRight("Files") && "Files".ShowType() == true)
             {
-                <li data-url="Dosya">
-                    <a href="@AppMgr.AdminPath/Dosya"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
+                <li data-url="Files">
+                    <a href="@AppMgr.AdminPath/Files"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
                 </li>
             }
         }
@@ -81,87 +81,87 @@
                     <a href="#"><i class="icon icon-tags"></i> <span>Meta</span></a>
                     <ul>
                         <li data-url="Meta"><a href="@AppMgr.AdminPath/Meta">Meta</a></li>
-                        <li data-url="MetaDil"><a href="@AppMgr.AdminPath/MetaDil">Meta (Dil)</a></li>
+                        <li data-url="MetaT"><a href="@AppMgr.AdminPath/MetaT">Meta (Dil)</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("FormEleman") && "FormEleman".ShowType() == true)
+        @{ if (user.HasRight("FormItems") && "FormItems".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-tasks"></i> <span>Form Elemanları</span></a>
                     <ul>
-                        <li data-url="FormEleman"><a href="@AppMgr.AdminPath/FormEleman">Form Elemanları</a></li>
-                        <li data-url="FormElemanGrup"><a href="@AppMgr.AdminPath/FormElemanGrup">Form Grupları</a></li>
-                        <li data-url="FormElemanOzellik"><a href="@AppMgr.AdminPath/FormElemanOzellik">Form Eleman Özellikleri</a></li>
-                        <li data-url="FormElemanDeger"><a href="@AppMgr.AdminPath/FormElemanDeger">Form Eleman Değerleri</a></li>
-                        <li data-url="FormTipler"><a href="@AppMgr.AdminPath/FormTipler">Form Tipleri</a></li>
+                        <li data-url="FormItems"><a href="@AppMgr.AdminPath/FormItems">Form Elemanları</a></li>
+                        <li data-url="FormGroups"><a href="@AppMgr.AdminPath/FormGroups">Form Grupları</a></li>
+                        <li data-url="FormAttributes"><a href="@AppMgr.AdminPath/FormAttributes">Form Eleman Özellikleri</a></li>
+                        <li data-url="FormValues"><a href="@AppMgr.AdminPath/FormValues">Form Eleman Değerleri</a></li>
+                        <li data-url="FormTypes"><a href="@AppMgr.AdminPath/FormTypes">Form Tipleri</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("BagliTipler") && "BagliTipler".ShowType() == true)
+        @{ if (user.HasRight("LinkTypes") && "LinkTypes".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
                     <ul>
-                        <li data-url="BagliTipler"><a href="@AppMgr.AdminPath/BagliTipler">Bağlı Tipler</a></li>
-                        <li data-url="Baglanti"><a href="@AppMgr.AdminPath/Baglanti">Bağlantılar</a></li>
+                        <li data-url="LinkTypes"><a href="@AppMgr.AdminPath/LinkTypes">Bağlı Tipler</a></li>
+                        <li data-url="Links"><a href="@AppMgr.AdminPath/Links">Bağlantılar</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Dil") && "Dil".ShowType() == true)
+        @{ if (user.HasRight("Translation") && "Translation".ShowType() == true)
             {
-                <li data-url="Dil">
-                    <a href="@AppMgr.AdminPath/Dil"><i class="icon icon-globe"></i> <span>Diller</span></a>
+                <li data-url="Translation">
+                    <a href="@AppMgr.AdminPath/Translation"><i class="icon icon-globe"></i> <span>Diller</span></a>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Loglar") && "Loglar".ShowType() == true)
+        @{ if (user.HasRight("Logs") && "Logs".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-eye-open"></i> <span>Loglar</span></a>
                     <ul>
-                        <li data-url="Loglar"><a href="@AppMgr.AdminPath/Loglar">Loglar</a></li>
-                        <li data-url="LogTipler"><a href="@AppMgr.AdminPath/LogTipler">Log Tipleri</a></li>
-                        <li data-url="LogIslem"><a href="@AppMgr.AdminPath/LogIslem">Log İşlemleri</a></li>
+                        <li data-url="Logs"><a href="@AppMgr.AdminPath/Logs">Loglar</a></li>
+                        <li data-url="LogTypes"><a href="@AppMgr.AdminPath/LogTypes">Log Tipleri</a></li>
+                        <li data-url="LogProcess"><a href="@AppMgr.AdminPath/LogProcess">Log İşlemleri</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Ziyaretci") && "Ziyaretci".ShowType() == true)
+        @{ if (user.HasRight("Visitors") && "Visitors".ShowType() == true)
             {
-                <li data-url="Ziyaretci">
-                    <a href="@AppMgr.AdminPath/Ziyaretci"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
+                <li data-url="Visitors">
+                    <a href="@AppMgr.AdminPath/Visitors"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Kullanicilar") && "Kullanicilar".ShowType() == true)
+        @{ if (user.HasRight("Users") && "Users".ShowType() == true)
             {
                 <li class="submenu">
                     <a href="#"><i class="icon icon-user"></i> <span>Kullanıcılar</span></a>
                     <ul>
-                        <li data-url="Kullanicilar"><a href="@AppMgr.AdminPath/Kullanicilar">Kullanıcılar</a></li>
-                        <li data-url="KullaniciGrup"><a href="@AppMgr.AdminPath/KullaniciGrup">Kullanıcı Grupları</a></li>
-                        <li data-url="KullaniciGrupTablo"><a href="@AppMgr.AdminPath/KullaniciGrupTablo">Kullanıcı Grup Tabloları</a></li>
-                        <li data-url="KullaniciGrupHak"><a href="@AppMgr.AdminPath/KullaniciGrupHak">Kullanıcı Grup Hakları</a></li>
-                        <li data-url="KullaniciGrupIslem"><a href="@AppMgr.AdminPath/KullaniciGrupIslem">Kullanıcı Grup İşlemleri</a></li>
+                        <li data-url="Users"><a href="@AppMgr.AdminPath/Users">Kullanıcılar</a></li>
+                        <li data-url="UserGroups"><a href="@AppMgr.AdminPath/UserGroups">Kullanıcı Grupları</a></li>
+                        <li data-url="UserGroupTables"><a href="@AppMgr.AdminPath/UserGroupTables">Kullanıcı Grup Tabloları</a></li>
+                        <li data-url="UserGroupRights"><a href="@AppMgr.AdminPath/UserGroupRights">Kullanıcı Grup Hakları</a></li>
+                        <li data-url="UserGroupProcess"><a href="@AppMgr.AdminPath/UserGroupProcess">Kullanıcı Grup İşlemleri</a></li>
                     </ul>
                 </li>
             }
         }
 
-        @{ if (user.HasRight("Tipler") && "Tipler".ShowType() == true)
+        @{ if (user.HasRight("Types") && "Types".ShowType() == true)
             {
-                <li data-url="Tipler">
-                    <a href="@AppMgr.AdminPath/Tipler"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>
+                <li data-url="Types">
+                    <a href="@AppMgr.AdminPath/Types"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>
                 </li>
             }
         }

@@ -1,8 +1,8 @@
-﻿@using Repository.KullanicilarModel
-@using TDLibrary
+﻿@using TDLibrary
+@using Repository.UsersModel
 
 @{
-    Kullanicilar user = AppTools.User;
+    Users user = AppTools.User;
 }
 
 <div id="header">
@@ -11,7 +11,7 @@
 
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
-        <li><a title="Bilgilerinizi düzenlemek için tıklayın." href="@AppMgr.AdminPath/Kullanicilar/Duzenle/@user.ID"><i class="icon icon-user"></i>  <span class="text">Hoşgeldiniz @user.Username</span></a></li>
+        <li><a title="Bilgilerinizi düzenlemek için tıklayın." href="@AppMgr.AdminPath/Users/Update/@user.ID"><i class="icon icon-user"></i>  <span class="text">Hoşgeldiniz @user.Username</span></a></li>
         <li><a href="javascript:;" class="logout"><i class="icon icon-share-alt"></i> <span class="text">Çıkış</span></a></li>
         <li><a target="_blank" href="@AppMgr.MainPath"><i class="icon icon-home"></i> <span class="text"> Web Sitesine Git</span></a></li>
     </ul>

@@ -1,35 +1,35 @@
 using System.Web.Mvc;
-using Repository.KullanicilarModel;
-using Repository.MetalarModel;
+using Repository.UsersModel;
+using Repository.MetaModel;
 
 namespace AdminPanel.Areas.Admin.Controllers
 {
-    public class MetalarController : Controller
+    public class MetaController : Controller
     {
-        Metalar table = new Metalar();
-        Kullanicilar curUser = AppTools.User;
+        Meta table = new Meta();
+        Users curUser = AppTools.User;
 
         public ActionResult Index()
         {
             if (!curUser.HasRight("Meta"))
-                return RedirectToAction("AnaSayfa", "Giris");
+                return RedirectToAction("Index", "Home");
 
             return View(table.List());
         }
 
-        public ActionResult Ekle()
+        public ActionResult Insert()
         {
             if (!curUser.HasRight("Meta", "i"))
-                return RedirectToAction("AnaSayfa", "Giris");
+                return RedirectToAction("Index", "Home");
 
             return View(table);
         }
 
         [HttpPost]
-        public ActionResult Ekle(Metalar meta)
+        public ActionResult Insert(Meta meta)
         {
             if (!curUser.HasRight("Meta", "i"))
-                return RedirectToAction("AnaSayfa", "Giris");
+                return RedirectToAction("Index", "Home");
 
             if (ModelState.IsValid)
             {
@@ -47,23 +47,23 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            return View("Ekle", meta);
+            return View("Insert", meta);
         }
 
         [HttpGet]
-        public ActionResult Duzenle(int id)
+        public ActionResult Update(int id)
         {
             if (!curUser.HasRight("Meta", "u"))
-                return RedirectToAction("AnaSayfa", "Giris");
+                return RedirectToAction("Index", "Home");
 
             return View(table.Update(id));
         }
 
         [HttpPost]
-        public ActionResult Duzenle(Metalar meta)
+        public ActionResult Update(Meta meta)
         {
             if (!curUser.HasRight("Meta", "u"))
-                return RedirectToAction("AnaSayfa", "Giris");
+                return RedirectToAction("Index", "Home");
 
             if (ModelState.IsValid)
             {
@@ -81,13 +81,13 @@ namespace AdminPanel.Areas.Admin.Controllers
             else
                 meta.Mesaj = "Model uygun deðil.";
 
-            meta = (Metalar)table.Update(meta.ID, meta);
+            meta = (Meta)table.Update(meta.ID, meta);
 
-            return View("Duzenle", meta);
+            return View("Update", meta);
         }
 
         [HttpPost]
-        public JsonResult Sil(int id)
+        public JsonResult Delete(int id)
         {
             if (curUser.HasRight("Meta", "d"))
             {
@@ -105,7 +105,7 @@ namespace AdminPanel.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult Kaldir(int id)
+        public JsonResult Remove(int id)
         {
             if (curUser.HasRight("Meta", "r"))
             {
@@ -123,7 +123,7 @@ namespace AdminPanel.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult Kopyala(int id)
+        public JsonResult Copy(int id)
         {
             if (curUser.HasRight("Meta", "c"))
             {

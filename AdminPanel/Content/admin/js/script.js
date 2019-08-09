@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    if ($("#Description").length > 0 && Urling.controller != "Resim" && Urling.controller != "Dosya" && Urling.controller != "FormEleman" && Urling.controller != "FormElemanGrup" && Urling.controller != "KullaniciGrup" && Urling.controller != "KullaniciGrupIslem" && Urling.controller != "LogIslem") {
+    if ($("#Description").length > 0 && Urling.controller != "Pictures" && Urling.controller != "Files" && Urling.controller != "Property" && Urling.controller != "PropertyGroup" && Urling.controller != "UserGroups" && Urling.controller != "UserGroupProcess" && Urling.controller != "LogProcess") {
         ClassicEditor
             .create(document.querySelector('#Description'), {
                 //toolbar: ['bold', 'italic']
@@ -40,7 +40,7 @@
                 url: AdminAjaxPath + "/Logout",
                 success: function (answer) {
                     if (answer == true) {
-                        window.location = AdminPath;
+                        window.location = AdminPath + "/Home/Login";
                     }
                 }
             });
@@ -100,7 +100,7 @@ function GirisYap() {
         contentType: "application/json; charset=utf-8",
         success: function (answer) {
             if (answer == true) {
-                window.location = AdminPath + "/Giris/AnaSayfa";
+                window.location = AdminPath + "/Home/Index";
             }
             else {
                 $("#hataMesaj").text("Lütfen kullanıcı adı ve şifrenizi kontrol ediniz.");
@@ -166,64 +166,64 @@ $(function () {
 
         switch (txtValue) {
             case "Kategoriler":
-                window.location.href = AdminPath + "/Kategori";
+                window.location.href = AdminPath + "/Category";
                 break;
             case "Kategoriler (Dil)":
-                window.location.href = AdminPath + "/KategoriDil";
+                window.location.href = AdminPath + "/CategoryT";
                 break;
             case "İçerikler":
-                window.location.href = AdminPath + "/Icerik";
+                window.location.href = AdminPath + "/Content";
                 break;
             case "İçerikler (Dil)":
-                window.location.href = AdminPath + "/IcerikDil";
+                window.location.href = AdminPath + "/ContentT";
                 break;
             case "Ürünler":
-                window.location.href = AdminPath + "/Urun";
+                window.location.href = AdminPath + "/Product";
                 break;
             case "Ürünler (Dil)":
-                window.location.href = AdminPath + "/UrunDil";
+                window.location.href = AdminPath + "/ProductT";
                 break;
             case "Galeri":
-                window.location.href = AdminPath + "/Galeri";
+                window.location.href = AdminPath + "/Gallery";
                 break;
             case "Galeri (Dil)":
-                window.location.href = AdminPath + "/GaleriDil";
+                window.location.href = AdminPath + "/GalleryT";
                 break;
             case "Resimler":
-                window.location.href = AdminPath + "/Resim";
+                window.location.href = AdminPath + "/Pictures";
                 break;
             case "Dosyalar":
-                window.location.href = AdminPath + "/Dosya";
+                window.location.href = AdminPath + "/Files";
                 break;
             case "Meta":
                 window.location.href = AdminPath + "/Meta";
                 break;
             case "Meta (Dil)":
-                window.location.href = AdminPath + "/MetaDil";
+                window.location.href = AdminPath + "/MetaT";
                 break;
             case "Bağlı Tipler":
-                window.location.href = AdminPath + "/BagliTipler";
+                window.location.href = AdminPath + "/LinkedTypes";
                 break;
             case "Bağlantılar":
-                window.location.href = AdminPath + "/Baglanti";
+                window.location.href = AdminPath + "/Links";
                 break;
             case "Form Elemanları":
-                window.location.href = AdminPath + "/FormEleman";
+                window.location.href = AdminPath + "/Property";
                 break;
             case "Form Grupları":
-                window.location.href = AdminPath + "/FormElemanGrup";
+                window.location.href = AdminPath + "/PropertyGroup";
                 break;
             case "Form Eleman Özellikleri":
-                window.location.href = AdminPath + "/FormElemanOzellik";
+                window.location.href = AdminPath + "/PropertyAttributes";
                 break;
             case "Form Eleman Değerleri":
-                window.location.href = AdminPath + "/FormElemanDeger";
+                window.location.href = AdminPath + "/PropertyValues";
                 break;
             case "Form Tipleri":
-                window.location.href = AdminPath + "/FormTipler";
+                window.location.href = AdminPath + "/PropertyTypes";
                 break;
             case "Diller":
-                window.location.href = AdminPath + "/Dil";
+                window.location.href = AdminPath + "/Translation";
                 break;
             default:
                 $.gritter.add({
@@ -248,7 +248,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: AdminPath + "/" + url + "/Sil",
+            url: AdminPath + "/" + url + "/Delete",
             data: "{ id: " + dataID + " }",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -294,7 +294,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: AdminPath + "/" + url + "/Kaldir",
+            url: AdminPath + "/" + url + "/Remove",
             data: "{ id: " + dataID + " }",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -339,7 +339,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: AdminPath + "/" + url + "/Kopyala",
+            url: AdminPath + "/" + url + "/Copy",
             data: "{ id: " + dataID + " }",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -382,7 +382,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: AdminPath + "/" + url + "/Sil",
+            url: AdminPath + "/" + url + "/Clear",
             success: function (answer) {
                 if (answer == true) {
                     $.gritter.add({
@@ -416,7 +416,7 @@ $(function () {
 
         $.ajax({
             type: "GET",
-            url: AdminPath + "/BagliTipler/FillTypes?typeID=" + typeID,
+            url: AdminPath + "/LinkedTypes/FillTypes?typeID=" + typeID,
             success: function (answer) {
                 $("select.selectMain").html("");
 
@@ -433,7 +433,7 @@ $(function () {
 
             $.ajax({
                 type: "GET",
-                url: AdminPath + "/Baglanti/FillObject?linkTypeID=" + linkTypeID,
+                url: AdminPath + "/Links/FillObject?linkTypeID=" + linkTypeID,
                 success: function (answer) {
                     $("select#LinkID").html("");
 

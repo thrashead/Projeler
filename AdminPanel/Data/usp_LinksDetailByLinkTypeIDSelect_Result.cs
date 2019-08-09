@@ -18,9 +18,9 @@ namespace AdminPanel.Data
         public string LinkedContentAdi { get; set; }
         public string LinkedProductAdi { get; set; }
         public string LinkedGalleryAdi { get; set; }
-        public string LinkedPictureAdi { get; set; }
-        public string LinkedFileAdi { get; set; }
+        public string LinkedPicturesAdi { get; set; }
+        public string LinkedFilesAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string LinkedPropertyGroupAdi { get; set; }
+        public string LinkedFormGroupsAdi { get; set; }
     }
 }

@@ -23,9 +23,9 @@ namespace AdminPanel.Data
         public string MainContentAdi { get; set; }
         public string MainProductAdi { get; set; }
         public string MainGalleryAdi { get; set; }
-        public string MainPictureAdi { get; set; }
-        public string MainFileAdi { get; set; }
+        public string MainPicturesAdi { get; set; }
+        public string MainFilesAdi { get; set; }
         public string MainMetaAdi { get; set; }
-        public string MainPropertyGroupAdi { get; set; }
+        public string MainFormGroupsAdi { get; set; }
     }
 }

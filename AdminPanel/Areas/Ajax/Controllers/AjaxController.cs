@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AdminPanel.Data;
 using TDLibrary;
-using Repository.KullanicilarModel;
+using Repository.UsersModel;
 
 namespace AdminPanel.Areas.Ajax.Controllers
 {
@@ -14,13 +14,13 @@ namespace AdminPanel.Areas.Ajax.Controllers
         [HttpPost]
         public JsonResult Login(string login)
         {
-            Kullanicilar kullanici = JsonConvert.DeserializeObject<Kullanicilar>(login);
+            Users kullanici = JsonConvert.DeserializeObject<Users>(login);
 
             usp_UsersSelectLogin_Result rb = entity.usp_UsersSelectLogin(kullanici.Username, kullanici.Password.ToMD5()).FirstOrDefault();
 
             if (rb != null)
             {
-                kullanici = rb.ChangeModel<Kullanicilar>();
+                kullanici = rb.ChangeModel<Users>();
 
                 Session["CurrentUser"] = kullanici;
 

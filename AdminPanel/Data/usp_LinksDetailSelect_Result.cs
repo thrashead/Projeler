@@ -24,13 +24,13 @@ namespace AdminPanel.Data
         public string LinkedProductAdi { get; set; }
         public string MainGalleryAdi { get; set; }
         public string LinkedGalleryAdi { get; set; }
-        public string MainPictureAdi { get; set; }
-        public string LinkedPictureAdi { get; set; }
-        public string MainFileAdi { get; set; }
-        public string LinkedFileAdi { get; set; }
+        public string MainPicturesAdi { get; set; }
+        public string LinkedPicturesAdi { get; set; }
+        public string MainFilesAdi { get; set; }
+        public string LinkedFilesAdi { get; set; }
         public string MainMetaAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string MainPropertyGroupAdi { get; set; }
-        public string LinkedPropertyGroupAdi { get; set; }
+        public string MainFormGroupsAdi { get; set; }
+        public string LinkedFormGroupsAdi { get; set; }
     }
 }

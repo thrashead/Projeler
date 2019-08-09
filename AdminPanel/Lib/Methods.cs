@@ -5,7 +5,7 @@ using System.Web.Configuration;
 using System;
 using System.Reflection;
 using TDLibrary;
-using Repository.KullanicilarModel;
+using Repository.UsersModel;
 
 namespace AdminPanel
 {
@@ -19,11 +19,11 @@ namespace AdminPanel
             }
         }
 
-        public static Kullanicilar User
+        public static Users User
         {
             get
             {
-                return HttpContext.Current.Session["CurrentUser"] != null ? HttpContext.Current.Session["CurrentUser"] as Kullanicilar : null;
+                return HttpContext.Current.Session["CurrentUser"] != null ? HttpContext.Current.Session["CurrentUser"] as Users : null;
             }
         }
 
@@ -38,7 +38,7 @@ namespace AdminPanel
 
     public static class UserProcesses
     {
-        public static bool HasRight(this Kullanicilar user, string url, string islem = "s")
+        public static bool HasRight(this Users user, string url, string islem = "s")
         {
             if (user == null)
                 return false;
@@ -50,7 +50,7 @@ namespace AdminPanel
             return result == 1 ? true : false;
         }
 
-        public static void Log<T>(this Kullanicilar user, T model, string processShortName, string description = null, string idName = "ID")
+        public static void Log<T>(this Users user, T model, string processShortName, string description = null, string idName = "ID")
         {
             if (user != null)
             {
@@ -70,7 +70,7 @@ namespace AdminPanel
             }
         }
 
-        public static void Log(this Kullanicilar user, string processShortName, string description = null)
+        public static void Log(this Users user, string processShortName, string description = null)
         {
             if (user != null)
             {

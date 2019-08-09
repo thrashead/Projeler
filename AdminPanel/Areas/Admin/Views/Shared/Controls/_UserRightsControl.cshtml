@@ -1,8 +1,8 @@
 ﻿@model string
-@using Repository.KullanicilarModel
+@using Repository.UsersModel
 
 @{
-    Kullanicilar user = AppTools.User;
+    Users user = AppTools.User;
 
     <script type="text/javascript">
         var iRight = @user.HasRight(Model, "i").ToString().ToLower();
