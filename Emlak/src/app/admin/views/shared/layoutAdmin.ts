@@ -13,7 +13,7 @@ export class AdminLayoutComponent {
     }
 
     ngOnInit() {
-        this.service.getLoginControl().subscribe((resData) => {
+        this.service.getLoginControl().subscribe((resData: any) => {
             if (resData == false) {
                 window.location.href = '/Emlak/';
             }

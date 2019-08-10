@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { DilService } from "../../services/dil";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -18,13 +18,13 @@ export class AdminDilDuzenleComponent {
 
     model: any;
 
-    constructor(private service: DilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("Dil", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -48,8 +48,8 @@ export class AdminDilDuzenleComponent {
         this.uploadData = new FormData();
         this.uploadData.append("file", this.newFile);
 
-        this.service.postDuzenleYukle(this.uploadData)
-            .subscribe((answer) => {
+        this.service.post("Dil", "DuzenleYukle", this.uploadData)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.data = new Object();
                     this.data.ID = this.duzenleForm.get("ID").value;
@@ -67,8 +67,8 @@ export class AdminDilDuzenleComponent {
 
                     this.data.Active = this.duzenleForm.get("Active").value;
 
-                    this.service.postDuzenle(this.data)
-                        .subscribe((answer2) => {
+                    this.service.post("Dil", "Duzenle", this.data)
+                        .subscribe((answer2: any) => {
                             if (answer2.Mesaj == null) {
                                 this.router.navigate(['/Admin/Dil']);
                             }

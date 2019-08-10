@@ -19,7 +19,7 @@ export class EmlakDetayliAraComponent implements AfterContentInit {
         this.FormOlustur();
 
         this._reService.getSehirler()
-            .subscribe((resData) => {
+            .subscribe((resData: any) => {
                 for (var i = 0; i < resData.length; i++) {
                     $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
                 }
@@ -27,7 +27,7 @@ export class EmlakDetayliAraComponent implements AfterContentInit {
                 resError => this.errorMsg = resError);
 
         this._reService.getKategoriler("0")
-            .subscribe((resData) => {
+            .subscribe((resData: any) => {
                 $("#drpAltKategori").append("<option value=\"0\">Tümü</option>");
 
                 for (var i = 0; i < resData.length; i++) {
@@ -56,7 +56,7 @@ export class EmlakDetayliAraComponent implements AfterContentInit {
 
         if (katID > 0) {
             this._reService.getKategoriler(katID.toString())
-                .subscribe((resData) => {
+                .subscribe((resData: any) => {
                     for (var i = 0; i < resData.length; i++) {
                         $("#drpAltKategori").append("<option value=\"" + resData[i].ID + "\">" + resData[i].CategoryName + "</option>");
                     }
@@ -82,7 +82,7 @@ export class EmlakDetayliAraComponent implements AfterContentInit {
         this.Doldur(this.realCPList);
 
         this._reService.getEmlakDetayliArama(this.realCPList)
-            .subscribe((resData) => {
+            .subscribe((resData: any) => {
                 if (resData == true) {
                     this._router.navigate(['/Emlak/Listele', { detail: true }]);
                 }

@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { BagliTiplerService } from "../../services/baglitipler";
-import { BaglantiService } from '../../services/baglanti';
+import { ModelService } from "../../services/model";
 import { SharedService } from '../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import * as $ from "jquery";
+declare var DataTable;
 
 @Component({
     templateUrl: './duzenle.html'
@@ -26,7 +25,7 @@ export class AdminBagliTiplerDuzenleComponent {
 
     callTable: boolean;
 
-    constructor(private service: BagliTiplerService, private serviceLinks: BaglantiService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -45,8 +44,8 @@ export class AdminBagliTiplerDuzenleComponent {
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
 
-        this.service.getTipDoldur(target.value)
-            .subscribe((answer) => {
+        this.service.get("BagliTipler", "TipDoldur", null, null, null, target.value)
+            .subscribe((answer: any) => {
                 if (answer != null) {
                     $("select.selectMain").html("");
 
@@ -70,8 +69,8 @@ export class AdminBagliTiplerDuzenleComponent {
         this.data.MainID = this.duzenleForm.get("MainID").value;
         this.data.LinkedTypeID = this.duzenleForm.get("LinkedTypeID").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("BagliTipler", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/BagliTipler']);
                 }
@@ -83,41 +82,18 @@ export class AdminBagliTiplerDuzenleComponent {
                 resError => this.errorMsg = resError);
     }
 
-    onLinksDelete(id) {
-        this.serviceLinks.getSil(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Delete");
-
-                $("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    $(this).remove();
-                });
-            }
-            else {
-                this.ShowAlert("DeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    ShowAlert(type: string) {
-        $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
-
-        setInterval(function () {
-            $("#tdAlertMessage li.tdAlert" + type).fadeOut("slow");
-        }, 2000);
-    }
-
     UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
             this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
                 this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
                     this.deleteShow = dRight;
 
                     if (this.callTable == true) {
                         this.route.params.subscribe((params: Params) => {
                             this.id = params['id'];
-                            this.service.getDuzenle(this.id).subscribe((resData) => {
+                            this.service.get("BagliTipler", "Duzenle", this.id).subscribe((resData: any) => {
                                 for (var i = 0; i < resData.LinkList.length; i++) {
                                     switch (resData.LinkedTypeID) {
                                         case 1: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedCategoryAdi; break;
@@ -135,33 +111,13 @@ export class AdminBagliTiplerDuzenleComponent {
                                 this.model = resData;
                                 this.callTable = false;
 
-                                setTimeout(() => {
-                                    $(".data-table").dataTable({
-                                        "bJQueryUI": true,
-                                        "sPaginationType": "full_numbers",
-                                        "sDom": '<""l>t<"F"fp>'
-                                    });
+                                DataTable();
 
-                                    if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                        $(".btn-group").remove();
-                                    }
-
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnModel").val());
-                                        }, 1);
-                                    });
-
-                                    $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
-                                        $(this).addClass("active-dlt");
-                                        $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
-                                    });
-
-                                    $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
-                                        let id: string = $("a.dlt-yes").attr("data-id");
-                                        this.onLinksDelete(id);
-                                    });
-                                }, 1);
+                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                    setTimeout(() => {
+                                        this.UserRightsControl($("#hdnModel").val());
+                                    }, 1);
+                                });
                             }, resError => this.errorMsg = resError);
                         });
                     }

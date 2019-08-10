@@ -20,7 +20,7 @@ export class IcerikComponent {
             this.link = params['link'];
 
             this._emlakService.getIcerikGetir(this.link)
-                .subscribe((resData) => {
+                .subscribe((resData: any) => {
                     this.icerik = resData;
                 },
                     resError => this.errorMsg = resError);

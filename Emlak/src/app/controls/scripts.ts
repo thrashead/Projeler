@@ -1,5 +1,4 @@
 ﻿import { Component, ViewEncapsulation } from '@angular/core';
-//import '../../../Content/admin/js/jquery.min.js';
 import '../../../Content/js/flexslider/jquery.flexslider-min.js';
 import '../../../Content/js/tdSlider/tdSlider.js';
 

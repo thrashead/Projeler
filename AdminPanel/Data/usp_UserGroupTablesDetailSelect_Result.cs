@@ -16,7 +16,7 @@ namespace AdminPanel.Data
         public int ID { get; set; }
         public int TypeID { get; set; }
         public int UserGroupID { get; set; }
-        public string TypeAdi { get; set; }
-        public string UserGroupAdi { get; set; }
+        public string TypesAdi { get; set; }
+        public string UserGroupsAdi { get; set; }
     }
 }

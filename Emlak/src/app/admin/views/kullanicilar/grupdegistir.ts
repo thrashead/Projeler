@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { KullanicilarService } from "../../services/kullanicilar";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminKullanicilarGrupDegistirComponent {
 
     model: any;
 
-    constructor(private service: KullanicilarService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getGrupDegistir(this.id).subscribe((resData) => {
+            this.service.get("Kullanicilar", "GrupDegistir", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -38,8 +38,8 @@ export class AdminKullanicilarGrupDegistirComponent {
         this.data.ID = this.grupDegistirForm.get("ID").value;
         this.data.GroupID = this.grupDegistirForm.get("GroupID").value;
 
-        this.service.postGrupDegistir(this.data)
-            .subscribe((answer) => {
+        this.service.post("Kullanicilar", "GrupDegistir", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Kullanicilar']);
                 }

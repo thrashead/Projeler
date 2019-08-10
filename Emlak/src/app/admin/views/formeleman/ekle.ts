@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { FormElemanService } from "../../services/formeleman";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminFormElemanEkleComponent {
 
     model: any;
 
-    constructor(private service: FormElemanService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.linkID = params['linkID'];
-            this.service.getEkle(this.linkID).subscribe((resData) => {
+            this.service.get("FormEleman", "Ekle", this.linkID).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -48,8 +48,8 @@ export class AdminFormElemanEkleComponent {
         this.data.Code = this.ekleForm.get("Code").value;
         this.data.OrderNumber = this.ekleForm.get("OrderNumber").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("FormEleman", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/FormEleman']);
                 }

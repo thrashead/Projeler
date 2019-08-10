@@ -45,7 +45,7 @@ export class AdminGirisComponent {
         this.girisData.Password = this.girisForm.get("password").value;
 
         this.service.postLogin(this.girisData)
-            .subscribe((answer) => {
+            .subscribe((answer: any) => {
                 if (answer == true) {
                     this.router.navigate(['/Admin/AnaSayfa']);
                 }

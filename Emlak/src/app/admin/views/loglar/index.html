@@ -37,5 +37,13 @@
                 </div>
             </div>
         </div>
+
+        <div class="pagelinks">
+            <a class="btn btn-primary btn-clear clrLink" *ngIf="deleteShow" data-controller="Loglar" data-toggle="modal" href="#clrData">Temizle</a>
+        </div>
+
+        <input id="hdnModel" type="hidden" value="Loglar" />
     </div>
 </div>
+
+<admin-copydelete></admin-copydelete>

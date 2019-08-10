@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { UrunService } from "../../services/urun";
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,7 +15,7 @@ export class AdminUrunEkleComponent {
 
     model: any;
 
-    constructor(private service: UrunService,  private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService,  private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -32,8 +32,8 @@ export class AdminUrunEkleComponent {
         this.data.Code = this.ekleForm.get("Code").value;
         this.data.Active = this.ekleForm.get("Active").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Urun", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Urun']);
                 }

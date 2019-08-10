@@ -19,6 +19,6 @@ namespace AdminPanel.Data
         public string Password { get; set; }
         public bool Active { get; set; }
         public string LoginTime { get; set; }
-        public string GroupName { get; set; }
+        public string UserGroupsAdi { get; set; }
     }
 }

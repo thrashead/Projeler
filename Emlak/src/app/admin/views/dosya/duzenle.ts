@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { DosyaService } from "../../services/dosya";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -18,13 +18,13 @@ export class AdminDosyaDuzenleComponent {
 
     model: any;
 
-    constructor(private service: DosyaService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("Dosya", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -49,8 +49,8 @@ export class AdminDosyaDuzenleComponent {
         this.uploadData = new FormData();
         this.uploadData.append("file", this.newFile);
 
-        this.service.postDuzenleYukle(this.uploadData)
-            .subscribe((answer) => {
+        this.service.post("Dosya", "DuzenleYukle", this.uploadData)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.data = new Object();
                     this.data.ID = this.duzenleForm.get("ID").value;
@@ -69,8 +69,8 @@ export class AdminDosyaDuzenleComponent {
                     this.data.Code = this.duzenleForm.get("Code").value;
                     this.data.Active = this.duzenleForm.get("Active").value;
 
-                    this.service.postDuzenle(this.data)
-                        .subscribe((answer2) => {
+                    this.service.post("Dosya", "Duzenle", this.data)
+                        .subscribe((answer2: any) => {
                             if (answer2.Mesaj == null) {
                                 this.router.navigate(['/Admin/Dosya']);
                             }

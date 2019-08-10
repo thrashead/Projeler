@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { KullaniciGrupTabloService } from '../../services/kullanicigruptablo';
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminKullaniciGrupTabloEkleComponent {
 
     model: any;
 
-    constructor(private service: KullaniciGrupTabloService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.linkID = params['linkID'];
-            this.service.getEkle(this.linkID).subscribe((resData) => {
+            this.service.get("KullaniciGrupTablo", "Ekle", this.linkID).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -38,8 +38,8 @@ export class AdminKullaniciGrupTabloEkleComponent {
         this.data.TypeID = this.ekleForm.get("TypeID").value;
         this.data.UserGroupID = this.ekleForm.get("UserGroupID").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("KullaniciGrupTablo", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/KullaniciGrupTablo']);
                 }

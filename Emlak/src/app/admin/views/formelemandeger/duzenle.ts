@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { FormElemanDegerService } from "../../services/formelemandeger";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminFormElemanDegerDuzenleComponent {
 
     model: any;
 
-    constructor(private service: FormElemanDegerService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("FormElemanDeger", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -45,8 +45,8 @@ export class AdminFormElemanDegerDuzenleComponent {
         this.data.Value = this.duzenleForm.get("Value").value;
         this.data.Code = this.duzenleForm.get("Code").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("FormElemanDeger", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/FormElemanDeger']);
                 }

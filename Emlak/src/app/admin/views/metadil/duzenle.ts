@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { MetaDilService } from "../../services/metadil";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminMetaDilDuzenleComponent {
 
     model: any;
 
-    constructor(private service: MetaDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("MetaDil", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -44,8 +44,8 @@ export class AdminMetaDilDuzenleComponent {
         this.data.Name = this.duzenleForm.get("Name").value;
         this.data.Content = this.duzenleForm.get("Content").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("MetaDil", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/MetaDil']);
                 }

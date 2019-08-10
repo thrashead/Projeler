@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
-import { TiplerService } from "../../services/tipler";
+import { ModelService } from "../../services/model";
 import { SharedService } from '../../services/shared';
-import * as $ from "jquery";
+declare var DataTable;
 
 @Component({
     templateUrl: './index.html'
@@ -17,7 +17,7 @@ export class AdminTiplerIndexComponent {
 
     callTable: boolean;
 
-    constructor(private service: TiplerService, private sharedService: SharedService) {
+    constructor(private service: ModelService, private sharedService: SharedService) {
     }
 
     ngOnInit() {
@@ -25,69 +25,26 @@ export class AdminTiplerIndexComponent {
         this.UserRightsControl($("#hdnModel").val());
     }
 
-    onDelete(id) {
-        this.service.getSil(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Delete");
-
-                $("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    $(this).remove();
-                });
-            }
-            else {
-                this.ShowAlert("DeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    ShowAlert(type: string) {
-        $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
-
-        setInterval(function () {
-            $("#tdAlertMessage li.tdAlert" + type).fadeOut("slow");
-        }, 2000);
-    }
-
     UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
             this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
                 this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
                     this.deleteShow = dRight;
 
                     if (this.callTable == true) {
-                        this.service.getIndex().subscribe((resData) => {
+                        this.service.get("Tipler", "Index").subscribe((resData: any) => {
                             this.TiplerList = resData;
                             this.callTable = false;
 
-                            setTimeout(() => {
-                                $(".data-table").dataTable({
-                                    "bJQueryUI": true,
-                                    "sPaginationType": "full_numbers",
-                                    "sDom": '<""l>t<"F"fp>'
-                                });
+                            DataTable();
 
-                                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                    $(".btn-group").remove();
-                                }
-
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnModel").val());
-                                    }, 1);
-                                });
-
-                                $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
-                                    $(this).addClass("active-dlt");
-                                    $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
-                                });
-
-                                $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
-                                    let id: string = $("a.dlt-yes").attr("data-id");
-                                    this.onDelete(id);
-                                });
-                            }, 1);
+                            $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                setTimeout(() => {
+                                    this.UserRightsControl($("#hdnModel").val());
+                                }, 1);
+                            });
                         }, resError => this.errorMsg = resError);
                     }
 

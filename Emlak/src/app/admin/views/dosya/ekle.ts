@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { DosyaService } from "../../services/dosya";
+import { ModelService } from '../../services/model';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -17,7 +17,7 @@ export class AdminDosyaEkleComponent {
 
     model: any;
 
-    constructor(private service: DosyaService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -40,8 +40,8 @@ export class AdminDosyaEkleComponent {
         this.uploadData = new FormData();
         this.uploadData.append("file", this.newFile);
 
-        this.service.postEkleYukle(this.uploadData)
-            .subscribe((answer) => {
+        this.service.post("Dosya", "EkleYukle", this.uploadData)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.data = new Object();
                     this.data.Title = this.ekleForm.get("Title").value;
@@ -50,8 +50,8 @@ export class AdminDosyaEkleComponent {
                     this.data.Code = this.ekleForm.get("Code").value;
                     this.data.Active = this.ekleForm.get("Active").value;
 
-                    this.service.postEkle(this.data)
-                        .subscribe((answer2) => {
+                    this.service.post("Dosya", "Ekle", this.data)
+                        .subscribe((answer2: any) => {
                             if (answer2.Mesaj == null) {
                                 this.router.navigate(['/Admin/Dosya']);
                             }

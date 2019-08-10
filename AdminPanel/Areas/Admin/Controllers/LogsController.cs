@@ -20,7 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult Delete()
+        public JsonResult Clear()
         {
             if (curUser.HasRight("Logs", "d"))
             {

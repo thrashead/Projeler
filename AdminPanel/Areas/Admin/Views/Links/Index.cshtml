@@ -42,10 +42,10 @@
                                             case 2: linkTypeTitle = item.LinkedContentAdi; break;
                                             case 3: linkTypeTitle = item.LinkedProductAdi; break;
                                             case 4: linkTypeTitle = item.LinkedGalleryAdi; break;
-                                            case 5: linkTypeTitle = item.LinkedPictureAdi; break;
-                                            case 6: linkTypeTitle = item.LinkedFileAdi; break;
+                                            case 5: linkTypeTitle = item.LinkedPicturesAdi; break;
+                                            case 6: linkTypeTitle = item.LinkedFilesAdi; break;
                                             case 7: linkTypeTitle = item.LinkedMetaAdi; break;
-                                            case 8: linkTypeTitle = item.LinkedPropertyGroupAdi; break;
+                                            case 8: linkTypeTitle = item.LinkedFormGroupsAdi; break;
                                         }
 
                                         <tr>
@@ -57,7 +57,7 @@
                                                     <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                                     <ul class="dropdown-menu">
                                                         <li><a class="updLink" data-type="LinkTypes" href="@AppMgr.AdminPath/Links/Update/@item.ID">Düzenle</a></li>
-                                                        <li><a class="dltLink" data-type="LinkTypes" data-id="@item.ID" data-link="Links" data-toggle="modal" href="#dltData">Sil</a></li>
+                                                        <li><a class="dltLink" data-type="LinkTypes" data-id="@item.ID" data-controller="Links" data-toggle="modal" href="#dltData">Sil</a></li>
                                                     </ul>
                                                 </div>
                                             </td>

@@ -7,8 +7,6 @@ namespace AdminPanel.Controllers
     {
         public ActionResult Index()
         {
-            Response.Redirect(AppMgr.AdminPath);
-
             return View();
         }
     }

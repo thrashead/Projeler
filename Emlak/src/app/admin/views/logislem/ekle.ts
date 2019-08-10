@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { LogIslemService } from '../../services/logislem';
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminLogIslemEkleComponent {
 
     model: any;
 
-    constructor(private service: LogIslemService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.linkID = params['linkID'];
-            this.service.getEkle(this.linkID).subscribe((resData) => {
+            this.service.get("LogIslem", "Ekle", this.linkID).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -42,8 +42,8 @@ export class AdminLogIslemEkleComponent {
         this.data.ShortName = this.ekleForm.get("ShortName").value;
         this.data.Description = this.ekleForm.get("Description").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("LogIslem", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/LogIslem']);
                 }

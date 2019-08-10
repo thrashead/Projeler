@@ -21,7 +21,7 @@ namespace AdminPanel.Data
         public string ErrorMessage { get; set; }
         public string Code { get; set; }
         public Nullable<int> OrderNumber { get; set; }
-        public string TypeAdi { get; set; }
+        public string FormTypesAdi { get; set; }
         public string FormGroupsAdi { get; set; }
     }
 }

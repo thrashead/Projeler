@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { DilService } from "../../services/dil";
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -17,7 +17,7 @@ export class AdminDilEkleComponent {
 
     model: any;
 
-    constructor(private service: DilService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -38,8 +38,8 @@ export class AdminDilEkleComponent {
     onSubmit() {
         this.uploadData = new FormData();
         this.uploadData.append("file", this.newFile);
-        this.service.postEkleYukle(this.uploadData)
-            .subscribe((answer) => {
+        this.service.post("Dil", "EkleYukle", this.uploadData)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.data = new Object();
                     this.data.TransName = this.ekleForm.get("TransName").value;
@@ -47,8 +47,8 @@ export class AdminDilEkleComponent {
                     this.data.Flag = answer.Flag;
                     this.data.Active = this.ekleForm.get("Active").value;
 
-                    this.service.postEkle(this.data)
-                        .subscribe((answer2) => {
+                    this.service.post("Dil", "Ekle", this.data)
+                        .subscribe((answer2: any) => {
                             if (answer2.Mesaj == null) {
                                 this.router.navigate(['/Admin/Dil']);
                             }

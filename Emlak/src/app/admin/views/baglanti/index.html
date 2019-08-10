@@ -30,7 +30,7 @@
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Baglanti/Duzenle/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="Baglanti" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>

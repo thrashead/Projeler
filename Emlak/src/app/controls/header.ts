@@ -37,13 +37,13 @@ export class HeaderComponent {
         this.girisData.Password = this.girisForm.get("sifre").value;
 
         this.service.postLogin(this.girisData)
-            .subscribe((answer) => {
+            .subscribe((answer: any) => {
                 if (answer == true) {
                     this.router.navigate(['/Admin/AnaSayfa']);
                 }
                 else {
                     this.emlakService.getKodlaGetir("iacc")
-                        .subscribe((resData) => {
+                        .subscribe((resData: any) => {
                             this.lblSonucText = resData;
 
                             $("#lblsonuc").fadeIn("slow");
@@ -68,7 +68,7 @@ export class HeaderComponent {
     onClick(lang: string) {
         if (lang != undefined) {
             this.emlakService.chanegeLang(lang)
-                .subscribe((resData) => {
+                .subscribe((resData: any) => {
                     if (resData == true) {
                         window.location.reload();
                     }

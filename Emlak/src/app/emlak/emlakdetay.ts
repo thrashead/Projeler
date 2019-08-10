@@ -20,7 +20,7 @@ export class EmlakDetayComponent {
             this.link = params['link'];
 
             this._reService.getEmlakDetay(this.link)
-                .subscribe((resData) => {
+                .subscribe((resData: any) => {
                     this.emlak = resData;
 
                     $("#slider").html("");

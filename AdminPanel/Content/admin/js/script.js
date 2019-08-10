@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    if ($("#Description").length > 0 && Urling.controller != "Pictures" && Urling.controller != "Files" && Urling.controller != "Property" && Urling.controller != "PropertyGroup" && Urling.controller != "UserGroups" && Urling.controller != "UserGroupProcess" && Urling.controller != "LogProcess") {
+    if ($("#Description").length > 0 && Urling.controller != "Pictures" && Urling.controller != "Files" && Urling.controller != "FormItems" && Urling.controller != "FormGroups" && Urling.controller != "UserGroups" && Urling.controller != "UserGroupProcess" && Urling.controller != "LogProcess") {
         ClassicEditor
             .create(document.querySelector('#Description'), {
                 //toolbar: ['bold', 'italic']
@@ -147,12 +147,12 @@ $(function () {
     $(".btn-copy").attr("data-toggle", "popover");
     $(".btn-copy").attr("data-original-title", "Kopyala");
 
-    $(".btn-cancel").attr("data-content", $(".btn-cancel").attr("data-controller") + " listesine geri döner.");
+    $(".btn-cancel").attr("data-content", $(".btn-cancel").attr("data-table") + " listesine geri döner.");
     $(".btn-cancel").attr("data-placement", "top");
     $(".btn-cancel").attr("data-toggle", "popover");
     $(".btn-cancel").attr("data-original-title", "İptal");
 
-    $(".btn-clear").attr("data-content", $(".btn-clear").attr("data-controller") + " listesindeki verilerin tamamını temizler.");
+    $(".btn-clear").attr("data-content", $(".btn-clear").attr("data-table") + " listesindeki verilerin tamamını temizler.");
     $(".btn-clear").attr("data-placement", "top");
     $(".btn-clear").attr("data-toggle", "modal");
     $(".btn-clear").attr("data-original-title", "Temizle");
@@ -239,11 +239,11 @@ $(function () {
     $(document).on("click", "a.dltLink", function () {
         $(this).addClass("active-dlt");
         $(".dlt-yes").attr("data-id", $(this).attr("data-id"));
-        $(".dlt-yes").attr("data-link", $(this).attr("data-link"));
+        $(".dlt-yes").attr("data-controller", $(this).attr("data-controller"));
     });
     $(document).on("click", "a.dlt-yes", function () {
         var link = $(this);
-        var url = link.attr("data-link");
+        var url = link.attr("data-controller");
         var dataID = parseInt(link.attr("data-id"));
 
         $.ajax({
@@ -276,7 +276,7 @@ $(function () {
     });
     $(document).on("click", "a.dlt-no", function () {
         $(".dlt-yes").removeAttr("data-id");
-        $(".dlt-yes").removeAttr("data-link");
+        $(".dlt-yes").removeAttr("data-controller");
         $("a.dltLink").removeClass("active-dlt");
     });
     /* Silme işlemi */
@@ -285,11 +285,11 @@ $(function () {
     $(document).on("click", "a.rmvLink", function () {
         $(this).addClass("active-rmv");
         $(".rmv-yes").attr("data-id", $(this).attr("data-id"));
-        $(".rmv-yes").attr("data-link", $(this).attr("data-link"));
+        $(".rmv-yes").attr("data-controller", $(this).attr("data-controller"));
     });
     $(document).on("click", "a.rmv-yes", function () {
         var link = $(this);
-        var url = link.attr("data-link");
+        var url = link.attr("data-controller");
         var dataID = parseInt(link.attr("data-id"));
 
         $.ajax({
@@ -322,7 +322,7 @@ $(function () {
     });
     $(document).on("click", "a.rmv-no", function () {
         $(".rmv-yes").removeAttr("data-id");
-        $(".rmv-yes").removeAttr("data-link");
+        $(".rmv-yes").removeAttr("data-controller");
         $("a.rmvLink").removeClass("active-rmv");
     });
     /* Kaldırma işlemi */
@@ -330,11 +330,11 @@ $(function () {
     /* Kopyalama işlemi */
     $(document).on("click", "a.cpyLink, a.btn-copy", function () {
         $(".cpy-yes").attr("data-id", $(this).attr("data-id"));
-        $(".cpy-yes").attr("data-link", $(this).attr("data-link"));
+        $(".cpy-yes").attr("data-controller", $(this).attr("data-controller"));
     });
     $(document).on("click", "a.cpy-yes", function () {
         var link = $(this);
-        var url = link.attr("data-link");
+        var url = link.attr("data-controller");
         var dataID = parseInt(link.attr("data-id"));
 
         $.ajax({
@@ -367,18 +367,18 @@ $(function () {
     });
     $(document).on("click", "a.cpy-no", function () {
         $(".cpy-yes").removeAttr("data-id");
-        $(".cpy-yes").removeAttr("data-link");
+        $(".cpy-yes").removeAttr("data-controller");
     });
     /* Kopyalama işlemi */
 
     /* Temizleme işlemi */
     $(document).on("click", "a.btn-clear", function () {
         $(this).addClass("active-clr");
-        $(".clr-yes").attr("data-link", $(this).attr("data-controller"));
+        $(".clr-yes").attr("data-controller", $(this).attr("data-controller"));
     });
     $(document).on("click", "a.clr-yes", function () {
         var link = $(this);
-        var url = link.attr("data-link");
+        var url = link.attr("data-controller");
 
         $.ajax({
             type: 'POST',
@@ -406,7 +406,7 @@ $(function () {
         });
     });
     $(document).on("click", "a.clr-no", function () {
-        $(".clr-yes").removeAttr("data-link");
+        $(".clr-yes").removeAttr("data-controller");
         $("a.btn-clear").removeClass("active-clr");
     });
     /* Temizleme işlemi */
@@ -416,7 +416,7 @@ $(function () {
 
         $.ajax({
             type: "GET",
-            url: AdminPath + "/LinkedTypes/FillTypes?typeID=" + typeID,
+            url: AdminPath + "/LinkTypes/FillTypes?typeID=" + typeID,
             success: function (answer) {
                 $("select.selectMain").html("");
 
@@ -427,7 +427,7 @@ $(function () {
         });
     });
 
-    if (Url.indexOf("Baglanti") > 0 && Url.indexOf("Ekle") > 0) {
+    if (Url.indexOf("Links") > 0 && Url.indexOf("Insert") > 0) {
         $(document).on("change", "select#LinkTypeID", function () {
             var linkTypeID = $(this).val();
 

@@ -1,10 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { IcerikService } from "../../services/icerik";
-import { IcerikDilService } from '../../services/icerikdil';
+import { ModelService } from "../../services/model";
 import { SharedService } from '../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import * as $ from "jquery";
+declare var DataTable;
 
 @Component({
     templateUrl: './duzenle.html'
@@ -26,7 +25,7 @@ export class AdminIcerikDuzenleComponent {
 
     callTable: boolean;
 
-    constructor(private service: IcerikService, private serviceContentT: IcerikDilService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -48,8 +47,8 @@ export class AdminIcerikDuzenleComponent {
         this.data.Code = this.duzenleForm.get("Code").value;
         this.data.Active = this.duzenleForm.get("Active").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Icerik", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Icerik']);
                 }
@@ -61,98 +60,30 @@ export class AdminIcerikDuzenleComponent {
                 resError => this.errorMsg = resError);
     }
 
-    onContentTDelete(id) {
-        this.serviceContentT.getSil(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Delete");
-
-                $("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    $(this).remove();
-                });
-            }
-            else {
-                this.ShowAlert("DeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    onContentTRealDelete(id) {
-        this.serviceContentT.getKaldir(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("RealDelete");
-
-                $("a.rdltLink.active-rdlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    $(this).remove();
-                });
-            }
-            else {
-                this.ShowAlert("RealDeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    ShowAlert(type: string) {
-        $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
-
-        setInterval(function () {
-            $("#tdAlertMessage li.tdAlert" + type).fadeOut("slow");
-        }, 2000);
-    }
-
     UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
             this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
                 this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
                     this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "rd").subscribe((rdRight) => {
+                    this.sharedService.getHasRight(Model, "rd").subscribe((rdRight: boolean) => {
                         this.realDeleteShow = rdRight;
 
                         if (this.callTable == true) {
                             this.route.params.subscribe((params: Params) => {
                                 this.id = params['id'];
-                                this.service.getDuzenle(this.id).subscribe((resData) => {
+                                this.service.get("Icerik", "Duzenle", this.id).subscribe((resData: any) => {
                                     this.model = resData;
                                     this.callTable = false;
 
-                                    setTimeout(() => {
-                                        $(".data-table").dataTable({
-                                            "bJQueryUI": true,
-                                            "sPaginationType": "full_numbers",
-                                            "sDom": '<""l>t<"F"fp>'
-                                        });
+                                    DataTable();
 
-                                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                            $(".btn-group").remove();
-                                        }
-
-                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                            setTimeout(() => {
-                                                this.UserRightsControl($("#hdnModel").val());
-                                            }, 1);
-                                        });
-
-                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
-                                            $(this).addClass("active-dlt");
-                                            $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
-                                        });
-
-                                        $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
-                                            let id: string = $("a.dlt-yes").attr("data-id");
-                                            this.onContentTDelete(id);
-                                        });
-
-                                        $(document).off("click", "a.rdltLink").on("click", "a.rdltLink", function () {
-                                            $(this).addClass("active-rdlt");
-                                            $("a.rdlt-yes").attr("data-id", $(this).attr("data-id"));
-                                        });
-
-                                        $(document).off("click", "a.rdlt-yes").on("click", "a.rdlt-yes", () => {
-                                            let id: string = $("a.rdlt-yes").attr("data-id");
-                                            this.onContentTRealDelete(id);
-                                        });
-                                    }, 1);
+                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                        setTimeout(() => {
+                                            this.UserRightsControl($("#hdnModel").val());
+                                        }, 1);
+                                    });
                                 }, resError => this.errorMsg = resError);
                             });
                         }

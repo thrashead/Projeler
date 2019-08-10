@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { TiplerService } from "../../services/tipler";
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,7 +15,7 @@ export class AdminTiplerEkleComponent {
 
     model: any;
 
-    constructor(private service: TiplerService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -36,8 +36,8 @@ export class AdminTiplerEkleComponent {
         this.data.Linkable = this.ekleForm.get("Linkable").value;
         this.data.Show = this.ekleForm.get("Show").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Tipler", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Tipler']);
                 }

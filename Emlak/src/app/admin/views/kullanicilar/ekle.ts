@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { KullanicilarService } from "../../services/kullanicilar";
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,7 +15,7 @@ export class AdminKullanicilarEkleComponent {
 
     model: any;
 
-    constructor(private service: KullanicilarService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -32,8 +32,8 @@ export class AdminKullanicilarEkleComponent {
         this.data.Password = this.ekleForm.get("Password").value;
         this.data.Active = this.ekleForm.get("Active").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Kullanicilar", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Kullanicilar']);
                 }

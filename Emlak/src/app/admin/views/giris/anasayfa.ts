@@ -62,125 +62,125 @@ export class AdminAnaSayfaComponent {
     }
 
     hasRightControl() {
-        this.sharedService.getHasRight("Emlak", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Emlak", "s").subscribe((resData: any) => {
             this.hasRightEmlak = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Kategori", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Kategori", "s").subscribe((resData: any) => {
             this.hasRightKategori = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Icerik", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Icerik", "s").subscribe((resData: any) => {
             this.hasRightIcerik = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Urun", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Urun", "s").subscribe((resData: any) => {
             this.hasRightUrun = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Galeri", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Galeri", "s").subscribe((resData: any) => {
             this.hasRightGaleri = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Resim", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Resim", "s").subscribe((resData: any) => {
             this.hasRightResim = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Dosya", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Dosya", "s").subscribe((resData: any) => {
             this.hasRightDosya = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Meta", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
             this.hasRightMeta = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("FormEleman", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("FormEleman", "s").subscribe((resData: any) => {
             this.hasRightFormEleman = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("BagliTipler", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("BagliTipler", "s").subscribe((resData: any) => {
             this.hasRightBagliTipler = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Dil", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Dil", "s").subscribe((resData: any) => {
             this.hasRightDil = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Loglar", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Loglar", "s").subscribe((resData: any) => {
             this.hasRightLoglar = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Ziyaretci", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Ziyaretci", "s").subscribe((resData: any) => {
             this.hasRightZiyaretci = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Kullanicilar", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Kullanicilar", "s").subscribe((resData: any) => {
             this.hasRightKullanicilar = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Tipler", "s").subscribe((resData) => {
+        this.sharedService.getHasRight("Tipler", "s").subscribe((resData: any) => {
             this.hasRightTipler = resData;
         }, resError => this.errorMsg = resError);
     }
 
     showTypeControl() {
-        this.sharedService.getShowType("Emlak").subscribe((resData) => {
+        this.sharedService.getShowType("Emlak").subscribe((resData: any) => {
             this.showTypeEmlak = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Kategori").subscribe((resData) => {
+        this.sharedService.getShowType("Kategori").subscribe((resData: any) => {
             this.showTypeKategori = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Icerik").subscribe((resData) => {
+        this.sharedService.getShowType("Icerik").subscribe((resData: any) => {
             this.showTypeIcerik = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Urun").subscribe((resData) => {
+        this.sharedService.getShowType("Urun").subscribe((resData: any) => {
             this.showTypeUrun = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Galeri").subscribe((resData) => {
+        this.sharedService.getShowType("Galeri").subscribe((resData: any) => {
             this.showTypeGaleri = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Resim").subscribe((resData) => {
+        this.sharedService.getShowType("Resim").subscribe((resData: any) => {
             this.showTypeResim = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Dosya").subscribe((resData) => {
+        this.sharedService.getShowType("Dosya").subscribe((resData: any) => {
             this.showTypeDosya = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Meta").subscribe((resData) => {
+        this.sharedService.getShowType("Meta").subscribe((resData: any) => {
             this.showTypeMeta = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("FormEleman").subscribe((resData) => {
+        this.sharedService.getShowType("FormEleman").subscribe((resData: any) => {
             this.showTypeFormEleman = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("BagliTipler").subscribe((resData) => {
+        this.sharedService.getShowType("BagliTipler").subscribe((resData: any) => {
             this.showTypeBagliTipler = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Dil").subscribe((resData) => {
+        this.sharedService.getShowType("Dil").subscribe((resData: any) => {
             this.showTypeDil = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Loglar").subscribe((resData) => {
+        this.sharedService.getShowType("Loglar").subscribe((resData: any) => {
             this.showTypeLoglar = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Ziyaretci").subscribe((resData) => {
+        this.sharedService.getShowType("Ziyaretci").subscribe((resData: any) => {
             this.showTypeZiyaretci = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Kullanicilar").subscribe((resData) => {
+        this.sharedService.getShowType("Kullanicilar").subscribe((resData: any) => {
             this.showTypeKullanicilar = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Tipler").subscribe((resData) => {
+        this.sharedService.getShowType("Tipler").subscribe((resData: any) => {
             this.showTypeTipler = resData;
         }, resError => this.errorMsg = resError);
     }

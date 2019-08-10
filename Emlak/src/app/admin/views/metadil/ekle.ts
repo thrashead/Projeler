@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { MetaDilService } from "../../services/metadil";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminMetaDilEkleComponent {
 
     model: any;
 
-    constructor(private service: MetaDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.linkID = params['linkID'];
-            this.service.getEkle(this.linkID).subscribe((resData) => {
+            this.service.get("MetaDil", "Ekle", this.linkID).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -42,8 +42,8 @@ export class AdminMetaDilEkleComponent {
         this.data.Name = this.ekleForm.get("Name").value;
         this.data.Content = this.ekleForm.get("Content").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("MetaDil", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/MetaDil']);
                 }

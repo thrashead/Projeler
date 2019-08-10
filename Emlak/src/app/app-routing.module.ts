@@ -148,7 +148,6 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            //{ path: '', redirectTo: 'Giris', pathMatch: 'full' },
             { path: '', component: GirisComponent, pathMatch: 'full' },
 
             { path: 'Emlak', component: EmlakListeleComponent },

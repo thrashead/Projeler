@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { LogIslemService } from '../../services/logislem';
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminLogIslemDuzenleComponent {
 
     model: any;
 
-    constructor(private service: LogIslemService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("LogIslem", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -44,8 +44,8 @@ export class AdminLogIslemDuzenleComponent {
         this.data.ShortName = this.duzenleForm.get("ShortName").value;
         this.data.Description = this.duzenleForm.get("Description").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("LogIslem", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/LogIslem']);
                 }

@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { KullaniciGrupService } from '../../services/kullanicigrup';
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,7 +15,7 @@ export class AdminKullaniciGrupEkleComponent {
 
     model: any;
 
-    constructor(private service: KullaniciGrupService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -32,8 +32,8 @@ export class AdminKullaniciGrupEkleComponent {
         this.data.ShortName = this.ekleForm.get("ShortName").value;
         this.data.Description = this.ekleForm.get("Description").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("KullaniciGrup", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/KullaniciGrup']);
                 }

@@ -17,7 +17,7 @@ namespace AdminPanel.Data
         public int UserGroupTableID { get; set; }
         public int UserGroupProcessID { get; set; }
         public bool Allow { get; set; }
-        public string GroupAdi { get; set; }
+        public string UserGroupsAdi { get; set; }
         public string UserGroupTablesAdi { get; set; }
         public string UserGroupProcessAdi { get; set; }
         public string UserGroupProcessKisaAdi { get; set; }

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 export class AdminHeaderComponent {
     errorMsg: string;
+    website: string = "http://localhost/Emlak/";
 
     kullanici: any;
 
@@ -16,7 +17,7 @@ export class AdminHeaderComponent {
     }
 
     ngOnInit() {
-        this.service.getCurrentUser().subscribe((resData) => {
+        this.service.getCurrentUser().subscribe((resData: any) => {
             if (resData != null) {
                 this.kullanici = resData;
             }
@@ -104,7 +105,7 @@ export class AdminHeaderComponent {
     }
 
     onLogout() {
-        this.service.getLogout().subscribe((resData) => {
+        this.service.getLogout().subscribe((resData: any) => {
             if (resData == true) {
                 window.location.href = '/Emlak/';
             }

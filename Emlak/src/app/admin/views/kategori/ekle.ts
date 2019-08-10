@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { KategoriService } from "../../services/kategori";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,12 +15,12 @@ export class AdminKategoriEkleComponent {
 
     model: any;
 
-    constructor(private service: KategoriService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe(() => {
-            this.service.getEkle().subscribe((resData) => {
+            this.service.get("Kategori", "Ekle").subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -40,8 +40,8 @@ export class AdminKategoriEkleComponent {
         this.data.Code = this.ekleForm.get("Code").value;
         this.data.Active = this.ekleForm.get("Active").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Kategori", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Kategori']);
                 }

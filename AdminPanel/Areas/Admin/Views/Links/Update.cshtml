@@ -25,7 +25,7 @@
                 <div class="clear"></div>
                 <div class="editor-field">
                     @Html.HiddenFor(model => model.LinkTypeID)
-                    @Html.TextBoxFor(model => model.LinkedTypeAdi, new { disabled = "disabled" })
+                    @Html.TextBoxFor(model => model.LinkedTypesAdi, new { disabled = "disabled" })
                 </div>
                 <div class="clear"></div>
 
@@ -47,7 +47,7 @@
                     </div>
 
                     <input type="submit" value="Kaydet" class="btn btn-success btn-save" />
-                    @Html.ActionLink("İptal", "Index", "Links", null, new { @class = "btn btn-danger btn-cancel", data_controller="Bağlantılar" })
+                    @Html.ActionLink("İptal", "Index", "Links", null, new { @class = "btn btn-danger btn-cancel", data_table="Bağlantılar" })
                 </p>
             </fieldset>
         }

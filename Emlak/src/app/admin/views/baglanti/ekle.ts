@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { BaglantiService } from "../../services/baglanti";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminBaglantiEkleComponent {
 
     model: any;
 
-    constructor(private service: BaglantiService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.linkID = params['linkID'];
-            this.service.getEkle(this.linkID).subscribe((resData) => {
+            this.service.get("Baglanti", "Ekle", this.linkID).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -36,8 +36,8 @@ export class AdminBaglantiEkleComponent {
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
 
-        this.service.getNesneDoldur(target.value)
-            .subscribe((answer) => {
+        this.service.get("Baglanti", "NesneDoldur", null, null, target.value, null)
+            .subscribe((answer: any) => {
                 if (answer != null) {
                     $("select.selectLinkID").html("");
 
@@ -58,8 +58,8 @@ export class AdminBaglantiEkleComponent {
         this.data.LinkTypeID = this.ekleForm.get("LinkTypeID").value;
         this.data.LinkID = this.ekleForm.get("LinkID").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Baglanti", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Baglanti']);
                 }

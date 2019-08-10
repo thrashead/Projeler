@@ -34,8 +34,8 @@
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/FormElemanDeger/Duzenle/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" *ngIf="copyShow" data-toggle="modal" href="#cpyData" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="cpyLink" *ngIf="copyShow" data-toggle="modal" href="#cpyData" data-controller="FormElemanDeger" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="FormElemanDeger" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>

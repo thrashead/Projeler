@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { KullaniciGrupHakService } from '../../services/kullanicigruphak';
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,13 +16,13 @@ export class AdminKullaniciGrupHakDuzenleComponent {
 
     model: any;
 
-    constructor(private service: KullaniciGrupHakService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("KullaniciGrupHak", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -42,8 +42,8 @@ export class AdminKullaniciGrupHakDuzenleComponent {
         this.data.UserGroupProcessID = this.duzenleForm.get("UserGroupProcessID").value;
         this.data.Allow = this.duzenleForm.get("Allow").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("KullaniciGrupHak", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/KullaniciGrupHak']);
                 }

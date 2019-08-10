@@ -16,7 +16,7 @@ export class SliderComponent {
 
     ngOnInit() {
         this._homeService.getSlider()
-            .subscribe((resData) => {
+            .subscribe((resData: any) => {
                 this.slider = resData;
 
                 setTimeout(function () {

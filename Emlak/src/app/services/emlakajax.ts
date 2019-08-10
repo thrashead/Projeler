@@ -1,7 +1,6 @@
 ﻿import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { IDil } from '../admin/model/IDil';
 import { IListResult } from '../model/IListResult';
 import { ICategoryDetail } from '../model/ICategoryDetail';
 
@@ -25,8 +24,8 @@ export class EmlakAjaxService {
     }
 
     //Diller
-    getLangs(): Observable<IDil> {
-        return this._http.get<IDil>(this.linkLangs);
+    getLangs() {
+        return this._http.get(this.linkLangs);
     }
 
     //Dil Değiştir

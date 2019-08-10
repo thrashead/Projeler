@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { MetaService } from "../../services/meta";
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,7 +15,7 @@ export class AdminMetaEkleComponent {
 
     model: any;
 
-    constructor(private service: MetaService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -32,8 +32,8 @@ export class AdminMetaEkleComponent {
         this.data.Code = this.ekleForm.get("Code").value;
         this.data.Active = this.ekleForm.get("Active").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Meta", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Urun']);
                 }

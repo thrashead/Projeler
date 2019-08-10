@@ -1,9 +1,7 @@
 ﻿import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IKullanicilar } from '../model/IKullanicilar';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class SharedService {
     private linkLogin: string = "Ajax/Shared/Login";
     private linkLogout: string = "Ajax/Shared/Logout";
@@ -15,29 +13,29 @@ export class SharedService {
     constructor(private http: HttpClient) {
     }
 
-    postLogin(user: any): Observable<boolean> {
-        return this.http.post<boolean>(this.linkLogin, user);
+    postLogin(user: any) {
+        return this.http.post(this.linkLogin, user);
     }
 
-    getLogout(): Observable<boolean> {
-        return this.http.get<boolean>(this.linkLogout);
+    getLogout() {
+        return this.http.get(this.linkLogout);
     }
 
-    getLoginControl(): Observable<boolean> {
-        return this.http.get<boolean>(this.linkLoginControl);
+    getLoginControl() {
+        return this.http.get(this.linkLoginControl);
     }
     
-    getCurrentUser(): Observable<IKullanicilar> {
-        return this.http.get<IKullanicilar>(this.linkCurrentUser);
+    getCurrentUser() {
+        return this.http.get(this.linkCurrentUser);
     }
 
-    getHasRight(url: any, process: string): any {
+    getHasRight(url: any, process: string) {
         let params = new HttpParams().set("url", url).set("process", process);
-        return this.http.get<boolean>(this.linkHasRight, { params: params });
+        return this.http.get(this.linkHasRight, { params: params });
     }
 
-    getShowType(url: string): any {
+    getShowType(url: string) {
         let params = new HttpParams().set("url", url);
-        return this.http.get<boolean>(this.linkShowType, { params: params });
+        return this.http.get(this.linkShowType, { params: params });
     }
 }

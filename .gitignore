@@ -32,6 +32,8 @@ Global.asax
 */app/*/*/*.js
 */app/*/*.js
 */app/*.js
+*/dist/*
+*/ngClient/*
 *.csproj*
 *.sln*
 *.config*

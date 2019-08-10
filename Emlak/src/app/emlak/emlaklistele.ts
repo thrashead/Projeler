@@ -38,7 +38,7 @@ export class EmlakListeleComponent {
         $("#lblSonuc").css("display", "none");
 
         this._reService.getEmlakListele(data)
-            .subscribe((resData) => {
+            .subscribe((resData: any) => {
                 this.liste = resData;
 
                 if (this.liste.Adet > 12) {

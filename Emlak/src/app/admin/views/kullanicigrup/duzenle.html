@@ -78,8 +78,8 @@
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Kullanicilar/Duzenle/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="dltLink" *ngIf="CurrentUserID != item?.ID && deleteShow" data-toggle="modal" href="#dltData" [attr.data-link]="Users" [attr.data-id]="item?.ID">Sil</a></li>
-                                                <li><a class="rdltLink" *ngIf="CurrentUserID != item?.ID && realDeleteShow" data-toggle="modal" href="#rdltData" [attr.data-link]="Users" [attr.data-id]="item?.ID">Kaldır</a></li>
+                                                <li><a class="dltLink" *ngIf="CurrentUserID != item?.ID && deleteShow" data-toggle="modal" href="#dltData" data-controller="Kullanicilar" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="rdltLink" *ngIf="CurrentUserID != item?.ID && realDeleteShow" data-toggle="modal" href="#rdltData" data-controller="Kullanicilar" [attr.data-id]="item?.ID">Kaldır</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -120,7 +120,7 @@
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/KullaniciGrupTablo/Duzenle/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-link]="UserGroupTables" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="UserGroupTables" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -165,7 +165,7 @@
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/KullaniciGrupHak/Duzenle/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-link]="UserGroupRights" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="UserGroupRights" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>

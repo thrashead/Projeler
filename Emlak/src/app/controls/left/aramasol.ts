@@ -69,7 +69,7 @@ export class AramaSolComponent {
 
         if (this.araTip == "kod") {
             this._solService.getSolAraSonuc(this.araKelime, this.araTip)
-                .subscribe((answer) => {
+                .subscribe((answer: any) => {
                     if (answer != "") {
                         this._router.navigate(['/Emlak/Detay', answer.RouteUrl]);
                     }

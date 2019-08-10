@@ -1,8 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { UrunDilService } from "../../services/urundil";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import ClassicEditor from '../../../../../Content/admin/js/ckeditor/ckeditor.js';
+import * as $ from "jquery";
 
 @Component({
     templateUrl: './duzenle.html'
@@ -17,13 +18,13 @@ export class AdminUrunDilDuzenleComponent {
 
     model: any;
 
-    constructor(private service: UrunDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.id = params['id'];
-            this.service.getDuzenle(this.id).subscribe((resData) => {
+            this.service.get("UrunDil", "Duzenle", this.id).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -62,8 +63,8 @@ export class AdminUrunDilDuzenleComponent {
         this.data.ShortText2 = this.duzenleForm.get("ShortText2").value;
         this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("UrunDil", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/UrunDil']);
                 }

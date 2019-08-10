@@ -1,8 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { KategoriDilService } from "../../services/kategoridil";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import ClassicEditor from '../../../../../Content/admin/js/ckeditor/ckeditor.js';
+import * as $ from "jquery";
 
 @Component({
     templateUrl: './ekle.html'
@@ -17,13 +18,13 @@ export class AdminKategoriDilEkleComponent {
 
     model: any;
 
-    constructor(private service: KategoriDilService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.linkID = params['linkID'];
-            this.service.getEkle(this.linkID).subscribe((resData) => {
+            this.service.get("KategoriDil", "Ekle", this.linkID).subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -60,8 +61,8 @@ export class AdminKategoriDilEkleComponent {
         this.data.ShortText2 = this.ekleForm.get("ShortText2").value;
         this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("KategoriDil", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/KategoriDil']);
                 }

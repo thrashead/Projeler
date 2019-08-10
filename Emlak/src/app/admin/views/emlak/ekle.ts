@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakService } from "../../services/emlak";
+import { ModelService } from "../../services/model";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,7 +15,7 @@ export class AdminEmlakEkleComponent {
 
     model: any;
 
-    constructor(private service: EmlakService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -132,8 +132,8 @@ export class AdminEmlakEkleComponent {
         this.data.Enlem = this.ekleForm.get("Enlem").value;
         this.data.Boylam = this.ekleForm.get("Boylam").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("Emlak", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/Emlak']);
                 }

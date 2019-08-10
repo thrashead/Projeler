@@ -32,9 +32,9 @@
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Meta/Duzenle/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" *ngIf="copyShow" data-toggle="modal" href="#cpyData" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" [attr.data-id]="item?.ID">Sil</a></li>
-                                                <li><a class="rdltLink" *ngIf="realDeleteShow" data-toggle="modal" href="#rdltData" [attr.data-id]="item?.ID">Kaldır</a></li>
+                                                <li><a class="cpyLink" *ngIf="copyShow" data-toggle="modal" href="#cpyData" data-controller="Meta" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="Meta" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="rdltLink" *ngIf="realDeleteShow" data-toggle="modal" href="#rdltData" data-controller="Meta" [attr.data-id]="item?.ID">Kaldır</a></li>
                                             </ul>
                                         </div>
                                     </td>

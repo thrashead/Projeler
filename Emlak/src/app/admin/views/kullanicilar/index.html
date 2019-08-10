@@ -33,8 +33,8 @@
                                             <ul class="dropdown-menu">
                                                 <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Kullanicilar/Duzenle/' + item?.ID]">Düzenle</a></li>
                                                 <li><a class="cngLink" *ngIf="changeGroupShow" [routerLink]="['/Admin/Kullanicilar/GrupDegistir/' + item?.ID]">Grup Değiştir</a></li>
-                                                <li><a class="dltLink" *ngIf="CurrentUserID != item?.ID && deleteShow" data-toggle="modal" href="#dltData" [attr.data-id]="item?.ID">Sil</a></li>
-                                                <li><a class="rdltLink" *ngIf="CurrentUserID != item?.ID && realDeleteShow" data-toggle="modal" href="#rdltData" [attr.data-id]="item?.ID">Kaldır</a></li>
+                                                <li><a class="dltLink" *ngIf="CurrentUserID != item?.ID && deleteShow" data-toggle="modal" href="#dltData" data-controller="Kullanicilar" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li><a class="rdltLink" *ngIf="CurrentUserID != item?.ID && realDeleteShow" data-toggle="modal" href="#rdltData" data-controller="Kullanicilar" [attr.data-id]="item?.ID">Kaldır</a></li>
                                             </ul>
                                         </div>
                                     </td>

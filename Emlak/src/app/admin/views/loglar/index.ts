@@ -1,6 +1,8 @@
 ﻿import { Component } from "@angular/core";
-import { LoglarService } from "../../services/loglar";
-import * as $ from "jquery";
+import { ModelService } from "../../services/model";
+import { SharedService } from '../../services/shared';
+import { Router } from '@angular/router';
+declare var DataTable;
 
 @Component({
     templateUrl: './index.html'
@@ -8,22 +10,45 @@ import * as $ from "jquery";
 
 export class AdminLoglarIndexComponent {
     errorMsg: string;
-    LoglarList: any;
+    LoglarList: any;;
 
-    constructor(private service: LoglarService) {
+    deleteShow: boolean;
+
+    callTable: boolean;
+
+    constructor(private service: ModelService, private sharedService: SharedService, private router: Router) {
     }
 
     ngOnInit() {
-        this.service.getIndex().subscribe((resData) => {
-            this.LoglarList = resData;
+        this.callTable = true;
+        this.UserRightsControl($("#hdnModel").val());
+    }
 
-            setTimeout(function () {
-                $(".data-table").dataTable({
-                    "bJQueryUI": true,
-                    "sPaginationType": "full_numbers",
-                    "sDom": '<""l>t<"F"fp>'
-                });
+    UserRightsControl(Model: any) {
+        this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
+            this.deleteShow = dRight;
+
+            if (this.callTable == true) {
+                this.service.get("Loglar", "Index").subscribe((resData: any) => {
+                    this.LoglarList = resData;
+                    this.callTable = false;
+
+                    DataTable();
+
+                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.UserRightsControl($("#hdnModel").val());
+                        }, 1);
+                    });
+                }, resError => this.errorMsg = resError);
+            }
+
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
             }, 1);
+
         }, resError => this.errorMsg = resError);
     }
 }

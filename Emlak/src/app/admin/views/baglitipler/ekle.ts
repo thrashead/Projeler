@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { BagliTiplerService } from "../../services/baglitipler";
+import { ModelService } from "../../services/model";
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -15,12 +15,12 @@ export class AdminBagliTiplerEkleComponent {
 
     model: any;
 
-    constructor(private service: BagliTiplerService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.route.params.subscribe(() => {
-            this.service.getEkle().subscribe((resData) => {
+            this.service.get("BagliTipler", "Ekle").subscribe((resData: any) => {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
@@ -36,8 +36,8 @@ export class AdminBagliTiplerEkleComponent {
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
 
-        this.service.getTipDoldur(target.value)
-            .subscribe((answer) => {
+        this.service.get("BagliTipler", "TipDoldur", null, null, null, target.value)
+            .subscribe((answer: any) => {
                 if (answer != null) {
                     $("select.selectMain").html("");
 
@@ -60,8 +60,8 @@ export class AdminBagliTiplerEkleComponent {
         this.data.MainID = this.ekleForm.get("MainID").value;
         this.data.LinkedTypeID = this.ekleForm.get("LinkedTypeID").value;
 
-        this.service.postEkle(this.data)
-            .subscribe((answer) => {
+        this.service.post("BagliTipler", "Ekle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/BagliTipler']);
                 }

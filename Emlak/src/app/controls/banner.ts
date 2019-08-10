@@ -12,7 +12,7 @@ export class BannerComponent{
 
     ngOnInit() {
         this._emlakService.getRasgeleBanner()
-            .subscribe((resData) => {
+            .subscribe((resData: any) => {
                 $("#UstBolge").css("background-image", "url('" +  resData + "')");
             },
                 resError => this.errorMsg = resError);

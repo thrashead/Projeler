@@ -1,12 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { FormElemanService } from "../../services/formeleman";
-import { FormElemanOzellikService } from '../../services/formelemanozellik';
-import { FormElemanDegerService } from '../../services/formelemandeger';
+import { ModelService } from "../../services/model";
 import { SharedService } from '../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import { Subscription } from "rxjs";
-import * as $ from "jquery";
+declare var DataTable;
 
 @Component({
     templateUrl: './duzenle.html'
@@ -28,9 +25,7 @@ export class AdminFormElemanDuzenleComponent {
 
     callTable: boolean;
 
-    private subscription: Subscription = new Subscription();
-
-    constructor(private service: FormElemanService, private servicePropertyAttributes: FormElemanOzellikService, private servicePropertyValues: FormElemanDegerService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private service: ModelService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -49,10 +44,6 @@ export class AdminFormElemanDuzenleComponent {
         });
     }
 
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
-    }
-
     onSubmit() {
         this.data = new Object();
         this.data.ID = this.duzenleForm.get("ID").value;
@@ -64,8 +55,8 @@ export class AdminFormElemanDuzenleComponent {
         this.data.Code = this.duzenleForm.get("Code").value;
         this.data.OrderNumber = this.duzenleForm.get("OrderNumber").value;
 
-        this.service.postDuzenle(this.data)
-            .subscribe((answer) => {
+        this.service.post("FormEleman", "Duzenle", this.data)
+            .subscribe((answer: any) => {
                 if (answer.Mesaj == null) {
                     this.router.navigate(['/Admin/FormEleman']);
                 }
@@ -77,144 +68,30 @@ export class AdminFormElemanDuzenleComponent {
                 resError => this.errorMsg = resError);
     }
 
-    onPropertyAttributesDelete(id) {
-        this.servicePropertyAttributes.getSil(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Delete");
-
-                $("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    $(this).remove();
-                });
-            }
-            else {
-                this.ShowAlert("DeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    onPropertyAttributesCopy(id) {
-        this.subscription.add(this.servicePropertyAttributes.getKopyala(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Copy");
-
-                let currentUrl = this.router.url;
-                this.router.navigate(['/Admin/AnaSayfa'], { skipLocationChange: true }).then(() => { this.router.navigate([currentUrl]) });
-            }
-            else {
-                this.ShowAlert("CopyNot");
-            }
-        }, resError => this.errorMsg = resError,
-            () => { this.subscription.unsubscribe(); }));
-    }
-
-    onPropertyValuesDelete(id) {
-        this.servicePropertyValues.getSil(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Delete");
-
-                $("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    $(this).remove();
-                });
-            }
-            else {
-                this.ShowAlert("DeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    onPropertyValuesCopy(id) {
-        this.subscription.add(this.servicePropertyValues.getKopyala(id).subscribe((resData) => {
-            if (resData == true) {
-                this.ShowAlert("Copy");
-
-                let currentUrl = this.router.url;
-                this.router.navigate(['/Admin/AnaSayfa'], { skipLocationChange: true }).then(() => { this.router.navigate([currentUrl]) });
-            }
-            else {
-                this.ShowAlert("CopyNot");
-            }
-        }, resError => this.errorMsg = resError,
-            () => { this.subscription.unsubscribe(); }));
-    }
-
-    ShowAlert(type: string) {
-        $("#tdAlertMessage li.tdAlert" + type).fadeIn("slow");
-
-        setInterval(function () {
-            $("#tdAlertMessage li.tdAlert" + type).fadeOut("slow");
-        }, 2000);
-    }
-
     UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
             this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
                 this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
                     this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight) => {
+                    this.sharedService.getHasRight(Model, "c").subscribe((cRight: boolean) => {
                         this.copyShow = cRight;
 
                         if (this.callTable == true) {
                             this.route.params.subscribe((params: Params) => {
                                 this.id = params['id'];
-                                this.service.getDuzenle(this.id).subscribe((resData) => {
+                                this.service.get("FormEleman", "Duzenle", this.id).subscribe((resData: any) => {
                                     this.model = resData;
                                     this.callTable = false;
 
-                                    setTimeout(() => {
-                                        $(".data-table").dataTable({
-                                            "bJQueryUI": true,
-                                            "sPaginationType": "full_numbers",
-                                            "sDom": '<""l>t<"F"fp>'
-                                        });
+                                    DataTable();
 
-                                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                            $(".btn-group").remove();
-                                        }
-
-                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                            setTimeout(() => {
-                                                this.UserRightsControl($("#hdnModel").val());
-                                            }, 1);
-                                        });
-
-                                        $(document).off("click", "a.dltLink").on("click", "a.dltLink", function () {
-                                            $(this).addClass("active-dlt");
-                                            $("a.dlt-yes").attr("data-id", $(this).attr("data-id"));
-                                            $("a.dlt-yes").attr("data-link", $(this).attr("data-link"));
-                                        });
-
-                                        $(document).off("click", "a.dlt-yes[data-link='PropertyAttributes']").on("click", "a.dlt-yes[data-link='PropertyAttributes']", () => {
-                                            let id: string = $("a.dlt-yes").attr("data-id");
-                                            this.onPropertyAttributesDelete(id);
-                                            $("a.dlt-yes").removeAttr("data-link");
-                                        });
-
-                                        $(document).off("click", "a.dlt-yes[data-link='PropertyValues']").on("click", "a.dlt-yes[data-link='PropertyValues']", () => {
-                                            let id: string = $("a.dlt-yes").attr("data-id");
-                                            this.onPropertyValuesDelete(id);
-                                            $("a.dlt-yes").removeAttr("data-link");
-                                        });
-
-                                        $(document).off("click", "a.cpyLink").on("click", "a.cpyLink", function () {
-                                            $(this).addClass("active-cpy");
-                                            $("a.cpy-yes").attr("data-id", $(this).attr("data-id"));
-                                            $("a.cpy-yes").attr("data-link", $(this).attr("data-link"));
-                                        });
-
-                                        $(document).off("click", "a.cpy-yes[data-link='PropertyAttributes']").on("click", "a.cpy-yes[data-link='PropertyAttributes']", () => {
-                                            let id: string = $("a.cpy-yes").attr("data-id");
-                                            this.onPropertyAttributesCopy(id);
-                                            $("a.cpy-yes").removeAttr("data-link");
-                                        });
-
-                                        $(document).off("click", "a.cpy-yes[data-link='PropertyValues']").on("click", "a.cpy-yes[data-link='PropertyValues']", () => {
-                                            let id: string = $("a.cpy-yes").attr("data-id");
-                                            this.onPropertyValuesCopy(id);
-                                            $("a.cpy-yes").removeAttr("data-link");
-                                        });
-                                    }, 1);
+                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                        setTimeout(() => {
+                                            this.UserRightsControl($("#hdnModel").val());
+                                        }, 1);
+                                    });
                                 }, resError => this.errorMsg = resError);
                             });
                         }
