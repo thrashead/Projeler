@@ -1,4 +1,4 @@
-﻿using AdminPanel.Data;
+﻿using Repository.Data;
 using System.Web;
 using System.Linq;
 using System.Web.Configuration;
@@ -43,9 +43,12 @@ namespace AdminPanel
             if (user == null)
                 return false;
 
-            AdminPanelEntities entity = new AdminPanelEntities();
+            int? result = null;
 
-            int? result = entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
+            using (AdminPanelEntities entity = new AdminPanelEntities())
+            {
+                result = entity.usp_UserTablesSelect(user.ID, url, islem).FirstOrDefault();
+            }
 
             return result == 1 ? true : false;
         }
@@ -54,19 +57,20 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                AdminPanelEntities entity = new AdminPanelEntities();
-
-                if (model != null)
+                using (AdminPanelEntities entity = new AdminPanelEntities())
                 {
-                    if (model.GetType() == typeof(int))
-                        description += CreateLogValues(model.ToString(), idName);
-                    else
-                        description += model.CreateLogValues(idName);
+                    if (model != null)
+                    {
+                        if (model.GetType() == typeof(int))
+                            description += CreateLogValues(model.ToString(), idName);
+                        else
+                            description += model.CreateLogValues(idName);
+                    }
+
+                    description = description?.SplitText(0, 255);
+
+                    entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
                 }
-
-                description = description == null ? null : description.SplitText(0, 255);
-
-                entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
             }
         }
 
@@ -74,11 +78,12 @@ namespace AdminPanel
         {
             if (user != null)
             {
-                AdminPanelEntities entity = new AdminPanelEntities();
+                using (AdminPanelEntities entity = new AdminPanelEntities())
+                {
+                    description = description?.SplitText(0, 255);
 
-                description = description == null ? null : description.SplitText(0, 255);
-
-                entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
+                    entity.usp_LogsByProcessShortNameInsert(processShortName, user.ID, AppTools.GetTime, description);
+                }
             }
         }
 
@@ -112,9 +117,10 @@ namespace AdminPanel
     {
         public static bool? ShowType(this string url)
         {
-            AdminPanelEntities entity = new AdminPanelEntities();
-
-            return entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
+            using (AdminPanelEntities entity = new AdminPanelEntities())
+            {
+                return entity.usp_TypesShowByUrlSelect(url).FirstOrDefault();
+            }
         }
     }
 }

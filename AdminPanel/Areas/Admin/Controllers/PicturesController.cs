@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
-using AdminPanel.Data;
+using Repository.Data;
 using TDLibrary;
 using Repository.UsersModel;
 using Repository.PicturesModel;
@@ -10,8 +10,8 @@ namespace AdminPanel.Areas.Admin.Controllers
     public class PicturesController : Controller
     {
         readonly AdminPanelEntities entity = new AdminPanelEntities();
-        Pictures table = new Pictures();
-        Users curUser = AppTools.User;
+        readonly Pictures table = new Pictures();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

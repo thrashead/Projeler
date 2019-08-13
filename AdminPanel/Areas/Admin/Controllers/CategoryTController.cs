@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class CategoryTController : Controller
     {
-        CategoryT table = new CategoryT();
-        Users curUser = AppTools.User;
+        readonly CategoryT table = new CategoryT();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
-using AdminPanel.Data;
+using Repository.Data;
 using TDLibrary;
 using Repository.UsersModel;
 using Repository.FilesModel;
@@ -10,8 +10,8 @@ namespace AdminPanel.Areas.Admin.Controllers
     public class FilesController : Controller
     {
         readonly AdminPanelEntities entity = new AdminPanelEntities();
-        Files table = new Files();
-        Users curUser = AppTools.User;
+        readonly Files table = new Files();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

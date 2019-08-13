@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Linq;
 using System.Web.Mvc;
-using AdminPanel.Data;
+using Repository.Data;
 using TDLibrary;
 using Repository.UsersModel;
 

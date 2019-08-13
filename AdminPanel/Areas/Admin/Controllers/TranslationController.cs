@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
-using AdminPanel.Data;
+using Repository.Data;
 using TDLibrary;
 using Repository.UsersModel;
 using Repository.TranslationModel;
@@ -10,8 +10,8 @@ namespace AdminPanel.Areas.Admin.Controllers
     public class TranslationController : Controller
     {
         readonly AdminPanelEntities entity = new AdminPanelEntities();
-        Translation table = new Translation();
-        Users curUser = AppTools.User;
+        readonly Translation table = new Translation();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

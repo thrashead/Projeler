@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LogProcessController : Controller
     {
-        LogProcess table = new LogProcess();
-        Users curUser = AppTools.User;
+        readonly LogProcess table = new LogProcess();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

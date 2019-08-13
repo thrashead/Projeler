@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class VisitorsController : Controller
     {
-        Visitors table = new Visitors();
-        Users curUser = AppTools.User;
+        readonly Visitors table = new Visitors();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

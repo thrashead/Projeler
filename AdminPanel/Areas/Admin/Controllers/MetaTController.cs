@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class MetaTController : Controller
     {
-        MetaT table = new MetaT();
-        Users curUser = AppTools.User;
+        readonly MetaT table = new MetaT();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

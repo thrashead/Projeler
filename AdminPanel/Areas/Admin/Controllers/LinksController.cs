@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LinksController : Controller
     {
-        Links table = new Links();
-        Users curUser = AppTools.User;
+        readonly Links table = new Links();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class LogTypesController : Controller
     {
-        LogTypes table = new LogTypes();
-        Users curUser = AppTools.User;
+        readonly LogTypes table = new LogTypes();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

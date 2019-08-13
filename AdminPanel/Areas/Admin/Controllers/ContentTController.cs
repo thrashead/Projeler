@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class ContentTController : Controller
     {
-        ContentT table = new ContentT();
-        Users curUser = AppTools.User;
+        readonly ContentT table = new ContentT();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

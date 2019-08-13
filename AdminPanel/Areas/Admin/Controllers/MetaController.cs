@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class MetaController : Controller
     {
-        Meta table = new Meta();
-        Users curUser = AppTools.User;
+        readonly Meta table = new Meta();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

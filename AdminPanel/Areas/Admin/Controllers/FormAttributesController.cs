@@ -8,8 +8,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormAttributesController : Controller
     {
-        FormAttributes table = new FormAttributes();
-        Users curUser = AppTools.User;
+        readonly FormAttributes table = new FormAttributes();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

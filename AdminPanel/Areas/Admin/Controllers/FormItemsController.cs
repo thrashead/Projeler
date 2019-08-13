@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormItemsController : Controller
     {
-        FormItems table = new FormItems();
-        Users curUser = AppTools.User;
+        readonly FormItems table = new FormItems();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

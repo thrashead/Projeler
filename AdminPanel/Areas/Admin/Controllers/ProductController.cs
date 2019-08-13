@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        Product table = new Product();
-        Users curUser = AppTools.User;
+        readonly Product table = new Product();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

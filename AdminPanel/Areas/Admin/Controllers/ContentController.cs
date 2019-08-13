@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class ContentController : Controller
     {
-        Content table = new Content();
-        Users curUser = AppTools.User;
+        readonly Content table = new Content();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

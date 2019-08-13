@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class UserGroupRightsController : Controller
     {
-        UserGroupRights table = new UserGroupRights();
-        Users curUser = AppTools.User;
+        readonly UserGroupRights table = new UserGroupRights();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

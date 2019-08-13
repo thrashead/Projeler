@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormGroupsController : Controller
     {
-        FormGroups table = new FormGroups();
-        Users curUser = AppTools.User;
+        readonly FormGroups table = new FormGroups();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

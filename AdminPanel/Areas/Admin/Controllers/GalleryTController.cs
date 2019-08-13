@@ -7,8 +7,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class GalleryTController : Controller
     {
-        GalleryT table = new GalleryT();
-        Users curUser = AppTools.User;
+        readonly GalleryT table = new GalleryT();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

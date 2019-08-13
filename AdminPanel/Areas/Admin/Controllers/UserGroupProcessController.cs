@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class UserGroupProcessController : Controller
     {
-        UserGroupProcess table = new UserGroupProcess();
-        Users curUser = AppTools.User;
+        readonly UserGroupProcess table = new UserGroupProcess();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

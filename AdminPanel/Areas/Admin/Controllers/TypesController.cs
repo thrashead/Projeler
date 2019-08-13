@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class TypesController : Controller
     {
-        Types table = new Types();
-        Users curUser = AppTools.User;
+        readonly Types table = new Types();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {

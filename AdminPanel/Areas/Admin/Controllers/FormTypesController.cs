@@ -6,8 +6,8 @@ namespace AdminPanel.Areas.Admin.Controllers
 {
     public class FormTypesController : Controller
     {
-        FormTypes table = new FormTypes();
-        Users curUser = AppTools.User;
+        readonly FormTypes table = new FormTypes();
+        readonly Users curUser = AppTools.User;
 
         public ActionResult Index()
         {
