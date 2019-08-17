@@ -37,7 +37,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                Uploader pic = Uploader.UploadPicture();
+                Uploader pic = Uploader.UploadPicture(true);
 
                 if (pic.Control)
                 {
@@ -84,7 +84,7 @@ namespace AdminPanel.Areas.Admin.Controllers
                 string oldPicture = resim.PictureUrl;
                 string oldThumb = resim.ThumbUrl;
 
-                Uploader pic = Uploader.UploadPicture();
+                Uploader pic = Uploader.UploadPicture(true);
 
                 if (pic.UploadError == null)
                 {

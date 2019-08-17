@@ -37,7 +37,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                Uploader file = Uploader.UploadFile();
+                Uploader file = Uploader.UploadFile(true);
 
                 if (file.Control)
                 {
@@ -82,7 +82,7 @@ namespace AdminPanel.Areas.Admin.Controllers
             {
                 string oldFlag = dosya.FileUrl;
 
-                Uploader file = Uploader.UploadFile();
+                Uploader file = Uploader.UploadFile(true);
 
                 if (file.UploadError == null)
                 {
