@@ -4,3 +4,10 @@
 .b-footer__company a {color:#fff;text-decoration:none;}
 .b-footer__company a:hover {color:#bababa;text-decoration:none;}
 #tabAutoBest > .tab > div > div {height: auto!important;}
+.b-nav__logo h3 a {font-size:22px!important;}
+.b-asks__first-circle span {font-size:32px!important;}
+.b-asks__first-arrow span {font-size:20px!important;}
+.b-world__item a span.fa {font-size:12px!important;}
+.b-info__aside > a span {font-size:14px!important;}
+.b-count__item-circle span {font-size:40px!important;}
+.b-topBar__lang {float:right;padding-right:10px;}

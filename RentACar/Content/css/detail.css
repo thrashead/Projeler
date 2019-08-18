@@ -14,14 +14,14 @@
 /* Info Bar */
 .b-infoBar__premium{
     float:left;
-    font: 700 10px 'Open Sans',sans-serif;
+    font: 700 10px Arial;
     text-transform: uppercase;
     padding: 7px 10px;
 }
 
 .btn.m-btn.m-infoBtn{
     padding-left: 10px;
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     border:1px solid #dddddd;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .b-detail__head h3{
-    font: 400 14px 'Open Sans',sans-serif;
+    font: 400 14px Arial;
     margin: 0;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .b-detail__head-price p{
-    font: 400 11px 'Open Sans',sans-serif;
+    font: 400 11px Arial;
 }
 
 .b-detail__main-aside-desc{
@@ -94,14 +94,14 @@
     margin: 0 0 10px 0;
     padding-left: 15px;
     border-left: 3px solid #eeeeee;
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
 }
 
 .b-detail__main-aside-desc-value{
     margin: 0 0 10px 0;
     padding-left: 15px;
     border-left: 3px solid #eeeeee;
-    font: 600 13px 'Open Sans',sans-serif;
+    font: 600 13px Arial;
 }
 
 .b-detail__main-aside-about-call{
@@ -120,11 +120,11 @@
 }
 
 .b-detail__main-aside-about-call > div{
-    font: 700 26px 'Open Sans',sans-serif;
+    font: 700 26px Arial;
 }
 
 .b-detail__main-aside-about-call p{
-    font: 400 11px 'Open Sans',sans-serif;
+    font: 400 11px Arial;
     margin: 0;    
 }
 
@@ -133,13 +133,13 @@
 }
 
 .b-detail__main-aside-about-seller p{
-    font: 400 12px 'Open Sans',sans-serif;
+    font: 400 12px Arial;
     margin: 0;
     text-align: center;
 }
 
 .b-detail__main-aside-about-seller p span{
-    font: 700 12px 'Open Sans',sans-serif;
+    font: 700 12px Arial;
 }
 
 .b-detail__main-aside-about-form{
@@ -155,7 +155,7 @@
 .b-detail__main-aside-about-form-links a{
     display: inline-block;
     text-transform: uppercase;
-    font: 600 12px 'Open Sans',sans-serif;
+    font: 600 12px Arial;
     margin: 0 10px;
     padding-bottom: 8px;
     border-color: #e8e8e8!important;
@@ -179,7 +179,7 @@
     width:100%;
     margin-bottom: 15px;
     padding: 15px 20px;
-    font: 400 10px 'Open Sans',sans-serif;
+    font: 400 10px Arial;
     border: 1px solid #eeeeee;
     text-transform: uppercase;
     border-radius: 30px;
@@ -195,11 +195,11 @@
 }
 
 .b-detail__main-aside form label{
-    font: 400 12px 'Open Sans',sans-serif;
+    font: 400 12px Arial;
 }
 
 .b-detail__main-aside form button.btn.m-btn{
-    font: 700 12px 'Open Sans',sans-serif;
+    font: 700 12px Arial;
     padding-left: 20px;
     margin-top: 30px;
 }
@@ -307,11 +307,11 @@
 .b-detail__main-info-characteristics-one-bottom{
     padding: 15px 0;
     text-align: center;
-    font: 400 11px 'Open Sans',sans-serif;
+    font: 400 11px Arial;
 }
 
 .b-detail__main-info-characteristics-one-top > p{
-    font: 700 11px 'Open Sans',sans-serif;
+    font: 700 11px Arial;
     text-align: center;
     margin: 10px 0 0 0;
 }
@@ -329,7 +329,7 @@
 }
 
 .b-detail__main-info-text p{
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
     margin-bottom: 35px;
     line-height:1.9;
 }
@@ -353,7 +353,7 @@
 }
 
 .b-detail__main-info-extra ul li{
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
     margin-bottom: 10px;
 }
 

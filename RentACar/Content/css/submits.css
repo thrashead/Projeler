@@ -91,7 +91,7 @@
 .b-submit__aside-step h3{
     text-transform: uppercase;
     margin: 0 0 15px 0;
-    font: 700 12px 'Open Sans',sans-serif;
+    font: 700 12px Arial;
 }
 
 .b-submit__aside-step:last-child{
@@ -133,7 +133,7 @@
 }
 
 .b-submit__aside-step-inner-info h4{
-    font: 700 14px 'Open Sans',sans-serif;
+    font: 700 14px Arial;
     margin: 0 0 3px 0;
     padding-left: 5px;
     border-left:4px solid #f76d2b;
@@ -142,7 +142,7 @@
 }
 
 .b-submit__aside-step-inner-info p{
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     margin: 0;
     color:#b4b4b4;
 }
@@ -178,7 +178,7 @@
 }
 
 .b-submit__main p{
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
     margin: 0 0 35px 0;
     line-height:1.7;
 }
@@ -205,7 +205,7 @@
 }
 
 .b-submit__main-file label.btn.m-btn{
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     cursor:pointer;
     padding-left: 15px;
     border:1px solid #ddd;
@@ -221,7 +221,7 @@
 
 .b-submit__main-file label.btn.m-btn + label{
     margin-left: 15px;
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     vertical-align: middle;
 }
 
@@ -257,7 +257,7 @@
 }
 
 .b-submit__main-contacts-price h6{
-    font: 600 16px 'Open Sans',sans-serif;
+    font: 600 16px Arial;
     margin: 14px 0 0 0;
     text-transform: uppercase;
 }
@@ -285,7 +285,7 @@
 .b-submit__main-contacts-price-input-usd{
     display: inline-block;
     position: absolute;
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     top:6px;
     right:8px;
     padding: 10px 15px;
@@ -294,7 +294,7 @@
 }
 
 .b-submit__main-contacts-price-note{
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     text-align: center;
     margin-top: 10px;
 }
@@ -317,7 +317,7 @@
 
 .b-submit__main-contacts-select select{
     background: #fff!important;
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     border: none;
     height: auto;
     padding: 10px 25px 10px 15px;
@@ -336,13 +336,13 @@
 }
 
 .b-submit__main-contacts-check > span{
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
     padding: 0 25px 0 10px;
     vertical-align: super;
 }
 
 .b-submit__main-contacts-check .s-submitCheck{
-    font: 700 13px 'Open Sans',sans-serif;
+    font: 700 13px Arial;
     margin-right: 15px;
 }
 
@@ -362,19 +362,19 @@
 }
 
 .b-submit__main-contacts-price-plan{
-    font: 600 16px 'Open Sans',sans-serif;
+    font: 600 16px Arial;
     text-transform: uppercase;
     text-align: center;
     line-height:2.5;
 }
 
 .b-submit__main-contacts-price-plan span{
-    font: 800 22px 'Open Sans',sans-serif;
+    font: 800 22px Arial;
     margin-left: 5px;
 }
 
 .b-submit__main-contacts-price-plan > a{
-    font: 600 10px 'Open Sans',sans-serif;
+    font: 600 10px Arial;
     text-decoration: none;
     display: inline-block;
     padding: 8px 22px;
@@ -386,12 +386,12 @@
 }
 
 .b-submit__main-plan-money{
-    font: 700 20px 'Open Sans',sans-serif;
+    font: 700 20px Arial;
     margin-left: 10px;
 }
 
 .b-submit__main-plan-money-note{
-   font: 400 13px 'Open Sans',sans-serif; 
+   font: 400 13px Arial; 
 }
 
 .b-submit__main-plan label.s-submitCheckLabel{
@@ -421,7 +421,7 @@ a.btn.m-btn.m-pay span.fa{
 }
 
 a.btn.m-btn.m-pay{
-    font: 600 12px 'Open Sans',sans-serif;
+    font: 600 12px Arial;
     border:1px solid #ddd;
     padding-left: 18px;
     padding-top: 6px;

@@ -17,12 +17,12 @@
 
 /* Info Bar */
 .m-compare .b-infoBar h5{
-    font: 600 14px 'Open Sans',sans-serif;
+    font: 600 14px Arial;
     margin: 5px 0 0 0;
 }
 
 .m-compare .b-infoBar h5 span{
-    font: 700 16px 'Open Sans',sans-serif;
+    font: 700 16px Arial;
 }
 
 .m-compare .b-infoBar {
@@ -43,7 +43,7 @@
 }
 
 .b-compare__images-item h3{
-    font: 700 16px 'Open Sans',sans-serif;
+    font: 700 16px Arial;
     text-align: center;
     margin: 0 0 25px 0;
     text-transform: uppercase;
@@ -64,7 +64,7 @@
     position: absolute;
     border-radius: 100%;
     border:10px solid #fff;
-    font: 600 13px 'Open Sans',sans-serif;
+    font: 600 13px Arial;
     padding-top: 5px;
     left:100%;
     margin-left: -8px;
@@ -121,13 +121,13 @@
 
 .b-compare__block-inside-title{
     text-align: right;
-    font: 600 13px 'Open Sans',sans-serif;
+    font: 600 13px Arial;
     padding-right: 45px;
     padding-bottom: 10px;
 }
 
 .b-compare__block-inside-value{
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
     text-align: left;
     padding-left: 45px;
     padding-bottom: 10px;
@@ -169,7 +169,7 @@
 }
 
 .b-compare__links a.btn.m-btn{
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     border:1px solid #dddddd;
     padding-left: 20px;
 }

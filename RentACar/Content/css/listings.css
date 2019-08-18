@@ -33,7 +33,7 @@
 }
 
 .b-pageHeader__search h3{
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
     margin: 0;
     padding: 3px 10px;
     border-left:3px solid #fff;
@@ -47,7 +47,7 @@
 }
 
 .b-breadCumbs__page{
-    font: 400 11px 'Open Sans',sans-serif;
+    font: 400 11px Arial;
 }
 
 .b-breadCumbs span.fa{
@@ -75,7 +75,7 @@
 }
 
 .b-infoBar__compare-item,.b-infoBar__select-one-title{
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     text-transform: uppercase;
 }
 
@@ -139,7 +139,7 @@ select.m-select{
     padding: 12px 0 12px 20px;
     border: 1px solid #eeeeee;
     border-radius: 30px;
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
     background: transparent;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -203,7 +203,7 @@ select.m-select + span.fa{
     display: block;
     text-transform: uppercase;
     margin-bottom: 10px;
-    font: 700 12px 'Open Sans',sans-serif;
+    font: 700 12px Arial;
     text-align: left;
 }
 
@@ -228,7 +228,7 @@ select.m-select + span.fa{
     left:-1px;
     padding:2px 3px;
     background-color: #444!important;
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     text-decoration: none;
 }
 
@@ -263,7 +263,7 @@ select.m-select + span.fa{
 
 .b-items__aside-main-footer > a{
     text-transform: uppercase;
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     text-decoration: underline;
 }
 
@@ -287,7 +287,7 @@ select.m-select + span.fa{
     padding: 0 10px;
     border-left:4px solid #fff;
     border-right:4px solid #fff;
-    font: 700 20px 'Open Sans',sans-serif;
+    font: 700 20px Arial;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: inline-block;
@@ -296,12 +296,12 @@ select.m-select + span.fa{
 .b-items__aside-sell-info{
     padding: 20px 25px 30px 25px;
     text-align: left;
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
 }
 
 .b-items__aside-sell-info a{
     border:1px solid #fff;
-    font: 600 11px 'Open Sans',sans-serif!important;
+    font: 600 11px Arial!important;
     padding-left: 15px!important;
     margin-top: 15px;
 }
@@ -338,7 +338,7 @@ select.m-select + span.fa{
     bottom:0;
     left:0;
     padding: 8px 10px;
-    font: 400 11px 'Open Sans',sans-serif;   
+    font: 400 11px Arial;   
 }
 
 .b-items__cars-one-img-video span.fa{
@@ -350,7 +350,7 @@ select.m-select + span.fa{
 }
 
 .b-items__cars-one-img-type{
-    font: 700 10px 'Open Sans',sans-serif;
+    font: 700 10px Arial;
     padding: 5px;
     text-transform: uppercase;
     position: absolute;
@@ -399,7 +399,7 @@ select.m-select + span.fa{
 
 .b-items__cars-one-info-header h2{
     float:left;
-    font: 600 20px 'Open Sans',sans-serif;
+    font: 600 20px Arial;
     padding-left: 15px;
     border-left:4px solid #f76d2b;
     margin: 8px 0 0 0;
@@ -414,12 +414,12 @@ select.m-select + span.fa{
 }
 
 .b-items__cars-one-info p{
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
     margin: 0 0 30px 0;
 }
 
 .b-items__cars-one-info-km{
-    font: 600 12px 'Open Sans',sans-serif;
+    font: 600 12px Arial;
     text-transform: uppercase;
 }
 
@@ -442,7 +442,7 @@ select.m-select + span.fa{
 }
 
 .b-items__cars-one-info a.btn{
-    font: 600 10px 'Open Sans',sans-serif!important;
+    font: 600 10px Arial!important;
     border:1px solid #ddd;
     padding-left: 12px!important;
 }
@@ -489,13 +489,13 @@ select.m-select + span.fa{
 }
 
 .b-items__pagination-main > span a{
-    font: 400 11px 'Open Sans',sans-serif;
+    font: 400 11px Arial;
     margin-right: 5px;
     cursor:pointer;
 }
 
 .b-items__pagination-main > span.m-active a,.b-items__pagination-main > span:hover a{
-    font: 700 11px 'Open Sans',sans-serif;
+    font: 700 11px Arial;
 }
 
 .b-items__pagination-main > span:last-of-type a{
@@ -536,13 +536,13 @@ select.m-select + span.fa{
 }
 
 .b-items__cars-one-info-title{
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     display: block;
     margin-bottom: 5px;
 }
 
 .b-items__cars-one-info-value{
-    font: 400 11px 'Open Sans',sans-serif;
+    font: 400 11px Arial;
     display: block;
     margin-bottom: 5px;
 }
@@ -561,7 +561,7 @@ select.m-select + span.fa{
 }
 
 .m-listingsTwo .b-items__cars-one-info-price h3{
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     text-align: left;
     text-transform: uppercase;
     margin: 0;
@@ -597,14 +597,14 @@ select.m-select + span.fa{
  }
 
 .b-items__cell-info h2{
-    font:600 15px 'Open Sans',sans-serif;
+    font:600 15px Arial;
     padding-left: 15px;
     border-left: 4px solid #f76d2b;
     margin: 0;
 }
 
 .b-items__cell-info > p{
-    font:300 13px 'Open Sans',sans-serif;
+    font:300 13px Arial;
     margin: 0 4px 20px 4px;
 }
 
@@ -613,7 +613,7 @@ select.m-select + span.fa{
 }
 
 .b-items__cell-info ul{
-    font:400 11px 'Open Sans',sans-serif;
+    font:400 11px Arial;
     padding-left: 0;
     list-style-position: inside;
 }
@@ -632,12 +632,12 @@ select.m-select + span.fa{
 }
 
 .b-items__cell-info-km p{
-    font: 600 12px 'Open Sans',sans-serif;
+    font: 600 12px Arial;
     text-transform: uppercase;
 }
 
 .b-items__cell-info a.btn{
-    font: 600 10px 'Open Sans',sans-serif!important;
+    font: 600 10px Arial!important;
     border: 1px solid #ddd;
     padding-left: 12px!important;
     margin-top: 40px;
@@ -668,7 +668,7 @@ select.m-select + span.fa{
 }
 
 .m-listTableTwo .b-items__cell-info-price span{
-    font: 600 11px 'Open Sans',sans-serif;
+    font: 600 11px Arial;
     text-transform: uppercase;
     margin-right: 10px;
 }

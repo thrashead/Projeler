@@ -34,18 +34,18 @@
 
 .b-best__info-head h2{
     margin: 0;
-    font: 700 22px 'Open Sans',sans-serif;
+    font: 700 22px Arial;
     padding-left: 15px;
     border-left:4px solid #f76d2b;
 }
 
 .b-best__info h6{
-    font: 600 14px 'Open Sans',sans-serif;
+    font: 600 14px Arial;
     margin-bottom: 30px;
 }
 
 .b-best__info p{
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
     margin: 0 0 40px 0;
     line-height: 1.9;
 }
@@ -73,7 +73,7 @@
 
 .b-more__why p{
     margin:  0 0 40px 0;
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
     line-height:1.7;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .b-more__info-block-title{
-    font: 600 14px 'Open Sans',sans-serif;
+    font: 600 14px Arial;
     padding: 13px 58px 13px 25px;
     position: relative;
     height:46px;
@@ -114,7 +114,7 @@
 }
 
 .b-more__info-block-inside p{
-   font: 300 13px 'Open Sans',sans-serif;
+   font: 300 13px Arial;
    line-height:1.7; 
 }
 
@@ -147,7 +147,7 @@
 }
 
 .b-personal__worker h6{
-    font: 700 11px 'Open Sans',sans-serif;
+    font: 700 11px Arial;
     text-align: left;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .b-personal__worker p{
-    font: 300 13px 'Open Sans',sans-serif;
+    font: 300 13px Arial;
     text-align: left;
     line-height:1.7;
 }
@@ -222,7 +222,7 @@
 }
 
 .b-contacts__form p{
-    font: 600 14px 'Open Sans',sans-serif;
+    font: 600 14px Arial;
     margin:  0 0 40px 0;
 }
 
@@ -243,12 +243,12 @@
 }
 
 .b-contacts__address-hours-main h5{
-    font: 700 13px 'Open Sans',sans-serif;
+    font: 700 13px Arial;
     margin: 0 0 10px 0;
 }
 
 .b-contacts__address-hours-main p{
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
 }
 
 .b-contacts__address-info{
@@ -256,7 +256,7 @@
 }
 
 .b-contacts__address-info-main-item{
-    font: 700 13px 'Open Sans',sans-serif;
+    font: 700 13px Arial;
     margin-bottom: 20px;
 }
 
@@ -270,12 +270,12 @@
 }
 
 .b-contacts__address-info-main-item p{
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
     margin: 5px 0 10px 30px;
 }
 
 .b-contacts__address-info-main-item em{
-    font: 400 13px 'Open Sans',sans-serif;
+    font: 400 13px Arial;
 }
 
 /* Page 404 */
@@ -287,14 +287,14 @@
 }
 
 .b-error h1{
-    font: 800 44px 'Open Sans',sans-serif;
+    font: 800 44px Arial;
     text-transform: uppercase;
     letter-spacing:5px;
     margin: 0 0 10px 0;
 }
 
 .b-error h2{
-    font: 700 40px 'Open Sans',sans-serif;
+    font: 700 40px Arial;
     margin: 25px 0 60px 0;
     display: inline-block;
     padding:0 30px 50px 30px;
@@ -302,12 +302,12 @@
 }
 
 .b-error p{
-    font: 600 14px 'Open Sans',sans-serif;
+    font: 600 14px Arial;
     margin: 0 0 90px 0;
 }
 
 .b-error h3.s-title{
-    font: 700 14px 'Open Sans',sans-serif;
+    font: 700 14px Arial;
     color:#202020;
     letter-spacing: 0;
     margin: 0 0 40px 0;
