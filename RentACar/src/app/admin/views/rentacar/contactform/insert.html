@@ -1,0 +1,73 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-phone"></i> ContactForm Ekle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					Sender
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Sender" [ngModel]="model?.Sender" formControlName="Sender" type="text" />
+					<br />
+					<!-- Sender -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Mail
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Mail" [ngModel]="model?.Mail" formControlName="Mail" type="text" />
+					<br />
+					<!-- Mail -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Phone
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Phone" [ngModel]="model?.Phone" formControlName="Phone" type="text" />
+					<br />
+					<!-- Phone -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Message
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Message" [ngModel]="model?.Message" formControlName="Message" type="text" />
+					<br />
+					<!-- Message -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					SendDate
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="SendDate" [ngModel]="model?.SendDate" formControlName="SendDate" type="text" />
+					<br />
+					<!-- SendDate -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+					<a routerLink="/Admin/ContactForm" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

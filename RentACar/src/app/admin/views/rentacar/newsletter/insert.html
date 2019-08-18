@@ -1,0 +1,51 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-envelope"></i> Newsletter Ekle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					Name
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" />
+					<br />
+					<!-- Name -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Mail
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Mail" [ngModel]="model?.Mail" formControlName="Mail" type="text" />
+					<br />
+					<!-- Mail -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Active
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Active" [ngModel]="model?.Active" formControlName="Active" type="checkbox" />
+					<br />
+					<!-- Active -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+					<a routerLink="/Admin/Newsletter" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

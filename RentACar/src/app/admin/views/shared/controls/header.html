@@ -1,0 +1,16 @@
+﻿<div id="header">
+    <h1><a><img src="Content/admin/img/logo.png" /></a></h1>
+</div>
+
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class=""><a title="Bilgilerinizi düzenlemek için tıklayın." routerLink="/Admin/Users/Update/{{ kullanici?.ID }}"><i class="icon icon-user"></i>  <span class="text">Hoşgeldiniz ({{ kullanici?.Username }})</span></a></li>
+        <li class=""><a class="logout" (click)="onLogout()"><i class="icon icon-share-alt"></i> <span class="text">Çıkış</span></a></li>
+        <li><a target="_blank" href="{{ website }}"><i class="icon icon-home"></i> <span class="text"> Web Sitesine Git</span></a></li>
+    </ul>
+</div>
+
+<div id="search">
+    <input id="txtMainSearch" type="text" placeholder="Kelime..." (keypress)="onKeyPress($event)" />
+    <button id="btnMainSearch" type="button" class="tip-bottom" title="Ara" (click)="onClick()"><i class="icon-search icon-white"></i></button>
+</div>

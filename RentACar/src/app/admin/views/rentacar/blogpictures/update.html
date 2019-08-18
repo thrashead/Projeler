@@ -1,0 +1,56 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-book"></i> BlogPictures Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+				</div>
+				<div class="editor-label">
+					Bağlı Blog
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="BlogID" [ngModel]="model?.BlogID" formControlName="BlogID"><option *ngFor="let item of model?.BlogList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- BlogID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PictureUrl
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+				<a href="/RentACarAngular/Uploads/{{ model?.PictureUrl }}" target="_blank"><img [src]="['/RentACarAngular/Uploads/thumb_' + model?.PictureUrl]" style="height:40px; max-width:80px;" /></a><br /><br />
+				<input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="hidden" value="{{ model?.PictureUrl }}" />
+				<input id="pictureurlTemp" type="file" name="pictureurlTemp" (change)="onPictureUrlFileSelect($event)" accept="image/*" />
+					<br />
+					<!-- PictureUrl -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Code
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" value="{{ model?.Code }}" />
+					<br />
+					<!-- Code -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+					<a routerLink="/Admin/BlogPictures" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>
