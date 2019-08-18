@@ -1,0 +1,57 @@
+fieldset {width: 546px;text-align: center;margin: 20px auto 0px auto;}
+
+fieldset > p {margin-top: 50px;}
+
+.field-validation-error {color: #ff0000;}
+
+.editor-label {font-weight: bold;padding-bottom: 5px;}
+.editor-field {padding-bottom: 10px;}
+.editor-field > input[type='text'][disabled='disabled'] {display: inline-block;font-size: 11.844px;font-weight: bold;line-height: 14px;color: #fff;text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    white-space: nowrap;vertical-align: baseline;background-color: #3a87ad;}
+
+.ck-content {text-align: left;height: 400px;width: 530px;}
+input[type='text'],input[type='password'] {text-align: left;width: 530px;}
+input[type='file'] {width: 220px;}
+input[type='number'] {width: 100px;}
+select {width: 546px;}
+label > select {width: auto!important; }
+label > input[type='text'] {width: auto!important; }
+input[type='checkbox'] {-webkit-appearance: none;height: 30px;width: 30px;background-image: url(/AdminPanelAngular/Content/admin/img/passive.png);background-size: 30px 30px;}
+input[type='checkbox']:hover {opacity:0.7;}
+input[type='checkbox']:checked {background-image: url(/AdminPanelAngular/Content/admin/img/active.png);}
+
+.pagelinks {width: 220px;margin: 20px auto 0px auto;text-align: center;}
+
+img.active {background-image:url(/AdminPanelAngular/Content/admin/img/active.png);width:20px;height:20px;background-size: 20px 20px;background-repeat: no-repeat;}
+img.passive {background-image:url(/AdminPanelAngular/Content/admin/img/passive.png);width:20px;height:20px;background-size: 20px 20px;background-repeat: no-repeat;}
+
+.tdAlert {position:fixed;top:10px;right:10px;list-style-type:none;padding: 0px 0px 0px 0px;z-index:9999;top: 10px; right: 10px;}
+.tdAlert li {margin: 0px 0px 20px 0px;padding: 5px 5px 5px 5px;background-color: red; border-color: red;display:none;width:200px;
+          -webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+.tdAlert li .tdAlertMessage {margin-top: 5px;color: white; background-color: red;}
+
+@media only screen and (min-width: 414px) and (max-width: 600px) {
+    fieldset {width: 378px;}
+    .ck-content {width: 362px;}
+    input[type='text'],input[type='password'] {width: 360px;}
+    select {width: 370px; }
+    label > select {width: auto!important; }
+    label > input[type='text'] {width: auto!important; }
+}
+
+@media only screen and (max-width: 413px) {
+    fieldset {width: 228px;}
+    .ck-content {width: 212px;}
+    input[type='text'],input[type='password'] {width: 210px;}
+    select {width: 220px; }
+    label > select {width: auto!important; }
+    label > input[type='text'] {width: auto!important; }
+}
+
+@media (max-width: 375px) {
+    .hideColumn2 { display: none; }
+}
+
+@media (max-width: 480px) {
+    .hideColumn {display: none;}
+}

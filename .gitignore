@@ -4,7 +4,6 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Kendi igonrelarým
-AdminPanelAngular/
 IKProjeAngular/
 IKProje/
 Projeler/
@@ -33,6 +32,7 @@ Global.asax
 */app/*.js
 */dist/*
 */ngClient/*
+*/apAngularClient/*
 *.csproj*
 *.sln*
 *.config*
