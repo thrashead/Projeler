@@ -10,14 +10,13 @@ import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms"
 
 export class AdminBlogPicturesInsertComponent {
 	errorMsg: string;
+    newFile: string;
 
 	insertForm: FormGroup;
 	data: any;
+    uploadData: any;
 
 	model: any;
-
-	uploadData: any;
-	imagePictureUrl: any;
 
 	private subscription: Subscription = new Subscription();
 
@@ -36,15 +35,13 @@ export class AdminBlogPicturesInsertComponent {
 			PictureUrl: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			Code: new FormControl(null),
 		});
-	}
+    }
 
-	onPictureUrlFileSelect(event) {
-		if (event.target.files.length > 0) {
-			this.data.PictureUrl = event.target.files[0].name;
-			this.data.PictureUrlHasFile = true;
-			this.imagePictureUrl = event.target.files[0];
-		}
-	}
+    onFileSelect(event) {
+        if (event.target.files.length > 0) {
+            this.newFile = event.target.files[0];
+        }
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
@@ -52,13 +49,14 @@ export class AdminBlogPicturesInsertComponent {
 
 	onSubmit() {
 		this.uploadData = new FormData();
-		this.uploadData.append("file", this.imagePictureUrl);
+        this.uploadData.append("file", this.newFile);
 
 		this.subscription = this.service.post("BlogPictures", "InsertUpload", this.uploadData).subscribe((answerUpload: any) => {
 			if (answerUpload.Mesaj == null)
 			{
 				this.data.BlogID = this.insertForm.get("BlogID").value;
 				this.data.Code = this.insertForm.get("Code").value;
+                this.data.PictureUrl = answerUpload.PictureUrl;
 
 				this.service.post("BlogPictures", "Insert", this.data)
 					.subscribe((answer: any) => {

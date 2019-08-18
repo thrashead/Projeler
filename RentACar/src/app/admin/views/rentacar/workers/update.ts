@@ -10,17 +10,16 @@ import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms"
 
 export class AdminWorkersUpdateComponent {
 	errorMsg: string;
-	id: string;
+    newFile: string;
+    id: string;
 
 	updateForm: FormGroup;
 	data: any;
+    uploadData: any;
 
 	model: any;
 
 	callTable: boolean;
-
-	uploadData: any;
-	imagePictureUrl: any;
 
 	private subscription: Subscription = new Subscription();
 
@@ -52,15 +51,13 @@ export class AdminWorkersUpdateComponent {
 				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 			});
 		}
-	}
+    }
 
-	onPictureUrlFileSelect(event) {
-		if (event.target.files.length > 0) {
-			this.data.PictureUrl = event.target.files[0].name;
-			this.data.PictureUrlHasFile = true;
-			this.imagePictureUrl = event.target.files[0];
-		}
-	}
+    onFileSelect(event) {
+        if (event.target.files.length > 0) {
+            this.newFile = event.target.files[0];
+        }
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
@@ -68,7 +65,7 @@ export class AdminWorkersUpdateComponent {
 
 	onSubmit() {
 		this.uploadData = new FormData();
-		this.uploadData.append("file", this.imagePictureUrl);
+        this.uploadData.append("file", this.newFile);
 
 		this.subscription = this.service.post("Workers", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
 			if (answerUpload.Mesaj == null)
@@ -77,14 +74,15 @@ export class AdminWorkersUpdateComponent {
 				this.data.NameSurname = this.updateForm.get("NameSurname").value;
 				this.data.Position = this.updateForm.get("Position").value;
 				this.data.Description = this.updateForm.get("Description").value;
+                this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
+                this.data.HasFile = answerUpload.HasFile;
 
-				if (this.data.PictureUrlHasFile) {
-					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
+                if (answerUpload.HasFile) {
+                    this.data.PictureUrl = answerUpload.PictureUrl;
 				}
 				else {
 					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
 				}
-
 
 				this.service.post("Workers", "Update", this.data)
 					.subscribe((answer: any) => {

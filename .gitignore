@@ -33,6 +33,10 @@ Global.asax
 */dist/*
 */ngClient/*
 */apAngularClient/*
+*/owl-carousel/*
+*/bxslider/*
+*/classie.js
+*/smoothscroll.min.js
 *.csproj*
 *.sln*
 *.config*
@@ -77,6 +81,7 @@ systemjs-angular-loader*
 masked.js
 clockh.js
 clockp.js
+classie.js
 uploadify.swf
 .refsignored
 notlar.txt

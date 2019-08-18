@@ -11,17 +11,16 @@ declare var DataTable;
 
 export class AdminBlogUpdateComponent {
 	errorMsg: string;
-	id: string;
+    newFile: string;
+    id: string;
 
 	updateForm: FormGroup;
 	data: any;
+    uploadData: any;
 
 	model: any;
 
 	callTable: boolean;
-
-	uploadData: any;
-	imagePictureUrl: any;
 
 	private subscription: Subscription = new Subscription();
 
@@ -74,15 +73,13 @@ export class AdminBlogUpdateComponent {
 				$(".btn-group").remove();
 			}
 		}, 1);
-	}
+    }
 
-	onPictureUrlFileSelect(event) {
-		if (event.target.files.length > 0) {
-			this.data.PictureUrl = event.target.files[0].name;
-			this.data.PictureUrlHasFile = true;
-			this.imagePictureUrl = event.target.files[0];
-		}
-	}
+    onFileSelect(event) {
+        if (event.target.files.length > 0) {
+            this.newFile = event.target.files[0];
+        }
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
@@ -90,7 +87,7 @@ export class AdminBlogUpdateComponent {
 
 	onSubmit() {
 		this.uploadData = new FormData();
-		this.uploadData.append("file", this.imagePictureUrl);
+        this.uploadData.append("file", this.newFile);
 
 		this.subscription = this.service.post("Blog", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
 			if (answerUpload.Mesaj == null)
@@ -100,10 +97,12 @@ export class AdminBlogUpdateComponent {
 				this.data.Title = this.updateForm.get("Title").value;
 				this.data.Code = this.updateForm.get("Code").value;
 				this.data.Sender = this.updateForm.get("Sender").value;
-				this.data.SendDate = this.updateForm.get("SendDate").value;
+                this.data.SendDate = this.updateForm.get("SendDate").value;
+                this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
+                this.data.HasFile = answerUpload.HasFile;
 
-				if (this.data.PictureUrlHasFile) {
-					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
+                if (answerUpload.HasFile) {
+                    this.data.PictureUrl = answerUpload.PictureUrl;
 				}
 				else {
 					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;

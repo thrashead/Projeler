@@ -10,14 +10,13 @@ import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms"
 
 export class AdminWorkersInsertComponent {
 	errorMsg: string;
+    newFile: string;
 
 	insertForm: FormGroup;
 	data: any;
+    uploadData: any;
 
 	model: any;
-
-	uploadData: any;
-	imagePictureUrl: any;
 
 	private subscription: Subscription = new Subscription();
 
@@ -33,15 +32,13 @@ export class AdminWorkersInsertComponent {
 			Description: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			PictureUrl: new FormControl(null),
 		});
-	}
+    }
 
-	onPictureUrlFileSelect(event) {
-		if (event.target.files.length > 0) {
-			this.data.PictureUrl = event.target.files[0].name;
-			this.data.PictureUrlHasFile = true;
-			this.imagePictureUrl = event.target.files[0];
-		}
-	}
+    onFileSelect(event) {
+        if (event.target.files.length > 0) {
+            this.newFile = event.target.files[0];
+        }
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
@@ -49,7 +46,7 @@ export class AdminWorkersInsertComponent {
 
 	onSubmit() {
 		this.uploadData = new FormData();
-		this.uploadData.append("file", this.imagePictureUrl);
+        this.uploadData.append("file", this.newFile);
 
 		this.subscription = this.service.post("Workers", "InsertUpload", this.uploadData).subscribe((answerUpload: any) => {
 			if (answerUpload.Mesaj == null)
@@ -57,6 +54,7 @@ export class AdminWorkersInsertComponent {
 				this.data.NameSurname = this.insertForm.get("NameSurname").value;
 				this.data.Position = this.insertForm.get("Position").value;
 				this.data.Description = this.insertForm.get("Description").value;
+                this.data.PictureUrl = answerUpload.PictureUrl;
 
 				this.service.post("Workers", "Insert", this.data)
 					.subscribe((answer: any) => {

@@ -3,4 +3,4 @@
 .b-review > img {margin-top: 60px;}
 .b-footer__company a {color:#fff;text-decoration:none;}
 .b-footer__company a:hover {color:#bababa;text-decoration:none;}
-
+#tabAutoBest > .tab > div > div {height: auto!important;}

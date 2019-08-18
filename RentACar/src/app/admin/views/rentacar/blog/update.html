@@ -70,7 +70,7 @@
 				<div class="editor-field">
 				<a href="/RentACar/Uploads/{{ model?.PictureUrl }}" target="_blank"><img [src]="['/RentACar/Uploads/thumb_' + model?.PictureUrl]" style="height:40px; max-width:80px;" /></a><br /><br />
 				<input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="hidden" value="{{ model?.PictureUrl }}" />
-				<input id="pictureurlTemp" type="file" name="pictureurlTemp" (change)="onPictureUrlFileSelect($event)" accept="image/*" />
+				<input id="picTemp" type="file" name="picTemp" (change)="onFileSelect($event)" accept="image/*" />
 					<br />
 					<!-- PictureUrl -->
 				</div>

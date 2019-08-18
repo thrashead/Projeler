@@ -64,11 +64,11 @@
 					PictureUrl
 				</div>
 				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="file" name="pictureurlTemp" (change)="onPictureUrlFileSelect($event)" accept="image/*" />
-					<br />
-					<!-- PictureUrl -->
-				</div>
+                <div class="editor-field">
+                    <input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" name="picTemp" type="file" (change)="onFileSelect($event)" />
+                    <br />
+                    <!-- PictureUrl -->
+                </div>
 				<div class="clear"></div>
 
 				<div class="editor-label">

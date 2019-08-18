@@ -39,6 +39,29 @@ namespace RentACar.Areas.Ajax.Controllers
             return Json(resim);
         }
 
+        [HttpPost]
+        public JsonResult InsertUpload([System.Web.Http.FromBody] Pictures resim)
+        {
+            if (!curUser.HasRight("Pictures", "i"))
+                return Json(null);
+
+            Uploader pic = Uploader.UploadPicture(true);
+
+            if (pic.Control)
+            {
+                resim.HasFile = true;
+                resim.PictureUrl = pic.FileName;
+                resim.ThumbUrl = pic.ThumbName;
+            }
+            else
+            {
+                resim.HasFile = false;
+                resim.Mesaj = pic.ErrorMessage;
+            }
+
+            return Json(resim);
+        }
+
         [HttpGet]
         public JsonResult Update(int id)
         {
@@ -79,6 +102,32 @@ namespace RentACar.Areas.Ajax.Controllers
             }
             else
                 resim.Mesaj = "Kayýt düzenlenemedi.";
+
+            return Json(resim);
+        }
+
+        [HttpPost]
+        public JsonResult UpdateUpload([System.Web.Http.FromBody] Pictures resim)
+        {
+            if (!curUser.HasRight("Pictures", "u"))
+                return Json(null);
+
+            Uploader pic = Uploader.UploadPicture(true);
+
+            resim.HasFile = pic.HasFile;
+
+            if (pic.UploadError == null)
+            {
+                if (pic.HasFile == true)
+                {
+                    resim.PictureUrl = pic.FileName;
+                    resim.ThumbUrl = pic.ThumbName;
+                }
+            }
+            else
+            {
+                resim.Mesaj = pic.ErrorMessage;
+            }
 
             return Json(resim);
         }
@@ -141,59 +190,6 @@ namespace RentACar.Areas.Ajax.Controllers
             }
 
             return Json(false, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult InsertUpload([System.Web.Http.FromBody] Pictures resim)
-        {
-            if (!curUser.HasRight("Pictures", "i"))
-                return Json(null);
-
-            Uploader pic = Uploader.UploadPicture(true);
-
-            if (pic.Control)
-            {
-                resim.HasFile = true;
-                resim.PictureUrl = pic.FileName;
-                resim.ThumbUrl = pic.ThumbName;
-
-                return Json(resim);
-            }
-            else
-            {
-                resim.HasFile = false;
-                resim.Mesaj = pic.ErrorMessage;
-
-                return Json(resim);
-            }
-        }
-
-        [HttpPost]
-        public JsonResult UpdateUpload([System.Web.Http.FromBody] Pictures resim)
-        {
-            if (!curUser.HasRight("Pictures", "u"))
-                return Json(null);
-
-            Uploader pic = Uploader.UploadPicture(true);
-
-            resim.HasFile = pic.HasFile;
-
-            if (pic.UploadError == null)
-            {
-                if (pic.HasFile == true)
-                {
-                    resim.PictureUrl = pic.FileName;
-                    resim.ThumbUrl = pic.ThumbName;
-                }
-
-                return Json(resim);
-            }
-            else
-            {
-                resim.Mesaj = pic.ErrorMessage;
-
-                return Json(resim);
-            }
         }
     }
 }
