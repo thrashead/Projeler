@@ -1734,7 +1734,7 @@ a.m-langLink{
     width:264px;
     height:144px;
     text-align: center;
-    background: url(/RentACar/Content/img/backgrounds/map.jpg) no-repeat;
+    /*background: url(/RentACar/Content/img/backgrounds/map.jpg) no-repeat;*/
 }
 
 .b-info__map a{
