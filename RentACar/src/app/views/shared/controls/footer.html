@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-md-9 col-md-offset-3 col-xs-6 col-xs-offset-6">
                 <ul class="b-features__items">
-                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100"><!--Low Prices, No Haggling-->Pazarlıksız Fiyatlar</li>
-                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100"><!--Largest Car Dealership-->En Geniş Filo</li>
-                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100"><!--Multipoint Safety Check-->Çok Yönlü Güvenlik Kontrolü</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ nohagg }}</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ dealer }}</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ sftychk }}</li>
                 </ul>
             </div>
         </div>
@@ -20,39 +20,19 @@
             <div class="col-md-3 col-xs-6">
                 <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
                     <article class="b-info__aside-article">
-                        <h3><!--OPENING HOURS-->AÇILIŞ SAATLERİ</h3>
-                        <div class="b-info__aside-article-item">
-                            <h6><!--Sales Department-->Satış Departmanı</h6>
-                            <p>
-                                <!--Mon-Sat : 8:00am - 5:00pm-->Pzt-Cts : 9:00 - 18:00<br />
-                                <!--Sunday is closed-->Pazar Kapalı
-                            </p>
-                        </div>
-                        <div class="b-info__aside-article-item">
-                            <h6><!--Service Department-->Servis Departmanı</h6>
-                            <p>
-                                <!--Mon-Sat : 8:00am - 5:00pm-->Pzt-Cts : 9:00 - 18:00<br />
-                                <!--Sunday is closed-->Pazar Kapalı
-                            </p>
-                        </div>
+                        <h3>{{ openhours?.ContentName }}</h3>
+                        <div [innerHTML]="openhours?.Description"></div>
                     </article>
                     <article class="b-info__aside-article">
-                        <h3><!--About us-->Hakkımızda</h3>
-                        <p>
-                            Vestibulum varius od lio eget conseq
-                            uat blandit, lorem auglue comm lodo
-                            nisl non ultricies lectus nibh mas lsa
-                            Duis scelerisque aliquet. Ante donec
-                            libero pede porttitor dacu msan esct
-                            venenatis quis.
-                        </p>
+                        <h3>{{ about?.ContentName }}</h3>
+                        <div [innerHTML]="about?.Description"></div>
                     </article>
-                    <a routerLink="/About" class="btn m-btn"><!--Read More-->Devamını Oku<span class="fa fa-angle-right"></span></a>
+                    <a routerLink="/About" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
                 </aside>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="b-info__latest wow zoomInUp" data-wow-delay="0.3s">
-                    <h3><!--LATEST AUTOS-->EN SON ARAÇLAR</h3>
+                    <h3>{{ latestautos }}</h3>
                     <div class="b-info__latest-article">
                         <div class="b-info__latest-article-photo m-audi"></div>
                         <div class="b-info__latest-article-info">
@@ -78,55 +58,37 @@
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="b-info__twitter wow zoomInUp" data-wow-delay="0.3s">
-                    <h3><!--from -->TWITTER</h3>
+                    <h3>TWITTER</h3>
                     <div class="b-info__twitter-article">
                         <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
                         <div class="b-info__twitter-article-content">
                             <p>Duis scelerisque aliquet ante donec libero pede porttitor dacu</p>
-                            <span><!--20 minutes ago-->20 dk önce</span>
+                            <span>20 min. ago</span>
                         </div>
                     </div>
                     <div class="b-info__twitter-article">
                         <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
                         <div class="b-info__twitter-article-content">
                             <p>Duis scelerisque aliquet ante donec libero pede porttitor dacu</p>
-                            <span><!--20 minutes ago-->20 dk önce</span>
+                            <span>20 min. ago</span>
                         </div>
                     </div>
                     <div class="b-info__twitter-article">
                         <div class="b-info__twitter-article-icon"><span class="fa fa-twitter"></span></div>
                         <div class="b-info__twitter-article-content">
                             <p>Duis scelerisque aliquet ante donec libero pede porttitor dacu</p>
-                            <span><!--20 minutes ago-->20 dk önce</span>
+                            <span>20 min. ago</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <address class="b-info__contacts wow zoomInUp" data-wow-delay="0.3s">
-                    <p><!--contact us-->BİZE ULAŞIN</p>
-                    <div class="b-info__contacts-item">
-                        <span class="fa fa-map-marker"></span>
-                        <em>
-                            <!--202 W 7th St, Suite 233 Los Angeles-->Esenyurt mh. Sadıkoğlu sk. No:2 Bakırköy,
-                            <!--California 90014 USA-->İstanbul
-                        </em>
-                    </div>
-                    <div class="b-info__contacts-item">
-                        <span class="fa fa-phone"></span>
-                        <em><!--Phone-->Tel:  0 999 999 99 99</em>
-                    </div>
-                    <div class="b-info__contacts-item">
-                        <span class="fa fa-fax"></span>
-                        <em><!--FAX-->Faks:  0 999 999 99 99</em>
-                    </div>
-                    <div class="b-info__contacts-item">
-                        <span class="fa fa-envelope"></span>
-                        <em><!--Email-->E-posta:  info@domain.com</em>
-                    </div>
+                    <p>{{ contact?.ContentName }}</p>
+                    <div [innerHTML]="contact?.Description"></div>
                 </address>
                 <address class="b-info__map">
-                    <a routerLink="/Contact"><!--Open Location Map-->İletişim Sayfasına Gidin</a>
+                    <!-- Harita Gelecek -->
                 </address>
             </div>
         </div>
@@ -158,12 +120,12 @@
                     </div>
                     <nav class="b-footer__content-nav">
                         <ul>
-                            <li><a data-url="Index" routerLink="/"><!--Home-->Ana Sayfa</a></li>
-                            <li><a data-url="List" routerLink="/List"><!--Cars-->Araçlarımız</a></li>
-                            <li><a data-url="Compare" routerLink="/Compare"><!--Compare-->Araç Kıyaslama</a></li>
-                            <li><a data-url="About" routerLink="/About"><!--About-->Hakkımızda</a></li>
-                            <li><a data-url="Blog" routerLink="/Blog">Blog</a></li>
-                            <li><a data-url="Contact" routerLink="/Contact"><!--Contact-->İletişim</a></li>
+                            <li><a data-url="Index" routerLink="/">{{ menu?.Home }}</a></li>
+                            <li><a data-url="List" routerLink="/List">{{ menu?.List }}</a></li>
+                            <li><a data-url="Compare" routerLink="/Compare">{{ menu?.Compare }}</a></li>
+                            <li><a data-url="About" routerLink="/About">{{ menu?.About }}</a></li>
+                            <li><a data-url="Blog" routerLink="/Blog">{{ menu?.Blog }}</a></li>
+                            <li><a data-url="Contact" routerLink="/Contact">{{ menu?.Contact }}</a></li>
                         </ul>
                     </nav>
                 </div>

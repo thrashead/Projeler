@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Web.Caching;
 using Cacher = System.Web.HttpRuntime;
 using Repository.UsersModel;
+using Repository.TranslationModel;
 
 namespace RentACar
 {
@@ -35,6 +36,14 @@ namespace RentACar
             get
             {
                 return DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            }
+        }
+
+        public static Translation GetLang
+        {
+            get
+            {
+                return HttpContext.Current.Session["CurrentLang"] != null ? HttpContext.Current.Session["CurrentLang"] as Translation : null;
             }
         }
     }

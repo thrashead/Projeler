@@ -235,6 +235,7 @@ import { AdminVisitorsIndexComponent } from './admin/views/general/visitors';
 
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
+import { SiteService } from './services/site';
 
 @NgModule({
     declarations: [
@@ -475,7 +476,8 @@ import { ModelService } from './admin/services/model';
     //'/RentACar/' -> '/' Bu þekilde deðiþecek
     providers: [{ provide: APP_BASE_HREF, useValue: '/RentACar/' },
     SharedService,
-    ModelService
+        ModelService,
+        SiteService
     ],
     bootstrap: [AppComponent]
 })
