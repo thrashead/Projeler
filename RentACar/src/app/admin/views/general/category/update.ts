@@ -34,7 +34,7 @@ export class AdminCategoryUpdateComponent {
 
         this.duzenleForm = this.formBuilder.group({
             ID: new FormControl(null, [Validators.required, Validators.min(1)]),
-            ParentID: new FormControl(null, [Validators.required, Validators.min(1)]),
+            ParentID: new FormControl(null, [Validators.required, Validators.min(0)]),
             Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
             Code: new FormControl(null),
             Active: new FormControl(null),

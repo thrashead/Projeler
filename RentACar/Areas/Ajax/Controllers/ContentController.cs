@@ -25,8 +25,6 @@ namespace RentACar.Areas.Ajax.Controllers
             if (!curUser.HasRight("Content", "i"))
                 return Json(null);
 
-            icerik.Url = icerik.Title.ToUrl();
-
             bool result = model.Insert(icerik);
 
             if (result)
@@ -55,8 +53,6 @@ namespace RentACar.Areas.Ajax.Controllers
         {
             if (!curUser.HasRight("Content", "u"))
                 return Json(null);
-
-            icerik.Url = icerik.Title.ToUrl();
 
             bool result = model.Update(icerik);
 

@@ -1,5 +1,7 @@
-﻿using Repository.ContentModel;
+﻿using Repository.CategoryModel;
+using Repository.ContentModel;
 using Repository.LangContentModel;
+using Repository.NoLangContentModel;
 using Repository.PicturesModel;
 using Repository.TranslationModel;
 using System;
@@ -39,6 +41,18 @@ namespace RentACar.Controllers
 
         #endregion
 
+        #region Category
+
+        [HttpGet]
+        public JsonResult SubCategoriesByCode(string param)
+        {
+            Category category = new Category();
+
+            return Json(category.SubCategoriesByCode(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
         #region LangContent
 
         [HttpGet]
@@ -72,6 +86,43 @@ namespace RentACar.Controllers
                 return Json(langContent.DetailSelectByCodeAndShortCode(param, param2, AppTools.GetLang.ID, param3.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(langContent.DetailSelectByCodeAndShortCode(param, param2, AppTools.GetLang.ID, param3.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region NoLangContent
+
+        [HttpGet]
+        public JsonResult GetNoLangContentByCode(string param, string param2)
+        {
+            NoLangContent noLangContent = new NoLangContent();
+
+            if (param2.ToInteger() > 1 || param2 == "null")
+                return Json(noLangContent.DetailSelectByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(noLangContent.DetailSelectByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetNoLangContentByShortCode(string param, string param2)
+        {
+            NoLangContent noLangContent = new NoLangContent();
+
+            if (param2.ToInteger() > 1 || param2 == "null")
+                return Json(noLangContent.DetailSelectByShortCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(noLangContent.DetailSelectByShortCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetNoLangContentByCodeAndShortCode(string param, string param2, string param3)
+        {
+            NoLangContent noLangContent = new NoLangContent();
+
+            if (param3.ToInteger() > 1 || param3 == "null")
+                return Json(noLangContent.DetailSelectByCodeAndShortCode(param, param2, param3.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(noLangContent.DetailSelectByCodeAndShortCode(param, param2, param3.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

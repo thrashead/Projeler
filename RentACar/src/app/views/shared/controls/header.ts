@@ -74,7 +74,7 @@ export class HeaderComponent {
             this.toggleNav = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_tel", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetNoLangContentByCode", "cmn_tel", 1).subscribe((resData: any) => {
             this.phone = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
@@ -108,7 +108,7 @@ export class HeaderComponent {
 
     //Content
     GetContent() {
-        this.service.get("Site", "GetContentByCode", "cmn_adrs_u", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetContentByCode", "cmn_adrs_up", 1).subscribe((resData: any) => {
             this.address = resData.ShortText1;
         }, resError => this.errorMsg = resError);
     }

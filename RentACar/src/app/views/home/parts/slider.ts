@@ -11,7 +11,7 @@ export class HomeSliderComponent {
 
     detail: string;
 
-    Slider: {};
+    Slider: any;
 
     constructor(private service: SiteService) {
     }
@@ -23,7 +23,7 @@ export class HomeSliderComponent {
 
     //LangContent
     GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_detail_upper", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "cmn_detail_up", 1).subscribe((resData: any) => {
             this.detail = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
     }

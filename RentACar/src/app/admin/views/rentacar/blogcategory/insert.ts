@@ -26,7 +26,7 @@ export class AdminBlogCategoryInsertComponent {
 
 		this.insertForm = this.formBuilder.group({
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Code: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null),
 		});
 	}
 

@@ -11,7 +11,7 @@ import { CarListComponent } from './views/car/list/index';
 import { CarDetailComponent } from './views/car/detail/index';
 import { CarCompareComponent } from './views/car/compare/index';
 import { CarBookingComponent } from './views/car/booking/index';
-import { CarBookingDetailComponent } from './views/car/booking/detail';
+import { CarBookingFeaturesComponent } from './views/car/booking/features';
 import { CarBookingContactComponent } from './views/car/booking/contact';
 import { CarBookingSubmitComponent } from './views/car/booking/submit';
 
@@ -63,6 +63,10 @@ import { AdminLangContentTUpdateComponent } from './admin/views/rentacar/langcon
 import { AdminNewsletterIndexComponent } from './admin/views/rentacar/newsletter';
 import { AdminNewsletterInsertComponent } from './admin/views/rentacar/newsletter/insert';
 import { AdminNewsletterUpdateComponent } from './admin/views/rentacar/newsletter/update';
+
+import { AdminNoLangContentIndexComponent } from './admin/views/rentacar/nolangcontent';
+import { AdminNoLangContentInsertComponent } from './admin/views/rentacar/nolangcontent/insert';
+import { AdminNoLangContentUpdateComponent } from './admin/views/rentacar/nolangcontent/update';
 
 import { AdminWorkersIndexComponent } from './admin/views/rentacar/workers';
 import { AdminWorkersInsertComponent } from './admin/views/rentacar/workers/insert';
@@ -177,7 +181,7 @@ const routes: Routes = [
             { path: 'Detail', component: CarDetailComponent },
             { path: 'Compare', component: CarCompareComponent },
             { path: 'Booking', component: CarBookingComponent },
-            { path: 'BookingDetail', component: CarBookingDetailComponent },
+            { path: 'BookingFeatures', component: CarBookingFeaturesComponent },
             { path: 'BookingContact', component: CarBookingContactComponent },
             { path: 'BookingSubmit', component: CarBookingSubmitComponent }
         ]
@@ -250,6 +254,11 @@ const routes: Routes = [
             { path: 'Admin/Newsletter/Index', component: AdminNewsletterIndexComponent },
             { path: 'Admin/Newsletter/Insert', component: AdminNewsletterInsertComponent },
             { path: 'Admin/Newsletter/Update/:id', component: AdminNewsletterUpdateComponent },
+
+            { path: 'Admin/NoLangContent', component: AdminNoLangContentIndexComponent },
+            { path: 'Admin/NoLangContent/Index', component: AdminNoLangContentIndexComponent },
+            { path: 'Admin/NoLangContent/Insert', component: AdminNoLangContentInsertComponent },
+            { path: 'Admin/NoLangContent/Update/:id', component: AdminNoLangContentUpdateComponent },
 
             { path: 'Admin/Workers', component: AdminWorkersIndexComponent },
             { path: 'Admin/Workers/Index', component: AdminWorkersIndexComponent },

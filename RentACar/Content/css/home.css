@@ -421,7 +421,7 @@ a.m-langLink{
     position: absolute;
 }
 
-.b-search__main-type input[type='radio']:checked + label.b-search__main-type-svg + h5{
+/*.b-search__main-type input[type='radio']:checked + label.b-search__main-type-svg + h5{
     border-bottom:1px solid #B4B4B4;
     text-align: center;
     margin-bottom: -1px;
@@ -435,7 +435,7 @@ a.m-langLink{
     position: absolute;
     top:100%;
     display: block;
-}
+}*/
 
 .b-search__main-type h4{
    text-transform: uppercase;

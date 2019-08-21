@@ -77,7 +77,7 @@ import { CarCompareItemsComponent } from './views/car/compare/parts/items';
 import { CarBookingComponent } from './views/car/booking';
 import { CarBookingHeaderComponent } from './views/car/booking/parts/header';
 import { CarBookingBreadCumbsComponent } from './views/car/booking/parts/breadcumbs';
-import { CarBookingDetailComponent } from './views/car/booking/detail';
+import { CarBookingFeaturesComponent } from './views/car/booking/features';
 import { CarBookingContactComponent } from './views/car/booking/contact';
 import { CarBookingSubmitComponent } from './views/car/booking/submit';
 
@@ -136,6 +136,10 @@ import { AdminLangContentTUpdateComponent } from './admin/views/rentacar/langcon
 import { AdminNewsletterIndexComponent } from './admin/views/rentacar/newsletter';
 import { AdminNewsletterInsertComponent } from './admin/views/rentacar/newsletter/insert';
 import { AdminNewsletterUpdateComponent } from './admin/views/rentacar/newsletter/update';
+
+import { AdminNoLangContentIndexComponent } from './admin/views/rentacar/nolangcontent';
+import { AdminNoLangContentInsertComponent } from './admin/views/rentacar/nolangcontent/insert';
+import { AdminNoLangContentUpdateComponent } from './admin/views/rentacar/nolangcontent/update';
 
 import { AdminWorkersIndexComponent } from './admin/views/rentacar/workers';
 import { AdminWorkersInsertComponent } from './admin/views/rentacar/workers/insert';
@@ -311,7 +315,7 @@ import { SiteService } from './services/site';
         CarBookingComponent,
         CarBookingHeaderComponent,
         CarBookingBreadCumbsComponent,
-        CarBookingDetailComponent,
+        CarBookingFeaturesComponent,
         CarBookingContactComponent,
         CarBookingSubmitComponent,
 
@@ -370,6 +374,10 @@ import { SiteService } from './services/site';
         AdminNewsletterIndexComponent,
         AdminNewsletterInsertComponent,
         AdminNewsletterUpdateComponent,
+
+        AdminNoLangContentIndexComponent,
+        AdminNoLangContentInsertComponent,
+        AdminNoLangContentUpdateComponent,
 
         AdminWorkersIndexComponent,
         AdminWorkersInsertComponent,

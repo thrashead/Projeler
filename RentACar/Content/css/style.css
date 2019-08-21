@@ -12,3 +12,26 @@
 .b-count__item-circle span {font-size:40px!important;}
 .b-topBar__lang {padding-left: 20px;}
 ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
+.b-search {background-color:none!important;}
+.b-search * {text-transform:none!important;}
+.b-search__main-type-svg {width:108px;height:42px;background-repeat:no-repeat;background-position:center center;cursor:pointer;}
+.b-search__main-type-svg.convertible {background-image:url(/RentACar/Content/img/vehicletypes/convertible.png);}
+.b-search__main-type-svg.convertible:hover {background-image:url(/RentACar/Content/img/vehicletypes/convertible-hvr.png);}
+.b-search__main-type-svg.convertible.active {background-image:url(/RentACar/Content/img/vehicletypes/convertible-hvr.png);}
+.b-search__main-type-svg.coupe {background-image:url(/RentACar/Content/img/vehicletypes/coupe.png);}
+.b-search__main-type-svg.coupe:hover {background-image:url(/RentACar/Content/img/vehicletypes/coupe-hvr.png);}
+.b-search__main-type-svg.coupe.active {background-image:url(/RentACar/Content/img/vehicletypes/coupe-hvr.png);}
+.b-search__main-type-svg.minicar {background-image:url(/RentACar/Content/img/vehicletypes/minicar.png);}
+.b-search__main-type-svg.minicar:hover {background-image:url(/RentACar/Content/img/vehicletypes/minicar-hvr.png);}
+.b-search__main-type-svg.minicar.active {background-image:url(/RentACar/Content/img/vehicletypes/minicar-hvr.png);}
+.b-search__main-type-svg.pickup {background-image:url(/RentACar/Content/img/vehicletypes/pickup.png);}
+.b-search__main-type-svg.pickup:hover {background-image:url(/RentACar/Content/img/vehicletypes/pickup-hvr.png);}
+.b-search__main-type-svg.pickup.active {background-image:url(/RentACar/Content/img/vehicletypes/pickup-hvr.png);}
+.b-search__main-type-svg.sedan {background-image:url(/RentACar/Content/img/vehicletypes/sedan.png);}
+.b-search__main-type-svg.sedan:hover {background-image:url(/RentACar/Content/img/vehicletypes/sedan-hvr.png);}
+.b-search__main-type-svg.sedan.active {background-image:url(/RentACar/Content/img/vehicletypes/sedan-hvr.png);}
+.b-search__main-type-svg.suv {background-image:url(/RentACar/Content/img/vehicletypes/suv.png);}
+.b-search__main-type-svg.suv:hover {background-image:url(/RentACar/Content/img/vehicletypes/suv-hvr.png);}
+.b-search__main-type-svg.suv.active {background-image:url(/RentACar/Content/img/vehicletypes/suv-hvr.png);}
+
+

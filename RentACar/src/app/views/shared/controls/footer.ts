@@ -9,10 +9,6 @@ import { SiteService } from '../../../services/site';
 export class FooterComponent {
     errorMsg: string;
 
-    address: string;
-    phone: string;
-    fax: string;
-    mail: string;
     latestautos: string;
     readmore: string;
     nohagg: string;
@@ -34,7 +30,7 @@ export class FooterComponent {
 
     //LangContent
     GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_lst_auto_u", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "cmn_lst_auto_up", 1).subscribe((resData: any) => {
             this.latestautos = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
@@ -50,7 +46,7 @@ export class FooterComponent {
             this.sftychk = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_readmore_u", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "cmn_readmore_up", 1).subscribe((resData: any) => {
             this.readmore = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
@@ -84,10 +80,6 @@ export class FooterComponent {
 
     //Content
     GetContent() {
-        this.service.get("Site", "GetContentByCode", "cmn_adrs_u", 1).subscribe((resData: any) => {
-            this.address = resData.ShortText1;
-        }, resError => this.errorMsg = resError);
-
         this.service.get("Site", "GetContentByCode", "ftr_opnhrs", 1).subscribe((resData: any) => {
             this.openhours = resData;
         }, resError => this.errorMsg = resError);

@@ -26,7 +26,7 @@ export class AdminCategoryInsertComponent {
         });
 
         this.ekleForm = this.formBuilder.group({
-            ParentID: new FormControl(null, [Validators.required, Validators.min(1)]),
+            ParentID: new FormControl(null, [Validators.required, Validators.min(0)]),
             Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
             Code: new FormControl(null),
             Active: new FormControl(null),
