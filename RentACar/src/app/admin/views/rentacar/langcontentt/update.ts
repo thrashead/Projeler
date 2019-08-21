@@ -40,7 +40,7 @@ export class AdminLangContentTUpdateComponent {
 					console.log(editor);
 				});
 
-		}, 1000);
+        }, 1500);
 
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),

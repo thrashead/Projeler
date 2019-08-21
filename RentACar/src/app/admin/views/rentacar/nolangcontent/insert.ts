@@ -32,7 +32,7 @@ export class AdminNoLangContentInsertComponent {
 				.then(editor => {
 					console.log(editor);
 				});
-		}, 1000);
+        }, 1500);
 
 		this.insertForm = this.formBuilder.group({
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),

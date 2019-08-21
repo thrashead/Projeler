@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, AfterViewChecked } from '@angular/core';
 import { SiteService } from '../../../services/site';
 
 @Component({
@@ -6,7 +6,7 @@ import { SiteService } from '../../../services/site';
     templateUrl: './search.html'
 })
 
-export class HomeSearchComponent {
+export class HomeSearchComponent implements AfterViewChecked {
     errorMsg: string;
 
     vehicleType: string; 
@@ -29,6 +29,31 @@ export class HomeSearchComponent {
     ngOnInit() {
         this.GetLangContent();
         this.GetCategories();
+    }
+
+    ngAfterViewChecked() {
+        $(".col-xs-2[data-filter='radioMainSearch'] label.b-search__main-type-svg").off("click").on("click", function () {
+            var hasActive = $(this).hasClass("active");
+
+            if (hasActive) {
+                $(this).removeClass("active");
+            }
+            else {
+                $("label.b-search__main-type-svg").removeClass("active");
+                $(this).addClass("active");
+            }
+        });
+        $(".col-xs-2[data-filter='radioMainSearch'] h5").off("click").on("click", function () {
+            var hasActive = $(this).prev("label.b-search__main-type-svg").hasClass("active");
+
+            if (hasActive) {
+                $(this).prev("label.b-search__main-type-svg").removeClass("active");
+            }
+            else {
+                $("label.b-search__main-type-svg").removeClass("active");
+                $(this).prev("label.b-search__main-type-svg").addClass("active");
+            }
+        });
     }
 
     //LangContent

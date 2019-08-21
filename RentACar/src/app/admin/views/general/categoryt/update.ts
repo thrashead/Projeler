@@ -40,7 +40,7 @@ export class AdminCategoryTUpdateComponent {
                 .catch(err => {
                     console.error(err.stack);
                 });
-        }, 100);
+        }, 1500);
 
         this.duzenleForm = this.formBuilder.group({
             ID: new FormControl(null, [Validators.required, Validators.min(1)]),

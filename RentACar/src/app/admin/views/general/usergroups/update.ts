@@ -12,6 +12,7 @@ declare var DataTable;
 export class AdminUserGroupsUpdateComponent {
     errorMsg: string;
     id: string;
+    CurrentUserID: number;
 
     duzenleForm: FormGroup;
     data: any;
@@ -71,21 +72,25 @@ export class AdminUserGroupsUpdateComponent {
                         this.removeShow = rRight;
 
                         if (this.callTable == true) {
-                            this.route.params.subscribe((params: Params) => {
-                                this.id = params['id'];
-                                this.service.get("UserGroups", "Update", this.id).subscribe((resData: any) => {
-                                    this.model = resData;
-                                    this.callTable = false;
+                            this.sharedService.getCurrentUser().subscribe((resDataUser: any) => {
+                                this.CurrentUserID = resDataUser.ID;
 
-                                    DataTable();
+                                this.route.params.subscribe((params: Params) => {
+                                    this.id = params['id'];
+                                    this.service.get("UserGroups", "Update", this.id).subscribe((resData: any) => {
+                                        this.model = resData;
+                                        this.callTable = false;
 
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            });
+                                        DataTable();
+
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                            setTimeout(() => {
+                                                this.UserRightsControl($("#hdnType").val());
+                                            }, 1);
+                                        });
+                                    }, resError => this.errorMsg = resError);
+                                });
+                            }, resError => this.errorMsg = resError);
                         }
 
                         setTimeout(() => {

@@ -40,7 +40,7 @@ export class AdminContentTInsertComponent {
                 .catch(err => {
                     console.error(err.stack);
                 });
-        }, 100);
+        }, 1500);
 
         this.ekleForm = this.formBuilder.group({
             ContID: new FormControl(null, [Validators.required, Validators.min(1)]),

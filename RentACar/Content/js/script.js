@@ -1,26 +1,5 @@
 ﻿$(document).ready(function () {
-    $(".col-xs-2[data-filter='radioMainSearch'] label.b-search__main-type-svg").click(function () {
-        var hasActive = $(this).hasClass("active");
-
-        if (hasActive) {
-            $(this).removeClass("active");
-        }
-        else {
-            $("label.b-search__main-type-svg").removeClass("active");
-            $(this).addClass("active");
-        }
-    });
-    $(".col-xs-2[data-filter='radioMainSearch'] h5").click(function () {
-        var hasActive = $(this).prev("label.b-search__main-type-svg").hasClass("active");
-
-        if (hasActive) {
-            $(this).prev("label.b-search__main-type-svg").removeClass("active");
-        }
-        else {
-            $("label.b-search__main-type-svg").removeClass("active");
-            $(this).prev("label.b-search__main-type-svg").addClass("active");
-        }
-    });
+    
 });
 
 $(function () {

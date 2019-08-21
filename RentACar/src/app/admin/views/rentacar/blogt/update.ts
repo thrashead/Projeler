@@ -49,7 +49,7 @@ export class AdminBlogTUpdateComponent {
 					console.log(editor);
 				});
 
-		}, 1000);
+        }, 1500);
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			BlogID: new FormControl(null, [Validators.required, Validators.min(0)]),

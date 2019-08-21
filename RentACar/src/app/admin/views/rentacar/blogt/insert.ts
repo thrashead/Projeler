@@ -42,7 +42,7 @@ export class AdminBlogTInsertComponent {
 				.then(editor => {
 					console.log(editor);
 				});
-		}, 1000);
+        }, 1500);
 
 		this.insertForm = this.formBuilder.group({
 			BlogID: new FormControl(null, [Validators.required, Validators.min(0)]),
