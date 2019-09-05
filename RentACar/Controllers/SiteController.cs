@@ -4,10 +4,7 @@ using Repository.LangContentModel;
 using Repository.NoLangContentModel;
 using Repository.PicturesModel;
 using Repository.TranslationModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TDLibrary;
 
@@ -150,6 +147,17 @@ namespace RentACar.Controllers
             Pictures pictures = new Pictures();
 
             return Json(pictures.MainSliderByCode(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetPicturesByCode(string param, string param2)
+        {
+            Pictures pictures = new Pictures();
+
+            if (param2.ToInteger() > 1 || param2 == "null")
+                return Json(pictures.PicturesByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(pictures.PicturesByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

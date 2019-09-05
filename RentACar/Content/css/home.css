@@ -1413,49 +1413,25 @@ a.m-langLink{
 }
 
 /* Review */
-.b-review{
-    padding: 80px 0 50px 0;
+.b-review {
+    padding: 80px 0px 0px 0px;
     position: relative;
     box-shadow: 0px 30px 100px -38px rgba(0,0,0,0.3);
-    z-index:100;
+    z-index: 100;
 }
 
-.b-review__main{
+.b-review__main {
     text-align: center;
     margin-right: 23px;
+    margin-left: 23px;
 }
 
-.b-review__main-person{
-    overflow: hidden;
-   float:left;
-    width:105px;
-    height:105px;
-    border-radius: 100%;
-    border:2px solid #ededed;
-    text-align: center;
-    position: relative;
-    text-align: center;
-}
-
-.b-review__main-person-inside{
-    background: url(/RentACar/Content/img/media/persons/person.jpg) center no-repeat;
-    width:89px;
-    height:89px;
-    border-radius: 100%;
-    position: absolute;
-    margin: auto;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-}
-
-.b-review__main h5{
+.b-review__main h5 {
     text-align: center;
     font: 600 12px Arial;
     border-bottom: 1px solid #B4B4B4;
     position: relative;
-    margin:0 0 0 115px;
+    margin: 0px 0px 0px 0px;
     padding-bottom: 30px;
     position: relative;
 }
@@ -1475,8 +1451,8 @@ a.m-langLink{
     margin-top: 10px;
 }
 
-.b-review .owl-controls{
-    margin: 0 0 0 115px!important;
+.b-review .owl-controls {
+    margin: 0px 0px 0px 0px !important;
 }
 
 .b-review__main h5 em{
@@ -1492,16 +1468,16 @@ a.m-langLink{
     -ms-filter: "FlipH";
 }
 
-.b-review__main p{
-    clear:both;
+.b-review__main p {
+    clear: both;
     font: 300 16px Arial;
     text-align: center;
-    margin: 35px 0 65px 115px;
-    line-height:2;
+    margin: 35px 0px 65px 0px;
+    line-height: 2;
 }
 
 .b-review__main .owl-buttons{
-    margin-left: 115px;
+    margin-left: 0px;
 }
 
 .b-review > img{

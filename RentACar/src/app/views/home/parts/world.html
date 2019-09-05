@@ -1,8 +1,8 @@
 ﻿<!--b-world-->
 <section class="b-world">
     <div class="container">
-        <h6 class="wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100"><!--EVERYTHING YOU NEED TO KNOW-->BİLMENİZ GEREKEN HERŞEY</h6><br />
-        <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100"><!--THE WORLD OF AUTOS-->ARAÇ DÜNYASI</h2>
+        <h6 class="wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">{{ world?.ShortDescription }}</h6><br />
+        <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">{{ world?.Description }}</h2>
         <div class="row">
             <div class="col-sm-4 col-xs-12">
                 <div class="b-world__item wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
@@ -15,7 +15,7 @@
                         Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
                         sem velde metus imperdiet lacinia.
                     </p>
-                    <a routerLink="/BlogDetail" class="btn m-btn"><!--READ MORE-->DEVAMINI OKU<span class="fa fa-angle-right"></span></a>
+                    <a routerLink="/BlogDetail" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12">
@@ -29,7 +29,7 @@
                         Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
                         sem velde metus imperdiet lacinia.
                     </p>
-                    <a routerLink="/BlogDetail" class="btn m-btn m-active"><!--READ MORE-->DEVAMINI OKU<span class="fa fa-angle-right"></span></a>
+                    <a routerLink="/BlogDetail" class="btn m-btn m-active">{{ readmore }}<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12">
@@ -43,7 +43,7 @@
                         Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
                         sem velde metus imperdiet lacinia.
                     </p>
-                    <a routerLink="/BlogDetail" class="btn m-btn"><!--READ MORE-->DEVAMINI OKU<span class="fa fa-angle-right"></span></a>
+                    <a routerLink="/BlogDetail" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
         </div>

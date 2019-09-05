@@ -31,6 +31,7 @@ export class HeaderComponent {
         this.GetLangs();
         this.GetSelectedLang();
         this.GetLangContent();
+        this.GetNoLangContent();
         this.GetContent();
     }
 
@@ -74,10 +75,6 @@ export class HeaderComponent {
             this.toggleNav = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetNoLangContentByCode", "cmn_tel", 1).subscribe((resData: any) => {
-            this.phone = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
         this.service.get("Site", "GetLangContentByCode", "hdr_menu").subscribe((resData: any) => {
             this.menu = new Object();
 
@@ -103,6 +100,13 @@ export class HeaderComponent {
                         break;
                 }
             });
+        }, resError => this.errorMsg = resError);
+    }
+
+    //NoLangContent
+    GetNoLangContent() {
+        this.service.get("Site", "GetNoLangContentByCode", "cmn_tel", 1).subscribe((resData: any) => {
+            this.phone = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
     }
 

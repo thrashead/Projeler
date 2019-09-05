@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: 'rac-homeauto',
@@ -6,8 +7,24 @@
 })
 
 export class HomeAutoComponent {
+    errorMsg: string;
+
+    auto: any;
+
+    constructor(private service: SiteService) {
+    }
+
     ngOnInit() {
+        this.GetLangContent();
+
         this.TabbedShowRoom();
+    }
+
+    //LangContent
+    GetLangContent() {
+        this.service.get("Site", "GetLangContentByCode", "home_auto", 1).subscribe((resData: any) => {
+            this.auto = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     TabbedShowRoom() {

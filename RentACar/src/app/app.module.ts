@@ -23,7 +23,7 @@ import { HomeWorldComponent } from './views/home/parts/world';
 import { HomeAsksComponent } from './views/home/parts/asks';
 import { HomeAutoComponent } from './views/home/parts/auto';
 import { HomeCountComponent } from './views/home/parts/count';
-import { HomeContactComponent } from './views/home/parts/contact';
+import { HomeNewsletterComponent } from './views/home/parts/newsletter';
 import { HomeReviewComponent } from './views/home/parts/review';
 
 //About
@@ -78,7 +78,7 @@ import { CarBookingComponent } from './views/car/booking';
 import { CarBookingHeaderComponent } from './views/car/booking/parts/header';
 import { CarBookingBreadCumbsComponent } from './views/car/booking/parts/breadcumbs';
 import { CarBookingFeaturesComponent } from './views/car/booking/features';
-import { CarBookingContactComponent } from './views/car/booking/contact';
+import { CarBookingCarsComponent } from './views/car/booking/cars';
 import { CarBookingSubmitComponent } from './views/car/booking/submit';
 
 //Admin
@@ -261,7 +261,7 @@ import { SiteService } from './services/site';
         HomeAsksComponent,
         HomeAutoComponent,
         HomeCountComponent,
-        HomeContactComponent,
+        HomeNewsletterComponent,
         HomeReviewComponent,
 
         //About
@@ -316,7 +316,7 @@ import { SiteService } from './services/site';
         CarBookingHeaderComponent,
         CarBookingBreadCumbsComponent,
         CarBookingFeaturesComponent,
-        CarBookingContactComponent,
+        CarBookingCarsComponent,
         CarBookingSubmitComponent,
 
         //Admin

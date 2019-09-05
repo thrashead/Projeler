@@ -12,7 +12,7 @@ import { CarDetailComponent } from './views/car/detail/index';
 import { CarCompareComponent } from './views/car/compare/index';
 import { CarBookingComponent } from './views/car/booking/index';
 import { CarBookingFeaturesComponent } from './views/car/booking/features';
-import { CarBookingContactComponent } from './views/car/booking/contact';
+import { CarBookingCarsComponent } from './views/car/booking/cars';
 import { CarBookingSubmitComponent } from './views/car/booking/submit';
 
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
@@ -182,7 +182,7 @@ const routes: Routes = [
             { path: 'Compare', component: CarCompareComponent },
             { path: 'Booking', component: CarBookingComponent },
             { path: 'BookingFeatures', component: CarBookingFeaturesComponent },
-            { path: 'BookingContact', component: CarBookingContactComponent },
+            { path: 'BookingCars', component: CarBookingCarsComponent },
             { path: 'BookingSubmit', component: CarBookingSubmitComponent }
         ]
     },

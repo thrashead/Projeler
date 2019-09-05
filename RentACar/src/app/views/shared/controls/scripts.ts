@@ -169,32 +169,34 @@ export class ScriptsComponent implements AfterViewChecked {
 
     //OwlCarousel
     OwlCarousel() {
-        $(".enable-owl-carousel").each(function (i) {
-            var $owl = $(this);
-            var itemsData = $owl.data('items');
-            var autoPlayData = $owl.data('auto-play');
-            var navigationData = $owl.data('navigation');
-            var stopOnHoverData = $owl.data('stop-on-hover');
-            var itemsDesktopData = $owl.data('items-desktop');
-            var itemsDesktopSmallData = $owl.data('items-desktop-small');
-            var itemsTabletData = $owl.data('items-tablet');
-            var itemsTabletSmallData = $owl.data('items-tablet-small');
-            $owl.owlCarousel({
-                items: itemsData,
-                pagination: false,
-                navigation: navigationData,
-                autoPlay: autoPlayData,
-                stopOnHover: stopOnHoverData,
-                navigationText: ["", ""],
-                itemsCustom: [
-                    [0, 1],
-                    [500, itemsTabletSmallData],
-                    [710, itemsTabletData],
-                    [992, itemsDesktopSmallData],
-                    [1199, itemsDesktopData]
-                ],
+        setTimeout(() => {
+            $(".enable-owl-carousel").each(function (i) {
+                var $owl = $(this);
+                var itemsData = $owl.data('items');
+                var autoPlayData = $owl.data('auto-play');
+                var navigationData = $owl.data('navigation');
+                var stopOnHoverData = $owl.data('stop-on-hover');
+                var itemsDesktopData = $owl.data('items-desktop');
+                var itemsDesktopSmallData = $owl.data('items-desktop-small');
+                var itemsTabletData = $owl.data('items-tablet');
+                var itemsTabletSmallData = $owl.data('items-tablet-small');
+                $owl.owlCarousel({
+                    items: itemsData,
+                    pagination: false,
+                    navigation: navigationData,
+                    autoPlay: autoPlayData,
+                    stopOnHover: stopOnHoverData,
+                    navigationText: ["", ""],
+                    itemsCustom: [
+                        [0, 1],
+                        [500, itemsTabletSmallData],
+                        [710, itemsTabletData],
+                        [992, itemsDesktopSmallData],
+                        [1199, itemsDesktopData]
+                    ],
+                });
             });
-        });
+        }, 1000);
     }
 
     //Slider
