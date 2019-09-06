@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
@@ -10,7 +10,7 @@ import ClassicEditor from "../../../../../../Content/admin/js/ckeditor/ckeditor.
 	templateUrl: './update.html'
 })
 
-export class AdminLangContentTUpdateComponent {
+export class AdminLangContentTUpdateComponent implements AfterViewChecked {
 	errorMsg: string;
 	id: string;
 
@@ -40,6 +40,12 @@ export class AdminLangContentTUpdateComponent {
 					console.log(editor);
 				});
 
+            ClassicEditor
+                .create(document.querySelector('#Description2'), {
+                })
+                .then(editor => {
+                    console.log(editor);
+                });
         }, 1500);
 
 		this.updateForm = this.formBuilder.group({
@@ -47,9 +53,16 @@ export class AdminLangContentTUpdateComponent {
 			LangContentID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			TransID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			ShortDescription: new FormControl(null),
-			Description: new FormControl(null),
+            Description: new FormControl(null),
+            ShortDescription2: new FormControl(null),
+            Description2: new FormControl(null),
 		});
-	}
+    }
+
+    ngAfterViewChecked() {
+        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
+        $('#Description2').next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
 
 	FillData() {
 		if (this.callTable == true) {
@@ -72,7 +85,9 @@ export class AdminLangContentTUpdateComponent {
 		this.data.LangContentID = this.updateForm.get("LangContentID").value;
 		this.data.TransID = this.updateForm.get("TransID").value;
 		this.data.ShortDescription = this.updateForm.get("ShortDescription").value;
-		this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
+        this.data.Description = $(".ck-content[data-id='Description']").html().replace("<p>", "").replace("</p>", "");
+        this.data.ShortDescription2 = this.updateForm.get("ShortDescription2").value;
+        this.data.Description2 = $(".ck-content[data-id='Description2']").html().replace("<p>", "").replace("</p>", "");
 
 		this.service.post("LangContentT", "Update", this.data)
 			.subscribe((answer: any) => {

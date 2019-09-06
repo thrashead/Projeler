@@ -4,24 +4,24 @@
         <div class="row wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
             <div class="col-xs-4">
                 <div class="b-contact-title">
-                    <h5>{{ newsletter?.ContentName }}</h5><br />
-                    <h2>{{ newsletter?.ShortText1 }}</h2>
+                    <h5>{{ newsletter?.ShortDescription }}</h5><br />
+                    <h2>{{ newsletter?.ShortDescription2 }}</h2>
                 </div>
             </div>
             <div class="col-xs-8">
                 <div class="b-contact__form">
                     <p>
-                        {{ newsletter?.ShortText2 }}
+                        {{ newsletter?.Description }}
                     </p>
                     <div>
                         <!--form action="/" method="POST"-->
                         <div>
                             <span class="fa fa-user"></span>
-                            <input type="text" name="user" value="" placeholder="{{ inputtext?.ShortDescription }}" />
+                            <input type="text" name="user" value="" placeholder="{{ name }}" />
                         </div>
                         <div>
                             <span class="fa fa-envelope"></span>
-                            <input type="text" name="email" value="" placeholder="{{ inputtext?.Description }}" />
+                            <input type="text" name="email" value="" placeholder="{{ mail }}" />
                         </div>
                         <button type="submit"><span class="fa fa-angle-right"></span></button>
                     </div>

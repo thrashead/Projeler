@@ -26,7 +26,7 @@ export class HomeWorldComponent {
             this.world = resData;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_readmore_up", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "cmn_readmore", 1).subscribe((resData: any) => {
             this.readmore = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
     }

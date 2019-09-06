@@ -16,11 +16,9 @@ namespace RentACar.Data
         public int ID { get; set; }
         public string LinkedCategoryAdi { get; set; }
         public string LinkedContentAdi { get; set; }
-        public string LinkedProductAdi { get; set; }
         public string LinkedGalleryAdi { get; set; }
         public string LinkedPicturesAdi { get; set; }
         public string LinkedFilesAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string LinkedFormGroupsAdi { get; set; }
     }
 }

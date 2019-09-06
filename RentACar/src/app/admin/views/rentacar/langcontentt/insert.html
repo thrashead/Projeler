@@ -4,59 +4,81 @@
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
-			<fieldset>
-				<div class="editor-label">
-					Bağlı LangContent
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<select id="LangContentID" [ngModel]="model?.LangContentID" formControlName="LangContentID"><option *ngFor="let item of model?.LangContentList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
-					<br />
-					<!-- LangContentID -->
-				</div>
-				<div class="clear"></div>
+            <fieldset>
+                <div class="editor-label">
+                    Bağlı LangContent
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="LangContentID" [ngModel]="model?.LangContentID" formControlName="LangContentID"><option *ngFor="let item of model?.LangContentList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!-- LangContentID -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Bağlı Translation
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<select id="TransID" [ngModel]="model?.TransID" formControlName="TransID"><option *ngFor="let item of model?.TranslationList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
-					<br />
-					<!-- TransID -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Bağlı Translation
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="TransID" [ngModel]="model?.TransID" formControlName="TransID"><option *ngFor="let item of model?.TranslationList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!-- TransID -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					ShortDescription
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="ShortDescription" [ngModel]="model?.ShortDescription" formControlName="ShortDescription" type="text" />
-					<br />
-					<!-- ShortDescription -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    ShortDescription
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortDescription" [ngModel]="model?.ShortDescription" formControlName="ShortDescription" type="text" />
+                    <br />
+                    <!-- ShortDescription -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Description
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<textarea id="Description" [ngModel]="model?.Description" formControlName="Description"></textarea>
-					<br />
-					<!-- Description -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Description
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <textarea id="Description" [ngModel]="model?.Description" formControlName="Description"></textarea>
+                    <br />
+                    <!-- Description -->
+                </div>
+                <div class="clear"></div>
 
-				<p>
-					<div class="alert alert-error">
-						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
-					</div>
+                <div class="editor-label">
+                    ShortDescription2
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortDescription2" [ngModel]="model?.ShortDescription2" formControlName="ShortDescription2" type="text" />
+                    <br />
+                    <!-- ShortDescription2 -->
+                </div>
+                <div class="clear"></div>
 
-					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
-					<a routerLink="/Admin/LangContentT" class="btn btn-danger btn-cancel">İptal</a>
-			</fieldset>
+                <div class="editor-label">
+                    Description2
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <textarea id="Description2" [ngModel]="model?.Description2" formControlName="Description2"></textarea>
+                    <br />
+                    <!-- Description2 -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+                    <a routerLink="/Admin/LangContentT" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
 		</form>
 	</div>
 </div>

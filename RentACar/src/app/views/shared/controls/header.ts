@@ -31,8 +31,6 @@ export class HeaderComponent {
         this.GetLangs();
         this.GetSelectedLang();
         this.GetLangContent();
-        this.GetNoLangContent();
-        this.GetContent();
     }
 
     //Translation
@@ -75,7 +73,15 @@ export class HeaderComponent {
             this.toggleNav = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "hdr_menu").subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "adres", 1).subscribe((resData: any) => {
+            this.address = resData.Description;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
+            this.phone = resData.Description;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "GetLangContentByCode", "menu").subscribe((resData: any) => {
             this.menu = new Object();
 
             resData.forEach((item, index) => {
@@ -100,20 +106,6 @@ export class HeaderComponent {
                         break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-    }
-
-    //NoLangContent
-    GetNoLangContent() {
-        this.service.get("Site", "GetNoLangContentByCode", "cmn_tel", 1).subscribe((resData: any) => {
-            this.phone = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //Content
-    GetContent() {
-        this.service.get("Site", "GetContentByCode", "cmn_adrs_up", 1).subscribe((resData: any) => {
-            this.address = resData.ShortText1;
         }, resError => this.errorMsg = resError);
     }
 }

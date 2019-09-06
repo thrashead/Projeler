@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
@@ -10,7 +10,7 @@ import ClassicEditor from "../../../../../../Content/admin/js/ckeditor/ckeditor.
 	templateUrl: './update.html'
 })
 
-export class AdminBlogTUpdateComponent {
+export class AdminBlogTUpdateComponent implements AfterViewChecked {
 	errorMsg: string;
 	id: string;
 
@@ -38,18 +38,16 @@ export class AdminBlogTUpdateComponent {
 				})
 				.then(editor => {
 					console.log(editor);
-				});
+                });
 
-		}, 1000);
-		setTimeout(function () {
 			ClassicEditor
 				.create(document.querySelector('#Description2'), {
 				})
 				.then(editor => {
 					console.log(editor);
 				});
-
         }, 1500);
+
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			BlogID: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -61,7 +59,12 @@ export class AdminBlogTUpdateComponent {
 			Description2: new FormControl(null),
 			Tags: new FormControl(null),
 		});
-	}
+    }
+
+    ngAfterViewChecked() {
+        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
+        $('#Description2').next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
 
 	FillData() {
 		if (this.callTable == true) {
@@ -85,10 +88,10 @@ export class AdminBlogTUpdateComponent {
 		this.data.TransID = this.updateForm.get("TransID").value;
 		this.data.Title = this.updateForm.get("Title").value;
 		this.data.ShortDescription = this.updateForm.get("ShortDescription").value;
-		this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
-		this.data.ShortDescription2 = this.updateForm.get("ShortDescription2").value;
-        this.data.Description2 = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
-		this.data.Tags = this.updateForm.get("Tags").value;
+        this.data.Description = $(".ck-content[data-id='Description']").html().replace("<p>", "").replace("</p>", "");
+        this.data.ShortDescription2 = this.updateForm.get("ShortDescription2").value;
+        this.data.Description2 = $(".ck-content[data-id='Description2']").html().replace("<p>", "").replace("</p>", "");
+        this.data.Tags = this.updateForm.get("Tags").value;
 
 		this.service.post("BlogT", "Update", this.data)
 			.subscribe((answer: any) => {

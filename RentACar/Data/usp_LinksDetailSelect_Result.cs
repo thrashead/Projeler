@@ -20,8 +20,6 @@ namespace RentACar.Data
         public string LinkedCategoryAdi { get; set; }
         public string MainContentAdi { get; set; }
         public string LinkedContentAdi { get; set; }
-        public string MainProductAdi { get; set; }
-        public string LinkedProductAdi { get; set; }
         public string MainGalleryAdi { get; set; }
         public string LinkedGalleryAdi { get; set; }
         public string MainPicturesAdi { get; set; }
@@ -30,7 +28,5 @@ namespace RentACar.Data
         public string LinkedFilesAdi { get; set; }
         public string MainMetaAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string MainFormGroupsAdi { get; set; }
-        public string LinkedFormGroupsAdi { get; set; }
     }
 }

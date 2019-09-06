@@ -17,7 +17,7 @@
 /*Page Header */
 .b-pageHeader{
     padding: 40px 0;
-    background: url(/RentACar/Content/img/backgrounds/pageHead.jpg) center;
+    background-position: center;
     background-size: cover;
 }
 

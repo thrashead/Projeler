@@ -20,7 +20,6 @@ export class HomeAsksComponent {
 
     ngOnInit() {
         this.GetLangContent();
-        this.GetNoLangContent();
     }
 
     //LangContent
@@ -33,15 +32,12 @@ export class HomeAsksComponent {
             this.compare = resData;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_callus_up", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "cmn_callus", 1).subscribe((resData: any) => {
             this.callus = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
-    }
 
-    //NoLangContent
-    GetNoLangContent() {
-        this.service.get("Site", "GetNoLangContentByCode", "cmn_tel", 1).subscribe((resData: any) => {
-            this.phone = resData.ShortDescription;
+        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
+            this.phone = resData.Description;
         }, resError => this.errorMsg = resError);
     }
 }

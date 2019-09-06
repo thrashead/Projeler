@@ -19,5 +19,7 @@ namespace RentACar.Data
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
+        public string ShortDescription2 { get; set; }
+        public string Description2 { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { Router } from "@angular/router";
@@ -9,7 +9,7 @@ import ClassicEditor from '../../../../../../Content/admin/js/ckeditor/ckeditor.
 	templateUrl: './insert.html'
 })
 
-export class AdminBlogTInsertComponent {
+export class AdminBlogTInsertComponent implements AfterViewChecked {
 	errorMsg: string;
 
 	insertForm: FormGroup;
@@ -54,7 +54,12 @@ export class AdminBlogTInsertComponent {
 			Description2: new FormControl(null),
 			Tags: new FormControl(null),
 		});
-	}
+    }
+
+    ngAfterViewChecked() {
+        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
+        $('#Description2').next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
@@ -65,9 +70,9 @@ export class AdminBlogTInsertComponent {
 		this.data.TransID = this.insertForm.get("TransID").value;
 		this.data.Title = this.insertForm.get("Title").value;
 		this.data.ShortDescription = this.insertForm.get("ShortDescription").value;
-		this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
+        this.data.Description = $(".ck-content[data-id='Description']").html().replace("<p>", "").replace("</p>", "");
 		this.data.ShortDescription2 = this.insertForm.get("ShortDescription2").value;
-        this.data.Description2 = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
+        this.data.Description2 = $(".ck-content[data-id='Description2']").html().replace("<p>", "").replace("</p>", "");
 		this.data.Tags = this.insertForm.get("Tags").value;
 
 		this.service.post("BlogT", "Insert", this.data)
