@@ -1,4 +1,4 @@
-﻿import { Component, AfterContentInit } from '@angular/core';
+﻿import { Component, AfterViewInit } from '@angular/core';
 import { SharedService } from '../../../services/shared';
 import { Router, RouterEvent, ActivationEnd } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router, RouterEvent, ActivationEnd } from '@angular/router';
     templateUrl: './leftmenu.html'
 })
 
-export class AdminLeftMenuComponent implements AfterContentInit {
+export class AdminLeftMenuComponent implements AfterViewInit {
     errorMsg: string;
 
     hasRightCategory: boolean;
@@ -41,7 +41,7 @@ export class AdminLeftMenuComponent implements AfterContentInit {
     constructor(private sharedService: SharedService, private router: Router) {
     }
 
-    ngAfterContentInit() {
+    ngAfterViewInit() {
         this.HasRightShowTypeControl();
 
         this.router.events.subscribe((event: RouterEvent) => {
