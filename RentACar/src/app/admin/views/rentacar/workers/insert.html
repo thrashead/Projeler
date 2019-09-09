@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-briefcase"></i> Workers Ekle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Workers Ekle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
@@ -13,28 +13,6 @@
 					<input id="NameSurname" [ngModel]="model?.NameSurname" formControlName="NameSurname" type="text" />
 					<br />
 					<!-- NameSurname -->
-				</div>
-				<div class="clear"></div>
-
-				<div class="editor-label">
-					Position
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Position" [ngModel]="model?.Position" formControlName="Position" type="text" />
-					<br />
-					<!-- Position -->
-				</div>
-				<div class="clear"></div>
-
-				<div class="editor-label">
-					Description
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Description" [ngModel]="model?.Description" formControlName="Description" type="text" />
-					<br />
-					<!-- Description -->
 				</div>
 				<div class="clear"></div>
 

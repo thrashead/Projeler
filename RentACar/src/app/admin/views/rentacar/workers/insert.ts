@@ -28,11 +28,9 @@ export class AdminWorkersInsertComponent {
 
 		this.insertForm = this.formBuilder.group({
 			NameSurname: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Position: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Description: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			PictureUrl: new FormControl(null),
 		});
-    }
+	}
 
     onFileSelect(event) {
         if (event.target.files.length > 0) {
@@ -52,8 +50,6 @@ export class AdminWorkersInsertComponent {
 			if (answerUpload.Mesaj == null)
 			{
 				this.data.NameSurname = this.insertForm.get("NameSurname").value;
-				this.data.Position = this.insertForm.get("Position").value;
-				this.data.Description = this.insertForm.get("Description").value;
                 this.data.PictureUrl = answerUpload.PictureUrl;
 
 				this.service.post("Workers", "Insert", this.data)

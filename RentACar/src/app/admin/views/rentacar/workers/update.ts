@@ -3,6 +3,7 @@ import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+declare var DataTable;
 
 @Component({
 	templateUrl: './update.html'
@@ -35,8 +36,6 @@ export class AdminWorkersUpdateComponent {
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			NameSurname: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Position: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Description: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			PictureUrl: new FormControl(null),
 		});
 	}
@@ -47,10 +46,28 @@ export class AdminWorkersUpdateComponent {
 				this.id = params['id'];
 				this.subscription = this.service.get("Workers", "Update", this.id).subscribe((answer: any) => {
 					this.model = answer;
-					this.callTable = false;
+                    this.callTable = false;
+
+                    setTimeout(() => {
+                        DataTable();
+
+                        $(document)
+                            .off("click", ".fg-button")
+                            .on("click", ".fg-button", () => {
+                                setTimeout(() => {
+                                    this.FillData();
+                                }, 1);
+                            });
+                    }, 1);
 				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 			});
-		}
+        }
+
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
     }
 
     onFileSelect(event) {
@@ -72,17 +89,15 @@ export class AdminWorkersUpdateComponent {
 			{
 				this.data.ID = this.updateForm.get("ID").value;
 				this.data.NameSurname = this.updateForm.get("NameSurname").value;
-				this.data.Position = this.updateForm.get("Position").value;
-				this.data.Description = this.updateForm.get("Description").value;
                 this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
                 this.data.HasFile = answerUpload.HasFile;
 
                 if (answerUpload.HasFile) {
                     this.data.PictureUrl = answerUpload.PictureUrl;
-				}
-				else {
-					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
-				}
+                }
+                else {
+                    this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
+                }
 
 				this.service.post("Workers", "Update", this.data)
 					.subscribe((answer: any) => {

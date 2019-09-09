@@ -72,6 +72,10 @@ import { AdminWorkersIndexComponent } from './admin/views/rentacar/workers';
 import { AdminWorkersInsertComponent } from './admin/views/rentacar/workers/insert';
 import { AdminWorkersUpdateComponent } from './admin/views/rentacar/workers/update';
 
+import { AdminWorkersTIndexComponent } from './admin/views/rentacar/workerst';
+import { AdminWorkersTInsertComponent } from './admin/views/rentacar/workerst/insert';
+import { AdminWorkersTUpdateComponent } from './admin/views/rentacar/workerst/update';
+
 
 
 //Admin General
@@ -264,6 +268,11 @@ const routes: Routes = [
             { path: 'Admin/Workers/Index', component: AdminWorkersIndexComponent },
             { path: 'Admin/Workers/Insert', component: AdminWorkersInsertComponent },
             { path: 'Admin/Workers/Update/:id', component: AdminWorkersUpdateComponent },
+
+            { path: 'Admin/WorkersT', component: AdminWorkersTIndexComponent },
+            { path: 'Admin/WorkersT/Index', component: AdminWorkersTIndexComponent },
+            { path: 'Admin/WorkersT/Insert', component: AdminWorkersTInsertComponent },
+            { path: 'Admin/WorkersT/Update/:id', component: AdminWorkersTUpdateComponent },
 
 
 

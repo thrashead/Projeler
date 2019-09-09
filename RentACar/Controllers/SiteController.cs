@@ -4,6 +4,7 @@ using Repository.LangContentModel;
 using Repository.NoLangContentModel;
 using Repository.PicturesModel;
 using Repository.TranslationModel;
+using Repository.WorkersModel;
 using System.Linq;
 using System.Web.Mvc;
 using TDLibrary;
@@ -158,6 +159,18 @@ namespace RentACar.Controllers
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Workers
+
+        [HttpGet]
+        public JsonResult GetWorkers()
+        {
+            Workers workers = new Workers();
+
+            return Json(workers.WorkersDetailSelectAll(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

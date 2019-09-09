@@ -107,17 +107,19 @@ export class ScriptsComponent implements AfterViewChecked {
 
     //J-More
     JMore() {
-        $('.j-more').off('click').on('click', function (e) {
-            var inside = $(this).parent().parent().find('.j-inside');
-            var span = $(this).find('span.fa');
-            if (inside.length > 0) {
-                span.toggleClass('fa-angle-left');
-                span.toggleClass('fa-angle-down');
-                $(this).parent().toggleClass('m-active');
-                inside.toggleClass('m-active');
-            }
-            e.preventDefault();
-        });
+        setTimeout(() => {
+            $('.j-more').off('click').on('click', function (e) {
+                var inside = $(this).parent().parent().find('.j-inside');
+                var span = $(this).find('span.fa');
+                if (inside.length > 0) {
+                    span.toggleClass('fa-angle-left');
+                    span.toggleClass('fa-angle-down');
+                    $(this).parent().toggleClass('m-active');
+                    inside.toggleClass('m-active');
+                }
+                e.preventDefault();
+            });
+        }, 1000);
     }
 
     //ScrollTop

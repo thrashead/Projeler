@@ -33,7 +33,7 @@ import { AboutBreadCumbsComponent } from './views/about/parts/breadcumbs';
 import { AboutBestComponent } from './views/about/parts/best';
 import { AboutWhatComponent } from './views/about/parts/what';
 import { AboutMoreComponent } from './views/about/parts/more';
-import { AboutPersonalComponent } from './views/about/parts/personal';
+import { AboutWorkersComponent } from './views/about/parts/workers';
 
 //Blog
 import { BlogComponent } from './views/blog';
@@ -144,6 +144,10 @@ import { AdminNoLangContentUpdateComponent } from './admin/views/rentacar/nolang
 import { AdminWorkersIndexComponent } from './admin/views/rentacar/workers';
 import { AdminWorkersInsertComponent } from './admin/views/rentacar/workers/insert';
 import { AdminWorkersUpdateComponent } from './admin/views/rentacar/workers/update';
+
+import { AdminWorkersTIndexComponent } from './admin/views/rentacar/workerst';
+import { AdminWorkersTInsertComponent } from './admin/views/rentacar/workerst/insert';
+import { AdminWorkersTUpdateComponent } from './admin/views/rentacar/workerst/update';
 
 
 
@@ -271,7 +275,7 @@ import { SiteService } from './services/site';
         AboutBestComponent,
         AboutWhatComponent,
         AboutMoreComponent,
-        AboutPersonalComponent,
+        AboutWorkersComponent,
 
         //Blog
         BlogComponent,
@@ -382,6 +386,10 @@ import { SiteService } from './services/site';
         AdminWorkersIndexComponent,
         AdminWorkersInsertComponent,
         AdminWorkersUpdateComponent,
+
+        AdminWorkersTIndexComponent,
+        AdminWorkersTInsertComponent,
+        AdminWorkersTUpdateComponent,
 
 
         //Admin General
