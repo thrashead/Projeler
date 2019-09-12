@@ -42,6 +42,9 @@ import { BlogBreadCumbsComponent } from './views/blog/parts/breadcumbs';
 import { BlogDetailComponent } from './views/blog/detail';
 import { BlogItemsComponent } from './views/blog/parts/items';
 import { BlogItemComponent } from './views/blog/parts/item';
+import { BlogSearchComponent } from './views/blog/parts/search';
+import { BlogCategoriesComponent } from './views/blog/parts/categories';
+import { BlogPopularComponent } from './views/blog/parts/popular';
 
 //Contact
 import { ContactComponent } from './views/contact';
@@ -284,6 +287,9 @@ import { SiteService } from './services/site';
         BlogDetailComponent,
         BlogItemsComponent,
         BlogItemComponent,
+        BlogSearchComponent,
+        BlogCategoriesComponent,
+        BlogPopularComponent,
 
         //Contact
         ContactComponent,

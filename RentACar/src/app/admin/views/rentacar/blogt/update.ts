@@ -57,7 +57,6 @@ export class AdminBlogTUpdateComponent implements AfterViewChecked {
 			Description: new FormControl(null),
 			ShortDescription2: new FormControl(null),
 			Description2: new FormControl(null),
-			Tags: new FormControl(null),
 		});
     }
 
@@ -91,7 +90,6 @@ export class AdminBlogTUpdateComponent implements AfterViewChecked {
         this.data.Description = $(".ck-content[data-id='Description']").html().replace("<p>", "").replace("</p>", "");
         this.data.ShortDescription2 = this.updateForm.get("ShortDescription2").value;
         this.data.Description2 = $(".ck-content[data-id='Description2']").html().replace("<p>", "").replace("</p>", "");
-        this.data.Tags = this.updateForm.get("Tags").value;
 
 		this.service.post("BlogT", "Update", this.data)
 			.subscribe((answer: any) => {

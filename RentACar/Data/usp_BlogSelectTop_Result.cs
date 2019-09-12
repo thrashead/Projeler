@@ -22,5 +22,6 @@ namespace RentACar.Data
         public string SendDate { get; set; }
         public string PictureUrl { get; set; }
         public Nullable<int> ReadTime { get; set; }
+        public string Tags { get; set; }
     }
 }

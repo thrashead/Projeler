@@ -1,0 +1,10 @@
+﻿<div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.3s">
+    <header class="s-lineDownLeft">
+        <h2 class="s-titleDet">{{ categories }}</h2>
+    </header>
+    <nav>
+        <ul class="b-blog__aside-categories-list">
+            <li *ngFor="let item of categoryList"><a [routerLink]="['/Blog/Category/' + item?.Url]">{{ item?.CategoryName }}</a></li>
+        </ul>
+    </nav>
+</div>

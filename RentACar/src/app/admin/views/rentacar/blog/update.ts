@@ -40,7 +40,8 @@ export class AdminBlogUpdateComponent {
             Code: new FormControl(null),
             Sender: new FormControl(null, [Validators.required, Validators.min(0)]),
 			PictureUrl: new FormControl(null),
-		});
+			Tags: new FormControl(null),
+        });
 	}
 
 	FillData() {
@@ -103,7 +104,9 @@ export class AdminBlogUpdateComponent {
 				}
 				else {
 					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
-				}
+                }
+
+                this.data.Tags = this.updateForm.get("Tags").value;
 
 				this.service.post("Blog", "Update", this.data)
 					.subscribe((answer: any) => {

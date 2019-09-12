@@ -65,6 +65,17 @@ namespace RentACar.Controllers
                 return Json(blog.DetailSelect(param2.ToInteger(), AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult GetPopularBlogPosts(string param)
+        {
+            Blog blog = new Blog();
+
+            if (param.ToInteger() > 1 || param == null || param == "null")
+                return Json(blog.PopularSelect(AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(blog.PopularSelect(AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
 
         #region Category

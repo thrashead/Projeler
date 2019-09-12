@@ -21,6 +21,5 @@ namespace RentACar.Data
         public string ShortDescription2 { get; set; }
         public string Description { get; set; }
         public string Description2 { get; set; }
-        public string Tags { get; set; }
     }
 }

@@ -84,7 +84,7 @@ export class FooterComponent {
         this.service.get("Site", "GetLangContentByCode", "menu").subscribe((resData: any) => {
             this.menu = new Object();
 
-            resData.forEach((item, index) => {
+            resData.forEach((item, i) => {
                 switch (item.ShortCode) {
                     case "home":
                         this.menu.Home = item.ShortDescription2;

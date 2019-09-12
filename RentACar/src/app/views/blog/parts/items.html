@@ -4,47 +4,50 @@
         <div class="row">
             <div class="col-md-3 col-xs-12">
                 <aside class="b-blog__aside">
-                    <div class="b-blog__aside-search wow zoomInUp" data-wow-delay="0.3s">
-                        <!--form action="/" method="post" -->
-                        <div>
-                            <input type="text" name="search" value="" placeholder="{{ search }}" />
-                            <button type="submit"><span class="fa fa-search"></span></button>
-                        </div>
-                    </div>
-                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.3s">
-                        <header class="s-lineDownLeft">
-                            <h2 class="s-titleDet">{{ categories }}</h2>
-                        </header>
-                        <nav>
-                            <ul class="b-blog__aside-categories-list">
-                                <li *ngFor="let item of categoryList"><a [routerLink]="['/Blog/Category/' + item?.Url]">{{ item?.CategoryName }}</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="b-blog__aside-popular wow zoomInUp" data-wow-delay="0.3s">
-                        <header class="s-lineDownLeft">
-                            <h2 class="s-titleDet">{{ popular }}</h2>
-                        </header>
-                        <div class="b-blog__aside-popular-posts">
-                            <div class="b-blog__aside-popular-posts-one">
-                                <img class="img-responsive" src="/RentACar/Content/img/media/270x150/mercBlog.png" alt="merc" />
-                                <h4><a routerLink="/Blog/Detail">2016 Mercedes-Benz GLE-Class <!--Debuts-->Ön Gösterimi</a></h4>
-                                <div class="b-blog__aside-popular-posts-one-date"><span class="fa fa-calendar-o"></span><!--20th May 2015-->20 MAYIS 2015</div>
-                            </div>
-                            <div class="b-blog__aside-popular-posts-one">
-                                <img class="img-responsive" src="/RentACar/Content/img/media/270x150/outlander.png" alt="outlander" />
-                                <h4><a routerLink="/Blog/Detail"><!--Refreshed 2016 Mitsubishi Outlander Introduced-->Yenilenmiş 2016 Mitsubishi Outlander</a></h4>
-                                <div class="b-blog__aside-popular-posts-one-date"><span class="fa fa-calendar-o"></span><!--20th May 2015-->20 MAYIS 2015</div>
-                            </div>
-                        </div>
-                    </div>
+                    <rac-blogsearch></rac-blogsearch>
+                    <rac-blogcategories></rac-blogcategories>
+                    <rac-blogpopular></rac-blogpopular>
                 </aside>
             </div>
             <div class="col-md-9 col-xs-12">
-                <div class="b-blog__posts owl-carousel enable-owl-carousel" data-items="1" data-items-desktop="1" 
+                <div class="b-blog__posts owl-carousel enable-owl-carousel" data-items="1" data-items-desktop="1"
                      data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1"
-                     data-navigation="true" data-auto-play="true" data-stop-on-hover="true" 
-                     [innerHTML]="blogList">
+                     data-navigation="true" data-auto-play="true" data-stop-on-hover="true">
+
+                    <div *ngFor="let group of blogList;">
+                        <div class="b-blog__posts-one wow zoomInUp" data-wow-delay="0.3s" *ngFor="let item of group?.Items">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <header class="b-blog__posts-one-body-head s-lineDownLeft">
+                                        <div class="b-blog__posts-one-body-head-notes">
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>{{ item?.SenderName }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>{{ item?.SendDate }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ item?.CommentCount }} {{ comment }}</span>
+                                        </div>
+                                        <h2 class="s-titleDet">{{ item?.Title }}</h2>
+                                    </header>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 pull-right">
+                                    <img class="img-responsive center-block" src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
+                                </div>
+                                <div class="col-xs-8 pull-right">
+                                    <div class="b-blog__posts-one-info">
+                                        <p [innerHTML]="item?.Description"></p>
+                                        <a routerLink="/Blog/Detail/{{ item?.Url }}" class="btn m-btn m-readMore">{{ readmore }}<span class="fa fa-angle-right"></span></a>
+                                        <div class="b-blog__posts-one-social pull-right" *ngIf="item?.Facebook != null || item?.Twitter != null || item?.Pinterest != null">
+                                            <em>{{ share }}</em>
+                                            <a *ngIf="item?.Facebook != null" target="_blank" href="{{ item?.Facebook }}"><span class="fa fa-facebook-square"></span></a>
+                                            <a *ngIf="item?.Twitter != null" target="_blank" href="{{ item?.Twitter }}"><span class="fa fa-twitter-square "></span></a>
+                                            <a *ngIf="item?.Pinterest != null" target="_blank" href="{{ item?.Pinterest }}"><span class="fa fa-pinterest-square"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

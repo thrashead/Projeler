@@ -37,6 +37,7 @@ export class AdminBlogInsertComponent {
             Code: new FormControl(null),
             Sender: new FormControl(null, [Validators.required, Validators.min(0)]),
             PictureUrl: new FormControl(null),
+			Tags: new FormControl(null),
         });
     }
 
@@ -61,6 +62,7 @@ export class AdminBlogInsertComponent {
                 this.data.PictureUrl = answerUpload.PictureUrl;
                 this.data.Code = this.insertForm.get("Code").value;
                 this.data.Sender = this.insertForm.get("Sender").value;
+                this.data.Tags = this.insertForm.get("Tags").value;
 
                 this.service.post("Blog", "Insert", this.data)
                     .subscribe((answer: any) => {

@@ -1,4 +1,4 @@
-﻿import { Component, ViewEncapsulation, AfterViewInit } from '@angular/core';
+﻿import { Component, ViewEncapsulation, AfterViewChecked } from '@angular/core';
 import { Router, ActivationEnd, RouterEvent } from '@angular/router';
 import '../../../../../Content/js/owl-carousel/owl.carousel.min.js'
 import '../../../../../Content/js/bxslider/jquery.bxslider.min.js'
@@ -23,13 +23,15 @@ import { WOW } from "../../../../../node_modules/wowjs/dist/wow";
     encapsulation: ViewEncapsulation.None
 })
 
-export class ScriptsComponent implements AfterViewInit {
+export class ScriptsComponent implements AfterViewChecked {
     constructor(private router: Router) {
     }
 
-    ngAfterViewInit() {
+    ngAfterViewChecked() {
         $('#page-preloader').fadeOut("slow");
+    }
 
+    ngOnInit() {
         this.LoadScripts();
 
         this.router.events.subscribe((event: RouterEvent) => {

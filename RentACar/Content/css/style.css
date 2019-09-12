@@ -34,7 +34,6 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-search__main-type-svg.suv:hover {background-image:url(/RentACar/Content/img/vehicletypes/suv-hvr.png);}
 .b-search__main-type-svg.suv.active {background-image:url(/RentACar/Content/img/vehicletypes/suv-hvr.png);}
 .b-topBar__addr{overflow-x: hidden;white-space: nowrap;}
-.owl-carousel .owl-stage { display: flex; align-items: center; }
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}
