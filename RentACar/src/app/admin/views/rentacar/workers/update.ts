@@ -36,7 +36,10 @@ export class AdminWorkersUpdateComponent {
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			NameSurname: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			PictureUrl: new FormControl(null),
+            PictureUrl: new FormControl(null),
+            Facebook: new FormControl(null, [Validators.maxLength(255)]),
+            Twitter: new FormControl(null, [Validators.maxLength(255)]),
+            Pinterest: new FormControl(null, [Validators.maxLength(255)]),
 		});
 	}
 
@@ -98,6 +101,10 @@ export class AdminWorkersUpdateComponent {
                 else {
                     this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
                 }
+
+                this.data.Facebook = this.updateForm.get("Facebook").value;
+                this.data.Twitter = this.updateForm.get("Twitter").value;
+                this.data.Pinterest = this.updateForm.get("Pinterest").value;
 
 				this.service.post("Workers", "Update", this.data)
 					.subscribe((answer: any) => {

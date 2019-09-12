@@ -29,7 +29,10 @@ export class AdminWorkersInsertComponent {
 		this.insertForm = this.formBuilder.group({
 			NameSurname: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			PictureUrl: new FormControl(null),
-		});
+			Facebook: new FormControl(null, [Validators.maxLength(255)]),
+			Twitter: new FormControl(null, [Validators.maxLength(255)]),
+			Pinterest: new FormControl(null, [Validators.maxLength(255)]),
+        });
 	}
 
     onFileSelect(event) {
@@ -51,6 +54,9 @@ export class AdminWorkersInsertComponent {
 			{
 				this.data.NameSurname = this.insertForm.get("NameSurname").value;
                 this.data.PictureUrl = answerUpload.PictureUrl;
+                this.data.Facebook = this.insertForm.get("Facebook").value;
+                this.data.Twitter = this.insertForm.get("Twitter").value;
+                this.data.Pinterest = this.insertForm.get("Pinterest").value;
 
 				this.service.post("Workers", "Insert", this.data)
 					.subscribe((answer: any) => {

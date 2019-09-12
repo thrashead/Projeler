@@ -4,37 +4,70 @@
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
-			<fieldset>
-				<div class="editor-label">
-					NameSurname
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="NameSurname" [ngModel]="model?.NameSurname" formControlName="NameSurname" type="text" />
-					<br />
-					<!-- NameSurname -->
-				</div>
-				<div class="clear"></div>
+            <fieldset>
+                <div class="editor-label">
+                    NameSurname
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="NameSurname" [ngModel]="model?.NameSurname" formControlName="NameSurname" type="text" />
+                    <br />
+                    <!-- NameSurname -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					PictureUrl
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    PictureUrl
+                </div>
+                <div class="clear"></div>
                 <div class="editor-field">
                     <input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" name="picTemp" type="file" (change)="onFileSelect($event)" />
                     <br />
                     <!-- PictureUrl -->
                 </div>
-				<div class="clear"></div>
+                <div class="clear"></div>
 
-				<p>
-					<div class="alert alert-error">
-						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
-					</div>
+                <div class="editor-label">
+                    Facebook
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Facebook" [ngModel]="model?.Facebook" formControlName="Facebook" type="text" />
+                    <br />
+                    <!-- Facebook -->
+                </div>
+                <div class="clear"></div>
 
-					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
-					<a routerLink="/Admin/Workers" class="btn btn-danger btn-cancel">İptal</a>
-			</fieldset>
+                <div class="editor-label">
+                    Twitter
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Twitter" [ngModel]="model?.Twitter" formControlName="Twitter" type="text" />
+                    <br />
+                    <!-- Twitter -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Pinterest
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Pinterest" [ngModel]="model?.Pinterest" formControlName="Pinterest" type="text" />
+                    <br />
+                    <!-- Pinterest -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+                    <a routerLink="/Admin/Workers" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
 		</form>
 	</div>
 </div>

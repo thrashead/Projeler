@@ -1,4 +1,6 @@
-﻿using Repository.CategoryModel;
+﻿using Repository.BlogCategoryModel;
+using Repository.BlogModel;
+using Repository.CategoryModel;
 using Repository.ContentModel;
 using Repository.LangContentModel;
 using Repository.NoLangContentModel;
@@ -39,6 +41,32 @@ namespace RentACar.Controllers
 
         #endregion
 
+        #region Blog
+
+        [HttpGet]
+        public JsonResult GetBlogCategories(string param)
+        {
+            BlogCategory categories = new BlogCategory();
+
+            if (param.ToInteger() > 1 || param == null || param == "null")
+                return Json(categories.BlogCategoryDetailSelectAll(AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(categories.BlogCategoryDetailSelectAll(AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBlogPosts(string param, string param2)
+        {
+            Blog blog = new Blog();
+
+            if (param.ToInteger() > 1 || param == null || param == "null")
+                return Json(blog.DetailSelect(param2.ToInteger(), AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(blog.DetailSelect(param2.ToInteger(), AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
         #region Category
 
         [HttpGet]
@@ -58,7 +86,7 @@ namespace RentACar.Controllers
         {
             LangContent langContent = new LangContent();
 
-            if (param2.ToInteger() > 1 || param2 == "null")
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
                 return Json(langContent.DetailSelectByCode(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(langContent.DetailSelectByCode(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -69,7 +97,7 @@ namespace RentACar.Controllers
         {
             LangContent langContent = new LangContent();
 
-            if (param2.ToInteger() > 1 || param2 == "null")
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
                 return Json(langContent.DetailSelectByShortCode(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(langContent.DetailSelectByShortCode(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -80,7 +108,7 @@ namespace RentACar.Controllers
         {
             LangContent langContent = new LangContent();
 
-            if (param3.ToInteger() > 1 || param3 == "null")
+            if (param3.ToInteger() > 1 || param3 == null || param3 == "null")
                 return Json(langContent.DetailSelectByCodeAndShortCode(param, param2, AppTools.GetLang.ID, param3.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(langContent.DetailSelectByCodeAndShortCode(param, param2, AppTools.GetLang.ID, param3.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -95,7 +123,7 @@ namespace RentACar.Controllers
         {
             NoLangContent noLangContent = new NoLangContent();
 
-            if (param2.ToInteger() > 1 || param2 == "null")
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
                 return Json(noLangContent.DetailSelectByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(noLangContent.DetailSelectByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -106,7 +134,7 @@ namespace RentACar.Controllers
         {
             NoLangContent noLangContent = new NoLangContent();
 
-            if (param2.ToInteger() > 1 || param2 == "null")
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
                 return Json(noLangContent.DetailSelectByShortCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(noLangContent.DetailSelectByShortCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -117,7 +145,7 @@ namespace RentACar.Controllers
         {
             NoLangContent noLangContent = new NoLangContent();
 
-            if (param3.ToInteger() > 1 || param3 == "null")
+            if (param3.ToInteger() > 1 || param3 == null || param3 == "null")
                 return Json(noLangContent.DetailSelectByCodeAndShortCode(param, param2, param3.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(noLangContent.DetailSelectByCodeAndShortCode(param, param2, param3.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -132,7 +160,7 @@ namespace RentACar.Controllers
         {
             Content content = new Content();
 
-            if (param2.ToInteger() > 1 || param2 == "null")
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
                 return Json(content.DetailSelectByCode(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(content.DetailSelectByCode(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
@@ -155,7 +183,7 @@ namespace RentACar.Controllers
         {
             Pictures pictures = new Pictures();
 
-            if (param2.ToInteger() > 1 || param2 == "null")
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);

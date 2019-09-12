@@ -91,11 +91,11 @@ export class HomeSearchComponent implements AfterViewChecked {
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_src", 1).subscribe((resData: any) => {
-            this.search = resData.ShortDescription;
+            this.search = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_dtlsrc", 1).subscribe((resData: any) => {
-            this.detailSearch = resData.ShortDescription;
+            this.detailSearch = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_all", 1).subscribe((resData: any) => {

@@ -37,11 +37,9 @@ export class AdminBlogUpdateComponent {
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			BlogCatID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Code: new FormControl(null),
-			Sender: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			SendDate: new FormControl(null),
+            Code: new FormControl(null),
+            Sender: new FormControl(null, [Validators.required, Validators.min(0)]),
 			PictureUrl: new FormControl(null),
-			ReadTime: new FormControl(null),
 		});
 	}
 
@@ -97,7 +95,6 @@ export class AdminBlogUpdateComponent {
 				this.data.Title = this.updateForm.get("Title").value;
 				this.data.Code = this.updateForm.get("Code").value;
 				this.data.Sender = this.updateForm.get("Sender").value;
-                this.data.SendDate = this.updateForm.get("SendDate").value;
                 this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
                 this.data.HasFile = answerUpload.HasFile;
 
@@ -107,8 +104,6 @@ export class AdminBlogUpdateComponent {
 				else {
 					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
 				}
-
-				this.data.ReadTime = this.updateForm.get("ReadTime").value;
 
 				this.service.post("Blog", "Update", this.data)
 					.subscribe((answer: any) => {

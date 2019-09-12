@@ -16,5 +16,8 @@ namespace RentACar.Data
         public int ID { get; set; }
         public string NameSurname { get; set; }
         public string PictureUrl { get; set; }
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Pinterest { get; set; }
     }
 }

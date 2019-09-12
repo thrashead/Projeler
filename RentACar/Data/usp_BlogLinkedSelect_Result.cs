@@ -18,10 +18,11 @@ namespace RentACar.Data
         public string Title { get; set; }
         public string Code { get; set; }
         public string Url { get; set; }
-        public string Sender { get; set; }
+        public int Sender { get; set; }
         public string SendDate { get; set; }
         public string PictureUrl { get; set; }
         public Nullable<int> ReadTime { get; set; }
         public string BlogCategoryAdi { get; set; }
+        public string WorkersAdi { get; set; }
     }
 }

@@ -179,15 +179,18 @@ const routes: Routes = [
             { path: 'Index', component: IndexComponent },
             { path: 'About', component: AboutComponent },
             { path: 'Blog', component: BlogComponent },
-            { path: 'BlogDetail', component: BlogDetailComponent },
+            { path: 'Blog/Index', component: BlogComponent },
+            { path: 'Blog/Category/:url', component: BlogComponent },
+            { path: 'Blog/Detail/:url', component: BlogDetailComponent },
             { path: 'Contact', component: ContactComponent },
             { path: 'List', component: CarListComponent },
             { path: 'Detail', component: CarDetailComponent },
             { path: 'Compare', component: CarCompareComponent },
             { path: 'Booking', component: CarBookingComponent },
-            { path: 'BookingFeatures', component: CarBookingFeaturesComponent },
-            { path: 'BookingCars', component: CarBookingCarsComponent },
-            { path: 'BookingSubmit', component: CarBookingSubmitComponent }
+            { path: 'Booking/Index', component: CarBookingComponent },
+            { path: 'Booking/Features', component: CarBookingFeaturesComponent },
+            { path: 'Booking/Cars', component: CarBookingCarsComponent },
+            { path: 'Booking/Submit', component: CarBookingSubmitComponent }
         ]
     },
 

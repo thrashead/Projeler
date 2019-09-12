@@ -35,10 +35,8 @@ export class AdminBlogInsertComponent {
             BlogCatID: new FormControl(null, [Validators.required, Validators.min(0)]),
             Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
             Code: new FormControl(null),
-            Sender: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-            SendDate: new FormControl(null),
+            Sender: new FormControl(null, [Validators.required, Validators.min(0)]),
             PictureUrl: new FormControl(null),
-            ReadTime: new FormControl(null),
         });
     }
 
@@ -63,8 +61,6 @@ export class AdminBlogInsertComponent {
                 this.data.PictureUrl = answerUpload.PictureUrl;
                 this.data.Code = this.insertForm.get("Code").value;
                 this.data.Sender = this.insertForm.get("Sender").value;
-                this.data.SendDate = this.insertForm.get("SendDate").value;
-                this.data.ReadTime = this.insertForm.get("ReadTime").value;
 
                 this.service.post("Blog", "Insert", this.data)
                     .subscribe((answer: any) => {
