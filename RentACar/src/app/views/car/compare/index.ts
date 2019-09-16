@@ -4,7 +4,7 @@
     templateUrl: './index.html'
 })
 
-export class CarCompareComponent{ 
+export class CarsCompareComponent{ 
     ngOnInit() {
     }
 }

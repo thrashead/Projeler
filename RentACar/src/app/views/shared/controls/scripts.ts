@@ -198,7 +198,7 @@ export class ScriptsComponent implements AfterViewChecked {
                     ],
                 });
             });
-        }, 1000);
+        }, 2000);
     }
 
     //Slider

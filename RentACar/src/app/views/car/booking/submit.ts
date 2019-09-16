@@ -4,7 +4,7 @@
     templateUrl: './submit.html'
 })
 
-export class CarBookingSubmitComponent{ 
+export class CarsBookSubmitComponent{ 
     ngOnInit() {
     }
 }

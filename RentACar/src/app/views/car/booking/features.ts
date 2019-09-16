@@ -4,7 +4,7 @@
     templateUrl: './features.html'
 })
 
-export class CarBookingFeaturesComponent{ 
+export class CarsBookFeaturesComponent{ 
     ngOnInit() {
     }
 }

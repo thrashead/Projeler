@@ -1,49 +1,20 @@
 ﻿<!--b-world-->
-<section class="b-world">
+<section class="b-world" [style.backgroundImage]="'url(/RentACar/Uploads/' + worldbanner + ')'">
     <div class="container">
         <h6 class="wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">{{ world?.ShortDescription }}</h6><br />
         <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">{{ world?.Description }}</h2>
         <div class="row">
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-4 col-xs-12" *ngFor="let item of worldList">
                 <div class="b-world__item wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="/RentACar/Content/img/media/370x200/wolks.jpg" alt="wolks" />
+                    <img class="img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
                     <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--CATEGORY-->KATEGORİ 1</span>
+                        <span class="b-world__item-val-title">{{ item?.CategoryTitle }}</span>
                     </div>
-                    <h2>2016 Volkswagen Golf R SportWagen</h2>
+                    <h2>{{ item?.Title }}</h2>
                     <p>
-                        Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
-                        sem velde metus imperdiet lacinia.
+                        {{ item?.Description }}
                     </p>
-                    <a routerLink="/Blog/Detail" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="b-world__item wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="/RentACar/Content/img/media/370x200/mazda.jpg" alt="mazda" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--CATEGORY-->KATEGORİ 2</span>
-                    </div>
-                    <h2>2016 Mazda CX-5 2.5L AWD</h2>
-                    <p>
-                        Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
-                        sem velde metus imperdiet lacinia.
-                    </p>
-                    <a routerLink="/Blog/Detail" class="btn m-btn m-active">{{ readmore }}<span class="fa fa-angle-right"></span></a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="b-world__item j-item wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="/RentACar/Content/img/media/370x200/chevrolet.jpg" alt="chevrolet" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--CATEGORY-->KATEGORİ 3</span>
-                    </div>
-                    <h2><!--Advantages of Buying New or Used Vehicle-->Sıfır ve İkinci El Araç Almanın Avantajları</h2>
-                    <p>
-                        Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
-                        sem velde metus imperdiet lacinia.
-                    </p>
-                    <a routerLink="/Blog/Detail" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
+                    <a [routerLink]="['/Blog/Detail/' + item?.Url]" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
         </div>

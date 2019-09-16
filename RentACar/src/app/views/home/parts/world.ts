@@ -10,14 +10,18 @@ export class HomeWorldComponent {
     errorMsg: string;
 
     readmore: string;
+    worldbanner: string;
 
     world: any;
+    worldList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangContent();
+        this.GetPicture();
+        this.GetBlog();
     }
 
     //LangContent
@@ -28,6 +32,20 @@ export class HomeWorldComponent {
 
         this.service.get("Site", "GetLangContentByCode", "cmn_readmore", 1).subscribe((resData: any) => {
             this.readmore = resData.ShortDescription;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "home_world", 1).subscribe((resData: any) => {
+            this.worldbanner = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GetBlog
+    GetBlog() {
+        this.service.get("Site", "GetBlogPostsByCode", "home_world", 3).subscribe((resData: any) => {
+            this.worldList = resData;
         }, resError => this.errorMsg = resError);
     }
 }

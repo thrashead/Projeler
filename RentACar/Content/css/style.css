@@ -34,6 +34,11 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-search__main-type-svg.suv:hover {background-image:url(/RentACar/Content/img/vehicletypes/suv-hvr.png);}
 .b-search__main-type-svg.suv.active {background-image:url(/RentACar/Content/img/vehicletypes/suv-hvr.png);}
 .b-topBar__addr{overflow-x: hidden;white-space: nowrap;}
+.b-blog__posts-one-body-tags span.blogtags {color:#A1A1A1;}
+.b-world__item {text-align:center;}
+.b-world__item p {margin-bottom: 0px;}
+.b-world__item h2 {height:40px;}
+.b-world__item img.img-responsive {display:unset;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

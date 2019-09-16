@@ -66,6 +66,17 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetBlogPostsByCode(string param, string param2)
+        {
+            Blog blog = new Blog();
+
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
+                return Json(blog.DetailSelectByCode(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(blog.DetailSelectByCode(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult GetPopularBlogPosts(string param)
         {
             Blog blog = new Blog();
@@ -74,6 +85,25 @@ namespace RentACar.Controllers
                 return Json(blog.PopularSelect(AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(blog.PopularSelect(AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBlogPostByUrl(string param)
+        {
+            Blog blog = new Blog();
+
+            return Json(blog.DetailSelectByUrl(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBlogSimilarPosts(string param, string param2)
+        {
+            Blog blog = new Blog();
+
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
+                return Json(blog.SimilarSelect(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(blog.SimilarSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

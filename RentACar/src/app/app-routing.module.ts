@@ -7,13 +7,13 @@ import { AboutComponent } from './views/about/index';
 import { BlogComponent } from './views/blog/index';
 import { BlogDetailComponent } from './views/blog/detail';
 import { ContactComponent } from './views/contact/index';
-import { CarListComponent } from './views/car/list/index';
-import { CarDetailComponent } from './views/car/detail/index';
-import { CarCompareComponent } from './views/car/compare/index';
-import { CarBookingComponent } from './views/car/booking/index';
-import { CarBookingFeaturesComponent } from './views/car/booking/features';
-import { CarBookingCarsComponent } from './views/car/booking/cars';
-import { CarBookingSubmitComponent } from './views/car/booking/submit';
+import { CarsListComponent } from './views/car/list/index';
+import { CarsDetailComponent } from './views/car/detail/index';
+import { CarsCompareComponent } from './views/car/compare/index';
+import { CarsBookComponent } from './views/car/booking/index';
+import { CarsBookFeaturesComponent } from './views/car/booking/features';
+import { CarsBookCarsComponent } from './views/car/booking/cars';
+import { CarsBookSubmitComponent } from './views/car/booking/submit';
 
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminLoginComponent } from './admin/views/home/login';
@@ -179,18 +179,19 @@ const routes: Routes = [
             { path: 'Index', component: IndexComponent },
             { path: 'About', component: AboutComponent },
             { path: 'Blog', component: BlogComponent },
-            { path: 'Blog/Index', component: BlogComponent },
+            { path: 'Blog/List/:url', component: BlogComponent },
             { path: 'Blog/Category/:url', component: BlogComponent },
             { path: 'Blog/Detail/:url', component: BlogDetailComponent },
             { path: 'Contact', component: ContactComponent },
-            { path: 'List', component: CarListComponent },
-            { path: 'Detail', component: CarDetailComponent },
-            { path: 'Compare', component: CarCompareComponent },
-            { path: 'Booking', component: CarBookingComponent },
-            { path: 'Booking/Index', component: CarBookingComponent },
-            { path: 'Booking/Features', component: CarBookingFeaturesComponent },
-            { path: 'Booking/Cars', component: CarBookingCarsComponent },
-            { path: 'Booking/Submit', component: CarBookingSubmitComponent }
+            { path: 'Cars', component: CarsListComponent },
+            { path: 'Cars/List/:url', component: CarsListComponent },
+            { path: 'Cars/Detail/:url', component: CarsDetailComponent },
+            { path: 'Cars/Compare/:url', component: CarsCompareComponent },
+            { path: 'Cars/Book', component: CarsBookComponent },
+            { path: 'Cars/Book/Index', component: CarsBookComponent },
+            { path: 'Cars/Book/Features', component: CarsBookFeaturesComponent },
+            { path: 'Cars/Book/Cars', component: CarsBookCarsComponent },
+            { path: 'Cars/Book/Submit', component: CarsBookSubmitComponent }
         ]
     },
 

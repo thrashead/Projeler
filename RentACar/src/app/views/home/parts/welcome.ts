@@ -13,6 +13,7 @@ export class HomeWelcomeComponent {
     trade: string;
     guide: string;
     support: string;
+    welcomebanner: string;
 
     welcome: any;
 
@@ -22,6 +23,7 @@ export class HomeWelcomeComponent {
     ngOnInit() {
         this.GetLangContent();
         this.GetContent();
+        this.GetPicture();
     }
 
     //LangContent
@@ -47,6 +49,13 @@ export class HomeWelcomeComponent {
     GetContent() {
         this.service.get("Site", "GetContentByCode", "home_welcome", 1).subscribe((resData: any) => {
             this.welcome = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "home_welcome", 1).subscribe((resData: any) => {
+            this.welcomebanner = resData;
         }, resError => this.errorMsg = resError);
     }
 }

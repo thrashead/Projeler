@@ -13,6 +13,10 @@ import { HeaderComponent } from './views/shared/controls/header';
 import { FooterComponent } from './views/shared/controls/footer';
 import { ScriptsComponent } from './views/shared/controls/scripts';
 
+//Shared
+import { SharedBookNowComponent } from './views/shared/common/booknow';
+import { SharedCallUsComponent } from './views/shared/common/callus';
+
 //Home
 import { IndexComponent } from './views/home';
 import { HomeSliderComponent } from './views/home/parts/slider';
@@ -54,14 +58,14 @@ import { ContactMapComponent } from './views/contact/parts/map';
 import { ContactFormComponent } from './views/contact/parts/form';
 
 //CarList
-import { CarListComponent } from './views/car/list';
+import { CarsListComponent } from './views/car/list';
 import { CarListHeaderComponent } from './views/car/list/parts/header';
 import { CarListBreadCumbsComponent } from './views/car/list/parts/breadcumbs';
 import { CarListInfoComponent } from './views/car/list/parts/info';
 import { CarListItemsComponent } from './views/car/list/parts/items';
 
 //CarDetail
-import { CarDetailComponent } from './views/car/detail';
+import { CarsDetailComponent } from './views/car/detail';
 import { CarDetailHeaderComponent } from './views/car/detail/parts/header';
 import { CarDetailBreadCumbsComponent } from './views/car/detail/parts/breadcumbs';
 import { CarDetailInfoComponent } from './views/car/detail/parts/info';
@@ -70,19 +74,19 @@ import { CarDetailRelatedComponent } from './views/car/detail/parts/related';
 import { CarDetailBrandsComponent } from './views/car/detail/parts/brands';
 
 //CarCompare
-import { CarCompareComponent } from './views/car/compare';
+import { CarsCompareComponent } from './views/car/compare';
 import { CarCompareHeaderComponent } from './views/car/compare/parts/header';
 import { CarCompareBreadCumbsComponent } from './views/car/compare/parts/breadcumbs';
 import { CarCompareInfoComponent } from './views/car/compare/parts/info';
 import { CarCompareItemsComponent } from './views/car/compare/parts/items';
 
 //CarBooking
-import { CarBookingComponent } from './views/car/booking';
+import { CarsBookComponent } from './views/car/booking';
 import { CarBookingHeaderComponent } from './views/car/booking/parts/header';
 import { CarBookingBreadCumbsComponent } from './views/car/booking/parts/breadcumbs';
-import { CarBookingFeaturesComponent } from './views/car/booking/features';
-import { CarBookingCarsComponent } from './views/car/booking/cars';
-import { CarBookingSubmitComponent } from './views/car/booking/submit';
+import { CarsBookFeaturesComponent } from './views/car/booking/features';
+import { CarsBookCarsComponent } from './views/car/booking/cars';
+import { CarsBookSubmitComponent } from './views/car/booking/submit';
 
 //Admin
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
@@ -258,6 +262,10 @@ import { SiteService } from './services/site';
         FooterComponent,
         ScriptsComponent,
 
+        //Shared
+        SharedBookNowComponent,
+        SharedCallUsComponent,
+
         //Home
         IndexComponent,
         HomeSliderComponent,
@@ -299,14 +307,14 @@ import { SiteService } from './services/site';
         ContactFormComponent,
 
         //CarList
-        CarListComponent,
+        CarsListComponent,
         CarListHeaderComponent,
         CarListBreadCumbsComponent,
         CarListInfoComponent,
         CarListItemsComponent,
 
         //CarDetail
-        CarDetailComponent,
+        CarsDetailComponent,
         CarDetailHeaderComponent,
         CarDetailBreadCumbsComponent,
         CarDetailInfoComponent,
@@ -315,19 +323,19 @@ import { SiteService } from './services/site';
         CarDetailBrandsComponent,
 
         //CarCompare
-        CarCompareComponent,
+        CarsCompareComponent,
         CarCompareHeaderComponent,
         CarCompareBreadCumbsComponent,
         CarCompareInfoComponent,
         CarCompareItemsComponent,
 
         //CarBooking
-        CarBookingComponent,
+        CarsBookComponent,
         CarBookingHeaderComponent,
         CarBookingBreadCumbsComponent,
-        CarBookingFeaturesComponent,
-        CarBookingCarsComponent,
-        CarBookingSubmitComponent,
+        CarsBookFeaturesComponent,
+        CarsBookCarsComponent,
+        CarsBookSubmitComponent,
 
         //Admin
         AdminLayoutComponent,

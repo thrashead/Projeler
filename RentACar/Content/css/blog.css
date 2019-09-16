@@ -199,8 +199,14 @@
     width: 70px;
     height: 70px;
     border-radius: 100%;
-    background: url(/RentACar/Content/img/media/persons/author.jpg) center center no-repeat;
+    /*background: url(/RentACar/Content/img/media/persons/author.jpg) center center no-repeat;*/
     margin-bottom: 35px;
+}
+
+.b-blog__posts-one-author-img img {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
 }
 
 .b-blog__posts-one-author {
@@ -549,9 +555,9 @@
     float:left;
 }
 
-.b-article__main-comments-one-text{
+/*.b-article__main-comments-one-text{
     margin-left: 100px;
-}
+}*/
 
 .b-article__main-comments-one-text-head{
     padding-bottom: 15px;
