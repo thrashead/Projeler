@@ -14,33 +14,33 @@
                      data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1"
                      data-navigation="true" data-auto-play="true" data-stop-on-hover="true">
 
-                    <div *ngFor="let group of blogList;">
-                        <div class="b-blog__posts-one wow zoomInUp" data-wow-delay="0.3s" *ngFor="let item of group?.Items">
+                    <div *ngFor="let group of blogList">
+                        <div class="b-blog__posts-one wow zoomInUp" data-wow-delay="0.3s" *ngFor="let blog of group?.Blogs">
                             <div class="row">
                                 <div class="col-xs-8">
                                     <header class="b-blog__posts-one-body-head s-lineDownLeft">
                                         <div class="b-blog__posts-one-body-head-notes">
-                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>{{ item?.SenderName }}</span>
-                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>{{ item?.SendDate }}</span>
-                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ item?.CommentCount }} {{ comment }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>{{ blog?.SenderName }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>{{ blog?.SendDate }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ blog?.CommentCount }} {{ comment }}</span>
                                         </div>
-                                        <h2 class="s-titleDet">{{ item?.Title }}</h2>
+                                        <h2 class="s-titleDet">{{ blog?.Title }}</h2>
                                     </header>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-4 pull-right">
-                                    <img class="img-responsive center-block" src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
+                                    <img class="img-responsive center-block" src="/RentACar/Uploads/{{ blog?.PictureUrl }}" />
                                 </div>
                                 <div class="col-xs-8 pull-right">
                                     <div class="b-blog__posts-one-info">
-                                        <p [innerHTML]="item?.Description"></p>
-                                        <a routerLink="/Blog/Detail/{{ item?.Url }}" class="btn m-btn m-readMore">{{ readmore }}<span class="fa fa-angle-right"></span></a>
-                                        <div class="b-blog__posts-one-social pull-right" *ngIf="item?.Facebook != null || item?.Twitter != null || item?.Pinterest != null">
+                                        <p [innerHTML]="blog?.Description"></p>
+                                        <a routerLink="/Blog/Detail/{{ blog?.Url }}" class="btn m-btn m-readMore">{{ readmore }}<span class="fa fa-angle-right"></span></a>
+                                        <div class="b-blog__posts-one-social pull-right" *ngIf="blog?.Facebook != null || blog?.Twitter != null || blog?.Pinterest != null">
                                             <em>{{ share }}</em>
-                                            <a *ngIf="item?.Facebook != null" target="_blank" href="{{ item?.Facebook }}"><span class="fa fa-facebook-square"></span></a>
-                                            <a *ngIf="item?.Twitter != null" target="_blank" href="{{ item?.Twitter }}"><span class="fa fa-twitter-square "></span></a>
-                                            <a *ngIf="item?.Pinterest != null" target="_blank" href="{{ item?.Pinterest }}"><span class="fa fa-pinterest-square"></span></a>
+                                            <a *ngIf="blog?.Facebook != null" target="_blank" href="{{ blog?.Facebook }}"><span class="fa fa-facebook-square"></span></a>
+                                            <a *ngIf="blog?.Twitter != null" target="_blank" href="{{ blog?.Twitter }}"><span class="fa fa-twitter-square "></span></a>
+                                            <a *ngIf="blog?.Pinterest != null" target="_blank" href="{{ blog?.Pinterest }}"><span class="fa fa-pinterest-square"></span></a>
                                         </div>
                                     </div>
                                 </div>

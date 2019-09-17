@@ -10,7 +10,7 @@ declare var DataTable;
 
 export class AdminCategoryIndexComponent {
     errorMsg: string;
-    KategoriList: {};
+    KategoriList: any;
 
     insertShow: boolean;
     updateShow: boolean;

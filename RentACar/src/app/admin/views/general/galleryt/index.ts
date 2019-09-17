@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminGalleryTIndexComponent {
     errorMsg: string;
-    GaleriDilList: {};
+    GaleriDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

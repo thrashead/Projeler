@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminPicturesIndexComponent {
     errorMsg: string;
-    ResimList: {};
+    ResimList: any;
 
     insertShow: boolean;
     updateShow: boolean;

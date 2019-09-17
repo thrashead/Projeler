@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminUserGroupsIndexComponent {
     errorMsg: string;
-    KullaniciGrupList: {};
+    KullaniciGrupList: any;
 
     insertShow: boolean;
     updateShow: boolean;

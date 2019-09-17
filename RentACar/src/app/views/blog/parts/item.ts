@@ -23,7 +23,7 @@ export class BlogItemComponent {
     mail: string;
     message: string;
 
-    blog: {};
+    blog: any = {};
     simPostList: any;
     commentList: any;
     pictureList: any;

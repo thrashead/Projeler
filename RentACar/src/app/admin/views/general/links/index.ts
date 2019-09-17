@@ -10,7 +10,7 @@ declare var DataTable;
 export class AdminLinksIndexComponent {
     errorMsg: string;
     linkTypeTitle: string;
-    BaglantiList: {};
+    BaglantiList: any;
 
     insertShow: boolean;
     updateShow: boolean;

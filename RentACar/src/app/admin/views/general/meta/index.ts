@@ -10,7 +10,7 @@ declare var DataTable;
 
 export class AdminMetaIndexComponent {
     errorMsg: string;
-    MetaList: {};
+    MetaList: any;
 
     insertShow: boolean;
     updateShow: boolean;

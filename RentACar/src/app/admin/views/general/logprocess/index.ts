@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminLogProcessIndexComponent {
     errorMsg: string;
-    LogIslemList: {};
+    LogIslemList: any;
 
     insertShow: boolean;
     updateShow: boolean;

@@ -10,7 +10,7 @@ declare var DataTable;
 
 export class AdminGalleryIndexComponent {
     errorMsg: string;
-    GaleriList: {};
+    GaleriList: any;
 
     insertShow: boolean;
     updateShow: boolean;

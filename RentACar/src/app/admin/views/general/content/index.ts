@@ -10,7 +10,7 @@ declare var DataTable;
 
 export class AdminContentIndexComponent {
     errorMsg: string;
-    IcerikList: {};
+    IcerikList: any;
 
     insertShow: boolean;
     updateShow: boolean;

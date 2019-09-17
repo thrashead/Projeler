@@ -11,7 +11,7 @@ declare var DataTable;
 export class AdminLinkTypesIndexComponent {
     errorMsg: string;
     mainTypeTitle: string;
-    BagliTiplerList: {};
+    BagliTiplerList: any;
 
     insertShow: boolean;
     updateShow: boolean;

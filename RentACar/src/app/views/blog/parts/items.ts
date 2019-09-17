@@ -41,21 +41,10 @@ export class BlogItemsComponent {
     //BlogContent
     GetBlogContent() {
         this.service.get("Site", "GetBlogPosts", 20).subscribe((resData: any) => {
-            let j: number = 0;
-            this.blogList = new Array();
-
-            resData.forEach((item, i) => {
-                if (i % 5 == 0) {
-                    this.blogList[j] = new Object();
-                    this.blogList[j].Items = new Array();
-                }
-
-                this.blogList[j].Items[i % 5] = item;
-
-                if (i % 5 == 4) {
-                    j++;
-                }
-            });
+            const length = Math.ceil(resData.length / 5);
+            this.blogList = Array.from({ length }).map((x, j) => ({
+                Blogs: resData.filter((y, i) => i >= 5 * j && i < 5 * (j + 1))
+            }));
         }, resError => this.errorMsg = resError);
     }
 }

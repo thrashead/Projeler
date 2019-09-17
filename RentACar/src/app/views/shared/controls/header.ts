@@ -10,11 +10,10 @@ export class HeaderComponent {
     paneladdress: string = "http://localhost/RentACar/Admin";
     errorMsg: string;
 
-    selectedFlag: string;
-    selectedLang: string;
 
-    panelLogin: string;
+    flag: any = {};
     lang: string;
+    panelLogin: string;
     autoService: string;
     toggleNav: string;
     phone: string;
@@ -22,14 +21,13 @@ export class HeaderComponent {
 
     address: string;
 
-    LangList: {};
+    LangList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangs();
-        this.GetSelectedLang();
         this.GetLangContent();
     }
 
@@ -37,16 +35,13 @@ export class HeaderComponent {
     GetLangs() {
         this.service.get("Site", "GetLangs").subscribe((resData: any) => {
             this.LangList = resData;
+
+            this.service.get("Site", "SelectedLang").subscribe((resData: any) => {
+                this.flag = resData;
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
-    GetSelectedLang() {
-        this.service.get("Site", "SelectedLang").subscribe((resData: any) => {
-            if (resData != null) {
-                this.selectedFlag = resData.Flag;
-                this.selectedLang = resData.ShortName;
-            }
-        }, resError => this.errorMsg = resError);
-    }
+
     OnLangSelect(id) {
         this.service.get("Site", "SelectLang", id).subscribe((resData: any) => {
             if (resData == true) {

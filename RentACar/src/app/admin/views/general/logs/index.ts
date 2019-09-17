@@ -10,7 +10,7 @@ declare var DataTable;
 
 export class AdminLogsIndexComponent {
     errorMsg: string;
-    LoglarList: {};
+    LoglarList: any;
 
     deleteShow: boolean;
 

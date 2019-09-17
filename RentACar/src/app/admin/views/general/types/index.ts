@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminTypesIndexComponent {
     errorMsg: string;
-    TiplerList: {};
+    TiplerList: any;
 
     insertShow: boolean;
     updateShow: boolean;

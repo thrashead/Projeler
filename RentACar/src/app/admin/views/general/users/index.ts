@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminUsersIndexComponent {
     errorMsg: string;
-    KullanicilarList: {};
+    KullanicilarList: any;
     CurrentUserID: number;
 
     insertShow: boolean;

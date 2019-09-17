@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminFilesIndexComponent {
     errorMsg: string;
-    DosyaList: {};
+    DosyaList: any;
 
     insertShow: boolean;
     updateShow: boolean;

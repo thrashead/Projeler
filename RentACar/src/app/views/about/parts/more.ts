@@ -9,9 +9,9 @@ import { SiteService } from '../../../services/site';
 export class AboutMoreComponent {
     errorMsg: string;
 
-    why: any;
+    why: any = {};
     more: any;
-    moreList: {};
+    moreList: any;
 
     constructor(private service: SiteService) {
     }

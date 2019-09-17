@@ -9,7 +9,7 @@ import { SiteService } from '../../../services/site';
 export class SharedBookNowComponent {
     errorMsg: string;
 
-    booknow: {};
+    booknow: any = {};
 
     constructor(private service: SiteService) {
     }

@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminContentTIndexComponent {
     errorMsg: string;
-    IcerikDilList: {};
+    IcerikDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

@@ -9,8 +9,8 @@ import { SiteService } from '../../../services/site';
 export class AboutWorkersComponent {
     errorMsg: string;
 
-    workers: any;
-    workerList: {};
+    workers: any = {};
+    workerList: any;
 
     constructor(private service: SiteService) {
     }

@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminTranslationIndexComponent {
     errorMsg: string;
-    DilList: {};
+    DilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

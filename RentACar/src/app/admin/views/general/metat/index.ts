@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminMetaTIndexComponent {
     errorMsg: string;
-    MetaDilList: {};
+    MetaDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

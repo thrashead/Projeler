@@ -10,7 +10,7 @@ declare var DataTable;
 
 export class AdminVisitorsIndexComponent {
     errorMsg: string;
-    ZiyaretciList: {};
+    ZiyaretciList: any;
 
     deleteShow: boolean;
 

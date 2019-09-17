@@ -11,7 +11,7 @@ export class HomeReviewComponent {
 
     picture: string;
 
-    ReviewList: {};
+    ReviewList: any;
 
     constructor(private service: SiteService) {
     }

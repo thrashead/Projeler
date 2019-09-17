@@ -9,7 +9,7 @@ declare var DataTable;
 
 export class AdminCategoryTIndexComponent {
     errorMsg: string;
-    KategoriDilList: {};
+    KategoriDilList: any;
 
     insertShow: boolean;
     updateShow: boolean;

@@ -28,7 +28,7 @@
                 <div class="b-topBar__lang">
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle='dropdown'>{{ lang }}</a>
-                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><img src="/RentACar/Uploads/{{ selectedFlag }}" /> {{ selectedLang }}<span class="fa fa-caret-down"></span></a>
+                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><img src="/RentACar/Uploads/{{ flag?.Flag }}" /> {{ flag?.ShortName }}<span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu h-lang">
                             <li *ngFor="let item of LangList">
                                 <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="javascript:;" (click)="OnLangSelect(item?.ID)">
@@ -66,8 +66,8 @@
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
                             <li><a data-url="Index" routerLink="/">{{ menu?.Home }}</a></li>
-                            <li><a data-url="List" routerLink="/Cars/List/tempurl">{{ menu?.List }}</a></li>
-                            <li><a data-url="Compare" routerLink="/Cars/Compare/tempurl">{{ menu?.Compare }}</a></li>
+                            <li><a data-url="Cars" routerLink="/Cars/List/tempurl">{{ menu?.List }}</a></li>
+                            <li><a data-url="Cars" routerLink="/Cars/Compare/tempurl">{{ menu?.Compare }}</a></li>
                             <li><a data-url="About" routerLink="/About">{{ menu?.About }}</a></li>
                             <li><a data-url="Blog" routerLink="/Blog">{{ menu?.Blog }}</a></li>
                             <li><a data-url="Contact" routerLink="/Contact">{{ menu?.Contact }}</a></li>
