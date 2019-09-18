@@ -1,0 +1,43 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-plane"></i> Ziyaretçiler</a></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-plane"></i></span>
+                        <h5>Ziyaretçiler</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>IP Adresi</th>
+                                    <th>Zaman</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of ZiyaretciList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.IPAddress }}</td>
+                                    <td>{{ item?.VisitTime }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a class="btn btn-primary btn-clear clrLink" *ngIf="deleteShow" data-toggle="modal" data-controller="Visitors" href="#clrData">Temizle</a>
+        </div>
+
+        <input id="hdnType" type="hidden" value="Visitors" />
+    </div>
+</div>
+
+<admin-copydelete></admin-copydelete>

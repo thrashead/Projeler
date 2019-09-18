@@ -1,0 +1,86 @@
+﻿<!--b-search-->
+<section class="b-search">
+    <div class="container">
+        <div class="b-search__main">
+            <!--form action="/Cars/List/tempurl" method="POST"-->
+            <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
+                <h2>{{ whichHome }}</h2>
+            </div>
+            <div class="b-search__main-type wow zoomInUp" data-wow-delay="0.3s">
+                <div class="col-xs-12 col-md-2 s-noLeftPadding">
+                    <h4>{{ homeType }}</h4>
+                </div>
+                <div class="col-xs-12 col-md-10">
+                    <div class="row">
+                        <div *ngFor="let item of ListTypes">
+                            <div class="col-xs-2" data-filter="radioMainSearch" [attr.data-type]="item?.Code">
+                                <input [attr.id]="['src' + item?.Code]" type="radio" name="radioMainSearch" />
+                                <label [attr.for]="['src' + item?.Code]" [attr.class]="['b-search__main-type-svg ' + item?.Code]">
+                                </label>
+                                <h5><label for="srcpickup">{{ item?.CategoryName }}</label></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="b-search__main-form wow zoomInUp" data-wow-delay="0.3s">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div class="m-firstSelects">
+                            <div class="col-xs-4">
+                                <select name="select1">
+                                    <option value="" selected="">{{ allText }}</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                                <p>{{ makeText }}</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <select name="select2">
+                                    <option value="" selected="">{{ allText }}</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                                <p>{{ modelText }}</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <select name="select3">
+                                    <option value="" selected="">{{ allText }}</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                                <p>{{ homeStatusText }}</p>
+                            </div>
+                        </div>
+                        <div class="m-secondSelects">
+                            <div class="col-xs-4">
+                                <select name="select4">
+                                    <option value="" selected="">{{ allText }}</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                                <p>{{ minYearText }}</p>
+                            </div>
+                            <div class="col-xs-4">
+                                <select name="select5">
+                                    <option value="" selected="">{{ allText }}</option>
+                                </select>
+                                <span class="fa fa-caret-down"></span>
+                                <p>{{ maxYearText }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12 text-left s-noPadding">
+                        <div class="b-search__main-form-range">
+                            <label>{{ priceRange }}</label>
+                            <div class="slider"></div>
+                            <input type="hidden" name="min" class="j-min" />
+                            <input type="hidden" name="max" class="j-max" />
+                        </div>
+                        <div class="b-search__main-form-submit">
+                            <a routerLink="/Cars/Book">{{ detailSearch }}</a>
+                            <button type="submit" class="btn m-btn">{{ search }}<span class="fa fa-angle-right"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--b-search-->

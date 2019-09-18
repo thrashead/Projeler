@@ -1,0 +1,12 @@
+﻿<div class="b-blog__aside-popular wow zoomInUp" data-wow-delay="0.3s">
+    <header class="s-lineDownLeft">
+        <h2 class="s-titleDet">{{ popular }}</h2>
+    </header>
+    <div class="b-blog__aside-popular-posts">
+        <div class="b-blog__aside-popular-posts-one" *ngFor="let item of popularList">
+            <img class="img-responsive" src="/RealEstate/Uploads/{{ item?.PictureUrl }}" alt="merc" />
+            <h4><a [routerLink]="['/Blog/Detail/' + item?.Url]">{{ item?.Title }}</a></h4>
+            <div class="b-blog__aside-popular-posts-one-date"><span class="fa fa-calendar-o"></span>{{ item?.SendDate }}</div>
+        </div>
+    </div>
+</div>

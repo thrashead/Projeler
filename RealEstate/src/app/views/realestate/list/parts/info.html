@@ -1,0 +1,42 @@
+﻿<!--b-infoBar-->
+<div class="b-infoBar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-xs-12">
+                <div class="b-infoBar__compare wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle b-infoBar__compare-item" data-toggle='dropdown'><span class="fa fa-clock-o"></span><!--RECENTLY VIEWED-->SON GÖRÜNTÜLENENLER<span class="fa fa-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 1</a></li>
+                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 2</a></li>
+                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 3</a></li>
+                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 4</a></li>
+                        </ul>
+                    </div>
+                    <a routerLink="/Cars/Compare/tempurl" class="b-infoBar__compare-item"><span class="fa fa-compress"></span><!--COMPARE VEHICLES-->ARAÇ KIYASLAMA: 2</a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-xs-12">
+                <div class="b-infoBar__select">
+                    <div><!--form method="post" action="/"-->
+                        <div class="b-infoBar__select-one wow zoomInUp" data-wow-delay="0.5s">
+                            <span class="b-infoBar__select-one-title"><!--SHOW ON PAGE-->ADET</span>
+                            <select name="select1" class="m-select">
+                                <option value="" selected="">10 <!--items-->Araç</option>
+                            </select>
+                            <span class="fa fa-caret-down"></span>
+                        </div>
+                        <div class="b-infoBar__select-one wow zoomInUp" data-wow-delay="0.5s">
+                            <span class="b-infoBar__select-one-title"><!--SORT BY-->SIRALAMA</span>
+                            <select name="select2" class="m-select">
+                                <option value="" selected=""><!--Last Added-->Son Eklenen</option>
+                            </select>
+                            <span class="fa fa-caret-down"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--b-infoBar-->

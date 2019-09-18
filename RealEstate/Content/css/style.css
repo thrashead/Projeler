@@ -1,0 +1,44 @@
+* {outline: none!important;}
+
+.b-review > img {margin-top: 60px;}
+.b-footer__company a {color:#fff;text-decoration:none;}
+.b-footer__company a:hover {color:#bababa;text-decoration:none;}
+#tabAutoBest > .tab > div > div {height: auto!important;}
+.b-topBar .b-nav__logo h3 a {float: left;font-size:22px!important;margin-top: 8px;}
+.b-asks__first-circle span {font-size:32px!important;}
+.b-asks__first-arrow span {font-size:20px!important;}
+.b-world__item a span.fa {font-size:12px!important;}
+.b-info__aside > a span {font-size:14px!important;}
+.b-count__item-circle span {font-size:40px!important;}
+.b-topBar__lang {padding-left: 20px;}
+ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
+.b-search {background-color:none!important;}
+.b-search * {text-transform:none!important;}
+.b-search__main-type-svg {width:108px;height:42px;background-repeat:no-repeat;background-position:center center;cursor:pointer;}
+.b-search__main-type-svg.apartment {background-image:url(/RealEstate/Content/img/listtypes/apartment.png);}
+.b-search__main-type-svg.apartment:hover {background-image:url(/RealEstate/Content/img/listtypes/apartment-hvr.png);}
+.b-search__main-type-svg.apartment.active {background-image:url(/RealEstate/Content/img/listtypes/apartment-hvr.png);}
+.b-search__main-type-svg.residence {background-image:url(/RealEstate/Content/img/listtypes/residence.png);}
+.b-search__main-type-svg.residence:hover {background-image:url(/RealEstate/Content/img/listtypes/residence-hvr.png);}
+.b-search__main-type-svg.residence.active {background-image:url(/RealEstate/Content/img/listtypes/residence-hvr.png);}
+.b-search__main-type-svg.workplace {background-image:url(/RealEstate/Content/img/listtypes/workplace.png);}
+.b-search__main-type-svg.workplace:hover {background-image:url(/RealEstate/Content/img/listtypes/workplace-hvr.png);}
+.b-search__main-type-svg.workplace.active {background-image:url(/RealEstate/Content/img/listtypes/workplace-hvr.png);}
+.b-search__main-type-svg.land {background-image:url(/RealEstate/Content/img/listtypes/land.png);}
+.b-search__main-type-svg.land:hover {background-image:url(/RealEstate/Content/img/listtypes/land-hvr.png);}
+.b-search__main-type-svg.land.active {background-image:url(/RealEstate/Content/img/listtypes/land-hvr.png);}
+.b-topBar__addr{overflow-x: hidden;white-space: nowrap;}
+.b-blog__posts-one-body-tags span.blogtags {color:#A1A1A1;}
+.b-world__item {text-align:center;}
+.b-world__item p {margin-bottom: 0px;}
+.b-world__item h2 {height:40px;}
+.b-world__item img.img-responsive {display:unset;}
+
+@media only screen and (max-width: 1200px) {
+    .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}
+}
+
+@media only screen and (max-width: 366px) {
+    .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {float:none;margin:0px auto;}
+    .b-search__main-type-svg {width:auto!important;}
+}

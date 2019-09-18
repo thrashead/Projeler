@@ -300,8 +300,14 @@ export class ScriptsComponent implements AfterViewChecked {
         $(".b-footer__content-nav ul li a").removeClass("active");
 
         if (Urling.controller != "") {
-            $(".b-nav__list ul li a[data-url='" + Urling.controller + "']").addClass("active");
-            $(".b-footer__content-nav ul li a[data-url='" + Urling.controller + "']").addClass("active");
+            if ($(".b-nav__list ul li a[data-url='" + Urling.controller + "']").length <= 0) {
+                $(".b-nav__list ul li a[data-url='" + Urling.action + "']").addClass("active");
+                $(".b-footer__content-nav ul li a[data-url='" + Urling.action + "']").addClass("active");
+            }
+            else {
+                $(".b-nav__list ul li a[data-url='" + Urling.controller + "']").addClass("active");
+                $(".b-footer__content-nav ul li a[data-url='" + Urling.controller + "']").addClass("active");
+            }
         }
         else {
             $(".b-nav__list ul li a[data-url='Index']").addClass("active");

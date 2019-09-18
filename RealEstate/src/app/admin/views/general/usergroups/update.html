@@ -1,0 +1,188 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a class="tip-bottom"><i class="icon-group"></i> Kullanıcı Grubu Düzenle</a></div>
+    </div>
+    <div class="container-fluid">
+        <form [formGroup]="duzenleForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+
+                <div class="editor-label">
+                    İsim
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" value="{{ model?.Name }}" />
+                    <!--Name-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kısa İsim
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortName" [ngModel]="model?.ShortName" formControlName="ShortName" type="text" value="{{ model?.ShortName }}" />
+                    <!--ShortName-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Açıklama
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Description" [ngModel]="model?.Description" formControlName="Description" type="text" value="{{ model?.Description }}" />
+                    <!--Description-->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!duzenleForm.valid" />
+                    <a routerLink="/Admin/UserGroups" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+        </form>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-group"></i></span>
+                        <h5>Bağlı Kullanıcılar</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Son Giriş</th>
+                                    <th>Aktif</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of model?.UsersList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.Username }}</td>
+                                    <td>{{ item?.LoginTime }}</td>
+                                    <td style="text-align:center;"><img *ngIf="item?.Active" class="active" /><img *ngIf="!item?.Active" class="passive" /></td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Users/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="rmvLink" *ngIf="CurrentUserID != item?.ID && removeShow" data-toggle="modal" href="#rmvData" data-controller="Users" [attr.data-id]="item?.ID">Kaldır</a></li>
+                                                <li><a class="dltLink" *ngIf="CurrentUserID != item?.ID && deleteShow" data-toggle="modal" href="#dltData" data-controller="Users" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a [routerLink]="['/Admin/Users/Insert/' + model?.ID]" class="btn btn-primary btn-add" *ngIf="insertShow">Kullanıcı Ekle</a>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-table"></i></span>
+                        <h5>Bağlı Kullanıcı Grup Tabloları</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tablo Adı</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of model?.UserGroupTablesList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.TypesAdi }}</td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/UserGroupTables/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="UserGroupTables" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a [routerLink]="['/Admin/UserGroupTables/Insert/' + model?.ID]" class="btn btn-primary btn-add" *ngIf="insertShow">Kullanıcı Grup Tablosu Ekle</a>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-key"></i></span>
+                        <h5>Bağlı Kullanıcı Grubu Hakları</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tablo Adı</th>
+                                    <th>İşlem Adı</th>
+                                    <th>İzin</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of model?.UserGroupRightsList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.UserGroupTablesAdi }}</td>
+                                    <td>{{ item?.UserGroupProcessAdi }}</td>
+                                    <td><img *ngIf="item?.Allow" class="active" /><img *ngIf="!item?.Allow" class="passive" /></td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/UserGroupRights/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="UserGroupRights" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagelinks">
+            <a [routerLink]="['/Admin/UserGroupRights/Insert/' + model?.ID]" class="btn btn-primary btn-add" *ngIf="insertShow">Kullanıcı Grup Hakkı Ekle</a>
+        </div>
+
+        <input id="hdnType" type="hidden" value="Users" />
+    </div>
+</div>
+
+<admin-copydelete></admin-copydelete>

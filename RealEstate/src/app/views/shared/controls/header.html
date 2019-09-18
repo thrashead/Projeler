@@ -1,0 +1,81 @@
+﻿<!-- Loader -->
+<div id="page-preloader"><span class="spinner"></span></div>
+<!-- Loader -->
+<!--b-topBar-->
+<header class="b-topBar wow slideInDown" data-wow-delay="0.7s">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div class="b-topBar__addr">
+                    <span class="fa fa-map-marker"></span>
+                    {{ address }}
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <div class="b-topBar__tel">
+                    <span class="fa fa-phone"></span>
+                    {{ phone }}
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+                <nav class="b-topBar__nav">
+                    <ul>
+                        <li><a href="{{ paneladdress }}" target="_blank">{{ panelLogin }}</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <div class="b-topBar__lang">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle='dropdown'>{{ lang }}</a>
+                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><img src="/RealEstate/Uploads/{{ flag?.Flag }}" /> {{ flag?.ShortName }}<span class="fa fa-caret-down"></span></a>
+                        <ul class="dropdown-menu h-lang">
+                            <li *ngFor="let item of LangList">
+                                <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="javascript:;" (click)="OnLangSelect(item?.ID)">
+                                    <img src="/RealEstate/Uploads/{{ item?.Flag }}" /> {{ item?.ShortName }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--b-topBar-->
+<!--b-nav-->
+<nav class="b-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-xs-4">
+                <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
+                    <h3><a routerLink="/" [innerHtml]="title.Description"></a></h3>
+                    <h2><a routerLink="/">{{ title.ShortDescription }}</a></h2>
+                </div>
+            </div>
+            <div class="col-sm-9 col-xs-8">
+                <div class="b-nav__list wow slideInRight" data-wow-delay="0.3s">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                            <span class="sr-only">{{ toggleNav }}</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-main-slide" id="nav">
+                        <ul class="navbar-nav-menu">
+                            <li><a data-url="Index" routerLink="/">{{ menu?.Home }}</a></li>
+                            <li><a data-url="Cars" routerLink="/Cars/List/tempurl">{{ menu?.List }}</a></li>
+                            <li><a data-url="Cars" routerLink="/Cars/Compare/tempurl">{{ menu?.Compare }}</a></li>
+                            <li><a data-url="About" routerLink="/About">{{ menu?.About }}</a></li>
+                            <li><a data-url="Blog" routerLink="/Blog">{{ menu?.Blog }}</a></li>
+                            <li><a data-url="Contact" routerLink="/Contact">{{ menu?.Contact }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--b-nav-->

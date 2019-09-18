@@ -9,7 +9,7 @@
                         <h3>{{ item?.Slogan }}</h3>
                         <h2>{{ item?.Title }}</h2>
                         <p>{{ item?.Model }} <span>{{ item?.Price }}</span></p>
-                        <a class="btn m-btn" routerLink="/Cars/Detail/tempurl">{{ detail }}<span class="fa fa-angle-right"></span></a>
+                        <a class="btn m-btn" [routerLink]="['/Cars/Detail/' + item?.Url]">{{ detail }}<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

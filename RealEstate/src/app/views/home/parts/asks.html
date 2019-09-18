@@ -1,0 +1,43 @@
+﻿<!--b-asks-->
+<section class="b-asks">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
+                <div class="b-asks__first wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
+                    <div class="b-asks__first-circle">
+                        <span class="fa fa-search"></span>
+                    </div>
+                    <div class="b-asks__first-info">
+                        <h2>{{ search?.ShortDescription }}</h2>
+                        <p>
+                            {{ search?.Description }}
+                        </p>
+                    </div>
+                    <div class="b-asks__first-arrow">
+                        <a routerLink="/Cars/List/tempurl"><span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
+                <div class="b-asks__first m-second wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">
+                    <div class="b-asks__first-circle">
+                        <span class="fa fa-exchange"></span>
+                    </div>
+                    <div class="b-asks__first-info">
+                        <h2>{{ compare?.ShortDescription }}</h2>
+                        <p>
+                            {{ compare?.Description }}
+                        </p>
+                    </div>
+                    <div class="b-asks__first-arrow">
+                        <a routerLink="/Cars/Compare/tempurl"><span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <p class="b-asks__call wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ callus }} : <span>{{ phone }}</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--b-asks-->

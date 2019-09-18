@@ -1,0 +1,122 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Workers Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+                <div class="editor-label">
+                    NameSurname
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="NameSurname" [ngModel]="model?.NameSurname" formControlName="NameSurname" type="text" value="{{ model?.NameSurname }}" />
+                    <br />
+                    <!-- NameSurname -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    PictureUrl
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <a href="/RealEstate/Uploads/{{ model?.PictureUrl }}" target="_blank"><img [src]="['/RealEstate/Uploads/thumb_' + model?.PictureUrl]" style="height:40px; max-width:80px;" /></a><br /><br />
+                    <input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="hidden" value="{{ model?.PictureUrl }}" />
+                    <input id="picTemp" type="file" (change)="onFileSelect($event)" name="picTemp" />
+                    <br />
+                    <!-- PictureUrl -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Facebook
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Facebook" [ngModel]="model?.Facebook" formControlName="Facebook" type="text" value="{{ model?.Facebook }}" />
+                    <br />
+                    <!-- Facebook -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Twitter
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Twitter" [ngModel]="model?.Twitter" formControlName="Twitter" type="text" value="{{ model?.Twitter }}" />
+                    <br />
+                    <!-- Twitter -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Pinterest
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Pinterest" [ngModel]="model?.Pinterest" formControlName="Pinterest" type="text" value="{{ model?.Pinterest }}" />
+                    <br />
+                    <!-- Pinterest -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+                    <a routerLink="/Admin/Workers" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+		</form>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+						<h5>Bağlı WorkersT</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Position</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.WorkersTList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Position }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/WorkersT/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="WorkersT" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="WorkersT" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+			<a routerLink="/Admin/WorkersT/Insert" class="btn btn-primary btn-add">WorkersT Ekle</a>
+		</div>
+	</div>
+</div>
+
+<admin-copydelete></admin-copydelete>
