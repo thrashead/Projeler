@@ -1,0 +1,153 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarDetailsMechanical Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+				</div>
+				<div class="editor-label">
+					Bağlı Cars
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="CarID" [ngModel]="model?.CarID" formControlName="CarID"><option *ngFor="let item of model?.CarsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- CarID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı CarFeatsEngineType
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="EngineTypeID" [ngModel]="model?.EngineTypeID" formControlName="EngineTypeID"><option *ngFor="let item of model?.CarFeatsEngineTypeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- EngineTypeID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					EngineCapacity
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="EngineCapacity" [ngModel]="model?.EngineCapacity" formControlName="EngineCapacity" type="number" value="{{ model?.EngineCapacity }}" />
+					<br />
+					<!-- EngineCapacity -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Cylinders
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Cylinders" [ngModel]="model?.Cylinders" formControlName="Cylinders" type="number" value="{{ model?.Cylinders }}" />
+					<br />
+					<!-- Cylinders -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Horsepower
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Horsepower" [ngModel]="model?.Horsepower" formControlName="Horsepower" type="number" value="{{ model?.Horsepower }}" />
+					<br />
+					<!-- Horsepower -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı CarFeatsFuelType
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="FuelTypeID" [ngModel]="model?.FuelTypeID" formControlName="FuelTypeID"><option *ngFor="let item of model?.CarFeatsFuelTypeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- FuelTypeID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					FuelCapacity
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="FuelCapacity" [ngModel]="model?.FuelCapacity" formControlName="FuelCapacity" type="number" value="{{ model?.FuelCapacity }}" />
+					<br />
+					<!-- FuelCapacity -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					CityFuelEconomy
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="CityFuelEconomy" [ngModel]="model?.CityFuelEconomy" formControlName="CityFuelEconomy" type="text" value="{{ model?.CityFuelEconomy }}" />
+					<br />
+					<!-- CityFuelEconomy -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					HighwayFuelEconomy
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="HighwayFuelEconomy" [ngModel]="model?.HighwayFuelEconomy" formControlName="HighwayFuelEconomy" type="text" value="{{ model?.HighwayFuelEconomy }}" />
+					<br />
+					<!-- HighwayFuelEconomy -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı CarFeatsGearsType
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="GearsTypeID" [ngModel]="model?.GearsTypeID" formControlName="GearsTypeID"><option *ngFor="let item of model?.CarFeatsGearsTypeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- GearsTypeID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					GearsNumber
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="GearsNumber" [ngModel]="model?.GearsNumber" formControlName="GearsNumber" type="number" value="{{ model?.GearsNumber }}" />
+					<br />
+					<!-- GearsNumber -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Drivetrain
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Drivetrain" [ngModel]="model?.Drivetrain" formControlName="Drivetrain" type="number" value="{{ model?.Drivetrain }}" />
+					<br />
+					<!-- Drivetrain -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+					<a routerLink="/Admin/CarDetailsMechanical" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

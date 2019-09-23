@@ -1,0 +1,440 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarDetailsFeatures Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+				</div>
+				<div class="editor-label">
+					Bağlı Cars
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="CarID" [ngModel]="model?.CarID" formControlName="CarID"><option *ngFor="let item of model?.CarsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- CarID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					ABS
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="ABS" [ngModel]="model?.ABS" formControlName="ABS" type="checkbox" checked="checked" *ngIf="model?.ABS" />
+					<input id="ABS" [ngModel]="model?.ABS" formControlName="ABS" type="checkbox" *ngIf="!model?.ABS" />
+					<br />
+					<!-- ABS -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Airbag
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Airbag" [ngModel]="model?.Airbag" formControlName="Airbag" type="checkbox" checked="checked" *ngIf="model?.Airbag" />
+					<input id="Airbag" [ngModel]="model?.Airbag" formControlName="Airbag" type="checkbox" *ngIf="!model?.Airbag" />
+					<br />
+					<!-- Airbag -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					AirConditioning
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="AirConditioning" [ngModel]="model?.AirConditioning" formControlName="AirConditioning" type="checkbox" checked="checked" *ngIf="model?.AirConditioning" />
+					<input id="AirConditioning" [ngModel]="model?.AirConditioning" formControlName="AirConditioning" type="checkbox" *ngIf="!model?.AirConditioning" />
+					<br />
+					<!-- AirConditioning -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					AlloyTires
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="AlloyTires" [ngModel]="model?.AlloyTires" formControlName="AlloyTires" type="checkbox" checked="checked" *ngIf="model?.AlloyTires" />
+					<input id="AlloyTires" [ngModel]="model?.AlloyTires" formControlName="AlloyTires" type="checkbox" *ngIf="!model?.AlloyTires" />
+					<br />
+					<!-- AlloyTires -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					AntiTheft
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="AntiTheft" [ngModel]="model?.AntiTheft" formControlName="AntiTheft" type="checkbox" checked="checked" *ngIf="model?.AntiTheft" />
+					<input id="AntiTheft" [ngModel]="model?.AntiTheft" formControlName="AntiTheft" type="checkbox" *ngIf="!model?.AntiTheft" />
+					<br />
+					<!-- AntiTheft -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					AudioRemoteControl
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="AudioRemoteControl" [ngModel]="model?.AudioRemoteControl" formControlName="AudioRemoteControl" type="checkbox" checked="checked" *ngIf="model?.AudioRemoteControl" />
+					<input id="AudioRemoteControl" [ngModel]="model?.AudioRemoteControl" formControlName="AudioRemoteControl" type="checkbox" *ngIf="!model?.AudioRemoteControl" />
+					<br />
+					<!-- AudioRemoteControl -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					CDPlayer
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="CDPlayer" [ngModel]="model?.CDPlayer" formControlName="CDPlayer" type="checkbox" checked="checked" *ngIf="model?.CDPlayer" />
+					<input id="CDPlayer" [ngModel]="model?.CDPlayer" formControlName="CDPlayer" type="checkbox" *ngIf="!model?.CDPlayer" />
+					<br />
+					<!-- CDPlayer -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					CentralLocking
+				</div>
+				<div class="clear"></div>
+                <div class="editor-field">
+                    <input id="CentralLocking" [ngModel]="model?.CentralLocking" formControlName="CentralLocking" type="checkbox" checked="checked" *ngIf="model?.CentralLocking" />
+                    <input id="CentralLocking" [ngModel]="model?.CentralLocking" formControlName="CentralLocking" type="checkbox" *ngIf="!model?.CentralLocking" />
+                    <br />
+                    <!-- CentralLocking -->
+                </div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					CooledSeats
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="CooledSeats" [ngModel]="model?.CooledSeats" formControlName="CooledSeats" type="checkbox" checked="checked" *ngIf="model?.CooledSeats" />
+					<input id="CooledSeats" [ngModel]="model?.CooledSeats" formControlName="CooledSeats" type="checkbox" *ngIf="!model?.CooledSeats" />
+					<br />
+					<!-- CooledSeats -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					EngineImmobiliser
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="EngineImmobiliser" [ngModel]="model?.EngineImmobiliser" formControlName="EngineImmobiliser" type="checkbox" checked="checked" *ngIf="model?.EngineImmobiliser" />
+					<input id="EngineImmobiliser" [ngModel]="model?.EngineImmobiliser" formControlName="EngineImmobiliser" type="checkbox" *ngIf="!model?.EngineImmobiliser" />
+					<br />
+					<!-- EngineImmobiliser -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					FogLamps
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="FogLamps" [ngModel]="model?.FogLamps" formControlName="FogLamps" type="checkbox" checked="checked" *ngIf="model?.FogLamps" />
+					<input id="FogLamps" [ngModel]="model?.FogLamps" formControlName="FogLamps" type="checkbox" *ngIf="!model?.FogLamps" />
+					<br />
+					<!-- FogLamps -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					FoldingSeats
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="FoldingSeats" [ngModel]="model?.FoldingSeats" formControlName="FoldingSeats" type="checkbox" checked="checked" *ngIf="model?.FoldingSeats" />
+					<input id="FoldingSeats" [ngModel]="model?.FoldingSeats" formControlName="FoldingSeats" type="checkbox" *ngIf="!model?.FoldingSeats" />
+					<br />
+					<!-- FoldingSeats -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					GPS
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="GPS" [ngModel]="model?.GPS" formControlName="GPS" type="checkbox" checked="checked" *ngIf="model?.GPS" />
+					<input id="GPS" [ngModel]="model?.GPS" formControlName="GPS" type="checkbox" *ngIf="!model?.GPS" />
+					<br />
+					<!-- GPS -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					HeatedDoorMirrors
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="HeatedDoorMirrors" [ngModel]="model?.HeatedDoorMirrors" formControlName="HeatedDoorMirrors" type="checkbox" checked="checked" *ngIf="model?.HeatedDoorMirrors" />
+					<input id="HeatedDoorMirrors" [ngModel]="model?.HeatedDoorMirrors" formControlName="HeatedDoorMirrors" type="checkbox" *ngIf="!model?.HeatedDoorMirrors" />
+					<br />
+					<!-- HeatedDoorMirrors -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					HeatedSeats
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="HeatedSeats" [ngModel]="model?.HeatedSeats" formControlName="HeatedSeats" type="checkbox" checked="checked" *ngIf="model?.HeatedSeats" />
+					<input id="HeatedSeats" [ngModel]="model?.HeatedSeats" formControlName="HeatedSeats" type="checkbox" *ngIf="!model?.HeatedSeats" />
+					<br />
+					<!-- HeatedSeats -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					HeadlightCovers
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="HeadlightCovers" [ngModel]="model?.HeadlightCovers" formControlName="HeadlightCovers" type="checkbox" checked="checked" *ngIf="model?.HeadlightCovers" />
+					<input id="HeadlightCovers" [ngModel]="model?.HeadlightCovers" formControlName="HeadlightCovers" type="checkbox" *ngIf="!model?.HeadlightCovers" />
+					<br />
+					<!-- HeadlightCovers -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					KeylessEntry
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="KeylessEntry" [ngModel]="model?.KeylessEntry" formControlName="KeylessEntry" type="checkbox" checked="checked" *ngIf="model?.KeylessEntry" />
+					<input id="KeylessEntry" [ngModel]="model?.KeylessEntry" formControlName="KeylessEntry" type="checkbox" *ngIf="!model?.KeylessEntry" />
+					<br />
+					<!-- KeylessEntry -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					LeatherSeats
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="LeatherSeats" [ngModel]="model?.LeatherSeats" formControlName="LeatherSeats" type="checkbox" checked="checked" *ngIf="model?.LeatherSeats" />
+					<input id="LeatherSeats" [ngModel]="model?.LeatherSeats" formControlName="LeatherSeats" type="checkbox" *ngIf="!model?.LeatherSeats" />
+					<br />
+					<!-- LeatherSeats -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					LeatherTrim
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="LeatherTrim" [ngModel]="model?.LeatherTrim" formControlName="LeatherTrim" type="checkbox" checked="checked" *ngIf="model?.LeatherTrim" />
+					<input id="LeatherTrim" [ngModel]="model?.LeatherTrim" formControlName="LeatherTrim" type="checkbox" *ngIf="!model?.LeatherTrim" />
+					<br />
+					<!-- LeatherTrim -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					LPG
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="LPG" [ngModel]="model?.LPG" formControlName="LPG" type="checkbox" checked="checked" *ngIf="model?.LPG" />
+					<input id="LPG" [ngModel]="model?.LPG" formControlName="LPG" type="checkbox" *ngIf="!model?.LPG" />
+					<br />
+					<!-- LPG -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PassengerAirbag
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="PassengerAirbag" [ngModel]="model?.PassengerAirbag" formControlName="PassengerAirbag" type="checkbox" checked="checked" *ngIf="model?.PassengerAirbag" />
+					<input id="PassengerAirbag" [ngModel]="model?.PassengerAirbag" formControlName="PassengerAirbag" type="checkbox" *ngIf="!model?.PassengerAirbag" />
+					<br />
+					<!-- PassengerAirbag -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PowerGlass
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="PowerGlass" [ngModel]="model?.PowerGlass" formControlName="PowerGlass" type="checkbox" checked="checked" *ngIf="model?.PowerGlass" />
+					<input id="PowerGlass" [ngModel]="model?.PowerGlass" formControlName="PowerGlass" type="checkbox" *ngIf="!model?.PowerGlass" />
+					<br />
+					<!-- PowerGlass -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PowerMirrors
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="PowerMirrors" [ngModel]="model?.PowerMirrors" formControlName="PowerMirrors" type="checkbox" checked="checked" *ngIf="model?.PowerMirrors" />
+					<input id="PowerMirrors" [ngModel]="model?.PowerMirrors" formControlName="PowerMirrors" type="checkbox" *ngIf="!model?.PowerMirrors" />
+					<br />
+					<!-- PowerMirrors -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PowerSeats
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="PowerSeats" [ngModel]="model?.PowerSeats" formControlName="PowerSeats" type="checkbox" checked="checked" *ngIf="model?.PowerSeats" />
+					<input id="PowerSeats" [ngModel]="model?.PowerSeats" formControlName="PowerSeats" type="checkbox" *ngIf="!model?.PowerSeats" />
+					<br />
+					<!-- PowerSeats -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PowerSteering
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="PowerSteering" [ngModel]="model?.PowerSteering" formControlName="PowerSteering" type="checkbox" checked="checked" *ngIf="model?.PowerSteering" />
+					<input id="PowerSteering" [ngModel]="model?.PowerSteering" formControlName="PowerSteering" type="checkbox" *ngIf="!model?.PowerSteering" />
+					<br />
+					<!-- PowerSteering -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					PowerWindows
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="PowerWindows" [ngModel]="model?.PowerWindows" formControlName="PowerWindows" type="checkbox" checked="checked" *ngIf="model?.PowerWindows" />
+					<input id="PowerWindows" [ngModel]="model?.PowerWindows" formControlName="PowerWindows" type="checkbox" *ngIf="!model?.PowerWindows" />
+					<br />
+					<!-- PowerWindows -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					RemoteStart
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="RemoteStart" [ngModel]="model?.RemoteStart" formControlName="RemoteStart" type="checkbox" checked="checked" *ngIf="model?.RemoteStart" />
+					<input id="RemoteStart" [ngModel]="model?.RemoteStart" formControlName="RemoteStart" type="checkbox" *ngIf="!model?.RemoteStart" />
+					<br />
+					<!-- RemoteStart -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					SecuritySystem
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="SecuritySystem" [ngModel]="model?.SecuritySystem" formControlName="SecuritySystem" type="checkbox" checked="checked" *ngIf="model?.SecuritySystem" />
+					<input id="SecuritySystem" [ngModel]="model?.SecuritySystem" formControlName="SecuritySystem" type="checkbox" *ngIf="!model?.SecuritySystem" />
+					<br />
+					<!-- SecuritySystem -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					SideAirbag
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="SideAirbag" [ngModel]="model?.SideAirbag" formControlName="SideAirbag" type="checkbox" checked="checked" *ngIf="model?.SideAirbag" />
+					<input id="SideAirbag" [ngModel]="model?.SideAirbag" formControlName="SideAirbag" type="checkbox" *ngIf="!model?.SideAirbag" />
+					<br />
+					<!-- SideAirbag -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Spoiler
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Spoiler" [ngModel]="model?.Spoiler" formControlName="Spoiler" type="checkbox" checked="checked" *ngIf="model?.Spoiler" />
+					<input id="Spoiler" [ngModel]="model?.Spoiler" formControlName="Spoiler" type="checkbox" *ngIf="!model?.Spoiler" />
+					<br />
+					<!-- Spoiler -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					TintedWindows
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="TintedWindows" [ngModel]="model?.TintedWindows" formControlName="TintedWindows" type="checkbox" checked="checked" *ngIf="model?.TintedWindows" />
+					<input id="TintedWindows" [ngModel]="model?.TintedWindows" formControlName="TintedWindows" type="checkbox" *ngIf="!model?.TintedWindows" />
+					<br />
+					<!-- TintedWindows -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					TowBar
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="TowBar" [ngModel]="model?.TowBar" formControlName="TowBar" type="checkbox" checked="checked" *ngIf="model?.TowBar" />
+					<input id="TowBar" [ngModel]="model?.TowBar" formControlName="TowBar" type="checkbox" *ngIf="!model?.TowBar" />
+					<br />
+					<!-- TowBar -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					TripComputer
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="TripComputer" [ngModel]="model?.TripComputer" formControlName="TripComputer" type="checkbox" checked="checked" *ngIf="model?.TripComputer" />
+					<input id="TripComputer" [ngModel]="model?.TripComputer" formControlName="TripComputer" type="checkbox" *ngIf="!model?.TripComputer" />
+					<br />
+					<!-- TripComputer -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Warrenty
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Warrenty" [ngModel]="model?.Warrenty" formControlName="Warrenty" type="checkbox" checked="checked" *ngIf="model?.Warrenty" />
+					<input id="Warrenty" [ngModel]="model?.Warrenty" formControlName="Warrenty" type="checkbox" *ngIf="!model?.Warrenty" />
+					<br />
+					<!-- Warrenty -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+					<a routerLink="/Admin/CarDetailsFeatures" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

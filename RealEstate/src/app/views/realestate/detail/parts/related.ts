@@ -5,7 +5,7 @@
     templateUrl: './related.html'
 })
 
-export class CarDetailRelatedComponent {
+export class REDetailRelatedComponent {
     ngOnInit() {
 
     }

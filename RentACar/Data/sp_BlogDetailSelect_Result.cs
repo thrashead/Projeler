@@ -14,17 +14,17 @@ namespace RentACar.Data
     public partial class sp_BlogDetailSelect_Result
     {
         public int ID { get; set; }
-        public string Title { get; set; }
-        public string ShortDescription { get; set; }
-        public string Description { get; set; }
-        public string ShortDescription2 { get; set; }
-        public string Description2 { get; set; }
         public string Tags { get; set; }
         public string Code { get; set; }
         public string Url { get; set; }
         public string SendDate { get; set; }
         public string PictureUrl { get; set; }
         public Nullable<int> ReadTime { get; set; }
+        public string Title { get; set; }
+        public string ShortDescription { get; set; }
+        public string Description { get; set; }
+        public string ShortDescription2 { get; set; }
+        public string Description2 { get; set; }
         public string SenderName { get; set; }
         public string SenderPicture { get; set; }
         public string Facebook { get; set; }

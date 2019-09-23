@@ -2,8 +2,7 @@
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import ClassicEditor from '../../../../../../Content/admin/js/ckeditor/ckeditor.js';
-import * as $ from "jquery";
+import { AdminLib } from '../../../lib/methods';
 
 @Component({
     templateUrl: './insert.html'
@@ -28,19 +27,8 @@ export class AdminCategoryTInsertComponent {
                 this.model = resData;
             }, resError => this.errorMsg = resError);
         });
-    
-        setTimeout(function () {
-            ClassicEditor
-                .create(document.querySelector('#Description'), {
-                    //toolbar: ['bold', 'italic']
-                })
-                .then(editor => {
-                    console.log(editor);
-                })
-                .catch(err => {
-                    console.error(err.stack);
-                });
-        }, 1500);
+
+        AdminLib.ConvertToCKEditor("Description", 1500);
 
         this.ekleForm = this.formBuilder.group({
             CatID: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -59,7 +47,7 @@ export class AdminCategoryTInsertComponent {
         this.data.CategoryName = this.ekleForm.get("CategoryName").value;
         this.data.ShortText1 = this.ekleForm.get("ShortText1").value;
         this.data.ShortText2 = this.ekleForm.get("ShortText2").value;
-        this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
+        this.data.Description = AdminLib.CKValue("Description");
 
         this.service.post("CategoryT", "Insert", this.data)
             .subscribe((answer: any) => {

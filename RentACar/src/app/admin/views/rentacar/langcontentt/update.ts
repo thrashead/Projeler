@@ -3,8 +3,7 @@ import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import * as $ from 'jquery';
-import ClassicEditor from "../../../../../../Content/admin/js/ckeditor/ckeditor.js";
+import { AdminLib } from '../../../lib/methods';
 
 @Component({
 	templateUrl: './update.html'
@@ -32,21 +31,8 @@ export class AdminLangContentTUpdateComponent implements AfterViewChecked {
 		this.callTable = true;
 		this.FillData();
 
-		setTimeout(function () {
-			ClassicEditor
-				.create(document.querySelector('#Description'), {
-				})
-				.then(editor => {
-					console.log(editor);
-				});
-
-            ClassicEditor
-                .create(document.querySelector('#Description2'), {
-                })
-                .then(editor => {
-                    console.log(editor);
-                });
-        }, 1500);
+        AdminLib.ConvertToCKEditor("Description", 1500);
+        AdminLib.ConvertToCKEditor("Description2", 1500);
 
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -85,9 +71,9 @@ export class AdminLangContentTUpdateComponent implements AfterViewChecked {
 		this.data.LangContentID = this.updateForm.get("LangContentID").value;
 		this.data.TransID = this.updateForm.get("TransID").value;
 		this.data.ShortDescription = this.updateForm.get("ShortDescription").value;
-        this.data.Description = $(".ck-content[data-id='Description']").html().replace("<p>", "").replace("</p>", "");
+        this.data.Description = AdminLib.CKValue("Description");
         this.data.ShortDescription2 = this.updateForm.get("ShortDescription2").value;
-        this.data.Description2 = $(".ck-content[data-id='Description2']").html().replace("<p>", "").replace("</p>", "");
+        this.data.Description2 = AdminLib.CKValue("Description2");
 
 		this.service.post("LangContentT", "Update", this.data)
 			.subscribe((answer: any) => {

@@ -60,6 +60,7 @@ Global.asax
 *.tt
 *.map
 *.json
+*.txt
 ddaccordion*
 easySlider*
 jconfirmaction*

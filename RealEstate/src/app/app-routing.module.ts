@@ -7,13 +7,13 @@ import { AboutComponent } from './views/about/index';
 import { BlogComponent } from './views/blog/index';
 import { BlogDetailComponent } from './views/blog/detail';
 import { ContactComponent } from './views/contact/index';
-import { CarsListComponent } from './views/car/list/index';
-import { CarsDetailComponent } from './views/car/detail/index';
-import { CarsCompareComponent } from './views/car/compare/index';
-import { CarsBookComponent } from './views/car/booking/index';
-import { CarsBookFeaturesComponent } from './views/car/booking/features';
-import { CarsBookCarsComponent } from './views/car/booking/cars';
-import { CarsBookSubmitComponent } from './views/car/booking/submit';
+import { REListComponent } from './views/realestate/list/index';
+import { REDetailComponent } from './views/realestate/detail/index';
+import { RECompareComponent } from './views/realestate/compare/index';
+import { REBookComponent } from './views/realestate/booking/index';
+import { REBookFeaturesComponent } from './views/realestate/booking/features';
+import { REBookCarsComponent } from './views/realestate/booking/cars';
+import { REBookSubmitComponent } from './views/realestate/booking/submit';
 
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminLoginComponent } from './admin/views/home/login';
@@ -183,15 +183,15 @@ const routes: Routes = [
             { path: 'Blog/Category/:url', component: BlogComponent },
             { path: 'Blog/Detail/:url', component: BlogDetailComponent },
             { path: 'Contact', component: ContactComponent },
-            { path: 'Cars', component: CarsListComponent },
-            { path: 'Cars/List/:url', component: CarsListComponent },
-            { path: 'Cars/Detail/:url', component: CarsDetailComponent },
-            { path: 'Cars/Compare/:url', component: CarsCompareComponent },
-            { path: 'Cars/Book', component: CarsBookComponent },
-            { path: 'Cars/Book/Index', component: CarsBookComponent },
-            { path: 'Cars/Book/Features', component: CarsBookFeaturesComponent },
-            { path: 'Cars/Book/Cars', component: CarsBookCarsComponent },
-            { path: 'Cars/Book/Submit', component: CarsBookSubmitComponent }
+            { path: 'RealEstate', component: REListComponent },
+            { path: 'RealEstate/List/:url', component: REListComponent },
+            { path: 'RealEstate/Detail/:url', component: REDetailComponent },
+            { path: 'RealEstate/Compare/:url', component: RECompareComponent },
+            { path: 'RealEstate/Book', component: REBookComponent },
+            { path: 'RealEstate/Book/Index', component: REBookComponent },
+            { path: 'RealEstate/Book/Features', component: REBookFeaturesComponent },
+            { path: 'RealEstate/Book/Cars', component: REBookCarsComponent },
+            { path: 'RealEstate/Book/Submit', component: REBookSubmitComponent }
         ]
     },
 

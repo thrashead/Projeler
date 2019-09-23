@@ -3,7 +3,7 @@ import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import ClassicEditor from '../../../../../../Content/admin/js/ckeditor/ckeditor.js';
+import { AdminLib } from '../../../lib/methods';
 
 @Component({
 	templateUrl: './insert.html'
@@ -25,14 +25,7 @@ export class AdminNoLangContentInsertComponent {
 	ngOnInit() {
 		this.data = new Object();
 
-		setTimeout(function () {
-			ClassicEditor
-				.create(document.querySelector('#Description'), {
-				})
-				.then(editor => {
-					console.log(editor);
-				});
-        }, 1500);
+        AdminLib.ConvertToCKEditor("Description", 1500);
 
 		this.insertForm = this.formBuilder.group({
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
@@ -52,7 +45,7 @@ export class AdminNoLangContentInsertComponent {
 		this.data.Code = this.insertForm.get("Code").value;
 		this.data.ShortCode = this.insertForm.get("ShortCode").value;
 		this.data.ShortDescription = this.insertForm.get("ShortDescription").value;
-		this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
+		this.data.Description = AdminLib.CKValue("Description");
 
 		this.service.post("NoLangContent", "Insert", this.data)
 			.subscribe((answer: any) => {

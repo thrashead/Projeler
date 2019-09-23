@@ -3,8 +3,7 @@ import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import * as $ from 'jquery';
-import ClassicEditor from "../../../../../../Content/admin/js/ckeditor/ckeditor.js";
+import { AdminLib } from '../../../lib/methods';
 
 @Component({
 	templateUrl: './update.html'
@@ -32,15 +31,7 @@ export class AdminNoLangContentUpdateComponent {
 		this.callTable = true;
 		this.FillData();
 
-		setTimeout(function () {
-			ClassicEditor
-				.create(document.querySelector('#Description'), {
-				})
-				.then(editor => {
-					console.log(editor);
-				});
-
-        }, 1500);
+        AdminLib.ConvertToCKEditor("Description", 1500);
 
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -74,7 +65,7 @@ export class AdminNoLangContentUpdateComponent {
 		this.data.Code = this.updateForm.get("Code").value;
 		this.data.ShortCode = this.updateForm.get("ShortCode").value;
 		this.data.ShortDescription = this.updateForm.get("ShortDescription").value;
-		this.data.Description = $(".ck-content").html().replace("<p>", "").replace("</p>", "");
+		this.data.Description = AdminLib.CKValue("Description");
 
 		this.service.post("NoLangContent", "Update", this.data)
 			.subscribe((answer: any) => {

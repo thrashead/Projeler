@@ -6,7 +6,7 @@ import { SiteService } from '../../../../services/site';
     templateUrl: './header.html'
 })
 
-export class CarListHeaderComponent {
+export class REListHeaderComponent {
     errorMsg: string;
 
     banner: string;

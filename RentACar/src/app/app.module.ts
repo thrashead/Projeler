@@ -57,36 +57,36 @@ import { ContactBreadCumbsComponent } from './views/contact/parts/breadcumbs';
 import { ContactMapComponent } from './views/contact/parts/map';
 import { ContactFormComponent } from './views/contact/parts/form';
 
-//CarList
-import { CarsListComponent } from './views/car/list';
-import { CarListHeaderComponent } from './views/car/list/parts/header';
-import { CarListBreadCumbsComponent } from './views/car/list/parts/breadcumbs';
-import { CarListInfoComponent } from './views/car/list/parts/info';
-import { CarListItemsComponent } from './views/car/list/parts/items';
+//CarsList
+import { CarsListComponent } from './views/cars/list';
+import { CarsListHeaderComponent } from './views/cars/list/parts/header';
+import { CarsListBreadCumbsComponent } from './views/cars/list/parts/breadcumbs';
+import { CarsListInfoComponent } from './views/cars/list/parts/info';
+import { CarsListItemsComponent } from './views/cars/list/parts/items';
 
-//CarDetail
-import { CarsDetailComponent } from './views/car/detail';
-import { CarDetailHeaderComponent } from './views/car/detail/parts/header';
-import { CarDetailBreadCumbsComponent } from './views/car/detail/parts/breadcumbs';
-import { CarDetailInfoComponent } from './views/car/detail/parts/info';
-import { CarDetailItemComponent } from './views/car/detail/parts/item';
-import { CarDetailRelatedComponent } from './views/car/detail/parts/related';
-import { CarDetailBrandsComponent } from './views/car/detail/parts/brands';
+//CarsDetail
+import { CarsDetailComponent } from './views/cars/detail';
+import { CarsDetailHeaderComponent } from './views/cars/detail/parts/header';
+import { CarsDetailBreadCumbsComponent } from './views/cars/detail/parts/breadcumbs';
+import { CarsDetailInfoComponent } from './views/cars/detail/parts/info';
+import { CarsDetailItemComponent } from './views/cars/detail/parts/item';
+import { CarsDetailRelatedComponent } from './views/cars/detail/parts/related';
+import { CarsDetailBrandsComponent } from './views/cars/detail/parts/brands';
 
-//CarCompare
-import { CarsCompareComponent } from './views/car/compare';
-import { CarCompareHeaderComponent } from './views/car/compare/parts/header';
-import { CarCompareBreadCumbsComponent } from './views/car/compare/parts/breadcumbs';
-import { CarCompareInfoComponent } from './views/car/compare/parts/info';
-import { CarCompareItemsComponent } from './views/car/compare/parts/items';
+//CarsCompare
+import { CarsCompareComponent } from './views/cars/compare';
+import { CarsCompareHeaderComponent } from './views/cars/compare/parts/header';
+import { CarsCompareBreadCumbsComponent } from './views/cars/compare/parts/breadcumbs';
+import { CarsCompareInfoComponent } from './views/cars/compare/parts/info';
+import { CarsCompareItemsComponent } from './views/cars/compare/parts/items';
 
-//CarBooking
-import { CarsBookComponent } from './views/car/booking';
-import { CarBookingHeaderComponent } from './views/car/booking/parts/header';
-import { CarBookingBreadCumbsComponent } from './views/car/booking/parts/breadcumbs';
-import { CarsBookFeaturesComponent } from './views/car/booking/features';
-import { CarsBookCarsComponent } from './views/car/booking/cars';
-import { CarsBookSubmitComponent } from './views/car/booking/submit';
+//CarsBooking
+import { CarsBookComponent } from './views/cars/booking';
+import { CarsBookingHeaderComponent } from './views/cars/booking/parts/header';
+import { CarsBookingBreadCumbsComponent } from './views/cars/booking/parts/breadcumbs';
+import { CarsBookFeaturesComponent } from './views/cars/booking/features';
+import { CarsBookCarsComponent } from './views/cars/booking/cars';
+import { CarsBookSubmitComponent } from './views/cars/booking/submit';
 
 //Admin
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
@@ -127,6 +127,58 @@ import { AdminBlogTUpdateComponent } from './admin/views/rentacar/blogt/update';
 import { AdminBlogVideosIndexComponent } from './admin/views/rentacar/blogvideos';
 import { AdminBlogVideosInsertComponent } from './admin/views/rentacar/blogvideos/insert';
 import { AdminBlogVideosUpdateComponent } from './admin/views/rentacar/blogvideos/update';
+
+import { AdminCarDetailsBasicIndexComponent } from './admin/views/rentacar/cardetailsbasic';
+import { AdminCarDetailsBasicInsertComponent } from './admin/views/rentacar/cardetailsbasic/insert';
+import { AdminCarDetailsBasicUpdateComponent } from './admin/views/rentacar/cardetailsbasic/update';
+
+import { AdminCarDetailsExtIntIndexComponent } from './admin/views/rentacar/cardetailsextint';
+import { AdminCarDetailsExtIntInsertComponent } from './admin/views/rentacar/cardetailsextint/insert';
+import { AdminCarDetailsExtIntUpdateComponent } from './admin/views/rentacar/cardetailsextint/update';
+
+import { AdminCarDetailsFeaturesIndexComponent } from './admin/views/rentacar/cardetailsfeatures';
+import { AdminCarDetailsFeaturesInsertComponent } from './admin/views/rentacar/cardetailsfeatures/insert';
+import { AdminCarDetailsFeaturesUpdateComponent } from './admin/views/rentacar/cardetailsfeatures/update';
+
+import { AdminCarDetailsMechanicalIndexComponent } from './admin/views/rentacar/cardetailsmechanical';
+import { AdminCarDetailsMechanicalInsertComponent } from './admin/views/rentacar/cardetailsmechanical/insert';
+import { AdminCarDetailsMechanicalUpdateComponent } from './admin/views/rentacar/cardetailsmechanical/update';
+
+import { AdminCarFeatsBodyTypeIndexComponent } from './admin/views/rentacar/carfeatsbodytype';
+import { AdminCarFeatsBodyTypeInsertComponent } from './admin/views/rentacar/carfeatsbodytype/insert';
+import { AdminCarFeatsBodyTypeUpdateComponent } from './admin/views/rentacar/carfeatsbodytype/update';
+
+import { AdminCarFeatsDriveTypeIndexComponent } from './admin/views/rentacar/carfeatsdrivetype';
+import { AdminCarFeatsDriveTypeInsertComponent } from './admin/views/rentacar/carfeatsdrivetype/insert';
+import { AdminCarFeatsDriveTypeUpdateComponent } from './admin/views/rentacar/carfeatsdrivetype/update';
+
+import { AdminCarFeatsEngineTypeIndexComponent } from './admin/views/rentacar/carfeatsenginetype';
+import { AdminCarFeatsEngineTypeInsertComponent } from './admin/views/rentacar/carfeatsenginetype/insert';
+import { AdminCarFeatsEngineTypeUpdateComponent } from './admin/views/rentacar/carfeatsenginetype/update';
+
+import { AdminCarFeatsFuelTypeIndexComponent } from './admin/views/rentacar/carfeatsfueltype';
+import { AdminCarFeatsFuelTypeInsertComponent } from './admin/views/rentacar/carfeatsfueltype/insert';
+import { AdminCarFeatsFuelTypeUpdateComponent } from './admin/views/rentacar/carfeatsfueltype/update';
+
+import { AdminCarFeatsGearsTypeIndexComponent } from './admin/views/rentacar/carfeatsgearstype';
+import { AdminCarFeatsGearsTypeInsertComponent } from './admin/views/rentacar/carfeatsgearstype/insert';
+import { AdminCarFeatsGearsTypeUpdateComponent } from './admin/views/rentacar/carfeatsgearstype/update';
+
+import { AdminCarFeatsMakeIndexComponent } from './admin/views/rentacar/carfeatsmake';
+import { AdminCarFeatsMakeInsertComponent } from './admin/views/rentacar/carfeatsmake/insert';
+import { AdminCarFeatsMakeUpdateComponent } from './admin/views/rentacar/carfeatsmake/update';
+
+import { AdminCarFeatsModelIndexComponent } from './admin/views/rentacar/carfeatsmodel';
+import { AdminCarFeatsModelInsertComponent } from './admin/views/rentacar/carfeatsmodel/insert';
+import { AdminCarFeatsModelUpdateComponent } from './admin/views/rentacar/carfeatsmodel/update';
+
+import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
+import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
+import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
+
+import { AdminCarStatusIndexComponent } from './admin/views/rentacar/carstatus';
+import { AdminCarStatusInsertComponent } from './admin/views/rentacar/carstatus/insert';
+import { AdminCarStatusUpdateComponent } from './admin/views/rentacar/carstatus/update';
 
 import { AdminContactFormIndexComponent } from './admin/views/rentacar/contactform';
 import { AdminContactFormInsertComponent } from './admin/views/rentacar/contactform/insert';
@@ -251,6 +303,8 @@ import { AdminVisitorsIndexComponent } from './admin/views/general/visitors';
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
 import { SiteService } from './services/site';
+import { AdminLib } from './admin/lib/methods';
+
 
 @NgModule({
     declarations: [
@@ -308,31 +362,31 @@ import { SiteService } from './services/site';
 
         //CarList
         CarsListComponent,
-        CarListHeaderComponent,
-        CarListBreadCumbsComponent,
-        CarListInfoComponent,
-        CarListItemsComponent,
+        CarsListHeaderComponent,
+        CarsListBreadCumbsComponent,
+        CarsListInfoComponent,
+        CarsListItemsComponent,
 
         //CarDetail
         CarsDetailComponent,
-        CarDetailHeaderComponent,
-        CarDetailBreadCumbsComponent,
-        CarDetailInfoComponent,
-        CarDetailItemComponent,
-        CarDetailRelatedComponent,
-        CarDetailBrandsComponent,
+        CarsDetailHeaderComponent,
+        CarsDetailBreadCumbsComponent,
+        CarsDetailInfoComponent,
+        CarsDetailItemComponent,
+        CarsDetailRelatedComponent,
+        CarsDetailBrandsComponent,
 
         //CarCompare
         CarsCompareComponent,
-        CarCompareHeaderComponent,
-        CarCompareBreadCumbsComponent,
-        CarCompareInfoComponent,
-        CarCompareItemsComponent,
+        CarsCompareHeaderComponent,
+        CarsCompareBreadCumbsComponent,
+        CarsCompareInfoComponent,
+        CarsCompareItemsComponent,
 
         //CarBooking
         CarsBookComponent,
-        CarBookingHeaderComponent,
-        CarBookingBreadCumbsComponent,
+        CarsBookingHeaderComponent,
+        CarsBookingBreadCumbsComponent,
         CarsBookFeaturesComponent,
         CarsBookCarsComponent,
         CarsBookSubmitComponent,
@@ -376,6 +430,58 @@ import { SiteService } from './services/site';
         AdminBlogVideosIndexComponent,
         AdminBlogVideosInsertComponent,
         AdminBlogVideosUpdateComponent,
+
+        AdminCarDetailsBasicIndexComponent,
+        AdminCarDetailsBasicInsertComponent,
+        AdminCarDetailsBasicUpdateComponent,
+
+        AdminCarDetailsExtIntIndexComponent,
+        AdminCarDetailsExtIntInsertComponent,
+        AdminCarDetailsExtIntUpdateComponent,
+
+        AdminCarDetailsFeaturesIndexComponent,
+        AdminCarDetailsFeaturesInsertComponent,
+        AdminCarDetailsFeaturesUpdateComponent,
+
+        AdminCarDetailsMechanicalIndexComponent,
+        AdminCarDetailsMechanicalInsertComponent,
+        AdminCarDetailsMechanicalUpdateComponent,
+
+        AdminCarFeatsBodyTypeIndexComponent,
+        AdminCarFeatsBodyTypeInsertComponent,
+        AdminCarFeatsBodyTypeUpdateComponent,
+
+        AdminCarFeatsDriveTypeIndexComponent,
+        AdminCarFeatsDriveTypeInsertComponent,
+        AdminCarFeatsDriveTypeUpdateComponent,
+
+        AdminCarFeatsEngineTypeIndexComponent,
+        AdminCarFeatsEngineTypeInsertComponent,
+        AdminCarFeatsEngineTypeUpdateComponent,
+
+        AdminCarFeatsFuelTypeIndexComponent,
+        AdminCarFeatsFuelTypeInsertComponent,
+        AdminCarFeatsFuelTypeUpdateComponent,
+
+        AdminCarFeatsGearsTypeIndexComponent,
+        AdminCarFeatsGearsTypeInsertComponent,
+        AdminCarFeatsGearsTypeUpdateComponent,
+
+        AdminCarFeatsMakeIndexComponent,
+        AdminCarFeatsMakeInsertComponent,
+        AdminCarFeatsMakeUpdateComponent,
+
+        AdminCarFeatsModelIndexComponent,
+        AdminCarFeatsModelInsertComponent,
+        AdminCarFeatsModelUpdateComponent,
+
+        AdminCarsIndexComponent,
+        AdminCarsInsertComponent,
+        AdminCarsUpdateComponent,
+
+        AdminCarStatusIndexComponent,
+        AdminCarStatusInsertComponent,
+        AdminCarStatusUpdateComponent,
 
         AdminContactFormIndexComponent,
         AdminContactFormInsertComponent,
@@ -505,9 +611,10 @@ import { SiteService } from './services/site';
 
     //'/RentACar/' -> '/' Bu þekilde deðiþecek
     providers: [{ provide: APP_BASE_HREF, useValue: '/RentACar/' },
-    SharedService,
+        SharedService,
         ModelService,
-        SiteService
+        SiteService,
+        AdminLib
     ],
     bootstrap: [AppComponent]
 })

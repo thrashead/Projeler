@@ -57,36 +57,36 @@ import { ContactBreadCumbsComponent } from './views/contact/parts/breadcumbs';
 import { ContactMapComponent } from './views/contact/parts/map';
 import { ContactFormComponent } from './views/contact/parts/form';
 
-//CarList
-import { CarsListComponent } from './views/car/list';
-import { CarListHeaderComponent } from './views/car/list/parts/header';
-import { CarListBreadCumbsComponent } from './views/car/list/parts/breadcumbs';
-import { CarListInfoComponent } from './views/car/list/parts/info';
-import { CarListItemsComponent } from './views/car/list/parts/items';
+//RealEstateList
+import { REListComponent } from './views/realestate/list';
+import { REListHeaderComponent } from './views/realestate/list/parts/header';
+import { REListBreadCumbsComponent } from './views/realestate/list/parts/breadcumbs';
+import { REListInfoComponent } from './views/realestate/list/parts/info';
+import { REListItemsComponent } from './views/realestate/list/parts/items';
 
-//CarDetail
-import { CarsDetailComponent } from './views/car/detail';
-import { CarDetailHeaderComponent } from './views/car/detail/parts/header';
-import { CarDetailBreadCumbsComponent } from './views/car/detail/parts/breadcumbs';
-import { CarDetailInfoComponent } from './views/car/detail/parts/info';
-import { CarDetailItemComponent } from './views/car/detail/parts/item';
-import { CarDetailRelatedComponent } from './views/car/detail/parts/related';
-import { CarDetailBrandsComponent } from './views/car/detail/parts/brands';
+//RealEstateDetail
+import { REDetailComponent } from './views/realestate/detail';
+import { REDetailHeaderComponent } from './views/realestate/detail/parts/header';
+import { REDetailBreadCumbsComponent } from './views/realestate/detail/parts/breadcumbs';
+import { REDetailInfoComponent } from './views/realestate/detail/parts/info';
+import { REDetailItemComponent } from './views/realestate/detail/parts/item';
+import { REDetailRelatedComponent } from './views/realestate/detail/parts/related';
+import { REDetailBrandsComponent } from './views/realestate/detail/parts/brands';
 
-//CarCompare
-import { CarsCompareComponent } from './views/car/compare';
-import { CarCompareHeaderComponent } from './views/car/compare/parts/header';
-import { CarCompareBreadCumbsComponent } from './views/car/compare/parts/breadcumbs';
-import { CarCompareInfoComponent } from './views/car/compare/parts/info';
-import { CarCompareItemsComponent } from './views/car/compare/parts/items';
+//RealEstateCompare
+import { RECompareComponent } from './views/realestate/compare';
+import { RECompareHeaderComponent } from './views/realestate/compare/parts/header';
+import { RECompareBreadCumbsComponent } from './views/realestate/compare/parts/breadcumbs';
+import { RECompareInfoComponent } from './views/realestate/compare/parts/info';
+import { RECompareItemsComponent } from './views/realestate/compare/parts/items';
 
-//CarBooking
-import { CarsBookComponent } from './views/car/booking';
-import { CarBookingHeaderComponent } from './views/car/booking/parts/header';
-import { CarBookingBreadCumbsComponent } from './views/car/booking/parts/breadcumbs';
-import { CarsBookFeaturesComponent } from './views/car/booking/features';
-import { CarsBookCarsComponent } from './views/car/booking/cars';
-import { CarsBookSubmitComponent } from './views/car/booking/submit';
+//RealEstateBooking
+import { REBookComponent } from './views/realestate/booking';
+import { REBookingHeaderComponent } from './views/realestate/booking/parts/header';
+import { REBookingBreadCumbsComponent } from './views/realestate/booking/parts/breadcumbs';
+import { REBookFeaturesComponent } from './views/realestate/booking/features';
+import { REBookCarsComponent } from './views/realestate/booking/cars';
+import { REBookSubmitComponent } from './views/realestate/booking/submit';
 
 //Admin
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
@@ -306,36 +306,36 @@ import { SiteService } from './services/site';
         ContactMapComponent,
         ContactFormComponent,
 
-        //CarList
-        CarsListComponent,
-        CarListHeaderComponent,
-        CarListBreadCumbsComponent,
-        CarListInfoComponent,
-        CarListItemsComponent,
+        //RealEstateList
+        REListComponent,
+        REListHeaderComponent,
+        REListBreadCumbsComponent,
+        REListInfoComponent,
+        REListItemsComponent,
 
-        //CarDetail
-        CarsDetailComponent,
-        CarDetailHeaderComponent,
-        CarDetailBreadCumbsComponent,
-        CarDetailInfoComponent,
-        CarDetailItemComponent,
-        CarDetailRelatedComponent,
-        CarDetailBrandsComponent,
+        //RealEstateDetail
+        REDetailComponent,
+        REDetailHeaderComponent,
+        REDetailBreadCumbsComponent,
+        REDetailInfoComponent,
+        REDetailItemComponent,
+        REDetailRelatedComponent,
+        REDetailBrandsComponent,
 
-        //CarCompare
-        CarsCompareComponent,
-        CarCompareHeaderComponent,
-        CarCompareBreadCumbsComponent,
-        CarCompareInfoComponent,
-        CarCompareItemsComponent,
+        //RealEstateCompare
+        RECompareComponent,
+        RECompareHeaderComponent,
+        RECompareBreadCumbsComponent,
+        RECompareInfoComponent,
+        RECompareItemsComponent,
 
-        //CarBooking
-        CarsBookComponent,
-        CarBookingHeaderComponent,
-        CarBookingBreadCumbsComponent,
-        CarsBookFeaturesComponent,
-        CarsBookCarsComponent,
-        CarsBookSubmitComponent,
+        //RealEstateBooking
+        REBookComponent,
+        REBookingHeaderComponent,
+        REBookingBreadCumbsComponent,
+        REBookFeaturesComponent,
+        REBookCarsComponent,
+        REBookSubmitComponent,
 
         //Admin
         AdminLayoutComponent,

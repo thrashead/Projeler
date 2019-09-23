@@ -7,6 +7,24 @@
 
 
         <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
+            <a href="javascript:;"><i class="icon icon-dashboard"></i> <span>Araçlar</span></a>
+            <ul>
+                <li data-url="Cars"><a routerLink="/Admin/Cars">Araçlar</a></li>
+                <li data-url="CarStatus"><a routerLink="/Admin/CarStatus">Araç Durumu</a></li>
+                <li data-url="CarDetailsBasic"><a routerLink="/Admin/CarDetailsBasic">Araç Detay (Temel)</a></li>
+                <li data-url="CarDetailsMechanical"><a routerLink="/Admin/CarDetailsMechanical">Araç Detay (Mekanik)</a></li>
+                <li data-url="CarDetailsExtInt"><a routerLink="/Admin/CarDetailsExtInt">Araç Detay (İç-Dış)</a></li>
+                <li data-url="CarDetailsFeatures"><a routerLink="/Admin/CarDetailsFeatures">Araç Detay (Özellik)</a></li>
+                <li data-url="CarFeatsMake"><a routerLink="/Admin/CarFeatsMake">Araç Özellik (Marka)</a></li>
+                <li data-url="CarFeatsModel"><a routerLink="/Admin/CarFeatsModel">Araç Özellik (Model)</a></li>
+                <li data-url="CarFeatsBodyType"><a routerLink="/Admin/CarFeatsBodyType">Araç Özellik (Kasa Tipi)</a></li>
+                <li data-url="CarFeatsDriveType"><a routerLink="/Admin/CarFeatsDriveType">Araç Özellik (Sürüş Tipi)</a></li>
+                <li data-url="CarFeatsEngineType"><a routerLink="/Admin/CarFeatsEngineType">Araç Özellik (Motor Tipi)</a></li>
+                <li data-url="CarFeatsGearsType"><a routerLink="/Admin/CarFeatsGearsType">Araç Özellik (Vites Tipi)</a></li>
+                <li data-url="CarFeatsFuelType"><a routerLink="/Admin/CarFeatsFuelType">Araç Özellik (Yakıt Tipi)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
             <a href="javascript:;"><i class="icon icon-book"></i> <span>Blog</span></a>
             <ul>
                 <li data-url="BlogCategory"><a routerLink="/Admin/BlogCategory">Blog Kategorileri</a></li>

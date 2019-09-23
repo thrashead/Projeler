@@ -6,7 +6,7 @@ import { SiteService } from '../../../../services/site';
     templateUrl: './breadcumbs.html'
 })
 
-export class CarCompareBreadCumbsComponent {
+export class RECompareBreadCumbsComponent {
     errorMsg: string;
 
     home: string;

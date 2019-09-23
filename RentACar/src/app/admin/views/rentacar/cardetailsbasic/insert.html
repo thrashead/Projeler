@@ -1,0 +1,139 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarDetailsBasic Ekle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					Bağlı Cars
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="CarID" [ngModel]="model?.CarID" formControlName="CarID"><option *ngFor="let item of model?.CarsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- CarID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı CarFeatsMake
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="MakeID" [ngModel]="model?.MakeID" formControlName="MakeID"><option *ngFor="let item of model?.CarFeatsMakeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- MakeID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı CarFeatsModel
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="ModelID" [ngModel]="model?.ModelID" formControlName="ModelID"><option *ngFor="let item of model?.CarFeatsModelList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- ModelID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Year
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Year" [ngModel]="model?.Year" formControlName="Year" type="number" />
+					<br />
+					<!-- Year -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Price
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Price" [ngModel]="model?.Price" formControlName="Price" type="number" />
+					<br />
+					<!-- Price -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Width
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Width" [ngModel]="model?.Width" formControlName="Width" type="text" />
+					<br />
+					<!-- Width -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Height
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Height" [ngModel]="model?.Height" formControlName="Height" type="text" />
+					<br />
+					<!-- Height -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Length
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Length" [ngModel]="model?.Length" formControlName="Length" type="text" />
+					<br />
+					<!-- Length -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					WheelBase
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="WheelBase" [ngModel]="model?.WheelBase" formControlName="WheelBase" type="text" />
+					<br />
+					<!-- WheelBase -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					CargoCapacity
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="CargoCapacity" [ngModel]="model?.CargoCapacity" formControlName="CargoCapacity" type="text" />
+					<br />
+					<!-- CargoCapacity -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Mileage
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Mileage" [ngModel]="model?.Mileage" formControlName="Mileage" type="number" />
+					<br />
+					<!-- Mileage -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+					<a routerLink="/Admin/CarDetailsBasic" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>
