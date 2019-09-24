@@ -1,0 +1,54 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarFeatsDriveTypeT Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+				</div>
+				<div class="editor-label">
+					Bağlı CarFeatsDriveType
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="DriveTypeID" [ngModel]="model?.DriveTypeID" formControlName="DriveTypeID"><option *ngFor="let item of model?.CarFeatsDriveTypeList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- DriveTypeID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı Translation
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="TransID" [ngModel]="model?.TransID" formControlName="TransID"><option *ngFor="let item of model?.TranslationList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- TransID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Name
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" value="{{ model?.Name }}" />
+					<br />
+					<!-- Name -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+					<a routerLink="/Admin/CarFeatsDriveTypeT" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

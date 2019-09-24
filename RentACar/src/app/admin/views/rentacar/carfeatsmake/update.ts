@@ -89,7 +89,7 @@ export class AdminCarFeatsMakeUpdateComponent {
 	onSubmit() {
 		this.uploadData = new FormData();
 
-        if (this.data.HasFile)
+		if (this.data.HasFile)
 			this.uploadData.append("file", this.imagePictureUrl, this.namePictureUrl);
 
 		this.subscription = this.service.post("CarFeatsMake", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
@@ -104,6 +104,7 @@ export class AdminCarFeatsMakeUpdateComponent {
 				else {
 					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
 				}
+
 
 				this.service.post("CarFeatsMake", "Update", this.data)
 					.subscribe((answer: any) => {

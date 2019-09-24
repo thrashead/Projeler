@@ -9,13 +9,13 @@
 					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
 				</div>
 				<div class="editor-label">
-					Name
+					Title
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
-					<input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" value="{{ model?.Name }}" />
+					<input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" value="{{ model?.Title }}" />
 					<br />
-					<!-- Name -->
+					<!-- Title -->
 				</div>
 				<div class="clear"></div>
 
@@ -67,6 +67,48 @@
 
 		<div class="pagelinks">
 			<a routerLink="/Admin/CarDetailsExtInt/Insert" class="btn btn-primary btn-add">CarDetailsExtInt Ekle</a>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-dashboard"></i></span>
+						<h5>Bağlı CarFeatsBodyTypeT</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.CarFeatsBodyTypeTList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Name }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/CarFeatsBodyTypeT/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarFeatsBodyTypeT" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarFeatsBodyTypeT" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+			<a routerLink="/Admin/CarFeatsBodyTypeT/Insert" class="btn btn-primary btn-add">CarFeatsBodyTypeT Ekle</a>
 		</div>
 	</div>
 </div>

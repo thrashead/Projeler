@@ -14,6 +14,6 @@ namespace RentACar.Data
     public partial class usp_CarFeatsFuelTypeUpdate_Result
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
     }
 }

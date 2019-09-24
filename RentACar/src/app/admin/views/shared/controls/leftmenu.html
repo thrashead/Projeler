@@ -10,18 +10,30 @@
             <a href="javascript:;"><i class="icon icon-dashboard"></i> <span>Araçlar</span></a>
             <ul>
                 <li data-url="Cars"><a routerLink="/Admin/Cars">Araçlar</a></li>
-                <li data-url="CarStatus"><a routerLink="/Admin/CarStatus">Araç Durumu</a></li>
+                <li data-url="CarsT"><a routerLink="/Admin/CarsT">Araçlar (Dil)</a></li>
                 <li data-url="CarDetailsBasic"><a routerLink="/Admin/CarDetailsBasic">Araç Detay (Temel)</a></li>
                 <li data-url="CarDetailsMechanical"><a routerLink="/Admin/CarDetailsMechanical">Araç Detay (Mekanik)</a></li>
                 <li data-url="CarDetailsExtInt"><a routerLink="/Admin/CarDetailsExtInt">Araç Detay (İç-Dış)</a></li>
                 <li data-url="CarDetailsFeatures"><a routerLink="/Admin/CarDetailsFeatures">Araç Detay (Özellik)</a></li>
-                <li data-url="CarFeatsMake"><a routerLink="/Admin/CarFeatsMake">Araç Özellik (Marka)</a></li>
-                <li data-url="CarFeatsModel"><a routerLink="/Admin/CarFeatsModel">Araç Özellik (Model)</a></li>
-                <li data-url="CarFeatsBodyType"><a routerLink="/Admin/CarFeatsBodyType">Araç Özellik (Kasa Tipi)</a></li>
-                <li data-url="CarFeatsDriveType"><a routerLink="/Admin/CarFeatsDriveType">Araç Özellik (Sürüş Tipi)</a></li>
-                <li data-url="CarFeatsEngineType"><a routerLink="/Admin/CarFeatsEngineType">Araç Özellik (Motor Tipi)</a></li>
-                <li data-url="CarFeatsGearsType"><a routerLink="/Admin/CarFeatsGearsType">Araç Özellik (Vites Tipi)</a></li>
-                <li data-url="CarFeatsFuelType"><a routerLink="/Admin/CarFeatsFuelType">Araç Özellik (Yakıt Tipi)</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
+            <a href="javascript:;"><i class="icon icon-dashboard"></i> <span>Araç Özellikler</span></a>
+            <ul>
+                <li data-url="CarFeatsMake"><a routerLink="/Admin/CarFeatsMake">Marka</a></li>
+                <li data-url="CarFeatsModel"><a routerLink="/Admin/CarFeatsModel">Model</a></li>
+                <li data-url="CarStatus"><a routerLink="/Admin/CarStatus">Araç Durumu</a></li>
+                <li data-url="CarStatusT"><a routerLink="/Admin/CarStatusT">Araç Durumu (Dil)</a></li>
+                <li data-url="CarFeatsBodyType"><a routerLink="/Admin/CarFeatsBodyType">Kasa Tipi</a></li>
+                <li data-url="CarFeatsBodyTypeT"><a routerLink="/Admin/CarFeatsBodyTypeT">Kasa Tipi (Dil)</a></li>
+                <li data-url="CarFeatsDriveType"><a routerLink="/Admin/CarFeatsDriveType">Sürüş Tipi</a></li>
+                <li data-url="CarFeatsDriveTypeT"><a routerLink="/Admin/CarFeatsDriveTypeT">Sürüş Tipi (Dil)</a></li>
+                <li data-url="CarFeatsEngineType"><a routerLink="/Admin/CarFeatsEngineType">Motor Tipi</a></li>
+                <li data-url="CarFeatsEngineTypeT"><a routerLink="/Admin/CarFeatsEngineTypeT">Motor Tipi (Dil)</a></li>
+                <li data-url="CarFeatsGearsType"><a routerLink="/Admin/CarFeatsGearsType">Vites Tipi</a></li>
+                <li data-url="CarFeatsGearsTypeT"><a routerLink="/Admin/CarFeatsGearsTypeT">Vites Tipi (Dil)</a></li>
+                <li data-url="CarFeatsFuelType"><a routerLink="/Admin/CarFeatsFuelType">Yakıt Tipi</a></li>
+                <li data-url="CarFeatsFuelTypeT"><a routerLink="/Admin/CarFeatsFuelTypeT">Yakıt Tipi (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">

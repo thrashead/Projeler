@@ -24,58 +24,6 @@ import { AdminBlogIndexComponent } from './admin/views/rentacar/blog';
 import { AdminBlogInsertComponent } from './admin/views/rentacar/blog/insert';
 import { AdminBlogUpdateComponent } from './admin/views/rentacar/blog/update';
 
-import { AdminCarDetailsBasicIndexComponent } from './admin/views/rentacar/cardetailsbasic';
-import { AdminCarDetailsBasicInsertComponent } from './admin/views/rentacar/cardetailsbasic/insert';
-import { AdminCarDetailsBasicUpdateComponent } from './admin/views/rentacar/cardetailsbasic/update';
-
-import { AdminCarDetailsExtIntIndexComponent } from './admin/views/rentacar/cardetailsextint';
-import { AdminCarDetailsExtIntInsertComponent } from './admin/views/rentacar/cardetailsextint/insert';
-import { AdminCarDetailsExtIntUpdateComponent } from './admin/views/rentacar/cardetailsextint/update';
-
-import { AdminCarDetailsFeaturesIndexComponent } from './admin/views/rentacar/cardetailsfeatures';
-import { AdminCarDetailsFeaturesInsertComponent } from './admin/views/rentacar/cardetailsfeatures/insert';
-import { AdminCarDetailsFeaturesUpdateComponent } from './admin/views/rentacar/cardetailsfeatures/update';
-
-import { AdminCarDetailsMechanicalIndexComponent } from './admin/views/rentacar/cardetailsmechanical';
-import { AdminCarDetailsMechanicalInsertComponent } from './admin/views/rentacar/cardetailsmechanical/insert';
-import { AdminCarDetailsMechanicalUpdateComponent } from './admin/views/rentacar/cardetailsmechanical/update';
-
-import { AdminCarFeatsBodyTypeIndexComponent } from './admin/views/rentacar/carfeatsbodytype';
-import { AdminCarFeatsBodyTypeInsertComponent } from './admin/views/rentacar/carfeatsbodytype/insert';
-import { AdminCarFeatsBodyTypeUpdateComponent } from './admin/views/rentacar/carfeatsbodytype/update';
-
-import { AdminCarFeatsDriveTypeIndexComponent } from './admin/views/rentacar/carfeatsdrivetype';
-import { AdminCarFeatsDriveTypeInsertComponent } from './admin/views/rentacar/carfeatsdrivetype/insert';
-import { AdminCarFeatsDriveTypeUpdateComponent } from './admin/views/rentacar/carfeatsdrivetype/update';
-
-import { AdminCarFeatsEngineTypeIndexComponent } from './admin/views/rentacar/carfeatsenginetype';
-import { AdminCarFeatsEngineTypeInsertComponent } from './admin/views/rentacar/carfeatsenginetype/insert';
-import { AdminCarFeatsEngineTypeUpdateComponent } from './admin/views/rentacar/carfeatsenginetype/update';
-
-import { AdminCarFeatsFuelTypeIndexComponent } from './admin/views/rentacar/carfeatsfueltype';
-import { AdminCarFeatsFuelTypeInsertComponent } from './admin/views/rentacar/carfeatsfueltype/insert';
-import { AdminCarFeatsFuelTypeUpdateComponent } from './admin/views/rentacar/carfeatsfueltype/update';
-
-import { AdminCarFeatsGearsTypeIndexComponent } from './admin/views/rentacar/carfeatsgearstype';
-import { AdminCarFeatsGearsTypeInsertComponent } from './admin/views/rentacar/carfeatsgearstype/insert';
-import { AdminCarFeatsGearsTypeUpdateComponent } from './admin/views/rentacar/carfeatsgearstype/update';
-
-import { AdminCarFeatsMakeIndexComponent } from './admin/views/rentacar/carfeatsmake';
-import { AdminCarFeatsMakeInsertComponent } from './admin/views/rentacar/carfeatsmake/insert';
-import { AdminCarFeatsMakeUpdateComponent } from './admin/views/rentacar/carfeatsmake/update';
-
-import { AdminCarFeatsModelIndexComponent } from './admin/views/rentacar/carfeatsmodel';
-import { AdminCarFeatsModelInsertComponent } from './admin/views/rentacar/carfeatsmodel/insert';
-import { AdminCarFeatsModelUpdateComponent } from './admin/views/rentacar/carfeatsmodel/update';
-
-import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
-import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
-import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
-
-import { AdminCarStatusIndexComponent } from './admin/views/rentacar/carstatus';
-import { AdminCarStatusInsertComponent } from './admin/views/rentacar/carstatus/insert';
-import { AdminCarStatusUpdateComponent } from './admin/views/rentacar/carstatus/update';
-
 import { AdminBlogCategoryIndexComponent } from './admin/views/rentacar/blogcategory';
 import { AdminBlogCategoryInsertComponent } from './admin/views/rentacar/blogcategory/insert';
 import { AdminBlogCategoryUpdateComponent } from './admin/views/rentacar/blogcategory/update';
@@ -99,6 +47,86 @@ import { AdminBlogTUpdateComponent } from './admin/views/rentacar/blogt/update';
 import { AdminBlogVideosIndexComponent } from './admin/views/rentacar/blogvideos';
 import { AdminBlogVideosInsertComponent } from './admin/views/rentacar/blogvideos/insert';
 import { AdminBlogVideosUpdateComponent } from './admin/views/rentacar/blogvideos/update';
+
+import { AdminCarDetailsBasicIndexComponent } from './admin/views/rentacar/cardetailsbasic';
+import { AdminCarDetailsBasicInsertComponent } from './admin/views/rentacar/cardetailsbasic/insert';
+import { AdminCarDetailsBasicUpdateComponent } from './admin/views/rentacar/cardetailsbasic/update';
+
+import { AdminCarDetailsExtIntIndexComponent } from './admin/views/rentacar/cardetailsextint';
+import { AdminCarDetailsExtIntInsertComponent } from './admin/views/rentacar/cardetailsextint/insert';
+import { AdminCarDetailsExtIntUpdateComponent } from './admin/views/rentacar/cardetailsextint/update';
+
+import { AdminCarDetailsFeaturesIndexComponent } from './admin/views/rentacar/cardetailsfeatures';
+import { AdminCarDetailsFeaturesInsertComponent } from './admin/views/rentacar/cardetailsfeatures/insert';
+import { AdminCarDetailsFeaturesUpdateComponent } from './admin/views/rentacar/cardetailsfeatures/update';
+
+import { AdminCarDetailsMechanicalIndexComponent } from './admin/views/rentacar/cardetailsmechanical';
+import { AdminCarDetailsMechanicalInsertComponent } from './admin/views/rentacar/cardetailsmechanical/insert';
+import { AdminCarDetailsMechanicalUpdateComponent } from './admin/views/rentacar/cardetailsmechanical/update';
+
+import { AdminCarFeatsBodyTypeIndexComponent } from './admin/views/rentacar/carfeatsbodytype';
+import { AdminCarFeatsBodyTypeInsertComponent } from './admin/views/rentacar/carfeatsbodytype/insert';
+import { AdminCarFeatsBodyTypeUpdateComponent } from './admin/views/rentacar/carfeatsbodytype/update';
+
+import { AdminCarFeatsBodyTypeTIndexComponent } from './admin/views/rentacar/carfeatsbodytypet';
+import { AdminCarFeatsBodyTypeTInsertComponent } from './admin/views/rentacar/carfeatsbodytypet/insert';
+import { AdminCarFeatsBodyTypeTUpdateComponent } from './admin/views/rentacar/carfeatsbodytypet/update';
+
+import { AdminCarFeatsDriveTypeIndexComponent } from './admin/views/rentacar/carfeatsdrivetype';
+import { AdminCarFeatsDriveTypeInsertComponent } from './admin/views/rentacar/carfeatsdrivetype/insert';
+import { AdminCarFeatsDriveTypeUpdateComponent } from './admin/views/rentacar/carfeatsdrivetype/update';
+
+import { AdminCarFeatsDriveTypeTIndexComponent } from './admin/views/rentacar/carfeatsdrivetypet';
+import { AdminCarFeatsDriveTypeTInsertComponent } from './admin/views/rentacar/carfeatsdrivetypet/insert';
+import { AdminCarFeatsDriveTypeTUpdateComponent } from './admin/views/rentacar/carfeatsdrivetypet/update';
+
+import { AdminCarFeatsEngineTypeIndexComponent } from './admin/views/rentacar/carfeatsenginetype';
+import { AdminCarFeatsEngineTypeInsertComponent } from './admin/views/rentacar/carfeatsenginetype/insert';
+import { AdminCarFeatsEngineTypeUpdateComponent } from './admin/views/rentacar/carfeatsenginetype/update';
+
+import { AdminCarFeatsEngineTypeTIndexComponent } from './admin/views/rentacar/carfeatsenginetypet';
+import { AdminCarFeatsEngineTypeTInsertComponent } from './admin/views/rentacar/carfeatsenginetypet/insert';
+import { AdminCarFeatsEngineTypeTUpdateComponent } from './admin/views/rentacar/carfeatsenginetypet/update';
+
+import { AdminCarFeatsFuelTypeIndexComponent } from './admin/views/rentacar/carfeatsfueltype';
+import { AdminCarFeatsFuelTypeInsertComponent } from './admin/views/rentacar/carfeatsfueltype/insert';
+import { AdminCarFeatsFuelTypeUpdateComponent } from './admin/views/rentacar/carfeatsfueltype/update';
+
+import { AdminCarFeatsFuelTypeTIndexComponent } from './admin/views/rentacar/carfeatsfueltypet';
+import { AdminCarFeatsFuelTypeTInsertComponent } from './admin/views/rentacar/carfeatsfueltypet/insert';
+import { AdminCarFeatsFuelTypeTUpdateComponent } from './admin/views/rentacar/carfeatsfueltypet/update';
+
+import { AdminCarFeatsGearsTypeIndexComponent } from './admin/views/rentacar/carfeatsgearstype';
+import { AdminCarFeatsGearsTypeInsertComponent } from './admin/views/rentacar/carfeatsgearstype/insert';
+import { AdminCarFeatsGearsTypeUpdateComponent } from './admin/views/rentacar/carfeatsgearstype/update';
+
+import { AdminCarFeatsGearsTypeTIndexComponent } from './admin/views/rentacar/carfeatsgearstypet';
+import { AdminCarFeatsGearsTypeTInsertComponent } from './admin/views/rentacar/carfeatsgearstypet/insert';
+import { AdminCarFeatsGearsTypeTUpdateComponent } from './admin/views/rentacar/carfeatsgearstypet/update';
+
+import { AdminCarFeatsMakeIndexComponent } from './admin/views/rentacar/carfeatsmake';
+import { AdminCarFeatsMakeInsertComponent } from './admin/views/rentacar/carfeatsmake/insert';
+import { AdminCarFeatsMakeUpdateComponent } from './admin/views/rentacar/carfeatsmake/update';
+
+import { AdminCarFeatsModelIndexComponent } from './admin/views/rentacar/carfeatsmodel';
+import { AdminCarFeatsModelInsertComponent } from './admin/views/rentacar/carfeatsmodel/insert';
+import { AdminCarFeatsModelUpdateComponent } from './admin/views/rentacar/carfeatsmodel/update';
+
+import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
+import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
+import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
+
+import { AdminCarsTIndexComponent } from './admin/views/rentacar/carst';
+import { AdminCarsTInsertComponent } from './admin/views/rentacar/carst/insert';
+import { AdminCarsTUpdateComponent } from './admin/views/rentacar/carst/update';
+
+import { AdminCarStatusIndexComponent } from './admin/views/rentacar/carstatus';
+import { AdminCarStatusInsertComponent } from './admin/views/rentacar/carstatus/insert';
+import { AdminCarStatusUpdateComponent } from './admin/views/rentacar/carstatus/update';
+
+import { AdminCarStatusTIndexComponent } from './admin/views/rentacar/carstatust';
+import { AdminCarStatusTInsertComponent } from './admin/views/rentacar/carstatust/insert';
+import { AdminCarStatusTUpdateComponent } from './admin/views/rentacar/carstatust/update';
 
 import { AdminContactFormIndexComponent } from './admin/views/rentacar/contactform';
 import { AdminContactFormInsertComponent } from './admin/views/rentacar/contactform/insert';
@@ -319,25 +347,50 @@ const routes: Routes = [
             { path: 'Admin/CarFeatsBodyType/Insert', component: AdminCarFeatsBodyTypeInsertComponent },
             { path: 'Admin/CarFeatsBodyType/Update/:id', component: AdminCarFeatsBodyTypeUpdateComponent },
 
+            { path: 'Admin/CarFeatsBodyTypeT', component: AdminCarFeatsBodyTypeTIndexComponent },
+            { path: 'Admin/CarFeatsBodyTypeT/Index', component: AdminCarFeatsBodyTypeTIndexComponent },
+            { path: 'Admin/CarFeatsBodyTypeT/Insert', component: AdminCarFeatsBodyTypeTInsertComponent },
+            { path: 'Admin/CarFeatsBodyTypeT/Update/:id', component: AdminCarFeatsBodyTypeTUpdateComponent },
+
             { path: 'Admin/CarFeatsDriveType', component: AdminCarFeatsDriveTypeIndexComponent },
             { path: 'Admin/CarFeatsDriveType/Index', component: AdminCarFeatsDriveTypeIndexComponent },
             { path: 'Admin/CarFeatsDriveType/Insert', component: AdminCarFeatsDriveTypeInsertComponent },
             { path: 'Admin/CarFeatsDriveType/Update/:id', component: AdminCarFeatsDriveTypeUpdateComponent },
+
+            { path: 'Admin/CarFeatsDriveTypeT', component: AdminCarFeatsDriveTypeTIndexComponent },
+            { path: 'Admin/CarFeatsDriveTypeT/Index', component: AdminCarFeatsDriveTypeTIndexComponent },
+            { path: 'Admin/CarFeatsDriveTypeT/Insert', component: AdminCarFeatsDriveTypeTInsertComponent },
+            { path: 'Admin/CarFeatsDriveTypeT/Update/:id', component: AdminCarFeatsDriveTypeTUpdateComponent },
 
             { path: 'Admin/CarFeatsEngineType', component: AdminCarFeatsEngineTypeIndexComponent },
             { path: 'Admin/CarFeatsEngineType/Index', component: AdminCarFeatsEngineTypeIndexComponent },
             { path: 'Admin/CarFeatsEngineType/Insert', component: AdminCarFeatsEngineTypeInsertComponent },
             { path: 'Admin/CarFeatsEngineType/Update/:id', component: AdminCarFeatsEngineTypeUpdateComponent },
 
+            { path: 'Admin/CarFeatsEngineTypeT', component: AdminCarFeatsEngineTypeTIndexComponent },
+            { path: 'Admin/CarFeatsEngineTypeT/Index', component: AdminCarFeatsEngineTypeTIndexComponent },
+            { path: 'Admin/CarFeatsEngineTypeT/Insert', component: AdminCarFeatsEngineTypeTInsertComponent },
+            { path: 'Admin/CarFeatsEngineTypeT/Update/:id', component: AdminCarFeatsEngineTypeTUpdateComponent },
+
             { path: 'Admin/CarFeatsFuelType', component: AdminCarFeatsFuelTypeIndexComponent },
             { path: 'Admin/CarFeatsFuelType/Index', component: AdminCarFeatsFuelTypeIndexComponent },
             { path: 'Admin/CarFeatsFuelType/Insert', component: AdminCarFeatsFuelTypeInsertComponent },
             { path: 'Admin/CarFeatsFuelType/Update/:id', component: AdminCarFeatsFuelTypeUpdateComponent },
 
+            { path: 'Admin/CarFeatsFuelTypeT', component: AdminCarFeatsFuelTypeTIndexComponent },
+            { path: 'Admin/CarFeatsFuelTypeT/Index', component: AdminCarFeatsFuelTypeTIndexComponent },
+            { path: 'Admin/CarFeatsFuelTypeT/Insert', component: AdminCarFeatsFuelTypeTInsertComponent },
+            { path: 'Admin/CarFeatsFuelTypeT/Update/:id', component: AdminCarFeatsFuelTypeTUpdateComponent },
+
             { path: 'Admin/CarFeatsGearsType', component: AdminCarFeatsGearsTypeIndexComponent },
             { path: 'Admin/CarFeatsGearsType/Index', component: AdminCarFeatsGearsTypeIndexComponent },
             { path: 'Admin/CarFeatsGearsType/Insert', component: AdminCarFeatsGearsTypeInsertComponent },
             { path: 'Admin/CarFeatsGearsType/Update/:id', component: AdminCarFeatsGearsTypeUpdateComponent },
+
+            { path: 'Admin/CarFeatsGearsTypeT', component: AdminCarFeatsGearsTypeTIndexComponent },
+            { path: 'Admin/CarFeatsGearsTypeT/Index', component: AdminCarFeatsGearsTypeTIndexComponent },
+            { path: 'Admin/CarFeatsGearsTypeT/Insert', component: AdminCarFeatsGearsTypeTInsertComponent },
+            { path: 'Admin/CarFeatsGearsTypeT/Update/:id', component: AdminCarFeatsGearsTypeTUpdateComponent },
 
             { path: 'Admin/CarFeatsMake', component: AdminCarFeatsMakeIndexComponent },
             { path: 'Admin/CarFeatsMake/Index', component: AdminCarFeatsMakeIndexComponent },
@@ -354,10 +407,20 @@ const routes: Routes = [
             { path: 'Admin/Cars/Insert', component: AdminCarsInsertComponent },
             { path: 'Admin/Cars/Update/:id', component: AdminCarsUpdateComponent },
 
+            { path: 'Admin/CarsT', component: AdminCarsTIndexComponent },
+            { path: 'Admin/CarsT/Index', component: AdminCarsTIndexComponent },
+            { path: 'Admin/CarsT/Insert', component: AdminCarsTInsertComponent },
+            { path: 'Admin/CarsT/Update/:id', component: AdminCarsTUpdateComponent },
+
             { path: 'Admin/CarStatus', component: AdminCarStatusIndexComponent },
             { path: 'Admin/CarStatus/Index', component: AdminCarStatusIndexComponent },
             { path: 'Admin/CarStatus/Insert', component: AdminCarStatusInsertComponent },
             { path: 'Admin/CarStatus/Update/:id', component: AdminCarStatusUpdateComponent },
+
+            { path: 'Admin/CarStatusT', component: AdminCarStatusTIndexComponent },
+            { path: 'Admin/CarStatusT/Index', component: AdminCarStatusTIndexComponent },
+            { path: 'Admin/CarStatusT/Insert', component: AdminCarStatusTInsertComponent },
+            { path: 'Admin/CarStatusT/Update/:id', component: AdminCarStatusTUpdateComponent },
 
             { path: 'Admin/ContactForm', component: AdminContactFormIndexComponent },
             { path: 'Admin/ContactForm/Index', component: AdminContactFormIndexComponent },

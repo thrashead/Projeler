@@ -25,7 +25,7 @@ export class AdminCarFeatsDriveTypeInsertComponent {
 		this.data = new Object();
 
 		this.insertForm = this.formBuilder.group({
-			Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 		});
 	}
 
@@ -34,7 +34,7 @@ export class AdminCarFeatsDriveTypeInsertComponent {
 	}
 
 	onSubmit() {
-		this.data.Name = this.insertForm.get("Name").value;
+		this.data.Title = this.insertForm.get("Title").value;
 
 		this.service.post("CarFeatsDriveType", "Insert", this.data)
 			.subscribe((answer: any) => {

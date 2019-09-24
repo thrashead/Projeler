@@ -33,7 +33,7 @@ export class AdminCarFeatsEngineTypeUpdateComponent {
 
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
-			Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 		});
 	}
 
@@ -73,7 +73,7 @@ export class AdminCarFeatsEngineTypeUpdateComponent {
 
 	onSubmit() {
 		this.data.ID = this.updateForm.get("ID").value;
-		this.data.Name = this.updateForm.get("Name").value;
+		this.data.Title = this.updateForm.get("Title").value;
 
 		this.service.post("CarFeatsEngineType", "Update", this.data)
 			.subscribe((answer: any) => {
