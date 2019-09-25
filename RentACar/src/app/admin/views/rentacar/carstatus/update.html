@@ -19,6 +19,17 @@
 				</div>
 				<div class="clear"></div>
 
+				<div class="editor-label">
+					Code
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" value="{{ model?.Code }}" />
+					<br />
+					<!-- Code -->
+				</div>
+				<div class="clear"></div>
+
 				<p>
 					<div class="alert alert-error">
 						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
@@ -42,7 +53,8 @@
 								<tr>
 									<th>ID</th>
 									<th>Title</th>
-									<th>PictureUrl</th>
+									<th>Code</th>
+									<th class="hideColumn">PictureUrl</th>
 									<th>İşlem</th>
 								</tr>
 							</thead>
@@ -50,7 +62,8 @@
 								<tr *ngFor="let item of model?.CarsList">
 									<td>{{ item?.ID }}</td>
 									<td>{{ item?.Title }}</td>
-									<td><a href="/RentACar/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" style="height:40px; max-width:80px;" /></a></td>
+									<td>{{ item?.Code }}</td>
+									<td class="hideColumn"><a href="/RentACar/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" style="height:40px; max-width:80px;" /></a></td>
 									<td style="text-align:center;">
 										<div class="btn-group" style="text-align:left;">
 											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>

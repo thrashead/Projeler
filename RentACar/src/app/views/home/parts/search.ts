@@ -9,26 +9,32 @@ import { SiteService } from '../../../services/site';
 export class HomeSearchComponent implements AfterViewChecked {
     errorMsg: string;
 
-    vehicleType: string; 
-    whichVehicle: string; 
-    makeText: string; 
-    modelText: string; 
-    vehicleStatusText: string; 
-    minYearText: string; 
-    maxYearText: string; 
-    priceRange: string; 
-    allText: string; 
-    search: string; 
-    detailSearch: string; 
+    vehicleType: string;
+    whichVehicle: string;
+    makeText: string;
+    modelText: string;
+    vehicleStatusText: string;
+    minYearText: string;
+    maxYearText: string;
+    priceRange: string;
+    search: string;
+    detailSearch: string;
 
-    VehicleTypes: any;
+    CarMakes: any;
+    CarModels: any;
+    CarStatus: any;
+    BodyTypes: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangContent();
-        this.GetCategories();
+        this.GetCarMakes();
+        this.GetCarModelsByCode("all");
+        this.GetCarStatus();
+        this.GetBodyTypes();
+        this.GetYears();
     }
 
     ngAfterViewChecked() {
@@ -43,6 +49,7 @@ export class HomeSearchComponent implements AfterViewChecked {
                 $(this).addClass("active");
             }
         });
+
         $(".col-xs-2[data-filter='radioMainSearch'] h5").off("click").on("click", function () {
             var hasActive = $(this).prev("label.b-search__main-type-svg").hasClass("active");
 
@@ -54,6 +61,11 @@ export class HomeSearchComponent implements AfterViewChecked {
                 $(this).prev("label.b-search__main-type-svg").addClass("active");
             }
         });
+    }
+
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.GetCarModelsByCode(target.value);
     }
 
     //LangContent
@@ -97,16 +109,41 @@ export class HomeSearchComponent implements AfterViewChecked {
         this.service.get("Site", "GetLangContentByCode", "src_dtlsrc", 1).subscribe((resData: any) => {
             this.detailSearch = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
+    }
 
-        this.service.get("Site", "GetLangContentByCode", "src_all", 1).subscribe((resData: any) => {
-            this.allText = resData.ShortDescription;
+    //CarMakes
+    GetCarMakes() {
+        this.service.get("Site", "GetCarMakes").subscribe((resData: any) => {
+            this.CarMakes = resData;
         }, resError => this.errorMsg = resError);
     }
 
-    //Categories
-    GetCategories() {
-        this.service.get("Site", "SubCategoriesByCode", "vehicle_type").subscribe((resData: any) => {
-            this.VehicleTypes = resData;
+    //CarModelsByCode
+    GetCarModelsByCode(code: string) {
+        this.service.get("Site", "GetCarModelsByCode", code).subscribe((resData: any) => {
+            this.CarModels = resData;
         }, resError => this.errorMsg = resError);
+    }
+
+    //CarStatus
+    GetCarStatus() {
+        this.service.get("Site", "GetCarStatus").subscribe((resData: any) => {
+            this.CarStatus = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //BodyTypes
+    GetBodyTypes() {
+        this.service.get("Site", "GetBodyTypes").subscribe((resData: any) => {
+            this.BodyTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //Years
+    GetYears() {
+        for (var i = 1999; i <= 2019; i++) {
+            $("#slcMinYear").append("<option value=\"" + i.toString() + "\">" + i.toString() + "</option>");
+            $("#slcMaxYear").append("<option value=\"" + i.toString() + "\">" + i.toString() + "</option>");
+        }
     }
 }

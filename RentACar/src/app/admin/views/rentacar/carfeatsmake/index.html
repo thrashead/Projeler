@@ -15,16 +15,18 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>MakeName</th>
-									<th>PictureUrl</th>
+									<th>Title</th>
+									<th>Code</th>
+									<th class="hideColumn">PictureUrl</th>
 									<th>İşlem</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr *ngFor="let item of CarFeatsMakeList">
 									<td>{{ item?.ID }}</td>
-									<td>{{ item?.MakeName }}</td>
-									<td><a href="/RentACar/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" style="height:40px; max-width:80px;" /></a></td>
+									<td>{{ item?.Title }}</td>
+									<td>{{ item?.Code }}</td>
+									<td class="hideColumn"><a href="/RentACar/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" style="height:40px; max-width:80px;" /></a></td>
 									<td style="text-align:center;">
 										<div class="btn-group" style="text-align:left;">
 											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>

@@ -26,6 +26,7 @@ export class AdminCarFeatsBodyTypeInsertComponent {
 
 		this.insertForm = this.formBuilder.group({
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 		});
 	}
 
@@ -35,6 +36,7 @@ export class AdminCarFeatsBodyTypeInsertComponent {
 
 	onSubmit() {
 		this.data.Title = this.insertForm.get("Title").value;
+		this.data.Code = this.insertForm.get("Code").value;
 
 		this.service.post("CarFeatsBodyType", "Insert", this.data)
 			.subscribe((answer: any) => {

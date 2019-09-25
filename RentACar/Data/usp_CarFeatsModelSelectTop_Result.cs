@@ -16,6 +16,5 @@ namespace RentACar.Data
         public int ID { get; set; }
         public int MakeID { get; set; }
         public string ModelName { get; set; }
-        public string Url { get; set; }
     }
 }

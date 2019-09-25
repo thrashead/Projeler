@@ -116,9 +116,13 @@ import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
 import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
 import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
 
-import { AdminCarsTIndexComponent } from './admin/views/rentacar/carst';
-import { AdminCarsTInsertComponent } from './admin/views/rentacar/carst/insert';
-import { AdminCarsTUpdateComponent } from './admin/views/rentacar/carst/update';
+import { AdminCarDescIndexComponent } from './admin/views/rentacar/cardesc';
+import { AdminCarDescInsertComponent } from './admin/views/rentacar/cardesc/insert';
+import { AdminCarDescUpdateComponent } from './admin/views/rentacar/cardesc/update';
+
+import { AdminCarDescTIndexComponent } from './admin/views/rentacar/cardesct';
+import { AdminCarDescTInsertComponent } from './admin/views/rentacar/cardesct/insert';
+import { AdminCarDescTUpdateComponent } from './admin/views/rentacar/cardesct/update';
 
 import { AdminCarStatusIndexComponent } from './admin/views/rentacar/carstatus';
 import { AdminCarStatusInsertComponent } from './admin/views/rentacar/carstatus/insert';
@@ -322,6 +326,17 @@ const routes: Routes = [
             { path: 'Admin/BlogVideos/Insert/:linkid', component: AdminBlogVideosInsertComponent },
             { path: 'Admin/BlogVideos/Update/:id', component: AdminBlogVideosUpdateComponent },
 
+            { path: 'Admin/CarDesc', component: AdminCarDescIndexComponent },
+            { path: 'Admin/CarDesc/Index', component: AdminCarDescIndexComponent },
+            { path: 'Admin/CarDesc/Insert', component: AdminCarDescInsertComponent },
+            { path: 'Admin/CarDesc/Update/:id', component: AdminCarDescUpdateComponent },
+
+            { path: 'Admin/CarDescT', component: AdminCarDescTIndexComponent },
+            { path: 'Admin/CarDescT/Index', component: AdminCarDescTIndexComponent },
+            { path: 'Admin/CarDescT/Insert', component: AdminCarDescTInsertComponent },
+            { path: 'Admin/CarDescT/Insert:linkid', component: AdminCarDescTInsertComponent },
+            { path: 'Admin/CarDescT/Update/:id', component: AdminCarDescTUpdateComponent },
+
             { path: 'Admin/CarDetailsBasic', component: AdminCarDetailsBasicIndexComponent },
             { path: 'Admin/CarDetailsBasic/Index', component: AdminCarDetailsBasicIndexComponent },
             { path: 'Admin/CarDetailsBasic/Insert', component: AdminCarDetailsBasicInsertComponent },
@@ -406,11 +421,6 @@ const routes: Routes = [
             { path: 'Admin/Cars/Index', component: AdminCarsIndexComponent },
             { path: 'Admin/Cars/Insert', component: AdminCarsInsertComponent },
             { path: 'Admin/Cars/Update/:id', component: AdminCarsUpdateComponent },
-
-            { path: 'Admin/CarsT', component: AdminCarsTIndexComponent },
-            { path: 'Admin/CarsT/Index', component: AdminCarsTIndexComponent },
-            { path: 'Admin/CarsT/Insert', component: AdminCarsTInsertComponent },
-            { path: 'Admin/CarsT/Update/:id', component: AdminCarsTUpdateComponent },
 
             { path: 'Admin/CarStatus', component: AdminCarStatusIndexComponent },
             { path: 'Admin/CarStatus/Index', component: AdminCarStatusIndexComponent },

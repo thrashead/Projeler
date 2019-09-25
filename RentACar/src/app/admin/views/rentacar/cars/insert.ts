@@ -35,6 +35,7 @@ export class AdminCarsInsertComponent {
 
 		this.insertForm = this.formBuilder.group({
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
 			StatusID: new FormControl(null, [Validators.required, Validators.min(0)]),
 		});
@@ -63,6 +64,7 @@ export class AdminCarsInsertComponent {
 			if (answerUpload.Mesaj == null)
 			{
 				this.data.Title = this.insertForm.get("Title").value;
+				this.data.Code = this.insertForm.get("Code").value;
 				this.data.StatusID = this.insertForm.get("StatusID").value;
 
 				this.service.post("Cars", "Insert", this.data)

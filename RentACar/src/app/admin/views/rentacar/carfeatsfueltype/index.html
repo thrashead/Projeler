@@ -16,6 +16,7 @@
 								<tr>
 									<th>ID</th>
 									<th>Title</th>
+									<th>Code</th>
 									<th>İşlem</th>
 								</tr>
 							</thead>
@@ -23,6 +24,7 @@
 								<tr *ngFor="let item of CarFeatsFuelTypeList">
 									<td>{{ item?.ID }}</td>
 									<td>{{ item?.Title }}</td>
+									<td>{{ item?.Code }}</td>
 									<td style="text-align:center;">
 										<div class="btn-group" style="text-align:left;">
 											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>

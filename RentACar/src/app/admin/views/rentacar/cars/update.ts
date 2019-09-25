@@ -39,6 +39,7 @@ export class AdminCarsUpdateComponent {
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
 			StatusID: new FormControl(null, [Validators.required, Validators.min(0)]),
 		});
@@ -98,6 +99,7 @@ export class AdminCarsUpdateComponent {
 			{
 				this.data.ID = this.updateForm.get("ID").value;
 				this.data.Title = this.updateForm.get("Title").value;
+				this.data.Code = this.updateForm.get("Code").value;
 
 				if (this.data.HasFile) {
 					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;

@@ -128,6 +128,14 @@ import { AdminBlogVideosIndexComponent } from './admin/views/rentacar/blogvideos
 import { AdminBlogVideosInsertComponent } from './admin/views/rentacar/blogvideos/insert';
 import { AdminBlogVideosUpdateComponent } from './admin/views/rentacar/blogvideos/update';
 
+import { AdminCarDescIndexComponent } from './admin/views/rentacar/cardesc';
+import { AdminCarDescInsertComponent } from './admin/views/rentacar/cardesc/insert';
+import { AdminCarDescUpdateComponent } from './admin/views/rentacar/cardesc/update';
+
+import { AdminCarDescTIndexComponent } from './admin/views/rentacar/cardesct';
+import { AdminCarDescTInsertComponent } from './admin/views/rentacar/cardesct/insert';
+import { AdminCarDescTUpdateComponent } from './admin/views/rentacar/cardesct/update';
+
 import { AdminCarDetailsBasicIndexComponent } from './admin/views/rentacar/cardetailsbasic';
 import { AdminCarDetailsBasicInsertComponent } from './admin/views/rentacar/cardetailsbasic/insert';
 import { AdminCarDetailsBasicUpdateComponent } from './admin/views/rentacar/cardetailsbasic/update';
@@ -195,10 +203,6 @@ import { AdminCarFeatsModelUpdateComponent } from './admin/views/rentacar/carfea
 import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
 import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
 import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
-
-import { AdminCarsTIndexComponent } from './admin/views/rentacar/carst';
-import { AdminCarsTInsertComponent } from './admin/views/rentacar/carst/insert';
-import { AdminCarsTUpdateComponent } from './admin/views/rentacar/carst/update';
 
 import { AdminCarStatusIndexComponent } from './admin/views/rentacar/carstatus';
 import { AdminCarStatusInsertComponent } from './admin/views/rentacar/carstatus/insert';
@@ -527,9 +531,13 @@ import { AdminLib } from './admin/lib/methods';
         AdminCarsInsertComponent,
         AdminCarsUpdateComponent,
 
-        AdminCarsTIndexComponent,
-        AdminCarsTInsertComponent,
-        AdminCarsTUpdateComponent,
+        AdminCarDescIndexComponent,
+        AdminCarDescInsertComponent,
+        AdminCarDescUpdateComponent,
+
+        AdminCarDescTIndexComponent,
+        AdminCarDescTInsertComponent,
+        AdminCarDescTUpdateComponent,
 
         AdminCarStatusIndexComponent,
         AdminCarStatusInsertComponent,

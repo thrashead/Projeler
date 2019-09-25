@@ -34,6 +34,7 @@ export class AdminCarStatusUpdateComponent {
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 		});
 	}
 
@@ -74,6 +75,7 @@ export class AdminCarStatusUpdateComponent {
 	onSubmit() {
 		this.data.ID = this.updateForm.get("ID").value;
 		this.data.Title = this.updateForm.get("Title").value;
+		this.data.Code = this.updateForm.get("Code").value;
 
 		this.service.post("CarStatus", "Update", this.data)
 			.subscribe((answer: any) => {

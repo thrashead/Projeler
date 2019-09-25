@@ -6,13 +6,24 @@
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
 			<fieldset>
 				<div class="editor-label">
-					MakeName
+					Title
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
-					<input id="MakeName" [ngModel]="model?.MakeName" formControlName="MakeName" type="text" />
+					<input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" />
 					<br />
-					<!-- MakeName -->
+					<!-- Title -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Code
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" />
+					<br />
+					<!-- Code -->
 				</div>
 				<div class="clear"></div>
 

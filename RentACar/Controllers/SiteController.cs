@@ -1,6 +1,13 @@
 ﻿using Repository.BlogCategoryModel;
 using Repository.BlogModel;
-using Repository.CategoryModel;
+using Repository.CarFeatsBodyTypeModel;
+using Repository.CarFeatsDriveTypeModel;
+using Repository.CarFeatsEngineTypeModel;
+using Repository.CarFeatsFuelTypeModel;
+using Repository.CarFeatsGearsTypeModel;
+using Repository.CarFeatsMakeModel;
+using Repository.CarFeatsModelModel;
+using Repository.CarStatusModel;
 using Repository.ContentModel;
 using Repository.LangContentModel;
 using Repository.NoLangContentModel;
@@ -108,14 +115,90 @@ namespace RentACar.Controllers
 
         #endregion
 
-        #region Category
+        #region CarFeatures
 
         [HttpGet]
-        public JsonResult SubCategoriesByCode(string param)
+        public JsonResult GetCarMakes()
         {
-            Category category = new Category();
+            CarFeatsMake makes = new CarFeatsMake();
 
-            return Json(category.SubCategoriesByCode(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(makes.CarMakesSelect(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCarModelsByCode(string param)
+        {
+            CarFeatsModel model = new CarFeatsModel();
+
+            return Json(model.CarModelsByCode(param), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCarModelsByID(string param, string param2)
+        {
+            CarFeatsModel model = new CarFeatsModel();
+
+            return Json(model.CarModelsByID(param.ToInteger(), param2.ToInteger()), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCarStatus()
+        {
+            CarStatus carStatus = new CarStatus();
+
+            return Json(carStatus.CarStatusSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBodyTypes()
+        {
+            CarFeatsBodyType bodyType = new CarFeatsBodyType();
+
+            return Json(bodyType.BodyTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetGearTypes()
+        {
+            CarFeatsGearsType gearType = new CarFeatsGearsType();
+
+            return Json(gearType.GearTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetFuelTypes()
+        {
+            CarFeatsFuelType fuelType = new CarFeatsFuelType();
+
+            return Json(fuelType.FuelTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetDriveTypes()
+        {
+            CarFeatsDriveType driveType = new CarFeatsDriveType();
+
+            return Json(driveType.DriveTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetEngineTypes()
+        {
+            CarFeatsEngineType engineType = new CarFeatsEngineType();
+
+            return Json(engineType.EngineTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Workers
+
+        [HttpGet]
+        public JsonResult GetWorkers()
+        {
+            Workers workers = new Workers();
+
+            return Json(workers.WorkersDetailSelectAll(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -228,18 +311,6 @@ namespace RentACar.Controllers
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
-        }
-
-        #endregion
-
-        #region Workers
-
-        [HttpGet]
-        public JsonResult GetWorkers()
-        {
-            Workers workers = new Workers();
-
-            return Json(workers.WorkersDetailSelectAll(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

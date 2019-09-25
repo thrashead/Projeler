@@ -30,7 +30,8 @@ export class AdminCarFeatsMakeInsertComponent {
 		this.data = new Object();
 
 		this.insertForm = this.formBuilder.group({
-			MakeName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
 		});
 	}
@@ -57,7 +58,8 @@ export class AdminCarFeatsMakeInsertComponent {
 		this.subscription = this.service.post("CarFeatsMake", "InsertUpload", this.uploadData).subscribe((answerUpload: any) => {
 			if (answerUpload.Mesaj == null)
 			{
-				this.data.MakeName = this.insertForm.get("MakeName").value;
+				this.data.Title = this.insertForm.get("Title").value;
+				this.data.Code = this.insertForm.get("Code").value;
 
 				this.service.post("CarFeatsMake", "Insert", this.data)
 					.subscribe((answer: any) => {

@@ -1,6 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
+import { SiteService } from '../../../../services/site';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 
@@ -16,12 +17,13 @@ export class AdminCarDetailsBasicUpdateComponent {
 	data: any;
 
 	model: any;
+    CarModels: any;
 
 	callTable: boolean;
 
 	private subscription: Subscription = new Subscription();
 
-	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+    constructor(private service: ModelService, private siteService: SiteService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
 	}
 
 	ngOnInit() {
@@ -31,10 +33,10 @@ export class AdminCarDetailsBasicUpdateComponent {
 		this.FillData();
 
 		this.updateForm = this.formBuilder.group({
-			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
-			CarID: new FormControl(null, [Validators.required, Validators.min(0)]),
-			MakeID: new FormControl(null, [Validators.required, Validators.min(0)]),
-			ModelID: new FormControl(null, [Validators.required, Validators.min(0)]),
+			ID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			CarID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			MakeID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			ModelID: new FormControl(null, [Validators.required, Validators.min(1)]),
 			Year: new FormControl(null),
 			Price: new FormControl(null),
 			Width: new FormControl(null),
@@ -87,5 +89,17 @@ export class AdminCarDetailsBasicUpdateComponent {
 				}
 			},
 				resError => this.errorMsg = resError);
-	}
+    }
+
+    onMakeChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.GetCarModelsByID(target.value);
+    }
+
+    //CarModelsByID
+    GetCarModelsByID(id: string, selectedid: string = null) {
+        this.siteService.get("Site", "GetCarModelsByID", id, selectedid).subscribe((resData: any) => {
+            this.CarModels = resData;
+        }, resError => this.errorMsg = resError);
+    }
 }

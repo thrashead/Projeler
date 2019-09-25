@@ -14,7 +14,8 @@ namespace RentACar.Data
     public partial class usp_CarFeatsMakeUpdate_Result
     {
         public int ID { get; set; }
-        public string MakeName { get; set; }
+        public string Title { get; set; }
+        public string Code { get; set; }
         public string Url { get; set; }
         public string PictureUrl { get; set; }
     }

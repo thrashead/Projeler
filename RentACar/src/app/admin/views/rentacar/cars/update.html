@@ -20,6 +20,17 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
+					Code
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" value="{{ model?.Code }}" />
+					<br />
+					<!-- Code -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
 					PictureUrl
 				</div>
 				<div class="clear"></div>
@@ -58,28 +69,30 @@
 				<div class="widget-box">
 					<div class="widget-title">
 						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Bağlı CarsT</h5>
+						<h5>Bağlı CarDesc</h5>
 					</div>
 					<div class="widget-content nopadding">
 						<table class="table table-bordered data-table">
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>ShortDescription</th>
+									<th>Title</th>
+									<th>Code</th>
 									<th>İşlem</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr *ngFor="let item of model?.CarsTList">
+								<tr *ngFor="let item of model?.CarDescList">
 									<td>{{ item?.ID }}</td>
-									<td>{{ item?.ShortDescription }}</td>
+									<td>{{ item?.Title }}</td>
+									<td>{{ item?.Code }}</td>
 									<td style="text-align:center;">
 										<div class="btn-group" style="text-align:left;">
 											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
 											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarsT/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarsT" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarsT" [attr.data-id]="item?.ID">Sil</a></li>
+												<li><a class="updLink" [routerLink]="['/Admin/CarDesc/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDesc" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDesc" [attr.data-id]="item?.ID">Sil</a></li>
 											</ul>
 										</div>
 									</td>
@@ -92,173 +105,7 @@
 		</div>
 
 		<div class="pagelinks">
-			<a routerLink="/Admin/CarsT/Insert" class="btn btn-primary btn-add">CarsT Ekle</a>
-		</div>
-
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Bağlı CarDetailsFeatures</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>ABS</th>
-									<th>Airbag</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of model?.CarDetailsFeaturesList">
-									<td>{{ item?.ID }}</td>
-									<td>{{ item?.ABS }}</td>
-									<td>{{ item?.Airbag }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarDetailsFeatures/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="pagelinks">
-			<a routerLink="/Admin/CarDetailsFeatures/Insert" class="btn btn-primary btn-add">CarDetailsFeatures Ekle</a>
-		</div>
-
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Bağlı CarDetailsBasic</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of model?.CarDetailsBasicList">
-									<td>{{ item?.ID }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarDetailsBasic/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsBasic" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsBasic" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="pagelinks">
-			<a routerLink="/Admin/CarDetailsBasic/Insert" class="btn btn-primary btn-add">CarDetailsBasic Ekle</a>
-		</div>
-
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Bağlı CarDetailsMechanical</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>EngineCapacity</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of model?.CarDetailsMechanicalList">
-									<td>{{ item?.ID }}</td>
-									<td>{{ item?.EngineCapacity }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarDetailsMechanical/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsMechanical" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsMechanical" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="pagelinks">
-			<a routerLink="/Admin/CarDetailsMechanical/Insert" class="btn btn-primary btn-add">CarDetailsMechanical Ekle</a>
-		</div>
-
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Bağlı CarDetailsExtInt</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of model?.CarDetailsExtIntList">
-									<td>{{ item?.ID }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarDetailsExtInt/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsExtInt" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsExtInt" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="pagelinks">
-			<a routerLink="/Admin/CarDetailsExtInt/Insert" class="btn btn-primary btn-add">CarDetailsExtInt Ekle</a>
+			<a routerLink="/Admin/CarDesc/Insert" class="btn btn-primary btn-add">CarDesc Ekle</a>
 		</div>
 	</div>
 </div>
