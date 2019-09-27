@@ -75,12 +75,12 @@ export class AdminCarDetailsBasicInsertComponent {
 
     onMakeChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
-        this.GetCarModelsByID(target.value);
+        this.ComboCarModelsByMakeID(target.value);
     }
 
-    //CarModelsByID
-    GetCarModelsByID(id: string) {
-        this.siteService.get("Site", "GetCarModelsByID", id).subscribe((resData: any) => {
+    //CarModelsByMakeID
+    ComboCarModelsByMakeID(makeID: string = null) {
+        this.siteService.get("Site", "ComboCarModelsByMakeID", makeID).subscribe((resData: any) => {
             this.CarModels = resData;
         }, resError => this.errorMsg = resError);
     }

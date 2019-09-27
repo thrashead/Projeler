@@ -7,7 +7,7 @@
             </div>
             <div class="b-search__main-type wow zoomInUp" data-wow-delay="0.3s">
                 <div class="col-xs-12 col-md-2 s-noLeftPadding">
-                    <h4>{{ vehicleType }}</h4>
+                    <h4>{{ bodyTypeText }}</h4>
                 </div>
                 <div class="col-xs-12 col-md-10">
                     <div class="row">
@@ -45,7 +45,7 @@
                                     <option *ngFor="let item of CarStatus" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
-                                <p>{{ vehicleStatusText }}</p>
+                                <p>{{ carStatusText }}</p>
                             </div>
                         </div>
                         <div class="m-secondSelects">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-md-4 col-xs-12 text-left s-noPadding">
                         <div class="b-search__main-form-range">
-                            <label>{{ priceRange }}</label>
+                            <label>{{ priceRangeText }}</label>
                             <div class="slider"></div>
                             <input type="hidden" name="min" class="j-min" />
                             <input type="hidden" name="max" class="j-max" />

@@ -1,5 +1,6 @@
 ﻿import { Component, AfterViewChecked } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homesearch',
@@ -9,14 +10,14 @@ import { SiteService } from '../../../services/site';
 export class HomeSearchComponent implements AfterViewChecked {
     errorMsg: string;
 
-    vehicleType: string;
+    bodyTypeText: string;
     whichVehicle: string;
     makeText: string;
     modelText: string;
-    vehicleStatusText: string;
+    carStatusText: string;
     minYearText: string;
     maxYearText: string;
-    priceRange: string;
+    priceRangeText: string;
     search: string;
     detailSearch: string;
 
@@ -30,11 +31,11 @@ export class HomeSearchComponent implements AfterViewChecked {
 
     ngOnInit() {
         this.GetLangContent();
-        this.GetCarMakes();
-        this.GetCarModelsByCode("all");
-        this.GetCarStatus();
-        this.GetBodyTypes();
-        this.GetYears();
+        this.ComboCarMakes(false, null, true);
+        this.ComboCarModelsByMakeCode("all", false, null, true);
+        this.ComboCarStatus(false, null, true);
+        this.IconBodyTypes();
+        this.ComboYears();
     }
 
     ngAfterViewChecked() {
@@ -65,7 +66,7 @@ export class HomeSearchComponent implements AfterViewChecked {
 
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
-        this.GetCarModelsByCode(target.value);
+        this.ComboCarModelsByMakeCode(target.value, false, null, true);
     }
 
     //LangContent
@@ -74,8 +75,8 @@ export class HomeSearchComponent implements AfterViewChecked {
             this.whichVehicle = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "src_vhcltype", 1).subscribe((resData: any) => {
-            this.vehicleType = resData.ShortDescription;
+        this.service.get("Site", "GetLangContentByCode", "src_bodytype", 1).subscribe((resData: any) => {
+            this.bodyTypeText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_makeinfo", 1).subscribe((resData: any) => {
@@ -87,7 +88,7 @@ export class HomeSearchComponent implements AfterViewChecked {
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_vhclsts", 1).subscribe((resData: any) => {
-            this.vehicleStatusText = resData.ShortDescription;
+            this.carStatusText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_minyear", 1).subscribe((resData: any) => {
@@ -99,7 +100,7 @@ export class HomeSearchComponent implements AfterViewChecked {
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_prcrng", 1).subscribe((resData: any) => {
-            this.priceRange = resData.ShortDescription;
+            this.priceRangeText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_src", 1).subscribe((resData: any) => {
@@ -112,38 +113,36 @@ export class HomeSearchComponent implements AfterViewChecked {
     }
 
     //CarMakes
-    GetCarMakes() {
-        this.service.get("Site", "GetCarMakes").subscribe((resData: any) => {
+    ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarMakes = resData;
         }, resError => this.errorMsg = resError);
     }
 
-    //CarModelsByCode
-    GetCarModelsByCode(code: string) {
-        this.service.get("Site", "GetCarModelsByCode", code).subscribe((resData: any) => {
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeCode(makeCode: string, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarModels = resData;
         }, resError => this.errorMsg = resError);
     }
 
     //CarStatus
-    GetCarStatus() {
-        this.service.get("Site", "GetCarStatus").subscribe((resData: any) => {
+    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarStatus = resData;
         }, resError => this.errorMsg = resError);
     }
 
-    //BodyTypes
-    GetBodyTypes() {
-        this.service.get("Site", "GetBodyTypes").subscribe((resData: any) => {
+    //BodyTypesIcon
+    IconBodyTypes() {
+        this.service.get("Site", "IconBodyTypes").subscribe((resData: any) => {
             this.BodyTypes = resData;
         }, resError => this.errorMsg = resError);
     }
 
     //Years
-    GetYears() {
-        for (var i = 1999; i <= 2019; i++) {
-            $("#slcMinYear").append("<option value=\"" + i.toString() + "\">" + i.toString() + "</option>");
-            $("#slcMaxYear").append("<option value=\"" + i.toString() + "\">" + i.toString() + "</option>");
-        }
+    ComboYears() {
+        Lib.ComboYears("slcMinYear");
+        Lib.ComboYears("slcMaxYear");
     }
 }

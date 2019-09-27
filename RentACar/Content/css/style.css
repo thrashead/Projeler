@@ -39,6 +39,8 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-world__item p {margin-bottom: 0px;}
 .b-world__item h2 {height:40px;}
 .b-world__item img.img-responsive {display:unset;}
+.b-items div input[type='checkbox'] {position: absolute;visibility: hidden;}
+.b-items div input[type='checkbox']:checked + .b-items__cars-one-img-check span.fa {display: block;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

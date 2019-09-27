@@ -54,7 +54,9 @@ export class AdminCarDetailsBasicUpdateComponent {
 				this.id = params['id'];
 				this.subscription = this.service.get("CarDetailsBasic", "Update", this.id).subscribe((answer: any) => {
 					this.model = answer;
-					this.callTable = false;
+                    this.callTable = false;
+                    
+                    this.ComboCarModelsByMakeID(this.model.MakeID, this.model.ModelID);
 				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 			});
 		}
@@ -93,12 +95,12 @@ export class AdminCarDetailsBasicUpdateComponent {
 
     onMakeChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
-        this.GetCarModelsByID(target.value);
+        this.ComboCarModelsByMakeID(target.value);
     }
 
-    //CarModelsByID
-    GetCarModelsByID(id: string, selectedid: string = null) {
-        this.siteService.get("Site", "GetCarModelsByID", id, selectedid).subscribe((resData: any) => {
+    //CarModelsByMakeID
+    ComboCarModelsByMakeID(makeID: string = null, selectedid: string = null) {
+        this.siteService.get("Site", "ComboCarModelsByMakeID", makeID).subscribe((resData: any) => {
             this.CarModels = resData;
         }, resError => this.errorMsg = resError);
     }

@@ -117,77 +117,89 @@ namespace RentACar.Controllers
 
         #region CarFeatures
 
+        #region CarFeaturesSearch
+
         [HttpGet]
-        public JsonResult GetCarMakes()
+        public JsonResult ComboCarMakes(bool param = true, string param2 = null, bool param3 = false)
         {
             CarFeatsMake makes = new CarFeatsMake();
 
-            return Json(makes.CarMakesSelect(), JsonRequestBehavior.AllowGet);
+            return Json(makes.ComboCarMakes(param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetCarModelsByCode(string param)
+        public JsonResult ComboCarModelsByMakeCode(string param, bool param2 = true, string param3 = null, bool param4 = false)
         {
             CarFeatsModel model = new CarFeatsModel();
 
-            return Json(model.CarModelsByCode(param), JsonRequestBehavior.AllowGet);
+            return Json(model.ComboCarModelsByMakeCode(param, param2, param3.ToInteger(), param4), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetCarModelsByID(string param, string param2)
+        public JsonResult ComboCarModelsByMakeID(string param, bool param2 = true, string param3 = null, bool param4 = false)
         {
             CarFeatsModel model = new CarFeatsModel();
 
-            return Json(model.CarModelsByID(param.ToInteger(), param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            return Json(model.ComboCarModelsByMakeID(param.ToInteger(), param2, param3.ToInteger(), param4), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetCarStatus()
+        public JsonResult ComboCarStatus(bool param = true, string param2 = null, bool param3 = false)
         {
             CarStatus carStatus = new CarStatus();
 
-            return Json(carStatus.CarStatusSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(carStatus.ComboCarStatus(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetBodyTypes()
+        public JsonResult ComboBodyTypes(bool param = true, string param2 = null, bool param3 = false)
         {
             CarFeatsBodyType bodyType = new CarFeatsBodyType();
 
-            return Json(bodyType.BodyTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(bodyType.ComboBodyTypes(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetGearTypes()
+        public JsonResult IconBodyTypes()
+        {
+            CarFeatsBodyType bodyType = new CarFeatsBodyType();
+
+            return Json(bodyType.IconBodyTypes(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ComboGearTypes(bool param = true, string param2 = null, bool param3 = false)
         {
             CarFeatsGearsType gearType = new CarFeatsGearsType();
 
-            return Json(gearType.GearTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(gearType.ComboGearTypes(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetFuelTypes()
+        public JsonResult ComboFuelTypes(bool param = true, string param2 = null, bool param3 = false)
         {
             CarFeatsFuelType fuelType = new CarFeatsFuelType();
 
-            return Json(fuelType.FuelTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(fuelType.ComboFuelTypes(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetDriveTypes()
+        public JsonResult ComboDriveTypes(bool param = true, string param2 = null, bool param3 = false)
         {
             CarFeatsDriveType driveType = new CarFeatsDriveType();
 
-            return Json(driveType.DriveTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(driveType.ComboDriveTypes(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult GetEngineTypes()
+        public JsonResult ComboEngineTypes(bool param = true, string param2 = null, bool param3 = false)
         {
             CarFeatsEngineType engineType = new CarFeatsEngineType();
 
-            return Json(engineType.EngineTypesSelect(AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            return Json(engineType.ComboEngineTypes(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
         }
+
+        #endregion
 
         #endregion
 

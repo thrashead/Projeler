@@ -63,6 +63,7 @@ import { CarsListHeaderComponent } from './views/cars/list/parts/header';
 import { CarsListBreadCumbsComponent } from './views/cars/list/parts/breadcumbs';
 import { CarsListInfoComponent } from './views/cars/list/parts/info';
 import { CarsListItemsComponent } from './views/cars/list/parts/items';
+import { CarsListSearchComponent } from './views/cars/list/parts/search';
 
 //CarsDetail
 import { CarsDetailComponent } from './views/cars/detail';
@@ -335,6 +336,7 @@ import { AdminVisitorsIndexComponent } from './admin/views/general/visitors';
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
 import { SiteService } from './services/site';
+import { Lib } from './lib/methods';
 import { AdminLib } from './admin/lib/methods';
 
 
@@ -398,6 +400,7 @@ import { AdminLib } from './admin/lib/methods';
         CarsListBreadCumbsComponent,
         CarsListInfoComponent,
         CarsListItemsComponent,
+        CarsListSearchComponent,
 
         //CarDetail
         CarsDetailComponent,
@@ -678,6 +681,7 @@ import { AdminLib } from './admin/lib/methods';
         SharedService,
         ModelService,
         SiteService,
+        Lib,
         AdminLib
     ],
     bootstrap: [AppComponent]
