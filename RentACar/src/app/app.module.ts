@@ -61,7 +61,6 @@ import { ContactFormComponent } from './views/contact/parts/form';
 import { CarsListComponent } from './views/cars/list';
 import { CarsListHeaderComponent } from './views/cars/list/parts/header';
 import { CarsListBreadCumbsComponent } from './views/cars/list/parts/breadcumbs';
-import { CarsListInfoComponent } from './views/cars/list/parts/info';
 import { CarsListItemsComponent } from './views/cars/list/parts/items';
 import { CarsListSearchComponent } from './views/cars/list/parts/search';
 
@@ -398,7 +397,6 @@ import { AdminLib } from './admin/lib/methods';
         CarsListComponent,
         CarsListHeaderComponent,
         CarsListBreadCumbsComponent,
-        CarsListInfoComponent,
         CarsListItemsComponent,
         CarsListSearchComponent,
 

@@ -4,6 +4,7 @@ import { ModelService } from "../../../services/model";
 import { SiteService } from '../../../../services/site';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { AdminLib } from '../../../lib/methods';
 
 @Component({
     templateUrl: './insert.html'
@@ -55,11 +56,11 @@ export class AdminCarDetailsBasicInsertComponent {
         this.data.ModelID = this.insertForm.get("ModelID").value;
         this.data.Year = this.insertForm.get("Year").value;
         this.data.Price = this.insertForm.get("Price").value;
-        this.data.Width = this.insertForm.get("Width").value;
-        this.data.Height = this.insertForm.get("Height").value;
-        this.data.Length = this.insertForm.get("Length").value;
-        this.data.WheelBase = this.insertForm.get("WheelBase").value;
-        this.data.CargoCapacity = this.insertForm.get("CargoCapacity").value;
+        this.data.Width = AdminLib.ParseFloat(this.insertForm.get("Width").value);
+        this.data.Height = AdminLib.ParseFloat(this.insertForm.get("Height").value);
+        this.data.Length = AdminLib.ParseFloat(this.insertForm.get("Length").value);
+        this.data.WheelBase = AdminLib.ParseFloat(this.insertForm.get("WheelBase").value);
+        this.data.CargoCapacity = AdminLib.ParseFloat(this.insertForm.get("CargoCapacity").value);
         this.data.Mileage = this.insertForm.get("Mileage").value;
 
         this.service.post("CarDetailsBasic", "Insert", this.data).subscribe((answer: any) => {

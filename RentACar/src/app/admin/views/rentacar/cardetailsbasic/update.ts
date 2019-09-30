@@ -4,6 +4,7 @@ import { ModelService } from "../../../services/model";
 import { SiteService } from '../../../../services/site';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { AdminLib } from '../../../lib/methods';
 
 @Component({
 	templateUrl: './update.html'
@@ -72,12 +73,12 @@ export class AdminCarDetailsBasicUpdateComponent {
 		this.data.MakeID = this.updateForm.get("MakeID").value;
 		this.data.ModelID = this.updateForm.get("ModelID").value;
 		this.data.Year = this.updateForm.get("Year").value;
-		this.data.Price = this.updateForm.get("Price").value;
-		this.data.Width = this.updateForm.get("Width").value;
-		this.data.Height = this.updateForm.get("Height").value;
-		this.data.Length = this.updateForm.get("Length").value;
-		this.data.WheelBase = this.updateForm.get("WheelBase").value;
-		this.data.CargoCapacity = this.updateForm.get("CargoCapacity").value;
+        this.data.Price = this.updateForm.get("Price").value;
+        this.data.Width = AdminLib.ParseFloat(this.updateForm.get("Width").value);
+        this.data.Height = AdminLib.ParseFloat(this.updateForm.get("Height").value);
+        this.data.Length = AdminLib.ParseFloat(this.updateForm.get("Length").value);
+        this.data.WheelBase = AdminLib.ParseFloat(this.updateForm.get("WheelBase").value);
+        this.data.CargoCapacity = AdminLib.ParseFloat(this.updateForm.get("CargoCapacity").value);
 		this.data.Mileage = this.updateForm.get("Mileage").value;
 
 		this.service.post("CarDetailsBasic", "Update", this.data)

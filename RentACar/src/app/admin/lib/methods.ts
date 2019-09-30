@@ -35,5 +35,21 @@ export class AdminLib {
 					console.log(editor);
 				});
 		}, time);
-	}
+    }
+
+    static ParseFloat(value: string) : any {
+        var returnValue;
+
+        if (value == null || value == undefined) {
+            returnValue = null;
+        }
+        else if (value.toString().indexOf(',') > 0) {
+            returnValue = parseFloat(value.toString().replace(",", "."));
+        }
+        else {
+            returnValue = parseFloat(value);
+        }
+
+        return returnValue;
+    }
 }
