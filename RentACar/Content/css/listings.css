@@ -276,7 +276,8 @@ select.m-select + span.fa{
 }
 
 .b-items__aside-sell-img {
-    background: url(/RentACar/Content/img/backgrounds/sell.jpg) center no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     height: 200px;
     text-align: center;

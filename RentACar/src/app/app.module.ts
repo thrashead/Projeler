@@ -63,6 +63,7 @@ import { CarsListHeaderComponent } from './views/cars/list/parts/header';
 import { CarsListBreadCumbsComponent } from './views/cars/list/parts/breadcumbs';
 import { CarsListItemsComponent } from './views/cars/list/parts/items';
 import { CarsListSearchComponent } from './views/cars/list/parts/search';
+import { CarsListInfoComponent } from './views/cars/list/parts/info';
 
 //CarsDetail
 import { CarsDetailComponent } from './views/cars/detail';
@@ -399,6 +400,7 @@ import { AdminLib } from './admin/lib/methods';
         CarsListBreadCumbsComponent,
         CarsListItemsComponent,
         CarsListSearchComponent,
+        CarsListInfoComponent,
 
         //CarDetail
         CarsDetailComponent,

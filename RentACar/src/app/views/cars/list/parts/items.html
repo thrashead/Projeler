@@ -1,45 +1,5 @@
 ﻿<!--b-infoBar-->
-<div class="b-infoBar">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-xs-12">
-                <div class="b-infoBar__compare wow zoomInUp" data-wow-delay="0.5s">
-                    <div class="dropdown">
-                        <a href="#" class="dropdown-toggle b-infoBar__compare-item" data-toggle='dropdown'><span class="fa fa-clock-o"></span><!--RECENTLY VIEWED-->SON GÖRÜNTÜLENENLER<span class="fa fa-caret-down"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 1</a></li>
-                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 2</a></li>
-                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 3</a></li>
-                            <li><a routerLink="/Cars/Detail/tempurl"><!--Item-->Araç 4</a></li>
-                        </ul>
-                    </div>
-                    <a routerLink="/Cars/Compare/tempurl" class="b-infoBar__compare-item"><span class="fa fa-compress"></span><!--COMPARE VEHICLES-->ARAÇ KIYASLAMA: 2</a>
-                </div>
-            </div>
-            <div class="col-lg-8 col-xs-12">
-                <div class="b-infoBar__select">
-                    <div>
-                        <!--form method="post" action="/"-->
-                        <div class="b-infoBar__select-one wow zoomInUp" data-wow-delay="0.5s">
-                            <span class="b-infoBar__select-one-title"><!--SHOW ON PAGE-->ADET</span>
-                            <select name="select1" class="m-select">
-                                <option value="" selected="">10 <!--items-->Araç</option>
-                            </select>
-                            <span class="fa fa-caret-down"></span>
-                        </div>
-                        <div class="b-infoBar__select-one wow zoomInUp" data-wow-delay="0.5s">
-                            <span class="b-infoBar__select-one-title"><!--SORT BY-->SIRALAMA</span>
-                            <select name="select2" class="m-select">
-                                <option value="" selected=""><!--Last Added-->Son Eklenen</option>
-                            </select>
-                            <span class="fa fa-caret-down"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<rac-carlistinfo></rac-carlistinfo>
 <!--b-infoBar-->
 
 <!--b-items-->
@@ -54,10 +14,10 @@
                     <div *ngFor="let group of carList">
                         <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s" *ngFor="let item of group?.Cars">
                             <div class="b-items__cars-one-img">
-                                <img src="/RentACar/{{ item?.PictureUrl }}" alt='dodge' />
+                                <img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt='{{ item?.Title }}' />
                                 <div>
-                                    <input type="checkbox" name="checkCar" [attr.data-url]="item?.Url" />
-                                    <label for="check1" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
+                                    <input class="chkCompare" type="checkbox" id="check{{ item?.ID }}" name="check{{ item?.ID }}" [attr.data-url]="item?.Url" (change)="onChange($event)" />
+                                    <label for="check{{ item?.ID }}" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
                                 </div>
                             </div>
                             <div class="b-items__cars-one-info">
@@ -73,12 +33,12 @@
                                 </div>
                                 <div class="b-items__cars-one-info-details">
                                     <div class="b-featured__item-links">
-                                        <a href="javascript:;">{{ item?.Year }} Kayıtlı</a>
+                                        <a href="javascript:;">{{ registered }} {{ item?.Year }}</a>
                                         <a href="javascript:;">{{ item?.Status }}</a>
                                         <a href="javascript:;">{{ item?.Gear }}</a>
                                         <a href="javascript:;">{{ item?.Fuel }}</a>
                                     </div>
-                                    <a routerLink="/Cars/Detail/{{ item?.item?.Url }}" class="btn m-btn">{{ detail }}<span class="fa fa-angle-right"></span></a>
+                                    <a routerLink="/Cars/Detail/{{ item?.Url }}" class="btn m-btn">{{ detail }}<span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </div>

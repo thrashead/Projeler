@@ -1,0 +1,30 @@
+﻿<div class="b-infoBar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-xs-12">
+                <div class="b-infoBar__select">
+                    <div>
+                        <div class="b-infoBar__select-one wow zoomInUp" data-wow-delay="0.5s">
+                            <span class="b-infoBar__select-one-title">{{ sortorder }}</span>
+                            <select name="select2" class="m-select">
+                                <option value="" selected=""><!--Last Added-->Son Eklenen</option>
+                            </select>
+                            <span class="fa fa-caret-down"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-xs-12">
+                <div class="b-infoBar__compare wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="dropdown" *ngIf="lastCarList">
+                        <a href="#" class="dropdown-toggle b-infoBar__compare-item" data-toggle='dropdown'><span class="fa fa-clock-o"></span>{{ recentview }}<span class="fa fa-caret-down"></span></a>
+                        <ul class="dropdown-menu" *ngFor="let item of lastCarList">
+                            <li><a routerLink="/Cars/Detail/{{ item?.Url }}">{{ item?.Title }}</a></li>
+                        </ul>
+                    </div>
+                    <a routerLink="/Cars/Compare/tempurl" class="b-infoBar__compare-item"><span class="fa fa-compress"></span>{{ compare }} : <label id="lblCompareCount">0</label></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

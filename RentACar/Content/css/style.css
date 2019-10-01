@@ -41,6 +41,9 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-world__item img.img-responsive {display:unset;}
 .b-items div input[type='checkbox'] {position: absolute;visibility: hidden;}
 .b-items div input[type='checkbox']:checked + .b-items__cars-one-img-check span.fa {display: block;}
+.b-items__cars-one-img > img {width: 270px;height: 230px;}
+.b-infoBar__compare {text-align:right;}
+.b-infoBar__select {float:left;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

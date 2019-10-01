@@ -15,6 +15,7 @@ using Repository.NoLangContentModel;
 using Repository.PicturesModel;
 using Repository.TranslationModel;
 using Repository.WorkersModel;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using TDLibrary;
@@ -127,6 +128,41 @@ namespace RentACar.Controllers
                 return Json(cars.CarListSelect(AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(cars.CarListSelect(AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult CreateCarCompareList(string param)
+        {
+            if (Session["CarCompareList"] == null)
+                Session["CarCompareList"] = new List<string>();
+
+            if(!((List<string>)Session["CarCompareList"]).Contains(param))
+                ((List<string>)Session["CarCompareList"]).Add(param);
+            else
+                ((List<string>)Session["CarCompareList"]).Remove(param);
+
+            return Json(Session["CarCompareList"] as List<string>, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult CreateCarLastVisitedList(Cars param)
+        {
+            if (Session["CarLastVisitedList"] == null)
+                Session["CarLastVisitedList"] = new List<Cars>();
+
+            if (!((List<Cars>)Session["CarLastVisitedList"]).Contains(param))
+                ((List<Cars>)Session["CarLastVisitedList"]).Insert(0, param);
+            
+            if(((List<Cars>)Session["CarLastVisitedList"]).Count == 5)
+                ((List<Cars>)Session["CarLastVisitedList"]).RemoveAt(4);
+
+            return Json((List<Cars>)Session["CarLastVisitedList"], JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCarLastVisitedList()
+        {
+            return Json((List<Cars>)Session["CarLastVisitedList"], JsonRequestBehavior.AllowGet);
         }
 
         #region CarFeaturesSearch

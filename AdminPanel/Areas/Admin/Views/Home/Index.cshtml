@@ -20,11 +20,11 @@
             <ul class="quick-actions">
                 @{ if (user.HasRight("Category") && "Category".ShowType() == true)
                     {
-                        <li class="bg_lb"> <a href="@AppMgr.AdminPath/Category"> <i class="icon-sitemap"></i> Kategoriler</a> </li>
+                        <li class="bg_lg"> <a href="@AppMgr.AdminPath/Category"> <i class="icon-sitemap"></i> Kategoriler</a> </li>
                     } }
                 @{ if (user.HasRight("Content") && "Content".ShowType() == true)
                     {
-                        <li class="bg_lg"> <a href="@AppMgr.AdminPath/Content"> <i class="icon-edit"></i> İçerikler</a> </li>
+                        <li class="bg_lb"> <a href="@AppMgr.AdminPath/Content"> <i class="icon-edit"></i> İçerikler</a> </li>
                     } }
                 @{ if (user.HasRight("Product") && "Product".ShowType() == true)
                     {
@@ -48,11 +48,11 @@
                     } }
                 @{ if (user.HasRight("FormItems") && "FormItems".ShowType() == true)
                     {
-                        <li class="bg_lb"> <a href="@AppMgr.AdminPath/FormItems"> <i class="icon-tasks"></i> Form Elemanları</a> </li>
+                        <li class="bg_lg"> <a href="@AppMgr.AdminPath/FormItems"> <i class="icon-tasks"></i> Form Elemanları</a> </li>
                     } }
                 @{ if (user.HasRight("LinkTypes") && "LinkTypes".ShowType() == true)
                     {
-                        <li class="bg_lg"> <a href="@AppMgr.AdminPath/LinkTypes"> <i class="icon-link"></i> Bağlı Tipler</a> </li>
+                        <li class="bg_lb"> <a href="@AppMgr.AdminPath/LinkTypes"> <i class="icon-link"></i> Bağlı Tipler</a> </li>
                     } }
                 @{ if (user.HasRight("Translation") && "Translation".ShowType() == true)
                     {
