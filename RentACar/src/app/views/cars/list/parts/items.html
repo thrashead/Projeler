@@ -1,17 +1,13 @@
-﻿<!--b-infoBar-->
-<rac-carlistinfo></rac-carlistinfo>
-<!--b-infoBar-->
-
-<!--b-items-->
+﻿<!--b-items-->
 <section class="b-items s-shadow">
     <div class="container">
-        <div class="row">
+        <div class="row" (window:resize)="onResize($event)">
             <div class="col-lg-9 col-sm-8 col-xs-12">
                 <div id="carousel-small" class="b-items__cars owl-carousel enable-owl-carousel"
                      data-items="1" data-navigation="true" data-auto-play="false"
                      data-items-desktop="1" data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1">
 
-                    <div *ngFor="let group of carList">
+                    <div class="owlCars" *ngFor="let group of carList">
                         <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s" *ngFor="let item of group?.Cars">
                             <div class="b-items__cars-one-img">
                                 <img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt='{{ item?.Title }}' />

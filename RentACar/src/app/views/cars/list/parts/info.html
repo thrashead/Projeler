@@ -6,8 +6,8 @@
                     <div>
                         <div class="b-infoBar__select-one wow zoomInUp" data-wow-delay="0.5s">
                             <span class="b-infoBar__select-one-title">{{ sortorder }}</span>
-                            <select name="select2" class="m-select">
-                                <option value="" selected=""><!--Last Added-->Son Eklenen</option>
+                            <select id="slcOrder" name="slcOrder" class="m-select" (change)="onChange($event)">
+                                <option *ngFor="let item of orderList" value="{{ item?.ShortCode }}">{{ item?.ShortDescription2 }}</option>
                             </select>
                             <span class="fa fa-caret-down"></span>
                         </div>

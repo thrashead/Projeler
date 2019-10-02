@@ -120,14 +120,14 @@ namespace RentACar.Controllers
         #region Cars
 
         [HttpGet]
-        public JsonResult GetCarList(string param)
+        public JsonResult GetCarList(string param, string param2)
         {
             Cars cars = new Cars();
 
-            if (param.ToInteger() > 1 || param == null || param == "null")
-                return Json(cars.CarListSelect(AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
+                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
-                return Json(cars.CarListSelect(AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 
 @Component({
@@ -12,15 +12,15 @@ export class CarsListItemsComponent {
     detail: string;
     registered: string;
 
-    carList: any;
     carCompareList: any;
+
+    @Input() carList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangContent();
-        this.GetCarList();
     }
 
     onChange(event) {
@@ -47,6 +47,14 @@ export class CarsListItemsComponent {
         $("#lblCompareCount").text(count.toString());
     }
 
+    onResize(event) {
+        setTimeout(() => {
+            var wrapWidth = $(".owl-wrapper").css("width");
+
+            $(".owl-item").css("width", (parseInt(wrapWidth) / 12).toString() + "px");
+        }, 500);
+    }
+
     //LangContent
     GetLangContent() {
         this.service.get("Site", "GetLangContentByCode", "cmn_detail", 1).subscribe((resData: any) => {
@@ -55,18 +63,6 @@ export class CarsListItemsComponent {
 
         this.service.get("Site", "GetLangContentByCode", "cmn_rgstryr", 1).subscribe((resData: any) => {
             this.registered = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarList
-    GetCarList() {
-        this.service.get("Site", "GetCarList").subscribe((resData: any) => {
-            const length = Math.ceil(resData.length / 6);
-            this.carList = Array.from({ length }).map((x, j) => ({
-                Cars: resData.filter((y, i) => i >= 6 * j && i < 6 * (j + 1))
-            }));
-
-            $("#carListCount").text($("#carListCount").text().replace("##", resData.length.toString()));
         }, resError => this.errorMsg = resError);
     }
 

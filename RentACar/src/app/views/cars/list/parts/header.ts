@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 
 @Component({
@@ -10,6 +10,8 @@ export class CarsListHeaderComponent {
     errorMsg: string;
 
     banner: string;
+    @Input() carCount: string;
+
 
     header: any;
 
@@ -25,6 +27,10 @@ export class CarsListHeaderComponent {
     GetLangContent() {
         this.service.get("Site", "GetLangContentByCode", "car_list_head", 1).subscribe((resData: any) => {
             this.header = resData;
+
+            setTimeout(() => {
+                $("#carListCount").text($("#carListCount").text().replace("##", this.carCount));
+            }, 500);
         }, resError => this.errorMsg = resError);
     }
 

@@ -10,7 +10,6 @@ import '../../../../../Content/js/script.js';
 
 import { WOW } from "../../../../../node_modules/wowjs/dist/wow";
 
-
 @Component({
     selector: 'rac-scripts',
     template: '',

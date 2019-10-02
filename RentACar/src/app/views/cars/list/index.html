@@ -1,3 +1,6 @@
-﻿<rac-carlistheader></rac-carlistheader>
+﻿<!--Bu string veri için-->
+<rac-carlistheader carCount="{{ carCount }}"></rac-carlistheader>
 <rac-carlistbreadcumbs></rac-carlistbreadcumbs>
-<rac-carlistitems></rac-carlistitems>
+<rac-carlistinfo (orderChange)="GetCarList($event)"></rac-carlistinfo>
+<!--Bu her türlü veri için-->
+<rac-carlistitems [carList]="carList"></rac-carlistitems>

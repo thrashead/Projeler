@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Output, EventEmitter } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 
 @Component({
@@ -14,6 +14,9 @@ export class CarsListInfoComponent {
     compare: string;
 
     lastCarList: any;
+    orderList: any;
+
+    @Output() orderChange = new EventEmitter<any>();
 
     constructor(private service: SiteService) {
     }
@@ -21,6 +24,12 @@ export class CarsListInfoComponent {
     ngOnInit() {
         this.GetLangContent();
         this.GetCarLastVisitedList();
+    }
+
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+
+        this.orderChange.emit(target.value);
     }
 
     //LangContent
@@ -35,6 +44,10 @@ export class CarsListInfoComponent {
 
         this.service.get("Site", "GetLangContentByCode", "car_comp_head", 1).subscribe((resData: any) => {
             this.compare = resData.ShortDescription;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "GetLangContentByCode", "order").subscribe((resData: any) => {
+            this.orderList = resData;
         }, resError => this.errorMsg = resError);
     }
 
