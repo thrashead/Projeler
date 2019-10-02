@@ -1,5 +1,7 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Output, EventEmitter } from '@angular/core';
 import { SiteService } from '../../../../services/site';
+import { SearchFilters } from '../../../../models/searchfilters';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'rac-carlistsearch',
@@ -19,13 +21,18 @@ export class CarsListSearchComponent {
     search: string;
     removeFilter: string;
 
+    searchForm: FormGroup;
+    searchFilters: SearchFilters;
+
+    @Output() searchFilter = new EventEmitter<any>();
+
     CarMakes: any;
     CarModels: any;
     CarStatus: any;
     BodyTypes: any;
     FuelTypes: any;
 
-    constructor(private service: SiteService) {
+    constructor(private service: SiteService, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -35,11 +42,35 @@ export class CarsListSearchComponent {
         this.ComboCarStatus(false, null, true);
         this.ComboBodyTypes(false, null, true);
         this.ComboFuelTypes(false, null, true);
+
+        this.searchForm = this.formBuilder.group({
+            MakeCode: new FormControl(null),
+            ModelCode: new FormControl(null),
+            PriceMin: new FormControl(null),
+            PriceMax: new FormControl(null),
+            BodyTypeCode: new FormControl(null),
+            CarStatusCode: new FormControl(null),
+            FuelTypeCode: new FormControl(null),
+        });
     }
 
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
         this.ComboCarModelsByMakeCode(target.value, false, null, true);
+    }
+
+    onClick() {
+        this.searchFilters = {} as SearchFilters;
+
+        this.searchFilters.MakeCode = this.searchForm.get("MakeCode").value;
+        this.searchFilters.ModelCode = this.searchForm.get("ModelCode").value;
+        this.searchFilters.PriceMin = this.searchForm.get("PriceMin").value;
+        this.searchFilters.PriceMax = this.searchForm.get("PriceMax").value;
+        this.searchFilters.BodyTypeCode = this.searchForm.get("BodyTypeCode").value;
+        this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
+        this.searchFilters.FuelTypeCode = this.searchForm.get("FuelTypeCode").value;
+
+        this.searchFilter.emit(this.searchFilters);
     }
 
     //LangContent

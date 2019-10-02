@@ -3,4 +3,11 @@
 <rac-carlistbreadcumbs></rac-carlistbreadcumbs>
 <rac-carlistinfo (orderChange)="GetCarList($event)"></rac-carlistinfo>
 <!--Bu her türlü veri için-->
-<rac-carlistitems [carList]="carList"></rac-carlistitems>
+<section class="b-items s-shadow">
+    <div class="container">
+        <div class="row">
+            <rac-carlistitems [carList]="carList"></rac-carlistitems>
+            <rac-carlistsearch (searchFilter)="GetCarList($event)"></rac-carlistsearch>
+        </div>
+    </div>
+</section>

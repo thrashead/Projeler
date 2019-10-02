@@ -1,4 +1,5 @@
-﻿using Repository.BlogCategoryModel;
+﻿using Models;
+using Repository.BlogCategoryModel;
 using Repository.BlogModel;
 using Repository.CarFeatsBodyTypeModel;
 using Repository.CarFeatsDriveTypeModel;
@@ -119,15 +120,15 @@ namespace RentACar.Controllers
 
         #region Cars
 
-        [HttpGet]
-        public JsonResult GetCarList(string param, string param2)
+        [HttpPost]
+        public JsonResult GetCarList([System.Web.Http.FromBody] SearchFilters param, string param2)
         {
             Cars cars = new Cars();
 
             if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
-                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()));
             else
-                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault());
         }
 
         [HttpGet]

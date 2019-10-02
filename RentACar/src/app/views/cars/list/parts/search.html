@@ -3,12 +3,11 @@
         <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ searchTitle }}</h2>
         <div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
             <div>
-                <!--form-->
-                <div class="b-items__aside-main-body">
+                <form [formGroup]="searchForm" class="b-items__aside-main-body">
                     <div class="b-items__aside-main-body-item">
                         <label>{{ makeText }}</label>
                         <div>
-                            <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)" class="m-select">
+                            <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)" class="m-select" formControlName="MakeCode">
                                 <option *ngFor="let item of CarMakes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                             </select>
                             <span class="fa fa-caret-down"></span>
@@ -17,7 +16,7 @@
                     <div class="b-items__aside-main-body-item">
                         <label>{{ modelText }}</label>
                         <div>
-                            <select id="slcCarModels" name="slcCarModels" class="m-select">
+                            <select id="slcCarModels" name="slcCarModels" class="m-select" formControlName="ModelCode">
                                 <option *ngFor="let item of CarModels" value="{{ item?.Value }}">{{ item?.Text }}</option>
                             </select>
                             <span class="fa fa-caret-down"></span>
@@ -26,13 +25,13 @@
                     <div class="b-items__aside-main-body-item">
                         <label>{{ priceRangeText }}</label>
                         <div class="slider"></div>
-                        <input type="hidden" name="min" value="100" class="j-min" />
-                        <input type="hidden" name="max" value="1000" class="j-max" />
+                        <input type="hidden" name="min" id="txtMinPrice" value="100" class="j-min" formControlName="PriceMin" />
+                        <input type="hidden" name="max" id="txtMaxPrice" value="1000" class="j-max" formControlName="PriceMax" />
                     </div>
                     <div class="b-items__aside-main-body-item">
                         <label>{{ bodyTypeText }}</label>
                         <div>
-                            <select id="slcBodyType" name="slcBodyType" class="m-select">
+                            <select id="slcBodyType" name="slcBodyType" class="m-select" formControlName="BodyTypeCode">
                                 <option *ngFor="let item of BodyTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                             </select>
                             <span class="fa fa-caret-down"></span>
@@ -41,7 +40,7 @@
                     <div class="b-items__aside-main-body-item">
                         <label>{{ carStatusText }}</label>
                         <div>
-                            <select id="slcCarStatus" name="slcCarStatus" class="m-select">
+                            <select id="slcCarStatus" name="slcCarStatus" class="m-select" formControlName="CarStatusCode">
                                 <option *ngFor="let item of CarStatus" value="{{ item?.Value }}">{{ item?.Text }}</option>
                             </select>
                             <span class="fa fa-caret-down"></span>
@@ -50,15 +49,15 @@
                     <div class="b-items__aside-main-body-item">
                         <label>{{ fuelTypeText }}</label>
                         <div>
-                            <select id="slcFuelType" name="slcFuelType" class="m-select">
+                            <select id="slcFuelType" name="slcFuelType" class="m-select" formControlName="FuelTypeCode">
                                 <option *ngFor="let item of FuelTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                             </select>
                             <span class="fa fa-caret-down"></span>
                         </div>
                     </div>
-                </div>
+                </form>
                 <footer class="b-items__aside-main-footer">
-                    <button type="submit" class="btn m-btn">{{ search }}<span class="fa fa-angle-right"></span></button><br />
+                    <button type="submit" class="btn m-btn" (click)="onClick()">{{ search }}<span class="fa fa-angle-right"></span></button><br />
                     <a href="javascript:;">{{ removeFilter }}</a>
                 </footer>
             </div>

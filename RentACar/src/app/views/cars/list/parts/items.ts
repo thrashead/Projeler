@@ -47,14 +47,6 @@ export class CarsListItemsComponent {
         $("#lblCompareCount").text(count.toString());
     }
 
-    onResize(event) {
-        setTimeout(() => {
-            var wrapWidth = $(".owl-wrapper").css("width");
-
-            $(".owl-item").css("width", (parseInt(wrapWidth) / 12).toString() + "px");
-        }, 500);
-    }
-
     //LangContent
     GetLangContent() {
         this.service.get("Site", "GetLangContentByCode", "cmn_detail", 1).subscribe((resData: any) => {

@@ -1,5 +1,6 @@
 ﻿import { Component, Output, EventEmitter } from '@angular/core';
 import { SiteService } from '../../../../services/site';
+import { SearchFilters } from '../../../../models/searchfilters';
 
 @Component({
     selector: 'rac-carlistinfo',
@@ -12,6 +13,8 @@ export class CarsListInfoComponent {
     sortorder: string;
     recentview: string;
     compare: string;
+
+    searchFilters: SearchFilters;
 
     lastCarList: any;
     orderList: any;
@@ -29,7 +32,11 @@ export class CarsListInfoComponent {
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
 
-        this.orderChange.emit(target.value);
+        this.searchFilters = {} as SearchFilters;
+
+        this.searchFilters.Order = target.value;
+
+        this.orderChange.emit(this.searchFilters);
     }
 
     //LangContent
