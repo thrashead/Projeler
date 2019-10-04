@@ -23,6 +23,6 @@ namespace RentACar.Data
         public string ShortDescription { get; set; }
         public string Status { get; set; }
         public string Fuel { get; set; }
-        public Nullable<int> Gear { get; set; }
+        public string Gear { get; set; }
     }
 }

@@ -1,5 +1,8 @@
 ﻿import { Component, AfterViewChecked } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { SearchFilters } from '../../../models/searchfilters';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Lib } from '../../../lib/methods';
 
 @Component({
@@ -21,12 +24,15 @@ export class HomeSearchComponent implements AfterViewChecked {
     search: string;
     detailSearch: string;
 
+    searchForm: FormGroup;
+    searchFilters: SearchFilters;
+
     CarMakes: any;
     CarModels: any;
     CarStatus: any;
     BodyTypes: any;
 
-    constructor(private service: SiteService) {
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
@@ -36,6 +42,17 @@ export class HomeSearchComponent implements AfterViewChecked {
         this.ComboCarStatus(false, null, true);
         this.IconBodyTypes();
         this.ComboYears();
+
+        this.searchForm = this.formBuilder.group({
+            MakeCode: new FormControl(null),
+            ModelCode: new FormControl(null),
+            PriceMin: new FormControl(null),
+            PriceMax: new FormControl(null),
+            YearMin: new FormControl(null),
+            YearMax: new FormControl(null),
+            BodyTypeCode: new FormControl(null),
+            CarStatusCode: new FormControl(null),
+        });
     }
 
     ngAfterViewChecked() {
@@ -64,9 +81,41 @@ export class HomeSearchComponent implements AfterViewChecked {
         });
     }
 
+    onClick() {
+        this.searchFilters = {} as SearchFilters;
+
+        var bodyType = $(".b-search__main-type-svg.active");
+
+        this.searchFilters.BodyTypeCode =  bodyType.length > 0 ? bodyType.parent("div").attr("data-type") : null;
+        this.searchFilters.MakeCode = this.searchForm.get("MakeCode").value;
+        this.searchFilters.ModelCode = this.searchForm.get("ModelCode").value;
+        this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
+        this.searchFilters.PriceMin = parseInt($("#txtPriceMin").val().toString());
+        this.searchFilters.PriceMax = parseInt($("#txtPriceMax").val().toString());
+        this.searchFilters.YearMin = this.searchForm.get("YearMin").value;
+        this.searchFilters.YearMax = this.searchForm.get("YearMax").value;
+
+        this.SetSearchFilters(this.searchFilters);
+    }
+
     onChange(event) {
         var target = event.target || event.srcElement || event.currentTarget;
         this.ComboCarModelsByMakeCode(target.value, false, null, true);
+    }
+
+    //SetSearchFilters
+    SetSearchFilters(searchFilters: SearchFilters = null) {
+        this.service.post("Site", "SetSearchFilters", searchFilters).subscribe((resData: any) => {
+            this.searchFilters = resData;
+
+            this.router.navigate(['/Cars/List']);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //ClearSearchFilters
+    ClearSearchFilters() {
+        this.service.get("Site", "ClearSearchFilters").subscribe((resData: any) => {
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContent

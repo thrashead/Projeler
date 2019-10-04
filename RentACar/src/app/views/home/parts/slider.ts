@@ -30,7 +30,7 @@ export class HomeSliderComponent {
 
     //Slider
     GetSlider() {
-        this.service.get("Site", "MainSliderByCode", "mainslider").subscribe((resData: any) => {
+        this.service.get("Site", "SliderByCode", "mainslider", null).subscribe((resData: any) => {
             this.Slider = resData;
         }, resError => this.errorMsg = resError);
     }

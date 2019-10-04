@@ -11,14 +11,15 @@ namespace RentACar.Data
 {
     using System;
     
-    public partial class sp_SliderContentSelectByCode_Result
+    public partial class sp_SliderByCode_Result
     {
+        public string Slogan { get; set; }
         public string Title { get; set; }
+        public string ShortText1 { get; set; }
+        public string ShortText2 { get; set; }
+        public string Url { get; set; }
         public string PictureUrl { get; set; }
         public string Code { get; set; }
-        public string Slogan { get; set; }
-        public string Model { get; set; }
-        public string Price { get; set; }
-        public string Url { get; set; }
+        public string ShortCode { get; set; }
     }
 }

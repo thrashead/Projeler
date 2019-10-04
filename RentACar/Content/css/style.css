@@ -45,6 +45,8 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-infoBar__compare {text-align:right;}
 .b-infoBar__select {float:left;}
 #listControls {text-align:center;}
+#listControls #spnPage {color: #636363;text-align: center;width: 40px;display: inline-block;}
+#listControls .owl-next {margin-left: 0px!important;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

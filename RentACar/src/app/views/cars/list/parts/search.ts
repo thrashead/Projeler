@@ -1,15 +1,15 @@
-﻿import { Component, Output, EventEmitter } from '@angular/core';
+﻿import { Component, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 import { SearchFilters } from '../../../../models/searchfilters';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Router, ActivationEnd, RouterEvent } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'rac-carlistsearch',
     templateUrl: './search.html'
 })
 
-export class CarsListSearchComponent {
+export class CarsListSearchComponent implements OnDestroy {
     errorMsg: string;
 
     searchTitle: string;
@@ -54,12 +54,10 @@ export class CarsListSearchComponent {
             CarStatusCode: new FormControl(null),
             FuelTypeCode: new FormControl(null),
         });
+    }
 
-        this.router.events.subscribe((event: RouterEvent) => {
-            if (event instanceof ActivationEnd) {
-                this.ClearSearchFilters();
-            }
-        });
+    ngOnDestroy() {
+        this.ClearSearchFilters();
     }
 
     onChange(event) {
@@ -72,8 +70,8 @@ export class CarsListSearchComponent {
 
         this.searchFilters.MakeCode = this.searchForm.get("MakeCode").value;
         this.searchFilters.ModelCode = this.searchForm.get("ModelCode").value;
-        this.searchFilters.PriceMin = this.searchForm.get("PriceMin").value;
-        this.searchFilters.PriceMax = this.searchForm.get("PriceMax").value;
+        this.searchFilters.PriceMin = parseInt($("#txtPriceMin").val().toString());
+        this.searchFilters.PriceMax = parseInt($("#txtPriceMax").val().toString());
         this.searchFilters.BodyTypeCode = this.searchForm.get("BodyTypeCode").value;
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.searchForm.get("FuelTypeCode").value;

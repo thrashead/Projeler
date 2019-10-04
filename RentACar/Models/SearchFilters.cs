@@ -16,6 +16,8 @@ namespace Models
 
         public int? PriceMin { get; set; }
         public int? PriceMax { get; set; }
+        public int? YearMin { get; set; }
+        public int? YearMax { get; set; }
 
         public static SearchFilters Check(SearchFilters searchFilters)
         {
@@ -62,6 +64,12 @@ namespace Models
             if (sessionFilters.PriceMin != null && searchFilters.PriceMin == null)
                 searchFilters.PriceMin = sessionFilters.PriceMin;
 
+            if (sessionFilters.YearMin != null && searchFilters.YearMin == null)
+                searchFilters.YearMin = sessionFilters.YearMin;
+
+            if (sessionFilters.YearMax != null && searchFilters.YearMax == null)
+                searchFilters.YearMax = sessionFilters.YearMax;
+
             if (sessionFilters.Top != null && searchFilters.Top == null)
                 searchFilters.Top = sessionFilters.Top;
         }
@@ -88,10 +96,16 @@ namespace Models
             if (searchFilters.Order != null)
                 return searchFilters;
 
+            if (searchFilters.PriceMin != null)
+                return searchFilters;
+
             if (searchFilters.PriceMax != null)
                 return searchFilters;
 
-            if (searchFilters.PriceMin != null)
+            if (searchFilters.YearMin != null)
+                return searchFilters;
+
+            if (searchFilters.YearMax != null)
                 return searchFilters;
 
             if (searchFilters.Top != null)

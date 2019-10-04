@@ -46,6 +46,8 @@ namespace RentACar.Controllers
             Translation translation = new Translation();
             Session["CurrentLang"] = translation.Select(param);
 
+            Session["SearchFilters"] = null;
+
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
@@ -139,7 +141,7 @@ namespace RentACar.Controllers
             if (Session["CarCompareList"] == null)
                 Session["CarCompareList"] = new List<string>();
 
-            if(!((List<string>)Session["CarCompareList"]).Contains(param))
+            if (!((List<string>)Session["CarCompareList"]).Contains(param))
                 ((List<string>)Session["CarCompareList"]).Add(param);
             else
                 ((List<string>)Session["CarCompareList"]).Remove(param);
@@ -155,8 +157,8 @@ namespace RentACar.Controllers
 
             if (!((List<Cars>)Session["CarLastVisitedList"]).Contains(param))
                 ((List<Cars>)Session["CarLastVisitedList"]).Insert(0, param);
-            
-            if(((List<Cars>)Session["CarLastVisitedList"]).Count == 5)
+
+            if (((List<Cars>)Session["CarLastVisitedList"]).Count == 5)
                 ((List<Cars>)Session["CarLastVisitedList"]).RemoveAt(4);
 
             return Json((List<Cars>)Session["CarLastVisitedList"], JsonRequestBehavior.AllowGet);
@@ -380,11 +382,13 @@ namespace RentACar.Controllers
         #region Pictures
 
         [HttpGet]
-        public JsonResult MainSliderByCode(string param)
+        public JsonResult SliderByCode(string param, string param2 = null)
         {
             Pictures pictures = new Pictures();
 
-            return Json(pictures.MainSliderByCode(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            param2 = param2 == "null" ? null : param2;
+
+            return Json(pictures.SliderByCode(param, param2, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

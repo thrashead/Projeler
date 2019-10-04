@@ -225,14 +225,20 @@ export class ScriptsComponent implements AfterViewChecked {
                 values: [min, max],
                 range: true,
                 slide: function (event, ui) {
+                    $(".ui-slider-handle span.min").text(ui.values[0]);
+                    $(".ui-slider-handle span.max").text(ui.values[1]);
                     $("input.j-min").val(ui.values[0]);
                     $("input.j-max").val(ui.values[1]);
                 },
                 stop: function (event, ui) {
+                    $(".ui-slider-handle span.min").text(ui.values[0]);
+                    $(".ui-slider-handle span.max").text(ui.values[1]);
                     $("input.j-min").val(ui.values[0]);
                     $("input.j-max").val(ui.values[1]);
                 }
             });
+            $(".ui-slider-handle:first-of-type").append("<span class='min'>" + min + "</span>");
+            $(".ui-slider-handle:last-of-type").append("<span class='max'>" + max + "</span>");
         }
         $('.b-search__main-type h5 label').off('click').on('click', function () {
             $('.b-search__main-type').parent("div").removeAttr("data-selected");
@@ -312,13 +318,17 @@ export class ScriptsComponent implements AfterViewChecked {
         $(".b-footer__content-nav ul li a").removeClass("active");
 
         if (Urling.controller != "") {
-            if ($(".b-nav__list ul li a[data-url='" + Urling.controller + "']").length <= 0) {
+            if ($(".b-nav__list ul li a[data-url='" + Urling.controller + "']").length > 0) {
+                $(".b-nav__list ul li a[data-url='" + Urling.controller + "']").addClass("active");
+                $(".b-footer__content-nav ul li a[data-url='" + Urling.controller + "']").addClass("active");
+            }
+            else if ($(".b-nav__list ul li a[data-url='" + Urling.action + "']").length > 0) {
                 $(".b-nav__list ul li a[data-url='" + Urling.action + "']").addClass("active");
                 $(".b-footer__content-nav ul li a[data-url='" + Urling.action + "']").addClass("active");
             }
-            else {
-                $(".b-nav__list ul li a[data-url='" + Urling.controller + "']").addClass("active");
-                $(".b-footer__content-nav ul li a[data-url='" + Urling.controller + "']").addClass("active");
+            else if ($(".b-nav__list ul li a[data-url2='" + Urling.action + "']").length > 0) {
+                $(".b-nav__list ul li a[data-url2='" + Urling.action + "']").addClass("active");
+                $(".b-footer__content-nav ul li a[data-url2='" + Urling.action + "']").addClass("active");
             }
         }
         else {

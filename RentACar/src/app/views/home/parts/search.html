@@ -1,7 +1,7 @@
 ﻿<!--b-search-->
 <section class="b-search">
     <div class="container">
-        <div class="b-search__main"><!--form action="/Cars/List/tempurl" method="POST"-->
+        <form [formGroup]="searchForm" class="b-search__main">
             <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
                 <h2>{{ whichVehicle }}</h2>
             </div>
@@ -27,21 +27,21 @@
                     <div class="col-xs-12 col-md-8">
                         <div class="m-firstSelects">
                             <div class="col-xs-4">
-                                <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)">
+                                <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)" formControlName="MakeCode">
                                     <option *ngFor="let item of CarMakes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>{{ makeText }}</p>
                             </div>
                             <div class="col-xs-4">
-                                <select id="slcCarModels" name="slcCarModels">
+                                <select id="slcCarModels" name="slcCarModels" formControlName="ModelCode">
                                     <option *ngFor="let item of CarModels" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>{{ modelText }}</p>
                             </div>
                             <div class="col-xs-4">
-                                <select id="slcCarStatus" name="slcCarStatus">
+                                <select id="slcCarStatus" name="slcCarStatus" formControlName="CarStatusCode">
                                     <option *ngFor="let item of CarStatus" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
@@ -50,14 +50,14 @@
                         </div>
                         <div class="m-secondSelects">
                             <div class="col-xs-4">
-                                <select id="slcMinYear" name="slcMinYear">
+                                <select id="slcMinYear" name="slcMinYear" formControlName="YearMin">
                                     <option value="0">-</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
                                 <p>{{ minYearText }}</p>
                             </div>
                             <div class="col-xs-4">
-                                <select id="slcMaxYear" name="slcMaxYear">
+                                <select id="slcMaxYear" name="slcMaxYear" formControlName="YearMax">
                                     <option value="0">-</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
@@ -69,17 +69,17 @@
                         <div class="b-search__main-form-range">
                             <label>{{ priceRangeText }}</label>
                             <div class="slider"></div>
-                            <input type="hidden" name="min" class="j-min" />
-                            <input type="hidden" name="max" class="j-max" />
+                            <input type="hidden" id="txtPriceMin" name="min" class="j-min" formControlName="PriceMin" />
+                            <input type="hidden" id="txtPriceMax" name="max" class="j-max" formControlName="PriceMax" />
                         </div>
                         <div class="b-search__main-form-submit">
                             <a routerLink="/Cars/Book">{{ detailSearch }}</a>
-                            <button type="submit" class="btn m-btn">{{ search }}<span class="fa fa-angle-right"></span></button>
+                            <button class="btn m-btn" (click)="onClick()">{{ search }}<span class="fa fa-angle-right"></span></button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 <!--b-search-->

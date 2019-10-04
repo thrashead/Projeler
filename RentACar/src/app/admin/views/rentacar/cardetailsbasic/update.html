@@ -35,7 +35,7 @@
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
-					<select id="ModelID" [ngModel]="model?.ModelID" formControlName="ModelID"><option *ngFor="let item of model?.CarFeatsModelList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<select id="ModelID" [ngModel]="model?.ModelID" formControlName="ModelID"><option *ngFor="let item of CarModelList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
 					<br />
 					<!-- ModelID -->
 				</div>

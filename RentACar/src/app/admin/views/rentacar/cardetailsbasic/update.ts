@@ -1,6 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
+import { SiteService } from '../../../../services/site';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { AdminLib } from '../../../lib/methods';
@@ -17,12 +18,13 @@ export class AdminCarDetailsBasicUpdateComponent {
 	data: any;
 
 	model: any;
+    CarModelList: any;
 
 	callTable: boolean;
 
 	private subscription: Subscription = new Subscription();
 
-	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+    constructor(private service: ModelService, private siteService: SiteService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
 	}
 
 	ngOnInit() {
@@ -46,14 +48,22 @@ export class AdminCarDetailsBasicUpdateComponent {
 			CargoCapacity: new FormControl(null),
 			Mileage: new FormControl(null),
 		});
-	}
+    }
+
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.ComboCarModelsByMakeID(target.value);
+    }
 
 	FillData() {
 		if (this.callTable == true) {
 			this.route.params.subscribe((params: Params) => {
 				this.id = params['id'];
 				this.subscription = this.service.get("CarDetailsBasic", "Update", this.id).subscribe((answer: any) => {
-					this.model = answer;
+                    this.model = answer;
+
+                    this.ComboCarModelsByMakeID(this.model.MakeID.toString());
+
 					this.callTable = false;
 				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 			});
@@ -90,5 +100,12 @@ export class AdminCarDetailsBasicUpdateComponent {
 				}
 			},
 				resError => this.errorMsg = resError);
-	}
+    }
+
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeID(makeID: string = null) {
+        this.siteService.get("Site", "ComboCarModelsByMakeID", makeID).subscribe((resData: any) => {
+            this.CarModelList = resData;
+        }, resError => this.errorMsg = resError);
+    }
 }

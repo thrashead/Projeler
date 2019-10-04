@@ -1,6 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
+import { SiteService } from '../../../../services/site';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { AdminLib } from '../../../lib/methods';
@@ -15,11 +16,12 @@ export class AdminCarDetailsBasicInsertComponent {
 	insertForm: FormGroup;
 	data: any;
 
-	model: any;
+    model: any;
+    CarModelList: any;
 
 	private subscription: Subscription = new Subscription();
 
-	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router) {
+    constructor(private service: ModelService, private siteService: SiteService, private formBuilder: FormBuilder, private router: Router) {
 	}
 
 	ngOnInit() {
@@ -43,7 +45,12 @@ export class AdminCarDetailsBasicInsertComponent {
 			CargoCapacity: new FormControl(null),
 			Mileage: new FormControl(null),
 		});
-	}
+    }
+
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.ComboCarModelsByMakeID(target.value);
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
@@ -74,5 +81,12 @@ export class AdminCarDetailsBasicInsertComponent {
 				}
 			},
 				resError => this.errorMsg = resError);
-	}
+    }
+
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeID(makeID: string = null) {
+        this.siteService.get("Site", "ComboCarModelsByMakeID", makeID).subscribe((resData: any) => {
+            this.CarModelList = resData;
+        }, resError => this.errorMsg = resError);
+    }
 }

@@ -32,6 +32,8 @@ export class CarsListComponent {
             setTimeout(() => {
                 $("#spnCarCount").text(resData.length.toString());
                 $("#lblCompareCount").text("0");
+                $("#spnPage").text("1");
+
                 $(".listItem").hide();
                 $(".listItem").eq(0).show();
             }, 1000);
@@ -43,6 +45,8 @@ export class CarsListComponent {
                     var visibleItem = $(".listItem:visible");
                     var nextItem = $(".listItem:visible").next(".listItem").length < 1 ? $(".listItem").eq(0) : $(".listItem:visible").next(".listItem");
 
+                    $("#spnPage").text((nextItem.index() + 1).toString());
+
                     visibleItem.hide();
                     nextItem.fadeIn("slow");
                 });
@@ -50,6 +54,8 @@ export class CarsListComponent {
                 $(".owl-prev").off("click").on("click", function () {
                     var visibleItem = $(".listItem:visible");
                     var prevItem = $(".listItem:visible").prev(".listItem").length < 1 ? $(".listItem").eq(length - 1) : $(".listItem:visible").prev(".listItem");
+
+                    $("#spnPage").text((prevItem.index() + 1).toString());
 
                     visibleItem.hide();
                     prevItem.fadeIn("slow");
