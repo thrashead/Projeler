@@ -24,11 +24,14 @@ export class FooterComponent {
     openhours: any;
     about: any;
 
+    carList: any;
+
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangContent();
+        this.GetLastCars();
     }
 
     //LangContent
@@ -106,6 +109,13 @@ export class FooterComponent {
                         break;
                 }
             });
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GetLastCars
+    GetLastCars() {
+        this.service.get("Site", "GetLastCars", 3).subscribe((resData: any) => {
+            this.carList = resData;
         }, resError => this.errorMsg = resError);
     }
 }

@@ -13,11 +13,14 @@ export class HomeFeaturedComponent {
     premium: string;
     leasing: string;
 
+    carList: any;
+
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangContent();
+        this.GetShowroom();
     }
 
     GetLangContent() {
@@ -31,6 +34,13 @@ export class HomeFeaturedComponent {
 
         this.service.get("Site", "GetLangContentByCode", "carlst_premium", 1).subscribe((resData: any) => {
             this.premium = resData.ShortDescription;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GetShowroom
+    GetShowroom() {
+        this.service.get("Site", "GetShowroom", 8).subscribe((resData: any) => {
+            this.carList = resData;
         }, resError => this.errorMsg = resError);
     }
 }

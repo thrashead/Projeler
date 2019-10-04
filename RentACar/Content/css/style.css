@@ -47,6 +47,8 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 #listControls {text-align:center;}
 #listControls #spnPage {color: #636363;text-align: center;width: 40px;display: inline-block;}
 #listControls .owl-next {margin-left: 0px!important;}
+.b-featured__item img {width:100%;height: 170px;}
+.b-info__latest-article-photo {background-size:cover;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

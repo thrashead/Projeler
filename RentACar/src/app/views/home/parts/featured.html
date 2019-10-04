@@ -5,167 +5,24 @@
         <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="4" 
              data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="4" 
              data-items-desktop-small="4" data-items-tablet="3" data-items-tablet-small="2">
-            <div>
+            <div *ngFor="let item of carList">
                 <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/mers.jpg" alt="mers" />
-                        <span class="m-premium">{{ premium }}</span>
+                    <a [routerLink]="['/Cars/Detail/' + item?.Url]">
+                        <img src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
+                        <span *ngIf="item?.Status == 'Sıfır'" class="m-premium">{{ item?.Status }}</span>
+                        <span *ngIf="item?.Status != 'Sıfır'" class="m-leasing">{{ item?.Status }}</span>
                     </a>
                     <div class="b-featured__item-price">
-                        <!--$184,900-->184,900 TL
+                        {{ item?.Price }}
                     </div>
                     <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">MERCEDES-AMG GT / GT S</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
+                    <h5><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h5>
+                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>{{ item?.Mileage }} KM</div>
                     <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/audi.jpg" alt="audi" />
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$95,900-->95,900 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">AUDI R8 SPYDER V-8</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2015</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/aston.jpg" alt="aston" />
-                        <span class="m-leasing">{{ leasing }}</span>
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$101,025-->101,025 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">ASTON MARTIN VANTAGE</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/jaguar.jpg" alt="jaguar" />
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$130,825-->130,825 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">JAGUAR F-TYPE R</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2015</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/mers.jpg" alt="mers" />
-                        <span class="m-premium">{{ premium }}</span>
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$184,900-->184,900 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">MERCEDES-AMG GT / GT S</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/audi.jpg" alt="audi" />
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$95,900-->95,900 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">AUDI R8 SPYDER V-8</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2015</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/aston.jpg" alt="aston" />
-                        <span class="m-leasing">{{ leasing }}</span>
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$101,025-->101,025 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">ASTON MARTIN VANTAGE</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                    <a routerLink="/Cars/Detail/tempurl">
-                        <img src="/RentACar/Content/img/media/186x113/jaguar.jpg" alt="jaguar" />
-                    </a>
-                    <div class="b-featured__item-price">
-                        <!--$130,825-->130,825 TL
-                    </div>
-                    <div class="clearfix"></div>
-                    <h5><a routerLink="/Cars/Detail/tempurl">JAGUAR F-TYPE R</a></h5>
-                    <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>0.00</div>
-                    <div class="b-featured__item-links">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2015</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
+                        <a href="#">{{ item?.Year }}</a>
+                        <a href="#">{{ item?.Gear }}</a>
+                        <a href="#">{{ item?.Color }}</a>
+                        <a href="#">{{ item?.Fuel }}</a>
                     </div>
                 </div>
             </div>

@@ -86,12 +86,18 @@ export class HomeSearchComponent implements AfterViewChecked {
 
         var bodyType = $(".b-search__main-type-svg.active");
 
+        let minPrice: number = parseInt($("#txtPriceMin").val().toString());
+        let maxPrice: number = parseInt($("#txtPriceMax").val().toString());
+
+        minPrice = minPrice == 0 ? null : minPrice;
+        maxPrice = maxPrice == 100000 ? null : maxPrice;
+
         this.searchFilters.BodyTypeCode =  bodyType.length > 0 ? bodyType.parent("div").attr("data-type") : null;
         this.searchFilters.MakeCode = this.searchForm.get("MakeCode").value;
         this.searchFilters.ModelCode = this.searchForm.get("ModelCode").value;
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
-        this.searchFilters.PriceMin = parseInt($("#txtPriceMin").val().toString());
-        this.searchFilters.PriceMax = parseInt($("#txtPriceMax").val().toString());
+        this.searchFilters.PriceMin = minPrice;
+        this.searchFilters.PriceMax = maxPrice;
         this.searchFilters.YearMin = this.searchForm.get("YearMin").value;
         this.searchFilters.YearMax = this.searchForm.get("YearMax").value;
 

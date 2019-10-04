@@ -4,48 +4,59 @@
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
-			<fieldset>
-				<div class="editor-label">
-					Title
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" />
-					<br />
-					<!-- Title -->
-				</div>
-				<div class="clear"></div>
+            <fieldset>
+                <div class="editor-label">
+                    Title
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" />
+                    <br />
+                    <!-- Title -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Code
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" />
-					<br />
-					<!-- Code -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Code
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" />
+                    <br />
+                    <!-- Code -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					PictureUrl
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="file" name="pictureurlTemp" (change)="onPictureUrlFileSelect($event)" accept="image/*" />
-					<br />
-					<!-- PictureUrl -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    PictureUrl
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="file" name="pictureurlTemp" (change)="onPictureUrlFileSelect($event)" accept="image/*" />
+                    <br />
+                    <!-- PictureUrl -->
+                </div>
+                <div class="clear"></div>
 
-				<p>
-					<div class="alert alert-error">
-						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
-					</div>
+                <div class="editor-label">
+                    Show
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Show" [ngModel]="model?.Show" formControlName="Show" type="checkbox" />
+                    <br />
+                    <!--Show-->
+                </div>
+                <div class="clear"></div>
 
-					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
-					<a routerLink="/Admin/Cars" class="btn btn-danger btn-cancel">İptal</a>
-			</fieldset>
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+                    <a routerLink="/Admin/Cars" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
 		</form>
 	</div>
 </div>

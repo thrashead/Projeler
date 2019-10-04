@@ -68,10 +68,16 @@ export class CarsListSearchComponent implements OnDestroy {
     onClick() {
         this.searchFilters = {} as SearchFilters;
 
+        let minPrice: number = parseInt($("#txtPriceMin").val().toString());
+        let maxPrice: number = parseInt($("#txtPriceMax").val().toString());
+
+        minPrice = minPrice == 0 ? null : minPrice;
+        maxPrice = maxPrice == 100000 ? null : maxPrice;
+
         this.searchFilters.MakeCode = this.searchForm.get("MakeCode").value;
         this.searchFilters.ModelCode = this.searchForm.get("ModelCode").value;
-        this.searchFilters.PriceMin = parseInt($("#txtPriceMin").val().toString());
-        this.searchFilters.PriceMax = parseInt($("#txtPriceMax").val().toString());
+        this.searchFilters.PriceMin = minPrice;
+        this.searchFilters.PriceMax = maxPrice;
         this.searchFilters.BodyTypeCode = this.searchForm.get("BodyTypeCode").value;
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.searchForm.get("FuelTypeCode").value;

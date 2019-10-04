@@ -41,7 +41,8 @@ export class AdminCarsUpdateComponent {
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			Code: new FormControl(null, [Validators.maxLength(25)]),
 			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
-		});
+            Show: new FormControl(null),
+        });
 	}
 
 	FillData() {
@@ -99,6 +100,7 @@ export class AdminCarsUpdateComponent {
 				this.data.ID = this.updateForm.get("ID").value;
 				this.data.Title = this.updateForm.get("Title").value;
 				this.data.Code = this.updateForm.get("Code").value;
+                this.data.Show = this.updateForm.get("Show").value;
 
 				if (this.data.PictureUrlHasFile) {
 					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;

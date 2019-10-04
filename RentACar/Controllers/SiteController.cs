@@ -136,6 +136,28 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetShowroom(string param)
+        {
+            Cars cars = new Cars();
+
+            if (param.ToInteger() > 1 || param == null || param == "null")
+                return Json(cars.CarListShowroomSelect(AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(cars.CarListShowroomSelect(AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetLastCars(string param)
+        {
+            Cars cars = new Cars();
+
+            if (param.ToInteger() > 1 || param == null || param == "null")
+                return Json(cars.LastCarsSelect(param.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(cars.LastCarsSelect(param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult CreateCarCompareList(string param)
         {
             if (Session["CarCompareList"] == null)
