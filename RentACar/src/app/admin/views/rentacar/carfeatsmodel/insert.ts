@@ -31,6 +31,7 @@ export class AdminCarFeatsModelInsertComponent {
 		this.insertForm = this.formBuilder.group({
 			MakeID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			ModelName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 		});
 	}
 
@@ -41,6 +42,7 @@ export class AdminCarFeatsModelInsertComponent {
 	onSubmit() {
 		this.data.MakeID = this.insertForm.get("MakeID").value;
 		this.data.ModelName = this.insertForm.get("ModelName").value;
+        this.data.Code = this.insertForm.get("Code").value;
 
 		this.service.post("CarFeatsModel", "Insert", this.data)
 			.subscribe((answer: any) => {

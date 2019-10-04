@@ -37,11 +37,10 @@ export class AdminCarsUpdateComponent {
 		this.FillData();
 
 		this.updateForm = this.formBuilder.group({
-			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
+			ID: new FormControl(null, [Validators.required, Validators.min(1)]),
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			Code: new FormControl(null, [Validators.maxLength(25)]),
 			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
-			StatusID: new FormControl(null, [Validators.required, Validators.min(0)]),
 		});
 	}
 
@@ -79,7 +78,7 @@ export class AdminCarsUpdateComponent {
 		if (event.target.files.length > 0) {
 			this.namePictureUrl = AdminLib.UploadFileName(event.target.files[0].name);
 			this.data.PictureUrl = this.namePictureUrl;
-			this.data.HasFile = true;
+			this.data.PictureUrlHasFile = true;
 			this.imagePictureUrl = event.target.files[0];
 		}
 	}
@@ -91,7 +90,7 @@ export class AdminCarsUpdateComponent {
 	onSubmit() {
 		this.uploadData = new FormData();
 
-		if (this.data.HasFile)
+		if (this.data.PictureUrlHasFile)
 			this.uploadData.append("file", this.imagePictureUrl, this.namePictureUrl);
 
 		this.subscription = this.service.post("Cars", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
@@ -101,14 +100,13 @@ export class AdminCarsUpdateComponent {
 				this.data.Title = this.updateForm.get("Title").value;
 				this.data.Code = this.updateForm.get("Code").value;
 
-				if (this.data.HasFile) {
+				if (this.data.PictureUrlHasFile) {
 					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
 				}
 				else {
 					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
 				}
 
-				this.data.StatusID = this.updateForm.get("StatusID").value;
 
 				this.service.post("Cars", "Update", this.data)
 					.subscribe((answer: any) => {

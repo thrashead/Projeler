@@ -1,7 +1,6 @@
 ﻿import { Component } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
-import { SiteService } from '../../../../services/site';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { AdminLib } from '../../../lib/methods';
@@ -18,13 +17,12 @@ export class AdminCarDetailsBasicUpdateComponent {
 	data: any;
 
 	model: any;
-    CarModels: any;
 
 	callTable: boolean;
 
 	private subscription: Subscription = new Subscription();
 
-    constructor(private service: ModelService, private siteService: SiteService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
 	}
 
 	ngOnInit() {
@@ -38,6 +36,7 @@ export class AdminCarDetailsBasicUpdateComponent {
 			CarID: new FormControl(null, [Validators.required, Validators.min(1)]),
 			MakeID: new FormControl(null, [Validators.required, Validators.min(1)]),
 			ModelID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			StatusID: new FormControl(null, [Validators.required, Validators.min(1)]),
 			Year: new FormControl(null),
 			Price: new FormControl(null),
 			Width: new FormControl(null),
@@ -55,9 +54,7 @@ export class AdminCarDetailsBasicUpdateComponent {
 				this.id = params['id'];
 				this.subscription = this.service.get("CarDetailsBasic", "Update", this.id).subscribe((answer: any) => {
 					this.model = answer;
-                    this.callTable = false;
-                    
-                    this.ComboCarModelsByMakeID(this.model.MakeID, this.model.ModelID);
+					this.callTable = false;
 				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 			});
 		}
@@ -72,13 +69,14 @@ export class AdminCarDetailsBasicUpdateComponent {
 		this.data.CarID = this.updateForm.get("CarID").value;
 		this.data.MakeID = this.updateForm.get("MakeID").value;
 		this.data.ModelID = this.updateForm.get("ModelID").value;
+		this.data.StatusID = this.updateForm.get("StatusID").value;
 		this.data.Year = this.updateForm.get("Year").value;
-        this.data.Price = this.updateForm.get("Price").value;
-        this.data.Width = AdminLib.ParseFloat(this.updateForm.get("Width").value);
-        this.data.Height = AdminLib.ParseFloat(this.updateForm.get("Height").value);
-        this.data.Length = AdminLib.ParseFloat(this.updateForm.get("Length").value);
-        this.data.WheelBase = AdminLib.ParseFloat(this.updateForm.get("WheelBase").value);
-        this.data.CargoCapacity = AdminLib.ParseFloat(this.updateForm.get("CargoCapacity").value);
+		this.data.Price = this.updateForm.get("Price").value;
+		this.data.Width = AdminLib.ParseFloat(this.updateForm.get("Width").value);
+		this.data.Height = AdminLib.ParseFloat(this.updateForm.get("Height").value);
+		this.data.Length = AdminLib.ParseFloat(this.updateForm.get("Length").value);
+		this.data.WheelBase = AdminLib.ParseFloat(this.updateForm.get("WheelBase").value);
+		this.data.CargoCapacity = AdminLib.ParseFloat(this.updateForm.get("CargoCapacity").value);
 		this.data.Mileage = this.updateForm.get("Mileage").value;
 
 		this.service.post("CarDetailsBasic", "Update", this.data)
@@ -92,17 +90,5 @@ export class AdminCarDetailsBasicUpdateComponent {
 				}
 			},
 				resError => this.errorMsg = resError);
-    }
-
-    onMakeChange(event) {
-        var target = event.target || event.srcElement || event.currentTarget;
-        this.ComboCarModelsByMakeID(target.value);
-    }
-
-    //CarModelsByMakeID
-    ComboCarModelsByMakeID(makeID: string = null, selectedid: string = null) {
-        this.siteService.get("Site", "ComboCarModelsByMakeID", makeID).subscribe((resData: any) => {
-            this.CarModels = resData;
-        }, resError => this.errorMsg = resError);
-    }
+	}
 }

@@ -16,10 +16,10 @@ export class CarsListInfoComponent {
 
     searchFilters: SearchFilters;
 
+    @Output() orderChange = new EventEmitter<any>();
+
     lastCarList: any;
     orderList: any;
-
-    @Output() orderChange = new EventEmitter<any>();
 
     constructor(private service: SiteService) {
     }
@@ -36,7 +36,7 @@ export class CarsListInfoComponent {
 
         this.searchFilters.Order = target.value;
 
-        this.orderChange.emit(this.searchFilters);
+        this.SetSearchFilters(this.searchFilters);
     }
 
     //LangContent
@@ -55,6 +55,15 @@ export class CarsListInfoComponent {
 
         this.service.get("Site", "GetLangContentByCode", "order").subscribe((resData: any) => {
             this.orderList = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //SetSearchFilters
+    SetSearchFilters(searchFilters: SearchFilters = null) {
+        this.service.post("Site", "SetSearchFilters", searchFilters).subscribe((resData: any) => {
+            this.searchFilters = resData;
+
+            this.orderChange.emit(this.searchFilters);
         }, resError => this.errorMsg = resError);
     }
 

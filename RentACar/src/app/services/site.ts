@@ -11,7 +11,7 @@ export class SiteService {
         return this.http.get(controller + "/" + action, { params: params });
     }
 
-    post(controller: string, action: string, model: any) {
+    post(controller: string, action: string, model: any = null) {
         return this.http.post(controller + "/" + action, model);
     }
 }

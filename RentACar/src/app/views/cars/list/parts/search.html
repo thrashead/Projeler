@@ -25,8 +25,8 @@
                     <div class="b-items__aside-main-body-item">
                         <label>{{ priceRangeText }}</label>
                         <div class="slider"></div>
-                        <input type="hidden" name="min" id="txtMinPrice" value="100" class="j-min" formControlName="PriceMin" />
-                        <input type="hidden" name="max" id="txtMaxPrice" value="1000" class="j-max" formControlName="PriceMax" />
+                        <input type="hidden" id="txtMinPrice" class="j-min" formControlName="PriceMin" />
+                        <input type="hidden" id="txtMaxPrice" class="j-max" formControlName="PriceMax" />
                     </div>
                     <div class="b-items__aside-main-body-item">
                         <label>{{ bodyTypeText }}</label>
@@ -58,7 +58,7 @@
                 </form>
                 <footer class="b-items__aside-main-footer">
                     <button type="submit" class="btn m-btn" (click)="onClick()">{{ search }}<span class="fa fa-angle-right"></span></button><br />
-                    <a href="javascript:;">{{ removeFilter }}</a>
+                    <a href="javascript:;" (click)="ClearSearchFilters()">{{ clearFilter }}</a>
                 </footer>
             </div>
         </div>

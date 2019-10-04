@@ -29,15 +29,10 @@ export class AdminCarsInsertComponent {
 	ngOnInit() {
 		this.data = new Object();
 
-		this.subscription = this.service.get("Cars", "Insert").subscribe((answer: any) => {
-			this.model = answer;
-		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-
 		this.insertForm = this.formBuilder.group({
 			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			Code: new FormControl(null, [Validators.maxLength(25)]),
 			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
-			StatusID: new FormControl(null, [Validators.required, Validators.min(0)]),
 		});
 	}
 
@@ -45,7 +40,7 @@ export class AdminCarsInsertComponent {
 		if (event.target.files.length > 0) {
 			this.namePictureUrl = AdminLib.UploadFileName(event.target.files[0].name);
 			this.data.PictureUrl = this.namePictureUrl;
-			this.data.HasFile = true;
+			this.data.PictureUrlHasFile = true;
 			this.imagePictureUrl = event.target.files[0];
 		}
 	}
@@ -57,7 +52,7 @@ export class AdminCarsInsertComponent {
 	onSubmit() {
 		this.uploadData = new FormData();
 
-		if (this.data.HasFile)
+		if (this.data.PictureUrlHasFile)
 			this.uploadData.append("file", this.imagePictureUrl, this.namePictureUrl);
 
 		this.subscription = this.service.post("Cars", "InsertUpload", this.uploadData).subscribe((answerUpload: any) => {
@@ -65,7 +60,6 @@ export class AdminCarsInsertComponent {
 			{
 				this.data.Title = this.insertForm.get("Title").value;
 				this.data.Code = this.insertForm.get("Code").value;
-				this.data.StatusID = this.insertForm.get("StatusID").value;
 
 				this.service.post("Cars", "Insert", this.data)
 					.subscribe((answer: any) => {

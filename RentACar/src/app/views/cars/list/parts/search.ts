@@ -2,6 +2,7 @@
 import { SiteService } from '../../../../services/site';
 import { SearchFilters } from '../../../../models/searchfilters';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router, ActivationEnd, RouterEvent } from '@angular/router';
 
 @Component({
     selector: 'rac-carlistsearch',
@@ -19,12 +20,12 @@ export class CarsListSearchComponent {
     bodyTypeText: string;
     fuelTypeText: string;
     search: string;
-    removeFilter: string;
+    clearFilter: string;
+
+    @Output() searchFilter = new EventEmitter<any>();
 
     searchForm: FormGroup;
     searchFilters: SearchFilters;
-
-    @Output() searchFilter = new EventEmitter<any>();
 
     CarMakes: any;
     CarModels: any;
@@ -32,11 +33,12 @@ export class CarsListSearchComponent {
     BodyTypes: any;
     FuelTypes: any;
 
-    constructor(private service: SiteService, private formBuilder: FormBuilder) {
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
         this.GetLangContent();
+
         this.ComboCarMakes(false, null, true);
         this.ComboCarModelsByMakeCode("all", false, null, true);
         this.ComboCarStatus(false, null, true);
@@ -51,6 +53,12 @@ export class CarsListSearchComponent {
             BodyTypeCode: new FormControl(null),
             CarStatusCode: new FormControl(null),
             FuelTypeCode: new FormControl(null),
+        });
+
+        this.router.events.subscribe((event: RouterEvent) => {
+            if (event instanceof ActivationEnd) {
+                this.ClearSearchFilters();
+            }
         });
     }
 
@@ -70,7 +78,7 @@ export class CarsListSearchComponent {
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.searchForm.get("FuelTypeCode").value;
 
-        this.searchFilter.emit(this.searchFilters);
+        this.SetSearchFilters(this.searchFilters);
     }
 
     //LangContent
@@ -108,7 +116,23 @@ export class CarsListSearchComponent {
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "src_fltr_rmv", 1).subscribe((resData: any) => {
-            this.removeFilter = resData.ShortDescription;
+            this.clearFilter = resData.ShortDescription;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //SetSearchFilters
+    SetSearchFilters(searchFilters: SearchFilters = null) {
+        this.service.post("Site", "SetSearchFilters", searchFilters).subscribe((resData: any) => {
+            this.searchFilters = resData;
+
+            this.searchFilter.emit(this.searchFilters);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //ClearSearchFilters
+    ClearSearchFilters() {
+        this.service.get("Site", "ClearSearchFilters").subscribe((resData: any) => {
+            this.searchFilter.emit(resData);
         }, resError => this.errorMsg = resError);
     }
 

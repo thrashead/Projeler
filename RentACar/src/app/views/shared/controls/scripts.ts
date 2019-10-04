@@ -33,12 +33,22 @@ export class ScriptsComponent implements AfterViewChecked {
     ngOnInit() {
         this.LoadScripts();
 
+        //Slider Values
+        setTimeout(() => {
+            $("input.j-min").val(0);
+            $("input.j-max").val(100000);
+        }, 300);
+
         this.router.events.subscribe((event: RouterEvent) => {
             if (event instanceof ActivationEnd) {
                 this.LoadScripts();
 
                 setTimeout(() => {
                     $('#page-preloader').fadeOut("slow");
+
+                    //Slider Values
+                    $("input.j-min").val(0);
+                    $("input.j-max").val(100000);
                 }, 300);
             }
         });
@@ -203,24 +213,26 @@ export class ScriptsComponent implements AfterViewChecked {
     //Slider
     Slider() {
         var slider = $('.slider').length;
+
+        var min = 0;
+        var max = 100000;
+
         if (slider) {
-            jQuery(".slider").slider({
-                min: 0,
-                max: 100000,
+            $(".slider").slider({
+                min: min,
+                max: max,
                 step: 5000,
-                values: [0, 100000],
+                values: [min, max],
                 range: true,
                 slide: function (event, ui) {
-                    $(".ui-slider-handle span.min").text(ui.values[0]);
-                    $(".ui-slider-handle span.max").text(ui.values[1]);
+                    $("input.j-min").val(ui.values[0]);
+                    $("input.j-max").val(ui.values[1]);
                 },
                 stop: function (event, ui) {
                     $("input.j-min").val(ui.values[0]);
                     $("input.j-max").val(ui.values[1]);
                 }
             });
-            $(".ui-slider-handle:first-of-type").append("<span class='min'>0</span>");
-            $(".ui-slider-handle:last-of-type").append("<span class='max'>100000</span>");
         }
         $('.b-search__main-type h5 label').off('click').on('click', function () {
             $('.b-search__main-type').parent("div").removeAttr("data-selected");

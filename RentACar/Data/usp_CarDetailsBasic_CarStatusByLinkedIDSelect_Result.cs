@@ -11,7 +11,7 @@ namespace RentACar.Data
 {
     using System;
     
-    public partial class usp_CarDetailsBasicSelect_Result
+    public partial class usp_CarDetailsBasic_CarStatusByLinkedIDSelect_Result
     {
         public int ID { get; set; }
         public int CarID { get; set; }
@@ -26,5 +26,6 @@ namespace RentACar.Data
         public Nullable<decimal> WheelBase { get; set; }
         public Nullable<decimal> CargoCapacity { get; set; }
         public Nullable<int> Mileage { get; set; }
+        public string CarStatusAdi { get; set; }
     }
 }

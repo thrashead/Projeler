@@ -35,6 +35,7 @@ export class AdminCarFeatsModelUpdateComponent {
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			MakeID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			ModelName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+			Code: new FormControl(null, [Validators.maxLength(25)]),
 		});
 	}
 
@@ -76,6 +77,7 @@ export class AdminCarFeatsModelUpdateComponent {
 		this.data.ID = this.updateForm.get("ID").value;
 		this.data.MakeID = this.updateForm.get("MakeID").value;
 		this.data.ModelName = this.updateForm.get("ModelName").value;
+        this.data.Code = this.updateForm.get("Code").value;
 
 		this.service.post("CarFeatsModel", "Update", this.data)
 			.subscribe((answer: any) => {

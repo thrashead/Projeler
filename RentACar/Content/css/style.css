@@ -44,7 +44,7 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-items__cars-one-img > img {width: 270px;height: 230px;}
 .b-infoBar__compare {text-align:right;}
 .b-infoBar__select {float:left;}
-.b-items__cars-one {border-right: 2px solid #eeeeee;}
+#listControls {text-align:center;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

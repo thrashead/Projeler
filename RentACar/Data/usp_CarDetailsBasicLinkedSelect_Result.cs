@@ -17,6 +17,7 @@ namespace RentACar.Data
         public int CarID { get; set; }
         public int MakeID { get; set; }
         public int ModelID { get; set; }
+        public int StatusID { get; set; }
         public Nullable<int> Year { get; set; }
         public Nullable<int> Price { get; set; }
         public Nullable<decimal> Width { get; set; }
@@ -27,6 +28,7 @@ namespace RentACar.Data
         public Nullable<int> Mileage { get; set; }
         public string CarsAdi { get; set; }
         public string CarFeatsMakeAdi { get; set; }
+        public string CarStatusAdi { get; set; }
         public string CarFeatsModelAdi { get; set; }
     }
 }

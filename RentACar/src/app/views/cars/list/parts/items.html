@@ -1,9 +1,7 @@
 ﻿<!--b-items-->
 <div class="col-lg-9 col-sm-8 col-xs-12">
-    <div id="carousel-small" class="b-items__cars owl-carousel enable-owl-carousel"
-         data-items="1" data-navigation="true" data-auto-play="false"
-         data-items-desktop="1" data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1">
-        <div class="owlCars" *ngFor="let group of carList">
+    <div id="carousel-small">
+        <div class="listItem" *ngFor="let group of carList">
             <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s" *ngFor="let item of group?.Cars">
                 <div class="b-items__cars-one-img">
                     <img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt='{{ item?.Title }}' />
@@ -36,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <div id="listControls" class="owl-controls clickable"><div class="owl-buttons"><div class="owl-prev"></div><div class="owl-next"></div></div></div>
     </div>
 </div>
 <!--b-items-->

@@ -11,15 +11,11 @@ namespace RentACar.Data
 {
     using System;
     
-    public partial class usp_CarsLinkedSelect_Result
+    public partial class usp_CarFeatsModelSelectByCode_Result
     {
         public int ID { get; set; }
-        public string Title { get; set; }
+        public int MakeID { get; set; }
+        public string ModelName { get; set; }
         public string Code { get; set; }
-        public string PictureUrl { get; set; }
-        public int StatusID { get; set; }
-        public string Url { get; set; }
-        public string Guid { get; set; }
-        public string CarStatusAdi { get; set; }
     }
 }

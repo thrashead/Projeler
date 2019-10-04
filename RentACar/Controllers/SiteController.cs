@@ -120,15 +120,17 @@ namespace RentACar.Controllers
 
         #region Cars
 
-        [HttpPost]
-        public JsonResult GetCarList([System.Web.Http.FromBody] SearchFilters param, string param2)
+        [HttpGet]
+        public JsonResult GetCarList(string param)
         {
             Cars cars = new Cars();
 
-            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
-                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()));
+            SearchFilters searchFilters = Session["SearchFilters"] as SearchFilters;
+
+            if (param.ToInteger() > 1 || param == null || param == "null")
+                return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
             else
-                return Json(cars.CarListSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault());
+                return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -166,7 +168,29 @@ namespace RentACar.Controllers
             return Json((List<Cars>)Session["CarLastVisitedList"], JsonRequestBehavior.AllowGet);
         }
 
-        #region CarFeaturesSearch
+        #region CarSearch
+
+        [HttpPost]
+        public JsonResult SetSearchFilters([System.Web.Http.FromBody] SearchFilters param)
+        {
+            param = SearchFilters.Check(param);
+
+            return Json(param);
+        }
+
+        [HttpGet]
+        public JsonResult GetSearchFilters()
+        {
+            return Json(Session["SearchFilters"] as SearchFilters, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ClearSearchFilters()
+        {
+            Session["SearchFilters"] = null;
+
+            return Json(Session["SearchFilters"] as SearchFilters, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpGet]
         public JsonResult ComboCarMakes(bool param = true, string param2 = null, bool param3 = false)

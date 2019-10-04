@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 
 @Component({
@@ -10,8 +10,6 @@ export class CarsListHeaderComponent {
     errorMsg: string;
 
     banner: string;
-    @Input() carCount: string;
-
 
     header: any;
 
@@ -29,8 +27,8 @@ export class CarsListHeaderComponent {
             this.header = resData;
 
             setTimeout(() => {
-                $("#carListCount").text($("#carListCount").text().replace("##", this.carCount));
-            }, 500);
+                $("#carListCount").html($("#carListCount").html().replace("##", "<span id=\"spnCarCount\"></span>"));
+            }, 1000);
         }, resError => this.errorMsg = resError);
     }
 
