@@ -154,6 +154,11 @@ namespace RentACar
 
             return result;
         }
+
+        public static string ToNull(this string value)
+        {
+            return value == "null" ? null : value;
+        }
     }
 
     public class Lib

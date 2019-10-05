@@ -13,18 +13,17 @@
                     <p>
                         {{ newsletter?.Description }}
                     </p>
-                    <div>
-                        <!--form action="/" method="POST"-->
+                    <form [formGroup]="newsForm">
                         <div>
                             <span class="fa fa-user"></span>
-                            <input type="text" name="user" value="" placeholder="{{ name }}" />
+                            <input type="text" name="user" value="" formControlName="Name" placeholder="{{ name }}" />
                         </div>
                         <div>
                             <span class="fa fa-envelope"></span>
-                            <input type="text" name="email" value="" placeholder="{{ mail }}" />
+                            <input type="text" name="email" value="" formControlName="Mail" placeholder="{{ mail }}" />
                         </div>
-                        <button type="submit"><span class="fa fa-angle-right"></span></button>
-                    </div>
+                        <button (click)="onClick()" [disabled]="!newsForm.valid"><span class="fa fa-angle-right"></span></button>
+                    </form>
                 </div>
             </div>
         </div>

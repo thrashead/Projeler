@@ -9,15 +9,29 @@ import { SiteService } from '../../../services/site';
 export class HomeAutoComponent {
     errorMsg: string;
 
-    auto: any;
+    allmakes: string;
+    registered: string;
+
+    auto: {};
+
+    makeList: any;
+    carList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetLangContent();
+        this.GetMakeList();
+        this.GetCarListByMakeCode();
+    }
 
-        this.TabbedShowRoom();
+    onClick($event: any, code: string) {
+        var target = $event.target || $event.srcElement || $event.currentTarget;
+
+        this.TabbedShowRoom(target);
+
+        this.GetCarListByMakeCode(code);
     }
 
     //LangContent
@@ -25,20 +39,45 @@ export class HomeAutoComponent {
         this.service.get("Site", "GetLangContentByCode", "home_auto", 1).subscribe((resData: any) => {
             this.auto = resData;
         }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "GetLangContentByCode", "car_list_make", 1).subscribe((resData: any) => {
+            this.allmakes = resData.ShortDescription;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "GetLangContentByCode", "cmn_rgstryr", 1).subscribe((resData: any) => {
+            this.registered = resData.ShortDescription2;
+        }, resError => this.errorMsg = resError);
     }
 
-    TabbedShowRoom() {
-        $("ul#autoBest li a").off("click").on("click", function () {
-            var model = $(this).attr("data-model");
-            var activeTab = $("ul#autoBest").children("li.active");
-            var faSpan = activeTab.find("span.fa");
+    //MakeList
+    GetMakeList() {
+        this.service.get("Site", "GetMakeList").subscribe((resData: any) => {
+            this.makeList = resData;
+        }, resError => this.errorMsg = resError);
+    }
 
-            activeTab.removeClass("active");
-            $(this).parent("li").append(faSpan);
-            $(this).parent("li").addClass("active");
+    //CarListByMakeCode
+    GetCarListByMakeCode(code: string = null) {
+        code = code == "all" ? null : code;
 
-            $("#tabAutoBest .tab").hide();
-            $("#tabAutoBest .tab[data-model='" + model + "']").fadeIn("slow");
-        });
+        this.service.get("Site", "GetCarListByMakeCode", code, 6).subscribe((resData: any) => {
+            this.carList = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    TabbedShowRoom(target: any) {
+        var model = target.attributes["data-model"].value;
+        var activeTab = $("ul#autoBest").children("li.active");
+        var faSpan = activeTab.find("span.fa");
+
+        $("#tabAutoBest > div.tab").attr("data-model", model);
+
+        activeTab.removeClass("active");
+
+        $(target).parent("li").append(faSpan);
+        $(target).parent("li").addClass("active");
+
+        $("#tabAutoBest .tab").hide();
+        $("#tabAutoBest .tab[data-model='" + model + "']").fadeIn("slow");
     }
 }

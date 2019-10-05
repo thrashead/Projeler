@@ -12,6 +12,7 @@ using Repository.CarsModel;
 using Repository.CarStatusModel;
 using Repository.ContentModel;
 using Repository.LangContentModel;
+using Repository.NewsletterModel;
 using Repository.NoLangContentModel;
 using Repository.PicturesModel;
 using Repository.TranslationModel;
@@ -118,6 +119,18 @@ namespace RentACar.Controllers
                 return Json(blog.SimilarSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
+        #region Counter
+
+        [HttpGet]
+        public JsonResult GetCounter()
+        {
+            Blog blog = new Blog();
+
+            return Json(blog.CounterSelect(), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
         #endregion
 
         #region Cars
@@ -158,6 +171,17 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetCarListByMakeCode(string param, string param2)
+        {
+            Cars cars = new Cars();
+
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
+                return Json(cars.CarListByMakeCodeSelect(param.ToNull(), AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(cars.CarListByMakeCodeSelect(param.ToNull(), AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult CreateCarCompareList(string param)
         {
             if (Session["CarCompareList"] == null)
@@ -190,6 +214,19 @@ namespace RentACar.Controllers
         public JsonResult GetCarLastVisitedList()
         {
             return Json((List<Cars>)Session["CarLastVisitedList"], JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetMakeList(string param)
+        {
+            CarFeatsMake make = new CarFeatsMake();
+
+            if (param == null || param == "null")
+                return Json(make.CarMakesSelect(param.ToInteger()), JsonRequestBehavior.AllowGet);
+            else if (param.ToInteger() > 1)
+                return Json(make.CarMakesSelect(null), JsonRequestBehavior.AllowGet);
+            else
+                return Json(make.CarMakesSelect(param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         #region CarSearch
@@ -422,6 +459,18 @@ namespace RentACar.Controllers
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(pictures.PicturesByCode(param, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Newsletter
+
+        [HttpPost]
+        public JsonResult SendNewsletter([System.Web.Http.FromBody] Newsletter param)
+        {
+            param.Active = false;
+
+            return Json(param.Insert(param));
         }
 
         #endregion

@@ -23,8 +23,8 @@ export class CarsListItemsComponent {
         this.GetLangContent();
     }
 
-    onChange(event) {
-        var target = event.target || event.srcElement || event.currentTarget;
+    onChange($event) {
+        var target = $event.target || $event.srcElement || $event.currentTarget;
         var count = parseInt($("#lblCompareCount").text());
 
         if (target.checked) {

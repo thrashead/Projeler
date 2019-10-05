@@ -12,13 +12,22 @@ export class HomeCountComponent {
     countbanner: string;
 
     count: any;
+    counter: {};
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.GetContent();
+        this.GetCounter();
         this.GetPicture();
+    }
+
+    //Counter
+    GetCounter() {
+        this.service.get("Site", "GetCounter").subscribe((resData: any) => {
+            this.counter = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //Content

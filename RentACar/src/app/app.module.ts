@@ -28,7 +28,7 @@ import { HomeAsksComponent } from './views/home/parts/asks';
 import { HomeAutoComponent } from './views/home/parts/auto';
 import { HomeCountComponent } from './views/home/parts/count';
 import { HomeNewsletterComponent } from './views/home/parts/newsletter';
-import { HomeReviewComponent } from './views/home/parts/review';
+import { HomeWorkersComponent } from './views/home/parts/workers';
 
 //About
 import { AboutComponent } from './views/about';
@@ -365,7 +365,7 @@ import { AdminLib } from './admin/lib/methods';
         HomeAutoComponent,
         HomeCountComponent,
         HomeNewsletterComponent,
-        HomeReviewComponent,
+        HomeWorkersComponent,
 
         //About
         AboutComponent,
