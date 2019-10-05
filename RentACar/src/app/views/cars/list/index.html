@@ -1,13 +1,13 @@
 ﻿<!--Bu string veri için-->
 <rac-carlistheader></rac-carlistheader>
 <rac-carlistbreadcumbs></rac-carlistbreadcumbs>
-<rac-carlistinfo (orderChange)="GetCarList($event)"></rac-carlistinfo>
+<rac-carlistinfo (orderChange)="GetCarList()"></rac-carlistinfo>
 <!--Bu her türlü veri için-->
 <section class="b-items s-shadow">
     <div class="container">
         <div class="row">
             <rac-carlistitems [carList]="carList"></rac-carlistitems>
-            <rac-carlistsearch (searchFilter)="GetCarList($event)"></rac-carlistsearch>
+            <rac-carlistsearch (searchFilter)="GetCarList()"></rac-carlistsearch>
         </div>
     </div>
 </section>

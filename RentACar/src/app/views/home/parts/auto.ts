@@ -12,7 +12,7 @@ export class HomeAutoComponent {
     allmakes: string;
     registered: string;
 
-    auto: {};
+    auto: any;
 
     makeList: any;
     carList: any;

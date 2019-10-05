@@ -12,7 +12,7 @@ export class HomeCountComponent {
     countbanner: string;
 
     count: any;
-    counter: {};
+    counter: any;
 
     constructor(private service: SiteService) {
     }
