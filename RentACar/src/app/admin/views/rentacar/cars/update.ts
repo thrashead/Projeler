@@ -79,7 +79,7 @@ export class AdminCarsUpdateComponent {
 		if (event.target.files.length > 0) {
 			this.namePictureUrl = AdminLib.UploadFileName(event.target.files[0].name);
 			this.data.PictureUrl = this.namePictureUrl;
-			this.data.PictureUrlHasFile = true;
+			this.data.HasFile = true;
 			this.imagePictureUrl = event.target.files[0];
 		}
 	}
@@ -91,7 +91,7 @@ export class AdminCarsUpdateComponent {
 	onSubmit() {
 		this.uploadData = new FormData();
 
-		if (this.data.PictureUrlHasFile)
+		if (this.data.HasFile)
 			this.uploadData.append("file", this.imagePictureUrl, this.namePictureUrl);
 
 		this.subscription = this.service.post("Cars", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
@@ -102,7 +102,7 @@ export class AdminCarsUpdateComponent {
 				this.data.Code = this.updateForm.get("Code").value;
                 this.data.Show = this.updateForm.get("Show").value;
 
-				if (this.data.PictureUrlHasFile) {
+				if (this.data.HasFile) {
 					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
 				}
 				else {

@@ -201,6 +201,10 @@ import { AdminCarFeatsModelIndexComponent } from './admin/views/rentacar/carfeat
 import { AdminCarFeatsModelInsertComponent } from './admin/views/rentacar/carfeatsmodel/insert';
 import { AdminCarFeatsModelUpdateComponent } from './admin/views/rentacar/carfeatsmodel/update';
 
+import { AdminCarPicturesIndexComponent } from './admin/views/rentacar/carpictures';
+import { AdminCarPicturesInsertComponent } from './admin/views/rentacar/carpictures/insert';
+import { AdminCarPicturesUpdateComponent } from './admin/views/rentacar/carpictures/update';
+
 import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
 import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
 import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
@@ -529,6 +533,10 @@ import { AdminLib } from './admin/lib/methods';
         AdminCarFeatsModelIndexComponent,
         AdminCarFeatsModelInsertComponent,
         AdminCarFeatsModelUpdateComponent,
+
+        AdminCarPicturesIndexComponent,
+        AdminCarPicturesInsertComponent,
+        AdminCarPicturesUpdateComponent,
 
         AdminCarsIndexComponent,
         AdminCarsInsertComponent,
