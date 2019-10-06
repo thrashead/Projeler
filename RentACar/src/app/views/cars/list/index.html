@@ -1,11 +1,12 @@
 ﻿<!--Bu string veri için-->
+<!--<rac-carlistheader carCount="{ carCount }"></rac-carlistheader>-->
 <rac-carlistheader></rac-carlistheader>
 <rac-carlistbreadcumbs></rac-carlistbreadcumbs>
 <rac-carlistinfo (orderChange)="GetCarList()"></rac-carlistinfo>
-<!--Bu her türlü veri için-->
 <section class="b-items s-shadow">
     <div class="container">
         <div class="row">
+            <!--Bu her türlü veri için-->
             <rac-carlistitems [carList]="carList"></rac-carlistitems>
             <rac-carlistsearch (searchFilter)="GetCarList()"></rac-carlistsearch>
         </div>

@@ -5,13 +5,12 @@
             <div class="row">
                 <div class="col-sm-9 col-xs-12">
                     <div class="b-detail__head-title">
-                        <h1>Nissan Maxima SV Premium 2016</h1>
-                        <h3><!--Fully Redesigned Upscale Midsize Car-->Yeniden Tasarlanmış Üst Seviye Model</h3>
+                        <h1>{{ car?.Title }}</h1>
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-12">
                     <div class="b-detail__head-price">
-                        <div class="b-detail__head-price-num"><!--$-->44,380 TL</div>
+                        <div class="b-detail__head-price-num">{{ car?.Price }} TL</div>
                         <p><!--Included Taxes &amp; Checkup-->KDV Dahil</p>
                     </div>
                 </div>
@@ -24,69 +23,19 @@
                         <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
                             <div class="row m-smallPadding">
                                 <div class="col-xs-10">
-                                    <ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big1.jpg" alt="nissan" />
+                                    <ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" 
+                                        data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
+                                        <li class="s-relative" *ngFor="let item of gallery">
+                                            <!--<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>-->
+                                            <img class="img-responsive center-block" src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                                         </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big2.jpg" alt="nissan" />
-                                        </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big3.jpg" alt="nissan" />
-                                        </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big4.jpg" alt="nissan" />
-                                        </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big5.jpg" alt="nissan" />
-                                        </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big1.jpg" alt="nissan" />
-                                        </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big2.jpg" alt="nissan" />
-                                        </li>
-                                        <li class="s-relative">
-                                            <a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span><!--VIDEO-->VİDEO</a>
-                                            <img class="img-responsive center-block" src="/RentACar/Content/img/media/620x485/big3.jpg" alt="nissan" />
-                                        </li>
-
                                     </ul>
                                 </div>
                                 <div class="col-xs-2 pagerSlider pagerVertical">
                                     <div class="b-detail__main-info-images-small" id="bx-pager">
-                                        <a href="#" data-slide-index="0" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small1.jpg" alt="nissan" />
+                                        <a href="javascript:;" [attr.data-slide-index]="i" class="b-detail__main-info-images-small-one" *ngFor="let item of gallery; let i = index">
+                                            <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                                         </a>
-                                        <a href="#" data-slide-index="1" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small2.jpg" alt="nissan" />
-                                        </a>
-                                        <a href="#" data-slide-index="2" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small3.jpg" alt="nissan" />
-                                        </a>
-                                        <a href="#" data-slide-index="3" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small4.jpg" alt="nissan" />
-                                        </a>
-                                        <a href="#" data-slide-index="4" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small5.jpg" alt="nissan" />
-                                        </a>
-                                        <a href="#" data-slide-index="5" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small1.jpg" alt="nissan" />
-                                        </a>
-                                        <a href="#" data-slide-index="6" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small2.jpg" alt="nissan" />
-                                        </a>
-                                        <a href="#" data-slide-index="7" class="b-detail__main-info-images-small-one">
-                                            <img class="img-responsive" src="/RentACar/Content/img/media/115x85/small3.jpg" alt="nissan" />
-                                        </a>
-
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +44,7 @@
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-car"></span></div>
-                                    <p><!--Brand New-->Sıfır</p>
+                                    <p>{{ car?.Status }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
                                     <!--Status-->Durum
@@ -104,16 +53,16 @@
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-trophy"></span></div>
-                                    <p>5,000KM</p>
+                                    <p>{{ car?.Mileage }} km</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--Warrenty-->Garanti
+                                    <!--Mileage-->Kilometre
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-at"></span></div>
-                                    <p><!--Auto-->Otomatik</p>
+                                    <p>{{ car?.Gear }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
                                     <!--Transmission-->Vites
@@ -122,7 +71,7 @@
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-car"></span></div>
-                                    <p><!--FWD-->Ön</p>
+                                    <p>{{ car?.DriveType }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
                                     <!--Drivetrain-->Çekiş
@@ -131,7 +80,7 @@
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-user"></span></div>
-                                    <p>5</p>
+                                    <p>{{ car?.Seats }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
                                     <!--Passangers-->Yolcu Kapasitesi
@@ -140,7 +89,7 @@
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-fire-extinguisher"></span></div>
-                                    <p>10.8L</p>
+                                    <p>{{ car?.CityFuelEconomy }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
                                     <!--In City-->Şehir Ykt.Tktm.
@@ -149,101 +98,29 @@
                             <div class="b-detail__main-info-characteristics-one">
                                 <div class="b-detail__main-info-characteristics-one-top">
                                     <div><span class="fa fa-fire-extinguisher"></span></div>
-                                    <p>7.5L</p>
+                                    <p>{{ car?.HighwayFuelEconomy }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
                                     <!--On Highway-->Uzun Yol Ykt.Tktm.
                                 </div>
                             </div>
                         </div>
-                        <div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
+                        <div *ngIf="descriptions?.length > 0" class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
                             <div class="b-detail__main-aside-about-form-links">
-                                <a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'><!--GENERAL INQUIRY-->GENEL BİLGİ</a>
-                                <a href="#" class="j-tab" data-to='#info2'><!--SCHEDULE TEST DRIVE-->TEST SÜRÜŞÜ PLANLAYIN</a>
+                                <a *ngFor="let item of descriptions; let i = index" href="javascript:;" [class]="['j-tab' + i == 0 ? 'm-active s-lineDownCenter' : '']" [attr.data-to]="['#info' + (i + 1)]">{{ item?.Title }}</a>
+                                <!--<a href="javascript:;" class="j-tab" data-to='#info2'><!--SCHEDULE TEST DRIVE TEST SÜRÜŞÜ PLANLAYIN</a>-->
                             </div>
-                            <div id="info1">
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                            </div>
-                            <div id="info2">
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                    Lorem ipsum dolor sit amet, vim ut possit assueverit, vis ut omnesque salutandi evertitur.
-                                    Debitis voluptua mediocrem at vim, cum probo munere suscipit ad, qui ludus nonumes cu. Ne fierent facilisi vim.
-                                </p>
+                            <div *ngFor="let item of descriptions; let i = index" id="info{{ i + 1 }}">
+                                <h2 [innerHtml]="item?.ShortDescription"></h2>
+                                <p [innerHtml]="item?.Description"></p>
+                                <h2 [innerHtml]="item?.ShortDescription2"></h2>
+                                <p [innerHtml]="item?.Description2"></p>
                             </div>
                         </div>
                         <div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
                             <h2 class="s-titleDet"><!--EXTRA FEATURES-->DİĞER ÖZELLİKLER</h2>
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <ul>
-                                        <li><span class="fa fa-check"></span><!--Security System-->Güvenlik Sistemi</li>
-                                        <li><span class="fa fa-check"></span><!--Air Conditioning-->Klima</li>
-                                        <li><span class="fa fa-check"></span><!--Alloy Wheels-->Alaşım Jantlar</li>
-                                        <li><span class="fa fa-check"></span><!--Anti-Lock Brakes (ABS)-->ABS</li>
-                                        <li><span class="fa fa-check"></span><!--Anti-Theft-->Alarm</li>
-                                    </ul>
-                                </div>
-                                <div class="col-xs-4">
-                                    <ul>
-                                        <li><span class="fa fa-check"></span><!--Dual Airbag-->Çift Hava Yastığı</li>
-                                        <li><span class="fa fa-check"></span><!--Keyless Entry-->Anahtarsız Giriş</li>
-                                        <li><span class="fa fa-check"></span><!--Power Mirrors-->Elektrikli Aynalar</li>
-                                        <li><span class="fa fa-check"></span><!--Power Seat-->Elektrikli Koltuk</li>
-                                        <li><span class="fa fa-check"></span><!--Power Steering-->Elektrikli Direksiyon</li>
-                                    </ul>
-                                </div>
-                                <div class="col-xs-4">
-                                    <ul>
-                                        <li><span class="fa fa-check"></span><!--CD Player-->CD Oynatıcı</li>
-                                        <li><span class="fa fa-check"></span><!--Driver Side Airbag-->Şöför Hava Yastığı</li>
-                                        <li><span class="fa fa-check"></span><!--Power Windows-->Elektrikli Camlar</li>
-                                        <li><span class="fa fa-check"></span><!--Remote Start-->Uzaktan Çalıştırma</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +135,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Make-->Marka</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">Nissan</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Make }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -266,7 +143,7 @@
                                     <h4 class="b-detail__main-aside-desc-title">Model</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">Maxima</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Model }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -274,7 +151,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Kilometres-->Kilometre</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">39,000 km</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Mileage }} km</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -282,7 +159,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Body Type-->Araç Tipi</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">Sedan</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.BodyType }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -290,7 +167,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Style/trim-->Stil/Döşeme</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">SV Premium</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.TrimStyle }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -298,7 +175,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Engine-->Motor</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">V6</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Engine }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -306,7 +183,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Drivetrain-->Çekiş</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value"><!--FWD-->Ön</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Drivetrain }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -314,7 +191,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Transmission-->Vites</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value"><!--Dual-Clutch Automatic-->Çift Kavramalı Otomatik</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Gear }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -322,7 +199,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Exterior Color-->Dış Boya</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value"><!--Dark Grey-->Koyu Gri</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.ExtColor }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -330,7 +207,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Interior color-->İç Renk</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">Jet <!--Black-->Siyah</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.IntColor }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -338,7 +215,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Passangers/Doors-->Yolcu/Kapı</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">5 <!--Passengers-->Yolcu / 4 <!--Doors-->Kapı</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Seats }} <!--Passengers-->Yolcu / {{ car?.Doors }} <!--Doors-->Kapı</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -346,7 +223,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Fuel Type-->Yakıt Tipi</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value"><!--Gasoline Fuel-->Benzin</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Fuel }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -354,7 +231,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--City Fuel Economy-->Şehir Yakıt Tüketimi</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">10.8L/100km</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.CityFuelEconomy }}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -362,7 +239,7 @@
                                     <h4 class="b-detail__main-aside-desc-title"><!--Hwy Fuel Economy-->Uzun Yol Yakıt Tüketimi</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">7.7L/100km</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.HighwayFuelEconomy }}</p>
                                 </div>
                             </div>
                         </div>

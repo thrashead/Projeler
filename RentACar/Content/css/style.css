@@ -52,6 +52,10 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-info__latest-article-photo {background-size:cover;}
 .b-contact__form button {margin-left:10px;}
 .b-contact__form button[disabled] {background-color:#808080;}
+.b-detail__main-info-characteristics-one-top {height:130px;}
+.b-detail__main-info-characteristics-one-top p {padding: 0px 5px 0px 5px;}
+.b-detail__head {padding-bottom:10px;}
+.b-detail__head-title {margin-top:15px;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}
