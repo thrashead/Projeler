@@ -1,29 +1,11 @@
 ﻿<!--b-brands-->
 <section class="b-brands s-shadow">
     <div class="container">
-        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s"><!--FIND OUT MORE-->DAHA FAZLASI</h5><br />
-        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s"><!--BRANDS WE OFFER-->MARKALARIMIZ</h2>
+        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">{{ more }}</h5><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ brands }}</h2>
         <div class="">
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/bmwLogo.png" alt="brand" />
-            </div>
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/ferrariLogo.png" alt="brand" />
-            </div>
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/volvo.png" alt="brand" />
-            </div>
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/mercLogo.png" alt="brand" />
-            </div>
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/audiLogo.png" alt="brand" />
-            </div>
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/honda.png" alt="brand" />
-            </div>
-            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s">
-                <img src="/RentACar/Content/img/media/brands/peugeot.png" alt="brand" />
+            <div class="b-brands__brand wow rotateIn" data-wow-delay="0.5s" *ngFor="let item of carMakes">
+                <img src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
             </div>
         </div>
     </div>

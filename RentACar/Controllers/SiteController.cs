@@ -217,14 +217,24 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetMakeList(string param)
+        public JsonResult GetMakeList(string param, bool? param2)
         {
             CarFeatsMake make = new CarFeatsMake();
 
             if (param == null || param == "null")
-                return Json(make.CarMakesSelect(param.ToInteger()), JsonRequestBehavior.AllowGet);
+            {
+                if (param2 == true)
+                    return Json(make.CarMakesSelect(null).Shuffle(), JsonRequestBehavior.AllowGet);
+                else
+                    return Json(make.CarMakesSelect(null), JsonRequestBehavior.AllowGet);
+            }
             else if (param.ToInteger() > 1)
-                return Json(make.CarMakesSelect(null), JsonRequestBehavior.AllowGet);
+            {
+                if (param2 == true)
+                    return Json(make.CarMakesSelect().Shuffle().Take(param.ToInteger()), JsonRequestBehavior.AllowGet);
+                else
+                    return Json(make.CarMakesSelect(param.ToInteger()), JsonRequestBehavior.AllowGet);
+            }
             else
                 return Json(make.CarMakesSelect(param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
