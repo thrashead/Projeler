@@ -1,6 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../../services/site';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router, RouterEvent, ActivationEnd } from '@angular/router';
 
 @Component({
     selector: 'rac-cardetailitem',
@@ -39,16 +40,36 @@ export class CarsDetailItemComponent {
     extcolor: string;
     intcolor: string;
 
+    infoForm: FormGroup;
+    testForm: FormGroup;
+    calcForm: FormGroup;
+
     car: any;
     features: any;
     gallery: any;
     videos: any;
     descriptions: any;
 
-    constructor(private service: SiteService, private router: Router) {
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
+        this.FillPage();
+
+        this.router.events.subscribe((event: RouterEvent) => {
+            if (event instanceof ActivationEnd) {
+                $(".bx-viewport").removeClass("bx-viewport");
+                $(".bx-wrapper").removeClass("bx-wrapper");
+
+                $(".bx-clone").remove();
+                $(".bx-controls").remove();
+
+                this.FillPage();
+            }
+        });
+    }
+
+    FillPage() {
         this.GetLangContent();
 
         let carUrl = this.router.url.split('/')[this.router.url.split('/').length - 1];
@@ -58,6 +79,27 @@ export class CarsDetailItemComponent {
         this.GetCarVideo(carUrl);
         this.GetCarDescriptions(carUrl);
         this.GetCarDetailsFeatures(carUrl);
+
+        this.infoForm = this.formBuilder.group({
+            Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+            Mail: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
+            Phone: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+            Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(500)]),
+            CopyMail: new FormControl(null)
+        });
+
+        this.testForm = this.formBuilder.group({
+            Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+            Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(500)]),
+            CopyMail: new FormControl(null)
+        });
+
+        this.calcForm = this.formBuilder.group({
+            TotalValue: new FormControl(null, [Validators.required, Validators.min(0)]),
+            Payment: new FormControl(null, [Validators.required, Validators.min(0)]),
+            LoanTerm: new FormControl(null, Validators.required),
+            Rate: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(100)])
+        });
     }
 
     modalVideo() {
@@ -214,21 +256,21 @@ export class CarsDetailItemComponent {
         this.service.get("Site", "GetCarDetailsFeaturesByUrl", currentUrl).subscribe((resData: any) => {
             this.features = resData;
 
-            var divFeats = $(".b-detail__main-info-extra .row .col-xs-4");
+            var divFeats = $(".b-detail__main-info-extra .row");
             var i = 0;
             var j = 1;
 
             Object.entries(this.features).forEach(([key, value]) => {
                 if (divFeats.find("ul[data-id='" + j.toString() + "']").length < 1) {
-                    divFeats.append("<ul data-id='" + j.toString() + "'></ul>");
+                    divFeats.append("<div class=\"col-xs-4\"><ul data-id='" + j.toString() + "'></ul></div>");
                 }
 
-                if (value != null) {
-                    divFeats.find("ul[data-id='" + j.toString() + "']").append("<li><span class=\"fa fa-check\"></span>" + value + "</li>");
+                if (value == true) {
+                    divFeats.find("ul[data-id='" + j.toString() + "']").append("<li><span class=\"fa fa-check\"></span>" + key + "</li>");
 
                     i++;
 
-                    if (i % 5 == 4) {
+                    if (i >= 5 && i % 5 == 0) {
                         j++;
                     }
                 }

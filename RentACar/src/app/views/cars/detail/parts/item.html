@@ -122,8 +122,6 @@
                         <div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
                             <h2 class="s-titleDet">{{ otherfeats }}</h2>
                             <div class="row">
-                                <div class="col-xs-4">
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -278,8 +276,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
                             <h2 class="s-titleDet"><!--INQUIRE ABOUT THIS VEHICLE-->ARAÇ HAKKINDA BİLGİ</h2>
                             <div class="b-detail__main-aside-about-call">
@@ -295,49 +291,46 @@
                                     <a href="#" class="j-tab m-active s-lineDownCenter" data-to='#form1'><!--GENERAL INQUIRY-->GENEL BİLGİ</a>
                                     <a href="#" class="j-tab" data-to='#form2'><!--SCHEDULE TEST DRIVE-->TEST SÜRÜŞÜ AYARLA</a>
                                 </div>
-                                <div id="form1">
-                                    <!--form action="/" method="post"-->
+                                <form id="form1" [formGroup]="infoForm">
                                     <!--<input type="text" placeholder="YOUR NAME" value="" name="name" />-->
-                                    <input type="text" placeholder="İSMİNİZ" value="" name="name" />
+                                    <input type="text" placeholder="İSMİNİZ" value="" name="name" formControlName="Name" />
                                     <!--<input type="email" placeholder="EMAIL ADDRESS" value="" name="email" />-->
-                                    <input type="email" placeholder="E-POSTA ADRESİNİZ" value="" name="email" />
+                                    <input type="email" placeholder="E-POSTA ADRESİNİZ" value="" name="email" formControlName="Mail" />
                                     <!--<input type="tel" placeholder="PHONE NO" value="" name="name" />-->
-                                    <input type="tel" placeholder="TELEFON" value="" name="name" />
+                                    <input type="tel" placeholder="TELEFON" value="" name="name" formControlName="Phone" />
                                     <!--<textarea name="text" placeholder="message"></textarea>-->
-                                    <textarea name="text" placeholder="MESAJ"></textarea>
-                                    <div><input type="checkbox" name="one" value="" /><label><!--Send me a copy of this message-->Bana bu mesajın bir kopyasını gönder</label></div>
-                                    <button type="submit" class="btn m-btn"><!--SEND MESSAGE-->GÖNDER<span class="fa fa-angle-right"></span></button>
-                                </div>
-                                <div id="form2">
-                                    <!--form action="/" method="post"-->
+                                    <textarea name="text" placeholder="MESAJ" formControlName="Message"></textarea>
+                                    <div><input type="checkbox" name="one" value="" formControlName="CopyMail" /><label><!--Send me a copy of this message-->Bana bu mesajın bir kopyasını gönder</label></div>
+                                    <button class="btn m-btn" [disabled]="!infoForm.valid"><!--SEND MESSAGE-->GÖNDER<span class="fa fa-angle-right"></span></button>
+                                </form>
+                                <form id="form2" [formGroup]="testForm">
                                     <!--<input type="text" placeholder="YOUR NAME" value="" name="name" />-->
-                                    <input type="text" placeholder="İSMİNİZ" value="" name="name" />
+                                    <input type="text" placeholder="İSMİNİZ" value="" name="name" formControlName="Name" />
                                     <!--<textarea name="text" placeholder="message"></textarea>-->
-                                    <textarea name="text" placeholder="MESAJ"></textarea>
-                                    <div><input type="checkbox" name="one" value="" /><label><!--Send me a copy of this message-->Bana bu mesajın bir kopyasını gönder</label></div>
-                                    <button type="submit" class="btn m-btn"><!--SEND MESSAGE-->GÖNDER<span class="fa fa-angle-right"></span></button>
-                                </div>
+                                    <textarea name="text" placeholder="MESAJ" formControlName="Message"></textarea>
+                                    <div><input type="checkbox" name="one" value="" formControlName="CopyMail" /><label><!--Send me a copy of this message-->Bana bu mesajın bir kopyasını gönder</label></div>
+                                    <button class="btn m-btn" [disabled]="!testForm.valid"><!--SEND MESSAGE-->GÖNDER<span class="fa fa-angle-right"></span></button>
+                                </form>
                             </div>
                         </div>
                         <div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
                             <h2 class="s-titleDet"><!--CAR PAYMENT CALCULATOR-->ARAÇ FİYAT HESAPLAMA</h2>
                             <div class="b-detail__main-aside-payment-form">
-                                <div>
-                                    <!--form action="/" method="post"-->
+                                <form [formGroup]="calcForm">
                                     <!--<input type="text" placeholder="TOTAL VALUE/LOAN AMOUNT" value="" name="name" />-->
-                                    <input type="text" placeholder="TOPLAM DEĞER/KİRALAMA BEDELİ" value="" name="name" />
+                                    <input type="text" placeholder="TOPLAM DEĞER/KİRALAMA BEDELİ" value="" name="name" formControlName="TotalValue" />
                                     <!--<input type="text" placeholder="DOWN PAYMENT" value="" name="name" />-->
-                                    <input type="text" placeholder="PEŞİNAT" value="" name="name" />
+                                    <input type="text" placeholder="PEŞİNAT" value="" name="name" formControlName="Payment" />
                                     <div class="s-relative">
-                                        <select name="select" class="m-select">
-                                            <option value=""><!--LOAN TERM IN MONTHS-->AYLIK KİRALAMA SÜRESİ</option>
+                                        <select name="select" class="m-select" formControlName="LoanTerm">
+                                            <option value="sd"><!--LOAN TERM IN MONTHS-->AYLIK KİRALAMA SÜRESİ</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
                                     <!--<input type="text" placeholder="INTEREST RATE IN %" value="" name="name" />-->
-                                    <input type="text" placeholder="FAİZ ORANI %" value="" name="name" />
-                                    <button type="submit" class="btn m-btn"><!--ESTIMATE PAYMENT-->HESAPLA<span class="fa fa-angle-right"></span></button>
-                                </div>
+                                    <input type="text" placeholder="FAİZ ORANI %" value="" name="name" formControlName="Rate" />
+                                    <button class="btn m-btn" [disabled]="!calcForm.valid"><!--ESTIMATE PAYMENT-->HESAPLA<span class="fa fa-angle-right"></span></button>
+                                </form>
                             </div>
                             <div class="b-detail__main-aside-about-call">
                                 <span class="fa fa-calculator"></span>
