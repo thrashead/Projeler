@@ -258,7 +258,18 @@ namespace RentACar.Controllers
         {
             Cars cars = new Cars();
 
-            return Json(cars.CarDescriptionsByUrl(param), JsonRequestBehavior.AllowGet);
+            return Json(cars.CarDescriptionsByUrl(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCarVideosByUrl(string param, string param2)
+        {
+            Cars cars = new Cars();
+
+            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
+                return Json(cars.CarVideosByUrl(param.ToNull(), param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            else
+                return Json(cars.CarVideosByUrl(param.ToNull(), param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         #region CarSearch

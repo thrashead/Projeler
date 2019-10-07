@@ -16,6 +16,7 @@ import { ScriptsComponent } from './views/shared/controls/scripts';
 //Shared
 import { SharedBookNowComponent } from './views/shared/common/booknow';
 import { SharedCallUsComponent } from './views/shared/common/callus';
+import { SharedModalVideoComponent } from './views/shared/common/modalvideo';
 
 //Home
 import { IndexComponent } from './views/home';
@@ -205,6 +206,10 @@ import { AdminCarPicturesIndexComponent } from './admin/views/rentacar/carpictur
 import { AdminCarPicturesInsertComponent } from './admin/views/rentacar/carpictures/insert';
 import { AdminCarPicturesUpdateComponent } from './admin/views/rentacar/carpictures/update';
 
+import { AdminCarVideosIndexComponent } from './admin/views/rentacar/carvideos';
+import { AdminCarVideosInsertComponent } from './admin/views/rentacar/carvideos/insert';
+import { AdminCarVideosUpdateComponent } from './admin/views/rentacar/carvideos/update';
+
 import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
 import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
 import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
@@ -357,6 +362,7 @@ import { AdminLib } from './admin/lib/methods';
         //Shared
         SharedBookNowComponent,
         SharedCallUsComponent,
+        SharedModalVideoComponent,
 
         //Home
         IndexComponent,
@@ -537,6 +543,10 @@ import { AdminLib } from './admin/lib/methods';
         AdminCarPicturesIndexComponent,
         AdminCarPicturesInsertComponent,
         AdminCarPicturesUpdateComponent,
+
+        AdminCarVideosIndexComponent,
+        AdminCarVideosInsertComponent,
+        AdminCarVideosUpdateComponent,
 
         AdminCarsIndexComponent,
         AdminCarsInsertComponent,

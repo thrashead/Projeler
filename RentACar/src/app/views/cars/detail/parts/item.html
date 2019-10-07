@@ -11,7 +11,7 @@
                 <div class="col-sm-3 col-xs-12">
                     <div class="b-detail__head-price">
                         <div class="b-detail__head-price-num">{{ car?.Price }} TL</div>
-                        <p><!--Included Taxes &amp; Checkup-->KDV Dahil</p>
+                        <p>{{ kdv }}</p>
                     </div>
                 </div>
             </div>
@@ -23,17 +23,19 @@
                         <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
                             <div class="row m-smallPadding">
                                 <div class="col-xs-10">
-                                    <ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" 
+                                    <ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal"
                                         data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
-                                        <li class="s-relative" *ngFor="let item of gallery">
-                                            <!--<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>-->
+                                        <li *ngFor="let item of gallery" class="s-relative">
+                                            <a *ngIf="videos" (click)="modalVideo()" data-toggle="modal" data-target="#myModal" href="#" 
+                                               class="b-items__cars-one-img-video"><span class="fa fa-film"></span>Video</a>
                                             <img class="img-responsive center-block" src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="col-xs-2 pagerSlider pagerVertical">
                                     <div class="b-detail__main-info-images-small" id="bx-pager">
-                                        <a href="javascript:;" [attr.data-slide-index]="i" class="b-detail__main-info-images-small-one" *ngFor="let item of gallery; let i = index">
+                                        <a *ngFor="let item of gallery; let i = index" [attr.data-slide-index]="i" class="b-detail__main-info-images-small-one" 
+                                           href="javascript:;">
                                             <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                                         </a>
                                     </div>
@@ -47,7 +49,7 @@
                                     <p>{{ car?.Status }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--Status-->Durum
+                                    {{ status }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -56,7 +58,7 @@
                                     <p>{{ car?.Mileage }} km</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--Mileage-->Kilometre
+                                    {{ mileage }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -65,7 +67,7 @@
                                     <p>{{ car?.Gear }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--Transmission-->Vites
+                                    {{ gear }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -74,7 +76,7 @@
                                     <p>{{ car?.DriveType }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--Drivetrain-->Çekiş
+                                    {{ drive }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -83,7 +85,7 @@
                                     <p>{{ car?.Seats }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--Passangers-->Yolcu Kapasitesi
+                                    {{ seats }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -92,7 +94,7 @@
                                     <p>{{ car?.CityFuelEconomy }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--In City-->Şehir Ykt.Tktm.
+                                    {{ cityfuel }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -101,19 +103,19 @@
                                     <p>{{ car?.HighwayFuelEconomy }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    <!--On Highway-->Uzun Yol Ykt.Tktm.
+                                    {{ highfuel }}
                                 </div>
                             </div>
                         </div>
                         <div *ngIf="descriptions?.length > 0" class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
                             <div class="b-detail__main-aside-about-form-links">
-                                <a *ngFor="let item of descriptions; let i = index" href="javascript:;" [class]="['j-tab' + i == 0 ? 'm-active s-lineDownCenter' : '']" [attr.data-to]="['#info' + (i + 1)]">{{ item?.Title }}</a>
-                                <!--<a href="javascript:;" class="j-tab" data-to='#info2'><!--SCHEDULE TEST DRIVE TEST SÜRÜŞÜ PLANLAYIN</a>-->
+                                <a *ngFor="let item of descriptions; let i = index; let i=index" href="javascript:;" class="j-tab" 
+                                   [class.m-active]="i==0" [class.s-lineDownCenter]="i==0" [attr.data-to]="['#info' + (i + 1)]">{{ item?.Title }}</a>
                             </div>
                             <div *ngFor="let item of descriptions; let i = index" id="info{{ i + 1 }}">
-                                <h2 [innerHtml]="item?.ShortDescription"></h2>
+                                <h4 [innerHtml]="item?.ShortDescription"></h4>
                                 <p [innerHtml]="item?.Description"></p>
-                                <h2 [innerHtml]="item?.ShortDescription2"></h2>
+                                <h4 [innerHtml]="item?.ShortDescription2"></h4>
                                 <p [innerHtml]="item?.Description2"></p>
                             </div>
                         </div>
@@ -243,6 +245,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
                             <h2 class="s-titleDet"><!--INQUIRE ABOUT THIS VEHICLE-->ARAÇ HAKKINDA BİLGİ</h2>
                             <div class="b-detail__main-aside-about-call">
@@ -258,7 +263,8 @@
                                     <a href="#" class="j-tab m-active s-lineDownCenter" data-to='#form1'><!--GENERAL INQUIRY-->GENEL BİLGİ</a>
                                     <a href="#" class="j-tab" data-to='#form2'><!--SCHEDULE TEST DRIVE-->TEST SÜRÜŞÜ AYARLA</a>
                                 </div>
-                                <div id="form1"><!--form action="/" method="post"-->
+                                <div id="form1">
+                                    <!--form action="/" method="post"-->
                                     <!--<input type="text" placeholder="YOUR NAME" value="" name="name" />-->
                                     <input type="text" placeholder="İSMİNİZ" value="" name="name" />
                                     <!--<input type="email" placeholder="EMAIL ADDRESS" value="" name="email" />-->
@@ -284,7 +290,8 @@
                         <div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
                             <h2 class="s-titleDet"><!--CAR PAYMENT CALCULATOR-->ARAÇ FİYAT HESAPLAMA</h2>
                             <div class="b-detail__main-aside-payment-form">
-                                <div><!--form action="/" method="post"-->
+                                <div>
+                                    <!--form action="/" method="post"-->
                                     <!--<input type="text" placeholder="TOTAL VALUE/LOAN AMOUNT" value="" name="name" />-->
                                     <input type="text" placeholder="TOPLAM DEĞER/KİRALAMA BEDELİ" value="" name="name" />
                                     <!--<input type="text" placeholder="DOWN PAYMENT" value="" name="name" />-->
