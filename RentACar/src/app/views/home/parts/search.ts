@@ -134,15 +134,15 @@ export class HomeSearchComponent implements AfterViewChecked {
             this.bodyTypeText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "src_makeinfo", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "src_make", 1).subscribe((resData: any) => {
             this.makeText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "src_mdlinfo", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "src_model", 1).subscribe((resData: any) => {
             this.modelText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "src_vhclsts", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "src_status", 1).subscribe((resData: any) => {
             this.carStatusText = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 

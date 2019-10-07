@@ -76,7 +76,7 @@
                                     <p>{{ car?.DriveType }}</p>
                                 </div>
                                 <div class="b-detail__main-info-characteristics-one-bottom">
-                                    {{ drive }}
+                                    {{ drivetype }}
                                 </div>
                             </div>
                             <div class="b-detail__main-info-characteristics-one">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                         <div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
-                            <h2 class="s-titleDet"><!--EXTRA FEATURES-->DİĞER ÖZELLİKLER</h2>
+                            <h2 class="s-titleDet">{{ otherfeats }}</h2>
                             <div class="row">
                                 <div class="col-xs-4">
                                 </div>
@@ -131,117 +131,149 @@
                 <div class="col-md-4 col-xs-12">
                     <aside class="b-detail__main-aside">
                         <div class="b-detail__main-aside-desc wow zoomInUp" data-wow-delay="0.5s">
-                            <h2 class="s-titleDet"><!--Description-->AÇIKLAMA</h2>
-                            <div class="row">
+                            <h2 class="s-titleDet">{{ infos }}</h2>
+                            <div *ngIf="car?.Make" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Make-->Marka</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ make }}</h4>
                                 </div>
                                 <div class="col-xs-6">
                                     <p class="b-detail__main-aside-desc-value">{{ car?.Make }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Model" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title">Model</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ model }}</h4>
                                 </div>
                                 <div class="col-xs-6">
                                     <p class="b-detail__main-aside-desc-value">{{ car?.Model }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Year" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Kilometres-->Kilometre</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ year }}</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.Mileage }} km</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Year }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.BodyType" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Body Type-->Araç Tipi</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ bodytype }}</h4>
                                 </div>
                                 <div class="col-xs-6">
                                     <p class="b-detail__main-aside-desc-value">{{ car?.BodyType }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Engine" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Style/trim-->Stil/Döşeme</h4>
-                                </div>
-                                <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.TrimStyle }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Engine-->Motor</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ engine }}</h4>
                                 </div>
                                 <div class="col-xs-6">
                                     <p class="b-detail__main-aside-desc-value">{{ car?.Engine }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.EngineCapacity" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Drivetrain-->Çekiş</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ enginecapacity }}</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.Drivetrain }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Transmission-->Vites</h4>
-                                </div>
-                                <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.Gear }}</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.EngineCapacity }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Horsepower" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Exterior Color-->Dış Boya</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ horsepower }}</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.ExtColor }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Interior color-->İç Renk</h4>
-                                </div>
-                                <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.IntColor }}</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Horsepower }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Cylinders" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Passangers/Doors-->Yolcu/Kapı</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ cylinders }}</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.Seats }} <!--Passengers-->Yolcu / {{ car?.Doors }} <!--Doors-->Kapı</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Cylinders }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Tires" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Fuel Type-->Yakıt Tipi</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ tires }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Tires }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.DriveTrain" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ drivetrain }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.DriveTrain }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.WheelBase" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ wheelbase }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.WheelBase }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.Fuel" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ fueltype }}</h4>
                                 </div>
                                 <div class="col-xs-6">
                                     <p class="b-detail__main-aside-desc-value">{{ car?.Fuel }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.FuelCapacity" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--City Fuel Economy-->Şehir Yakıt Tüketimi</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ fuelcapacity }}</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.CityFuelEconomy }}</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.FuelCapacity }}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div *ngIf="car?.Doors" class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="b-detail__main-aside-desc-title"><!--Hwy Fuel Economy-->Uzun Yol Yakıt Tüketimi</h4>
+                                    <h4 class="b-detail__main-aside-desc-title">{{ doors }}</h4>
                                 </div>
                                 <div class="col-xs-6">
-                                    <p class="b-detail__main-aside-desc-value">{{ car?.HighwayFuelEconomy }}</p>
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.Doors }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.CargoCapacity" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ cargocapacity }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.CargoCapacity }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.TrimStyle" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ trimstyle }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.TrimStyle }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.ExtColor" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ extcolor }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.ExtColor }}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="car?.IntColor" class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">{{ intcolor }}</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">{{ car?.IntColor }}</p>
                                 </div>
                             </div>
                         </div>
