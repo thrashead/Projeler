@@ -11,8 +11,6 @@ import { Lib } from '../../../lib/methods';
 export class SharedCallUsComponent {
     errorMsg: string;
 
-    phone: string;
-
     constructor(private service: SiteService) {
     }
 
@@ -35,12 +33,13 @@ export class SharedCallUsComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "cmn_callus": this.langs.callus = item.ShortDescription; break;
+                    case "cntct_form":
+                        switch (item.ShortCode) {
+                            case "phone": this.langs.phone = item.Description; break;
+                        }
+                        break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
-            this.phone = resData.Description;
         }, resError => this.errorMsg = resError);
     }
 
@@ -48,5 +47,6 @@ export class SharedCallUsComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_callus"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "phone"));
     }
 }

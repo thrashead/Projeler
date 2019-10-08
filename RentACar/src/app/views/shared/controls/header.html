@@ -8,13 +8,13 @@
             <div class="col-md-4 col-xs-6">
                 <div class="b-topBar__addr">
                     <span class="fa fa-map-marker"></span>
-                    {{ address }}
+                    {{ langs?.contact.address }}
                 </div>
             </div>
             <div class="col-md-2 col-xs-6">
                 <div class="b-topBar__tel">
                     <span class="fa fa-phone"></span>
-                    {{ phone }}
+                    {{ langs?.contact.phone }}
                 </div>
             </div>
             <div class="col-md-4 col-xs-6">
@@ -65,12 +65,12 @@
                     </div>
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
-                            <li><a data-url="Index" routerLink="/">{{ menu?.Home }}</a></li>
-                            <li><a data-url2="Detail" data-url="List" routerLink="/Cars/List">{{ menu?.List }}</a></li>
-                            <li><a data-url="Compare" routerLink="/Cars/Compare">{{ menu?.Compare }}</a></li>
-                            <li><a data-url="About" routerLink="/About">{{ menu?.About }}</a></li>
-                            <li><a data-url="Blog" routerLink="/Blog">{{ menu?.Blog }}</a></li>
-                            <li><a data-url="Contact" routerLink="/Contact">{{ menu?.Contact }}</a></li>
+                            <li><a data-url="Index" routerLink="/">{{ langs?.menu.home }}</a></li>
+                            <li><a data-url2="Detail" data-url="List" routerLink="/Cars/List">{{ langs?.menu.list }}</a></li>
+                            <li><a data-url="Compare" routerLink="/Cars/Compare">{{ langs?.menu.compare }}</a></li>
+                            <li><a data-url="About" routerLink="/About">{{ langs?.menu.about }}</a></li>
+                            <li><a data-url="Blog" routerLink="/Blog">{{ langs?.menu.blog }}</a></li>
+                            <li><a data-url="Contact" routerLink="/Contact">{{ langs?.menu.contact }}</a></li>
                         </ul>
                     </div>
                 </div>

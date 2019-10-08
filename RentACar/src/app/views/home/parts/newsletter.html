@@ -16,11 +16,11 @@
                     <form [formGroup]="newsForm">
                         <div>
                             <span class="fa fa-user"></span>
-                            <input type="text" name="user" value="" formControlName="Name" placeholder="{{ name }}" />
+                            <input type="text" name="user" value="" formControlName="Name" placeholder="{{ langs?.name }}" />
                         </div>
                         <div>
                             <span class="fa fa-envelope"></span>
-                            <input type="text" name="email" value="" formControlName="Mail" placeholder="{{ mail }}" />
+                            <input type="text" name="email" value="" formControlName="Mail" placeholder="{{ langs?.mail }}" />
                         </div>
                         <button (click)="onClick()" [disabled]="!newsForm.valid"><span class="fa fa-angle-right"></span></button>
                     </form>

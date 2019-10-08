@@ -11,10 +11,6 @@ import { Lib } from '../../../lib/methods';
 export class ContactFormComponent {
     errorMsg: string;
 
-    contactinfo: string;
-
-    form: any;
-
     constructor(private service: SiteService) {
     }
 
@@ -33,49 +29,42 @@ export class ContactFormComponent {
 
         this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
             this.langs = new Object();
+            this.langs.contact = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "cntct_opnhrs": this.langs.openhours = item; break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cntct_form").subscribe((resData: any) => {
-            this.form = new Object();
-
-            resData.forEach((item, index) => {
-                switch (item.ShortCode) {
-                    case "text":
-                        this.form.Text = item;
+                    case "cntct_form":
+                        switch (item.ShortCode) {
+                            case "text": this.langs.contact.Text = item.ShortDescription2; break;
+                            case "name": this.langs.contact.Name = item.ShortDescription; break;
+                            case "mail":
+                                this.langs.contact.Mail = item.ShortDescription;
+                                this.langs.contact.Mail2 = item.Description2;
+                                break;
+                            case "phone":
+                                this.langs.contact.Phone = item.ShortDescription;
+                                this.langs.contact.Phone2 = item.Description2;
+                                break;
+                            case "fax":
+                                this.langs.contact.Fax = item.ShortDescription;
+                                this.langs.contact.Fax2 = item.Description2;
+                                break;
+                            case "adres":
+                                this.langs.contact.Address = item.ShortDescription;
+                                this.langs.contact.Address2 = item.Description2;
+                                break;
+                            case "cmnt": this.langs.contact.Comment = item.ShortDescription; break;
+                            case "sbmt": this.langs.contact.Submit = item.ShortDescription; break;
+                        }
                         break;
-                    case "name":
-                        this.form.Name = item;
-                        break;
-                    case "mail":
-                        this.form.Mail = item;
-                        break;
-                    case "phone":
-                        this.form.Phone = item;
-                        break;
-                    case "fax":
-                        this.form.Fax = item;
-                        break;
-                    case "adres":
-                        this.form.Address = item;
-                        break;
-                    case "cmnt":
-                        this.form.Comment = item;
-                        break;
-                    case "sbmt":
-                        this.form.Submit = item;
+                    case "cntct_info":
+                        switch (item.ShortCode) {
+                            case "title": this.langs.contactinfo = item.ShortDescription; break;
+                        }
                         break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_info", "title", 1).subscribe((resData: any) => {
-            this.contactinfo = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
     }
 
@@ -83,5 +72,7 @@ export class ContactFormComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_opnhrs"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_info", "title"));
     }
 }

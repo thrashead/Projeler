@@ -5,18 +5,18 @@
             <div class="col-xs-6">
                 <div class="b-contacts__form">
                     <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
-                        <h2 class="s-titleDet">{{ form?.Text.ShortDescription2 }}</h2>
+                        <h2 class="s-titleDet">{{ langs?.contact.Text }}</h2>
                     </header>
                     <p class=" wow zoomInUp" data-wow-delay="0.5s">
-                        {{ form?.Text.Description2 }}
+                        {{ langs?.contact.Text }}
                     </p>
                     <div id="success"></div>
                     <div id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s"><!--form-->
-                        <input type="text" placeholder="{{ form?.Name.ShortDescription }}" value="" name="user-name" id="user-name" />
-                        <input type="text" placeholder="{{ form?.Mail.ShortDescription }}" value="" name="user-email" id="user-email" />
-                        <input type="text" placeholder="{{ form?.Phone.ShortDescription }}" value="" name="user-phone" id="user-phone" />
-                        <textarea id="user-message" name="user-message" placeholder="{{ form?.Comment.ShortDescription }}"></textarea>
-                        <button type="submit" class="btn m-btn">{{ form?.Submit.ShortDescription }}<span class="fa fa-angle-right"></span></button>
+                        <input type="text" placeholder="{{ langs?.contact.Name }}" value="" name="user-name" id="user-name" />
+                        <input type="text" placeholder="{{ langs?.contact.Mail }}" value="" name="user-email" id="user-email" />
+                        <input type="text" placeholder="{{ langs?.contact.Phone }}" value="" name="user-phone" id="user-phone" />
+                        <textarea id="user-message" name="user-message" placeholder="{{ langs?.contact.Comment }}"></textarea>
+                        <button type="submit" class="btn m-btn">{{ langs?.contact.Submit }}<span class="fa fa-angle-right"></span></button>
                     </div>
                 </div>
             </div>
@@ -30,21 +30,21 @@
                         </div>
                     </div>
                     <div class="b-contacts__address-info">
-                        <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">{{ contactinfo }}</h2>
+                        <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">{{ langs?.contactinfo }}</h2>
                         <address class="b-contacts__address-info-main wow zoomInUp" data-wow-delay="0.5s">
                             <div class="b-contacts__address-info-main-item">
                                 <span class="fa fa-home"></span>
-                                {{ form?.Address.ShortDescription }}
-                            <p>{{ form?.Address.Description2 }}</p>
+                                {{ langs?.contact.Address }}
+                            <p>{{ langs?.contact.Address2 }}</p>
                             </div>
                             <div class="b-contacts__address-info-main-item">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-xs-12">
                                         <span class="fa fa-phone"></span>
-                                        {{ form?.Phone.ShortDescription }}
+                                        {{ langs?.contact.Phone }}
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-xs-12">
-                                        <em>{{ form?.Phone.Description2 }}</em>
+                                        <em>{{ langs?.contact.Phone2 }}</em>
                                     </div>
                                 </div>
                             </div>
@@ -52,10 +52,10 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-xs-12">
                                         <span class="fa fa-fax"></span>
-                                        {{ form?.Fax.ShortDescription }}
+                                        {{ langs?.contact.Fax }}
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-xs-12">
-                                        <em>{{ form?.Fax.Description2 }}</em>
+                                        <em>{{ langs?.contact.Fax2 }}</em>
                                     </div>
                                 </div>
                             </div>
@@ -63,10 +63,10 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-xs-12">
                                         <span class="fa fa-envelope"></span>
-                                        {{ form?.Mail.ShortDescription }}
+                                        {{ langs?.contact.Mail }}
                                     </div>
                                     <div class="col-lg-9 col-md-8 col-xs-12">
-                                        <em>{{ form?.Mail.Description2 }}</em>
+                                        <em>{{ langs?.contact.Mail2 }}</em>
                                     </div>
                                 </div>
                             </div>

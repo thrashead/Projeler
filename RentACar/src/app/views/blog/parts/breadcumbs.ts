@@ -1,5 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-blogbreadcumbs',
@@ -8,9 +10,6 @@ import { SiteService } from '../../../services/site';
 
 export class BlogBreadCumbsComponent {
     errorMsg: string;
-
-    home: string;
-    list: string;
 
     @Input() title;
     @Input() url;
@@ -22,14 +21,36 @@ export class BlogBreadCumbsComponent {
         this.SetLangContents();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
     SetLangContents() {
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "menu", "home", 1).subscribe((resData: any) => {
-            this.home = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "menu", "blog", 1).subscribe((resData: any) => {
-            this.list = resData.ShortDescription2;
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+            this.langs.menu = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "menu":
+                        switch (item.ShortCode) {
+                            case "home": this.langs.menu.home = item.ShortDescription2; break;
+                            case "blog": this.langs.menu.blog = item.ShortDescription2; break;
+                        }
+                        break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu", "home"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu", "blog"));
     }
 }

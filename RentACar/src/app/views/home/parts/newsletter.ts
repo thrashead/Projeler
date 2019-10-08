@@ -15,9 +15,6 @@ export class HomeNewsletterComponent {
     newsForm: FormGroup;
     data: any;
 
-    name: string;
-    mail: string;
-
     constructor(private service: SiteService, private formBuilder: FormBuilder) {
     }
 
@@ -36,16 +33,39 @@ export class HomeNewsletterComponent {
         this.data.Mail = this.newsForm.get("Mail").value;
 
         this.service.post("Site", "SendNewsletter", this.data).subscribe((answer: boolean) => {
+            let langNewsItems: Array<LangItem>;
+            let langNews: LangItem;
+            langNewsItems = new Array<LangItem>();
+
+            langNewsItems.push(Lib.SetLangItem(langNews, "home_newsletter_msg", "yes"));
+            langNewsItems.push(Lib.SetLangItem(langNews, "home_newsletter_msg", "no"));
+
             if (answer) {
-                this.service.get("Site", "GetLangContentByCodeAndShortCode", "home_newsletter_msg", "yes", 1).subscribe((resData: any) => {
-                    alert(resData.ShortDescription2);
+                this.service.post("Site", "SetLangContents", langNewsItems).subscribe((resData: any) => {
+                    resData.forEach((item, i) => {
+                        switch (item.Code) {
+                            case "home_newsletter_msg":
+                                switch (item.ShortCode) {
+                                    case "yes": alert(item.ShortDescription2); break;
+                                }
+                                break;
+                        }
+                    });
 
                     this.newsForm.reset();
                 }, resError => this.errorMsg = resError);
             }
             else {
-                this.service.get("Site", "GetLangContentByCodeAndShortCode", "home_newsletter_msg", "no", 1).subscribe((resData: any) => {
-                    alert(resData.ShortDescription2);
+                this.service.post("Site", "SetLangContents", langNewsItems).subscribe((resData: any) => {
+                    resData.forEach((item, i) => {
+                        switch (item.Code) {
+                            case "home_newsletter_msg":
+                                switch (item.ShortCode) {
+                                    case "no": alert(item.ShortDescription2); break;
+                                }
+                                break;
+                        }
+                    });
                 }, resError => this.errorMsg = resError);
             }
         }, resError => this.errorMsg = resError);
@@ -66,16 +86,14 @@ export class HomeNewsletterComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "home_newsletter": this.langs.newsletter = item; break;
+                    case "cntct_form":
+                        switch (item.ShortCode) {
+                            case "name": this.langs.name = item.ShortDescription2; break;
+                            case "mail": this.langs.mail = item.ShortDescription2; break;
+                        }
+                        break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "name", 1).subscribe((resData: any) => {
-            this.name = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "mail", 1).subscribe((resData: any) => {
-            this.mail = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
     }
 
@@ -83,5 +101,7 @@ export class HomeNewsletterComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_newsletter"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "name"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "mail"));
     }
 }

@@ -11,12 +11,6 @@ import { Lib } from '../../../lib/methods';
 export class FooterComponent {
     errorMsg: string;
 
-    address: any;
-    phone: any;
-    mail: any;
-    fax: any;
-    menu: any;
-
     carList: any;
 
     constructor(private service: SiteService) {
@@ -38,6 +32,11 @@ export class FooterComponent {
 
         this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
             this.langs = new Object();
+            this.langs.menu = new Object();
+            this.langs.contact = new Object();
+            this.langs.contact.phone = new Object();
+            this.langs.contact.fax = new Object();
+            this.langs.contact.mail = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {
@@ -49,52 +48,27 @@ export class FooterComponent {
                     case "cmn_cntctus": this.langs.contactus = item.ShortDescription; break;
                     case "cntct_opnhrs": this.langs.openhours = item; break;
                     case "ftr_about": this.langs.about = item; break;
-                }
-            });
-
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "adres", 1).subscribe((resData: any) => {
-            this.address = resData.Description2;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
-            this.phone = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "fax", 1).subscribe((resData: any) => {
-            this.fax = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "mail", 1).subscribe((resData: any) => {
-            this.mail = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "menu").subscribe((resData: any) => {
-            this.menu = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.ShortCode) {
-                    case "home":
-                        this.menu.Home = item.ShortDescription2;
+                    case "menu":
+                        switch (item.ShortCode) {
+                            case "home": this.langs.menu.home = item.ShortDescription; break;
+                            case "list": this.langs.menu.list = item.ShortDescription; break;
+                            case "compr": this.langs.menu.compare = item.ShortDescription; break;
+                            case "about": this.langs.menu.about = item.ShortDescription; break;
+                            case "blog": this.langs.menu.blog = item.ShortDescription; break;
+                            case "cntct": this.langs.menu.contact = item.ShortDescription; break;
+                        }
                         break;
-                    case "list":
-                        this.menu.List = item.ShortDescription2;
-                        break;
-                    case "compr":
-                        this.menu.Compare = item.ShortDescription2;
-                        break;
-                    case "about":
-                        this.menu.About = item.ShortDescription2;
-                        break;
-                    case "blog":
-                        this.menu.Blog = item.ShortDescription2;
-                        break;
-                    case "cntct":
-                        this.menu.Contact = item.ShortDescription2;
+                    case "cntct_form":
+                        switch (item.ShortCode) {
+                            case "adres": this.langs.contact.address = item.Description2; break;
+                            case "phone": this.langs.contact.phone = item; break;
+                            case "fax": this.langs.contact.fax = item; break;
+                            case "mail": this.langs.contact.mail = item; break;
+                        }
                         break;
                 }
             });
+
         }, resError => this.errorMsg = resError);
     }
 
@@ -109,6 +83,11 @@ export class FooterComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_cntctus"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_opnhrs"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "ftr_about"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "adres"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "phone"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "fax"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "mail"));
     }
 
     //GetLastCars

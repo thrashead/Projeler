@@ -74,20 +74,20 @@
                     <div class="b-info__contacts-item">
                         <span class="fa fa-map-marker"></span>
                         <em>
-                            {{ address }}
+                            {{ langs?.contact.address }}
                         </em>
                     </div>
                     <div class="b-info__contacts-item">
                         <span class="fa fa-phone"></span>
-                        <em>{{ phone?.ShortDescription2 }}: {{ phone?.Description2 }}</em>
+                        <em>{{ langs?.contact.phone.ShortDescription2 }}: {{ langs?.contact.phone.Description2 }}</em>
                     </div>
                     <div class="b-info__contacts-item">
                         <span class="fa fa-fax"></span>
-                        <em>{{ fax?.ShortDescription2 }}: {{ fax?.Description2 }}</em>
+                        <em>{{ langs?.contact.fax.ShortDescription2 }}: {{ langs?.contact.fax.Description2 }}</em>
                     </div>
                     <div class="b-info__contacts-item">
                         <span class="fa fa-envelope"></span>
-                        <em>{{ mail?.ShortDescription2 }}: {{ mail?.Description2 }}</em>
+                        <em>{{ langs?.contact.mail.ShortDescription2 }}: {{ langs?.contact.mail.Description2 }}</em>
                     </div>
                 </address>
                 <address class="b-info__map">
@@ -123,12 +123,12 @@
                     </div>
                     <nav class="b-footer__content-nav">
                         <ul>
-                            <li><a data-url="Index" routerLink="/">{{ menu?.Home }}</a></li>
-                            <li><a data-url="List" routerLink="/Cars/List">{{ menu?.List }}</a></li>
-                            <li><a data-url="Compare" routerLink="/Cars/Compare">{{ menu?.Compare }}</a></li>
-                            <li><a data-url="About" routerLink="/About">{{ menu?.About }}</a></li>
-                            <li><a data-url="Blog" routerLink="/Blog">{{ menu?.Blog }}</a></li>
-                            <li><a data-url="Contact" routerLink="/Contact">{{ menu?.Contact }}</a></li>
+                            <li><a data-url="Index" routerLink="/">{{ langs?.menu.home }}</a></li>
+                            <li><a data-url="List" routerLink="/Cars/List">{{ langs?.menu.list }}</a></li>
+                            <li><a data-url="Compare" routerLink="/Cars/Compare">{{ langs?.menu.compare }}</a></li>
+                            <li><a data-url="About" routerLink="/About">{{ langs?.menu.about }}</a></li>
+                            <li><a data-url="Blog" routerLink="/Blog">{{ langs?.menu.blog }}</a></li>
+                            <li><a data-url="Contact" routerLink="/Contact">{{ langs?.menu.contact }}</a></li>
                         </ul>
                     </nav>
                 </div>

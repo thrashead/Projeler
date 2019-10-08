@@ -11,8 +11,6 @@ import { Lib } from '../../../lib/methods';
 export class HomeAsksComponent {
     errorMsg: string;
 
-    phone: string;
-
     constructor(private service: SiteService) {
     }
 
@@ -37,12 +35,13 @@ export class HomeAsksComponent {
                     case "home_asks_search": this.langs.search = item; break;
                     case "home_asks_compare": this.langs.compare = item; break;
                     case "cmn_callus": this.langs.callus = item.ShortDescription; break;
+                    case "cntct_form":
+                        switch (item.ShortCode) {
+                            case "phone": this.langs.phone = item.Description; break;
+                        }
+                        break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
-            this.phone = resData.Description;
         }, resError => this.errorMsg = resError);
     }
 
@@ -52,5 +51,6 @@ export class HomeAsksComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_asks_search"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_asks_compare"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_callus"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "phone"));
     }
 }

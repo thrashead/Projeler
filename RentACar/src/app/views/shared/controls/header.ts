@@ -12,12 +12,7 @@ export class HeaderComponent {
     paneladdress: string = "http://localhost/RentACar/Admin";
     errorMsg: string;
 
-
     flag: any = {};
-    phone: string;
-    menu: any;
-
-    address: string;
 
     LangList: any;
 
@@ -59,6 +54,8 @@ export class HeaderComponent {
 
         this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
             this.langs = new Object();
+            this.langs.menu = new Object();
+            this.langs.contact = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {
@@ -66,41 +63,21 @@ export class HeaderComponent {
                     case "hdr_lng": this.langs.lang = item.ShortDescription; break;
                     case "hdr_oks": this.langs.autoService = item.ShortDescription; break;
                     case "hdr_tgln": this.langs.toggleNav = item.ShortDescription; break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "adres", 1).subscribe((resData: any) => {
-            this.address = resData.Description;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
-            this.phone = resData.Description;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "menu").subscribe((resData: any) => {
-            this.menu = new Object();
-
-            resData.forEach((item, index) => {
-                switch (item.ShortCode) {
-                    case "home":
-                        this.menu.Home = item.ShortDescription;
+                    case "menu":
+                        switch (item.ShortCode) {
+                            case "home": this.langs.menu.home = item.ShortDescription; break;
+                            case "list": this.langs.menu.list = item.ShortDescription; break;
+                            case "compr": this.langs.menu.compare = item.ShortDescription; break;
+                            case "about": this.langs.menu.about = item.ShortDescription; break;
+                            case "blog": this.langs.menu.blog = item.ShortDescription; break;
+                            case "cntct": this.langs.menu.contact = item.ShortDescription; break;
+                        }
                         break;
-                    case "list":
-                        this.menu.List = item.ShortDescription;
-                        break;
-                    case "compr":
-                        this.menu.Compare = item.ShortDescription;
-                        break;
-                    case "about":
-                        this.menu.About = item.ShortDescription;
-                        break;
-                    case "blog":
-                        this.menu.Blog = item.ShortDescription;
-                        break;
-                    case "cntct":
-                        this.menu.Contact = item.ShortDescription;
+                    case "cntct_form":
+                        switch (item.ShortCode) {
+                            case "adres": this.langs.contact.address = item.Description; break;
+                            case "phone": this.langs.contact.phone = item.Description; break;
+                        }
                         break;
                 }
             });
@@ -114,5 +91,8 @@ export class HeaderComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_lng"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_oks"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_tgln"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "adres"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "phone"));
     }
 }
