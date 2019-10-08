@@ -299,7 +299,7 @@ export class ScriptsComponent implements AfterViewChecked {
                     bigS.goToSlide(newIndex);
                 });
             }
-        }, 3000);
+        }, 2000);
     }
 
     //MenuActive
