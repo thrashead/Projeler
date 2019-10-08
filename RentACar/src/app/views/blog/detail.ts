@@ -4,7 +4,10 @@
     templateUrl: './detail.html'
 })
 
-export class BlogDetailComponent{ 
+export class BlogDetailComponent {
+    title: string;
+    url: string;
+
     ngOnInit() {
     }
 }

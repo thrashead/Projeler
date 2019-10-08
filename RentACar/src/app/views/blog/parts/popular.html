@@ -4,7 +4,7 @@
     </header>
     <div class="b-blog__aside-popular-posts">
         <div class="b-blog__aside-popular-posts-one" *ngFor="let item of popularList">
-            <img class="img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="merc" />
+            <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt="merc" />
             <h4><a [routerLink]="['/Blog/Detail/' + item?.Url]">{{ item?.Title }}</a></h4>
             <div class="b-blog__aside-popular-posts-one-date"><span class="fa fa-calendar-o"></span>{{ item?.SendDate }}</div>
         </div>

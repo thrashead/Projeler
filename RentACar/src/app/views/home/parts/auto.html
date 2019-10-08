@@ -17,14 +17,14 @@
                     <div class="row m-margin tab" data-model="all" style="display:block;">
                         <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let item of carList">
                             <div class="b-auto__main-item" data-wow-delay="0.3s" data-wow-offset="100">
-                                <img class="img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
+                                <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" />
                                 <div class="b-world__item-val">
                                     <span class="b-world__item-val-title">{{ registered }} <span>{{ item.Year }}</span></span>
                                 </div>
                                 <h2><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h2>
                                 <div class="b-auto__main-item-info">
                                     <span class="m-price">
-                                        {{ item?.Price }}
+                                        {{ item?.Price }} TL
                                     </span>
                                     <span class="m-number">
                                         <span class="fa fa-tachometer"></span>{{ item?.Mileage }} KM

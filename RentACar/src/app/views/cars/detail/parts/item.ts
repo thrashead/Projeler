@@ -1,7 +1,7 @@
-﻿import { Component, AfterViewInit } from '@angular/core';
+﻿import { Component, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'rac-cardetailitem',
@@ -21,7 +21,10 @@ export class CarsDetailItemComponent implements AfterViewInit {
     videos: any;
     descriptions: any;
 
-    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
+    @Output() titleEvnt = new EventEmitter<string>();
+    @Output() urlEvnt = new EventEmitter<string>();
+
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
         this.router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
         };
@@ -31,9 +34,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
         this.GetLangContent();
         this.RemoveBXSlider();
         this.FillDetails();
-
-        this.activatedRoute.url.subscribe(url => {
-        });
 
         this.infoForm = this.formBuilder.group({
             Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
@@ -89,6 +89,9 @@ export class CarsDetailItemComponent implements AfterViewInit {
     GetCarDetail(carUrl: string) {
         this.service.get("Site", "GetCarDetailByUrl", carUrl).subscribe((resData: any) => {
             this.car = resData;
+
+            this.titleEvnt.emit(this.car.Title);
+            this.urlEvnt.emit(this.car.Url);
         }, resError => this.errorMsg = resError);
     }
 

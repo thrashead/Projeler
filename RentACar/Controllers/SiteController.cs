@@ -119,6 +119,22 @@ namespace RentACar.Controllers
                 return Json(blog.SimilarSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult GetBlogPictures(string param)
+        {
+            Blog blog = new Blog();
+
+            return Json(blog.BlogPictures(param.ToInteger()), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBlogComments(string param)
+        {
+            Blog blog = new Blog();
+
+            return Json(blog.BlogComments(param.ToInteger()), JsonRequestBehavior.AllowGet);
+        }
+
         #region Counter
 
         [HttpGet]
@@ -224,9 +240,9 @@ namespace RentACar.Controllers
             if (param == null || param == "null")
             {
                 if (param2 == true)
-                    return Json(make.CarMakesSelect(null).Shuffle(), JsonRequestBehavior.AllowGet);
+                    return Json(make.CarMakesSelect().Shuffle(), JsonRequestBehavior.AllowGet);
                 else
-                    return Json(make.CarMakesSelect(null), JsonRequestBehavior.AllowGet);
+                    return Json(make.CarMakesSelect(), JsonRequestBehavior.AllowGet);
             }
             else if (param.ToInteger() > 1)
             {
@@ -280,6 +296,29 @@ namespace RentACar.Controllers
                 return Json(cars.CarVideosByUrl(param.ToNull(), param2.ToInteger()), JsonRequestBehavior.AllowGet);
             else
                 return Json(cars.CarVideosByUrl(param.ToNull(), param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetSimilarCarsByUrl(string param, string param2, bool? param3)
+        {
+            Cars cars = new Cars();
+
+            if (param2 == null || param2 == "null")
+            {
+                if (param3 == true)
+                    return Json(cars.SimilarCarsByUrl(param.ToNull(), AppTools.GetLang.ID).Shuffle(), JsonRequestBehavior.AllowGet);
+                else
+                    return Json(cars.SimilarCarsByUrl(param.ToNull(), AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+            }
+            else if (param2.ToInteger() > 1)
+            {
+                if (param3 == true)
+                    return Json(cars.SimilarCarsByUrl(param.ToNull(), AppTools.GetLang.ID).Shuffle().Take(param2.ToInteger()), JsonRequestBehavior.AllowGet);
+                else
+                    return Json(cars.SimilarCarsByUrl(param.ToNull(), AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            }
+            else
+                return Json(cars.SimilarCarsByUrl(param.ToNull(), AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         #region CarSearch

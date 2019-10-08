@@ -11,18 +11,14 @@ namespace RentACar.Data
 {
     using System;
     
-    public partial class sp_CarListShowroomSelect_Result
+    public partial class sp_BlogCommentsByBlogIDSelect_Result
     {
         public int ID { get; set; }
-        public string Title { get; set; }
-        public string Url { get; set; }
-        public string PictureUrl { get; set; }
-        public Nullable<int> Price { get; set; }
-        public Nullable<int> Year { get; set; }
-        public Nullable<int> Mileage { get; set; }
-        public string Status { get; set; }
-        public string Fuel { get; set; }
-        public string Gear { get; set; }
-        public string Color { get; set; }
+        public int BlogID { get; set; }
+        public string Sender { get; set; }
+        public string Message { get; set; }
+        public string SendDate { get; set; }
+        public string Mail { get; set; }
+        public bool Active { get; set; }
     }
 }

@@ -8,12 +8,12 @@
             <div *ngFor="let item of carList">
                 <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
                     <a [routerLink]="['/Cars/Detail/' + item?.Url]">
-                        <img src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
+                        <img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" />
                         <span *ngIf="item?.Status == 'Sıfır'" class="m-premium">{{ item?.Status }}</span>
                         <span *ngIf="item?.Status != 'Sıfır'" class="m-leasing">{{ item?.Status }}</span>
                     </a>
                     <div class="b-featured__item-price">
-                        {{ item?.Price }}
+                        {{ item?.Price }} TL
                     </div>
                     <div class="clearfix"></div>
                     <h5><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h5>

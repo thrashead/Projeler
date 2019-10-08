@@ -34,7 +34,7 @@
                 <div class="b-info__latest wow zoomInUp" data-wow-delay="0.3s">
                     <h3>{{ latestautos }}</h3>
                     <div class="b-info__latest-article" *ngFor="let item of carList">
-                        <div class="b-info__latest-article-photo" [style.backgroundImage]="'url(/RentACar/Uploads/' + item?.PictureUrl + ')'"></div>
+                        <div class="b-info__latest-article-photo" [style.backgroundImage]="'url(/RentACar/Uploads/thumb_' + item?.PictureUrl + ')'"></div>
                         <div class="b-info__latest-article-info">
                             <h6><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h6>
                             <p><span class="fa fa-tachometer"></span> {{ item?.Mileage }} KM</p>

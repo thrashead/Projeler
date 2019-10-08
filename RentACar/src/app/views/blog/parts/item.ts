@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, EventEmitter, Output } from '@angular/core';
 import { SiteService } from '../../../services/site';
 import { ActivatedRoute } from '@angular/router';
 
@@ -22,6 +22,9 @@ export class BlogItemComponent {
     name: string;
     mail: string;
     message: string;
+
+    @Output() titleEvnt = new EventEmitter<string>();
+    @Output() urlEvnt = new EventEmitter<string>();
 
     blog: any = {};
     simPostList: any;
@@ -92,6 +95,9 @@ export class BlogItemComponent {
     GetBlogPost(url: string) {
         this.service.get("Site", "GetBlogPostByUrl", url).subscribe((resData: any) => {
             this.blog = resData;
+
+            this.titleEvnt.emit(this.blog.Title);
+            this.urlEvnt.emit(this.blog.Url);
 
             if (resData.Tags != null) {
                 this.service.get("Site", "GetBlogSimilarPosts", resData.Tags, 2).subscribe((resData: any) => {

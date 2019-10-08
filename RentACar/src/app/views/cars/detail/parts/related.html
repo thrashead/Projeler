@@ -1,102 +1,29 @@
 ﻿<!--"b-related-->
 <section class="b-related m-home">
     <div class="container">
-        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s"><!--FIND OUT MORE-->DAHA FAZLASI</h5><br />
-        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s"><!--RELATED VEHICLES ON SALE-->BENZER ARAÇLAR</h2>
+        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">{{ more }}</h5><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ similar }}</h2>
         <div class="row">
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-3 col-xs-6" *ngFor="let item of carList">
                 <div class="b-auto__main-item wow zoomInLeft" data-wow-delay="0.5s">
-                    <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x150/LandRover.jpg" alt="LandRover" />
+                    <img class="img-responsive center-block" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                     <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--REGISTERED --><span>2014</span> MODEL</span>
+                        <span class="b-world__item-val-title">{{ registered }} <span>{{ item?.Year }}</span></span>
                     </div>
-                    <h2><a routerLink="/Cars/Detail/tempurl">Land Rover Range Rover</a></h2>
+                    <h2><a routerLink="/Cars/Detail/{{ item?.Url }}">{{ item?.Title }}</a></h2>
                     <div class="b-auto__main-item-info s-lineDownLeft">
                         <span class="m-price">
-                            <!--$-->44,380 TL
+                            {{ item?.Price }} TL
                         </span>
                         <span class="m-number">
-                            <span class="fa fa-tachometer"></span>35,000 KM
+                            <span class="fa fa-tachometer"></span>{{ item?.Mileage }} KM
                         </span>
                     </div>
                     <div class="b-featured__item-links m-auto">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="b-auto__main-item wow zoomInLeft" data-wow-delay="0.5s">
-                    <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x150/nissanGT.jpg" alt="nissan" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--REGISTERED --><span>2014</span> MODEL</span>
-                    </div>
-                    <h2><a routerLink="/Cars/Detail/tempurl">Nissan GT-R NISMO</a></h2>
-                    <div class="b-auto__main-item-info s-lineDownLeft">
-                        <span class="m-price">
-                            <!--$-->10,857 TL
-                        </span>
-                        <span class="m-number">
-                            <span class="fa fa-tachometer"></span>35,000 KM
-                        </span>
-                    </div>
-                    <div class="b-featured__item-links m-auto">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="b-auto__main-item wow zoomInRight" data-wow-delay="0.5s">
-                    <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x150/bmw.jpg" alt="bmw" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--REGISTERED --><span>2014</span> MODEL</span>
-                    </div>
-                    <h2><a routerLink="/Cars/Detail/tempurl">BMW 650i Coupe</a></h2>
-                    <div class="b-auto__main-item-info s-lineDownLeft">
-                        <span class="m-price">
-                            <!--$-->95,900 TL
-                        </span>
-                        <span class="m-number">
-                            <span class="fa fa-tachometer"></span>12,000 KM
-                        </span>
-                    </div>
-                    <div class="b-featured__item-links m-auto">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="b-auto__main-item wow zoomInRight" data-wow-delay="0.5s">
-                    <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x150/camaro.jpg" alt="camaro" />
-                    <div class="b-world__item-val">
-                        <span class="b-world__item-val-title"><!--REGISTERED --><span>2014</span> MODEL</span>
-                    </div>
-                    <h2><a routerLink="/Cars/Detail/tempurl">Chevrolet Corvette Z06</a></h2>
-                    <div class="b-auto__main-item-info s-lineDownLeft">
-                        <span class="m-price">
-                            <!--$-->95,900 TL
-                        </span>
-                        <span class="m-number">
-                            <span class="fa fa-tachometer"></span>12,000 KM
-                        </span>
-                    </div>
-                    <div class="b-featured__item-links m-auto">
-                        <a href="#"><!--Used-->İkinci El</a>
-                        <a href="#">2014</a>
-                        <a href="#"><!--Manual-->Manuel</a>
-                        <a href="#"><!--Orange-->Turuncu</a>
-                        <a href="#"><!--Petrol-->Benzin</a>
+                        <a href="javascript:;">{{ item?.Status }}</a>
+                        <a href="javascript:;">{{ item?.Color }}</a>
+                        <a href="javascript:;">{{ item?.Gear }}</a>
+                        <a href="javascript:;">{{ item?.Fuel }}</a>
                     </div>
                 </div>
             </div>

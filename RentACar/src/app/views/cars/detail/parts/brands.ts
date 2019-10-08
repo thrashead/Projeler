@@ -23,7 +23,7 @@ export class CarsDetailBrandsComponent {
     }
 
     GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "car_makes_more", 1).subscribe((resData: any) => {
+        this.service.get("Site", "GetLangContentByCode", "cmn_more", 1).subscribe((resData: any) => {
             this.more = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 

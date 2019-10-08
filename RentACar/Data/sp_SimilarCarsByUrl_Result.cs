@@ -11,7 +11,7 @@ namespace RentACar.Data
 {
     using System;
     
-    public partial class sp_CarListShowroomSelect_Result
+    public partial class sp_SimilarCarsByUrl_Result
     {
         public int ID { get; set; }
         public string Title { get; set; }

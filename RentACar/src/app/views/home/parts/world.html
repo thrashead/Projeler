@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-4 col-xs-12" *ngFor="let item of worldList">
                 <div class="b-world__item wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" />
+                    <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" />
                     <div class="b-world__item-val">
                         <span class="b-world__item-val-title">{{ item?.CategoryTitle }}</span>
                     </div>

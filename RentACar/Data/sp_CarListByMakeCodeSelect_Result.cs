@@ -17,7 +17,7 @@ namespace RentACar.Data
         public string Title { get; set; }
         public string Url { get; set; }
         public string PictureUrl { get; set; }
-        public string Price { get; set; }
+        public Nullable<int> Price { get; set; }
         public Nullable<int> Year { get; set; }
         public Nullable<int> Mileage { get; set; }
         public string Status { get; set; }

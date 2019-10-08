@@ -1,10 +1,13 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 
 @Component({
     templateUrl: './index.html'
 })
 
-export class CarsDetailComponent{ 
+export class CarsDetailComponent {
+    title: string;
+    url: string;
+
     ngOnInit() {
     }
 }

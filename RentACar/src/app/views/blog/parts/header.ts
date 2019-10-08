@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
 
 @Component({
@@ -12,6 +12,8 @@ export class BlogHeaderComponent {
     banner: string;
 
     header: any;
+
+    @Input() title;
 
     constructor(private service: SiteService) {
     }

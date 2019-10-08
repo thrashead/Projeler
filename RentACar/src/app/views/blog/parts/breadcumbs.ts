@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
 
 @Component({
@@ -10,7 +10,10 @@ export class BlogBreadCumbsComponent {
     errorMsg: string;
 
     home: string;
-    blog: string;
+    list: string;
+
+    @Input() title;
+    @Input() url;
 
     constructor(private service: SiteService) {
     }
@@ -26,7 +29,7 @@ export class BlogBreadCumbsComponent {
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "menu", "blog", 1).subscribe((resData: any) => {
-            this.blog = resData.ShortDescription2;
+            this.list = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
     }
 }

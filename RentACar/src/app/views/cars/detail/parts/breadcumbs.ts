@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 
 @Component({
@@ -11,7 +11,9 @@ export class CarsDetailBreadCumbsComponent {
 
     home: string;
     list: string;
-    detail: string;
+
+    @Input() title;
+    @Input() url;
 
     constructor(private service: SiteService) {
     }
@@ -28,10 +30,6 @@ export class CarsDetailBreadCumbsComponent {
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "menu", "list", 1).subscribe((resData: any) => {
             this.list = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCodeAndShortCode", "extra_menu", "cardtl", 1).subscribe((resData: any) => {
-            this.detail = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
     }
 }

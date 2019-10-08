@@ -6,7 +6,7 @@
                  data-stop-on-hover="true" data-items-desktop="1" data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1">
                 <div class="b-review__main" *ngFor="let item of workerList">
                     <div class="b-review__main-person">
-                        <div class="b-review__main-person-inside" [style.backgroundImage]="'url(/RentACar/Uploads/' + item?.PictureUrl + ')'">
+                        <div class="b-review__main-person-inside" [style.backgroundImage]="'url(/RentACar/Uploads/thumb_' + item?.PictureUrl + ')'">
                         </div>
                     </div>
                     <h5><span>{{ item?.NameSurname }}</span>, {{ item?.Position }}</h5>

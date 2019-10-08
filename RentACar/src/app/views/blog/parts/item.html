@@ -32,12 +32,12 @@
                                         </div>
                                     </header>
                                     <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
-                                        <div class="b-blog__posts-one-body-main-img" *ngIf="pictureList != null">
+                                        <div class="b-blog__posts-one-body-main-img" *ngIf="pictureList?.length > 0">
                                             <ul class="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
                                                 <li *ngFor="let item of pictureList"><img class="img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" /></li>
                                             </ul>
                                             <div class="b-blog__posts-one-body-main-img-small" id="bx-pager">
-                                                <a *ngFor="let item of pictureList; let i = index;" href="#" [attr.data-slide-index]="i"><img src="/RentACar/Uploads/{{ item?.PictureUrl }}" /></a>
+                                                <a *ngFor="let item of pictureList; let i = index;" href="#" [attr.data-slide-index]="i"><img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" /></a>
                                             </div>
                                         </div>
                                         <p [innerHtml]="blog?.Description"></p>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="b-article__main-comments" *ngIf="commentList != null">
+                    <div class="b-article__main-comments" *ngIf="commentList?.length > 0">
                         <div class="s-lineDownLeft  s-titleLeft">
                             <div class=" wow zoomInUp" data-wow-delay="0.5s">
                                 <h2 class="s-titleDet">{{ comments }}</h2>
