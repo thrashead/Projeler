@@ -1,6 +1,8 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 import { Router } from '@angular/router';
+import { LangItem } from '../../../../models/LangItem';
+import { Lib } from '../../../../lib/methods';
 
 @Component({
     selector: 'rac-cardetailrelated',
@@ -10,17 +12,13 @@ import { Router } from '@angular/router';
 export class CarsDetailRelatedComponent {
     errorMsg: string;
 
-    similar: string;
-    more: string;
-    registered: string;
-
     carList: any;
 
     constructor(private service: SiteService, private router: Router) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetSimilarCarsByUrl();
     }
 
@@ -33,18 +31,33 @@ export class CarsDetailRelatedComponent {
         }, resError => this.errorMsg = resError);
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //GetLangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_rgstryr", 1).subscribe((resData: any) => {
-            this.registered = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_more", 1).subscribe((resData: any) => {
-            this.more = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "car_list_similar", 1).subscribe((resData: any) => {
-            this.similar = resData.ShortDescription;
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
+                    case "cmn_more": this.langs.more = item.ShortDescription; break;
+                    case "car_list_similar": this.langs.similar = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_more"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_similar"));
     }
 }

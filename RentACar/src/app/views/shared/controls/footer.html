@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-md-9 col-md-offset-3 col-xs-6 col-xs-offset-6">
                 <ul class="b-features__items">
-                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ nohagg }}</li>
-                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ dealer }}</li>
-                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ sftychk }}</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.nohagg }}</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.dealer }}</li>
+                    <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.sftychk }}</li>
                 </ul>
             </div>
         </div>
@@ -20,19 +20,19 @@
             <div class="col-md-3 col-xs-6">
                 <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
                     <article class="b-info__aside-article">
-                        <h3>{{ openhours?.ShortDescription }}</h3>
-                        <div [innerHTML]="openhours?.Description"></div>
+                        <h3>{{ langs?.openhours.ShortDescription }}</h3>
+                        <div [innerHTML]="langs?.openhours.Description"></div>
                     </article>
                     <article class="b-info__aside-article">
-                        <h3>{{ about?.ShortDescription }}</h3>
-                        <div [innerHTML]="about?.Description"></div>
+                        <h3>{{ langs?.about.ShortDescription }}</h3>
+                        <div [innerHTML]="langs?.about.Description"></div>
                     </article>
-                    <a routerLink="/About" class="btn m-btn">{{ readmore }}<span class="fa fa-angle-right"></span></a>
+                    <a routerLink="/About" class="btn m-btn">{{ langs?.readmore }}<span class="fa fa-angle-right"></span></a>
                 </aside>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="b-info__latest wow zoomInUp" data-wow-delay="0.3s">
-                    <h3>{{ latestautos }}</h3>
+                    <h3>{{ langs?.latestautos }}</h3>
                     <div class="b-info__latest-article" *ngFor="let item of carList">
                         <div class="b-info__latest-article-photo" [style.backgroundImage]="'url(/RentACar/Uploads/thumb_' + item?.PictureUrl + ')'"></div>
                         <div class="b-info__latest-article-info">
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3 col-xs-6">
                 <address class="b-info__contacts wow zoomInUp" data-wow-delay="0.3s">
-                    <p>{{ contactus }}</p>
+                    <p>{{ langs?.contactus }}</p>
                     <div class="b-info__contacts-item">
                         <span class="fa fa-map-marker"></span>
                         <em>

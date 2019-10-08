@@ -8,8 +8,8 @@
                     <div class="carousel-caption b-slider__info">
                         <h3>{{ item?.Slogan }}</h3>
                         <h2>{{ item?.Title }}</h2>
-                        <p>{{ item?.ShortText1 }} <span>{{ item?.ShortText2 }}</span></p>
-                        <a class="btn m-btn" [routerLink]="['/Cars/Detail/' + item?.Url]">{{ detail }}<span class="fa fa-angle-right"></span></a>
+                        <p>{{ item?.ShortText1 }} <span>{{ item?.ShortText2 }} TL</span></p>
+                        <a class="btn m-btn" [routerLink]="['/Cars/Detail/' + item?.Url]">{{ langs?.detail }}<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

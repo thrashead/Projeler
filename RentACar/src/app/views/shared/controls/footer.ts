@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-footer',
@@ -9,20 +11,11 @@ import { SiteService } from '../../../services/site';
 export class FooterComponent {
     errorMsg: string;
 
-    latestautos: string;
-    readmore: string;
-    nohagg: string;
-    dealer: string;
-    sftychk: string;
-    contactus: string;
-
     address: any;
     phone: any;
     mail: any;
     fax: any;
     menu: any;
-    openhours: any;
-    about: any;
 
     carList: any;
 
@@ -30,34 +23,35 @@ export class FooterComponent {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetLastCars();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_lst_auto", 1).subscribe((resData: any) => {
-            this.latestautos = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "ftr_feat_nohagg", 1).subscribe((resData: any) => {
-            this.nohagg = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "ftr_feat_dealer", 1).subscribe((resData: any) => {
-            this.dealer = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_lst_auto": this.langs.latestautos = item.ShortDescription; break;
+                    case "ftr_feat_nohagg": this.langs.nohagg = item.ShortDescription; break;
+                    case "ftr_feat_dealer": this.langs.dealer = item.ShortDescription; break;
+                    case "ftr_feat_sftychk": this.langs.sftychk = item.ShortDescription; break;
+                    case "cmn_readmore": this.langs.readmore = item.ShortDescription; break;
+                    case "cmn_cntctus": this.langs.contactus = item.ShortDescription; break;
+                    case "cntct_opnhrs": this.langs.openhours = item; break;
+                    case "ftr_about": this.langs.about = item; break;
+                }
+            });
 
-        this.service.get("Site", "GetLangContentByCode", "ftr_feat_sftychk", 1).subscribe((resData: any) => {
-            this.sftychk = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cmn_readmore", 1).subscribe((resData: any) => {
-            this.readmore = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cmn_cntctus", 1).subscribe((resData: any) => {
-            this.contactus = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "adres", 1).subscribe((resData: any) => {
@@ -74,14 +68,6 @@ export class FooterComponent {
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "mail", 1).subscribe((resData: any) => {
             this.mail = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cntct_opnhrs", 1).subscribe((resData: any) => {
-            this.openhours = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "ftr_about", 1).subscribe((resData: any) => {
-            this.about = resData;
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCode", "menu").subscribe((resData: any) => {
@@ -110,6 +96,19 @@ export class FooterComponent {
                 }
             });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_lst_auto"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ftr_feat_nohagg"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ftr_feat_dealer"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ftr_feat_sftychk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_readmore"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_cntctus"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_opnhrs"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ftr_about"));
     }
 
     //GetLastCars

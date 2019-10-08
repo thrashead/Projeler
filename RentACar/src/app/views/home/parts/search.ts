@@ -4,6 +4,7 @@ import { SearchFilters } from '../../../models/searchfilters';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Lib } from '../../../lib/methods';
+import { LangItem } from '../../../models/LangItem';
 
 @Component({
     selector: 'rac-homesearch',
@@ -12,17 +13,6 @@ import { Lib } from '../../../lib/methods';
 
 export class HomeSearchComponent implements AfterViewChecked {
     errorMsg: string;
-
-    bodyTypeText: string;
-    whichVehicle: string;
-    makeText: string;
-    modelText: string;
-    carStatusText: string;
-    minYearText: string;
-    maxYearText: string;
-    priceRangeText: string;
-    search: string;
-    detailSearch: string;
 
     searchForm: FormGroup;
     searchFilters: SearchFilters;
@@ -36,7 +26,7 @@ export class HomeSearchComponent implements AfterViewChecked {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.ComboCarMakes(false, null, true);
         this.ComboCarModelsByMakeCode("all", false, null, true);
         this.ComboCarStatus(false, null, true);
@@ -124,47 +114,48 @@ export class HomeSearchComponent implements AfterViewChecked {
         }, resError => this.errorMsg = resError);
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "mnsrc_whcvhcl", 1).subscribe((resData: any) => {
-            this.whichVehicle = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "src_bodytype", 1).subscribe((resData: any) => {
-            this.bodyTypeText = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "src_make", 1).subscribe((resData: any) => {
-            this.makeText = resData.ShortDescription;
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "mnsrc_whcvhcl": this.langs.whichVehicle = item.ShortDescription; break;
+                    case "src_bodytype": this.langs.bodyTypeText = item.ShortDescription; break;
+                    case "src_make": this.langs.makeText = item.ShortDescription; break;
+                    case "src_model": this.langs.modelText = item.ShortDescription; break;
+                    case "src_status": this.langs.carStatusText = item.ShortDescription; break;
+                    case "src_minyear": this.langs.minYearText = item.ShortDescription; break;
+                    case "src_maxyear": this.langs.maxYearText = item.ShortDescription; break;
+                    case "src_prcrng": this.langs.priceRangeText = item.ShortDescription; break;
+                    case "src_src": this.langs.search = item.ShortDescription2; break;
+                    case "src_dtlsrc": this.langs.detailSearch = item.ShortDescription2; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
 
-        this.service.get("Site", "GetLangContentByCode", "src_model", 1).subscribe((resData: any) => {
-            this.modelText = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
 
-        this.service.get("Site", "GetLangContentByCode", "src_status", 1).subscribe((resData: any) => {
-            this.carStatusText = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "src_minyear", 1).subscribe((resData: any) => {
-            this.minYearText = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "src_maxyear", 1).subscribe((resData: any) => {
-            this.maxYearText = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "src_prcrng", 1).subscribe((resData: any) => {
-            this.priceRangeText = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "src_src", 1).subscribe((resData: any) => {
-            this.search = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "src_dtlsrc", 1).subscribe((resData: any) => {
-            this.detailSearch = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
+        this.langItems.push(Lib.SetLangItem(this.langItem, "mnsrc_whcvhcl"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_bodytype"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_status"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_minyear"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_maxyear"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_prcrng"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_src"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_dtlsrc"));
     }
 
     //CarMakes

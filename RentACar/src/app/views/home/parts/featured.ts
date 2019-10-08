@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homefeatured',
@@ -9,32 +11,39 @@ import { SiteService } from '../../../services/site';
 export class HomeFeaturedComponent {
     errorMsg: string;
 
-    featuredvehicles: string;
-    premium: string;
-    leasing: string;
-
     carList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetShowroom();
     }
 
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "home_ftrdvhcl", 1).subscribe((resData: any) => {
-            this.featuredvehicles = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
 
-        this.service.get("Site", "GetLangContentByCode", "carlst_leasing", 1).subscribe((resData: any) => {
-            this.leasing = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "carlst_premium", 1).subscribe((resData: any) => {
-            this.premium = resData.ShortDescription;
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "home_ftrdvhcl": this.langs.featuredvehicles = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "home_ftrdvhcl"));
     }
 
     //GetShowroom

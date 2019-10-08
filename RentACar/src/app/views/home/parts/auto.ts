@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homeauto',
@@ -9,11 +11,6 @@ import { SiteService } from '../../../services/site';
 export class HomeAutoComponent {
     errorMsg: string;
 
-    allmakes: string;
-    registered: string;
-
-    auto: any;
-
     makeList: any;
     carList: any;
 
@@ -21,7 +18,7 @@ export class HomeAutoComponent {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetMakeList();
         this.GetCarListByMakeCode();
     }
@@ -34,19 +31,34 @@ export class HomeAutoComponent {
         this.GetCarListByMakeCode(code);
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "home_auto", 1).subscribe((resData: any) => {
-            this.auto = resData;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "car_list_make", 1).subscribe((resData: any) => {
-            this.allmakes = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_rgstryr", 1).subscribe((resData: any) => {
-            this.registered = resData.ShortDescription2;
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "home_auto": this.langs.auto = item; break;
+                    case "car_list_make": this.langs.allmakes = item.ShortDescription; break;
+                    case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "home_auto"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_make"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
     }
 
     //MakeList

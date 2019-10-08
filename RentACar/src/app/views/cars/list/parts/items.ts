@@ -1,5 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../../services/site';
+import { LangItem } from '../../../../models/LangItem';
+import { Lib } from '../../../../lib/methods';
 
 @Component({
     selector: 'rac-carlistitems',
@@ -9,18 +11,18 @@ import { SiteService } from '../../../../services/site';
 export class CarsListItemsComponent {
     errorMsg: string;
 
-    detail: string;
-    registered: string;
-
     carCompareList: any;
 
     @Input() carList: any;
+
+    firstCheck: boolean;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.firstCheck = true;
+        this.SetLangContents();
     }
 
     onChange($event) {
@@ -30,7 +32,7 @@ export class CarsListItemsComponent {
         if (target.checked) {
             if (count == 3) {
                 target.checked = false;
-                alert("Araç kıyaslama için maksimum 3 adet araç seçebilirsiniz.");
+                alert("Araç kıyaslama için en fazla 3 adet araç seçebilirsiniz.");
                 return;
             }
 
@@ -47,21 +49,49 @@ export class CarsListItemsComponent {
         $("#lblCompareCount").text(count.toString());
     }
 
-    //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_detail", 1).subscribe((resData: any) => {
-            this.detail = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_rgstryr", 1).subscribe((resData: any) => {
-            this.registered = resData.ShortDescription2;
+    //LangContent
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_detail": this.langs.detail = item.ShortDescription; break;
+                    case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
     }
 
-    //CreateCarCompareList
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
+    }
+
+    //CarCompareList
     CreateCarCompareList(url: string) {
-        this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
-            this.carCompareList = resData;
-        }, resError => this.errorMsg = resError);
+        if (this.firstCheck) {
+            this.service.get("Site", "ClearCarCompareList").subscribe((resData: any) => {
+                this.firstCheck = false;
+
+                this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
+                    this.carCompareList = resData;
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }
+        else {
+            this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
+                this.carCompareList = resData;
+            }, resError => this.errorMsg = resError);
+        }
     }
 }

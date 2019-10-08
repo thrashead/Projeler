@@ -24,12 +24,12 @@
                     </div>
                     <div class="b-items__cars-one-info-details">
                         <div class="b-featured__item-links">
-                            <a href="javascript:;">{{ registered }} {{ item?.Year }}</a>
+                            <a href="javascript:;">{{ langs?.registered }} {{ item?.Year }}</a>
                             <a href="javascript:;">{{ item?.Status }}</a>
                             <a href="javascript:;">{{ item?.Gear }}</a>
                             <a href="javascript:;">{{ item?.Fuel }}</a>
                         </div>
-                        <a routerLink="/Cars/Detail/{{ item?.Url }}" class="btn m-btn">{{ detail }}<span class="fa fa-angle-right"></span></a>
+                        <a routerLink="/Cars/Detail/{{ item?.Url }}" class="btn m-btn">{{ langs?.detail }}<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

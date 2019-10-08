@@ -8,7 +8,7 @@
                         <div class="row m-noBlockPadding">
                             <div class="col-sm-1 col-xs-2">
                                 <div class="b-blog__posts-one-author wow zoomInUp" data-wow-delay="0.5s">
-                                    <div class="b-blog__posts-one-share s-lineDownCenter">{{ share }}</div>
+                                    <div class="b-blog__posts-one-share s-lineDownCenter">{{ langs?.share }}</div>
                                     <div class="b-blog__posts-one-social">
                                         <div>
                                             <a href="#"><span class="fa  fa-facebook-square"></span></a>
@@ -27,7 +27,7 @@
                                         <div class="b-blog__posts-one-body-head-notes">
                                             <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>{{ blog?.SenderName }}</span>
                                             <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>{{ blog?.SendDate }}</span>
-                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ blog?.CommentCount }} {{ comment }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ blog?.CommentCount }} {{ langs?.comment }}</span>
                                             <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-pencil"></span>{{ blog?.CategoryTitle }}</span>
                                         </div>
                                     </header>
@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="b-blog__posts-one-body-tags wow zoomInUp" data-wow-delay="0.5s" *ngIf="blog?.Tags != null">
                                         <span class="fa fa-tags"></span>
-                                        {{ tags }} <span class="blogtags">{{ blog?.Tags }}</span>
+                                        {{ langs?.tags }} <span class="blogtags">{{ blog?.Tags }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                     <div class="b-article__main-related s-shadow" *ngIf="simPostList != null">
                         <div class="s-lineDownLeft  s-titleLeft">
                             <div>
-                                <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">{{ simtitles }}</h2>
+                                <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">{{ langs?.simtitles }}</h2>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-10 pull-right">
-                                <h3><span>{{ author }}: </span>{{ blog?.SenderName }}</h3>
+                                <h3><span>{{ langs?.author }}: </span>{{ blog?.SenderName }}</h3>
                                 <div class="b-article__main-author-social">
                                     <a *ngIf="blog?.Facebook != null" href="{{ blog?.Facebook }}"><span class="fa fa-facebook"></span></a>
                                     <a *ngIf="blog?.Twitter != null" href="{{ blog?.Twitter }}"><span class="fa fa-twitter"></span></a>
@@ -110,7 +110,7 @@
                     <div class="b-article__main-comments" *ngIf="commentList?.length > 0">
                         <div class="s-lineDownLeft  s-titleLeft">
                             <div class=" wow zoomInUp" data-wow-delay="0.5s">
-                                <h2 class="s-titleDet">{{ comments }}</h2>
+                                <h2 class="s-titleDet">{{ langs?.comments }}</h2>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -135,7 +135,7 @@
                     <div class="b-article__main-add wow zoomInUp" data-wow-delay="0.5s">
                         <div class="s-lineDownLeft  s-titleLeft">
                             <div>
-                                <h2 class="s-titleDet">{{ sendcomment }}</h2>
+                                <h2 class="s-titleDet">{{ langs?.sendcomment }}</h2>
                             </div>
                         </div>
                         <div class="clearfix"></div>

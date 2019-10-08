@@ -1,14 +1,14 @@
 ﻿<!--"b-related-->
 <section class="b-related m-home">
     <div class="container">
-        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">{{ more }}</h5><br />
-        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ similar }}</h2>
+        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">{{ langs?.more }}</h5><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ langs?.similar }}</h2>
         <div class="row">
             <div class="col-md-3 col-xs-6" *ngFor="let item of carList">
                 <div class="b-auto__main-item wow zoomInLeft" data-wow-delay="0.5s">
                     <img class="img-responsive center-block" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                     <div class="b-world__item-val">
-                        <span class="b-world__item-val-title">{{ registered }} <span>{{ item?.Year }}</span></span>
+                        <span class="b-world__item-val-title">{{ langs?.registered }} <span>{{ item?.Year }}</span></span>
                     </div>
                     <h2><a routerLink="/Cars/Detail/{{ item?.Url }}">{{ item?.Title }}</a></h2>
                     <div class="b-auto__main-item-info s-lineDownLeft">

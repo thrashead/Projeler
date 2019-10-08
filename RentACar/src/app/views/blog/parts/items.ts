@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-blogitems',
@@ -9,33 +11,44 @@ import { SiteService } from '../../../services/site';
 export class BlogItemsComponent {
     errorMsg: string;
 
-    readmore: string;
-    share: string;
-    comment: string;
-
     blogList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetBlogContent();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_readmore", 1).subscribe((resData: any) => {
-            this.readmore = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_share", 1).subscribe((resData: any) => {
-            this.share = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_comment", 1).subscribe((resData: any) => {
-            this.comment = resData.ShortDescription;
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_readmore": this.langs.readmore = item.ShortDescription; break;
+                    case "cmn_share": this.langs.share = item.ShortDescription; break;
+                    case "cmn_comment": this.langs.comment = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_readmore"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_share"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comment"));
     }
 
     //BlogContent

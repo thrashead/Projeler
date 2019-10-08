@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homeasks',
@@ -9,35 +11,46 @@ import { SiteService } from '../../../services/site';
 export class HomeAsksComponent {
     errorMsg: string;
 
-    callus: string;
     phone: string;
-
-    search: any;
-    compare: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "home_asks_search", 1).subscribe((resData: any) => {
-            this.search = resData;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "home_asks_compare", 1).subscribe((resData: any) => {
-            this.compare = resData;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_callus", 1).subscribe((resData: any) => {
-            this.callus = resData.ShortDescription;
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "home_asks_search": this.langs.search = item; break;
+                    case "home_asks_compare": this.langs.compare = item; break;
+                    case "cmn_callus": this.langs.callus = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "phone", 1).subscribe((resData: any) => {
             this.phone = resData.Description;
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "home_asks_search"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "home_asks_compare"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_callus"));
     }
 }

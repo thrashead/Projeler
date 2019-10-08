@@ -20,14 +20,14 @@
             <div class="col-md-4 col-xs-6">
                 <nav class="b-topBar__nav">
                     <ul>
-                        <li><a href="{{ paneladdress }}" target="_blank">{{ panelLogin }}</a></li>
+                        <li><a href="{{ paneladdress }}" target="_blank">{{ langs?.panelLogin }}</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-md-2 col-xs-6">
                 <div class="b-topBar__lang">
                     <div class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle='dropdown'>{{ lang }}</a>
+                        <a href="#" class="dropdown-toggle" data-toggle='dropdown'>{{ langs?.lang }}</a>
                         <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><img src="/RentACar/Uploads/{{ flag?.Flag }}" /> {{ flag?.ShortName }}<span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu h-lang">
                             <li *ngFor="let item of LangList">
@@ -50,14 +50,14 @@
             <div class="col-sm-3 col-xs-4">
                 <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
                     <h3><a routerLink="/">Rent A <span>Car</span></a></h3>
-                    <h2><a routerLink="/">{{ autoService }}</a></h2>
+                    <h2><a routerLink="/">{{ langs?.autoService }}</a></h2>
                 </div>
             </div>
             <div class="col-sm-9 col-xs-8">
                 <div class="b-nav__list wow slideInRight" data-wow-delay="0.3s">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
-                            <span class="sr-only">{{ toggleNav }}</span>
+                            <span class="sr-only">{{ langs?.toggleNav }}</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>

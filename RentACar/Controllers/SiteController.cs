@@ -198,20 +198,6 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
-        public JsonResult CreateCarCompareList(string param)
-        {
-            if (Session["CarCompareList"] == null)
-                Session["CarCompareList"] = new List<string>();
-
-            if (!((List<string>)Session["CarCompareList"]).Contains(param))
-                ((List<string>)Session["CarCompareList"]).Add(param);
-            else
-                ((List<string>)Session["CarCompareList"]).Remove(param);
-
-            return Json(Session["CarCompareList"] as List<string>, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
         public JsonResult CreateCarLastVisitedList(Cars param)
         {
             if (Session["CarLastVisitedList"] == null)
@@ -427,6 +413,64 @@ namespace RentACar.Controllers
 
         #endregion
 
+        #region CarCompare
+
+        [HttpGet]
+        public JsonResult CreateCarCompareList(string param)
+        {
+            if (Session["CarCompareUrls"] == null)
+                Session["CarCompareUrls"] = new List<string>();
+
+            if (!((List<string>)Session["CarCompareUrls"]).Contains(param))
+            {
+                if (((List<string>)Session["CarCompareUrls"]).Count < 3)
+                {
+                    ((List<string>)Session["CarCompareUrls"]).Add(param);
+                }
+                else
+                {
+                    ((List<string>)Session["CarCompareUrls"]).RemoveAt(((List<string>)Session["CarCompareUrls"]).Count - 1);
+                    ((List<string>)Session["CarCompareUrls"]).Add(param);
+                }
+            }
+            else
+                ((List<string>)Session["CarCompareUrls"]).Remove(param);
+
+            return Json(Session["CarCompareUrls"] as List<string>, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetCarCompareList()
+        {
+            List<CarCompare> cars;
+
+            if (Session["CarCompareUrls"] == null)
+                return Json(null, JsonRequestBehavior.AllowGet);
+            else
+            {
+                cars = new List<CarCompare>();
+
+                List<string> compareUrls = Session["CarCompareUrls"] as List<string>;
+
+                foreach (string url in compareUrls)
+                {
+                    cars.Add(CarCompare.CarCompareByUrl(url));
+                }
+            }
+
+            return Json(cars, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ClearCarCompareList()
+        {
+            Session["CarCompareUrls"] = null;
+
+            return Json(null, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
         #endregion
 
         #region Workers
@@ -442,6 +486,14 @@ namespace RentACar.Controllers
         #endregion
 
         #region LangContent
+
+        [HttpPost]
+        public JsonResult SetLangContents([System.Web.Http.FromBody] List<LangItem> codes)
+        {
+            LangContent langContent = new LangContent();
+
+            return Json(langContent.DetailSelect(codes, AppTools.GetLang.ID));
+        }
 
         [HttpGet]
         public JsonResult GetLangContentByCode(string param, string param2)

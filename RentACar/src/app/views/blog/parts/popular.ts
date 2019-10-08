@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-blogpopular',
@@ -9,23 +11,40 @@ import { SiteService } from '../../../services/site';
 export class BlogPopularComponent {
     errorMsg: string;
 
-    popular: string;
-
     popularList: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetBlogContent();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "blog_pop", 1).subscribe((resData: any) => {
-            this.popular = resData.ShortDescription;
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "blog_pop": this.langs.popular = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "blog_pop"));
     }
 
     //BlogContent

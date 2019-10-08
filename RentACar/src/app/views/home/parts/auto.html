@@ -1,13 +1,13 @@
 ﻿<!--b-auto-->
 <section class="b-auto">
     <div class="container">
-        <h5 class="s-titleBg wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">{{ auto?.ShortDescription }}</h5><br />
-        <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">{{ auto?.Description }}</h2>
+        <h5 class="s-titleBg wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.auto.ShortDescription }}</h5><br />
+        <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.auto.Description }}</h2>
         <div class="row">
             <div class="col-xs-5 col-sm-4 col-md-3">
                 <aside class="b-auto__main-nav wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
                     <ul id="autoBest">
-                        <li class="active"><a data-model="all" (click)="onClick($event, 'all')" href="javascript:;">{{ allmakes }}</a><span class="fa fa-angle-right"></span></li>
+                        <li class="active"><a data-model="all" (click)="onClick($event, 'all')" href="javascript:;">{{ langs?.allmakes }}</a><span class="fa fa-angle-right"></span></li>
                         <li *ngFor="let item of makeList"><a [attr.data-model]="item?.Code" (click)="onClick($event, item?.Code)" href="javascript:;">{{ item?.Title }}</a></li>
                     </ul>
                 </aside>
@@ -19,7 +19,7 @@
                             <div class="b-auto__main-item" data-wow-delay="0.3s" data-wow-offset="100">
                                 <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" />
                                 <div class="b-world__item-val">
-                                    <span class="b-world__item-val-title">{{ registered }} <span>{{ item.Year }}</span></span>
+                                    <span class="b-world__item-val-title">{{ langs?.registered }} <span>{{ item.Year }}</span></span>
                                 </div>
                                 <h2><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h2>
                                 <div class="b-auto__main-item-info">

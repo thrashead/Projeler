@@ -1,4 +1,6 @@
 ﻿import { Component } from '@angular/core';
+import { SiteService } from '../../../../services/site';
+import { CarCompare } from '../../../../models/CarCompare';
 
 @Component({
     selector: 'rac-carcompareitems',
@@ -6,7 +8,23 @@
 })
 
 export class CarsCompareItemsComponent {
-    ngOnInit() {
+    errorMsg: string;
 
+    carCompare: Array<CarCompare>;
+
+    constructor(private service: SiteService) {
+    }
+
+    ngOnInit() {
+        this.GetCarCompareList();
+    }
+
+    //CarCompareList
+    GetCarCompareList() {
+        this.service.get("Site", "GetCarCompareList").subscribe((resData: any) => {
+            this.carCompare = new Array<CarCompare>();
+
+            this.carCompare = resData;
+        }, resError => this.errorMsg = resError);
     }
 }

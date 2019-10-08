@@ -1,9 +1,9 @@
 ﻿<!--b-pageHeader-->
 <section class="b-pageHeader" [style.backgroundImage]="'url(/RentACar/Uploads/' + banner + ')'">
     <div class="container">
-        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">{{ header?.ShortDescription }}</h1>
-        <div *ngIf="header" class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
-            <h3 id="carListCount">{{ header?.ShortDescription2 }}</h3>
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">{{ langs?.header.ShortDescription }}</h1>
+        <div *ngIf="langs?.header" class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3 id="carListCount">{{ langs?.header.ShortDescription2 }}</h3>
         </div>
     </div>
 </section>

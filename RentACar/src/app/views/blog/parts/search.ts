@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-blogsearch',
@@ -9,19 +11,36 @@ import { SiteService } from '../../../services/site';
 export class BlogSearchComponent {
     errorMsg: string;
 
-    search: string;
-
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "src_src", 1).subscribe((resData: any) => {
-            this.search = resData.ShortDescription2;
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "src_src": this.langs.search = item.ShortDescription2; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_src"));
     }
 }

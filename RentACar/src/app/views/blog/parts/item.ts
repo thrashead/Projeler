@@ -1,6 +1,8 @@
 ﻿import { Component, EventEmitter, Output } from '@angular/core';
 import { SiteService } from '../../../services/site';
 import { ActivatedRoute } from '@angular/router';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-blogitem',
@@ -11,13 +13,6 @@ export class BlogItemComponent {
     url: string;
     errorMsg: string;
 
-    share: string;
-    tags: string;
-    author: string;
-    simtitles: string;
-    comments: string;
-    comment: string;
-    sendcomment: string;
     send: string;
     name: string;
     mail: string;
@@ -41,37 +36,32 @@ export class BlogItemComponent {
             this.GetBlogPost(this.url);
         });
 
-        this.GetLangContent();
+        this.SetLangContents();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_share", 1).subscribe((resData: any) => {
-            this.share = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    SetLangContents() {
+        this.PushLangItems();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_tags", 1).subscribe((resData: any) => {
-            this.tags = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
 
-        this.service.get("Site", "GetLangContentByCode", "cmn_author", 1).subscribe((resData: any) => {
-            this.author = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cmn_simtitles", 1).subscribe((resData: any) => {
-            this.simtitles = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cmn_comments", 1).subscribe((resData: any) => {
-            this.comments = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cmn_comment", 1).subscribe((resData: any) => {
-            this.comment = resData.ShortDescription2;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "cmn_sendcmnt", 1).subscribe((resData: any) => {
-            this.sendcomment = resData.ShortDescription;
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_share": this.langs.share = item.ShortDescription; break;
+                    case "cmn_tags": this.langs.tags = item.ShortDescription; break;
+                    case "cmn_author": this.langs.author = item.ShortDescription; break;
+                    case "cmn_simtitles": this.langs.simtitles = item.ShortDescription; break;
+                    case "cmn_comments": this.langs.comments = item.ShortDescription; break;
+                    case "cmn_comment": this.langs.comment = item.ShortDescription2; break;
+                    case "cmn_sendcmnt": this.langs.sendcomment = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "name", 1).subscribe((resData: any) => {
@@ -89,6 +79,18 @@ export class BlogItemComponent {
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "sbmt", 1).subscribe((resData: any) => {
             this.send = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_share"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_tags"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_author"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_simtitles"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comments"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comment"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_sendcmnt"));
     }
 
     //BlogPost

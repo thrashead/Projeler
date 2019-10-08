@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../../services/site';
+import { LangItem } from '../../../../models/LangItem';
+import { Lib } from '../../../../lib/methods';
 
 @Component({
     selector: 'rac-carcompareheader',
@@ -11,21 +13,38 @@ export class CarsCompareHeaderComponent {
 
     banner: string;
 
-    header: any;
-
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetPicture();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "car_comp_head", 1).subscribe((resData: any) => {
-            this.header = resData;
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "car_comp_head": this.langs.header = item; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_head"));
     }
 
     //Picture

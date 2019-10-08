@@ -3,11 +3,11 @@
     <div class="container">
         <form [formGroup]="searchForm" class="b-search__main">
             <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
-                <h2>{{ whichVehicle }}</h2>
+                <h2>{{ langs?.whichVehicle }}</h2>
             </div>
             <div class="b-search__main-type wow zoomInUp" data-wow-delay="0.3s">
                 <div class="col-xs-12 col-md-2 s-noLeftPadding">
-                    <h4>{{ bodyTypeText }}</h4>
+                    <h4>{{ langs?.bodyTypeText }}</h4>
                 </div>
                 <div class="col-xs-12 col-md-10">
                     <div class="row">
@@ -31,21 +31,21 @@
                                     <option *ngFor="let item of CarMakes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
-                                <p>{{ makeText }}</p>
+                                <p>{{ langs?.makeText }}</p>
                             </div>
                             <div class="col-xs-4">
                                 <select id="slcCarModels" name="slcCarModels" formControlName="ModelCode">
                                     <option *ngFor="let item of CarModels" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
-                                <p>{{ modelText }}</p>
+                                <p>{{ langs?.modelText }}</p>
                             </div>
                             <div class="col-xs-4">
                                 <select id="slcCarStatus" name="slcCarStatus" formControlName="CarStatusCode">
                                     <option *ngFor="let item of CarStatus" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
-                                <p>{{ carStatusText }}</p>
+                                <p>{{ langs?.carStatusText }}</p>
                             </div>
                         </div>
                         <div class="m-secondSelects">
@@ -54,27 +54,27 @@
                                     <option value="0">-</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
-                                <p>{{ minYearText }}</p>
+                                <p>{{ langs?.minYearText }}</p>
                             </div>
                             <div class="col-xs-4">
                                 <select id="slcMaxYear" name="slcMaxYear" formControlName="YearMax">
                                     <option value="0">-</option>
                                 </select>
                                 <span class="fa fa-caret-down"></span>
-                                <p>{{ maxYearText }}</p>
+                                <p>{{ langs?.maxYearText }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-xs-12 text-left s-noPadding">
                         <div class="b-search__main-form-range">
-                            <label>{{ priceRangeText }}</label>
+                            <label>{{ langs?.priceRangeText }}</label>
                             <div class="slider"></div>
                             <input type="hidden" id="txtPriceMin" name="min" class="j-min" formControlName="PriceMin" />
                             <input type="hidden" id="txtPriceMax" name="max" class="j-max" formControlName="PriceMax" />
                         </div>
                         <div class="b-search__main-form-submit">
-                            <a routerLink="/Cars/Book">{{ detailSearch }}</a>
-                            <button class="btn m-btn" (click)="onClick()">{{ search }}<span class="fa fa-angle-right"></span></button>
+                            <a routerLink="/Cars/Book">{{ langs?.detailSearch }}</a>
+                            <button class="btn m-btn" (click)="onClick()">{{ langs?.search }}<span class="fa fa-angle-right"></span></button>
                         </div>
                     </div>
                 </div>

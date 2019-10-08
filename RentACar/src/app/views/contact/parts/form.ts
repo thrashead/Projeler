@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-contactform',
@@ -12,17 +14,33 @@ export class ContactFormComponent {
     contactinfo: string;
 
     form: any;
-    openhours: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cntct_opnhrs": this.langs.openhours = item; break;
+                }
+            });
+        }, resError => this.errorMsg = resError);
+
         this.service.get("Site", "GetLangContentByCode", "cntct_form").subscribe((resData: any) => {
             this.form = new Object();
 
@@ -59,9 +77,11 @@ export class ContactFormComponent {
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_info", "title", 1).subscribe((resData: any) => {
             this.contactinfo = resData.ShortDescription;
         }, resError => this.errorMsg = resError);
+    }
 
-        this.service.get("Site", "GetLangContentByCode", "cntct_opnhrs", 1).subscribe((resData: any) => {
-            this.openhours = resData;
-        }, resError => this.errorMsg = resError);
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_opnhrs"));
     }
 }

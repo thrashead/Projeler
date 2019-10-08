@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-header',
@@ -12,10 +14,6 @@ export class HeaderComponent {
 
 
     flag: any = {};
-    lang: string;
-    panelLogin: string;
-    autoService: string;
-    toggleNav: string;
     phone: string;
     menu: any;
 
@@ -28,7 +26,7 @@ export class HeaderComponent {
 
     ngOnInit() {
         this.GetLangs();
-        this.GetLangContent();
+        this.SetLangContents();
     }
 
     //Translation
@@ -50,23 +48,28 @@ export class HeaderComponent {
         }, resError => this.errorMsg = resError);
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "hdr_pnl", 1).subscribe((resData: any) => {
-            this.panelLogin = resData.ShortDescription;
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "hdr_pnl": this.langs.panelLogin = item.ShortDescription; break;
+                    case "hdr_lng": this.langs.lang = item.ShortDescription; break;
+                    case "hdr_oks": this.langs.autoService = item.ShortDescription; break;
+                    case "hdr_tgln": this.langs.toggleNav = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "GetLangContentByCode", "hdr_lng", 1).subscribe((resData: any) => {
-            this.lang = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "hdr_oks", 1).subscribe((resData: any) => {
-            this.autoService = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetLangContentByCode", "hdr_tgln", 1).subscribe((resData: any) => {
-            this.toggleNav = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "adres", 1).subscribe((resData: any) => {
             this.address = resData.Description;
@@ -102,5 +105,14 @@ export class HeaderComponent {
                 }
             });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_pnl"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_lng"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_oks"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "hdr_tgln"));
     }
 }

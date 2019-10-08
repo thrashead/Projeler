@@ -22,12 +22,12 @@ export class AboutWhatComponent {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetPicture();
     }
 
     //LangContent
-    GetLangContent() {
+    SetLangContents() {
         this.service.get("Site", "GetLangContentByCode", "about_what").subscribe((resData: any) => {
             this.whathead = new Object();
 

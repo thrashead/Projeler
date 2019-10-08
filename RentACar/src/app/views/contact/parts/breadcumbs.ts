@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
 
 @Component({
     selector: 'rac-contactbreadcumbs',
@@ -16,11 +17,16 @@ export class ContactBreadCumbsComponent {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
+    SetLangContents() {
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "menu", "home", 1).subscribe((resData: any) => {
             this.home = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);

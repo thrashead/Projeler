@@ -1,5 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-aboutbest',
@@ -18,19 +20,36 @@ export class AboutBestComponent {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
         this.GetPicture();
     }
 
-    //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "cmn_go_list", 1).subscribe((resData: any) => {
-            this.gotolist = resData.ShortDescription;
-        }, resError => this.errorMsg = resError);
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
 
-        this.service.get("Site", "GetLangContentByCode", "about_best", 1).subscribe((resData: any) => {
-            this.best = resData;
+    //LangContent
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_go_list": this.langs.gotolist = item.ShortDescription2; break;
+                    case "about_best": this.langs.best = item; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_go_list"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "about_best"));
     }
 
     //Picture

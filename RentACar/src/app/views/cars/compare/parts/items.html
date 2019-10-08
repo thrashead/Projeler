@@ -3,30 +3,23 @@
     <div class="container">
         <div class="b-compare__images">
             <div class="row">
-                <div class="col-md-3 col-sm-4 col-xs-12 col-md-offset-3">
-                    <div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Jaguar XJ 2015</h3>
-                        <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x180/jaguarComp.jpg" alt="jaguar" />
-                        <div class="b-compare__images-item-price m-right"><div class="b-compare__images-item-price-vs">vs</div><!--$-->90,600 TL</div>
-                    </div>
+                <div *ngIf="!carCompare" style="width:100%;font-size:12px;">
+                    <span class="label label-danger">Kıyaslama için önce araç listesinden araç seçmelisiniz.</span>
                 </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 ">
+                <div *ngFor="let item of carCompare; let i = index" class="col-md-3 col-sm-4 col-xs-12" [class.col-md-offset-3]="i==0">
                     <div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Mercedes E-Class 2015</h3>
-                        <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x180/mercComp.jpg" alt="merc" />
-                        <div class="b-compare__images-item-price m-right m-left"><div class="b-compare__images-item-price-vs">vs</div><!--$-->52,650 TL</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12">
-                    <div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Lexus LS 2015</h3>
-                        <img class="img-responsive center-block" src="/RentACar/Content/img/media/270x180/lexusComp.jpg" alt="lexus" />
-                        <div class="b-compare__images-item-price m-left"><!--$-->120,440 TL</div>
+                        <h3>{{ item?.Main.Title }}</h3>
+                        <img class="img-responsive center-block" src="/RentACar/Uploads/thumb_{{ item?.Main.PictureUrl }}" alt="jaguar" />
+                        <div class="b-compare__images-item-price"
+                             [class.m-right]="i==0 || i < carCompare.length - 1"
+                             [class.m-left]="i == carCompare.length - 1 || i > 0">
+                            <div *ngIf="i<carCompare.length - 1" class="b-compare__images-item-price-vs">vs</div>{{ item?.Basic.Price }} TL
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare">
             <div class="b-compare__block-title s-whiteShadow">
                 <h3 class="s-titleDet"><!--BASIC INFO-->GENEL BİLGİ</h3>
                 <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
@@ -122,7 +115,7 @@
                 </div>
             </div>
         </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare">
             <div class="b-compare__block-title s-whiteShadow">
                 <h3 class="s-titleDet"><!--MECHANICAL FEATURES-->MEKANİK ÖZELLİKLER</h3>
                 <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
@@ -240,7 +233,7 @@
                 </div>
             </div>
         </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare">
             <div class="b-compare__block-title s-whiteShadow">
                 <h3 class="s-titleDet"><!--EXTERIOR / INTERIOR FEATURES-->DIŞ / İÇ ÖZELLİKLER</h3>
                 <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
@@ -402,7 +395,7 @@
                 </div>
             </div>
         </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare">
             <div class="b-compare__block-title s-whiteShadow">
                 <h3 class="s-titleDet"><!--OTHER OPTIONS-->DİĞER SEÇENEKLER</h3>
                 <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
@@ -451,16 +444,10 @@
                 </div>
             </div>
         </div>
-        <div class="b-compare__links wow zoomInUp" data-wow-delay="0.3s">
+        <div class="b-compare__links wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare">
             <div class="row">
-                <div class="col-sm-3 col-xs-12 col-sm-offset-3">
-                    <a routerLink="/Cars/Detail/tempurl" class="btn m-btn"><!--VIEW DETAIL-->DETAY<span class="fa fa-angle-right"></span></a>
-                </div>
-                <div class="col-sm-3 col-xs-12">
-                    <a routerLink="/Cars/Detail/tempurl" class="btn m-btn"><!--VIEW DETAIL-->DETAY<span class="fa fa-angle-right"></span></a>
-                </div>
-                <div class="col-sm-3 col-xs-12">
-                    <a routerLink="/Cars/Detail/tempurl" class="btn m-btn"><!--VIEW DETAIL-->DETAY<span class="fa fa-angle-right"></span></a>
+                <div *ngFor="let item of carCompare; let i = index" class="col-sm-3 col-xs-12" [class.col-sm-offset-3]="i==0">
+                    <a routerLink="/Cars/Detail/{{ item?.Main.Url }}" class="btn m-btn"><!--VIEW DETAIL-->DETAY<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
         </div>

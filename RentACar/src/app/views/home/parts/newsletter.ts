@@ -1,6 +1,8 @@
 ﻿import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SiteService } from '../../../services/site';
+import { LangItem } from '../../../models/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homenewsletter',
@@ -9,8 +11,6 @@ import { SiteService } from '../../../services/site';
 
 export class HomeNewsletterComponent {
     errorMsg: string;
-
-    newsletter: any;
 
     newsForm: FormGroup;
     data: any;
@@ -22,7 +22,7 @@ export class HomeNewsletterComponent {
     }
 
     ngOnInit() {
-        this.GetLangContent();
+        this.SetLangContents();
 
         this.newsForm = this.formBuilder.group({
             Name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
@@ -51,10 +51,23 @@ export class HomeNewsletterComponent {
         }, resError => this.errorMsg = resError);
     }
 
+    //LangContents
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+    langs: any;
+
     //LangContent
-    GetLangContent() {
-        this.service.get("Site", "GetLangContentByCode", "home_newsletter", 1).subscribe((resData: any) => {
-            this.newsletter = resData;
+    SetLangContents() {
+        this.PushLangItems();
+
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
+            this.langs = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "home_newsletter": this.langs.newsletter = item; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
 
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "name", 1).subscribe((resData: any) => {
@@ -64,5 +77,11 @@ export class HomeNewsletterComponent {
         this.service.get("Site", "GetLangContentByCodeAndShortCode", "cntct_form", "mail", 1).subscribe((resData: any) => {
             this.mail = resData.ShortDescription2;
         }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "home_newsletter"));
     }
 }

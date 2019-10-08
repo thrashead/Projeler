@@ -22,7 +22,7 @@
                                         <div class="b-blog__posts-one-body-head-notes">
                                             <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>{{ blog?.SenderName }}</span>
                                             <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>{{ blog?.SendDate }}</span>
-                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ blog?.CommentCount }} {{ comment }}</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-comment"></span>{{ blog?.CommentCount }} {{ langs?.comment }}</span>
                                         </div>
                                         <h2 class="s-titleDet">{{ blog?.Title }}</h2>
                                     </header>
@@ -35,9 +35,9 @@
                                 <div class="col-xs-8 pull-right">
                                     <div class="b-blog__posts-one-info">
                                         <p [innerHTML]="blog?.Description"></p>
-                                        <a routerLink="/Blog/Detail/{{ blog?.Url }}" class="btn m-btn m-readMore">{{ readmore }}<span class="fa fa-angle-right"></span></a>
+                                        <a routerLink="/Blog/Detail/{{ blog?.Url }}" class="btn m-btn m-readMore">{{ langs?.readmore }}<span class="fa fa-angle-right"></span></a>
                                         <div class="b-blog__posts-one-social pull-right" *ngIf="blog?.Facebook != null || blog?.Twitter != null || blog?.Pinterest != null">
-                                            <em>{{ share }}</em>
+                                            <em>{{ langs?.share }}</em>
                                             <a *ngIf="blog?.Facebook != null" target="_blank" href="{{ blog?.Facebook }}"><span class="fa fa-facebook-square"></span></a>
                                             <a *ngIf="blog?.Twitter != null" target="_blank" href="{{ blog?.Twitter }}"><span class="fa fa-twitter-square "></span></a>
                                             <a *ngIf="blog?.Pinterest != null" target="_blank" href="{{ blog?.Pinterest }}"><span class="fa fa-pinterest-square"></span></a>

@@ -1,11 +1,11 @@
 ﻿<div class="col-lg-3 col-sm-4 col-xs-12">
     <aside class="b-items__aside">
-        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ searchTitle }}</h2>
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ langs?.searchTitle }}</h2>
         <div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
             <div>
                 <form [formGroup]="searchForm" class="b-items__aside-main-body">
                     <div class="b-items__aside-main-body-item">
-                        <label>{{ makeText }}</label>
+                        <label>{{ langs?.makeText }}</label>
                         <div>
                             <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)" class="m-select" formControlName="MakeCode">
                                 <option *ngFor="let item of CarMakes" value="{{ item?.Value }}">{{ item?.Text }}</option>
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="b-items__aside-main-body-item">
-                        <label>{{ modelText }}</label>
+                        <label>{{ langs?.modelText }}</label>
                         <div>
                             <select id="slcCarModels" name="slcCarModels" class="m-select" formControlName="ModelCode">
                                 <option *ngFor="let item of CarModels" value="{{ item?.Value }}">{{ item?.Text }}</option>
@@ -23,13 +23,13 @@
                         </div>
                     </div>
                     <div class="b-items__aside-main-body-item">
-                        <label>{{ priceRangeText }}</label>
+                        <label>{{ langs?.priceRangeText }}</label>
                         <div class="slider"></div>
                         <input type="hidden" id="txtPriceMin" class="j-min" formControlName="PriceMin" />
                         <input type="hidden" id="txtPriceMax" class="j-max" formControlName="PriceMax" />
                     </div>
                     <div class="b-items__aside-main-body-item">
-                        <label>{{ bodyTypeText }}</label>
+                        <label>{{ langs?.bodyTypeText }}</label>
                         <div>
                             <select id="slcBodyType" name="slcBodyType" class="m-select" formControlName="BodyTypeCode">
                                 <option *ngFor="let item of BodyTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="b-items__aside-main-body-item">
-                        <label>{{ carStatusText }}</label>
+                        <label>{{ langs?.carStatusText }}</label>
                         <div>
                             <select id="slcCarStatus" name="slcCarStatus" class="m-select" formControlName="CarStatusCode">
                                 <option *ngFor="let item of CarStatus" value="{{ item?.Value }}">{{ item?.Text }}</option>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="b-items__aside-main-body-item">
-                        <label>{{ fuelTypeText }}</label>
+                        <label>{{ langs?.fuelTypeText }}</label>
                         <div>
                             <select id="slcFuelType" name="slcFuelType" class="m-select" formControlName="FuelTypeCode">
                                 <option *ngFor="let item of FuelTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
@@ -57,8 +57,8 @@
                     </div>
                 </form>
                 <footer class="b-items__aside-main-footer">
-                    <button type="submit" class="btn m-btn" (click)="onClick()">{{ search }}<span class="fa fa-angle-right"></span></button><br />
-                    <a href="javascript:;" (click)="ClearSearchFilters()">{{ clearFilter }}</a>
+                    <button type="submit" class="btn m-btn" (click)="onClick()">{{ langs?.search }}<span class="fa fa-angle-right"></span></button><br />
+                    <a href="javascript:;" (click)="ClearSearchFilters()">{{ langs?.clearFilter }}</a>
                 </footer>
             </div>
         </div>
