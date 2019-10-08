@@ -290,16 +290,16 @@ export class ScriptsComponent implements AfterViewChecked {
                         }
                     }
                 });
-
-                function linkRealSliders(bigS, thumbS, sliderId) {
-                    $(sliderId).off("click").on("click", "a", function (event) {
-                        event.preventDefault();
-                        var newIndex = $(this).data("slide-index");
-                        bigS.goToSlide(newIndex);
-                    });
-                }
             }
-        }, 1000);
+
+            function linkRealSliders(bigS, thumbS, sliderId) {
+                $(sliderId).off("click").on("click", "a", function (event) {
+                    event.preventDefault();
+                    var newIndex = $(this).data("slide-index");
+                    bigS.goToSlide(newIndex);
+                });
+            }
+        }, 3000);
     }
 
     //MenuActive
