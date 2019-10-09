@@ -7,10 +7,9 @@ import { CarCompare } from '../../../../models/CarCompare';
 })
 
 export class CarsCompareBasicComponent {
-    @Input() compareLength: number;
     @Input() carCompare: Array<CarCompare>;
+    @Input() basic: any;
 
     ngOnInit() {
-
     }
 }

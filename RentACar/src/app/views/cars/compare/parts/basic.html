@@ -1,70 +1,70 @@
-﻿<div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="compareLength > 0">
+﻿<div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare?.length > 0">
     <div class="b-compare__block-title s-whiteShadow">
-        <h3 class="s-titleDet"><!--BASIC INFO-->GENEL BİLGİ</h3>
+        <h3 class="s-titleDet">{{ basic?.title }}</h3>
         <a class="j-more" href="javascript:;"><span class="fa fa-angle-left"></span></a>
     </div>
     <div class="b-compare__block-inside j-inside">
         <div class="row">
             <div class="col-xs-3">
                 <div class="b-compare__block-inside-title">
-                    <!--Make / Model / Year-->Marka / Model / Yıl
+                    {{ basic?.make }} / {{ basic?.model }} / {{ basic?.year }}
                 </div>
             </div>
             <div class="col-xs-3" *ngFor="let item of carCompare">
-                <div class="b-compare__block-inside-value">
-                    <span *ngIf="item?.Basic.Make">{{ item?.Basic.Make }}</span>
-                    <span *ngIf="!item?.Basic.Make">-</span>
-                    <span *ngIf="item?.Basic.Model"> / {{ item?.Basic.Model }}</span>
-                    <span *ngIf="!item?.Basic.Model"> / -</span>
-                    <span *ngIf="item?.Basic.Year"> / {{ item?.Basic.Year }}</span>
-                    <span *ngIf="!item?.Basic.Year"> / -</span>
+                <div class="b-compare__block-inside-value" *ngIf="item?.Basic">
+                    <span *ngIf="item?.Basic?.Make">{{ item?.Basic?.Make }}</span>
+                    <span *ngIf="!item?.Basic?.Make">-</span>
+                    <span *ngIf="item?.Basic?.Model"> / {{ item?.Basic?.Model }}</span>
+                    <span *ngIf="!item?.Basic?.Model"> / -</span>
+                    <span *ngIf="item?.Basic?.Year"> / {{ item?.Basic?.Year }}</span>
+                    <span *ngIf="!item?.Basic?.Year"> / -</span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-3">
                 <div class="b-compare__block-inside-title">
-                    <!--Width / Height / Length-->En / Boy / Uzunluk
+                    {{ basic?.width }} / {{ basic?.height }} / {{ basic?.length }}
                 </div>
             </div>
             <div class="col-xs-3" *ngFor="let item of carCompare">
-                <div class="b-compare__block-inside-value">
-                    <span *ngIf="item?.Basic.Width">{{ item?.Basic.Width }}m</span>
-                    <span *ngIf="!item?.Basic.Width">-</span>
-                    <span *ngIf="item?.Basic.Height"> / {{ item?.Basic.Height }}m</span>
-                    <span *ngIf="!item?.Basic.Height"> / -</span>
-                    <span *ngIf="item?.Basic.Length"> / {{ item?.Basic.Length }}m</span>
-                    <span *ngIf="!item?.Basic.Length"> / -</span>
+                <div class="b-compare__block-inside-value" *ngIf="item?.Basic">
+                    <span *ngIf="item?.Basic?.Width">{{ item?.Basic?.Width }}m</span>
+                    <span *ngIf="!item?.Basic?.Width">-</span>
+                    <span *ngIf="item?.Basic?.Height"> / {{ item?.Basic?.Height }}m</span>
+                    <span *ngIf="!item?.Basic?.Height"> / -</span>
+                    <span *ngIf="item?.Basic?.Length"> / {{ item?.Basic?.Length }}m</span>
+                    <span *ngIf="!item?.Basic?.Length"> / -</span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-3">
                 <div class="b-compare__block-inside-title">
-                    <!--Status / Mileage-->Araç Durumu / Kilometre
+                    {{ basic?.status }} / {{ basic?.mileage }}
                 </div>
             </div>
             <div class="col-xs-3" *ngFor="let item of carCompare">
-                <div class="b-compare__block-inside-value">
-                    <span *ngIf="item?.Basic.Status">{{ item?.Basic.Status }}</span>
-                    <span *ngIf="!item?.Basic.Status">-</span>
-                    <span *ngIf="item?.Basic.Mileage"> / {{ item?.Basic.Mileage }}km</span>
-                    <span *ngIf="!item?.Basic.Mileage"> / -</span>
+                <div class="b-compare__block-inside-value" *ngIf="item?.Basic">
+                    <span *ngIf="item?.Basic?.Status">{{ item?.Basic?.Status }}</span>
+                    <span *ngIf="!item?.Basic?.Status">-</span>
+                    <span *ngIf="item?.Basic?.Mileage"> / {{ item?.Basic?.Mileage }}km</span>
+                    <span *ngIf="!item?.Basic?.Mileage"> / -</span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-3">
                 <div class="b-compare__block-inside-title">
-                    <!--Wheel Base / CargoCapacity-->Dingil Mesafesi / Bagaj Hacmi
+                    {{ basic?.wheelbase }} / {{ basic?.cargocapacity }}
                 </div>
             </div>
             <div class="col-xs-3" *ngFor="let item of carCompare">
-                <div class="b-compare__block-inside-value">
-                    <span *ngIf="item?.Basic.WheelBase">{{ item?.Basic.WheelBase }}cm</span>
-                    <span *ngIf="!item?.Basic.WheelBase">-</span>
-                    <span *ngIf="item?.Basic.CargoCapacity"> / {{ item?.Basic.CargoCapacity }}lt</span>
-                    <span *ngIf="!item?.Basic.CargoCapacity"> / -</span>
+                <div class="b-compare__block-inside-value" *ngIf="item?.Basic">
+                    <span *ngIf="item?.Basic?.WheelBase">{{ item?.Basic?.WheelBase }}cm</span>
+                    <span *ngIf="!item?.Basic?.WheelBase">-</span>
+                    <span *ngIf="item?.Basic?.CargoCapacity"> / {{ item?.Basic?.CargoCapacity }}lt</span>
+                    <span *ngIf="!item?.Basic?.CargoCapacity"> / -</span>
                 </div>
             </div>
         </div>

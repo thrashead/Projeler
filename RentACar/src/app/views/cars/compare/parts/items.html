@@ -4,7 +4,7 @@
         <div class="b-compare__images">
             <div class="row">
                 <div *ngIf="carCompare?.length <= 0" id="compareNull" [class.show]="carCompare?.length <= 0">
-                    <span>Kıyaslama için önce araç listesinden araç seçmelisiniz.</span>
+                    <span>{{ langs?.null }}</span>
                 </div>
                 <div *ngFor="let item of carCompare; let i = index" class="col-md-3 col-sm-4 col-xs-12" [class.col-md-offset-3]="i==0">
                     <div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
@@ -20,10 +20,10 @@
             </div>
         </div>
 
-        <rac-carcomparebasic [carCompare]="carCompare" [compareLength]="carCompare?.length"></rac-carcomparebasic>
-        <rac-carcomparemechanical [carCompare]="carCompare" [compareLength]="carCompare?.length"></rac-carcomparemechanical>
-        <rac-carcompareextint [carCompare]="carCompare" [compareLength]="carCompare?.length"></rac-carcompareextint>
-        <rac-carcomparefeatures [carCompare]="carCompare" [compareLength]="carCompare?.length"></rac-carcomparefeatures>
+        <rac-carcomparebasic [basic]="langs?.Basic" [carCompare]="carCompare"></rac-carcomparebasic>
+        <rac-carcomparemechanical [mech]="langs?.Mech" [carCompare]="carCompare"></rac-carcomparemechanical>
+        <rac-carcompareextint [extint]="langs?.ExtInt" [carCompare]="carCompare"></rac-carcompareextint>
+        <rac-carcomparefeatures [feats]="langs?.Feats" [carCompare]="carCompare"></rac-carcomparefeatures>
 
         <div class="b-compare__links wow zoomInUp" data-wow-delay="0.3s" *ngIf="carCompare?.length > 0">
             <div class="row">

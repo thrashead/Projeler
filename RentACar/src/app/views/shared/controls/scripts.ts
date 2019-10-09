@@ -113,7 +113,7 @@ export class ScriptsComponent implements AfterViewChecked {
                 }
                 e.preventDefault();
             });
-        }, 1000);
+        }, 2500);
     }
 
     //J-More
@@ -130,7 +130,7 @@ export class ScriptsComponent implements AfterViewChecked {
                 }
                 e.preventDefault();
             });
-        }, 1000);
+        }, 2500);
     }
 
     //ScrollTop
@@ -209,7 +209,7 @@ export class ScriptsComponent implements AfterViewChecked {
                     ],
                 });
             });
-        }, 3000);
+        }, 2500);
     }
 
     //Slider
@@ -299,7 +299,7 @@ export class ScriptsComponent implements AfterViewChecked {
                     bigS.goToSlide(newIndex);
                 });
             }
-        }, 2000);
+        }, 2500);
     }
 
     //MenuActive
