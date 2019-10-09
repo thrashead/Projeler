@@ -1,0 +1,56 @@
+﻿
+<div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="compareLength > 0">
+    <div class="b-compare__block-title s-whiteShadow">
+        <h3 class="s-titleDet"><!--OTHER OPTIONS-->DİĞER SEÇENEKLER</h3>
+        <a class="j-more" href="javascript:; == true"><span class="fa fa-angle-left"></span></a>
+    </div>
+    <div class="b-compare__block-inside j-inside">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Misc. Options-->Seçenek Çeşitleri
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value s-lineDownCenter">
+                    <ul>
+                        <li *ngIf="item?.Features.ABS == true"><span class="fa fa-check"></span> ABS</li>
+                        <li *ngIf="item?.Features.Airbag == true"><span class="fa fa-check"></span> Airbag</li>
+                        <li *ngIf="item?.Features.AirConditioning == true"><span class="fa fa-check"></span> AirConditioning</li>
+                        <li *ngIf="item?.Features.AlloyTires == true"><span class="fa fa-check"></span> AlloyTires</li>
+                        <li *ngIf="item?.Features.AntiTheft == true"><span class="fa fa-check"></span> AntiTheft</li>
+                        <li *ngIf="item?.Features.AudioRemoteControl == true"><span class="fa fa-check"></span> AudioRemoteControl</li>
+                        <li *ngIf="item?.Features.CDPlayer == true"><span class="fa fa-check"></span> CDPlayer</li>
+                        <li *ngIf="item?.Features.CentralLocking == true"><span class="fa fa-check"></span> CentralLocking</li>
+                        <li *ngIf="item?.Features.CooledSeats == true"><span class="fa fa-check"></span> CooledSeats</li>
+                        <li *ngIf="item?.Features.EngineImmobiliser == true"><span class="fa fa-check"></span> EngineImmobiliser</li>
+                        <li *ngIf="item?.Features.FogLamps == true"><span class="fa fa-check"></span> FogLamps</li>
+                        <li *ngIf="item?.Features.FoldingSeats == true"><span class="fa fa-check"></span> FoldingSeats</li>
+                        <li *ngIf="item?.Features.GPS == true"><span class="fa fa-check"></span> GPS</li>
+                        <li *ngIf="item?.Features.HeatedDoorMirrors == true"><span class="fa fa-check"></span> HeatedDoorMirrors</li>
+                        <li *ngIf="item?.Features.HeatedSeats == true"><span class="fa fa-check"></span> HeatedSeats</li>
+                        <li *ngIf="item?.Features.HeadlightCovers == true"><span class="fa fa-check"></span> HeadlightCovers</li>
+                        <li *ngIf="item?.Features.KeylessEntry == true"><span class="fa fa-check"></span> KeylessEntry</li>
+                        <li *ngIf="item?.Features.LeatherSeats == true"><span class="fa fa-check"></span> LeatherSeats</li>
+                        <li *ngIf="item?.Features.LeatherTrim == true"><span class="fa fa-check"></span> LeatherTrim</li>
+                        <li *ngIf="item?.Features.LPG == true"><span class="fa fa-check"></span> LPG</li>
+                        <li *ngIf="item?.Features.PassengerAirbag == true"><span class="fa fa-check"></span> PassengerAirbag</li>
+                        <li *ngIf="item?.Features.PowerGlass == true"><span class="fa fa-check"></span> PowerGlass</li>
+                        <li *ngIf="item?.Features.PowerMirrors == true"><span class="fa fa-check"></span> PowerMirrors</li>
+                        <li *ngIf="item?.Features.PowerSeats == true"><span class="fa fa-check"></span> PowerSeats</li>
+                        <li *ngIf="item?.Features.PowerSteering == true"><span class="fa fa-check"></span> PowerSteering</li>
+                        <li *ngIf="item?.Features.PowerWindows == true"><span class="fa fa-check"></span> PowerWindows</li>
+                        <li *ngIf="item?.Features.RemoteStart == true"><span class="fa fa-check"></span> RemoteStart</li>
+                        <li *ngIf="item?.Features.SecuritySystem == true"><span class="fa fa-check"></span> SecuritySystem</li>
+                        <li *ngIf="item?.Features.SideAirbag == true"><span class="fa fa-check"></span> SideAirbag</li>
+                        <li *ngIf="item?.Features.Spoiler == true"><span class="fa fa-check"></span> Spoiler</li>
+                        <li *ngIf="item?.Features.TintedWindows == true"><span class="fa fa-check"></span> TintedWindows</li>
+                        <li *ngIf="item?.Features.TowBar == true"><span class="fa fa-check"></span> TowBar</li>
+                        <li *ngIf="item?.Features.TripComputer == true"><span class="fa fa-check"></span> TripComputer</li>
+                        <li *ngIf="item?.Features.Warrenty == true"><span class="fa fa-check"></span> Warrenty</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

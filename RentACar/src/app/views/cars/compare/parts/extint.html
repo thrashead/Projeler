@@ -1,0 +1,69 @@
+﻿
+<div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="compareLength > 0">
+    <div class="b-compare__block-title s-whiteShadow">
+        <h3 class="s-titleDet"><!--EXTERIOR / INTERIOR FEATURES-->DIŞ / İÇ ÖZELLİKLER</h3>
+        <a class="j-more" href="javascript:;"><span class="fa fa-angle-left"></span></a>
+    </div>
+    <div class="b-compare__block-inside j-inside">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Body Type / Trim Style-->Araç Cinsi / Döşeme Stili
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.ExtInt.Body">{{ item?.ExtInt.Body }}</span>
+                    <span *ngIf="!item?.ExtInt.Body">-</span>
+                    <span *ngIf="item?.ExtInt.TrimStyle"> / {{ item?.ExtInt.TrimStyle }}</span>
+                    <span *ngIf="!item?.ExtInt.TrimStyle"> / -</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Drive Type / Tires-->Çekiş / Lastikler
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.ExtInt.Drive">{{ item?.ExtInt.Drive }}</span>
+                    <span *ngIf="!item?.ExtInt.Drive">-</span>
+                    <span *ngIf="item?.ExtInt.Tires"> / {{ item?.ExtInt.Tires }}</span>
+                    <span *ngIf="!item?.ExtInt.Tires"> / -</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Number of (Doors / Seats)-->Kapı Sayısı / Koltuk Sayısı
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.ExtInt.Doors">{{ item?.ExtInt.Doors }}</span>
+                    <span *ngIf="!item?.ExtInt.Doors">-</span>
+                    <span *ngIf="item?.ExtInt.Seats"> / {{ item?.ExtInt.Seats }}</span>
+                    <span *ngIf="!item?.ExtInt.Seats"> / -</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Color (Exterior / Interior)-->Renk (Dış / İç)
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.ExtInt.ExtColor">{{ item?.ExtInt.ExtColor }}</span>
+                    <span *ngIf="!item?.ExtInt.ExtColor">-</span>
+                    <span *ngIf="item?.ExtInt.IntColor"> / {{ item?.ExtInt.IntColor }}</span>
+                    <span *ngIf="!item?.ExtInt.IntColor"> / -</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -79,7 +79,10 @@ import { CarsDetailBrandsComponent } from './views/cars/detail/parts/brands';
 import { CarsCompareComponent } from './views/cars/compare';
 import { CarsCompareHeaderComponent } from './views/cars/compare/parts/header';
 import { CarsCompareBreadCumbsComponent } from './views/cars/compare/parts/breadcumbs';
-import { CarsCompareInfoComponent } from './views/cars/compare/parts/info';
+import { CarsCompareBasicComponent } from './views/cars/compare/parts/basic';
+import { CarsCompareMechanicalComponent } from './views/cars/compare/parts/mechanical';
+import { CarsCompareExtIntComponent } from './views/cars/compare/parts/extint';
+import { CarsCompareFeaturesComponent } from './views/cars/compare/parts/features';
 import { CarsCompareItemsComponent } from './views/cars/compare/parts/items';
 
 //CarsBooking
@@ -425,7 +428,10 @@ import { AdminLib } from './admin/lib/methods';
         CarsCompareComponent,
         CarsCompareHeaderComponent,
         CarsCompareBreadCumbsComponent,
-        CarsCompareInfoComponent,
+        CarsCompareBasicComponent,
+        CarsCompareMechanicalComponent,
+        CarsCompareExtIntComponent,
+        CarsCompareFeaturesComponent,
         CarsCompareItemsComponent,
 
         //CarBooking

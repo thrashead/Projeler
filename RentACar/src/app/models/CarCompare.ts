@@ -1,8 +1,8 @@
 ﻿export interface CarCompare {
     Main: CompareMain;
     Basic: CompareBasic;
-    ExtInt: CompareExtInt;
     Mechanical: CompareMechanical;
+    ExtInt: CompareExtInt;
     Features: CompareFeatures;
 }
 
@@ -26,29 +26,29 @@ export interface CompareBasic {
     Mileage: number;
 }
 
-export interface CompareExtInt {
-    Body: string;
-    Drive: string;
-    Tires: string;
-    Seats: number;
-    Doors: number;
-    ExtColor: string;
-    IntColor: string;
-    TrimStyle: string;
-}
-
 export interface CompareMechanical {
     Engine: string;
     EngineCapacity: number;
     Cylinders: number;
-    Horsepower: number;
     Fuel: string;
     FuelCapacity: number;
     CityFuelEconomy: string;
     HighwayFuelEconomy: string;
+    Horsepower: number;
+    Drivetrain: number;
     Gear: string;
     GearsNumber: number;
-    Drivetrain: number;
+}
+
+export interface CompareExtInt {
+    Body: string;
+    TrimStyle: string;
+    Drive: string;
+    Tires: string;
+    Doors: number;
+    Seats: number;
+    ExtColor: string;
+    IntColor: string;
 }
 
 export interface CompareFeatures {

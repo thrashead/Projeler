@@ -1,0 +1,84 @@
+﻿
+<div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s" *ngIf="compareLength > 0">
+    <div class="b-compare__block-title s-whiteShadow">
+        <h3 class="s-titleDet"><!--MECHANICAL FEATURES-->MEKANİK ÖZELLİKLER</h3>
+        <a class="j-more" href="javascript:;"><span class="fa fa-angle-left"></span></a>
+    </div>
+    <div class="b-compare__block-inside j-inside">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Engine / EngineCapacity / Cylinders-->Motor / Motor Hacmi / Silindir
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.Mechanical.Engine">{{ item?.Mechanical.Engine }}</span>
+                    <span *ngIf="!item?.Mechanical.Engine">-</span>
+                    <span *ngIf="item?.Mechanical.EngineCapacity"> / {{ item?.Mechanical.EngineCapacity }}cc</span>
+                    <span *ngIf="!item?.Mechanical.EngineCapacity"> / -</span>
+                    <span *ngIf="item?.Mechanical.Cylinders"> / {{ item?.Mechanical.Cylinders }}</span>
+                    <span *ngIf="!item?.Mechanical.Cylinders"> / -</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Fuel Capacity / Type-->Yakıt Kapasitesi / Tipi
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.Mechanical.FuelCapacity">{{ item?.Mechanical.FuelCapacity }}lt</span>
+                    <span *ngIf="!item?.Mechanical.FuelCapacity">-</span>
+                    <span *ngIf="item?.Mechanical.Fuel"> / {{ item?.Mechanical.Fuel }}</span>
+                    <span *ngIf="!item?.Mechanical.Fuel"> / -</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Horsepower / Drive Train-->Beygir Gücü / Aktarma Organı
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.Mechanical.Horsepower">{{ item?.Mechanical.Horsepower }}hp</span>
+                    <span *ngIf="!item?.Mechanical.Horsepower">-</span>
+                    <span *ngIf="item?.Mechanical.Drivetrain"> / {{ item?.Mechanical.Drivetrain }}</span>
+                    <span *ngIf="!item?.Mechanical.Drivetrain"> / -</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Transmission-->Vites
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.Mechanical.GearsNumber && item?.Mechanical.Gear">{{ item?.Mechanical.GearsNumber }} {{ item?.Mechanical.Gear }}</span>
+                    <span *ngIf="!item?.Mechanical.GearsNumber || !item?.Mechanical.Gear">-</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="b-compare__block-inside-title">
+                    <!--Fuel Economy (city / hwy)-->Yakıt Tüketimi (Şehir / Uzun Yol)
+                </div>
+            </div>
+            <div class="col-xs-3" *ngFor="let item of carCompare">
+                <div class="b-compare__block-inside-value">
+                    <span *ngIf="item?.Mechanical.CityFuelEconomy">{{ item?.Mechanical.CityFuelEconomy }}</span>
+                    <span *ngIf="!item?.Mechanical.CityFuelEconomy">-</span>
+                    <span *ngIf="item?.Mechanical.HighwayFuelEconomy"> / {{ item?.Mechanical.HighwayFuelEconomy }}</span>
+                    <span *ngIf="!item?.Mechanical.HighwayFuelEconomy"> / -</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
