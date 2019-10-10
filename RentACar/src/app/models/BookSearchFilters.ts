@@ -1,6 +1,4 @@
 ﻿export interface BookSearchFilters {
-    Top: number;
-    Order: string;
     MakeCode: string;
     ModelCode: string;
     PriceMin: number;
@@ -13,4 +11,14 @@
     DriveTypeCode: string;
     GearTypeCode: string;
     EngineTypeCode: string;
+    EngineCapacity: number;
+    StartDate: string;
+    EndDate: string;
+    GearCount: number;
+    Cylinders: number;
+    Mileage: number;
+    Seats: number;
+    Doors: number;
+    ExteriorColor: string;
+    InteriorColor: string;
 }

@@ -10,6 +10,7 @@ using System.Web.Caching;
 using Cacher = System.Web.HttpRuntime;
 using Repository.UsersModel;
 using Repository.TranslationModel;
+using System.Web.Mvc;
 
 namespace RentACar
 {
@@ -158,6 +159,31 @@ namespace RentACar
         public static string ToNull(this string value)
         {
             return value == "null" ? null : value;
+        }
+
+        public static List<SelectListItem> ToSelectList(this List<string> items, bool addEmpty = false, string emptyText = "-", string emptyValue = "all")
+        {
+            List<SelectListItem> returnList = new List<SelectListItem>();
+
+            if(addEmpty)
+            {
+                returnList.Add(new SelectListItem()
+                {
+                    Text = emptyText,
+                    Value = emptyValue
+                });
+            }
+
+            foreach (string item in items)
+            {
+                returnList.Add(new SelectListItem()
+                {
+                    Text = item,
+                    Value = item
+                });
+            }
+
+            return returnList;
         }
     }
 

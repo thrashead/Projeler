@@ -8,6 +8,16 @@ namespace Models
         public string DriveTypeCode { get; set; }
         public string GearTypeCode { get; set; }
         public string EngineTypeCode { get; set; }
+        public int? EngineCapacity { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public int? GearCount { get; set; }
+        public int? Cylinders { get; set; }
+        public int? Mileage { get; set; }
+        public int? Seats { get; set; }
+        public int? Doors { get; set; }
+        public string ExteriorColor { get; set; }
+        public string InteriorColor { get; set; }
 
         public static BookSearchFilters Check(BookSearchFilters searchFilters)
         {
@@ -77,6 +87,36 @@ namespace Models
 
             if (sessionFilters.EngineTypeCode != null && searchFilters.EngineTypeCode == null)
                 searchFilters.EngineTypeCode = sessionFilters.EngineTypeCode;
+
+            if (sessionFilters.EngineCapacity != null && searchFilters.EngineCapacity == null)
+                searchFilters.EngineCapacity = sessionFilters.EngineCapacity;
+
+            if (sessionFilters.StartDate != null && searchFilters.StartDate == null)
+                searchFilters.StartDate = sessionFilters.StartDate;
+
+            if (sessionFilters.EndDate != null && searchFilters.EndDate == null)
+                searchFilters.EndDate = sessionFilters.EndDate;
+
+            if (sessionFilters.GearCount != null && searchFilters.GearCount == null)
+                searchFilters.GearCount = sessionFilters.GearCount;
+
+            if (sessionFilters.Cylinders != null && searchFilters.Cylinders == null)
+                searchFilters.Cylinders = sessionFilters.Cylinders;
+
+            if (sessionFilters.Mileage != null && searchFilters.Mileage == null)
+                searchFilters.Mileage = sessionFilters.Mileage;
+
+            if (sessionFilters.Seats != null && searchFilters.Seats == null)
+                searchFilters.Seats = sessionFilters.Seats;
+
+            if (sessionFilters.Doors != null && searchFilters.Doors == null)
+                searchFilters.Doors = sessionFilters.Doors;
+
+            if (sessionFilters.ExteriorColor != null && searchFilters.ExteriorColor == null)
+                searchFilters.ExteriorColor = sessionFilters.ExteriorColor;
+
+            if (sessionFilters.InteriorColor != null && searchFilters.InteriorColor == null)
+                searchFilters.InteriorColor = sessionFilters.InteriorColor;
         }
 
         static BookSearchFilters CheckNull(BookSearchFilters searchFilters)
@@ -90,15 +130,6 @@ namespace Models
                 return searchFilters;
 
             if (searchFilters.FuelTypeCode != null)
-                return searchFilters;
-
-            if (searchFilters.DriveTypeCode != null)
-                return searchFilters;
-
-            if (searchFilters.GearTypeCode != null)
-                return searchFilters;
-
-            if (searchFilters.EngineTypeCode != null)
                 return searchFilters;
 
             if (searchFilters.MakeCode != null)
@@ -120,6 +151,45 @@ namespace Models
                 return searchFilters;
 
             if (searchFilters.YearMax != null)
+                return searchFilters;
+
+            if (searchFilters.DriveTypeCode != null)
+                return searchFilters;
+
+            if (searchFilters.GearTypeCode != null)
+                return searchFilters;
+
+            if (searchFilters.EngineTypeCode != null)
+                return searchFilters;
+
+            if (searchFilters.EngineCapacity != null)
+                return searchFilters;
+
+            if (searchFilters.StartDate != null)
+                return searchFilters;
+
+            if (searchFilters.EndDate != null)
+                return searchFilters;
+
+            if (searchFilters.GearCount != null)
+                return searchFilters;
+
+            if (searchFilters.Cylinders != null)
+                return searchFilters;
+
+            if (searchFilters.Mileage != null)
+                return searchFilters;
+
+            if (searchFilters.Seats != null)
+                return searchFilters;
+
+            if (searchFilters.Doors != null)
+                return searchFilters;
+
+            if (searchFilters.ExteriorColor != null)
+                return searchFilters;
+
+            if (searchFilters.InteriorColor != null)
                 return searchFilters;
 
             return null;
@@ -150,6 +220,12 @@ namespace Models
 
             if (searchFilters.ModelCode == "all")
                 searchFilters.ModelCode = null;
+
+            if (searchFilters.ExteriorColor == "all")
+                searchFilters.ExteriorColor = null;
+
+            if (searchFilters.InteriorColor == "all")
+                searchFilters.InteriorColor = null;
 
             return searchFilters;
         }

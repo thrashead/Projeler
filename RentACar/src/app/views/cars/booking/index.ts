@@ -25,6 +25,8 @@ export class CarsBookComponent {
     DriveTypes: any;
     GearTypes: any;
     EngineTypes: any;
+    ExtColors: any;
+    IntColors: any;
 
     constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
@@ -46,6 +48,16 @@ export class CarsBookComponent {
             DriveTypeCode: new FormControl(null),
             GearTypeCode: new FormControl(null),
             EngineTypeCode: new FormControl(null),
+            EngineCapacity: new FormControl(null),
+            StartDate: new FormControl(null),
+            EndDate: new FormControl(null),
+            GearCount: new FormControl(null),
+            Cylinders: new FormControl(null),
+            Mileage: new FormControl(null),
+            Seats: new FormControl(null),
+            Doors: new FormControl(null),
+            ExteriorColor: new FormControl(null),
+            InteriorColor: new FormControl(null),
         });
     }
 
@@ -61,14 +73,24 @@ export class CarsBookComponent {
         this.searchFilters.ModelCode = this.bookForm.get("ModelCode").value;
         this.searchFilters.CarStatusCode = this.bookForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.bookForm.get("FuelTypeCode").value;
-        this.searchFilters.PriceMin = parseInt(this.bookForm.get("PriceMin").value);
-        this.searchFilters.PriceMax = parseInt(this.bookForm.get("PriceMax").value);
-        this.searchFilters.YearMin = parseInt(this.bookForm.get("YearMin").value);
-        this.searchFilters.YearMax = parseInt(this.bookForm.get("YearMax").value);
+        this.searchFilters.PriceMin = Lib.CheckNullAsAll(this.bookForm.get("PriceMin").value);
+        this.searchFilters.PriceMax = Lib.CheckNullAsAll(this.bookForm.get("PriceMax").value);
+        this.searchFilters.YearMin = Lib.CheckNullAsAll(this.bookForm.get("YearMin").value);
+        this.searchFilters.YearMax = Lib.CheckNullAsAll(this.bookForm.get("YearMax").value);
         this.searchFilters.BodyTypeCode = this.bookForm.get("BodyTypeCode").value;
         this.searchFilters.DriveTypeCode = this.bookForm.get("DriveTypeCode").value;
         this.searchFilters.GearTypeCode = this.bookForm.get("GearTypeCode").value;
         this.searchFilters.EngineTypeCode = this.bookForm.get("EngineTypeCode").value;
+        this.searchFilters.EngineCapacity = this.bookForm.get("EngineCapacity").value;
+        this.searchFilters.StartDate = this.bookForm.get("StartDate").value;
+        this.searchFilters.EndDate = this.bookForm.get("EndDate").value;
+        this.searchFilters.GearCount = Lib.CheckNullAsAll(this.bookForm.get("GearCount").value);
+        this.searchFilters.Cylinders = Lib.CheckNullAsAll(this.bookForm.get("Cylinders").value);
+        this.searchFilters.Mileage = this.bookForm.get("Mileage").value;
+        this.searchFilters.Seats = Lib.CheckNullAsAll(this.bookForm.get("Seats").value);
+        this.searchFilters.Doors = Lib.CheckNullAsAll(this.bookForm.get("Doors").value);
+        this.searchFilters.ExteriorColor = this.bookForm.get("ExteriorColor").value;
+        this.searchFilters.InteriorColor = this.bookForm.get("InteriorColor").value;
 
         this.SetSearchFilters(this.searchFilters);
     }
@@ -92,11 +114,17 @@ export class CarsBookComponent {
         this.ComboDriveTypes(false, null, true);
         this.ComboGearTypes(false, null, true);
         this.ComboEngineTypes(false, null, true);
+        this.ComboColors(true, true);
+        this.ComboColors(false, true);
 
         ComboBox.FillPrice("slcPriceMin");
         ComboBox.FillPrice("slcPriceMax", false);
         ComboBox.FillYear("slcYearMin");
         ComboBox.FillYear("slcYearMax");
+        ComboBox.FillNumber("slcGearCount", 1, 8);
+        ComboBox.FillNumber("slcCylinders", 2, 12, 2);
+        ComboBox.FillNumber("slcSeats");
+        ComboBox.FillNumber("slcDoors", 1, 8);
     }
 
     //CarMakes
@@ -152,6 +180,16 @@ export class CarsBookComponent {
     ComboEngineTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
         this.service.get("Site", "ComboEngineTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.EngineTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //ComboColors
+    ComboColors(exterior: boolean = true, addEmpty: boolean = false, emptyText: string = "-", emptyValue: string = "all") {
+        this.service.get("Site", "ComboColors", exterior, addEmpty, emptyText, emptyValue).subscribe((resData: any) => {
+            if (exterior)
+                this.ExtColors = resData;
+            else
+                this.IntColors = resData;
         }, resError => this.errorMsg = resError);
     }
 

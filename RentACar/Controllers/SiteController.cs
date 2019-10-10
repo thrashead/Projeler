@@ -1,6 +1,7 @@
 ﻿using Models;
 using Repository.BlogCategoryModel;
 using Repository.BlogModel;
+using Repository.CarDetailsExtIntModel;
 using Repository.CarFeatsBodyTypeModel;
 using Repository.CarFeatsDriveTypeModel;
 using Repository.CarFeatsEngineTypeModel;
@@ -451,6 +452,14 @@ namespace RentACar.Controllers
             CarFeatsEngineType engineType = new CarFeatsEngineType();
 
             return Json(engineType.ComboEngineTypes(AppTools.GetLang.ID, param, param2.ToInteger(), param3), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ComboColors(bool param = true, bool param2 = false, string param3 = "-", string param4 = "all")
+        {
+            CarDetailsExtInt extint = new CarDetailsExtInt();
+
+            return Json(extint.GetColors(param, param2, param3, param4), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

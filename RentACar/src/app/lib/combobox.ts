@@ -20,4 +20,10 @@ export class ComboBox {
             }
         }
     }
+
+    static FillNumber(id: string, min: number = 1, max: number = 10, increment: number = 1) {
+        for (var i = min; i <= max; i = i + increment) {
+            $("#" + id).append("<option value=\"" + i.toString() + "\">" + i.toString() + "</option>");
+        }
+    }
 }

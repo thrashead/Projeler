@@ -18,4 +18,11 @@ export class Lib {
 
         return langItem;
     }
+
+    static CheckNullAsAll(item: string) {
+        if (item == "all")
+            return null;
+        else
+            return parseInt(item);
+    }
 }
