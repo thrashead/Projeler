@@ -152,16 +152,28 @@ namespace RentACar.Controllers
         #region Cars
 
         [HttpGet]
-        public JsonResult GetCarList(string param)
+        public JsonResult GetCarList(string param, bool? param2)
         {
             Cars cars = new Cars();
 
-            SearchFilters searchFilters = Session["SearchFilters"] as SearchFilters;
+            if (param2 == null)
+            {
+                SearchFilters searchFilters = Session["SearchFilters"] as SearchFilters;
 
-            if (param.ToInteger() > 1 || param == null || param == "null")
-                return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+                if (param.ToInteger() > 1 || param == null || param == "null")
+                    return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+                else
+                    return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+            }
             else
-                return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+            {
+                BookSearchFilters searchFilters = Session["BookSearchFilters"] as BookSearchFilters;
+
+                if (param.ToInteger() > 1 || param == null || param == "null")
+                    return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+                else
+                    return Json(cars.CarListSelect(searchFilters, AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+            }
         }
 
         [HttpGet]
@@ -330,6 +342,36 @@ namespace RentACar.Controllers
 
             return Json(Session["SearchFilters"] as SearchFilters, JsonRequestBehavior.AllowGet);
         }
+
+        #endregion
+
+        #region CarBookingSearch
+
+        [HttpPost]
+        public JsonResult SetBookSearchFilters([System.Web.Http.FromBody] BookSearchFilters param)
+        {
+            param = BookSearchFilters.Check(param);
+
+            return Json(param);
+        }
+
+        [HttpGet]
+        public JsonResult GetBookSearchFilters()
+        {
+            return Json(Session["BookSearchFilters"] as BookSearchFilters, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ClearBookSearchFilters()
+        {
+            Session["BookSearchFilters"] = null;
+
+            return Json(Session["BookSearchFilters"] as BookSearchFilters, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+        #region Combobox
 
         [HttpGet]
         public JsonResult ComboCarMakes(bool param = true, string param2 = null, bool param3 = false)

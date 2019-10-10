@@ -15,15 +15,32 @@
                         <h2>{{ langs?.content?.title1 }}</h2>
                     </header>
                     <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc1 }}</p>
-                    <div class="s-submit clearfix">
-                        <!--form action="submit2.html" method="POST"-->
+                    <form [formGroup]="bookForm" class="s-submit clearfix">
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.make }}</label>
+                                    <label>{{ langs?.search?.date }} ({{ langs?.search?.start }})</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcMake">
-                                            <option><!--Any Make-->Hepsi</option>
+                                            <option>-</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.date }} ({{ langs?.search?.end }})</label>
+                                    <div class='s-relative'>
+                                        <select class="m-select" name="slcMake">
+                                            <option>-</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.make }}</label>
+                                    <div class='s-relative'>
+                                        <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)" class="m-select" formControlName="MakeCode">
+                                            <option *ngFor="let item of CarMakes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -31,26 +48,17 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.model }}</label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="slcModel">
-                                            <option><!--Select a Model-->Model Seçiniz</option>
+                                        <select id="slcCarModels" name="slcCarModels" class="m-select" formControlName="ModelCode">
+                                            <option *ngFor="let item of CarModels" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.bodytype }}</label>
+                                    <label>{{ langs?.search?.status }}</label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="slcBody">
-                                            <option><!--Select-->Seçiniz</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.drivetype }}</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" name="slcDrive">
-                                            <option><!--Select-->Seçiniz</option>
+                                        <select id="slcCarStatus" name="slcCarStatus" class="m-select" formControlName="CarStatusCode">
+                                            <option *ngFor="let item of CarStatus" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -58,22 +66,21 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.enginetype }}</label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="slcEngine">
-                                            <option><!--Select-->Seçiniz</option>
+                                        <select id="slcEngineType" name="slcEngineType" class="m-select" formControlName="EngineTypeCode">
+                                            <option *ngFor="let item of EngineTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.enginecapacity }}</label>
-                                    <!--<input placeholder="Enter Capacity" type="text" name="txtEngineCapacity" />-->
                                     <input placeholder="{{ langs?.search?.enginecapacity }}" type="text" name="txtEngineCapacity" />
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.gear }}</label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="slcTransmission">
-                                            <option><!--Select-->Seçiniz</option>
+                                        <select id="slcGearType" name="slcGearType" class="m-select" formControlName="GearTypeCode">
+                                            <option *ngFor="let item of GearTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -82,50 +89,7 @@
                                     <label>{{ langs?.search?.gearno }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcGears">
-                                            <option><!--Select-->Seçiniz</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.status }}</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" name="slcStatus">
-                                            <option><!--Select-->Seçiniz</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.mileage }} ({{ langs?.search?.max }})</label>
-                                    <!--<input placeholder="Enter Mileage" type="text" name="txtMileage" />-->
-                                    <input placeholder="{{ langs?.search?.mileage }}" type="text" name="txtMileage" />
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12">
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.min }})</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" name="slcMinPrice">
-                                            <option><!--Select-->Seçiniz</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.max }})</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" name="slcMaxPrice">
-                                            <option><!--Select-->Seçiniz</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.fueltype }}</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" name="slcFuel">
-                                            <option><!--Select-->Seçiniz</option>
+                                            <option>-</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -134,7 +98,34 @@
                                     <label>{{ langs?.search?.cylinders }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcCylinders">
-                                            <option><!--Select-->Seçiniz</option>
+                                            <option>-</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.fueltype }}</label>
+                                    <div class='s-relative'>
+                                        <select id="slcFuelType" name="slcFuelType" class="m-select" formControlName="FuelTypeCode">
+                                            <option *ngFor="let item of FuelTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.min }})</label>
+                                    <div class='s-relative'>
+                                        <select class="m-select" id="slcPriceMin" name="slcPriceMin" formControlName="PriceMin">
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.max }})</label>
+                                    <div class='s-relative'>
+                                        <select class="m-select" id="slcPriceMax" name="slcPriceMax" formControlName="PriceMax">
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -142,8 +133,7 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.minyear }}</label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="slcMinYear">
-                                            <option><!--Select-->Seçiniz</option>
+                                        <select class="m-select" id="slcYearMin" name="slcYearMin" formControlName="YearMin">
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -151,17 +141,38 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.maxyear }}</label>
                                     <div class='s-relative'>
-                                        <select class="m-select" name="slcMaxYear">
-                                            <option><!--Select-->Seçiniz</option>
+                                        <select class="m-select" id="slcYearMax" name="slcYearMax" formControlName="YearMax">
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.bodytype }}</label>
+                                    <div class='s-relative'>
+                                        <select id="slcBodyType" name="slcBodyType" class="m-select" formControlName="BodyTypeCode">
+                                            <option *ngFor="let item of BodyTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.drivetype }}</label>
+                                    <div class='s-relative'>
+                                        <select id="slcDriveType" name="slcDriveType" class="m-select" formControlName="DriveTypeCode">
+                                            <option *ngFor="let item of DriveTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.mileage }} ({{ langs?.search?.max }})</label>
+                                    <input placeholder="{{ langs?.search?.mileage }}" type="text" name="txtMileage" />
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.seats }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcSeats">
-                                            <option><!--Select-->Seçiniz</option>
+                                            <option>-</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -170,7 +181,7 @@
                                     <label>{{ langs?.search?.doors }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcDoors">
-                                            <option><!--Select-->Seçiniz</option>
+                                            <option>-</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -179,7 +190,7 @@
                                     <label>{{ langs?.search?.extcolor }}</label>
                                     <div class="s-relative">
                                         <select class="m-select" name="slcExteriorColor">
-                                            <option><!--Select-->Seçiniz</option>
+                                            <option>-</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
@@ -188,16 +199,15 @@
                                     <label>{{ langs?.search?.intcolor }}</label>
                                     <div class="s-relative">
                                         <select class="m-select" name="slcInteriorColor">
-                                            <option><!--Select-->Seçiniz</option>
+                                            <option>-</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--<button type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">Save &amp; PROCEED to next step<span class="fa fa-angle-right"></span></button>-->
-                        <a routerLink="/Cars/Book/Features" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></a>
-                    </div>
+                        <button type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></button>
+                    </form>
                 </div>
             </div>
         </div>

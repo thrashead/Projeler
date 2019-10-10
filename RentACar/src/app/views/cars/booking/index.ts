@@ -1,7 +1,11 @@
 ﻿import { Component } from "@angular/core";
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Lib } from '../../../lib/methods';
+import { ComboBox } from '../../../lib/combobox';
+import { LangItem } from '../../../models/LangItem';
+import { BookSearchFilters } from '../../../models/booksearchfilters';
 
 @Component({
     templateUrl: './index.html'
@@ -10,11 +14,145 @@ import { Lib } from '../../../lib/methods';
 export class CarsBookComponent {
     errorMsg: string;
 
-    constructor(private service: SiteService) {
+    bookForm: FormGroup;
+    searchFilters: BookSearchFilters;
+
+    CarMakes: any;
+    CarModels: any;
+    CarStatus: any;
+    BodyTypes: any;
+    FuelTypes: any;
+    DriveTypes: any;
+    GearTypes: any;
+    EngineTypes: any;
+
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
         this.SetLangContents();
+        this.FillCombo();
+
+        this.bookForm = this.formBuilder.group({
+            MakeCode: new FormControl(null),
+            ModelCode: new FormControl(null),
+            PriceMin: new FormControl(null),
+            PriceMax: new FormControl(null),
+            YearMin: new FormControl(null),
+            YearMax: new FormControl(null),
+            CarStatusCode: new FormControl(null),
+            FuelTypeCode: new FormControl(null),
+            BodyTypeCode: new FormControl(null),
+            DriveTypeCode: new FormControl(null),
+            GearTypeCode: new FormControl(null),
+            EngineTypeCode: new FormControl(null),
+        });
+    }
+
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.ComboCarModelsByMakeCode(target.value, false, null, true);
+    }
+
+    onClick() {
+        this.searchFilters = {} as BookSearchFilters;
+
+        this.searchFilters.MakeCode = this.bookForm.get("MakeCode").value;
+        this.searchFilters.ModelCode = this.bookForm.get("ModelCode").value;
+        this.searchFilters.CarStatusCode = this.bookForm.get("CarStatusCode").value;
+        this.searchFilters.FuelTypeCode = this.bookForm.get("FuelTypeCode").value;
+        this.searchFilters.PriceMin = parseInt(this.bookForm.get("PriceMin").value);
+        this.searchFilters.PriceMax = parseInt(this.bookForm.get("PriceMax").value);
+        this.searchFilters.YearMin = parseInt(this.bookForm.get("YearMin").value);
+        this.searchFilters.YearMax = parseInt(this.bookForm.get("YearMax").value);
+        this.searchFilters.BodyTypeCode = this.bookForm.get("BodyTypeCode").value;
+        this.searchFilters.DriveTypeCode = this.bookForm.get("DriveTypeCode").value;
+        this.searchFilters.GearTypeCode = this.bookForm.get("GearTypeCode").value;
+        this.searchFilters.EngineTypeCode = this.bookForm.get("EngineTypeCode").value;
+
+        this.SetSearchFilters(this.searchFilters);
+    }
+
+    //SetSearchFilters
+    SetSearchFilters(searchFilters: BookSearchFilters = null) {
+        this.service.post("Site", "SetBookSearchFilters", searchFilters).subscribe((resData: any) => {
+            this.searchFilters = resData;
+
+            this.router.navigate(['/Cars/Book/Features']);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //ComboBox
+    FillCombo() {
+        this.ComboCarMakes(false, null, true);
+        this.ComboCarModelsByMakeCode("all", false, null, true);
+        this.ComboCarStatus(false, null, true);
+        this.ComboBodyTypes(false, null, true);
+        this.ComboFuelTypes(false, null, true);
+        this.ComboDriveTypes(false, null, true);
+        this.ComboGearTypes(false, null, true);
+        this.ComboEngineTypes(false, null, true);
+
+        ComboBox.FillPrice("slcPriceMin");
+        ComboBox.FillPrice("slcPriceMax", false);
+        ComboBox.FillYear("slcYearMin");
+        ComboBox.FillYear("slcYearMax");
+    }
+
+    //CarMakes
+    ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarMakes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeCode(makeCode: string = null, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarModels = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarStatus
+    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarStatus = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //BodyTypes
+    ComboBodyTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboBodyTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.BodyTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //FuelTypes
+    ComboFuelTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboFuelTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.FuelTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //DriveTypes
+    ComboDriveTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboDriveTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.DriveTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GearTypes
+    ComboGearTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboGearTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.GearTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //EngineTypes
+    ComboEngineTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboEngineTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.EngineTypes = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -62,9 +200,15 @@ export class CarsBookComponent {
                             case "nextstep":
                                 this.langs.nextstep = item.ShortDescription;
                                 break;
+                            case "date":
+                                this.langs.search.date = item.ShortDescription2;
+                                break;
+
                         }
                         break;
 
+                    case "src_start": this.langs.search.start = item.ShortDescription2; break;
+                    case "src_end": this.langs.search.end = item.ShortDescription2; break;
                     case "src_make": this.langs.search.make = item.ShortDescription; break;
                     case "src_model": this.langs.search.model = item.ShortDescription; break;
                     case "src_prcrng": this.langs.search.price = item.ShortDescription; break;
@@ -108,6 +252,8 @@ export class CarsBookComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
 
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_start"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_end"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_prcrng"));

@@ -29,6 +29,8 @@ export class CarsBookSubmitComponent {
         this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
             this.langs = new Object();
             this.langs.content = new Object();
+            this.langs.contact = new Object();
+            this.langs.confirm = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {
@@ -58,12 +60,23 @@ export class CarsBookSubmitComponent {
                                 this.langs.content.desc4 = item.ShortDescription2;
                                 this.langs.content.longdesc4 = item.Description2;
                                 break;
+                            case "confirm":
+                                this.langs.confirm.desc = item.Description;
+                                break;
                         }
                         break;
                     case "cntct_form":
                         switch (item.ShortCode) {
-                            case "sbmt":
-                                this.langs.submit = item.ShortDescription; break;
+                            case "adres": this.langs.contact.address = item.ShortDescription2; break;
+                            case "name": this.langs.contact.name = item.ShortDescription2; break;
+                            case "id": this.langs.contact.id = item.ShortDescription2; break;
+                            case "city": this.langs.contact.city = item.ShortDescription2; break;
+                            case "country": this.langs.contact.country = item.ShortDescription2; break;
+                            case "district": this.langs.contact.district = item.ShortDescription2; break;
+                            case "postal": this.langs.contact.postal = item.ShortDescription2; break;
+                            case "phone": this.langs.contact.phone = item.ShortDescription2; break;
+                            case "mail": this.langs.contact.mail = item.ShortDescription2; break;
+                            case "sbmt": this.langs.contact.submit = item.ShortDescription2; break;
                         }
                 }
             });
@@ -74,6 +87,6 @@ export class CarsBookSubmitComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "sbmt"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
     }
 }

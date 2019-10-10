@@ -53,6 +53,7 @@ export class FooterComponent {
                             case "home": this.langs.menu.home = item.ShortDescription; break;
                             case "list": this.langs.menu.list = item.ShortDescription; break;
                             case "compr": this.langs.menu.compare = item.ShortDescription; break;
+                            case "book": this.langs.menu.book = item.ShortDescription; break;
                             case "about": this.langs.menu.about = item.ShortDescription; break;
                             case "blog": this.langs.menu.blog = item.ShortDescription; break;
                             case "cntct": this.langs.menu.contact = item.ShortDescription; break;

@@ -4,6 +4,7 @@ import { SearchFilters } from '../../../models/searchfilters';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Lib } from '../../../lib/methods';
+import { ComboBox } from '../../../lib/combobox';
 import { LangItem } from '../../../models/LangItem';
 
 @Component({
@@ -27,11 +28,7 @@ export class HomeSearchComponent implements AfterViewChecked {
 
     ngOnInit() {
         this.SetLangContents();
-        this.ComboCarMakes(false, null, true);
-        this.ComboCarModelsByMakeCode("all", false, null, true);
-        this.ComboCarStatus(false, null, true);
-        this.IconBodyTypes();
-        this.ComboYears();
+        this.FillCombo();
 
         this.searchForm = this.formBuilder.group({
             MakeCode: new FormControl(null),
@@ -114,6 +111,45 @@ export class HomeSearchComponent implements AfterViewChecked {
         }, resError => this.errorMsg = resError);
     }
 
+    //ComboBox
+    FillCombo() {
+        this.ComboCarMakes(false, null, true);
+        this.ComboCarModelsByMakeCode("all", false, null, true);
+        this.ComboCarStatus(false, null, true);
+        this.IconBodyTypes();
+
+        ComboBox.FillYear("slcYearMin");
+        ComboBox.FillYear("slcYearMax");
+    }
+
+    //CarMakes
+    ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarMakes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeCode(makeCode: string, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarModels = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarStatus
+    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarStatus = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //BodyTypesIcon
+    IconBodyTypes() {
+        this.service.get("Site", "IconBodyTypes").subscribe((resData: any) => {
+            this.BodyTypes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
@@ -156,39 +192,5 @@ export class HomeSearchComponent implements AfterViewChecked {
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_prcrng"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_src"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_dtlsrc"));
-    }
-
-    //CarMakes
-    ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarMakes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarModelsByMakeCode
-    ComboCarModelsByMakeCode(makeCode: string, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarModels = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarStatus
-    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarStatus = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //BodyTypesIcon
-    IconBodyTypes() {
-        this.service.get("Site", "IconBodyTypes").subscribe((resData: any) => {
-            this.BodyTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //Years
-    ComboYears() {
-        Lib.ComboYears("slcMinYear");
-        Lib.ComboYears("slcMaxYear");
     }
 }

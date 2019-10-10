@@ -18,20 +18,16 @@
                                 <h2>{{ langs?.content?.title4 }}</h2>
                             </header>
                             <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc4 }}</p>
-                            <div class="b-submit__main-element">
-                                <label><!--Vehicle Current Address-->Araç Sahibinin Adresi <span>*</span></label>
-                                <input type="text" name="addr" />
-                            </div>
                             <div class="row">
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
-                                        <label><!--City / State-->Şehir / Ülke <span>*</span></label>
+                                        <label>{{ langs?.contact?.name }} <span>*</span></label>
                                         <input type="text" name="city" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
-                                        <label><!--Zip Code / District-->Posta Kodu / Semt <span>*</span></label>
+                                        <label>{{ langs?.contact?.id }} <span>*</span></label>
                                         <input type="text" name="code" />
                                     </div>
                                 </div>
@@ -39,29 +35,44 @@
                             <div class="row">
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
-                                        <label><!--Enter Your Phone Number-->Telefon Numaranız <span>*</span></label>
+                                        <label>{{ langs?.contact?.city }} / {{ langs?.contact?.country }} <span>*</span></label>
+                                        <input type="text" name="city" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="b-submit__main-element">
+                                        <label>{{ langs?.contact?.district }} / {{ langs?.contact?.postal }} <span>*</span></label>
+                                        <input type="text" name="code" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="b-submit__main-element">
+                                        <label>{{ langs?.contact?.phone }} <span>*</span></label>
                                         <input type="text" name="phone" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
-                                        <label><!--Enter Your Email Address-->E-Posta Adresiniz <span>*</span></label>
+                                        <label>{{ langs?.contact?.mail }} <span>*</span></label>
                                         <input type="text" name="email" />
                                     </div>
                                 </div>
                             </div>
+                            <div class="b-submit__main-element">
+                                <label>{{ langs?.contact?.address }} <span>*</span></label>
+                                <input type="text" name="addr" />
+                            </div>
                         </div>
 
                         <div class="b-submit__main-plan wow zoomInUp" data-wow-delay="0.3s">
-                            <header class="s-headerSubmit s-lineDownLeft">
-                                <h2><!--Confirmation-->Onaylama</h2>
-                            </header>
                             <input type="checkbox" name="check1" id="check1" />
                             <label class="s-submitCheckLabel" for="check1"><span class="fa fa-check"></span></label>
-                            <label class="s-submitCheck" for="check1"><!--I Confirm That The Information I Have Entered Is Correct -->Girdiğim Bilgilerin Doğru Olduğunu Kabul Ediyor ve Onaylıyorum.</label>
+                            <label class="s-submitCheck" for="check1">{{ langs?.confirm?.desc }}</label>
                         </div>
                         <!--<button type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.3s">PUBLISH MY LISTING NOW<span class="fa fa-angle-right"></span></button>-->
-                        <a routerLink="/" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.submit }}<span class="fa fa-angle-right"></span></a>
+                        <a routerLink="/" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.contact?.submit }}<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
