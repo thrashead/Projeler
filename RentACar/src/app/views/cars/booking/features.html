@@ -1,226 +1,200 @@
 ﻿<rac-carbookingheader></rac-carbookingheader>
 <rac-carbookingbreadcumbs></rac-carbookingbreadcumbs>
-
-<!--b-infoBar-->
-<div class="b-infoBar">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                <div class="b-infoBar__progress wow zoomInUp" data-wow-delay="0.5s">
-                    <div class="b-infoBar__progress-line clearfix">
-                        <div class="b-infoBar__progress-line-step m-active">
-                            <div class="b-infoBar__progress-line-step-circle">
-                                <div class="b-infoBar__progress-line-step-circle-inner m-active"></div>
-                            </div>
-                        </div>
-                        <div class="b-infoBar__progress-line-step">
-                            <div class="b-infoBar__progress-line-step-circle">
-                                <div class="b-infoBar__progress-line-step-circle-inner m-active"></div>
-                            </div>
-                        </div>
-                        <div class="b-infoBar__progress-line-step">
-                            <div class="b-infoBar__progress-line-step-circle">
-                                <div class="b-infoBar__progress-line-step-circle-inner"></div>
-                            </div>
-                            <div class="b-infoBar__progress-line-step-circle m-last">
-                                <div class="b-infoBar__progress-line-step-circle-inner"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--b-infoBar-->
+<rac-carbookingprogress></rac-carbookingprogress>
 
 <!--b-submit-->
 <div class="b-submit">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-                <aside class="b-submit__aside">
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>1. Adım</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-tasks"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--DETAILS-->DETAYLAR</h4>
-                                <p><!--Choose Vehicle Specifications-->Detay Seçimi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-submit__aside-step m-active wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>2. Adım</h3>
-                        <div class="b-submit__aside-step-inner m-active clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-list-ul"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--FEATURES-->ÖZELLİKLER</h4>
-                                <p><!--Choose Info-->Özellik Seçimi</p>
-                                <div class="b-submit__aside-step-inner-info-triangle"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>3. Adım</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-car"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--CARS-->ARAÇLAR</h4>
-                                <p><!--Choose A Car-->Araç Seçimi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>4. Adım</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-globe"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--CONFIRMATION-->ONAYLAMA</h4>
-                                <p><!--Submit-->Gönder</p>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+                <rac-carbookingleftmenu [leftmenu]="langs?.content"></rac-carbookingleftmenu>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
                 <div class="b-submit__main">
-                    <header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.3s">
-                        <h2 class=""><!--Additional Features Of  Your Vehicle-->Araç Özellik Seçimi</h2>
+                    <header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                        <h2>{{ langs?.content?.title2 }}</h2>
                     </header>
-                    <p class="wow zoomInUp" data-wow-delay="0.3s">Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequsem velde metus imperdiet lacinia. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <div class="s-submit clearfix"><!--form action="submit3.html" method="POST"-->
+                    <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc2 }}</p>
+                    <div class="s-submit clearfix">
+                        <!--form action="submit3.html" method="POST"-->
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check1" id="check1" />
                                     <label class="s-submitCheckLabel" for="check1"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check1">ABS</label>
+                                    <label class="s-submitCheck" for="check1">{{ langs?.feats?.ABS }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check2" id="check2" />
                                     <label class="s-submitCheckLabel" for="check2"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check2"><!--Alloy Wheels-->Alaşım Jantlar</label>
+                                    <label class="s-submitCheck" for="check2">{{ langs?.feats?.Airbag }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check3" id="check3" />
                                     <label class="s-submitCheckLabel" for="check3"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check3"><!--Passenger Airbag-->Yolcu Hava Yastığı</label>
+                                    <label class="s-submitCheck" for="check3">{{ langs?.feats?.AirConditioning }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check4" id="check4" />
                                     <label class="s-submitCheckLabel" for="check4"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check4"><!--Heated Door Mirrors-->Isıtmalı Yan Aynalar</label>
+                                    <label class="s-submitCheck" for="check4">{{ langs?.feats?.AlloyTires }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check5" id="check5" />
                                     <label class="s-submitCheckLabel" for="check5"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check5"><!--Air Conditioning-->Klima</label>
+                                    <label class="s-submitCheck" for="check5">{{ langs?.feats?.AntiTheft }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check6" id="check6" />
                                     <label class="s-submitCheckLabel" for="check6"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check6"><!--Trip Computer-->Yol Bilgisayarı</label>
+                                    <label class="s-submitCheck" for="check6">{{ langs?.feats?.AudioRemoteControl }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check7" id="check7" />
                                     <label class="s-submitCheckLabel" for="check7"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check7"><!--Side Airbags-->Yan Hava Yastığı</label>
+                                    <label class="s-submitCheck" for="check7">{{ langs?.feats?.CDPlayer }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check8" id="check8" />
                                     <label class="s-submitCheckLabel" for="check8"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check8"><!--Audio Remote Control-->Uzaktan Ses Kontrolü</label>
+                                    <label class="s-submitCheck" for="check8">{{ langs?.feats?.CentralLocking }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check9" id="check9" />
                                     <label class="s-submitCheckLabel" for="check9"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check9"><!--Folding Rear Seats-->Katlanır Ön Koltuklar</label>
+                                    <label class="s-submitCheck" for="check9">{{ langs?.feats?.CooledSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check10" id="check10" />
                                     <label class="s-submitCheckLabel" for="check10"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check10"><!--Central Locking - Keyless-->Merkezi Anahtarsız Kilitleme</label>
+                                    <label class="s-submitCheck" for="check10">{{ langs?.feats?.EngineImmobiliser }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check11" id="check11" />
                                     <label class="s-submitCheckLabel" for="check11"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check11"><!--Weather Shields-->Hava Kalkanı</label>
+                                    <label class="s-submitCheck" for="check11">{{ langs?.feats?.FogLamps }}</label>
                                 </div>
                                 <div class="b-submit__main-element m-border wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check12" id="check12" />
                                     <label class="s-submitCheckLabel" for="check12"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check12"><!--Electric Front Seats-->Elektrikli Ön Koltuklar</label>
+                                    <label class="s-submitCheck" for="check12">{{ langs?.feats?.FoldingSeats }}</label>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check13" id="check13" />
                                     <label class="s-submitCheckLabel" for="check13"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check13"><!--Engine Immobiliser-->Motor İmmobilizer</label>
+                                    <label class="s-submitCheck" for="check13">{{ langs?.feats?.GPS }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check14" id="check14" />
                                     <label class="s-submitCheckLabel" for="check14"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check14"><!--Fog Lamps-->Sis Lambası</label>
+                                    <label class="s-submitCheck" for="check14">{{ langs?.feats?.HeatedDoorMirrors }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check15" id="check15" />
                                     <label class="s-submitCheckLabel" for="check15"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check15">GPS<!-- Satellite Navigation--></label>
+                                    <label class="s-submitCheck" for="check15">{{ langs?.feats?.HeatedSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check16" id="check16" />
                                     <label class="s-submitCheckLabel" for="check16"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check16"><!--Headlight Covers-->Far Kapakları</label>
+                                    <label class="s-submitCheck" for="check16">{{ langs?.feats?.HeadlightCovers }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check17" id="check17" />
                                     <label class="s-submitCheckLabel" for="check17"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check17"><!--Leather Seats-->Deri Döşeme</label>
+                                    <label class="s-submitCheck" for="check17">{{ langs?.feats?.KeylessEntry }}</label>
                                 </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check18" id="check18" />
                                     <label class="s-submitCheckLabel" for="check18"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check18"><!--Leather Trim-->Deri Süsleme</label>
+                                    <label class="s-submitCheck" for="check18">{{ langs?.feats?.LeatherSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check19" id="check19" />
                                     <label class="s-submitCheckLabel" for="check19"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check19"><!--LPG (Dual Fuel)-->LPG</label>
+                                    <label class="s-submitCheck" for="check19">{{ langs?.feats?.LeatherTrim }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check20" id="check20" />
                                     <label class="s-submitCheckLabel" for="check20"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check20"><!--Roof Deflector-->Çatı Saptırıcı</label>
+                                    <label class="s-submitCheck" for="check20">{{ langs?.feats?.LPG }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check21" id="check21" />
                                     <label class="s-submitCheckLabel" for="check21"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check21"><!--Rear Spoiler-->Ön Hız Kesici</label>
+                                    <label class="s-submitCheck" for="check21">{{ langs?.feats?.PassengerAirbag }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check22" id="check22" />
                                     <label class="s-submitCheckLabel" for="check22"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check22"><!--Tinted Windows-->Renkli Camlar</label>
+                                    <label class="s-submitCheck" for="check22">{{ langs?.feats?.PowerGlass }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
                                     <input type="checkbox" name="check23" id="check23" />
                                     <label class="s-submitCheckLabel" for="check23"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check23"><!--Tow Bar-->Çekici Aparatı</label>
+                                    <label class="s-submitCheck" for="check23">{{ langs?.feats?.PowerMirrors }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.PowerSeats }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.PowerSteering }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.PowerWindows }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.RemoteStart }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.SecuritySystem }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.SideAirbag }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.Spoiler }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.TintedWindows }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.TowBar }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.TripComputer }}</label>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
+                                    <input type="checkbox" name="check" id="check" />
+                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.Warrenty }}</label>
                                 </div>
                             </div>
                         </div>
                         <!--<button type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.3s">Save &amp; PROCEED to next step<span class="fa fa-angle-right"></span></button>-->
-                        <a routerLink="/Cars/Book/Cars" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">KAYDET &amp; İLERLE<span class="fa fa-angle-right"></span></a>
+                        <a routerLink="/Cars/Book/Cars" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

@@ -1,106 +1,26 @@
 ﻿<rac-carbookingheader></rac-carbookingheader>
 <rac-carbookingbreadcumbs></rac-carbookingbreadcumbs>
+<rac-carbookingprogress></rac-carbookingprogress>
 
-<!--b-infoBar-->
-<div class="b-infoBar">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                <div class="b-infoBar__progress wow zoomInUp" data-wow-delay="0.5s">
-                    <div class="b-infoBar__progress-line clearfix">
-                        <div class="b-infoBar__progress-line-step">
-                            <div class="b-infoBar__progress-line-step-circle">
-                                <div class="b-infoBar__progress-line-step-circle-inner m-active"></div>
-                            </div>
-                        </div>
-                        <div class="b-infoBar__progress-line-step">
-                            <div class="b-infoBar__progress-line-step-circle">
-                                <div class="b-infoBar__progress-line-step-circle-inner"></div>
-                            </div>
-                        </div>
-                        <div class="b-infoBar__progress-line-step">
-                            <div class="b-infoBar__progress-line-step-circle">
-                                <div class="b-infoBar__progress-line-step-circle-inner"></div>
-                            </div>
-                            <div class="b-infoBar__progress-line-step-circle m-last">
-                                <div class="b-infoBar__progress-line-step-circle-inner"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--b-infoBar-->
 <!--b-submit-->
 <div class="b-submit">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-                <aside class="b-submit__aside">
-                    <div class="b-submit__aside-step m-active wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>1. Adım</h3>
-                        <div class="b-submit__aside-step-inner m-active clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-tasks"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--DETAILS-->DETAYLAR</h4>
-                                <p><!--Choose Vehicle Specifications-->Detay Seçimi</p>
-                                <div class="b-submit__aside-step-inner-info-triangle"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>2. Adım</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-list-ul"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--FEATURES-->ÖZELLİKLER</h4>
-                                <p><!--Choose Info-->Özellik Seçimi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>3. Adım</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-car"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--CARS-->ARAÇLAR</h4>
-                                <p><!--Choose A Car-->Araç Seçimi</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="b-submit__aside-step wow zoomInUp" data-wow-delay="0.5s">
-                        <h3>4. Adım</h3>
-                        <div class="b-submit__aside-step-inner clearfix">
-                            <div class="b-submit__aside-step-inner-icon">
-                                <span class="fa fa-globe"></span>
-                            </div>
-                            <div class="b-submit__aside-step-inner-info">
-                                <h4><!--CONFIRMATION-->ONAYLAMA</h4>
-                                <p><!--Submit-->Gönder</p>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+                <rac-carbookingleftmenu [leftmenu]="langs?.content"></rac-carbookingleftmenu>
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
                 <div class="b-submit__main">
                     <header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
-                        <h2 class=""><!--Vehicle Details-->Araç Detayı</h2>
+                        <h2>{{ langs?.content?.title1 }}</h2>
                     </header>
+                    <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc1 }}</p>
                     <div class="s-submit clearfix">
                         <!--form action="submit2.html" method="POST"-->
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Make-->Marka </label>
+                                    <label>{{ langs?.search?.make }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcMake">
                                             <option><!--Any Make-->Hepsi</option>
@@ -109,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>Model </label>
+                                    <label>{{ langs?.search?.model }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcModel">
                                             <option><!--Select a Model-->Model Seçiniz</option>
@@ -118,7 +38,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Body Type-->Araç Tipi </label>
+                                    <label>{{ langs?.search?.bodytype }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcBody">
                                             <option><!--Select-->Seçiniz</option>
@@ -127,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Drive Type-->Sürüş Tipi </label>
+                                    <label>{{ langs?.search?.drivetype }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcDrive">
                                             <option><!--Select-->Seçiniz</option>
@@ -136,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Engine Type-->Motor Tipi </label>
+                                    <label>{{ langs?.search?.enginetype }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcEngine">
                                             <option><!--Select-->Seçiniz</option>
@@ -145,12 +65,12 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Engine Capacity-->Motor Hacmi </label>
+                                    <label>{{ langs?.search?.enginecapacity }}</label>
                                     <!--<input placeholder="Enter Capacity" type="text" name="txtEngineCapacity" />-->
-                                    <input placeholder="Motor Hacmi" type="text" name="txtEngineCapacity" />
+                                    <input placeholder="{{ langs?.search?.enginecapacity }}" type="text" name="txtEngineCapacity" />
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Transmission Type-->Vites Tipi </label>
+                                    <label>{{ langs?.search?.gear }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcTransmission">
                                             <option><!--Select-->Seçiniz</option>
@@ -159,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--No. of Gears-->Vites Sayısı </label>
+                                    <label>{{ langs?.search?.gearno }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcGears">
                                             <option><!--Select-->Seçiniz</option>
@@ -168,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Vehicle Status-->Araç Durumu </label>
+                                    <label>{{ langs?.search?.status }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcStatus">
                                             <option><!--Select-->Seçiniz</option>
@@ -177,14 +97,14 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Mileage-->Kilometre Bilgisi (En Çok)</label>
+                                    <label>{{ langs?.search?.mileage }} ({{ langs?.search?.max }})</label>
                                     <!--<input placeholder="Enter Mileage" type="text" name="txtMileage" />-->
-                                    <input placeholder="Kilometre Bilgisi Giriniz" type="text" name="txtMileage" />
+                                    <input placeholder="{{ langs?.search?.mileage }}" type="text" name="txtMileage" />
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Min. Price-->Fiyat (En Az)</label>
+                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.min }})</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcMinPrice">
                                             <option><!--Select-->Seçiniz</option>
@@ -193,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Max. Price-->Fiyat (En Çok)</label>
+                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.max }})</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcMaxPrice">
                                             <option><!--Select-->Seçiniz</option>
@@ -202,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Fuel Type-->Yakıt Tipi </label>
+                                    <label>{{ langs?.search?.fueltype }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcFuel">
                                             <option><!--Select-->Seçiniz</option>
@@ -211,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--No. of Cylinders-->Silindir Sayısı </label>
+                                    <label>{{ langs?.search?.cylinders }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcCylinders">
                                             <option><!--Select-->Seçiniz</option>
@@ -220,7 +140,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Vehicle Manufacturer Year-->Üretim Yılı (Başlangıç)</label>
+                                    <label>{{ langs?.search?.minyear }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcMinYear">
                                             <option><!--Select-->Seçiniz</option>
@@ -229,7 +149,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Vehicle Manufacturer Year-->Üretim Yılı (Son)</label>
+                                    <label>{{ langs?.search?.maxyear }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcMaxYear">
                                             <option><!--Select-->Seçiniz</option>
@@ -238,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--No. of Seats-->Koltuk Sayısı </label>
+                                    <label>{{ langs?.search?.seats }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcSeats">
                                             <option><!--Select-->Seçiniz</option>
@@ -247,7 +167,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--No. of Doors-->Kapı Sayısı </label>
+                                    <label>{{ langs?.search?.doors }}</label>
                                     <div class='s-relative'>
                                         <select class="m-select" name="slcDoors">
                                             <option><!--Select-->Seçiniz</option>
@@ -256,7 +176,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Exterior Color-->Dış Boya Rengi </label>
+                                    <label>{{ langs?.search?.extcolor }}</label>
                                     <div class="s-relative">
                                         <select class="m-select" name="slcExteriorColor">
                                             <option><!--Select-->Seçiniz</option>
@@ -265,7 +185,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label><!--Interior Color-->İç Döşeme Rengi </label>
+                                    <label>{{ langs?.search?.intcolor }}</label>
                                     <div class="s-relative">
                                         <select class="m-select" name="slcInteriorColor">
                                             <option><!--Select-->Seçiniz</option>
@@ -276,7 +196,7 @@
                             </div>
                         </div>
                         <!--<button type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">Save &amp; PROCEED to next step<span class="fa fa-angle-right"></span></button>-->
-                        <a routerLink="/Cars/Book/Features" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">KAYDET &amp; İLERLE<span class="fa fa-angle-right"></span></a>
+                        <a routerLink="/Cars/Book/Features" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

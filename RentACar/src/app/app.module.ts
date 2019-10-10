@@ -89,6 +89,8 @@ import { CarsCompareItemsComponent } from './views/cars/compare/parts/items';
 import { CarsBookComponent } from './views/cars/booking';
 import { CarsBookingHeaderComponent } from './views/cars/booking/parts/header';
 import { CarsBookingBreadCumbsComponent } from './views/cars/booking/parts/breadcumbs';
+import { CarsBookingProgressComponent } from './views/cars/booking/parts/progress';
+import { CarsBookingLeftMenuComponent } from './views/cars/booking/parts/leftmenu';
 import { CarsBookFeaturesComponent } from './views/cars/booking/features';
 import { CarsBookCarsComponent } from './views/cars/booking/cars';
 import { CarsBookSubmitComponent } from './views/cars/booking/submit';
@@ -438,6 +440,8 @@ import { AdminLib } from './admin/lib/methods';
         CarsBookComponent,
         CarsBookingHeaderComponent,
         CarsBookingBreadCumbsComponent,
+        CarsBookingProgressComponent,
+        CarsBookingLeftMenuComponent,
         CarsBookFeaturesComponent,
         CarsBookCarsComponent,
         CarsBookSubmitComponent,
