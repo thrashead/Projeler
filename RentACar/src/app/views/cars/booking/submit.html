@@ -71,8 +71,7 @@
                             <label class="s-submitCheckLabel" for="check1"><span class="fa fa-check"></span></label>
                             <label class="s-submitCheck" for="check1">{{ langs?.confirm?.desc }}</label>
                         </div>
-                        <!--<button type="submit" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.3s">PUBLISH MY LISTING NOW<span class="fa fa-angle-right"></span></button>-->
-                        <a routerLink="/" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.contact?.submit }}<span class="fa fa-angle-right"></span></a>
+                        <button routerLink="/" type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.contact?.submit }}<span class="fa fa-angle-right"></span></button>
                     </div>
                 </div>
             </div>

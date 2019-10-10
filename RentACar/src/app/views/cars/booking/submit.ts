@@ -1,7 +1,8 @@
 ﻿import { Component } from "@angular/core";
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
+import { Router } from '@angular/router';
 import { Lib } from '../../../lib/methods';
+import { LangItem } from '../../../models/LangItem';
 
 @Component({
     templateUrl: './submit.html'
@@ -10,11 +11,15 @@ import { Lib } from '../../../lib/methods';
 export class CarsBookSubmitComponent {
     errorMsg: string;
 
-    constructor(private service: SiteService) {
+    constructor(private service: SiteService, private router: Router) {
     }
 
     ngOnInit() {
         this.SetLangContents();
+    }
+
+    onClick() {
+        this.router.navigate(['/']);
     }
 
     //LangContents

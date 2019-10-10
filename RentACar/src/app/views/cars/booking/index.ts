@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { SiteService } from '../../../services/site';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Lib } from '../../../lib/methods';
 import { ComboBox } from '../../../lib/combobox';
 import { LangItem } from '../../../models/LangItem';
@@ -36,6 +36,8 @@ export class CarsBookComponent {
         this.FillCombo();
 
         this.bookForm = this.formBuilder.group({
+            StartDate: new FormControl(null),//, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
+            EndDate: new FormControl(null),//, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
             MakeCode: new FormControl(null),
             ModelCode: new FormControl(null),
             PriceMin: new FormControl(null),
@@ -49,8 +51,6 @@ export class CarsBookComponent {
             GearTypeCode: new FormControl(null),
             EngineTypeCode: new FormControl(null),
             EngineCapacity: new FormControl(null),
-            StartDate: new FormControl(null),
-            EndDate: new FormControl(null),
             GearCount: new FormControl(null),
             Cylinders: new FormControl(null),
             Mileage: new FormControl(null),

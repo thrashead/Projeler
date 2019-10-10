@@ -1,5 +1,6 @@
 ﻿import { Component } from "@angular/core";
 import { SiteService } from '../../../services/site';
+import { Router } from '@angular/router';
 import { Lib } from '../../../lib/methods';
 import { LangItem } from '../../../models/LangItem';
 import { BookSearchFilters } from '../../../models/booksearchfilters';
@@ -15,12 +16,16 @@ export class CarsBookCarsComponent {
 
     bookSearchFilters: BookSearchFilters;
 
-    constructor(private service: SiteService) {
+    constructor(private service: SiteService, private router: Router) {
     }
 
     ngOnInit() {
         this.GetSearchFilters();
         this.SetLangContents();
+    }
+
+    onClick() {
+        this.router.navigate(['/Cars/Book/Submit']);
     }
 
     //CarList
