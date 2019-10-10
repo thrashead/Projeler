@@ -28,6 +28,9 @@ export class CarsBookCarsComponent {
         this.router.navigate(['/Cars/Book/Submit']);
     }
 
+    onChange($event: any) {
+    }
+
     //CarList
     GetCarList() {
         this.service.get("Site", "GetCarList", null, true).subscribe((resData: any) => {
