@@ -2,7 +2,6 @@
 
 namespace Models
 {
-
     public class BookSearchFilters : SearchFilters
     {
         public string DriveTypeCode { get; set; }
@@ -18,6 +17,42 @@ namespace Models
         public int? Doors { get; set; }
         public string ExteriorColor { get; set; }
         public string InteriorColor { get; set; }
+        
+        public bool? ABS { get; set; }
+        public bool? Airbag { get; set; }
+        public bool? AirConditioning { get; set; }
+        public bool? AlloyTires { get; set; }
+        public bool? AntiTheft { get; set; }
+        public bool? CDPlayer { get; set; }
+        public bool? CentralLocking { get; set; }
+        public bool? CooledSeats { get; set; }
+        public bool? FogLamps { get; set; }
+        public bool? FoldingSeats { get; set; }
+        public bool? GPS { get; set; }
+        public bool? HeatedSeats { get; set; }
+        public bool? HeadlightCovers { get; set; }
+        public bool? KeylessEntry { get; set; }
+        public bool? LeatherSeats { get; set; }
+        public bool? LeatherTrim { get; set; }
+        public bool? LPG { get; set; }
+        public bool? PassengerAirbag { get; set; }
+        public bool? PowerGlass { get; set; }
+        public bool? PowerMirrors { get; set; }
+        public bool? PowerSeats { get; set; }
+        public bool? PowerSteering { get; set; }
+        public bool? PowerWindows { get; set; }
+        public bool? RemoteStart { get; set; }
+        public bool? SecuritySystem { get; set; }
+        public bool? SideAirbag { get; set; }
+        public bool? Spoiler { get; set; }
+        public bool? TintedWindows { get; set; }
+        public bool? TowBar { get; set; }
+        public bool? TripComputer { get; set; }
+        public bool? Warrenty { get; set; }
+        public bool? AudioRemoteControl { get; set; }
+        public bool? EngineImmobiliser { get; set; }
+        public bool? HeatedDoorMirrors { get; set; }
+
 
         public static BookSearchFilters Check(BookSearchFilters searchFilters)
         {
@@ -117,11 +152,15 @@ namespace Models
 
             if (sessionFilters.InteriorColor != null && searchFilters.InteriorColor == null)
                 searchFilters.InteriorColor = sessionFilters.InteriorColor;
+
+
+
         }
 
         static BookSearchFilters CheckNull(BookSearchFilters searchFilters)
         {
-            searchFilters = CheckNullAsAll(searchFilters);
+            searchFilters = CheckAllAsNull(searchFilters);
+            searchFilters = CheckFalseAsNull(searchFilters);
 
             if (searchFilters.BodyTypeCode != null)
                 return searchFilters;
@@ -192,10 +231,112 @@ namespace Models
             if (searchFilters.InteriorColor != null)
                 return searchFilters;
 
+            if (searchFilters.ABS != null)
+                return searchFilters;
+
+            if (searchFilters.Airbag != null)
+                return searchFilters;
+
+            if (searchFilters.AirConditioning != null)
+                return searchFilters;
+
+            if (searchFilters.AlloyTires != null)
+                return searchFilters;
+
+            if (searchFilters.AntiTheft != null)
+                return searchFilters;
+
+            if (searchFilters.CDPlayer != null)
+                return searchFilters;
+
+            if (searchFilters.CentralLocking != null)
+                return searchFilters;
+
+            if (searchFilters.CooledSeats != null)
+                return searchFilters;
+
+            if (searchFilters.FogLamps != null)
+                return searchFilters;
+
+            if (searchFilters.FoldingSeats != null)
+                return searchFilters;
+
+            if (searchFilters.GPS != null)
+                return searchFilters;
+
+            if (searchFilters.HeatedSeats != null)
+                return searchFilters;
+
+            if (searchFilters.HeadlightCovers != null)
+                return searchFilters;
+
+            if (searchFilters.KeylessEntry != null)
+                return searchFilters;
+
+            if (searchFilters.LeatherSeats != null)
+                return searchFilters;
+
+            if (searchFilters.LeatherTrim != null)
+                return searchFilters;
+
+            if (searchFilters.LPG != null)
+                return searchFilters;
+
+            if (searchFilters.PassengerAirbag != null)
+                return searchFilters;
+
+            if (searchFilters.PowerGlass != null)
+                return searchFilters;
+
+            if (searchFilters.PowerMirrors != null)
+                return searchFilters;
+
+            if (searchFilters.PowerSeats != null)
+                return searchFilters;
+
+            if (searchFilters.PowerSteering != null)
+                return searchFilters;
+
+            if (searchFilters.PowerWindows != null)
+                return searchFilters;
+
+            if (searchFilters.RemoteStart != null)
+                return searchFilters;
+
+            if (searchFilters.SecuritySystem != null)
+                return searchFilters;
+
+            if (searchFilters.SideAirbag != null)
+                return searchFilters;
+
+            if (searchFilters.Spoiler != null)
+                return searchFilters;
+
+            if (searchFilters.TintedWindows != null)
+                return searchFilters;
+
+            if (searchFilters.TowBar != null)
+                return searchFilters;
+
+            if (searchFilters.TripComputer != null)
+                return searchFilters;
+
+            if (searchFilters.Warrenty != null)
+                return searchFilters;
+
+            if (searchFilters.AudioRemoteControl != null)
+                return searchFilters;
+
+            if (searchFilters.EngineImmobiliser != null)
+                return searchFilters;
+
+            if (searchFilters.HeatedDoorMirrors != null)
+                return searchFilters;
+
             return null;
         }
 
-        static BookSearchFilters CheckNullAsAll(BookSearchFilters searchFilters)
+        static BookSearchFilters CheckAllAsNull(BookSearchFilters searchFilters)
         {
             if (searchFilters.BodyTypeCode == "all")
                 searchFilters.BodyTypeCode = null;
@@ -226,6 +367,113 @@ namespace Models
 
             if (searchFilters.InteriorColor == "all")
                 searchFilters.InteriorColor = null;
+
+            return searchFilters;
+        }
+
+        static BookSearchFilters CheckFalseAsNull(BookSearchFilters searchFilters)
+        {
+            if (searchFilters.ABS == false)
+                searchFilters.ABS = null;
+
+            if (searchFilters.Airbag == false)
+                searchFilters.Airbag = null;
+
+            if (searchFilters.AirConditioning == false)
+                searchFilters.AirConditioning = null;
+
+            if (searchFilters.AlloyTires == false)
+                searchFilters.AlloyTires = null;
+
+            if (searchFilters.AntiTheft == false)
+                searchFilters.AntiTheft = null;
+
+            if (searchFilters.CDPlayer == false)
+                searchFilters.CDPlayer = null;
+
+            if (searchFilters.CentralLocking == false)
+                searchFilters.CentralLocking = null;
+
+            if (searchFilters.CooledSeats == false)
+                searchFilters.CooledSeats = null;
+
+            if (searchFilters.FogLamps == false)
+                searchFilters.FogLamps = null;
+
+            if (searchFilters.FoldingSeats == false)
+                searchFilters.FoldingSeats = null;
+
+            if (searchFilters.GPS == false)
+                searchFilters.GPS = null;
+
+            if (searchFilters.HeatedSeats == false)
+                searchFilters.HeatedSeats = null;
+
+            if (searchFilters.HeadlightCovers == false)
+                searchFilters.HeadlightCovers = null;
+
+            if (searchFilters.KeylessEntry == false)
+                searchFilters.KeylessEntry = null;
+
+            if (searchFilters.LeatherSeats == false)
+                searchFilters.LeatherSeats = null;
+
+            if (searchFilters.LeatherTrim == false)
+                searchFilters.LeatherTrim = null;
+
+            if (searchFilters.LPG == false)
+                searchFilters.LPG = null;
+
+            if (searchFilters.PassengerAirbag == false)
+                searchFilters.PassengerAirbag = null;
+
+            if (searchFilters.PowerGlass == false)
+                searchFilters.PowerGlass = null;
+
+            if (searchFilters.PowerMirrors == false)
+                searchFilters.PowerMirrors = null;
+
+            if (searchFilters.PowerSeats == false)
+                searchFilters.PowerSeats = null;
+
+            if (searchFilters.PowerSteering == false)
+                searchFilters.PowerSteering = null;
+
+            if (searchFilters.PowerWindows == false)
+                searchFilters.PowerWindows = null;
+
+            if (searchFilters.RemoteStart == false)
+                searchFilters.RemoteStart = null;
+
+            if (searchFilters.SecuritySystem == false)
+                searchFilters.SecuritySystem = null;
+
+            if (searchFilters.SideAirbag == false)
+                searchFilters.SideAirbag = null;
+
+            if (searchFilters.Spoiler == false)
+                searchFilters.Spoiler = null;
+
+            if (searchFilters.TintedWindows == false)
+                searchFilters.TintedWindows = null;
+
+            if (searchFilters.TowBar == false)
+                searchFilters.TowBar = null;
+
+            if (searchFilters.TripComputer == false)
+                searchFilters.TripComputer = null;
+
+            if (searchFilters.Warrenty == false)
+                searchFilters.Warrenty = null;
+
+            if (searchFilters.AudioRemoteControl == false)
+                searchFilters.AudioRemoteControl = null;
+
+            if (searchFilters.EngineImmobiliser == false)
+                searchFilters.EngineImmobiliser = null;
+
+            if (searchFilters.HeatedDoorMirrors == false)
+                searchFilters.HeatedDoorMirrors = null;
 
             return searchFilters;
         }

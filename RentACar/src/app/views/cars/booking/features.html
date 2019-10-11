@@ -15,186 +15,185 @@
                         <h2>{{ langs?.content?.title2 }}</h2>
                     </header>
                     <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc2 }}</p>
-                    <div class="s-submit clearfix">
-                        <!--form action="submit3.html" method="POST"-->
+                    <form [formGroup]="bookForm" class="s-submit clearfix">
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check1" id="check1" />
+                                    <input type="checkbox" name="check1" id="check1" formControlName="ABS" />
                                     <label class="s-submitCheckLabel" for="check1"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check1">{{ langs?.feats?.ABS }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check2" id="check2" />
+                                    <input type="checkbox" name="check2" id="check2" formControlName="Airbag" />
                                     <label class="s-submitCheckLabel" for="check2"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check2">{{ langs?.feats?.Airbag }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check3" id="check3" />
+                                    <input type="checkbox" name="check3" id="check3" formControlName="AirConditioning" />
                                     <label class="s-submitCheckLabel" for="check3"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check3">{{ langs?.feats?.AirConditioning }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check4" id="check4" />
+                                    <input type="checkbox" name="check4" id="check4" formControlName="AlloyTires" />
                                     <label class="s-submitCheckLabel" for="check4"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check4">{{ langs?.feats?.AlloyTires }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check5" id="check5" />
+                                    <input type="checkbox" name="check5" id="check5" formControlName="AntiTheft" />
                                     <label class="s-submitCheckLabel" for="check5"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check5">{{ langs?.feats?.AntiTheft }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check6" id="check6" />
+                                    <input type="checkbox" name="check6" id="check6" formControlName="AudioRemoteControl" />
                                     <label class="s-submitCheckLabel" for="check6"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check6">{{ langs?.feats?.AudioRemoteControl }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check7" id="check7" />
+                                    <input type="checkbox" name="check7" id="check7" formControlName="CDPlayer" />
                                     <label class="s-submitCheckLabel" for="check7"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check7">{{ langs?.feats?.CDPlayer }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check8" id="check8" />
+                                    <input type="checkbox" name="check8" id="check8" formControlName="CentralLocking" />
                                     <label class="s-submitCheckLabel" for="check8"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check8">{{ langs?.feats?.CentralLocking }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check9" id="check9" />
+                                    <input type="checkbox" name="check9" id="check9" formControlName="CooledSeats" />
                                     <label class="s-submitCheckLabel" for="check9"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check9">{{ langs?.feats?.CooledSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check10" id="check10" />
+                                    <input type="checkbox" name="check10" id="check10" formControlName="EngineImmobiliser" />
                                     <label class="s-submitCheckLabel" for="check10"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check10">{{ langs?.feats?.EngineImmobiliser }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check11" id="check11" />
+                                    <input type="checkbox" name="check11" id="check11" formControlName="FogLamps" />
                                     <label class="s-submitCheckLabel" for="check11"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check11">{{ langs?.feats?.FogLamps }}</label>
                                 </div>
                                 <div class="b-submit__main-element m-border wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check12" id="check12" />
+                                    <input type="checkbox" name="check12" id="check12" formControlName="FoldingSeats" />
                                     <label class="s-submitCheckLabel" for="check12"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check12">{{ langs?.feats?.FoldingSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check13" id="check13" />
+                                    <input type="checkbox" name="check13" id="check13" formControlName="GPS" />
                                     <label class="s-submitCheckLabel" for="check13"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check13">{{ langs?.feats?.GPS }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check14" id="check14" />
+                                    <input type="checkbox" name="check14" id="check14" formControlName="HeatedDoorMirrors" />
                                     <label class="s-submitCheckLabel" for="check14"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check14">{{ langs?.feats?.HeatedDoorMirrors }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check15" id="check15" />
+                                    <input type="checkbox" name="check15" id="check15" formControlName="HeatedSeats" />
                                     <label class="s-submitCheckLabel" for="check15"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check15">{{ langs?.feats?.HeatedSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check16" id="check16" />
+                                    <input type="checkbox" name="check16" id="check16" formControlName="HeadlightCovers" />
                                     <label class="s-submitCheckLabel" for="check16"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check16">{{ langs?.feats?.HeadlightCovers }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check17" id="check17" />
+                                    <input type="checkbox" name="check17" id="check17" formControlName="KeylessEntry" />
                                     <label class="s-submitCheckLabel" for="check17"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check17">{{ langs?.feats?.KeylessEntry }}</label>
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check18" id="check18" />
+                                    <input type="checkbox" name="check18" id="check18" formControlName="LeatherSeats" />
                                     <label class="s-submitCheckLabel" for="check18"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check18">{{ langs?.feats?.LeatherSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check19" id="check19" />
+                                    <input type="checkbox" name="check19" id="check19" formControlName="LeatherTrim" />
                                     <label class="s-submitCheckLabel" for="check19"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check19">{{ langs?.feats?.LeatherTrim }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check20" id="check20" />
+                                    <input type="checkbox" name="check20" id="check20" formControlName="LPG" />
                                     <label class="s-submitCheckLabel" for="check20"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check20">{{ langs?.feats?.LPG }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check21" id="check21" />
+                                    <input type="checkbox" name="check21" id="check21" formControlName="PassengerAirbag" />
                                     <label class="s-submitCheckLabel" for="check21"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check21">{{ langs?.feats?.PassengerAirbag }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check22" id="check22" />
+                                    <input type="checkbox" name="check22" id="check22" formControlName="PowerGlass" />
                                     <label class="s-submitCheckLabel" for="check22"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check22">{{ langs?.feats?.PowerGlass }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check23" id="check23" />
+                                    <input type="checkbox" name="check23" id="check23" formControlName="PowerMirrors" />
                                     <label class="s-submitCheckLabel" for="check23"><span class="fa fa-check"></span></label>
                                     <label class="s-submitCheck" for="check23">{{ langs?.feats?.PowerMirrors }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.PowerSeats }}</label>
+                                    <input type="checkbox" name="check24" id="check24" formControlName="PowerSeats" />
+                                    <label class="s-submitCheckLabel" for="check24"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check24">{{ langs?.feats?.PowerSeats }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.PowerSteering }}</label>
+                                    <input type="checkbox" name="check25" id="check25" formControlName="PowerSteering" />
+                                    <label class="s-submitCheckLabel" for="check25"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check25">{{ langs?.feats?.PowerSteering }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.PowerWindows }}</label>
+                                    <input type="checkbox" name="check26" id="check26" formControlName="PowerWindows" />
+                                    <label class="s-submitCheckLabel" for="check26"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check26">{{ langs?.feats?.PowerWindows }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.RemoteStart }}</label>
+                                    <input type="checkbox" name="check27" id="check27" formControlName="RemoteStart" />
+                                    <label class="s-submitCheckLabel" for="check27"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check27">{{ langs?.feats?.RemoteStart }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.SecuritySystem }}</label>
+                                    <input type="checkbox" name="check28" id="check28" formControlName="SecuritySystem" />
+                                    <label class="s-submitCheckLabel" for="check28"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check28">{{ langs?.feats?.SecuritySystem }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.SideAirbag }}</label>
+                                    <input type="checkbox" name="check29" id="check29" formControlName="SideAirbag" />
+                                    <label class="s-submitCheckLabel" for="check29"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check29">{{ langs?.feats?.SideAirbag }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.Spoiler }}</label>
+                                    <input type="checkbox" name="check30" id="check30" formControlName="Spoiler" />
+                                    <label class="s-submitCheckLabel" for="check30"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check30">{{ langs?.feats?.Spoiler }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.TintedWindows }}</label>
+                                    <input type="checkbox" name="check31" id="check31" formControlName="TintedWindows" />
+                                    <label class="s-submitCheckLabel" for="check31"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check31">{{ langs?.feats?.TintedWindows }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.TowBar }}</label>
+                                    <input type="checkbox" name="check32" id="check32" formControlName="TowBar" />
+                                    <label class="s-submitCheckLabel" for="check32"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check32">{{ langs?.feats?.TowBar }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.TripComputer }}</label>
+                                    <input type="checkbox" name="check33" id="check33" formControlName="TripComputer" />
+                                    <label class="s-submitCheckLabel" for="check33"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check33">{{ langs?.feats?.TripComputer }}</label>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.3s">
-                                    <input type="checkbox" name="check" id="check" />
-                                    <label class="s-submitCheckLabel" for="check"><span class="fa fa-check"></span></label>
-                                    <label class="s-submitCheck" for="check">{{ langs?.feats?.Warrenty }}</label>
+                                    <input type="checkbox" name="check34" id="check34" formControlName="Warrenty" />
+                                    <label class="s-submitCheckLabel" for="check34"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" for="check34">{{ langs?.feats?.Warrenty }}</label>
                                 </div>
                             </div>
                         </div>
                         <button type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

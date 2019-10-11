@@ -116,6 +116,10 @@ import { AdminCarPicturesIndexComponent } from './admin/views/rentacar/carpictur
 import { AdminCarPicturesInsertComponent } from './admin/views/rentacar/carpictures/insert';
 import { AdminCarPicturesUpdateComponent } from './admin/views/rentacar/carpictures/update';
 
+import { AdminCarReservationIndexComponent } from './admin/views/rentacar/carreservation';
+import { AdminCarReservationInsertComponent } from './admin/views/rentacar/carreservation/insert';
+import { AdminCarReservationUpdateComponent } from './admin/views/rentacar/carreservation/update';
+
 import { AdminCarVideosIndexComponent } from './admin/views/rentacar/carvideos';
 import { AdminCarVideosInsertComponent } from './admin/views/rentacar/carvideos/insert';
 import { AdminCarVideosUpdateComponent } from './admin/views/rentacar/carvideos/update';
@@ -430,6 +434,11 @@ const routes: Routes = [
             { path: 'Admin/CarPictures/Index', component: AdminCarPicturesIndexComponent },
             { path: 'Admin/CarPictures/Insert', component: AdminCarPicturesInsertComponent },
             { path: 'Admin/CarPictures/Update/:id', component: AdminCarPicturesUpdateComponent },
+
+            { path: 'Admin/CarReservation', component: AdminCarReservationIndexComponent },
+            { path: 'Admin/CarReservation/Index', component: AdminCarReservationIndexComponent },
+            { path: 'Admin/CarReservation/Insert', component: AdminCarReservationInsertComponent },
+            { path: 'Admin/CarReservation/Update/:id', component: AdminCarReservationUpdateComponent },
 
             { path: 'Admin/CarVideos', component: AdminCarVideosIndexComponent },
             { path: 'Admin/CarVideos/Index', component: AdminCarVideosIndexComponent },

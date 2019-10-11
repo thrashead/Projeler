@@ -76,7 +76,7 @@ namespace Models
 
         static SearchFilters CheckNull(SearchFilters searchFilters)
         {
-            searchFilters = CheckNullAsAll(searchFilters);
+            searchFilters = CheckAllAsNull(searchFilters);
 
             if (searchFilters.BodyTypeCode != null)
                 return searchFilters;
@@ -114,7 +114,7 @@ namespace Models
             return null;
         }
 
-        static SearchFilters CheckNullAsAll(SearchFilters searchFilters)
+        static SearchFilters CheckAllAsNull(SearchFilters searchFilters)
         {
             if (searchFilters.BodyTypeCode == "all")
                 searchFilters.BodyTypeCode = null;

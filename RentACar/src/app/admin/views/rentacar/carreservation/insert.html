@@ -1,0 +1,150 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> CarReservation Ekle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					Bağlı Cars
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="CarID" [ngModel]="model?.CarID" formControlName="CarID"><option *ngFor="let item of model?.CarsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- CarID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					StartDate
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="StartDate" [ngModel]="model?.StartDate" formControlName="StartDate" type="text" />
+					<br />
+					<!-- StartDate -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					EndDate
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="EndDate" [ngModel]="model?.EndDate" formControlName="EndDate" type="text" />
+					<br />
+					<!-- EndDate -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Name
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" />
+					<br />
+					<!-- Name -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					IdentityNo
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="IdentityNo" [ngModel]="model?.IdentityNo" formControlName="IdentityNo" type="text" />
+					<br />
+					<!-- IdentityNo -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					City
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="City" [ngModel]="model?.City" formControlName="City" type="text" />
+					<br />
+					<!-- City -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					DistrictPostal
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="DistrictPostal" [ngModel]="model?.DistrictPostal" formControlName="DistrictPostal" type="text" />
+					<br />
+					<!-- DistrictPostal -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Phone
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Phone" [ngModel]="model?.Phone" formControlName="Phone" type="text" />
+					<br />
+					<!-- Phone -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Mail
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Mail" [ngModel]="model?.Mail" formControlName="Mail" type="text" />
+					<br />
+					<!-- Mail -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Address
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Address" [ngModel]="model?.Address" formControlName="Address" type="text" />
+					<br />
+					<!-- Address -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					ProcessDate
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="ProcessDate" [ngModel]="model?.ProcessDate" formControlName="ProcessDate" type="text" />
+					<br />
+					<!-- ProcessDate -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Accepted
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Accepted" [ngModel]="model?.Accepted" formControlName="Accepted" type="checkbox" />
+					<br />
+					<!-- Accepted -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+					<a routerLink="/Admin/CarReservation" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

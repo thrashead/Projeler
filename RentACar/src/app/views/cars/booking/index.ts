@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { SiteService } from '../../../services/site';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Lib } from '../../../lib/methods';
 import { ComboBox } from '../../../lib/combobox';
 import { LangItem } from '../../../models/LangItem';
@@ -36,8 +36,8 @@ export class CarsBookComponent {
         this.FillCombo();
 
         this.bookForm = this.formBuilder.group({
-            StartDate: new FormControl(null),//, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
-            EndDate: new FormControl(null),//, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]
+            StartDate: new FormControl(null),
+            EndDate: new FormControl(null),
             MakeCode: new FormControl(null),
             ModelCode: new FormControl(null),
             PriceMin: new FormControl(null),
@@ -69,6 +69,22 @@ export class CarsBookComponent {
     onClick() {
         this.searchFilters = {} as BookSearchFilters;
 
+        let startDate: string = Lib.ParseDateTime(this.bookForm.get("StartDate").value);
+        let endDate: string = Lib.ParseDateTime(this.bookForm.get("EndDate").value);
+        let conDate: boolean = Lib.CheckDateTimeInterval(startDate, endDate);
+
+        if (startDate == null || endDate == null) {
+            alert(this.langs.content.dateerror1);
+            return false;
+        }
+
+        if (!conDate) {
+            alert(this.langs.content.dateerror2);
+            return false;
+        }
+
+        this.searchFilters.StartDate = startDate;
+        this.searchFilters.EndDate = endDate;
         this.searchFilters.MakeCode = this.bookForm.get("MakeCode").value;
         this.searchFilters.ModelCode = this.bookForm.get("ModelCode").value;
         this.searchFilters.CarStatusCode = this.bookForm.get("CarStatusCode").value;
@@ -82,8 +98,6 @@ export class CarsBookComponent {
         this.searchFilters.GearTypeCode = this.bookForm.get("GearTypeCode").value;
         this.searchFilters.EngineTypeCode = this.bookForm.get("EngineTypeCode").value;
         this.searchFilters.EngineCapacity = this.bookForm.get("EngineCapacity").value;
-        this.searchFilters.StartDate = this.bookForm.get("StartDate").value;
-        this.searchFilters.EndDate = this.bookForm.get("EndDate").value;
         this.searchFilters.GearCount = Lib.CheckNullAsAll(this.bookForm.get("GearCount").value);
         this.searchFilters.Cylinders = Lib.CheckNullAsAll(this.bookForm.get("Cylinders").value);
         this.searchFilters.Mileage = this.bookForm.get("Mileage").value;
@@ -240,6 +254,10 @@ export class CarsBookComponent {
                                 break;
                             case "date":
                                 this.langs.search.date = item.ShortDescription2;
+                                break;
+                            case "errordate":
+                                this.langs.content.dateerror1 = item.ShortDescription;
+                                this.langs.content.dateerror2 = item.ShortDescription2;
                                 break;
 
                         }

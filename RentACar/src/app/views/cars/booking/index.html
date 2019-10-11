@@ -21,14 +21,14 @@
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.date }} ({{ langs?.search?.start }})</label>
                                     <div class='s-relative'>
-                                        <input placeholder="{{ langs?.search?.date }} ({{ langs?.search?.start }})" type="text" id="txtStartDate"
+                                        <input placeholder="31.12.2019 00:00" type="text" id="txtStartDate"
                                                name="txtStartDate" formControlName="StartDate" />
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.date }} ({{ langs?.search?.end }})</label>
                                     <div class='s-relative'>
-                                        <input placeholder="{{ langs?.search?.date }} ({{ langs?.search?.end }})" type="text" id="txtEndDate"
+                                        <input placeholder="31.12.2019 00:00" type="text" id="txtEndDate"
                                                name="txtEndDate" formControlName="EndDate" />
                                     </div>
                                 </div>
@@ -69,8 +69,8 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.enginecapacity }}</label>
-                                    <input placeholder="{{ langs?.search?.enginecapacity }}" type="text" id="txtEngineCapacity"
+                                    <label>{{ langs?.search?.enginecapacity }} (cc)</label>
+                                    <input placeholder="{{ langs?.search?.enginecapacity }}" type="number" id="txtEngineCapacity"
                                            name="txtEngineCapacity" formControlName="EngineCapacity" />
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.fueltype }}</label>
+                                    <label>{{ langs?.search?.fueltype }} (lt)</label>
                                     <div class='s-relative'>
                                         <select id="slcFuelType" name="slcFuelType" class="m-select" formControlName="FuelTypeCode">
                                             <option *ngFor="let item of FuelTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
@@ -168,7 +168,7 @@
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.mileage }} ({{ langs?.search?.max }})</label>
-                                    <input placeholder="{{ langs?.search?.mileage }}" type="text" id="txtMileage"
+                                    <input placeholder="{{ langs?.search?.mileage }}" type="number" id="txtMileage"
                                            name="txtMileage" formControlName="Mileage" />
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
@@ -209,7 +209,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--[disabled]="!bookForm.isValid"-->
                         <button type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></button>
                     </form>
                 </div>

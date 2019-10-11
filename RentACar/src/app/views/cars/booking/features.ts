@@ -1,8 +1,10 @@
 ﻿import { Component } from "@angular/core";
 import { SiteService } from '../../../services/site';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Lib } from '../../../lib/methods';
 import { LangItem } from '../../../models/LangItem';
+import { BookSearchFilters } from '../../../models/booksearchfilters';
 
 @Component({
     templateUrl: './features.html'
@@ -11,15 +13,101 @@ import { LangItem } from '../../../models/LangItem';
 export class CarsBookFeaturesComponent {
     errorMsg: string;
 
-    constructor(private service: SiteService, private router: Router) {
+    bookForm: FormGroup;
+    searchFilters: BookSearchFilters;
+
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
         this.SetLangContents();
+
+        this.bookForm = this.formBuilder.group({
+            ABS: new FormControl(null),
+            Airbag: new FormControl(null),
+            AirConditioning: new FormControl(null),
+            AlloyTires: new FormControl(null),
+            AntiTheft: new FormControl(null),
+            CDPlayer: new FormControl(null),
+            CentralLocking: new FormControl(null),
+            CooledSeats: new FormControl(null),
+            FogLamps: new FormControl(null),
+            FoldingSeats: new FormControl(null),
+            GPS: new FormControl(null),
+            HeatedSeats: new FormControl(null),
+            HeadlightCovers: new FormControl(null),
+            KeylessEntry: new FormControl(null),
+            LeatherSeats: new FormControl(null),
+            LeatherTrim: new FormControl(null),
+            LPG: new FormControl(null),
+            PassengerAirbag: new FormControl(null),
+            PowerGlass: new FormControl(null),
+            PowerMirrors: new FormControl(null),
+            PowerSeats: new FormControl(null),
+            PowerSteering: new FormControl(null),
+            PowerWindows: new FormControl(null),
+            RemoteStart: new FormControl(null),
+            SecuritySystem: new FormControl(null),
+            SideAirbag: new FormControl(null),
+            Spoiler: new FormControl(null),
+            TintedWindows: new FormControl(null),
+            TowBar: new FormControl(null),
+            TripComputer: new FormControl(null),
+            Warrenty: new FormControl(null),
+            AudioRemoteControl: new FormControl(null),
+            EngineImmobiliser: new FormControl(null),
+            HeatedDoorMirrors: new FormControl(null),
+        });
     }
 
     onClick() {
-        this.router.navigate(['/Cars/Book/Cars']);
+        this.searchFilters = {} as BookSearchFilters;
+
+        this.searchFilters.ABS = this.bookForm.get("ABS").value;
+        this.searchFilters.Airbag = this.bookForm.get("Airbag").value;
+        this.searchFilters.AirConditioning = this.bookForm.get("AirConditioning").value;
+        this.searchFilters.AlloyTires = this.bookForm.get("AlloyTires").value;
+        this.searchFilters.AntiTheft = this.bookForm.get("AntiTheft").value;
+        this.searchFilters.CDPlayer = this.bookForm.get("CDPlayer").value;
+        this.searchFilters.CentralLocking = this.bookForm.get("CentralLocking").value;
+        this.searchFilters.CooledSeats = this.bookForm.get("CooledSeats").value;
+        this.searchFilters.FogLamps = this.bookForm.get("FogLamps").value;
+        this.searchFilters.FoldingSeats = this.bookForm.get("FoldingSeats").value;
+        this.searchFilters.GPS = this.bookForm.get("GPS").value;
+        this.searchFilters.HeatedSeats = this.bookForm.get("HeatedSeats").value;
+        this.searchFilters.HeadlightCovers = this.bookForm.get("HeadlightCovers").value;
+        this.searchFilters.KeylessEntry = this.bookForm.get("KeylessEntry").value;
+        this.searchFilters.LeatherSeats = this.bookForm.get("LeatherSeats").value;
+        this.searchFilters.LeatherTrim = this.bookForm.get("LeatherTrim").value;
+        this.searchFilters.LPG = this.bookForm.get("LPG").value;
+        this.searchFilters.PassengerAirbag = this.bookForm.get("PassengerAirbag").value;
+        this.searchFilters.PowerGlass = this.bookForm.get("PowerGlass").value;
+        this.searchFilters.PowerMirrors = this.bookForm.get("PowerMirrors").value;
+        this.searchFilters.PowerSeats = this.bookForm.get("PowerSeats").value;
+        this.searchFilters.PowerSteering = this.bookForm.get("PowerSteering").value;
+        this.searchFilters.PowerWindows = this.bookForm.get("PowerWindows").value;
+        this.searchFilters.RemoteStart = this.bookForm.get("RemoteStart").value;
+        this.searchFilters.SecuritySystem = this.bookForm.get("SecuritySystem").value;
+        this.searchFilters.SideAirbag = this.bookForm.get("SideAirbag").value;
+        this.searchFilters.Spoiler = this.bookForm.get("Spoiler").value;
+        this.searchFilters.TintedWindows = this.bookForm.get("TintedWindows").value;
+        this.searchFilters.TowBar = this.bookForm.get("TowBar").value;
+        this.searchFilters.TripComputer = this.bookForm.get("TripComputer").value;
+        this.searchFilters.Warrenty = this.bookForm.get("Warrenty").value;
+        this.searchFilters.AudioRemoteControl = this.bookForm.get("AudioRemoteControl").value;
+        this.searchFilters.EngineImmobiliser = this.bookForm.get("EngineImmobiliser").value;
+        this.searchFilters.HeatedDoorMirrors = this.bookForm.get("HeatedDoorMirrors").value;
+
+        this.SetSearchFilters(this.searchFilters);
+    }
+
+    //SetSearchFilters
+    SetSearchFilters(searchFilters: BookSearchFilters = null) {
+        this.service.post("Site", "SetBookSearchFilters", searchFilters).subscribe((resData: any) => {
+            this.searchFilters = resData;
+
+            this.router.navigate(['/Cars/Book/Cars']);
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
