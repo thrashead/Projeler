@@ -11,38 +11,65 @@
             </div>
             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
                 <div class="b-submit__main">
-                    <div class='s-submit'>
-                        <!--form action="/" method="post" -->
+                    <form [formGroup]="bookForm" class="s-submit">
                         <div class="b-submit__main-contacts wow zoomInUp" data-wow-delay="0.3s">
                             <header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
                                 <h2>{{ langs?.content?.title4 }}</h2>
                             </header>
                             <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc4 }}</p>
+
+                            <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
+                                <div class="b-items__cars-one-img">
+                                    <img src="/RentACar/Uploads/thumb_{{ car?.PictureUrl }}" alt='{{ car?.Title }}' />
+                                </div>
+                                <div class="b-items__cars-one-info">
+                                    <header class="b-items__cars-one-info-header s-lineDownLeft">
+                                        <h2>{{ car?.Title }}</h2>
+                                        <span>{{ car?.Price }} TL</span>
+                                    </header>
+                                    <p>
+                                        {{ car?.ShortDescription }}
+                                    </p>
+                                    <div class="b-items__cars-one-info-km">
+                                        <span class="fa fa-tachometer"></span> {{ car?.Mileage }} KM
+                                    </div>
+                                    <div class="b-items__cars-one-info-details">
+                                        <div class="b-featured__item-links">
+                                            <a href="javascript:;">{{ langs?.registered }} {{ car?.Year }}</a>
+                                            <a href="javascript:;">{{ car?.Status }}</a>
+                                            <a href="javascript:;">{{ car?.Gear }}</a>
+                                            <a href="javascript:;">{{ car?.Fuel }}</a>
+                                        </div>
+                                        <a routerLink="/Cars/Detail/{{ car?.Url }}" class="btn m-btn">{{ langs?.detail }}<span class="fa fa-angle-right"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.name }} <span>*</span></label>
-                                        <input type="text" name="city" />
+                                        <input type="text" id="txtName" name="txtName" formControlName="Name" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.id }} <span>*</span></label>
-                                        <input type="text" name="code" />
+                                        <input type="text" id="txtIdentityNo" name="txtIdentityNo" formControlName="IdentityNo" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
-                                        <label>{{ langs?.contact?.city }} / {{ langs?.contact?.country }} <span>*</span></label>
-                                        <input type="text" name="city" />
+                                        <label>{{ langs?.contact?.city }} <span>*</span></label>
+                                        <input type="text" id="txtCity" name="txtCity" formControlName="City" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.district }} / {{ langs?.contact?.postal }} <span>*</span></label>
-                                        <input type="text" name="code" />
+                                        <input type="text" id="txtDistrictPostal" name="txtDistrictPostal" formControlName="DistrictPostal" />
                                     </div>
                                 </div>
                             </div>
@@ -50,29 +77,29 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.phone }} <span>*</span></label>
-                                        <input type="text" name="phone" />
+                                        <input type="text" id="txtPhone" name="txtPhone" formControlName="Phone" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.mail }} <span>*</span></label>
-                                        <input type="text" name="email" />
+                                        <input type="text" id="txtMail" name="txtMail" formControlName="Mail" />
                                     </div>
                                 </div>
                             </div>
                             <div class="b-submit__main-element">
                                 <label>{{ langs?.contact?.address }} <span>*</span></label>
-                                <input type="text" name="addr" />
+                                <textarea id="txtAddress" name="txtAddress" formControlName="Address"></textarea>
                             </div>
                         </div>
 
                         <div class="b-submit__main-plan wow zoomInUp" data-wow-delay="0.3s">
-                            <input type="checkbox" name="check1" id="check1" />
+                            <input type="checkbox" name="check1" id="check1" [formControl]="bookForm.controls['Accept']" />
                             <label class="s-submitCheckLabel" for="check1"><span class="fa fa-check"></span></label>
                             <label class="s-submitCheck" for="check1">{{ langs?.confirm?.desc }}</label>
                         </div>
-                        <button routerLink="/" type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.contact?.submit }}<span class="fa fa-angle-right"></span></button>
-                    </div>
+                        <button type="submit" (click)="onClick($event)" [attr.data-id]="car?.ID" [disabled]="!bookForm.valid" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.contact?.submit }}<span class="fa fa-angle-right"></span></button>
+                    </form>
                 </div>
             </div>
         </div>

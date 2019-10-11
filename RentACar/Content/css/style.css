@@ -61,8 +61,9 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 #compareNull {font-size: 20px;margin: 0px auto;text-align: center;padding: 10px;display:none;}
 #compareNull.show {display:block;}
 .b-compare__block-inside-value ul {height:auto;}
-.s-submit input[type='number'] {display: block;width: 100%;padding: 15px 20px;font: 400 13px Arial;border: 1px solid #eeeeee;color: #444;background: #f7f7f7!important;
-                                text-transform: none;border-radius: 30px;padding-top: 13px;padding-bottom: 13px;height: 46px;}
+.s-submit input[type='number'], .s-submit textarea {display: block;width: 100%;padding: 15px 20px;font: 400 13px Arial;border: 1px solid #eeeeee;color: #444;
+                                                    background: #f7f7f7!important;text-transform: none;border-radius: 30px;padding-top: 13px;padding-bottom: 13px;height: 46px;}
+.s-submit textarea { height:80px; }
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

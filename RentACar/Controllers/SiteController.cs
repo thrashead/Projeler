@@ -258,6 +258,11 @@ namespace RentACar.Controllers
         [HttpGet]
         public JsonResult GetCarDetailByUrl(string param)
         {
+            if (param.ToNull() == null && Session["ReservedCarUrl"] != null)
+            {
+                param = Session["ReservedCarUrl"] as string;
+            }
+
             Cars cars = new Cars();
 
             return Json(cars.CarDetailByUrl(param, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
@@ -384,6 +389,17 @@ namespace RentACar.Controllers
             {
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpPost]
+        public JsonResult ApplyBooking([System.Web.Http.FromBody] CarReservation param)
+        {
+            param.Accepted = false;
+            param.StartDate = (Session["BookSearchFilters"] as BookSearchFilters).StartDate;
+            param.EndDate = (Session["BookSearchFilters"] as BookSearchFilters).EndDate;
+            param.ProcessDate = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+
+            return Json(param.Insert(param));
         }
 
         #endregion

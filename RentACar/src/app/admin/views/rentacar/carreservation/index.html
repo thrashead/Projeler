@@ -16,28 +16,28 @@
 								<tr>
 									<th>ID</th>
 									<th>Bağlı Cars</th>
-									<th>StartDate</th>
-									<th class="hideColumn">EndDate</th>
+                                    <th>Name</th>
+                                    <th class="hideColumn">Accepted</th>
 									<th>İşlem</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr *ngFor="let item of CarReservationList">
-									<td>{{ item?.ID }}</td>
-									<td>{{ item?.CarsAdi }}</td>
-									<td>{{ item?.StartDate }}</td>
-									<td class="hideColumn">{{ item?.EndDate }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarReservation/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
+                                <tr *ngFor="let item of CarReservationList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.CarsAdi }}</td>
+                                    <td>{{ item?.Name }}</td>
+                                    <td class="hideColumn" style="text-align:center;"><img *ngIf="item?.Accepted" class="active" /><img *ngIf="!item?.Accepted" class="passive" /></td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="updLink" [routerLink]="['/Admin/CarReservation/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
 							</tbody>
 						</table>
 					</div>

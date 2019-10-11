@@ -25,7 +25,7 @@ export class CarsBookCarsComponent {
     }
 
     onClick() {
-        var car = $(".chkSelectCar[data-checked='1']");
+        var car = $(".chkSelectCar[data-checked='true']");
 
         if (car.length > 0) {
             this.service.get("Site", "SetCarForReservation", car.attr("data-url")).subscribe((resData: any) => {
@@ -52,7 +52,7 @@ export class CarsBookCarsComponent {
 
         if (target.checked) {
             button.removeAttr("disabled");
-            target.setAttribute("data-checked", "1");
+            target.setAttribute("data-checked", "true");
         }
         else {
             button.attr("disabled", "disabled");
