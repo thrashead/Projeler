@@ -74,12 +74,12 @@ export class CarsBookComponent {
         let conDate: boolean = Lib.CheckDateTimeInterval(startDate, endDate);
 
         if (startDate == null || endDate == null) {
-            alert(this.langs.content.dateerror1);
+            alert(this.langs.error1);
             return false;
         }
 
         if (!conDate) {
-            alert(this.langs.content.dateerror2);
+            alert(this.langs.error2);
             return false;
         }
 
@@ -256,8 +256,8 @@ export class CarsBookComponent {
                                 this.langs.search.date = item.ShortDescription2;
                                 break;
                             case "errordate":
-                                this.langs.content.dateerror1 = item.ShortDescription;
-                                this.langs.content.dateerror2 = item.ShortDescription2;
+                                this.langs.error1 = item.ShortDescription;
+                                this.langs.error2 = item.ShortDescription2;
                                 break;
 
                         }

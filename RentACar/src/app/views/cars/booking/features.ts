@@ -98,6 +98,8 @@ export class CarsBookFeaturesComponent {
         this.searchFilters.EngineImmobiliser = this.bookForm.get("EngineImmobiliser").value;
         this.searchFilters.HeatedDoorMirrors = this.bookForm.get("HeatedDoorMirrors").value;
 
+        this.searchFilters.FromFeaturesPage = true;
+
         this.SetSearchFilters(this.searchFilters);
     }
 

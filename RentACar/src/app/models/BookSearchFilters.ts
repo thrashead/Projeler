@@ -1,4 +1,5 @@
 ﻿export interface BookSearchFilters {
+
     MakeCode: string;
     ModelCode: string;
     BodyTypeCode: string;
@@ -22,6 +23,8 @@
     Doors: number;
     ExteriorColor: string;
     InteriorColor: string;
+
+    FromFeaturesPage: boolean;
 
     ABS: boolean;
     Airbag: boolean;

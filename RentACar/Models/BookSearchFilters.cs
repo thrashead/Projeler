@@ -17,7 +17,9 @@ namespace Models
         public int? Doors { get; set; }
         public string ExteriorColor { get; set; }
         public string InteriorColor { get; set; }
-        
+
+        public bool? FromFeaturesPage { get; set; }
+
         public bool? ABS { get; set; }
         public bool? Airbag { get; set; }
         public bool? AirConditioning { get; set; }
@@ -56,7 +58,10 @@ namespace Models
 
         public static BookSearchFilters Check(BookSearchFilters searchFilters)
         {
-            searchFilters = CheckNull(searchFilters);
+            if (searchFilters.FromFeaturesPage == false)
+                searchFilters = CheckNull(searchFilters);
+            else
+                searchFilters = CheckFalseAsNull(searchFilters);
 
             if (searchFilters != null)
             {
@@ -152,15 +157,11 @@ namespace Models
 
             if (sessionFilters.InteriorColor != null && searchFilters.InteriorColor == null)
                 searchFilters.InteriorColor = sessionFilters.InteriorColor;
-
-
-
         }
 
         static BookSearchFilters CheckNull(BookSearchFilters searchFilters)
         {
             searchFilters = CheckAllAsNull(searchFilters);
-            searchFilters = CheckFalseAsNull(searchFilters);
 
             if (searchFilters.BodyTypeCode != null)
                 return searchFilters;
@@ -229,108 +230,6 @@ namespace Models
                 return searchFilters;
 
             if (searchFilters.InteriorColor != null)
-                return searchFilters;
-
-            if (searchFilters.ABS != null)
-                return searchFilters;
-
-            if (searchFilters.Airbag != null)
-                return searchFilters;
-
-            if (searchFilters.AirConditioning != null)
-                return searchFilters;
-
-            if (searchFilters.AlloyTires != null)
-                return searchFilters;
-
-            if (searchFilters.AntiTheft != null)
-                return searchFilters;
-
-            if (searchFilters.CDPlayer != null)
-                return searchFilters;
-
-            if (searchFilters.CentralLocking != null)
-                return searchFilters;
-
-            if (searchFilters.CooledSeats != null)
-                return searchFilters;
-
-            if (searchFilters.FogLamps != null)
-                return searchFilters;
-
-            if (searchFilters.FoldingSeats != null)
-                return searchFilters;
-
-            if (searchFilters.GPS != null)
-                return searchFilters;
-
-            if (searchFilters.HeatedSeats != null)
-                return searchFilters;
-
-            if (searchFilters.HeadlightCovers != null)
-                return searchFilters;
-
-            if (searchFilters.KeylessEntry != null)
-                return searchFilters;
-
-            if (searchFilters.LeatherSeats != null)
-                return searchFilters;
-
-            if (searchFilters.LeatherTrim != null)
-                return searchFilters;
-
-            if (searchFilters.LPG != null)
-                return searchFilters;
-
-            if (searchFilters.PassengerAirbag != null)
-                return searchFilters;
-
-            if (searchFilters.PowerGlass != null)
-                return searchFilters;
-
-            if (searchFilters.PowerMirrors != null)
-                return searchFilters;
-
-            if (searchFilters.PowerSeats != null)
-                return searchFilters;
-
-            if (searchFilters.PowerSteering != null)
-                return searchFilters;
-
-            if (searchFilters.PowerWindows != null)
-                return searchFilters;
-
-            if (searchFilters.RemoteStart != null)
-                return searchFilters;
-
-            if (searchFilters.SecuritySystem != null)
-                return searchFilters;
-
-            if (searchFilters.SideAirbag != null)
-                return searchFilters;
-
-            if (searchFilters.Spoiler != null)
-                return searchFilters;
-
-            if (searchFilters.TintedWindows != null)
-                return searchFilters;
-
-            if (searchFilters.TowBar != null)
-                return searchFilters;
-
-            if (searchFilters.TripComputer != null)
-                return searchFilters;
-
-            if (searchFilters.Warrenty != null)
-                return searchFilters;
-
-            if (searchFilters.AudioRemoteControl != null)
-                return searchFilters;
-
-            if (searchFilters.EngineImmobiliser != null)
-                return searchFilters;
-
-            if (searchFilters.HeatedDoorMirrors != null)
                 return searchFilters;
 
             return null;

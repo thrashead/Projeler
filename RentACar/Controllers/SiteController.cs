@@ -9,6 +9,7 @@ using Repository.CarFeatsFuelTypeModel;
 using Repository.CarFeatsGearsTypeModel;
 using Repository.CarFeatsMakeModel;
 using Repository.CarFeatsModelModel;
+using Repository.CarReservationModel;
 using Repository.CarsModel;
 using Repository.CarStatusModel;
 using Repository.ContentModel;
@@ -18,6 +19,7 @@ using Repository.NoLangContentModel;
 using Repository.PicturesModel;
 using Repository.TranslationModel;
 using Repository.WorkersModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -155,10 +157,10 @@ namespace RentACar.Controllers
         [HttpGet]
         public JsonResult GetCarList(string param, bool? param2)
         {
-            Cars cars = new Cars();
-
             if (param2 == null)
             {
+                Cars cars = new Cars();
+
                 SearchFilters searchFilters = Session["SearchFilters"] as SearchFilters;
 
                 if (param.ToInteger() > 1 || param == null || param == "null")
@@ -168,9 +170,11 @@ namespace RentACar.Controllers
             }
             else
             {
+                CarReservation carReservation = new CarReservation();
+
                 BookSearchFilters searchFilters = Session["BookSearchFilters"] as BookSearchFilters;
 
-                return Json(cars.CarListForBookSelect(searchFilters, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+                return Json(carReservation.CarListForBookSelect(searchFilters, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -365,6 +369,21 @@ namespace RentACar.Controllers
             Session["BookSearchFilters"] = null;
 
             return Json(Session["BookSearchFilters"] as BookSearchFilters, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult SetCarForReservation(string param)
+        {
+            if (!String.IsNullOrEmpty(param))
+            {
+                Session["ReservedCarUrl"] = param;
+
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
         }
 
         #endregion

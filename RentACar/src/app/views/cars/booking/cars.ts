@@ -1,6 +1,6 @@
 ﻿import { Component } from "@angular/core";
-import { SiteService } from '../../../services/site';
 import { Router } from '@angular/router';
+import { SiteService } from '../../../services/site';
 import { Lib } from '../../../lib/methods';
 import { LangItem } from '../../../models/LangItem';
 import { BookSearchFilters } from '../../../models/booksearchfilters';
@@ -25,10 +25,38 @@ export class CarsBookCarsComponent {
     }
 
     onClick() {
-        this.router.navigate(['/Cars/Book/Submit']);
+        var car = $(".chkSelectCar[data-checked='1']");
+
+        if (car.length > 0) {
+            this.service.get("Site", "SetCarForReservation", car.attr("data-url")).subscribe((resData: any) => {
+                if (resData == true) {
+                    this.router.navigate(['/Cars/Book/Submit']);
+                }
+                else {
+                    alert(this.langs.error);
+                }
+            }, resError => this.errorMsg = resError);
+        }
+        else {
+            alert(this.langs.error);
+        }
     }
 
     onChange($event: any) {
+        var target = $event.target || $event.srcElement || $event.currentTarget;
+        var carUrl = target.attributes["data-url"].value;
+        var button = $(".s-submit button.btn.m-btn");
+
+        $(".chkSelectCar[data-url!='" + carUrl + "']").prop("checked", false);
+        $(".chkSelectCar").removeAttr("data-checked");
+
+        if (target.checked) {
+            button.removeAttr("disabled");
+            target.setAttribute("data-checked", "1");
+        }
+        else {
+            button.attr("disabled", "disabled");
+        }
     }
 
     //CarList
@@ -135,6 +163,12 @@ export class CarsBookCarsComponent {
                                 break;
                             case "nextstep":
                                 this.langs.nextstep = item.ShortDescription;
+                                break;
+                            case "errorcars":
+                                this.langs.error = item.ShortDescription;
+                                break;
+                            case "null":
+                                this.langs.null = item.ShortDescription;
                                 break;
                         }
                         break;
