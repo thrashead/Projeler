@@ -26,8 +26,6 @@
                                     <ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal"
                                         data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
                                         <li *ngFor="let item of gallery" class="s-relative">
-                                            <!--<a *ngIf="videos" (click)="modalVideo()" data-toggle="modal" data-target="#myModal" href="#" 
-                                               class="b-items__cars-one-img-video"><span class="fa fa-film"></span>Video</a>-->
                                             <img class="img-responsive center-block" src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
                                         </li>
                                     </ul>

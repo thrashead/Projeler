@@ -1,12 +1,12 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarDetailsMechanical Ekle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> Araç Detay (Mekanik) Ekle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
 			<fieldset>
 				<div class="editor-label">
-					Bağlı Cars
+					Bağlı Araç
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -17,7 +17,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Bağlı CarFeatsEngineType
+					Bağlı Motor Tipi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -28,7 +28,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					EngineCapacity
+					Motor Hacmi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -39,7 +39,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Cylinders
+					Silindir Sayısı
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -50,7 +50,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Horsepower
+					Beygir Gücü
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -61,7 +61,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Bağlı CarFeatsFuelType
+					Bağlı Yakıt Tipi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -72,7 +72,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					FuelCapacity
+					Yakıt Hacmi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -83,7 +83,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					CityFuelEconomy
+					Şehiriçi Yakıt Tüketimi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -93,9 +93,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					HighwayFuelEconomy
-				</div>
+                <div class="editor-label">
+                    Uzunyol Yakıt Tüketimi
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="HighwayFuelEconomy" [ngModel]="model?.HighwayFuelEconomy" formControlName="HighwayFuelEconomy" type="text" />
@@ -105,7 +105,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Bağlı CarFeatsGearsType
+					Bağlı Vites Tipi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -115,9 +115,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					GearsNumber
-				</div>
+                <div class="editor-label">
+                    Vites Sayısı
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="GearsNumber" [ngModel]="model?.GearsNumber" formControlName="GearsNumber" type="number" />
@@ -126,9 +126,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					Drivetrain
-				</div>
+                <div class="editor-label">
+                    Çekiş
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="Drivetrain" [ngModel]="model?.Drivetrain" formControlName="Drivetrain" type="number" />

@@ -44,10 +44,6 @@ import { AdminBlogTIndexComponent } from './admin/views/rentacar/blogt';
 import { AdminBlogTInsertComponent } from './admin/views/rentacar/blogt/insert';
 import { AdminBlogTUpdateComponent } from './admin/views/rentacar/blogt/update';
 
-import { AdminBlogVideosIndexComponent } from './admin/views/rentacar/blogvideos';
-import { AdminBlogVideosInsertComponent } from './admin/views/rentacar/blogvideos/insert';
-import { AdminBlogVideosUpdateComponent } from './admin/views/rentacar/blogvideos/update';
-
 import { AdminCarDetailsBasicIndexComponent } from './admin/views/rentacar/cardetailsbasic';
 import { AdminCarDetailsBasicInsertComponent } from './admin/views/rentacar/cardetailsbasic/insert';
 import { AdminCarDetailsBasicUpdateComponent } from './admin/views/rentacar/cardetailsbasic/update';
@@ -120,10 +116,6 @@ import { AdminCarReservationIndexComponent } from './admin/views/rentacar/carres
 import { AdminCarReservationInsertComponent } from './admin/views/rentacar/carreservation/insert';
 import { AdminCarReservationUpdateComponent } from './admin/views/rentacar/carreservation/update';
 
-import { AdminCarVideosIndexComponent } from './admin/views/rentacar/carvideos';
-import { AdminCarVideosInsertComponent } from './admin/views/rentacar/carvideos/insert';
-import { AdminCarVideosUpdateComponent } from './admin/views/rentacar/carvideos/update';
-
 import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
 import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
 import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
@@ -194,22 +186,6 @@ import { AdminContentTUpdateComponent } from './admin/views/general/contentt/upd
 import { AdminFilesIndexComponent } from './admin/views/general/files';
 import { AdminFilesInsertComponent } from './admin/views/general/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/general/files/update';
-
-import { AdminGalleryIndexComponent } from './admin/views/general/gallery';
-import { AdminGalleryInsertComponent } from './admin/views/general/gallery/insert';
-import { AdminGalleryUpdateComponent } from './admin/views/general/gallery/update';
-
-import { AdminGalleryTIndexComponent } from './admin/views/general/galleryt';
-import { AdminGalleryTInsertComponent } from './admin/views/general/galleryt/insert';
-import { AdminGalleryTUpdateComponent } from './admin/views/general/galleryt/update';
-
-import { AdminLinksIndexComponent } from './admin/views/general/links';
-import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
-import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
-
-import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
-import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
-import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
 
 import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
 import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
@@ -333,12 +309,6 @@ const routes: Routes = [
             { path: 'Admin/BlogT/Insert/:linkid', component: AdminBlogTInsertComponent },
             { path: 'Admin/BlogT/Update/:id', component: AdminBlogTUpdateComponent },
 
-            { path: 'Admin/BlogVideos', component: AdminBlogVideosIndexComponent },
-            { path: 'Admin/BlogVideos/Index', component: AdminBlogVideosIndexComponent },
-            { path: 'Admin/BlogVideos/Insert', component: AdminBlogVideosInsertComponent },
-            { path: 'Admin/BlogVideos/Insert/:linkid', component: AdminBlogVideosInsertComponent },
-            { path: 'Admin/BlogVideos/Update/:id', component: AdminBlogVideosUpdateComponent },
-
             { path: 'Admin/CarDesc', component: AdminCarDescIndexComponent },
             { path: 'Admin/CarDesc/Index', component: AdminCarDescIndexComponent },
             { path: 'Admin/CarDesc/Insert', component: AdminCarDescInsertComponent },
@@ -440,11 +410,6 @@ const routes: Routes = [
             { path: 'Admin/CarReservation/Insert', component: AdminCarReservationInsertComponent },
             { path: 'Admin/CarReservation/Update/:id', component: AdminCarReservationUpdateComponent },
 
-            { path: 'Admin/CarVideos', component: AdminCarVideosIndexComponent },
-            { path: 'Admin/CarVideos/Index', component: AdminCarVideosIndexComponent },
-            { path: 'Admin/CarVideos/Insert', component: AdminCarVideosInsertComponent },
-            { path: 'Admin/CarVideos/Update/:id', component: AdminCarVideosUpdateComponent },
-
             { path: 'Admin/Cars', component: AdminCarsIndexComponent },
             { path: 'Admin/Cars/Index', component: AdminCarsIndexComponent },
             { path: 'Admin/Cars/Insert', component: AdminCarsInsertComponent },
@@ -525,28 +490,6 @@ const routes: Routes = [
             { path: 'Admin/Files/Index', component: AdminFilesIndexComponent },
             { path: 'Admin/Files/Insert', component: AdminFilesInsertComponent },
             { path: 'Admin/Files/Update/:id', component: AdminFilesUpdateComponent },
-
-            { path: 'Admin/Gallery', component: AdminGalleryIndexComponent },
-            { path: 'Admin/Gallery/Index', component: AdminGalleryIndexComponent },
-            { path: 'Admin/Gallery/Insert', component: AdminGalleryInsertComponent },
-            { path: 'Admin/Gallery/Update/:id', component: AdminGalleryUpdateComponent },
-
-            { path: 'Admin/GalleryT', component: AdminGalleryTIndexComponent },
-            { path: 'Admin/GalleryT/Index', component: AdminGalleryTIndexComponent },
-            { path: 'Admin/GalleryT/Insert', component: AdminGalleryTInsertComponent },
-            { path: 'Admin/GalleryT/Insert/:linkID', component: AdminGalleryTInsertComponent },
-            { path: 'Admin/GalleryT/Update/:id', component: AdminGalleryTUpdateComponent },
-
-            { path: 'Admin/Links', component: AdminLinksIndexComponent },
-            { path: 'Admin/Links/Index', component: AdminLinksIndexComponent },
-            { path: 'Admin/Links/Insert', component: AdminLinksInsertComponent },
-            { path: 'Admin/Links/Insert/:linkID', component: AdminLinksInsertComponent },
-            { path: 'Admin/Links/Update/:id', component: AdminLinksUpdateComponent },
-
-            { path: 'Admin/LinkTypes', component: AdminLinkTypesIndexComponent },
-            { path: 'Admin/LinkTypes/Index', component: AdminLinkTypesIndexComponent },
-            { path: 'Admin/LinkTypes/Insert', component: AdminLinkTypesInsertComponent },
-            { path: 'Admin/LinkTypes/Update/:id', component: AdminLinkTypesUpdateComponent },
 
             { path: 'Admin/LogProcess', component: AdminLogProcessIndexComponent },
             { path: 'Admin/LogProcess/Index', component: AdminLogProcessIndexComponent },

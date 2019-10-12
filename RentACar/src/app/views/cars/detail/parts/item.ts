@@ -20,7 +20,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
     car: any;
     features: any;
     gallery: any;
-    videos: any;
     descriptions: any;
 
     @Output() titleEvnt = new EventEmitter<string>();
@@ -63,12 +62,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
         $("a.b-detail__main-info-images-small-one").eq(0).click();
     }
 
-    modalVideo() {
-        if (this.videos != null) {
-            $(".modal-body > iframe").attr("src", this.videos.VideoUrl);
-        }
-    }
-
     RemoveBXSlider() {
         $(".bx-viewport").removeClass("bx-viewport");
         $(".bx-wrapper").removeClass("bx-wrapper");
@@ -82,7 +75,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
 
         this.GetCarDetail(carUrl);
         this.GetCarGallery(carUrl);
-        this.GetCarVideo(carUrl);
         this.GetCarDescriptions(carUrl);
         this.GetCarDetailsFeatures(carUrl);
     }
@@ -102,13 +94,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
         this.service.get("Site", "GetCarGalleryByUrl", carUrl).subscribe((resData: any) => {
             this.gallery = resData;
 
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarVideo
-    GetCarVideo(carUrl: string) {
-        this.service.get("Site", "GetCarVideosByUrl", carUrl, 1).subscribe((resData: any) => {
-            this.videos = resData;
         }, resError => this.errorMsg = resError);
     }
 

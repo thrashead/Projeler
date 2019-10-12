@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarDescT Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> Araç Metni (Dil) Düzenle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -8,9 +8,9 @@
 				<div class="editor-label">
 					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
 				</div>
-				<div class="editor-label">
-					Bağlı CarDesc
-				</div>
+                <div class="editor-label">
+                    Bağlı Araç Metni
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<select id="CarDescID" [ngModel]="model?.CarDescID" formControlName="CarDescID"><option *ngFor="let item of model?.CarDescList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
@@ -20,7 +20,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Bağlı Translation
+					Bağlı Dil
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -31,7 +31,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Title
+					Başlık
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -42,7 +42,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					ShortDescription
+					Kısa Açıklama
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -53,7 +53,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Description
+					Açıklama
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -64,7 +64,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					ShortDescription2
+					Kısa Açıklama 2
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -75,7 +75,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Description2
+					Açıklama 2
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">

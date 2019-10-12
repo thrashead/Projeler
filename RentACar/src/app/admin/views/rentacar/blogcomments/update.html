@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-book"></i> BlogComments Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-book"></i> Blog Yorumu Düzenle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -8,9 +8,9 @@
 				<div class="editor-label">
 					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
 				</div>
-				<div class="editor-label">
-					Bağlı Blog
-				</div>
+                <div class="editor-label">
+                    Bağlı Blog Yazısı
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<select id="BlogID" [ngModel]="model?.BlogID" formControlName="BlogID"><option *ngFor="let item of model?.BlogList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
@@ -20,7 +20,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Sender
+					Gönderen
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -41,9 +41,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					SendDate
-				</div>
+                <div class="editor-label">
+                    Gönderi Tarihi
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="SendDate" [ngModel]="model?.SendDate" formControlName="SendDate" type="text" value="{{ model?.SendDate }}" />
@@ -52,9 +52,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					Message
-				</div>
+                <div class="editor-label">
+                    Mesaj
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="Message" [ngModel]="model?.Message" formControlName="Message" type="text" value="{{ model?.Message }}" />
@@ -64,7 +64,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Active
+					Aktif
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">

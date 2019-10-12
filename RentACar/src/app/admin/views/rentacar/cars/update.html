@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> Cars Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> Araç Düzenle</a></div>
 	</div>
     <div class="container-fluid">
         <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -9,7 +9,7 @@
                     <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
                 </div>
                 <div class="editor-label">
-                    Title
+                    Başlık
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -20,7 +20,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    Code
+                    Kod
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -31,7 +31,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    PictureUrl
+                    Resim
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -44,7 +44,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    Show
+                    Gösterim?
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -69,16 +69,16 @@
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title">
-                        <span class="icon"><i class="icon-home"></i></span>
-                        <h5>Bağlı CarReservation</h5>
+                        <span class="icon"><i class="icon-dashboard"></i></span>
+                        <h5>Bağlı Rezervasyonlar</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>StartDate</th>
-                                    <th>EndDate</th>
+                                    <th>Başlangıç Tarihi</th>
+                                    <th>Bitiş Tarihi</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -106,7 +106,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/CarReservation/Insert" class="btn btn-primary btn-add">CarReservation Ekle</a>
+            <a routerLink="/Admin/CarReservation/Insert" class="btn btn-primary btn-add">Rezervasyon Ekle</a>
         </div>
 
         <div class="row-fluid">
@@ -114,15 +114,15 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-dashboard"></i></span>
-                        <h5>Bağlı CarPictures</h5>
+                        <h5>Bağlı Araç Resimleri</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>PictureUrl</th>
-                                    <th>Title</th>
+                                    <th>Resim</th>
+                                    <th>Başlık</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -150,51 +150,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/CarPictures/Insert" class="btn btn-primary btn-add">CarPictures Ekle</a>
-        </div>
-
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon"><i class="icon-home"></i></span>
-                        <h5>Bağlı CarVideos</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>VideoUrl</th>
-                                    <th>Code</th>
-                                    <th>İşlem</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of model?.CarVideosList">
-                                    <td>{{ item?.ID }}</td>
-                                    <td>{{ item?.VideoUrl }}</td>
-                                    <td>{{ item?.Code }}</td>
-                                    <td style="text-align:center;">
-                                        <div class="btn-group" style="text-align:left;">
-                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarVideos/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarVideos" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarVideos" [attr.data-id]="item?.ID">Sil</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pagelinks">
-            <a routerLink="/Admin/CarVideos/Insert" class="btn btn-primary btn-add">CarVideos Ekle</a>
+            <a routerLink="/Admin/CarPictures/Insert" class="btn btn-primary btn-add">Araç Resmi Ekle</a>
         </div>
 
         <div class="row-fluid">
@@ -202,54 +158,14 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-dashboard"></i></span>
-                        <h5>Bağlı CarDetailsExtInt</h5>
+                        <h5>Bağlı Araç Detay (Mekanik)</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>İşlem</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of model?.CarDetailsExtIntList">
-                                    <td>{{ item?.ID }}</td>
-                                    <td style="text-align:center;">
-                                        <div class="btn-group" style="text-align:left;">
-                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarDetailsExtInt/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsExtInt" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsExtInt" [attr.data-id]="item?.ID">Sil</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pagelinks">
-            <a routerLink="/Admin/CarDetailsExtInt/Insert" class="btn btn-primary btn-add">CarDetailsExtInt Ekle</a>
-        </div>
-
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon"><i class="icon-dashboard"></i></span>
-                        <h5>Bağlı CarDetailsMechanical</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>EngineCapacity</th>
+                                    <th>Motor Hacmi</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -276,7 +192,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/CarDetailsMechanical/Insert" class="btn btn-primary btn-add">CarDetailsMechanical Ekle</a>
+            <a routerLink="/Admin/CarDetailsMechanical/Insert" class="btn btn-primary btn-add">Araç Detay (Mekanik) Ekle</a>
         </div>
 
         <div class="row-fluid">
@@ -284,7 +200,7 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-dashboard"></i></span>
-                        <h5>Bağlı CarDetailsFeatures</h5>
+                        <h5>Bağlı Araç Detay (Özellik)</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
@@ -292,7 +208,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>ABS</th>
-                                    <th>Airbag</th>
+                                    <th>Hava Yastığı</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -320,7 +236,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/CarDetailsFeatures/Insert" class="btn btn-primary btn-add">CarDetailsFeatures Ekle</a>
+            <a routerLink="/Admin/CarDetailsFeatures/Insert" class="btn btn-primary btn-add">Araç Detay (Özellik) Ekle</a>
         </div>
 
         <div class="row-fluid">
@@ -328,15 +244,15 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-dashboard"></i></span>
-                        <h5>Bağlı CarDesc</h5>
+                        <h5>Bağlı Araç Metinleri</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Code</th>
+                                    <th>Başlık</th>
+                                    <th>Kod</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -364,47 +280,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/CarDesc/Insert" class="btn btn-primary btn-add">CarDesc Ekle</a>
-        </div>
-
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon"><i class="icon-dashboard"></i></span>
-                        <h5>Bağlı CarDetailsBasic</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>İşlem</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of model?.CarDetailsBasicList">
-                                    <td>{{ item?.ID }}</td>
-                                    <td style="text-align:center;">
-                                        <div class="btn-group" style="text-align:left;">
-                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarDetailsBasic/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsBasic" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsBasic" [attr.data-id]="item?.ID">Sil</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pagelinks">
-            <a routerLink="/Admin/CarDetailsBasic/Insert" class="btn btn-primary btn-add">CarDetailsBasic Ekle</a>
+            <a routerLink="/Admin/CarDesc/Insert" class="btn btn-primary btn-add">Araç Metni Ekle</a>
         </div>
     </div>
 </div>

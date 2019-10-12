@@ -14,9 +14,6 @@ export class AdminIndexComponent {
     hasRightContent: boolean;
     showTypeContent: boolean;
 
-    hasRightGallery: boolean;
-    showTypeGallery: boolean;
-
     hasRightPictures: boolean;
     showTypePictures: boolean;
 
@@ -25,9 +22,6 @@ export class AdminIndexComponent {
 
     hasRightMeta: boolean;
     showTypeMeta: boolean;
-
-    hasRightLinkTypes: boolean;
-    showTypeLinkTypes: boolean;
 
     hasRightTranslation: boolean;
     showTypeTranslation: boolean;
@@ -64,10 +58,6 @@ export class AdminIndexComponent {
             this.hasRightContent = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Gallery", "s").subscribe((resData: any) => {
-            this.hasRightGallery = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getHasRight("Pictures", "s").subscribe((resData: any) => {
             this.hasRightPictures = resData;
         }, resError => this.errorMsg = resError);
@@ -78,10 +68,6 @@ export class AdminIndexComponent {
 
         this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
             this.hasRightMeta = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData: any) => {
-            this.hasRightLinkTypes = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getHasRight("Translation", "s").subscribe((resData: any) => {
@@ -118,10 +104,6 @@ export class AdminIndexComponent {
             this.showTypeContent = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Gallery").subscribe((resData: any) => {
-            this.showTypeGallery = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getShowType("Pictures").subscribe((resData: any) => {
             this.showTypePictures = resData;
         }, resError => this.errorMsg = resError);
@@ -132,10 +114,6 @@ export class AdminIndexComponent {
 
         this.sharedService.getShowType("Meta").subscribe((resData: any) => {
             this.showTypeMeta = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("LinkTypes").subscribe((resData: any) => {
-            this.showTypeLinkTypes = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getShowType("Translation").subscribe((resData: any) => {

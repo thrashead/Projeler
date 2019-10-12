@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-flag"></i> LangContent Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-flag"></i> Dil İçeriği Düzenle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -9,7 +9,7 @@
 					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
 				</div>
 				<div class="editor-label">
-					Title
+					Başlık
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -20,7 +20,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Code
+					Kod
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -31,7 +31,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					ShortCode
+					Kısa Kod
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -56,14 +56,14 @@
 				<div class="widget-box">
 					<div class="widget-title">
 						<span class="icon"><i class="icon-flag"></i></span>
-						<h5>Bağlı LangContentT</h5>
+						<h5>Bağlı Dil İçerikleri (Dil)</h5>
 					</div>
 					<div class="widget-content nopadding">
 						<table class="table table-bordered data-table">
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>ShortDescription</th>
+									<th>Kısa Açıklama</th>
 									<th>İşlem</th>
 								</tr>
 							</thead>
@@ -90,7 +90,7 @@
 		</div>
 
 		<div class="pagelinks">
-			<a routerLink="/Admin/LangContentT/Insert/' + model?.ID" class="btn btn-primary btn-add">LangContentT Ekle</a>
+			<a routerLink="/Admin/LangContentT/Insert/' + model?.ID" class="btn btn-primary btn-add">Dil İçeriği (Dil) Ekle</a>
 		</div>
 	</div>
 </div>

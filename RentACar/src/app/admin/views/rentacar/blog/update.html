@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-book"></i> Blog Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-book"></i> Blog Yazısı Düzenle</a></div>
 	</div>
     <div class="container-fluid">
         <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -9,7 +9,7 @@
                     <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
                 </div>
                 <div class="editor-label">
-                    Bağlı BlogCategory
+                    Bağlı Blog Kategorisi
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -20,7 +20,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    Title
+                    Başlık
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -31,7 +31,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    Code
+                    Kod
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -53,7 +53,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    PictureUrl
+                    Resim
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -66,7 +66,7 @@
                 <div class="clear"></div>
 
                 <div class="editor-label">
-                    Tags
+                    Tagler
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
@@ -91,14 +91,14 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-book"></i></span>
-                        <h5>Bağlı BlogT</h5>
+                        <h5>Bağlı Blog Yazıları (Dil)</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Title</th>
+                                    <th>Başlık</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -125,7 +125,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/BlogT/Insert/' + model?.ID" class="btn btn-primary btn-add">BlogT Ekle</a>
+            <a routerLink="/Admin/BlogT/Insert/' + model?.ID" class="btn btn-primary btn-add">Blog Yazısı (Dil) Ekle</a>
         </div>
 
         <div class="row-fluid">
@@ -133,14 +133,14 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-book"></i></span>
-                        <h5>Bağlı BlogComments</h5>
+                        <h5>Bağlı Blog Yorumları</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Sender</th>
+                                    <th>Gönderen</th>
                                     <th>Mail</th>
                                     <th>İşlem</th>
                                 </tr>
@@ -169,7 +169,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/BlogComments/Insert/' + model?.ID" class="btn btn-primary btn-add">BlogComments Ekle</a>
+            <a routerLink="/Admin/BlogComments/Insert/' + model?.ID" class="btn btn-primary btn-add">Blog Yorumu Ekle</a>
         </div>
 
         <div class="row-fluid">
@@ -177,15 +177,15 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="icon-book"></i></span>
-                        <h5>Bağlı BlogPictures</h5>
+                        <h5>Bağlı Blog Resimleri</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered data-table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>PictureUrl</th>
-                                    <th>Code</th>
+                                    <th>Resim</th>
+                                    <th>Kod</th>
                                     <th>İşlem</th>
                                 </tr>
                             </thead>
@@ -213,51 +213,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/BlogPictures/Insert/' + model?.ID" class="btn btn-primary btn-add">BlogPictures Ekle</a>
-        </div>
-
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon"><i class="icon-book"></i></span>
-                        <h5>Bağlı BlogVideos</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>VideoUrl</th>
-                                    <th>Code</th>
-                                    <th>İşlem</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of model?.BlogVideosList">
-                                    <td>{{ item?.ID }}</td>
-                                    <td>{{ item?.VideoUrl }}</td>
-                                    <td>{{ item?.Code }}</td>
-                                    <td style="text-align:center;">
-                                        <div class="btn-group" style="text-align:left;">
-                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/BlogVideos/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogVideos" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogVideos" [attr.data-id]="item?.ID">Sil</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pagelinks">
-            <a routerLink="/Admin/BlogVideos/Insert/' + model?.ID" class="btn btn-primary btn-add">BlogVideos Ekle</a>
+            <a routerLink="/Admin/BlogPictures/Insert/' + model?.ID" class="btn btn-primary btn-add">Blog Resmi Ekle</a>
         </div>
     </div>
 </div>

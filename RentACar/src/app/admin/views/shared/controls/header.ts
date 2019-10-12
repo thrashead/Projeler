@@ -26,7 +26,8 @@ export class AdminHeaderComponent {
         $('#txtMainSearch').typeahead({
             source: [
                 'Araçlar',
-                'Araçlar (Dil)',
+                'Rezervasyonlar',
+                'Araç Resimleri',
                 'Araç Detay (Temel)',
                 'Araç Detay (Mekanik)',
                 'Araç Detay (İç-Dış)',
@@ -50,7 +51,6 @@ export class AdminHeaderComponent {
                 'Blog Yazıları',
                 'Blog Yazıları (Dil)',
                 'Blog Resimleri',
-                'Blog Videoları',
                 'Blog Yorumları',
                 'Dil İçerikleri',
                 'Dil İçerikleri (Dil)',
@@ -63,14 +63,10 @@ export class AdminHeaderComponent {
                 'Kategoriler (Dil)',
                 'İçerikler',
                 'İçerikler (Dil)',
-                'Galeri',
-                'Galeri (Dil)',
                 'Resimler',
                 'Dosyalar',
                 'Meta',
                 'Meta (Dil)',
-                'Bağlı Tipler',
-                'Bağlantılar',
                 'Diller',
                 'Kullanıcılar'
             ],
@@ -85,8 +81,11 @@ export class AdminHeaderComponent {
             case "Araçlar":
                 this.router.navigate(['/Admin/Cars']);
                 break;
-            case "Araçlar (Dil)":
-                this.router.navigate(['/Admin/CarsT']);
+            case "Rezervasyonlar":
+                this.router.navigate(['/Admin/CarReservation']);
+                break;
+            case "Araç Resimleri":
+                this.router.navigate(['/Admin/CarPictures']);
                 break;
             case "Araç Detay (Temel)":
                 this.router.navigate(['/Admin/CarDetailsBasic']);
@@ -157,9 +156,6 @@ export class AdminHeaderComponent {
             case "Blog Resimleri":
                 this.router.navigate(['/Admin/BlogPictures']);
                 break;
-            case "Blog Videoları":
-                this.router.navigate(['/Admin/BlogVideos']);
-                break;
             case "Blog Yorumları":
                 this.router.navigate(['/Admin/BlogComments']);
                 break;
@@ -196,12 +192,6 @@ export class AdminHeaderComponent {
             case "İçerikler (Dil)":
                 this.router.navigate(['/Admin/ContentT']);
                 break;
-            case "Galeri":
-                this.router.navigate(['/Admin/Gallery']);
-                break;
-            case "Galeri (Dil)":
-                this.router.navigate(['/Admin/GalleryT']);
-                break;
             case "Resimler":
                 this.router.navigate(['/Admin/Pictures']);
                 break;
@@ -213,12 +203,6 @@ export class AdminHeaderComponent {
                 break;
             case "Meta (Dil)":
                 this.router.navigate(['/Admin/MetaT']);
-                break;
-            case "Bağlı Tipler":
-                this.router.navigate(['/Admin/LinkTypes']);
-                break;
-            case "Bağlantılar":
-                this.router.navigate(['/Admin/Links']);
                 break;
             case "Diller":
                 this.router.navigate(['/Admin/Translation']);

@@ -72,7 +72,7 @@
                                 <div class="b-article__main-related-item wow zoomInUp" data-wow-delay="0.5s">
                                     <div class="row m-smallPadding">
                                         <div class="col-xs-4">
-                                            <img class="center-block img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="related" />
+                                            <img class="center-block img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" alt="related" />
                                         </div>
                                         <div class="col-xs-8">
                                             <h5><a [routerLink]="['/Blog/Detail/' + item?.Url]">{{ item?.Title }}</a></h5>
@@ -90,7 +90,7 @@
                         <div class="row">
                             <div class="col-xs-2 pull-right">
                                 <div class="b-blog__posts-one-author-img pull-right">
-                                    <img src="/RentACar/Uploads/{{ blog?.SenderPicture }}" />
+                                    <img src="/RentACar/Uploads/thumb_{{ blog?.SenderPicture }}" />
                                 </div>
                             </div>
                             <div class="col-xs-10 pull-right">

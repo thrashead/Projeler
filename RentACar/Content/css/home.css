@@ -118,22 +118,6 @@ a.m-langLink{
     margin-right: 4px;
 }
 
-.b-topBar__lang-flag.m-en{
-    background: url(/RentACar/Content/img/flags/en.jpg);
-}
-
-.b-topBar__lang-flag.m-es{
-    background: url(/RentACar/Content/img/flags/es.jpg);
-}
-
-.b-topBar__lang-flag.m-de{
-    background: url(/RentACar/Content/img/flags/de.jpg);
-}
-
-.b-topBar__lang-flag.m-fr{
-    background: url(/RentACar/Content/img/flags/fr.jpg);
-}
-
 .dropdown-menu{
 	min-width: 100px;
     padding: 0;
@@ -1658,18 +1642,6 @@ a.m-langLink{
     margin-right: 2px;
 }
 
-.b-info__latest-article-photo.m-audi{
-    background: url(/RentACar/Content/img/media/80x65/audiF.jpg) no-repeat;
-}
-
-.b-info__latest-article-photo.m-audiSpyder{
-    background: url(/RentACar/Content/img/media/80x65/audiSpyderF.jpg) no-repeat;
-}
-
-.b-info__latest-article-photo.m-aston{
-    background: url(/RentACar/Content/img/media/80x65/astonMartinF.jpg) no-repeat;
-}
-
 .b-info__twitter{
     margin-left: 15px;
 }
@@ -1740,7 +1712,6 @@ a.m-langLink{
     width:264px;
     height:144px;
     text-align: center;
-    /*background: url(/RentACar/Content/img/backgrounds/map.jpg) no-repeat;*/
 }
 
 .b-info__map a{

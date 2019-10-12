@@ -131,10 +131,6 @@ import { AdminBlogTIndexComponent } from './admin/views/rentacar/blogt';
 import { AdminBlogTInsertComponent } from './admin/views/rentacar/blogt/insert';
 import { AdminBlogTUpdateComponent } from './admin/views/rentacar/blogt/update';
 
-import { AdminBlogVideosIndexComponent } from './admin/views/rentacar/blogvideos';
-import { AdminBlogVideosInsertComponent } from './admin/views/rentacar/blogvideos/insert';
-import { AdminBlogVideosUpdateComponent } from './admin/views/rentacar/blogvideos/update';
-
 import { AdminCarDescIndexComponent } from './admin/views/rentacar/cardesc';
 import { AdminCarDescInsertComponent } from './admin/views/rentacar/cardesc/insert';
 import { AdminCarDescUpdateComponent } from './admin/views/rentacar/cardesc/update';
@@ -215,10 +211,6 @@ import { AdminCarReservationIndexComponent } from './admin/views/rentacar/carres
 import { AdminCarReservationInsertComponent } from './admin/views/rentacar/carreservation/insert';
 import { AdminCarReservationUpdateComponent } from './admin/views/rentacar/carreservation/update';
 
-import { AdminCarVideosIndexComponent } from './admin/views/rentacar/carvideos';
-import { AdminCarVideosInsertComponent } from './admin/views/rentacar/carvideos/insert';
-import { AdminCarVideosUpdateComponent } from './admin/views/rentacar/carvideos/update';
-
 import { AdminCarsIndexComponent } from './admin/views/rentacar/cars';
 import { AdminCarsInsertComponent } from './admin/views/rentacar/cars/insert';
 import { AdminCarsUpdateComponent } from './admin/views/rentacar/cars/update';
@@ -281,22 +273,6 @@ import { AdminContentTUpdateComponent } from './admin/views/general/contentt/upd
 import { AdminFilesIndexComponent } from './admin/views/general/files';
 import { AdminFilesInsertComponent } from './admin/views/general/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/general/files/update';
-
-import { AdminGalleryIndexComponent } from './admin/views/general/gallery';
-import { AdminGalleryInsertComponent } from './admin/views/general/gallery/insert';
-import { AdminGalleryUpdateComponent } from './admin/views/general/gallery/update';
-
-import { AdminGalleryTIndexComponent } from './admin/views/general/galleryt';
-import { AdminGalleryTInsertComponent } from './admin/views/general/galleryt/insert';
-import { AdminGalleryTUpdateComponent } from './admin/views/general/galleryt/update';
-
-import { AdminLinksIndexComponent } from './admin/views/general/links';
-import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
-import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
-
-import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
-import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
-import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
 
 import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
 import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
@@ -486,10 +462,6 @@ import { AdminLib } from './admin/lib/methods';
         AdminBlogTInsertComponent,
         AdminBlogTUpdateComponent,
 
-        AdminBlogVideosIndexComponent,
-        AdminBlogVideosInsertComponent,
-        AdminBlogVideosUpdateComponent,
-
         AdminCarDetailsBasicIndexComponent,
         AdminCarDetailsBasicInsertComponent,
         AdminCarDetailsBasicUpdateComponent,
@@ -562,10 +534,6 @@ import { AdminLib } from './admin/lib/methods';
         AdminCarReservationInsertComponent,
         AdminCarReservationUpdateComponent,
 
-        AdminCarVideosIndexComponent,
-        AdminCarVideosInsertComponent,
-        AdminCarVideosUpdateComponent,
-
         AdminCarsIndexComponent,
         AdminCarsInsertComponent,
         AdminCarsUpdateComponent,
@@ -635,22 +603,6 @@ import { AdminLib } from './admin/lib/methods';
         AdminFilesIndexComponent,
         AdminFilesInsertComponent,
         AdminFilesUpdateComponent,
-
-        AdminGalleryIndexComponent,
-        AdminGalleryInsertComponent,
-        AdminGalleryUpdateComponent,
-
-        AdminGalleryTIndexComponent,
-        AdminGalleryTInsertComponent,
-        AdminGalleryTUpdateComponent,
-
-        AdminLinksIndexComponent,
-        AdminLinksInsertComponent,
-        AdminLinksUpdateComponent,
-
-        AdminLinkTypesIndexComponent,
-        AdminLinkTypesInsertComponent,
-        AdminLinkTypesUpdateComponent,
 
         AdminLogProcessIndexComponent,
         AdminLogProcessInsertComponent,

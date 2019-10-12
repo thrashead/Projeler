@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> CarDetailsExtInt Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> Araç Detay (İç-Dış) Düzenle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -9,7 +9,7 @@
 					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
 				</div>
 				<div class="editor-label">
-					Bağlı Cars
+					Bağlı Araç
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -20,7 +20,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Bağlı CarFeatsBodyType
+					Bağlı Kasa Tipi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -31,7 +31,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Bağlı CarFeatsDriveType
+					Bağlı Sürüş Tipi
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -42,7 +42,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Tires
+					Tekerlekler
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -52,9 +52,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					Seats
-				</div>
+                <div class="editor-label">
+                    Koltuk Sayısı
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="Seats" [ngModel]="model?.Seats" formControlName="Seats" type="number" value="{{ model?.Seats }}" />
@@ -64,7 +64,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Doors
+					Kapı Sayısı
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -74,9 +74,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					ExtColor
-				</div>
+                <div class="editor-label">
+                    Dış Boya Rengi
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="ExtColor" [ngModel]="model?.ExtColor" formControlName="ExtColor" type="text" value="{{ model?.ExtColor }}" />
@@ -85,9 +85,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					IntColor
-				</div>
+                <div class="editor-label">
+                    İç Boya Rengi
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="IntColor" [ngModel]="model?.IntColor" formControlName="IntColor" type="text" value="{{ model?.IntColor }}" />
@@ -96,9 +96,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					TrimStyle
-				</div>
+                <div class="editor-label">
+                    Döşeme Stili
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="TrimStyle" [ngModel]="model?.TrimStyle" formControlName="TrimStyle" type="text" value="{{ model?.TrimStyle }}" />

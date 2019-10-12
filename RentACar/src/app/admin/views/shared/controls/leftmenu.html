@@ -12,7 +12,6 @@
                 <li data-url="Cars"><a routerLink="/Admin/Cars">Araçlar</a></li>
                 <li data-url="CarReservation"><a routerLink="/Admin/CarReservation">Rezervasyonlar</a></li>
                 <li data-url="CarPictures"><a routerLink="/Admin/CarPictures">Araç Resimleri</a></li>
-                <li data-url="CarVideos"><a routerLink="/Admin/CarVideos">Araç Videoları</a></li>
                 <li data-url="CarDesc"><a routerLink="/Admin/CarDesc">Araç Metinleri</a></li>
                 <li data-url="CarDescT"><a routerLink="/Admin/CarDescT">Araç Metinleri (Dil)</a></li>
                 <li data-url="CarDetailsBasic"><a routerLink="/Admin/CarDetailsBasic">Araç Detay (Temel)</a></li>
@@ -24,20 +23,20 @@
         <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
             <a href="javascript:;"><i class="icon icon-dashboard"></i> <span>Araç Özellikler</span></a>
             <ul>
-                <li data-url="CarFeatsMake"><a routerLink="/Admin/CarFeatsMake">Marka</a></li>
-                <li data-url="CarFeatsModel"><a routerLink="/Admin/CarFeatsModel">Model</a></li>
-                <li data-url="CarStatus"><a routerLink="/Admin/CarStatus">Araç Durumu</a></li>
-                <li data-url="CarStatusT"><a routerLink="/Admin/CarStatusT">Araç Durumu (Dil)</a></li>
-                <li data-url="CarFeatsBodyType"><a routerLink="/Admin/CarFeatsBodyType">Kasa Tipi</a></li>
-                <li data-url="CarFeatsBodyTypeT"><a routerLink="/Admin/CarFeatsBodyTypeT">Kasa Tipi (Dil)</a></li>
-                <li data-url="CarFeatsDriveType"><a routerLink="/Admin/CarFeatsDriveType">Sürüş Tipi</a></li>
-                <li data-url="CarFeatsDriveTypeT"><a routerLink="/Admin/CarFeatsDriveTypeT">Sürüş Tipi (Dil)</a></li>
-                <li data-url="CarFeatsEngineType"><a routerLink="/Admin/CarFeatsEngineType">Motor Tipi</a></li>
-                <li data-url="CarFeatsEngineTypeT"><a routerLink="/Admin/CarFeatsEngineTypeT">Motor Tipi (Dil)</a></li>
-                <li data-url="CarFeatsGearsType"><a routerLink="/Admin/CarFeatsGearsType">Vites Tipi</a></li>
-                <li data-url="CarFeatsGearsTypeT"><a routerLink="/Admin/CarFeatsGearsTypeT">Vites Tipi (Dil)</a></li>
-                <li data-url="CarFeatsFuelType"><a routerLink="/Admin/CarFeatsFuelType">Yakıt Tipi</a></li>
-                <li data-url="CarFeatsFuelTypeT"><a routerLink="/Admin/CarFeatsFuelTypeT">Yakıt Tipi (Dil)</a></li>
+                <li data-url="CarFeatsMake"><a routerLink="/Admin/CarFeatsMake">Markalar</a></li>
+                <li data-url="CarFeatsModel"><a routerLink="/Admin/CarFeatsModel">Modeller</a></li>
+                <li data-url="CarStatus"><a routerLink="/Admin/CarStatus">Araç Durumları</a></li>
+                <li data-url="CarStatusT"><a routerLink="/Admin/CarStatusT">Araç Durumları (Dil)</a></li>
+                <li data-url="CarFeatsBodyType"><a routerLink="/Admin/CarFeatsBodyType">Kasa Tipleri</a></li>
+                <li data-url="CarFeatsBodyTypeT"><a routerLink="/Admin/CarFeatsBodyTypeT">Kasa Tipleri (Dil)</a></li>
+                <li data-url="CarFeatsDriveType"><a routerLink="/Admin/CarFeatsDriveType">Sürüş Tipleri</a></li>
+                <li data-url="CarFeatsDriveTypeT"><a routerLink="/Admin/CarFeatsDriveTypeT">Sürüş Tipleri (Dil)</a></li>
+                <li data-url="CarFeatsEngineType"><a routerLink="/Admin/CarFeatsEngineType">Motor Tipleri</a></li>
+                <li data-url="CarFeatsEngineTypeT"><a routerLink="/Admin/CarFeatsEngineTypeT">Motor Tipleri (Dil)</a></li>
+                <li data-url="CarFeatsGearsType"><a routerLink="/Admin/CarFeatsGearsType">Vites Tipleri</a></li>
+                <li data-url="CarFeatsGearsTypeT"><a routerLink="/Admin/CarFeatsGearsTypeT">Vites Tipleri (Dil)</a></li>
+                <li data-url="CarFeatsFuelType"><a routerLink="/Admin/CarFeatsFuelType">Yakıt Tipleri</a></li>
+                <li data-url="CarFeatsFuelTypeT"><a routerLink="/Admin/CarFeatsFuelTypeT">Yakıt Tipleri (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
@@ -48,7 +47,6 @@
                 <li data-url="Blog"><a routerLink="/Admin/Blog">Blog Yazıları</a></li>
                 <li data-url="BlogT"><a routerLink="/Admin/BlogT">Blog Yazıları (Dil)</a></li>
                 <li data-url="BlogPictures"><a routerLink="/Admin/BlogPictures">Blog Resimleri</a></li>
-                <li data-url="BlogVideos"><a routerLink="/Admin/BlogVideos">Blog Videoları</a></li>
                 <li data-url="BlogComments"><a routerLink="/Admin/BlogComments">Blog Yorumları</a></li>
             </ul>
         </li>
@@ -85,13 +83,6 @@
                 <li data-url="ContentT"><a routerLink="/Admin/ContentT">İçerikler (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightGallery && showTypeGallery">
-            <a href="javascript:;"><i class="icon icon-picture"></i> <span>Galeri</span></a>
-            <ul>
-                <li data-url="Gallery"><a routerLink="/Admin/Gallery">Galeri</a></li>
-                <li data-url="GalleryT"><a routerLink="/Admin/GalleryT">Galeri (Dil)</a></li>
-            </ul>
-        </li>
         <li data-url="Pictures" *ngIf="hasRightPictures && showTypePictures">
             <a routerLink="/Admin/Pictures"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
         </li>
@@ -103,13 +94,6 @@
             <ul>
                 <li data-url="Meta"><a routerLink="/Admin/Meta">Meta</a></li>
                 <li data-url="MetaT"><a routerLink="/Admin/MetaT">Meta (Dil)</a></li>
-            </ul>
-        </li>
-        <li class="submenu" *ngIf="hasRightLinkTypes && showTypeLinkTypes">
-            <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
-            <ul>
-                <li data-url="LinkTypes"><a routerLink="/Admin/LinkTypes">Bağlı Tipler</a></li>
-                <li data-url="Links"><a routerLink="/Admin/Links">Bağlantılar</a></li>
             </ul>
         </li>
         <li data-url="Translation" *ngIf="hasRightTranslation && showTypeTranslation">

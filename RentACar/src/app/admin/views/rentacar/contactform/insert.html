@@ -1,12 +1,12 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-phone"></i> ContactForm Ekle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-phone"></i> İletişim Formu Ekle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
 			<fieldset>
 				<div class="editor-label">
-					Sender
+					Gönderen
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -17,7 +17,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Mail
+					E-Posta
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -27,9 +27,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					Phone
-				</div>
+                <div class="editor-label">
+                    Telefon
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="Phone" [ngModel]="model?.Phone" formControlName="Phone" type="text" />
@@ -39,7 +39,7 @@
 				<div class="clear"></div>
 
 				<div class="editor-label">
-					Message
+					Mesaj
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
@@ -49,9 +49,9 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="editor-label">
-					SendDate
-				</div>
+                <div class="editor-label">
+                    Gönderim Tarihi
+                </div>
 				<div class="clear"></div>
 				<div class="editor-field">
 					<input id="SendDate" [ngModel]="model?.SendDate" formControlName="SendDate" type="text" />

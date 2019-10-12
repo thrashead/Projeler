@@ -199,7 +199,6 @@
     width: 70px;
     height: 70px;
     border-radius: 100%;
-    /*background: url(/RentACar/Content/img/media/persons/author.jpg) center center no-repeat;*/
     margin-bottom: 35px;
 }
 
@@ -593,10 +592,6 @@
 
 .b-article__main-comments-one.m-second{
     margin-left: 100px;
-}
-
-.b-blog__posts-one-author-img.m-woomen {
-    background-image: url(/RentACar/Content/img/media/persons/personW.jpg);
 }
 
 .b-article__main-comments .row > div:last-child .b-article__main-comments-one{
