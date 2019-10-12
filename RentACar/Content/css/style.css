@@ -58,12 +58,20 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-detail__head-title {margin-top: 15px;}
 .b-detail__main-info-characteristics-one-bottom {height: 58px;}
 .b-brands__brand img {width:80px;}
-#compareNull {font-size: 20px;margin: 0px auto;text-align: center;padding: 10px;display:none;}
-#compareNull.show {display:block;}
+.listNull {font-size: 20px;margin: 0px auto;text-align: center;padding: 10px;display:none;}
+.listNull.show {display:block;}
 .b-compare__block-inside-value ul {height:auto;}
 .s-submit input[type='number'], .s-submit textarea {display: block;width: 100%;padding: 15px 20px;font: 400 13px Arial;border: 1px solid #eeeeee;color: #444;
                                                     background: #f7f7f7!important;text-transform: none;border-radius: 30px;padding-top: 13px;padding-bottom: 13px;height: 46px;}
 .s-submit textarea { height:80px; }
+.b-info__aside {z-index:999;}
+
+#modalAlert {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/RentACar/Content/img/alertbg.png);z-index: 1000;display:none;}
+#modalAlert.show {display:block;}
+#modalAlert .modaldialog {margin: 160px auto 0px auto;width: 95%;min-height: 96px;background-color: #fff;border: 3px solid #c03e00;}
+#modalAlert .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}
+#modalAlert .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}
+#modalAlert .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #c03e00;}
 
 @media only screen and (max-width: 1200px) {
     .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}

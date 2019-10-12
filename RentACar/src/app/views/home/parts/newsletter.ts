@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
@@ -11,6 +11,7 @@ import { Lib } from '../../../lib/methods';
 
 export class HomeNewsletterComponent {
     errorMsg: string;
+    @Output() alert: string;
 
     newsForm: FormGroup;
     data: any;
@@ -46,7 +47,10 @@ export class HomeNewsletterComponent {
                         switch (item.Code) {
                             case "home_newsletter_msg":
                                 switch (item.ShortCode) {
-                                    case "yes": alert(item.ShortDescription2); break;
+                                    case "yes":
+                                        $("#modalAlert").addClass("show");
+                                        this.alert = item.ShortDescription2;
+                                        break;
                                 }
                                 break;
                         }
@@ -61,7 +65,10 @@ export class HomeNewsletterComponent {
                         switch (item.Code) {
                             case "home_newsletter_msg":
                                 switch (item.ShortCode) {
-                                    case "no": alert(item.ShortDescription2); break;
+                                    case "no":
+                                        $("#modalAlert").addClass("show");
+                                        this.alert = item.ShortDescription2;
+                                        break;
                                 }
                                 break;
                         }

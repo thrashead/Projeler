@@ -1,6 +1,7 @@
 ﻿<rac-carbookingheader></rac-carbookingheader>
 <rac-carbookingbreadcumbs></rac-carbookingbreadcumbs>
 <rac-carbookingprogress></rac-carbookingprogress>
+<rac-sharedmodalalert alert="{{ alert }}"></rac-sharedmodalalert>
 
 <!--b-submit-->
 <div class="b-submit">
@@ -16,7 +17,7 @@
                             <h2>{{ langs?.content?.title3 }}</h2>
                         </header>
                         <p class="wow zoomInUp" data-wow-delay="0.3s">{{ langs?.content?.longdesc3 }}</p>
-                        <div *ngIf="carList?.length <= 0" id="compareNull" [class.show]="carList?.length <= 0">
+                        <div *ngIf="carList?.length <= 0" class="listNull" [class.show]="carList?.length <= 0">
                             <span>{{ langs?.null }}</span>
                         </div>
                         <div id="carousel-small">

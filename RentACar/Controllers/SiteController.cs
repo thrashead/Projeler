@@ -112,14 +112,14 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetBlogSimilarPosts(string param, string param2)
+        public JsonResult GetBlogSimilarPosts(string param, string param2, string param3)
         {
             Blog blog = new Blog();
 
-            if (param2.ToInteger() > 1 || param2 == null || param2 == "null")
-                return Json(blog.SimilarSelect(param, AppTools.GetLang.ID, param2.ToInteger()), JsonRequestBehavior.AllowGet);
+            if (param3.ToInteger() > 1 || param3 == null || param3 == "null")
+                return Json(blog.SimilarSelect(param, param2, AppTools.GetLang.ID, param3.ToInteger()), JsonRequestBehavior.AllowGet);
             else
-                return Json(blog.SimilarSelect(param, AppTools.GetLang.ID, param2.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+                return Json(blog.SimilarSelect(param, param2, AppTools.GetLang.ID, param3.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

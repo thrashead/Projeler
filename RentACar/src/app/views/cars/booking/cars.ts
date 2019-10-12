@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Output } from "@angular/core";
 import { Router } from '@angular/router';
 import { SiteService } from '../../../services/site';
 import { Lib } from '../../../lib/methods';
@@ -11,6 +11,7 @@ import { BookSearchFilters } from '../../../models/booksearchfilters';
 
 export class CarsBookCarsComponent {
     errorMsg: string;
+    @Output() alert: string;
 
     carList: any;
 
@@ -33,12 +34,14 @@ export class CarsBookCarsComponent {
                     this.router.navigate(['/Cars/Book/Submit']);
                 }
                 else {
-                    alert(this.langs.error);
+                    $("#modalAlert").addClass("show");
+                    this.alert = this.langs.error;
                 }
             }, resError => this.errorMsg = resError);
         }
         else {
-            alert(this.langs.error);
+            $("#modalAlert").addClass("show");
+            this.alert = this.langs.error;
         }
     }
 
@@ -134,7 +137,6 @@ export class CarsBookCarsComponent {
                 switch (item.Code) {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
-
                     case "car_book":
                         switch (item.ShortCode) {
                             case "step1":
@@ -167,6 +169,10 @@ export class CarsBookCarsComponent {
                             case "errorcars":
                                 this.langs.error = item.ShortDescription;
                                 break;
+                        }
+                        break;
+                    case "car_list":
+                        switch (item.ShortCode) {
                             case "null":
                                 this.langs.null = item.ShortDescription;
                                 break;
@@ -180,8 +186,9 @@ export class CarsBookCarsComponent {
     PushLangItems() {
         this.langItems = new Array<LangItem>();
 
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list", "null"));
     }
 }

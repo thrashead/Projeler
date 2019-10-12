@@ -91,7 +91,7 @@ export class BlogItemComponent {
             this.urlEvnt.emit(this.blog.Url);
 
             if (resData.Tags != null) {
-                this.service.get("Site", "GetBlogSimilarPosts", resData.Tags, 2).subscribe((resData: any) => {
+                this.service.get("Site", "GetBlogSimilarPosts", url, resData.Tags, 2).subscribe((resData: any) => {
                     this.simPostList = resData;
                 }, resError => this.errorMsg = resError);
             }

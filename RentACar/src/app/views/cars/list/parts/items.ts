@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, Output } from '@angular/core';
 import { SiteService } from '../../../../services/site';
 import { LangItem } from '../../../../models/LangItem';
 import { Lib } from '../../../../lib/methods';
@@ -10,6 +10,7 @@ import { Lib } from '../../../../lib/methods';
 
 export class CarsListItemsComponent {
     errorMsg: string;
+    @Output() alert: string;
 
     carCompareList: any;
 
@@ -32,7 +33,8 @@ export class CarsListItemsComponent {
         if (target.checked) {
             if (count == 3) {
                 target.checked = false;
-                alert("Araç kıyaslama için en fazla 3 adet araç seçebilirsiniz.");
+                $("#modalAlert").addClass("show");
+                this.alert = this.langs.threecar;
                 return;
             }
 
@@ -65,6 +67,14 @@ export class CarsListItemsComponent {
                 switch (item.Code) {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
+                    case "car_comp_three": this.langs.threecar = item.ShortDescription; break;
+                    case "car_list":
+                        switch (item.ShortCode) {
+                            case "null":
+                                this.langs.null = item.ShortDescription;
+                                break;
+                        }
+                        break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -75,6 +85,8 @@ export class CarsListItemsComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_three"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list", "null"));
     }
 
     //CarCompareList

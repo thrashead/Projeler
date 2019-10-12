@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Output } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SiteService } from '../../../services/site';
@@ -11,6 +11,7 @@ import { LangItem } from '../../../models/LangItem';
 
 export class CarsBookSubmitComponent {
     errorMsg: string;
+    @Output() alert: string;
 
     bookForm: FormGroup;
 
@@ -52,7 +53,8 @@ export class CarsBookSubmitComponent {
 
         this.service.post("Site", "ApplyBooking", this.data).subscribe((answer: boolean) => {
             if (answer == true) {
-                alert(this.langs.confirm.submit);
+                $("#modalAlert").addClass("show");
+                this.alert = this.langs.confirm.submit;
 
                 this.router.navigate(['/']);
             }

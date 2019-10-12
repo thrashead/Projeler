@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Output } from "@angular/core";
 import { SiteService } from '../../../services/site';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
@@ -13,6 +13,7 @@ import { BookSearchFilters } from '../../../models/booksearchfilters';
 
 export class CarsBookComponent {
     errorMsg: string;
+    @Output() alert: string;
 
     bookForm: FormGroup;
     searchFilters: BookSearchFilters;
@@ -27,6 +28,7 @@ export class CarsBookComponent {
     EngineTypes: any;
     ExtColors: any;
     IntColors: any;
+
 
     constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
@@ -74,12 +76,14 @@ export class CarsBookComponent {
         let conDate: boolean = Lib.CheckDateTimeInterval(startDate, endDate);
 
         if (startDate == null || endDate == null) {
-            alert(this.langs.error1);
+            $("#modalAlert").addClass("show");
+            this.alert = this.langs.error1;
             return false;
         }
 
         if (!conDate) {
-            alert(this.langs.error2);
+            $("#modalAlert").addClass("show");
+            this.alert = this.langs.error2;
             return false;
         }
 
