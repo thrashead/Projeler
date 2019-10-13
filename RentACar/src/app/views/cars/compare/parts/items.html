@@ -3,7 +3,7 @@
     <div class="container">
         <div class="b-compare__images">
             <div class="row">
-                <div *ngIf="carCompare?.length <= 0" id="compareNull" [class.show]="carCompare?.length <= 0">
+                <div *ngIf="carCompare?.length <= 0" class="listNull" [class.show]="carCompare?.length <= 0">
                     <span>{{ langs?.null }}</span>
                 </div>
                 <div *ngFor="let item of carCompare; let i = index" class="col-md-3 col-sm-4 col-xs-12" [class.col-md-offset-3]="i==0">
