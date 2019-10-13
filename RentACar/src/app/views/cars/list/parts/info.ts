@@ -31,9 +31,31 @@ export class CarsListInfoComponent {
 
         this.searchFilters = {} as SearchFilters;
 
-        this.searchFilters.Order = target.value;
+        this.SetSearchFilters(target.value);
+    }
 
-        this.SetSearchFilters(this.searchFilters);
+    //SetSearchFilters
+    SetSearchFilters(order: string) {
+        this.service.get("Site", "GetSearchFilters").subscribe((resData: any) => {
+            if (resData != null) {
+                this.searchFilters = resData;
+            }
+
+            this.searchFilters.Order = order;
+
+            this.service.post("Site", "SetSearchFilters", this.searchFilters).subscribe((resData: any) => {
+                this.searchFilters = resData;
+
+                this.orderChange.emit(this.searchFilters);
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarLastVisitedList
+    GetCarLastVisitedList() {
+        this.service.get("Site", "GetCarLastVisitedList").subscribe((resData: any) => {
+            this.lastCarList = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -67,21 +89,5 @@ export class CarsListInfoComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_recview"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_head"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "order"));
-    }
-
-    //SetSearchFilters
-    SetSearchFilters(searchFilters: SearchFilters = null) {
-        this.service.post("Site", "SetSearchFilters", searchFilters).subscribe((resData: any) => {
-            this.searchFilters = resData;
-
-            this.orderChange.emit(this.searchFilters);
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarLastVisitedList
-    GetCarLastVisitedList() {
-        this.service.get("Site", "GetCarLastVisitedList").subscribe((resData: any) => {
-            this.lastCarList = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

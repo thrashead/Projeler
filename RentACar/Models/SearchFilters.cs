@@ -23,16 +23,6 @@ namespace Models
         {
             searchFilters = CheckNull(searchFilters);
 
-            if (searchFilters != null)
-            {
-                if (HttpContext.Current.Session["SearchFilters"] != null)
-                {
-                    SearchFilters sessionFilters = HttpContext.Current.Session["SearchFilters"] as SearchFilters;
-
-                    FillFilters(searchFilters, sessionFilters);
-                }
-            }
-
             HttpContext.Current.Session["SearchFilters"] = searchFilters;
 
             return searchFilters;

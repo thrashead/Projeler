@@ -73,15 +73,21 @@ export class CarsListSearchComponent implements OnDestroy {
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.searchForm.get("FuelTypeCode").value;
 
-        this.SetSearchFilters(this.searchFilters);
+        this.SetSearchFilters();
     }
 
     //SetSearchFilters
-    SetSearchFilters(searchFilters: SearchFilters = null) {
-        this.service.post("Site", "SetSearchFilters", searchFilters).subscribe((resData: any) => {
-            this.searchFilters = resData;
+    SetSearchFilters() {
+        this.service.get("Site", "GetSearchFilters").subscribe((resData: any) => {
+            if (resData != null) {
+                this.searchFilters.Order = resData.Order;
+            }
 
-            this.searchFilter.emit(this.searchFilters);
+            this.service.post("Site", "SetSearchFilters", this.searchFilters).subscribe((resData: any) => {
+                this.searchFilters = resData;
+
+                this.searchFilter.emit(this.searchFilters);
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
 
