@@ -4,7 +4,7 @@
         <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">{{ langs?.more }}</h5><br />
         <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">{{ langs?.brands }}</h2>
         <div>
-            <a routerLink="/Cars/List/{{ item?.Url }}" class="b-brands__brand wow rotateIn" data-wow-delay="0.5s" *ngFor="let item of carMakes">
+            <a routerLink="/Cars/List/{{ item?.Url }}" title="{{ item?.Title }}" class="b-brands__brand wow rotateIn" data-wow-delay="0.5s" *ngFor="let item of carMakes">
                 <img src="/RentACar/Uploads/{{ item?.PictureUrl }}" alt="{{ item?.Title }}" />
             </a>
         </div>
