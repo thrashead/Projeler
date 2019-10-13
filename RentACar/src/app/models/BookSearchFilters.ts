@@ -24,8 +24,6 @@
     ExteriorColor: string;
     InteriorColor: string;
 
-    FromFeaturesPage: boolean;
-
     ABS: boolean;
     Airbag: boolean;
     AirConditioning: boolean;

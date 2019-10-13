@@ -98,17 +98,42 @@ export class CarsBookFeaturesComponent {
         this.searchFilters.EngineImmobiliser = this.bookForm.get("EngineImmobiliser").value;
         this.searchFilters.HeatedDoorMirrors = this.bookForm.get("HeatedDoorMirrors").value;
 
-        this.searchFilters.FromFeaturesPage = true;
-
-        this.SetSearchFilters(this.searchFilters);
+        this.SetSearchFilters();
     }
 
     //SetSearchFilters
-    SetSearchFilters(searchFilters: BookSearchFilters = null) {
-        this.service.post("Site", "SetBookSearchFilters", searchFilters).subscribe((resData: any) => {
-            this.searchFilters = resData;
+    SetSearchFilters() {
+        this.service.get("Site", "GetBookSearchFilters", this.searchFilters).subscribe((resData: any) => {
+            if (resData != null) {
+                this.searchFilters.StartDate = resData.StartDate;
+                this.searchFilters.EndDate = resData.EndDate;
+                this.searchFilters.MakeCode = resData.MakeCode;
+                this.searchFilters.ModelCode = resData.ModelCode;
+                this.searchFilters.CarStatusCode = resData.CarStatusCode;
+                this.searchFilters.FuelTypeCode = resData.FuelTypeCode;
+                this.searchFilters.PriceMin = resData.PriceMin;
+                this.searchFilters.PriceMax = resData.PriceMax;
+                this.searchFilters.YearMin = resData.YearMin;
+                this.searchFilters.YearMax = resData.YearMax;
+                this.searchFilters.BodyTypeCode = resData.BodyTypeCode;
+                this.searchFilters.DriveTypeCode = resData.DriveTypeCode;
+                this.searchFilters.GearTypeCode = resData.GearTypeCode;
+                this.searchFilters.EngineTypeCode = resData.EngineTypeCode;
+                this.searchFilters.EngineCapacity = resData.EngineCapacity;
+                this.searchFilters.GearCount = resData.GearCount;
+                this.searchFilters.Cylinders = resData.Cylinders;
+                this.searchFilters.Mileage = resData.Mileage;
+                this.searchFilters.Seats = resData.Seats;
+                this.searchFilters.Doors = resData.Doors;
+                this.searchFilters.ExteriorColor = resData.ExteriorColor;
+                this.searchFilters.InteriorColor = resData.InteriorColor;
+            }
 
-            this.router.navigate(['/Cars/Book/Cars']);
+            this.service.post("Site", "SetBookSearchFilters", this.searchFilters).subscribe((resData: any) => {
+                this.searchFilters = resData;
+
+                this.router.navigate(['/Cars/Book/Cars']);
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
 

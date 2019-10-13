@@ -110,12 +110,12 @@ export class CarsBookComponent {
         this.searchFilters.ExteriorColor = this.bookForm.get("ExteriorColor").value;
         this.searchFilters.InteriorColor = this.bookForm.get("InteriorColor").value;
 
-        this.SetSearchFilters(this.searchFilters);
+        this.SetSearchFilters();
     }
 
     //SetSearchFilters
-    SetSearchFilters(searchFilters: BookSearchFilters = null) {
-        this.service.post("Site", "SetBookSearchFilters", searchFilters).subscribe((resData: any) => {
+    SetSearchFilters() {
+        this.service.post("Site", "SetBookSearchFilters", this.searchFilters).subscribe((resData: any) => {
             this.searchFilters = resData;
 
             this.router.navigate(['/Cars/Book/Features']);

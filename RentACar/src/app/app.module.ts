@@ -17,6 +17,7 @@ import { ScriptsComponent } from './views/shared/controls/scripts';
 import { SharedBookNowComponent } from './views/shared/common/booknow';
 import { SharedCallUsComponent } from './views/shared/common/callus';
 import { SharedModalAlertComponent } from './views/shared/common/modalalert';
+import { SharedModalConfirmComponent } from './views/shared/common/modalconfirm';
 
 //Home
 import { IndexComponent } from './views/home';
@@ -348,6 +349,7 @@ import { AdminLib } from './admin/lib/methods';
         SharedBookNowComponent,
         SharedCallUsComponent,
         SharedModalAlertComponent,
+        SharedModalConfirmComponent,
 
         //Home
         IndexComponent,

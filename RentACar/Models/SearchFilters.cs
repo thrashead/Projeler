@@ -28,42 +28,6 @@ namespace Models
             return searchFilters;
         }
 
-        static void FillFilters(SearchFilters searchFilters, SearchFilters sessionFilters)
-        {
-            if (sessionFilters.BodyTypeCode != null && searchFilters.BodyTypeCode == null)
-                searchFilters.BodyTypeCode = sessionFilters.BodyTypeCode;
-
-            if (sessionFilters.CarStatusCode != null && searchFilters.CarStatusCode == null)
-                searchFilters.CarStatusCode = sessionFilters.CarStatusCode;
-
-            if (sessionFilters.FuelTypeCode != null && searchFilters.FuelTypeCode == null)
-                searchFilters.FuelTypeCode = sessionFilters.FuelTypeCode;
-
-            if (sessionFilters.MakeCode != null && searchFilters.MakeCode == null)
-                searchFilters.MakeCode = sessionFilters.MakeCode;
-
-            if (sessionFilters.ModelCode != null && searchFilters.ModelCode == null)
-                searchFilters.ModelCode = sessionFilters.ModelCode;
-
-            if (sessionFilters.Order != null && searchFilters.Order == null)
-                searchFilters.Order = sessionFilters.Order;
-
-            if (sessionFilters.PriceMax != null && searchFilters.PriceMax == null)
-                searchFilters.PriceMax = sessionFilters.PriceMax;
-
-            if (sessionFilters.PriceMin != null && searchFilters.PriceMin == null)
-                searchFilters.PriceMin = sessionFilters.PriceMin;
-
-            if (sessionFilters.YearMin != null && searchFilters.YearMin == null)
-                searchFilters.YearMin = sessionFilters.YearMin;
-
-            if (sessionFilters.YearMax != null && searchFilters.YearMax == null)
-                searchFilters.YearMax = sessionFilters.YearMax;
-
-            if (sessionFilters.Top != null && searchFilters.Top == null)
-                searchFilters.Top = sessionFilters.Top;
-        }
-
         static SearchFilters CheckNull(SearchFilters searchFilters)
         {
             searchFilters = CheckAllAsNull(searchFilters);

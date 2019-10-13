@@ -11,7 +11,7 @@ import { LangItem } from '../../../models/LangItem';
 
 export class CarsBookSubmitComponent {
     errorMsg: string;
-    @Output() alert: string;
+    @Output() confirm: string;
 
     bookForm: FormGroup;
 
@@ -53,10 +53,10 @@ export class CarsBookSubmitComponent {
 
         this.service.post("Site", "ApplyBooking", this.data).subscribe((answer: boolean) => {
             if (answer == true) {
-                $("#modalAlert").addClass("show");
-                this.alert = this.langs.confirm.submit;
-
-                this.router.navigate(['/']);
+                this.service.get("Site", "ClearBookSearchFilters").subscribe((resData: any) => {
+                    $("#modalAlert").addClass("show");
+                    this.confirm = this.langs.confirm.submit;
+                }, resError => this.errorMsg = resError);
             }
         }, resError => this.errorMsg = resError);
     }
