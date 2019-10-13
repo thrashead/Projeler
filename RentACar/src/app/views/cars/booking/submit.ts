@@ -12,6 +12,7 @@ import { LangItem } from '../../../models/LangItem';
 export class CarsBookSubmitComponent {
     errorMsg: string;
     @Output() confirm: string;
+    @Output() alert: string;
 
     bookForm: FormGroup;
 
@@ -39,7 +40,7 @@ export class CarsBookSubmitComponent {
 
     onClick($event) {
         var target = $event.target || $event.srcElement || $event.currentTarget;
-        var carID = parseInt(target.attributes["data-id"].value);
+        var carID = target.hasAttribute("data-id") ? parseInt(target.attributes["data-id"].value) : 0;
 
         this.data = new Object();
         this.data.Name = this.bookForm.get("Name").value;
@@ -52,11 +53,16 @@ export class CarsBookSubmitComponent {
         this.data.CarID = carID;
 
         this.service.post("Site", "ApplyBooking", this.data).subscribe((answer: boolean) => {
+
             if (answer == true) {
                 this.service.get("Site", "ClearBookSearchFilters").subscribe((resData: any) => {
-                    $("#modalAlert").addClass("show");
+                    $("#modalConfirm").addClass("show");
                     this.confirm = this.langs.confirm.submit;
                 }, resError => this.errorMsg = resError);
+            }
+            else {
+                $("#modalAlert").addClass("show");
+                this.alert = this.langs.error
             }
         }, resError => this.errorMsg = resError);
     }
@@ -85,6 +91,7 @@ export class CarsBookSubmitComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
+                    case "cmn_cnfrm_error": this.langs.error = item.ShortDescription; break;
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
                     case "car_book":
                         switch (item.ShortCode) {
@@ -143,6 +150,7 @@ export class CarsBookSubmitComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_cnfrm_error"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
     }
 }

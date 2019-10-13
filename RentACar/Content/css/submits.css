@@ -168,7 +168,7 @@
 /* Submit2 */
 /*b-infoBar*/
 .b-infoBar__progress-line-step.m-active {
-    background: url(/RentACar/Content/img/progress.jpg) repeat-x;
+    background-color: grey;
 }
 
 .m-submit2 .b-submit__main-element{

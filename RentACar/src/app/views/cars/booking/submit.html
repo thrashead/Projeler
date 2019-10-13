@@ -2,6 +2,7 @@
 <rac-carbookingbreadcumbs></rac-carbookingbreadcumbs>
 <rac-carbookingprogress></rac-carbookingprogress>
 <rac-sharedmodalconfirm confirm="{{ confirm }}"></rac-sharedmodalconfirm>
+<rac-sharedmodalalert alert="{{ alert }}"></rac-sharedmodalalert>
 
 <!--b-submit-->
 <div class="b-submit">
@@ -56,7 +57,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.id }} <span>*</span></label>
-                                        <input type="text" id="txtIdentityNo" name="txtIdentityNo" formControlName="IdentityNo" />
+                                        <input type="number" id="txtIdentityNo" name="txtIdentityNo" formControlName="IdentityNo" />
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +79,7 @@
                                 <div class="col-md-6 col-xs-12">
                                     <div class="b-submit__main-element">
                                         <label>{{ langs?.contact?.phone }} <span>*</span></label>
-                                        <input type="text" id="txtPhone" name="txtPhone" formControlName="Phone" />
+                                        <input type="number" id="txtPhone" name="txtPhone" formControlName="Phone" />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12">

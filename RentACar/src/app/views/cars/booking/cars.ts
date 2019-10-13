@@ -119,7 +119,6 @@ export class CarsBookCarsComponent {
         }, resError => this.errorMsg = resError);
     }
 
-
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;

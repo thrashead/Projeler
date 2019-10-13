@@ -441,12 +441,17 @@ namespace RentACar.Controllers
         [HttpPost]
         public JsonResult ApplyBooking([System.Web.Http.FromBody] CarReservation param)
         {
-            param.Accepted = false;
-            param.StartDate = (Session["BookSearchFilters"] as BookSearchFilters).StartDate;
-            param.EndDate = (Session["BookSearchFilters"] as BookSearchFilters).EndDate;
-            param.ProcessDate = AppTools.GetTime;
+            if (Session["BookSearchFilters"] != null)
+            {
+                param.Accepted = false;
+                param.StartDate = (Session["BookSearchFilters"] as BookSearchFilters).StartDate;
+                param.EndDate = (Session["BookSearchFilters"] as BookSearchFilters).EndDate;
+                param.ProcessDate = AppTools.GetTime;
 
-            return Json(param.Insert(param));
+                return Json(param.Insert(param));
+            }
+
+            return Json(false);
         }
 
         #endregion
