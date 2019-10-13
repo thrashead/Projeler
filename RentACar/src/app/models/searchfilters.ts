@@ -1,6 +1,7 @@
 ﻿export interface SearchFilters {
     Top: number;
     Order: string;
+    MakeUrl: string;
     MakeCode: string;
     ModelCode: string;
     PriceMin: number;

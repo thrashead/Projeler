@@ -8,6 +8,7 @@ namespace Models
         public int? Top { get; set; }
         public string Order { get; set; }
 
+        public string MakeUrl { get; set; }
         public string MakeCode { get; set; }
         public string ModelCode { get; set; }
         public string BodyTypeCode { get; set; }
@@ -39,6 +40,9 @@ namespace Models
                 return searchFilters;
 
             if (searchFilters.FuelTypeCode != null)
+                return searchFilters;
+
+            if (searchFilters.MakeUrl != null)
                 return searchFilters;
 
             if (searchFilters.MakeCode != null)

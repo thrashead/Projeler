@@ -1,9 +1,10 @@
-﻿import { Component, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { SiteService } from '../../../../services/site';
-import { SearchFilters } from '../../../../models/searchfilters';
+﻿import { Component, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { SiteService } from '../../../../services/site';
 import { Lib } from '../../../../lib/methods';
 import { LangItem } from '../../../../models/LangItem';
+import { SearchFilters } from '../../../../models/searchfilters';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     selector: 'rac-carlistsearch',
@@ -18,16 +19,25 @@ export class CarsListSearchComponent implements OnDestroy {
     searchForm: FormGroup;
     searchFilters: SearchFilters;
 
+    url: string;
+
     CarMakes: any;
     CarModels: any;
     CarStatus: any;
     BodyTypes: any;
     FuelTypes: any;
 
-    constructor(private service: SiteService, private formBuilder: FormBuilder) {
+    constructor(private service: SiteService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
+        this.searchFilters = {} as SearchFilters;
+
+        this.route.params.subscribe((params: Params) => {
+            this.url = params['url'];
+            this.SetSearchFilters();
+        });
+
         this.SetLangContents();
 
         this.ComboCarMakes(false, null, true);
@@ -57,6 +67,11 @@ export class CarsListSearchComponent implements OnDestroy {
     }
 
     onClick() {
+        this.ApplySearchFilters();
+        this.SetSearchFilters();
+    }
+
+    ApplySearchFilters() {
         this.searchFilters = {} as SearchFilters;
 
         let minPrice: number = parseInt($("#txtPriceMin").val().toString());
@@ -72,12 +87,14 @@ export class CarsListSearchComponent implements OnDestroy {
         this.searchFilters.BodyTypeCode = this.searchForm.get("BodyTypeCode").value;
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.searchForm.get("FuelTypeCode").value;
-
-        this.SetSearchFilters();
     }
 
     //SetSearchFilters
     SetSearchFilters() {
+        if (this.url != null) {
+            this.searchFilters.MakeUrl = this.url;
+        }
+
         this.service.get("Site", "GetSearchFilters").subscribe((resData: any) => {
             if (resData != null) {
                 this.searchFilters.Order = resData.Order;
@@ -93,7 +110,7 @@ export class CarsListSearchComponent implements OnDestroy {
 
     //ClearSearchFilters
     ClearSearchFilters() {
-        this.service.get("Site", "ClearSearchFilters").subscribe((resData: any) => {
+        this.service.get("Site", "ClearSearchFilters", this.url).subscribe((resData: any) => {
             this.searchFilter.emit(resData);
         }, resError => this.errorMsg = resError);
     }

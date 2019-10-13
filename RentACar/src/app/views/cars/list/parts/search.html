@@ -4,7 +4,7 @@
         <div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
             <div>
                 <form [formGroup]="searchForm" class="b-items__aside-main-body">
-                    <div class="b-items__aside-main-body-item">
+                    <div class="b-items__aside-main-body-item" *ngIf="url == null">
                         <label>{{ langs?.makeText }}</label>
                         <div>
                             <select id="slcCarMakes" name="slcCarMakes" (change)="onChange($event)" class="m-select" formControlName="MakeCode">
@@ -13,7 +13,8 @@
                             <span class="fa fa-caret-down"></span>
                         </div>
                     </div>
-                    <div class="b-items__aside-main-body-item">
+                    <input type="hidden" formControlName="MakeCode" *ngIf="url != null" value="all" />
+                    <div class="b-items__aside-main-body-item" *ngIf="url == null">
                         <label>{{ langs?.modelText }}</label>
                         <div>
                             <select id="slcCarModels" name="slcCarModels" class="m-select" formControlName="ModelCode">
@@ -22,6 +23,7 @@
                             <span class="fa fa-caret-down"></span>
                         </div>
                     </div>
+                    <input type="hidden" formControlName="ModelCode" *ngIf="url != null" value="all" />
                     <div class="b-items__aside-main-body-item">
                         <label>{{ langs?.priceRangeText }}</label>
                         <div class="slider"></div>

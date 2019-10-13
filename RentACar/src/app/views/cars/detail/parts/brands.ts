@@ -1,7 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../../services/site';
-import { LangItem } from '../../../../models/LangItem';
 import { Lib } from '../../../../lib/methods';
+import { LangItem } from '../../../../models/LangItem';
 
 @Component({
     selector: 'rac-cardetailbrands',
@@ -21,11 +21,16 @@ export class CarsDetailBrandsComponent {
         this.GetCarMakes();
     }
 
+    GetCarMakes() {
+        this.service.get("Site", "GetMakeList", 7, true).subscribe((resData: any) => {
+            this.carMakes = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
     langs: any;
-
     SetLangContents() {
         this.PushLangItems();
 
@@ -46,11 +51,5 @@ export class CarsDetailBrandsComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_more"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_makes_brands"));
-    }
-
-    GetCarMakes() {
-        this.service.get("Site", "GetMakeList", 7, true).subscribe((resData: any) => {
-            this.carMakes = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

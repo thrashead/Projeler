@@ -332,9 +332,18 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
-        public JsonResult ClearSearchFilters()
+        public JsonResult ClearSearchFilters(string param)
         {
-            Session["SearchFilters"] = null;
+            if(param.ToNull() == null)
+            {
+                Session["SearchFilters"] = null;
+            }
+            else
+            {
+                Session["SearchFilters"] = new SearchFilters() { MakeUrl = param };
+
+            }
+
 
             return Json(Session["SearchFilters"] as SearchFilters, JsonRequestBehavior.AllowGet);
         }
