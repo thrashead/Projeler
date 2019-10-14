@@ -4,7 +4,7 @@
     </header>
     <nav>
         <ul class="b-blog__aside-categories-list">
-            <li *ngFor="let item of categoryList"><a [routerLink]="['/Blog/Category/' + item?.Url]">{{ item?.CategoryName }}</a></li>
+            <li [class.m-active]="item?.Url == url" *ngFor="let item of categoryList"><a [routerLink]="['/Blog/List/' + item?.Url]">{{ item?.CategoryName }}</a></li>
         </ul>
     </nav>
 </div>

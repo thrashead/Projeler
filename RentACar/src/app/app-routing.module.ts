@@ -252,7 +252,7 @@ const routes: Routes = [
             { path: 'About', component: AboutComponent },
             { path: 'Blog', component: BlogComponent },
             { path: 'Blog/List', component: BlogComponent },
-            { path: 'Blog/Category/:url', component: BlogComponent },
+            { path: 'Blog/List/:url', component: BlogComponent },
             { path: 'Blog/Detail/:url', component: BlogDetailComponent },
             { path: 'Contact', component: ContactComponent },
             { path: 'Cars', component: CarsListComponent },

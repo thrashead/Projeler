@@ -1,5 +1,6 @@
 ﻿using Models;
 using Repository.BlogCategoryModel;
+using Repository.BlogCommentsModel;
 using Repository.BlogModel;
 using Repository.CarDetailsExtIntModel;
 using Repository.CarFeatsBodyTypeModel;
@@ -12,6 +13,7 @@ using Repository.CarFeatsModelModel;
 using Repository.CarReservationModel;
 using Repository.CarsModel;
 using Repository.CarStatusModel;
+using Repository.ContactFormModel;
 using Repository.ContentModel;
 using Repository.LangContentModel;
 using Repository.NewsletterModel;
@@ -71,14 +73,36 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetBlogPosts(string param, string param2)
+        public JsonResult GetBlogPosts(string param, string param2, string param3)
         {
             Blog blog = new Blog();
 
-            if (param.ToInteger() > 1 || param == null || param == "null")
-                return Json(blog.DetailSelect(param2.ToInteger(), AppTools.GetLang.ID, param.ToInteger()), JsonRequestBehavior.AllowGet);
+            param = param.ToNull();
+            param2 = param2.ToNull();
+            param3 = param3.ToNull();
+
+            if (param3.ToInteger() > 1 || param3 == null || param3 == "null")
+                return Json(blog.BlogPosts(param, param2.ToInteger(), AppTools.GetLang.ID, param3.ToInteger()), JsonRequestBehavior.AllowGet);
             else
-                return Json(blog.DetailSelect(param2.ToInteger(), AppTools.GetLang.ID, param.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+                return Json(blog.BlogPosts(param, param2.ToInteger(), AppTools.GetLang.ID, param3.ToInteger()).FirstOrDefault(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetBlogSearchResult()
+        {
+            Blog blog = new Blog();
+
+            string words = Session["BlogSearchWords"] as string;
+
+            return Json(blog.BlogSearchResult(words, AppTools.GetLang.ID), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult SetBlogSearchWords(string param)
+        {
+            Session["BlogSearchWords"] = param;
+
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -136,6 +160,15 @@ namespace RentACar.Controllers
             Blog blog = new Blog();
 
             return Json(blog.BlogComments(param.ToInteger()), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult SendReview([System.Web.Http.FromBody] BlogComments param)
+        {
+            param.SendDate = AppTools.GetTime;
+            param.Active = false;
+
+            return Json(param.Insert(param));
         }
 
         #region Counter
@@ -334,7 +367,7 @@ namespace RentACar.Controllers
         [HttpGet]
         public JsonResult ClearSearchFilters(string param)
         {
-            if(param.ToNull() == null)
+            if (param.ToNull() == null)
             {
                 Session["SearchFilters"] = null;
             }
@@ -699,6 +732,18 @@ namespace RentACar.Controllers
         public JsonResult SendNewsletter([System.Web.Http.FromBody] Newsletter param)
         {
             param.Active = false;
+
+            return Json(param.Insert(param));
+        }
+
+        #endregion
+
+        #region ContactForm
+
+        [HttpPost]
+        public JsonResult SendContactForm([System.Web.Http.FromBody] ContactForm param)
+        {
+            param.SendDate = AppTools.GetTime;
 
             return Json(param.Insert(param));
         }

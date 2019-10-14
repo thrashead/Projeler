@@ -1,9 +1,9 @@
 ﻿import { Component, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { SiteService } from '../../../../services/site';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LangItem } from '../../../../models/LangItem';
+import { SiteService } from '../../../../services/site';
 import { Lib } from '../../../../lib/methods';
+import { LangItem } from '../../../../models/LangItem';
 
 @Component({
     selector: 'rac-cardetailitem',
@@ -39,7 +39,7 @@ export class CarsDetailItemComponent implements AfterViewInit {
         this.infoForm = this.formBuilder.group({
             Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
             Mail: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
-            Phone: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+            Phone: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(15)]),
             Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(500)]),
             CopyMail: new FormControl(null)
         });

@@ -1,7 +1,6 @@
 ﻿<div class="b-blog__aside-search wow zoomInUp" data-wow-delay="0.3s">
-    <!--form action="/" method="post" -->
-    <div>
-        <input type="text" name="search" value="" placeholder="{{ langs?.search }}" />
-        <button type="submit"><span class="fa fa-search"></span></button>
-    </div>
+    <form [formGroup]="searchForm">
+        <input type="text" id="txtWords" name="txtWords" formControlName="Words" placeholder="{{ langs?.search }}" />
+        <button type="submit" (click)="onClick()" [disabled]="!searchForm.valid"><span class="fa fa-search"></span></button>
+    </form>
 </div>

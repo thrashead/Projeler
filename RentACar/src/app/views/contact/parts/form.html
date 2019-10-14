@@ -1,4 +1,6 @@
-﻿<!--b-contacts-->
+﻿<rac-sharedmodalalert alert="{{ alert }}"></rac-sharedmodalalert>
+
+<!--b-contacts-->
 <section class="b-contacts s-shadow">
     <div class="container">
         <div class="row">
@@ -10,14 +12,13 @@
                     <p class=" wow zoomInUp" data-wow-delay="0.5s">
                         {{ langs?.contact.Text }}
                     </p>
-                    <div id="success"></div>
-                    <div id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s"><!--form-->
-                        <input type="text" placeholder="{{ langs?.contact.Name }}" value="" name="user-name" id="user-name" />
-                        <input type="text" placeholder="{{ langs?.contact.Mail }}" value="" name="user-email" id="user-email" />
-                        <input type="text" placeholder="{{ langs?.contact.Phone }}" value="" name="user-phone" id="user-phone" />
-                        <textarea id="user-message" name="user-message" placeholder="{{ langs?.contact.Comment }}"></textarea>
-                        <button type="submit" class="btn m-btn">{{ langs?.contact.Submit }}<span class="fa fa-angle-right"></span></button>
-                    </div>
+                    <form [formGroup]="contactForm" class="s-form wow zoomInUp" data-wow-delay="0.5s">
+                        <input type="text" placeholder="{{ langs?.contact.Sender }}" name="txtSender" id="txtSender" formControlName="Sender" />
+                        <input type="text" placeholder="{{ langs?.contact.Mail }}" name="txtMail" id="txtMail" formControlName="Mail" />
+                        <input type="number" placeholder="{{ langs?.contact.Phone }}" name="txtPhone" id="txtPhone" formControlName="Phone" />
+                        <textarea placeholder="{{ langs?.contact.Message }}" id="txtMessage" name="txtMessage" formControlName="Message"></textarea>
+                        <button type="submit" class="btn m-btn" [disabled]="!contactForm.valid" (click)="onClick()">{{ langs?.contact.Submit }}<span class="fa fa-angle-right"></span></button>
+                    </form>
                 </div>
             </div>
             <div class="col-xs-6">
@@ -35,7 +36,7 @@
                             <div class="b-contacts__address-info-main-item">
                                 <span class="fa fa-home"></span>
                                 {{ langs?.contact.Address }}
-                            <p>{{ langs?.contact.Address2 }}</p>
+                                <p>{{ langs?.contact.Address2 }}</p>
                             </div>
                             <div class="b-contacts__address-info-main-item">
                                 <div class="row">

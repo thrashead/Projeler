@@ -1,7 +1,9 @@
 ﻿import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
 import { Lib } from '../../../lib/methods';
+import { LangItem } from '../../../models/LangItem';
 
 @Component({
     selector: 'rac-blogsearch',
@@ -11,11 +13,27 @@ import { Lib } from '../../../lib/methods';
 export class BlogSearchComponent {
     errorMsg: string;
 
-    constructor(private service: SiteService) {
+    searchForm: FormGroup;
+
+    words: string;
+
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
         this.SetLangContents();
+
+        this.searchForm = this.formBuilder.group({
+            Words: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
+        });
+    }
+
+    onClick() {
+        this.words = this.searchForm.get("Words").value;
+
+        this.service.get("Site", "SetBlogSearchWords", this.words).subscribe((resData: any) => {
+            this.router.navigate(['/'], { skipLocationChange: true }).then(() => { this.router.navigate(['/Blog/List/Arama-Sonuclari']) });
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
