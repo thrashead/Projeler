@@ -166,9 +166,17 @@ namespace RentACar.Controllers
         public JsonResult SendReview([System.Web.Http.FromBody] BlogComments param)
         {
             param.SendDate = AppTools.GetTime;
+            param.IPAddress = AppTools.GetIPAddress;
             param.Active = false;
 
-            return Json(param.Insert(param));
+            bool returnValue = param.SendDate.ToDateTime().CheckDatesToSend(param.GetLastDate(param.IPAddress));
+
+            if (returnValue)
+            {
+                returnValue = param.Insert(param);
+            }
+
+            return Json(returnValue);
         }
 
         #region Counter
@@ -483,17 +491,25 @@ namespace RentACar.Controllers
         [HttpPost]
         public JsonResult ApplyBooking([System.Web.Http.FromBody] CarReservation param)
         {
+            bool returnValue = false;
+            
             if (Session["BookSearchFilters"] != null)
             {
                 param.Accepted = false;
                 param.StartDate = (Session["BookSearchFilters"] as BookSearchFilters).StartDate;
                 param.EndDate = (Session["BookSearchFilters"] as BookSearchFilters).EndDate;
                 param.ProcessDate = AppTools.GetTime;
+                param.IPAddress = AppTools.GetIPAddress;
 
-                return Json(param.Insert(param));
+                returnValue = param.ProcessDate.ToDateTime().CheckDatesToSend(param.GetLastDate(param.IPAddress));
+
+                if (returnValue)
+                {
+                    returnValue = param.Insert(param);
+                }
             }
 
-            return Json(false);
+            return Json(returnValue);
         }
 
         #endregion
@@ -744,8 +760,16 @@ namespace RentACar.Controllers
         public JsonResult SendContactForm([System.Web.Http.FromBody] ContactForm param)
         {
             param.SendDate = AppTools.GetTime;
+            param.IPAddress = AppTools.GetIPAddress;
 
-            return Json(param.Insert(param));
+            bool returnValue = param.SendDate.ToDateTime().CheckDatesToSend(param.GetLastDate(param.IPAddress));
+
+            if (returnValue)
+            {
+                returnValue = param.Insert(param);
+            }
+
+            return Json(returnValue);
         }
 
         #endregion

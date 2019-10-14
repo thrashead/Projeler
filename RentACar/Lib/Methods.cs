@@ -47,6 +47,26 @@ namespace RentACar
                 return HttpContext.Current.Session["CurrentLang"] != null ? HttpContext.Current.Session["CurrentLang"] as Translation : null;
             }
         }
+
+        public static string GetIPAddress
+        {
+            get
+            {
+                HttpContext context = HttpContext.Current;
+                string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+                if (!string.IsNullOrEmpty(ipAddress))
+                {
+                    string[] addresses = ipAddress.Split(',');
+                    if (addresses.Length != 0)
+                    {
+                        return addresses[0];
+                    }
+                }
+
+                return context.Request.ServerVariables["REMOTE_ADDR"];
+            }
+        }
     }
 
     public static class UserProcesses
@@ -165,7 +185,7 @@ namespace RentACar
         {
             List<SelectListItem> returnList = new List<SelectListItem>();
 
-            if(addEmpty)
+            if (addEmpty)
             {
                 returnList.Add(new SelectListItem()
                 {
@@ -184,6 +204,21 @@ namespace RentACar
             }
 
             return returnList;
+        }
+
+        public static bool CheckDatesToSend(this DateTime item, DateTime? dateTime)
+        {
+            if (dateTime != null)
+            {
+                if (dateTime.Value.Year == item.Year)
+                    if (dateTime.Value.Month == item.Month)
+                        if (dateTime.Value.Day == item.Day)
+                        {
+                            return false;
+                        }
+            }
+
+            return true;
         }
     }
 

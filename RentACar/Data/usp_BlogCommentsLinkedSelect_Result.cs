@@ -20,6 +20,7 @@ namespace RentACar.Data
         public string SendDate { get; set; }
         public string Message { get; set; }
         public bool Active { get; set; }
+        public string IPAddress { get; set; }
         public string BlogAdi { get; set; }
     }
 }

@@ -19,5 +19,6 @@ namespace RentACar.Data
         public string Phone { get; set; }
         public string Message { get; set; }
         public string SendDate { get; set; }
+        public string IPAddress { get; set; }
     }
 }
