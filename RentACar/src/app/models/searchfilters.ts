@@ -11,4 +11,5 @@
     BodyTypeCode: string;
     FuelTypeCode: string;
     CarStatusCode: string;
+    HomeSearch: boolean;
 }

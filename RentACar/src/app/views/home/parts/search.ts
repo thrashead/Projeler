@@ -88,6 +88,8 @@ export class HomeSearchComponent implements AfterViewChecked {
         this.searchFilters.YearMin = this.searchForm.get("YearMin").value;
         this.searchFilters.YearMax = this.searchForm.get("YearMax").value;
 
+        this.searchFilters.HomeSearch = true;
+
         this.SetSearchFilters(this.searchFilters);
     }
 

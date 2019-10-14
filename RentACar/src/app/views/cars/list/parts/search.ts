@@ -97,7 +97,13 @@ export class CarsListSearchComponent implements OnDestroy {
 
         this.service.get("Site", "GetSearchFilters").subscribe((resData: any) => {
             if (resData != null) {
-                this.searchFilters.Order = resData.Order;
+                if (resData.HomeSearch == true) {
+                    this.searchFilters = resData;
+                    this.searchFilters.HomeSearch = false;
+                }
+                else {
+                    this.searchFilters.Order = resData.Order;
+                }
             }
 
             this.service.post("Site", "SetSearchFilters", this.searchFilters).subscribe((resData: any) => {

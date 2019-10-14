@@ -20,6 +20,8 @@ namespace Models
         public int? YearMin { get; set; }
         public int? YearMax { get; set; }
 
+        public bool? HomeSearch { get; set; }
+
         public static SearchFilters Check(SearchFilters searchFilters)
         {
             searchFilters = CheckNull(searchFilters);
