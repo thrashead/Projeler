@@ -19,20 +19,32 @@
                                             <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-pencil"></span>{{ blog?.CategoryTitle }}</span>
                                         </div>
                                     </header>
-                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
-                                        <div class="b-blog__posts-one-body-main-img" *ngIf="pictureList?.length > 0">
+
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s" *ngIf="pictureList?.length > 0">
+                                        <div class="b-blog__posts-one-body-main-img">
                                             <ul class="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
-                                                <li *ngFor="let item of pictureList"><img class="img-responsive" src="/RentACar/Uploads/{{ item?.PictureUrl }}" /></li>
+                                                <li *ngFor="let item of pictureList"><img class="img-responsive" src="/RentACar/Uploads/{{ item }}" /></li>
                                             </ul>
                                             <div class="b-blog__posts-one-body-main-img-small" id="bx-pager">
-                                                <a *ngFor="let item of pictureList; let i = index;" href="#" [attr.data-slide-index]="i"><img src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" /></a>
+                                                <a *ngFor="let item of pictureList; let i = index;" href="javascript:;" [attr.data-slide-index]="i">
+                                                    <img src="/RentACar/Uploads/thumb_{{ item }}" />
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s" *ngIf="blog?.Description != null">
+                                        <div class="s-lineDownLeft s-titleLeft" *ngIf="blog?.ShortDescription != null">
+                                            <div>
+                                                <h2 class="s-titleDet">{{ blog?.ShortDescription }}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
                                         <p [innerHtml]="blog?.Description"></p>
                                     </div>
 
-                                    <div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s" *ngIf="blog?.ShortDescription2 != null">
-                                        <div class="s-lineDownLeft  s-titleLeft">
+                                    <div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s" *ngIf="blog?.Description2 != null">
+                                        <div class="s-lineDownLeft s-titleLeft" *ngIf="blog?.ShortDescription2 != null">
                                             <div>
                                                 <h2 class="s-titleDet">{{ blog?.ShortDescription2 }}</h2>
                                             </div>
@@ -40,6 +52,7 @@
                                         <div class="clearfix"></div>
                                         <p [innerHtml]="blog?.Description2"></p>
                                     </div>
+
                                     <div class="b-blog__posts-one-body-tags wow zoomInUp" data-wow-delay="0.5s" *ngIf="blog?.Tags != null">
                                         <span class="fa fa-tags"></span>
                                         {{ langs?.tags }} <span class="blogtags">{{ blog?.Tags }}</span>

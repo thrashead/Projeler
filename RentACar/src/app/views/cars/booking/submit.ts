@@ -91,7 +91,7 @@ export class CarsBookSubmitComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
-                    case "cmn_cnfrm_error": this.langs.error = item.ShortDescription; break;
+                    case "cmn_error_onemsg": this.langs.error = item.ShortDescription; break;
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
                     case "car_book":
                         switch (item.ShortCode) {
@@ -150,7 +150,7 @@ export class CarsBookSubmitComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_cnfrm_error"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_error_onemsg"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
     }
 }

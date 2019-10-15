@@ -45,6 +45,7 @@ import { AboutWorkersComponent } from './views/about/parts/workers';
 import { BlogComponent } from './views/blog';
 import { BlogHeaderComponent } from './views/blog/parts/header';
 import { BlogBreadCumbsComponent } from './views/blog/parts/breadcumbs';
+import { BlogBreadCumbsDetailComponent } from './views/blog/parts/breadcumbsdetail';
 import { BlogDetailComponent } from './views/blog/detail';
 import { BlogItemsComponent } from './views/blog/parts/items';
 import { BlogItemComponent } from './views/blog/parts/item';
@@ -377,6 +378,7 @@ import { AdminLib } from './admin/lib/methods';
         BlogComponent,
         BlogHeaderComponent,
         BlogBreadCumbsComponent,
+        BlogBreadCumbsDetailComponent,
         BlogDetailComponent,
         BlogItemsComponent,
         BlogItemComponent,

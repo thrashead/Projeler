@@ -210,7 +210,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></button>
+                        <button type="submit" (click)="onClick()" class="btn m-btn pull-right wow zoomInUp" [disabled]="!bookForm.valid" data-wow-delay="0.5s">{{ langs?.nextstep }}<span class="fa fa-angle-right"></span></button>
                     </form>
                 </div>
             </div>

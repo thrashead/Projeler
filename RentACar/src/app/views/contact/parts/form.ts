@@ -70,7 +70,7 @@ export class ContactFormComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "cntct_opnhrs": this.langs.openhours = item; break;
-                    case "cmn_cnfrm_error": this.langs.contact.Error = item.ShortDescription; break;
+                    case "cmn_error_onemsg": this.langs.contact.Error = item.ShortDescription; break;
                     case "cntct_form":
                         switch (item.ShortCode) {
                             case "text": this.langs.contact.Text = item.ShortDescription2; break;
@@ -112,6 +112,6 @@ export class ContactFormComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_opnhrs"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_info", "title"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_cnfrm_error"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_error_onemsg"));
     }
 }

@@ -114,7 +114,7 @@ export class BlogItemComponent {
                     case "cmn_comments": this.langs.comments = item.ShortDescription; break;
                     case "cmn_comment": this.langs.comment = item.ShortDescription2; break;
                     case "cmn_sendcmnt": this.langs.sendcomment = item.ShortDescription; break;
-                    case "cmn_cnfrm_error": this.langs.review.Error = item.ShortDescription; break;
+                    case "cmn_error_onemsg": this.langs.review.Error = item.ShortDescription; break;
                     case "book_rvw_alert": this.langs.review.alert = item.ShortDescription; break;
                     case "cntct_form":
                         switch (item.ShortCode) {
@@ -140,7 +140,7 @@ export class BlogItemComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comment"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_sendcmnt"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_cnfrm_error"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_error_onemsg"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "book_rvw_alert"));
     }
 }

@@ -39,7 +39,7 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-world__item {text-align:center;}
 .b-world__item p {margin-bottom: 0px;}
 .b-world__item h2 {height:40px;}
-.b-world__item img.img-responsive {display:unset;}
+.b-world__item img.img-responsive {display:unset;height:240px;}
 .b-items div input[type='checkbox'] {position: absolute;visibility: hidden;}
 .b-items div input[type='checkbox']:checked + .b-items__cars-one-img-check span.fa {display: block;}
 .b-items__cars-one-img > img {width: 270px;height: 230px;}
@@ -71,7 +71,9 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-info__aside {z-index:999;}
 .b-blog__aside-search button {top: 0px;margin-top: 7px;margin-right: 7px;}
 .b-blog__posts-one-body {margin-left:0px;}
+.b-blog__posts-one-body-main-img-small a img {height:60px;}
 .rvwSubmit {margin-bottom:30px;}
+.b-review__main p {font-family:Arial;}
 
 .modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/RentACar/Content/img/alertbg.png);z-index: 1000;display:none;}
 .modalitem.show {display:block;}

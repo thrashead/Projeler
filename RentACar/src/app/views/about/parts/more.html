@@ -5,8 +5,8 @@
             <div class="col-sm-6 col-xs-12">
                 <div class="b-more__why wow zoomInLeft" data-wow-delay="0.5s">
                     <h2 class="s-title">{{ langs?.why.ShortDescription }}</h2>
-                    <p>{{ langs?.why.Description }}</p>
-                    <div [innerHTML]="langs?.why.Description2"></div>
+                    <p [innerHTML]="langs?.why.Description"></p>
+                    <p [innerHTML]="langs?.why.Description2"></p>
                 </div>
             </div>
 
@@ -17,9 +17,7 @@
                     <div class="b-more__info-block" *ngFor="let item of langs?.moreList">
                         <div class="b-more__info-block-title">{{ item?.ShortDescription }}<a class="j-more" href="javascript:;"><span class="fa fa-angle-left"></span></a></div>
                         <div class="b-more__info-block-inside j-inside">
-                            <p>
-                                {{ item?.Description }}
-                            </p>
+                            <p [innerHTML]="item?.Description"></p>
                         </div>
                     </div>
                 </div>

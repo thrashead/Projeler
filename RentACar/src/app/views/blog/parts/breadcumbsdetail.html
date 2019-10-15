@@ -1,0 +1,9 @@
+﻿<!--b-breadCumbs-->
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a routerLink="/" class="b-breadCumbs__page">{{ langs?.menu.home }}</a><span class="fa fa-angle-right"></span>
+        <a routerLink="/Blog/List" class="b-breadCumbs__page">{{ langs?.menu.blog }}</a><span *ngIf="title != null" class="fa fa-angle-right"></span>
+        <a routerLink="/Blog/Detail/{{ url }}" class="b-breadCumbs__page m-active">{{ title }}</a>
+    </div>
+</div>
+<!--b-breadCumbs-->
