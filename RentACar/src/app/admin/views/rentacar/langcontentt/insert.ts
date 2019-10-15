@@ -1,9 +1,9 @@
 ﻿import { Component, AfterViewChecked } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ModelService } from "../../../services/model";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import { AdminLib } from '../../../lib/methods';
+import { ModelService } from "../../../services/model";
 
 @Component({
 	templateUrl: './insert.html'
@@ -68,7 +68,6 @@ export class AdminLangContentTInsertComponent implements AfterViewChecked {
 					$(".alertMessage").text(answer.Mesaj);
 					$(".alert-error").fadeIn("slow");
 				}
-			},
-				resError => this.errorMsg = resError);
+			}, resError => this.errorMsg = resError);
 	}
 }

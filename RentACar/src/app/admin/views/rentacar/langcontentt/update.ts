@@ -1,9 +1,9 @@
 ﻿import { Component, AfterViewChecked } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import { AdminLib } from '../../../lib/methods';
+import { ModelService } from "../../../services/model";
 
 @Component({
 	templateUrl: './update.html'
@@ -84,7 +84,6 @@ export class AdminLangContentTUpdateComponent implements AfterViewChecked {
 					$(".alertMessage").text(answer.Mesaj);
 					$(".alert-error").fadeIn("slow");
 				}
-			},
-				resError => this.errorMsg = resError);
+			}, resError => this.errorMsg = resError);
 	}
 }

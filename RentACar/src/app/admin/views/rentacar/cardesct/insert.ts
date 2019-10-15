@@ -29,8 +29,8 @@ export class AdminCarDescTInsertComponent implements AfterViewChecked {
 			this.model = answer;
 		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 
-		AdminLib.ConvertToCKEditor("Description");
-		AdminLib.ConvertToCKEditor("Description2");
+        AdminLib.ConvertToCKEditor("Description", 1500);
+        AdminLib.ConvertToCKEditor("Description2", 1500);
 
 		this.insertForm = this.formBuilder.group({
 			CarDescID: new FormControl(null, [Validators.required, Validators.min(0)]),

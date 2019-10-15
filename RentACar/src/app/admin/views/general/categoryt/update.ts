@@ -1,14 +1,14 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { AdminLib } from '../../../lib/methods';
+import { ModelService } from "../../../services/model";
 
 @Component({
     templateUrl: './update.html'
 })
 
-export class AdminCategoryTUpdateComponent {
+export class AdminCategoryTUpdateComponent implements AfterViewChecked {
     errorMsg: string;
     id: string;
 
@@ -39,6 +39,10 @@ export class AdminCategoryTUpdateComponent {
             ShortText2: new FormControl(null),
             Description: new FormControl(null),
         });
+    }
+
+    ngAfterViewChecked() {
+        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
     }
 
     onSubmit() {

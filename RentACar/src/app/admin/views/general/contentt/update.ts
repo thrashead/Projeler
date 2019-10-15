@@ -1,14 +1,14 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { AdminLib } from '../../../lib/methods';
+import { ModelService } from "../../../services/model";
 
 @Component({
     templateUrl: './update.html'
 })
-
-export class AdminContentTUpdateComponent {
+    
+export class AdminContentTUpdateComponent implements AfterViewChecked {
     errorMsg: string;
     id: string;
 
@@ -41,6 +41,10 @@ export class AdminContentTUpdateComponent {
         });
     }
 
+    ngAfterViewChecked() {
+        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
+    }
+
     onSubmit() {
         this.data = new Object();
         this.data.ID = this.duzenleForm.get("ID").value;
@@ -60,7 +64,6 @@ export class AdminContentTUpdateComponent {
                     $(".alertMessage").text(answer.Mesaj);
                     $(".alert-error").fadeIn("slow");
                 }
-            },
-                resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
     }
 }

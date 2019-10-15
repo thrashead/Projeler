@@ -31,8 +31,8 @@ export class AdminCarDescTUpdateComponent implements AfterViewChecked {
 		this.callTable = true;
 		this.FillData();
 
-		AdminLib.ConvertToCKEditor("Description");
-		AdminLib.ConvertToCKEditor("Description");
+		AdminLib.ConvertToCKEditor("Description", 1500);
+        AdminLib.ConvertToCKEditor("Description2", 1500);
 
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(0)]),
