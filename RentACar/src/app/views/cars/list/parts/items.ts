@@ -51,6 +51,24 @@ export class CarsListItemsComponent {
         $("#lblCompareCount").text(count.toString());
     }
 
+    //CarCompareList
+    CreateCarCompareList(url: string) {
+        if (this.firstCheck) {
+            this.service.get("Site", "ClearCarCompareList").subscribe((resData: any) => {
+                this.firstCheck = false;
+
+                this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
+                    this.carCompareList = resData;
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }
+        else {
+            this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
+                this.carCompareList = resData;
+            }, resError => this.errorMsg = resError);
+        }
+    }
+
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
@@ -68,6 +86,7 @@ export class CarsListItemsComponent {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
                     case "car_comp_three": this.langs.threecar = item.ShortDescription; break;
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                     case "car_list":
                         switch (item.ShortCode) {
                             case "null":
@@ -87,23 +106,6 @@ export class CarsListItemsComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_three"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_list", "null"));
-    }
-
-    //CarCompareList
-    CreateCarCompareList(url: string) {
-        if (this.firstCheck) {
-            this.service.get("Site", "ClearCarCompareList").subscribe((resData: any) => {
-                this.firstCheck = false;
-
-                this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
-                    this.carCompareList = resData;
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }
-        else {
-            this.service.get("Site", "CreateCarCompareList", url).subscribe((resData: any) => {
-                this.carCompareList = resData;
-            }, resError => this.errorMsg = resError);
-        }
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

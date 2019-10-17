@@ -13,7 +13,7 @@
                         <span *ngIf="item?.Status != 'Sıfır'" class="m-leasing">{{ item?.Status }}</span>
                     </a>
                     <div class="b-featured__item-price">
-                        {{ item?.Price }} TL
+                        {{ item?.Price }} TL/{{ langs?.DayPrice }}
                     </div>
                     <div class="clearfix"></div>
                     <h5><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h5>

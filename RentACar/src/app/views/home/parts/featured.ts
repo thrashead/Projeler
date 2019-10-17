@@ -21,6 +21,13 @@ export class HomeFeaturedComponent {
         this.GetShowroom();
     }
 
+    //GetShowroom
+    GetShowroom() {
+        this.service.get("Site", "GetShowroom", 8).subscribe((resData: any) => {
+            this.carList = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
@@ -35,6 +42,7 @@ export class HomeFeaturedComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "home_ftrdvhcl": this.langs.featuredvehicles = item.ShortDescription; break;
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -44,12 +52,6 @@ export class HomeFeaturedComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_ftrdvhcl"));
-    }
-
-    //GetShowroom
-    GetShowroom() {
-        this.service.get("Site", "GetShowroom", 8).subscribe((resData: any) => {
-            this.carList = resData;
-        }, resError => this.errorMsg = resError);
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

@@ -1,0 +1,20 @@
+﻿<rac-sharedmodalalert alert="{{ alert }}"></rac-sharedmodalalert>
+
+<div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
+    <h2 class="s-titleDet">{{ langs?.test?.Text }}</h2>
+    <div class="b-detail__main-aside-about-form">
+        <form [formGroup]="testForm">
+            <input type="text" placeholder="{{ langs?.test?.Sender }}" id="txtName" name="txtName" formControlName="Name" />
+            <input type="text" placeholder="{{ langs?.test?.Mail }}" id="txtMail" name="txtMail" formControlName="Mail" />
+            <input type="number" placeholder="{{ langs?.test?.Phone }}" id="txtPhone" name="txtPhone" formControlName="Phone" />
+            <textarea placeholder="{{ langs?.test?.Message }}" id="txtMessage" name="txtMessage" formControlName="Message"></textarea>
+            <div><input type="checkbox" id="chkCopyMail" name="chkCopyMail" formControlName="CopyMail" /><label>{{ langs?.test?.CopyMail }}</label></div>
+            <button class="btn m-btn" [disabled]="!testForm.valid" (click)="onClick()">{{ langs?.test?.Submit }}<span class="fa fa-angle-right"></span></button>
+        </form>
+    </div>
+    <div class="b-detail__main-aside-about-call">
+        <span class="fa fa-phone"></span>
+        <div>{{ langs?.test?.Phone2 }}</div>
+        <p>{{ langs?.test?.CallUs }}</p>
+    </div>
+</div>

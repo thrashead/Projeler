@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-sm-3 col-xs-12">
                     <div class="b-detail__head-price">
-                        <div class="b-detail__head-price-num">{{ car?.Price }} TL</div>
+                        <div class="b-detail__head-price-num">{{ car?.Price }} TL/{{ langs?.DayPrice }}</div>
                         <p>{{ langs?.kdv }}</p>
                     </div>
                 </div>
@@ -274,68 +274,9 @@
                             </div>
                         </div>
 
-                        <div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
-                            <h2 class="s-titleDet"><!--INQUIRE ABOUT THIS VEHICLE-->ARAÇ HAKKINDA BİLGİ</h2>
-                            <div class="b-detail__main-aside-about-call">
-                                <span class="fa fa-phone"></span>
-                                <div>0999 999 99 99</div>
-                                <p><!--Call the seller 24/7 and they would help you.-->Satıcıyla 24/7 iletişime geçebilirsiniz.</p>
-                            </div>
-                            <div class="b-detail__main-aside-about-seller">
-                                <p><!--Seller Info-->Satıcı Bilgisi: <span>Nissan <!--Car Dealer-->Oto Galeri</span></p>
-                            </div>
-                            <div class="b-detail__main-aside-about-form">
-                                <div class="b-detail__main-aside-about-form-links">
-                                    <a href="#" class="j-tab m-active s-lineDownCenter" data-to='#form1'><!--GENERAL INQUIRY-->GENEL BİLGİ</a>
-                                    <a href="#" class="j-tab" data-to='#form2'><!--SCHEDULE TEST DRIVE-->TEST SÜRÜŞÜ AYARLA</a>
-                                </div>
-                                <form id="form1" [formGroup]="infoForm">
-                                    <!--<input type="text" placeholder="YOUR NAME" value="" name="name" />-->
-                                    <input type="text" placeholder="İSMİNİZ" value="" name="name" formControlName="Name" />
-                                    <!--<input type="email" placeholder="EMAIL ADDRESS" value="" name="email" />-->
-                                    <input type="email" placeholder="E-POSTA ADRESİNİZ" value="" name="email" formControlName="Mail" />
-                                    <!--<input type="tel" placeholder="PHONE NO" value="" name="name" />-->
-                                    <input type="tel" placeholder="TELEFON" value="" name="name" formControlName="Phone" />
-                                    <!--<textarea name="text" placeholder="message"></textarea>-->
-                                    <textarea name="text" placeholder="MESAJ" formControlName="Message"></textarea>
-                                    <div><input type="checkbox" name="one" value="" formControlName="CopyMail" /><label><!--Send me a copy of this message-->Bana bu mesajın bir kopyasını gönder</label></div>
-                                    <button class="btn m-btn" [disabled]="!infoForm.valid"><!--SEND MESSAGE-->GÖNDER<span class="fa fa-angle-right"></span></button>
-                                </form>
-                                <form id="form2" [formGroup]="testForm">
-                                    <!--<input type="text" placeholder="YOUR NAME" value="" name="name" />-->
-                                    <input type="text" placeholder="İSMİNİZ" value="" name="name" formControlName="Name" />
-                                    <!--<textarea name="text" placeholder="message"></textarea>-->
-                                    <textarea name="text" placeholder="MESAJ" formControlName="Message"></textarea>
-                                    <div><input type="checkbox" name="one" value="" formControlName="CopyMail" /><label><!--Send me a copy of this message-->Bana bu mesajın bir kopyasını gönder</label></div>
-                                    <button class="btn m-btn" [disabled]="!testForm.valid"><!--SEND MESSAGE-->GÖNDER<span class="fa fa-angle-right"></span></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
-                            <h2 class="s-titleDet"><!--CAR PAYMENT CALCULATOR-->ARAÇ FİYAT HESAPLAMA</h2>
-                            <div class="b-detail__main-aside-payment-form">
-                                <form [formGroup]="calcForm">
-                                    <!--<input type="text" placeholder="TOTAL VALUE/LOAN AMOUNT" value="" name="name" />-->
-                                    <input type="text" placeholder="TOPLAM DEĞER/KİRALAMA BEDELİ" value="" name="name" formControlName="TotalValue" />
-                                    <!--<input type="text" placeholder="DOWN PAYMENT" value="" name="name" />-->
-                                    <input type="text" placeholder="PEŞİNAT" value="" name="name" formControlName="Payment" />
-                                    <div class="s-relative">
-                                        <select name="select" class="m-select" formControlName="LoanTerm">
-                                            <option value="sd"><!--LOAN TERM IN MONTHS-->AYLIK KİRALAMA SÜRESİ</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                    <!--<input type="text" placeholder="INTEREST RATE IN %" value="" name="name" />-->
-                                    <input type="text" placeholder="FAİZ ORANI %" value="" name="name" formControlName="Rate" />
-                                    <button class="btn m-btn" [disabled]="!calcForm.valid"><!--ESTIMATE PAYMENT-->HESAPLA<span class="fa fa-angle-right"></span></button>
-                                </form>
-                            </div>
-                            <div class="b-detail__main-aside-about-call">
-                                <span class="fa fa-calculator"></span>
-                                <div><!--$-->250 TL <p><!--PER MONTH-->AYLIK</p></div>
-                                <p><!--Total Number of Payments-->VADE : <span>50</span></p>
-                            </div>
-                        </div>
+                        <rac-cardetailtestform carID="{{ carID }}"></rac-cardetailtestform>
+                        <rac-cardetailcountform carPrice="{{ carPrice }}"></rac-cardetailcountform>
+
                     </aside>
                 </div>
             </div>

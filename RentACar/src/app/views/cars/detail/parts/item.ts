@@ -1,5 +1,4 @@
 ﻿import { Component, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SiteService } from '../../../../services/site';
 import { Lib } from '../../../../lib/methods';
@@ -12,10 +11,8 @@ import { LangItem } from '../../../../models/LangItem';
 
 export class CarsDetailItemComponent implements AfterViewInit {
     errorMsg: string;
-
-    infoForm: FormGroup;
-    testForm: FormGroup;
-    calcForm: FormGroup;
+    carID: number;
+    carPrice: number;
 
     car: any;
     features: any;
@@ -25,7 +22,7 @@ export class CarsDetailItemComponent implements AfterViewInit {
     @Output() titleEvnt = new EventEmitter<string>();
     @Output() urlEvnt = new EventEmitter<string>();
 
-    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
+    constructor(private service: SiteService, private router: Router) {
         this.router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
         };
@@ -35,27 +32,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
         this.SetLangContents();
         this.RemoveBXSlider();
         this.FillDetails();
-
-        this.infoForm = this.formBuilder.group({
-            Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
-            Mail: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
-            Phone: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(15)]),
-            Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(500)]),
-            CopyMail: new FormControl(null)
-        });
-
-        this.testForm = this.formBuilder.group({
-            Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
-            Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(500)]),
-            CopyMail: new FormControl(null)
-        });
-
-        this.calcForm = this.formBuilder.group({
-            TotalValue: new FormControl(null, [Validators.required, Validators.min(0)]),
-            Payment: new FormControl(null, [Validators.required, Validators.min(0)]),
-            LoanTerm: new FormControl(null, Validators.required),
-            Rate: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(100)])
-        });
     }
 
     ngAfterViewInit() {
@@ -83,6 +59,9 @@ export class CarsDetailItemComponent implements AfterViewInit {
     GetCarDetail(carUrl: string) {
         this.service.get("Site", "GetCarDetailByUrl", carUrl).subscribe((resData: any) => {
             this.car = resData;
+
+            this.carID = resData.ID;
+            this.carPrice = resData.Price;
 
             this.titleEvnt.emit(this.car.Title);
             this.urlEvnt.emit(this.car.Url);
@@ -178,6 +157,7 @@ export class CarsDetailItemComponent implements AfterViewInit {
                     case "src_cargocapacity": this.langs.cargocapacity = item.ShortDescription2; break;
                     case "src_extcolor": this.langs.extcolor = item.ShortDescription2; break;
                     case "src_intcolor": this.langs.intcolor = item.ShortDescription2; break;
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -214,5 +194,6 @@ export class CarsDetailItemComponent implements AfterViewInit {
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_cargocapacity"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_extcolor"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_intcolor"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

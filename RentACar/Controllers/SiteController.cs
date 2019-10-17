@@ -19,6 +19,7 @@ using Repository.LangContentModel;
 using Repository.NewsletterModel;
 using Repository.NoLangContentModel;
 using Repository.PicturesModel;
+using Repository.TestFormModel;
 using Repository.TranslationModel;
 using Repository.WorkersModel;
 using System;
@@ -742,7 +743,7 @@ namespace RentACar.Controllers
 
         #endregion
 
-        #region Newsletter
+        #region Forms
 
         [HttpPost]
         public JsonResult SendNewsletter([System.Web.Http.FromBody] Newsletter param)
@@ -751,10 +752,6 @@ namespace RentACar.Controllers
 
             return Json(param.Insert(param));
         }
-
-        #endregion
-
-        #region ContactForm
 
         [HttpPost]
         public JsonResult SendContactForm([System.Web.Http.FromBody] ContactForm param)
@@ -770,6 +767,35 @@ namespace RentACar.Controllers
             }
 
             return Json(returnValue);
+        }
+
+        [HttpPost]
+        public JsonResult SendTestForm([System.Web.Http.FromBody] TestForm param)
+        {
+            param.SendDate = AppTools.GetTime;
+            param.IPAddress = AppTools.GetIPAddress;
+            param.Accepted = false;
+
+            bool returnValue = param.SendDate.ToDateTime().CheckDatesToSend(param.GetLastDate(param.IPAddress));
+
+            if (returnValue)
+            {
+                returnValue = param.Insert(param);
+
+                if(returnValue && param.CopyMail == true)
+                {
+                    //Burayı hazırla
+                    Lib.SendMail();
+                }
+            }
+
+            return Json(returnValue);
+        }
+
+        [HttpPost]
+        public JsonResult CalculatePrice([System.Web.Http.FromBody] CalcPrice param)
+        {
+            return Json(CalcPrice.Calculate(param), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

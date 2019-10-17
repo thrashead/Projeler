@@ -38,8 +38,8 @@ export class CarsBookComponent {
         this.FillCombo();
 
         this.bookForm = this.formBuilder.group({
-            StartDate: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(16)]),
-            EndDate: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(16)]),
+            StartDate: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
+            EndDate: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
             MakeCode: new FormControl(null),
             ModelCode: new FormControl(null),
             PriceMin: new FormControl(null),

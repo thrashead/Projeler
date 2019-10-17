@@ -93,6 +93,7 @@ export class CarsBookSubmitComponent {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
                     case "cmn_error_onemsg": this.langs.error = item.ShortDescription; break;
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                     case "car_book":
                         switch (item.ShortCode) {
                             case "step1":
@@ -152,5 +153,6 @@ export class CarsBookSubmitComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_error_onemsg"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

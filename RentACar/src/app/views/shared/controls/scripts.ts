@@ -47,8 +47,8 @@ export class ScriptsComponent implements AfterViewChecked {
                     $('#page-preloader').fadeOut("slow");
 
                     //Slider Values
-                    $("input.j-min").val(0);
-                    $("input.j-max").val(100000);
+                    $("input.j-min").val(1);
+                    $("input.j-max").val(1000);
                 }, 300);
             }
         });
@@ -217,13 +217,13 @@ export class ScriptsComponent implements AfterViewChecked {
         var slider = $('.slider').length;
 
         var min = 0;
-        var max = 100000;
+        var max = 1000;
 
         if (slider) {
             $(".slider").slider({
                 min: min,
                 max: max,
-                step: 5000,
+                step: 50,
                 values: [min, max],
                 range: true,
                 slide: function (event, ui) {

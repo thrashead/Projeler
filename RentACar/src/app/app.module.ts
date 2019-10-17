@@ -72,6 +72,8 @@ import { CarsListInfoComponent } from './views/cars/list/parts/info';
 import { CarsDetailComponent } from './views/cars/detail';
 import { CarsDetailHeaderComponent } from './views/cars/detail/parts/header';
 import { CarsDetailBreadCumbsComponent } from './views/cars/detail/parts/breadcumbs';
+import { CarsDetailTestFormComponent } from './views/cars/detail/parts/testform';
+import { CarsDetailCountFormComponent } from './views/cars/detail/parts/countform';
 import { CarsDetailInfoComponent } from './views/cars/detail/parts/info';
 import { CarsDetailItemComponent } from './views/cars/detail/parts/item';
 import { CarsDetailRelatedComponent } from './views/cars/detail/parts/related';
@@ -245,6 +247,10 @@ import { AdminNoLangContentIndexComponent } from './admin/views/rentacar/nolangc
 import { AdminNoLangContentInsertComponent } from './admin/views/rentacar/nolangcontent/insert';
 import { AdminNoLangContentUpdateComponent } from './admin/views/rentacar/nolangcontent/update';
 
+import { AdminTestFormIndexComponent } from './admin/views/rentacar/testform';
+import { AdminTestFormInsertComponent } from './admin/views/rentacar/testform/insert';
+import { AdminTestFormUpdateComponent } from './admin/views/rentacar/testform/update';
+
 import { AdminWorkersIndexComponent } from './admin/views/rentacar/workers';
 import { AdminWorkersInsertComponent } from './admin/views/rentacar/workers/insert';
 import { AdminWorkersUpdateComponent } from './admin/views/rentacar/workers/update';
@@ -405,6 +411,8 @@ import { AdminLib } from './admin/lib/methods';
         CarsDetailComponent,
         CarsDetailHeaderComponent,
         CarsDetailBreadCumbsComponent,
+        CarsDetailTestFormComponent,
+        CarsDetailCountFormComponent,
         CarsDetailInfoComponent,
         CarsDetailItemComponent,
         CarsDetailRelatedComponent,
@@ -577,6 +585,10 @@ import { AdminLib } from './admin/lib/methods';
         AdminNoLangContentIndexComponent,
         AdminNoLangContentInsertComponent,
         AdminNoLangContentUpdateComponent,
+
+        AdminTestFormIndexComponent,
+        AdminTestFormInsertComponent,
+        AdminTestFormUpdateComponent,
 
         AdminWorkersIndexComponent,
         AdminWorkersInsertComponent,

@@ -22,6 +22,15 @@ export class CarsCompareItemsComponent {
         this.GetCarCompareList();
     }
 
+    //CarCompareList
+    GetCarCompareList() {
+        this.service.get("Site", "GetCarCompareList").subscribe((resData: any) => {
+            this.carCompare = new Array<CarCompare>();
+
+            this.carCompare = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
@@ -46,6 +55,8 @@ export class CarsCompareItemsComponent {
                     case "car_comp_extint": this.langs.ExtInt.title = item.ShortDescription; break;
                     case "car_comp_feats": this.langs.Feats.title = item.ShortDescription; break;
                     case "car_comp_null": this.langs.null = item.ShortDescription; break;
+
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
 
                     case "src_make": this.langs.Basic.make = item.ShortDescription; break;
                     case "src_model": this.langs.Basic.model = item.ShortDescription; break;
@@ -131,6 +142,8 @@ export class CarsCompareItemsComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_feats"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_null"));
 
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
+
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_status"));
@@ -197,14 +210,5 @@ export class CarsCompareItemsComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_feats", "audioremote"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_feats", "engineimm"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_feats", "heatdoormir"));
-    }
-
-    //CarCompareList
-    GetCarCompareList() {
-        this.service.get("Site", "GetCarCompareList").subscribe((resData: any) => {
-            this.carCompare = new Array<CarCompare>();
-
-            this.carCompare = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

@@ -67,6 +67,36 @@ namespace RentACar
                 return context.Request.ServerVariables["REMOTE_ADDR"];
             }
         }
+
+        public static decimal WeekDiscount
+        {
+            get
+            {
+                string conValue = WebConfigurationManager.AppSettings["WeekDiscount"] != null ? WebConfigurationManager.AppSettings["WeekDiscount"].ToString() : "0";
+
+                return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
+            }
+        }
+
+        public static decimal MonthDiscount
+        {
+            get
+            {
+                string conValue = WebConfigurationManager.AppSettings["MonthDiscount"] != null ? WebConfigurationManager.AppSettings["MonthDiscount"].ToString() : "0";
+
+                return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
+            }
+        }
+
+        public static decimal YearDiscount
+        {
+            get
+            {
+                string conValue = WebConfigurationManager.AppSettings["YearDiscount"] != null ? WebConfigurationManager.AppSettings["YearDiscount"].ToString() : "0";
+
+                return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
+            }
+        }
     }
 
     public static class UserProcesses
@@ -245,6 +275,11 @@ namespace RentACar
             }
 
             return result;
+        }
+
+        public static bool SendMail()
+        {
+            return true;
         }
     }
 }

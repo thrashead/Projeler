@@ -28,8 +28,8 @@ export class Lib {
     }
 
     static ParseDateTime(date: string) {
-        let momentValue = moment(date, "DD.MM.YYYY HH:mm");
-        let returValue: string = momentValue.format("DD.MM.YYYY HH:mm") + ":00";
+        let momentValue = moment(date, "DD.MM.YYYY");
+        let returValue: string = momentValue.format("DD.MM.YYYY");
 
         if (!momentValue.isValid())
             return null;
@@ -38,13 +38,13 @@ export class Lib {
     }
 
     static CheckDateTimeInterval(startDate: string, endDate: string) {
-        let momentNow = moment(moment(new Date(Date.now()), "DD.MM.YYYY").add(1, "days").format("DD.MM.YYYY") + " 00:00:00", "DD.MM.YYYY HH:mm");
-        let momentStart = moment(startDate, "DD.MM.YYYY HH:mm");
-        let momentEnd = moment(endDate, "DD.MM.YYYY HH:mm");
+        let momentNow = moment(moment(new Date(Date.now()), "DD.MM.YYYY").add(1, "days").format("DD.MM.YYYY"), "DD.MM.YYYY");
+        let momentStart = moment(startDate, "DD.MM.YYYY");
+        let momentEnd = moment(endDate, "DD.MM.YYYY");
 
-        let diff = momentEnd.diff(momentStart, 'minutes');;
+        let diff = momentEnd.diff(momentStart, 'days');;
 
-        if (momentStart >= momentNow && momentEnd > momentStart && diff >= 360)
+        if (momentStart >= momentNow && momentEnd > momentStart && diff >= 1)
             return true;
         else
             return false;

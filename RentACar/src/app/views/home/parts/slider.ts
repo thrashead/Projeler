@@ -21,6 +21,13 @@ export class HomeSliderComponent {
         this.GetSlider();
     }
 
+    //Slider
+    GetSlider() {
+        this.service.get("Site", "SliderByCode", "mainslider", null).subscribe((resData: any) => {
+            this.Slider = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
@@ -36,6 +43,7 @@ export class HomeSliderComponent {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "cmn_detail": this.langs.detail = item.ShortDescription; break;
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -45,12 +53,6 @@ export class HomeSliderComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
-    }
-
-    //Slider
-    GetSlider() {
-        this.service.get("Site", "SliderByCode", "mainslider", null).subscribe((resData: any) => {
-            this.Slider = resData;
-        }, resError => this.errorMsg = resError);
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

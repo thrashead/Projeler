@@ -24,7 +24,7 @@
                                 <h2><a [routerLink]="['/Cars/Detail/' + item?.Url]">{{ item?.Title }}</a></h2>
                                 <div class="b-auto__main-item-info">
                                     <span class="m-price">
-                                        {{ item?.Price }} TL
+                                        {{ item?.Price }} TL/{{ langs?.DayPrice }}
                                     </span>
                                     <span class="m-number">
                                         <span class="fa fa-tachometer"></span>{{ item?.Mileage }} KM

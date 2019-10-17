@@ -156,6 +156,10 @@ import { AdminNoLangContentIndexComponent } from './admin/views/rentacar/nolangc
 import { AdminNoLangContentInsertComponent } from './admin/views/rentacar/nolangcontent/insert';
 import { AdminNoLangContentUpdateComponent } from './admin/views/rentacar/nolangcontent/update';
 
+import { AdminTestFormIndexComponent } from './admin/views/rentacar/testform';
+import { AdminTestFormInsertComponent } from './admin/views/rentacar/testform/insert';
+import { AdminTestFormUpdateComponent } from './admin/views/rentacar/testform/update';
+
 import { AdminWorkersIndexComponent } from './admin/views/rentacar/workers';
 import { AdminWorkersInsertComponent } from './admin/views/rentacar/workers/insert';
 import { AdminWorkersUpdateComponent } from './admin/views/rentacar/workers/update';
@@ -450,6 +454,11 @@ const routes: Routes = [
             { path: 'Admin/NoLangContent/Index', component: AdminNoLangContentIndexComponent },
             { path: 'Admin/NoLangContent/Insert', component: AdminNoLangContentInsertComponent },
             { path: 'Admin/NoLangContent/Update/:id', component: AdminNoLangContentUpdateComponent },
+
+            { path: 'Admin/TestForm', component: AdminTestFormIndexComponent },
+            { path: 'Admin/TestForm/Index', component: AdminTestFormIndexComponent },
+            { path: 'Admin/TestForm/Insert', component: AdminTestFormInsertComponent },
+            { path: 'Admin/TestForm/Update/:id', component: AdminTestFormUpdateComponent },
 
             { path: 'Admin/Workers', component: AdminWorkersIndexComponent },
             { path: 'Admin/Workers/Index', component: AdminWorkersIndexComponent },

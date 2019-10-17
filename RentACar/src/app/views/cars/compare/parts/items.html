@@ -13,7 +13,7 @@
                         <div class="b-compare__images-item-price"
                              [class.m-right]="i==0 || i < carCompare?.length - 1"
                              [class.m-left]="i == carCompare?.length - 1 || i > 0">
-                            <div *ngIf="i < carCompare?.length - 1" class="b-compare__images-item-price-vs">vs</div>{{ item?.Basic.Price }} TL
+                            <div *ngIf="i < carCompare?.length - 1" class="b-compare__images-item-price-vs">vs</div>{{ item?.Basic.Price }} TL/{{ langs?.DayPrice }}
                         </div>
                     </div>
                 </div>

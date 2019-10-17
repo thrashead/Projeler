@@ -48,6 +48,7 @@ export class CarsDetailRelatedComponent {
                     case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
                     case "cmn_more": this.langs.more = item.ShortDescription; break;
                     case "car_list_similar": this.langs.similar = item.ShortDescription; break;
+                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -59,5 +60,6 @@ export class CarsDetailRelatedComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_more"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_similar"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }
