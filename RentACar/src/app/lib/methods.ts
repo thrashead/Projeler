@@ -37,14 +37,31 @@ export class Lib {
             return returValue;
     }
 
-    static CheckDateTimeInterval(startDate: string, endDate: string) {
-        let momentNow = moment(moment(new Date(Date.now()), "DD.MM.YYYY").add(1, "days").format("DD.MM.YYYY"), "DD.MM.YYYY");
+    static ApplyEndDate(startdate: string, time: number, timetype: number) {
+        let start = moment(startdate, "DD.MM.YYYY");
+        let end;
+
+        switch (timetype) {
+            case 1: end = start.add(time, 'days'); break;
+            case 2: end = start.add(time, 'weeks'); break;
+            case 3: end = start.add(time, 'months'); break;
+            case 4: end = start.add(time, 'years'); break;
+            default: end = start.add(time, 'days'); break;
+        }
+
+        let returValue: string = end.format("DD.MM.YYYY");
+
+        if (!end.isValid())
+            return null;
+        else
+            return returValue;
+    }
+
+    static CheckDateTimeInterval(startDate: string) {
+        let momentNow = moment(new Date(Date.now()), "DD.MM.YYYY");
         let momentStart = moment(startDate, "DD.MM.YYYY");
-        let momentEnd = moment(endDate, "DD.MM.YYYY");
 
-        let diff = momentEnd.diff(momentStart, 'days');;
-
-        if (momentStart >= momentNow && momentEnd > momentStart && diff >= 1)
+        if (momentStart >= momentNow)
             return true;
         else
             return false;

@@ -10,6 +10,8 @@ namespace Models
         public int? EngineCapacity { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public int? Time { get; set; }
+        public int? TimeType { get; set; }
         public int? GearCount { get; set; }
         public int? Cylinders { get; set; }
         public int? Mileage { get; set; }
@@ -113,6 +115,12 @@ namespace Models
                 return searchFilters;
 
             if (searchFilters.EndDate != null)
+                return searchFilters;
+
+            if (searchFilters.Time != null)
+                return searchFilters;
+
+            if (searchFilters.TimeType != null)
                 return searchFilters;
 
             if (searchFilters.GearCount != null)

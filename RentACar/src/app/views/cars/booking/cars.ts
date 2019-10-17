@@ -15,6 +15,8 @@ export class CarsBookCarsComponent {
 
     carList: any;
 
+    calcData: any;
+
     bookSearchFilters: BookSearchFilters;
 
     constructor(private service: SiteService, private router: Router) {
@@ -29,7 +31,7 @@ export class CarsBookCarsComponent {
         var car = $(".chkSelectCar[data-checked='true']");
 
         if (car.length > 0) {
-            this.service.get("Site", "SetCarForReservation", car.attr("data-url")).subscribe((resData: any) => {
+            this.service.get("Site", "SetCarForReservation", car.attr("data-url"), this.calcData.Time, this.calcData.TimeType).subscribe((resData: any) => {
                 if (resData == true) {
                     this.router.navigate(['/Cars/Book/Submit']);
                 }
@@ -114,6 +116,10 @@ export class CarsBookCarsComponent {
     GetSearchFilters() {
         this.service.get("Site", "GetBookSearchFilters").subscribe((resData: any) => {
             this.bookSearchFilters = resData;
+
+            this.calcData = new Object();
+            this.calcData.Time = parseInt(resData.Time);
+            this.calcData.TimeType = parseInt(resData.TimeType);
 
             this.GetCarList();
         }, resError => this.errorMsg = resError);

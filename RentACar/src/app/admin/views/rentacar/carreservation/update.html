@@ -4,151 +4,173 @@
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
-			<fieldset>
-				<div class="editor-label">
-					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
-				</div>
-				<div class="editor-label">
-					Bağlı Araç
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<select id="CarID" [ngModel]="model?.CarID" formControlName="CarID"><option *ngFor="let item of model?.CarsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
-					<br />
-					<!-- CarID -->
-				</div>
-				<div class="clear"></div>
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+                <div class="editor-label">
+                    Bağlı Araç
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="CarID" [ngModel]="model?.CarID" formControlName="CarID"><option *ngFor="let item of model?.CarsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!-- CarID -->
+                </div>
+                <div class="clear"></div>
 
                 <div class="editor-label">
                     Başlangıç Tarihi
                 </div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="StartDate" [ngModel]="model?.StartDate" formControlName="StartDate" type="text" value="{{ model?.StartDate }}" />
-					<br />
-					<!-- StartDate -->
-				</div>
-				<div class="clear"></div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="StartDate" [ngModel]="model?.StartDate" formControlName="StartDate" type="text" value="{{ model?.StartDate }}" />
+                    <br />
+                    <!-- StartDate -->
+                </div>
+                <div class="clear"></div>
 
                 <div class="editor-label">
                     Bitiş Tarihi
                 </div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="EndDate" [ngModel]="model?.EndDate" formControlName="EndDate" type="text" value="{{ model?.EndDate }}" />
-					<br />
-					<!-- EndDate -->
-				</div>
-				<div class="clear"></div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="EndDate" [ngModel]="model?.EndDate" formControlName="EndDate" type="text" value="{{ model?.EndDate }}" />
+                    <br />
+                    <!-- EndDate -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					İsim
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" value="{{ model?.Name }}" />
-					<br />
-					<!-- Name -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    İsim
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Name" [ngModel]="model?.Name" formControlName="Name" type="text" value="{{ model?.Name }}" />
+                    <br />
+                    <!-- Name -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					TC Kimlik Numarası
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="IdentityNo" [ngModel]="model?.IdentityNo" formControlName="IdentityNo" type="text" value="{{ model?.IdentityNo }}" />
-					<br />
-					<!-- IdentityNo -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    TC Kimlik Numarası
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="IdentityNo" [ngModel]="model?.IdentityNo" formControlName="IdentityNo" type="text" value="{{ model?.IdentityNo }}" />
+                    <br />
+                    <!-- IdentityNo -->
+                </div>
+                <div class="clear"></div>
 
                 <div class="editor-label">
                     Şehir
                 </div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="City" [ngModel]="model?.City" formControlName="City" type="text" value="{{ model?.City }}" />
-					<br />
-					<!-- City -->
-				</div>
-				<div class="clear"></div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="City" [ngModel]="model?.City" formControlName="City" type="text" value="{{ model?.City }}" />
+                    <br />
+                    <!-- City -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Semt / Posta Kodu
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="DistrictPostal" [ngModel]="model?.DistrictPostal" formControlName="DistrictPostal" type="text" value="{{ model?.DistrictPostal }}" />
-					<br />
-					<!-- DistrictPostal -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Semt / Posta Kodu
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="DistrictPostal" [ngModel]="model?.DistrictPostal" formControlName="DistrictPostal" type="text" value="{{ model?.DistrictPostal }}" />
+                    <br />
+                    <!-- DistrictPostal -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Telefon
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Phone" [ngModel]="model?.Phone" formControlName="Phone" type="text" value="{{ model?.Phone }}" />
-					<br />
-					<!-- Phone -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Telefon
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Phone" [ngModel]="model?.Phone" formControlName="Phone" type="text" value="{{ model?.Phone }}" />
+                    <br />
+                    <!-- Phone -->
+                </div>
+                <div class="clear"></div>
 
                 <div class="editor-label">
                     E-Posta
                 </div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Mail" [ngModel]="model?.Mail" formControlName="Mail" type="text" value="{{ model?.Mail }}" />
-					<br />
-					<!-- Mail -->
-				</div>
-				<div class="clear"></div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Mail" [ngModel]="model?.Mail" formControlName="Mail" type="text" value="{{ model?.Mail }}" />
+                    <br />
+                    <!-- Mail -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Adres
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Address" [ngModel]="model?.Address" formControlName="Address" type="text" value="{{ model?.Address }}" />
-					<br />
-					<!-- Address -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Adres
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Address" [ngModel]="model?.Address" formControlName="Address" type="text" value="{{ model?.Address }}" />
+                    <br />
+                    <!-- Address -->
+                </div>
+                <div class="clear"></div>
 
                 <div class="editor-label">
                     İşlem Tarihi
                 </div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="ProcessDate" [ngModel]="model?.ProcessDate" formControlName="ProcessDate" type="text" value="{{ model?.ProcessDate }}" />
-					<br />
-					<!-- ProcessDate -->
-				</div>
-				<div class="clear"></div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ProcessDate" [ngModel]="model?.ProcessDate" formControlName="ProcessDate" type="text" value="{{ model?.ProcessDate }}" />
+                    <br />
+                    <!-- ProcessDate -->
+                </div>
+                <div class="clear"></div>
 
-				<div class="editor-label">
-					Onay durumu
-				</div>
-				<div class="clear"></div>
-				<div class="editor-field">
-					<input id="Accepted" [ngModel]="model?.Accepted" formControlName="Accepted" type="checkbox" checked="checked" *ngIf="model?.Accepted" />
-					<input id="Accepted" [ngModel]="model?.Accepted" formControlName="Accepted" type="checkbox" *ngIf="!model?.Accepted" />
-					<br />
-					<!-- Accepted -->
-				</div>
-				<div class="clear"></div>
+                <div class="editor-label">
+                    Fiyat
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Price" [ngModel]="model?.Price" formControlName="Price" type="text" value="{{ model?.Price }}" />
+                    <br />
+                    <!-- Price -->
+                </div>
+                <div class="clear"></div>
 
-				<p>
-					<div class="alert alert-error">
-						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
-					</div>
+                <div class="editor-label">
+                    IP Adresi
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="IPAddress" [ngModel]="model?.IPAddress" formControlName="IPAddress" type="text" value="{{ model?.IPAddress }}" />
+                    <br />
+                    <!-- IPAddress -->
+                </div>
+                <div class="clear"></div>
 
-					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
-					<a routerLink="/Admin/CarReservation" class="btn btn-danger btn-cancel">İptal</a>
-			</fieldset>
+                <div class="editor-label">
+                    Onay durumu
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Accepted" [ngModel]="model?.Accepted" formControlName="Accepted" type="checkbox" checked="checked" *ngIf="model?.Accepted" />
+                    <input id="Accepted" [ngModel]="model?.Accepted" formControlName="Accepted" type="checkbox" *ngIf="!model?.Accepted" />
+                    <br />
+                    <!-- Accepted -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+                    <a routerLink="/Admin/CarReservation" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
 		</form>
 	</div>
 </div>

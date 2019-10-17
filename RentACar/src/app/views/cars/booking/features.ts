@@ -107,6 +107,8 @@ export class CarsBookFeaturesComponent {
             if (resData != null) {
                 this.searchFilters.StartDate = resData.StartDate;
                 this.searchFilters.EndDate = resData.EndDate;
+                this.searchFilters.Time = resData.Time;
+                this.searchFilters.TimeType = resData.TimeType;
                 this.searchFilters.MakeCode = resData.MakeCode;
                 this.searchFilters.ModelCode = resData.ModelCode;
                 this.searchFilters.CarStatusCode = resData.CarStatusCode;

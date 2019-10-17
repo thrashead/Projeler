@@ -27,5 +27,6 @@ namespace RentACar.Data
         public string ProcessDate { get; set; }
         public bool Accepted { get; set; }
         public string IPAddress { get; set; }
+        public string Price { get; set; }
     }
 }

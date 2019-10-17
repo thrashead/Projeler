@@ -79,6 +79,10 @@ ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
 .b-detail__main-aside form input[type='number'] {display: block;width: 100%;margin-bottom: 15px;padding: 15px 20px;font: 400 10px Arial;border: 1px solid #eeeeee;
                                                  border-radius: 30px;}
 
+.b-submit__main-element .slider {width: 95%;margin-bottom: 55px;}
+.b-submit__main-element .slider a span.min, .b-submit__main-element .slider a span.max {position: absolute;top: 150%;left: -3px;font: 400 12px Arial;text-decoration: none;}
+
+
 .modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/RentACar/Content/img/alertbg.png);z-index: 1000;display:none;}
 .modalitem.show {display:block;}
 .modalitem .modaldialog {margin: 160px auto 0px auto;width: 95%;min-height: 96px;background-color: #fff;border: 3px solid #e54a00;}

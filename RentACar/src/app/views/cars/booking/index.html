@@ -20,17 +20,29 @@
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.date }} ({{ langs?.search?.start }})</label>
+                                    <label>{{ langs?.search?.date }} ({{ langs?.search?.start }}) *</label>
                                     <div class='s-relative'>
                                         <input placeholder="31.12.2019" type="text" id="txtStartDate"
                                                name="txtStartDate" formControlName="StartDate" maxlength="10" />
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.date }} ({{ langs?.search?.end }})</label>
+                                    <label>{{ langs?.search?.time }} *</label>
                                     <div class='s-relative'>
-                                        <input placeholder="31.12.2019" type="text" id="txtEndDate"
-                                               name="txtEndDate" formControlName="EndDate" maxlength="10" />
+                                        <input placeholder="{{ langs?.search?.time }}" type="number" id="txtTime" 
+                                               name="txtTime" formControlName="Time" />
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.timetype }} *</label>
+                                    <div class='s-relative'>
+                                        <select class="m-select" id="slcTimeType" name="slcTimeType" formControlName="TimeType">
+                                            <option value="1" selected="selected">{{ langs?.DayPrice }}</option>
+                                            <option value="2">{{ langs?.WeekPrice }}</option>
+                                            <option value="3">{{ langs?.MonthPrice }}</option>
+                                            <option value="4">{{ langs?.YearPrice }}</option>
+                                        </select>
+                                        <span class="fa fa-caret-down"></span>
                                     </div>
                                 </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
@@ -102,31 +114,19 @@
                                         <span class="fa fa-caret-down"></span>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
+                                    <label>{{ langs?.search?.price }}</label>
+                                    <div class="slider"></div>
+                                    <input type="hidden" id="txtPriceMin" name="min" class="j-min" formControlName="PriceMin" />
+                                    <input type="hidden" id="txtPriceMax" name="max" class="j-max" formControlName="PriceMax" />
+                                </div>
                                 <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
                                     <label>{{ langs?.search?.fueltype }} (lt)</label>
                                     <div class='s-relative'>
                                         <select id="slcFuelType" name="slcFuelType" class="m-select" formControlName="FuelTypeCode">
                                             <option *ngFor="let item of FuelTypes" value="{{ item?.Value }}">{{ item?.Text }}</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12">
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.min }})</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" id="slcPriceMin" name="slcPriceMin" formControlName="PriceMin">
-                                            <option value="all">-</option>
-                                        </select>
-                                        <span class="fa fa-caret-down"></span>
-                                    </div>
-                                </div>
-                                <div class="b-submit__main-element wow zoomInUp" data-wow-delay="0.5s">
-                                    <label>{{ langs?.search?.price }} ({{ langs?.search?.max }})</label>
-                                    <div class='s-relative'>
-                                        <select class="m-select" id="slcPriceMax" name="slcPriceMax" formControlName="PriceMax">
-                                            <option value="all">-</option>
                                         </select>
                                         <span class="fa fa-caret-down"></span>
                                     </div>

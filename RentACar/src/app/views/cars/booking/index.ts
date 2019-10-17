@@ -39,7 +39,8 @@ export class CarsBookComponent {
 
         this.bookForm = this.formBuilder.group({
             StartDate: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
-            EndDate: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
+            Time: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(30)]),
+            TimeType: new FormControl(null, Validators.required),
             MakeCode: new FormControl(null),
             ModelCode: new FormControl(null),
             PriceMin: new FormControl(null),
@@ -72,29 +73,33 @@ export class CarsBookComponent {
         this.searchFilters = {} as BookSearchFilters;
 
         let startDate: string = Lib.ParseDateTime(this.bookForm.get("StartDate").value);
-        let endDate: string = Lib.ParseDateTime(this.bookForm.get("EndDate").value);
-        let conDate: boolean = Lib.CheckDateTimeInterval(startDate, endDate);
+        let time = parseInt(this.bookForm.get("Time").value);
+        let timetype = parseInt(this.bookForm.get("TimeType").value);
+        let endDate: string = Lib.ApplyEndDate(startDate, time, timetype);
+        let conDate: boolean = Lib.CheckDateTimeInterval(startDate);
 
-        if (startDate == null || endDate == null) {
+        if (!conDate || endDate == null) {
             $("#modalAlert").addClass("show");
-            this.alert = this.langs.error1;
+            this.alert = this.langs.error;
             return false;
         }
 
-        if (!conDate) {
-            $("#modalAlert").addClass("show");
-            this.alert = this.langs.error2;
-            return false;
-        }
+        let minPrice: number = parseInt($("#txtPriceMin").val().toString());
+        let maxPrice: number = parseInt($("#txtPriceMax").val().toString());
+
+        minPrice = minPrice == 0 ? null : minPrice;
+        maxPrice = maxPrice == 100000 ? null : maxPrice;
 
         this.searchFilters.StartDate = startDate;
         this.searchFilters.EndDate = endDate;
+        this.searchFilters.Time = time;
+        this.searchFilters.TimeType = timetype;
         this.searchFilters.MakeCode = this.bookForm.get("MakeCode").value;
         this.searchFilters.ModelCode = this.bookForm.get("ModelCode").value;
         this.searchFilters.CarStatusCode = this.bookForm.get("CarStatusCode").value;
         this.searchFilters.FuelTypeCode = this.bookForm.get("FuelTypeCode").value;
-        this.searchFilters.PriceMin = Lib.CheckNullAsAll(this.bookForm.get("PriceMin").value);
-        this.searchFilters.PriceMax = Lib.CheckNullAsAll(this.bookForm.get("PriceMax").value);
+        this.searchFilters.PriceMin = minPrice;
+        this.searchFilters.PriceMax = maxPrice;
         this.searchFilters.YearMin = Lib.CheckNullAsAll(this.bookForm.get("YearMin").value);
         this.searchFilters.YearMax = Lib.CheckNullAsAll(this.bookForm.get("YearMax").value);
         this.searchFilters.BodyTypeCode = this.bookForm.get("BodyTypeCode").value;
@@ -135,8 +140,6 @@ export class CarsBookComponent {
         this.ComboColors(true, true);
         this.ComboColors(false, true);
 
-        ComboBox.FillPrice("slcPriceMin");
-        ComboBox.FillPrice("slcPriceMax", false);
         ComboBox.FillYear("slcYearMin");
         ComboBox.FillYear("slcYearMax");
         ComboBox.FillNumber("slcGearCount", 1, 8);
@@ -260,15 +263,24 @@ export class CarsBookComponent {
                                 this.langs.search.date = item.ShortDescription2;
                                 break;
                             case "errordate":
-                                this.langs.error1 = item.ShortDescription;
-                                this.langs.error2 = item.ShortDescription2;
+                                this.langs.error = item.ShortDescription2;
+                                break;
+                            case "time":
+                                this.langs.search.time = item.ShortDescription;
+                                this.langs.search.timetype = item.ShortDescription2;
                                 break;
 
                         }
                         break;
 
+                    case "cmn_price_opt":
+                        this.langs.DayPrice = item.ShortDescription;
+                        this.langs.WeekPrice = item.Description;
+                        this.langs.MonthPrice = item.ShortDescription2;
+                        this.langs.YearPrice = item.Description2;
+                        break;
+
                     case "src_start": this.langs.search.start = item.ShortDescription2; break;
-                    case "src_end": this.langs.search.end = item.ShortDescription2; break;
                     case "src_make": this.langs.search.make = item.ShortDescription; break;
                     case "src_model": this.langs.search.model = item.ShortDescription; break;
                     case "src_prcrng": this.langs.search.price = item.ShortDescription; break;
@@ -313,7 +325,6 @@ export class CarsBookComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_start"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_end"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_prcrng"));
@@ -347,6 +358,8 @@ export class CarsBookComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_seats"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_extcolor"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_intcolor"));
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_min"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_max"));

@@ -3,12 +3,12 @@ import { Router, ActivationEnd, RouterEvent } from '@angular/router';
 import '../../../../../Content/js/owl-carousel/owl.carousel.min.js'
 import '../../../../../Content/js/bxslider/jquery.bxslider.min.js'
 import '../../../../../Content/js/jquery.ui-slider.js'
-import '../../../../../node_modules/wowjs/dist/wow.js'
+//import '../../../../../node_modules/wowjs/dist/wow.js'
 
 import '../../../../../Content/js/pathscript.js';
 import '../../../../../Content/js/script.js';
 
-import { WOW } from "../../../../../node_modules/wowjs/dist/wow";
+//import { WOW } from "../../../../../node_modules/wowjs/dist/wow";
 
 @Component({
     selector: 'rac-scripts',
@@ -56,7 +56,7 @@ export class ScriptsComponent implements AfterViewChecked {
 
     LoadScripts() {
         this.PageLoader();
-        this.Wow();
+        //this.Wow();
         this.Carousel();
         this.OwlCarousel();
         this.JTab();
@@ -173,12 +173,12 @@ export class ScriptsComponent implements AfterViewChecked {
     }
 
     //Wow
-    Wow() {
-        var scrollingAnimations = $('body').data("scrolling-animations");
-        if (scrollingAnimations) {
-            new WOW().init();
-        }
-    }
+    //Wow() {
+    //    var scrollingAnimations = $('body').data("scrolling-animations");
+    //    if (scrollingAnimations) {
+    //        new WOW().init();
+    //    }
+    //}
 
     //OwlCarousel
     OwlCarousel() {

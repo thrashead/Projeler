@@ -475,11 +475,12 @@ namespace RentACar.Controllers
         }
 
         [HttpGet]
-        public JsonResult SetCarForReservation(string param)
+        public JsonResult SetCarForReservation(string param, string param2, string param3)
         {
             if (!String.IsNullOrEmpty(param))
             {
                 Session["ReservedCarUrl"] = param;
+                Session["ReservedCarPrice"] = new CalcPrice() { Time = param2.ToInteger(), TimeType = param3.ToInteger() };
 
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
@@ -489,11 +490,17 @@ namespace RentACar.Controllers
             }
         }
 
+        [HttpGet]
+        public JsonResult GetReservedCarPrice()
+        {
+            return Json(Session["ReservedCarPrice"] as CalcPrice, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult ApplyBooking([System.Web.Http.FromBody] CarReservation param)
         {
             bool returnValue = false;
-            
+
             if (Session["BookSearchFilters"] != null)
             {
                 param.Accepted = false;
@@ -782,7 +789,7 @@ namespace RentACar.Controllers
             {
                 returnValue = param.Insert(param);
 
-                if(returnValue && param.CopyMail == true)
+                if (returnValue && param.CopyMail == true)
                 {
                     //Burayı hazırla
                     Lib.SendMail();

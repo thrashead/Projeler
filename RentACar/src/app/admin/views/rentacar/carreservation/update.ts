@@ -44,7 +44,9 @@ export class AdminCarReservationUpdateComponent {
 			Mail: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
 			Address: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(500)]),
 			ProcessDate: new FormControl(null, [Validators.maxLength(25)]),
-			Accepted: new FormControl(null),
+			Price: new FormControl(null, [Validators.maxLength(25)]),
+            IPAddress: new FormControl(null, [Validators.maxLength(25)]),
+            Accepted: new FormControl(null),
 		});
 	}
 
@@ -93,7 +95,9 @@ export class AdminCarReservationUpdateComponent {
 		this.data.Mail = this.updateForm.get("Mail").value;
 		this.data.Address = this.updateForm.get("Address").value;
 		this.data.ProcessDate = this.updateForm.get("ProcessDate").value;
-		this.data.Accepted = this.updateForm.get("Accepted").value;
+        this.data.Price = this.updateForm.get("Price").value;
+        this.data.IPAddress = this.updateForm.get("IPAddress").value;
+        this.data.Accepted = this.updateForm.get("Accepted").value;
 
 		this.service.post("CarReservation", "Update", this.data)
 			.subscribe((answer: any) => {

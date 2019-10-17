@@ -16,6 +16,8 @@
     EngineCapacity: number;
     StartDate: string;
     EndDate: string;
+    Time: number;
+    TimeType: number;
     GearCount: number;
     Cylinders: number;
     Mileage: number;

@@ -41,6 +41,8 @@ export class AdminCarReservationInsertComponent {
 			Mail: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
 			Address: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(500)]),
 			ProcessDate: new FormControl(null, [Validators.maxLength(25)]),
+			Price: new FormControl(null, [Validators.maxLength(25)]),
+            IPAddress: new FormControl(null, [Validators.maxLength(25)]),
 			Accepted: new FormControl(null),
 		});
 	}
@@ -77,7 +79,9 @@ export class AdminCarReservationInsertComponent {
 		this.data.Mail = this.insertForm.get("Mail").value;
 		this.data.Address = this.insertForm.get("Address").value;
 		this.data.ProcessDate = this.insertForm.get("ProcessDate").value;
-		this.data.Accepted = this.insertForm.get("Accepted").value;
+        this.data.Price = this.insertForm.get("Price").value;
+        this.data.IPAddress = this.insertForm.get("IPAddress").value;
+        this.data.Accepted = this.insertForm.get("Accepted").value;
 
 		this.service.post("CarReservation", "Insert", this.data)
 			.subscribe((answer: any) => {

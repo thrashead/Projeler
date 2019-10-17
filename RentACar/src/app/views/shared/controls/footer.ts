@@ -12,6 +12,7 @@ export class FooterComponent {
     errorMsg: string;
 
     carList: any;
+    socialList: any;
 
     constructor(private service: SiteService) {
     }
@@ -19,6 +20,21 @@ export class FooterComponent {
     ngOnInit() {
         this.SetLangContents();
         this.GetLastCars();
+        this.GetNoLangContent();
+    }
+
+    //GetLastCars
+    GetLastCars() {
+        this.service.get("Site", "GetLastCars", 3).subscribe((resData: any) => {
+            this.carList = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GetNoLangContent
+    GetNoLangContent() {
+        this.service.get("Site", "GetNoLangContentByCode", "social").subscribe((resData: any) => {
+            this.socialList = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -89,12 +105,5 @@ export class FooterComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "phone"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "fax"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "mail"));
-    }
-
-    //GetLastCars
-    GetLastCars() {
-        this.service.get("Site", "GetLastCars", 3).subscribe((resData: any) => {
-            this.carList = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

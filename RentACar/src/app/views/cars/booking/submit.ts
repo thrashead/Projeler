@@ -16,6 +16,9 @@ export class CarsBookSubmitComponent {
 
     bookForm: FormGroup;
 
+    price: string;
+
+    priceItem: any;
     car: any;
     data: any;
 
@@ -51,6 +54,7 @@ export class CarsBookSubmitComponent {
         this.data.Mail = this.bookForm.get("Mail").value;
         this.data.Address = this.bookForm.get("Address").value;
         this.data.CarID = carID;
+        this.data.Price = this.price;
 
         this.service.post("Site", "ApplyBooking", this.data).subscribe((answer: boolean) => {
 
@@ -70,6 +74,16 @@ export class CarsBookSubmitComponent {
     GetCarDetailByUrl() {
         this.service.get("Site", "GetCarDetailByUrl").subscribe((resData: any) => {
             this.car = resData;
+
+            this.service.get("Site", "GetReservedCarPrice").subscribe((resData: any) => {
+                this.priceItem = resData;
+                this.priceItem.Price = parseInt(this.car.Price);
+
+                this.service.post("Site", "CalculatePrice", this.priceItem).subscribe((resData: any) => {
+                    this.price = resData;
+                }, resError => this.errorMsg = resError);
+
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
 
