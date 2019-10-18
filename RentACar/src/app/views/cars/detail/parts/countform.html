@@ -2,13 +2,13 @@
     <h2 class="s-titleDet">{{ langs?.Title }}</h2>
     <div class="b-detail__main-aside-payment-form">
         <form [formGroup]="calcForm">
-            <input type="number" placeholder="Süre" id="txtTime" name="txtTime" formControlName="Time" />
+            <input type="number" placeholder="{{ langs?.Time }}" id="txtTime" name="txtTime" formControlName="Time" />
             <div class="s-relative">
                 <select class="m-select" id="txtTimeType" name="txtTimeType" formControlName="TimeType">
                     <option value="1" selected="selected">{{ langs?.DayPrice }}</option>
-                    <option value="2">{{ langs?.WeekPrice }}</option>
-                    <option value="3">{{ langs?.MonthPrice }}</option>
-                    <option value="4">{{ langs?.YearPrice }}</option>
+                    <option value="2">{{ langs?.WeekPrice }} (-{{ discount?.Week }}%)</option>
+                    <option value="3">{{ langs?.MonthPrice }} (-{{ discount?.Month }}%)</option>
+                    <option value="4">{{ langs?.YearPrice }} (-{{ discount?.Year }}%)</option>
                 </select>
                 <span class="fa fa-caret-down"></span>
             </div>

@@ -18,12 +18,14 @@ export class CarsDetailCountFormComponent {
     calcForm: FormGroup;
 
     data: any;
+    discount: any;
 
     constructor(private service: SiteService, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.SetLangContents();
+        this.GetDiscounts();
 
         this.calcForm = this.formBuilder.group({
             Time: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -39,6 +41,21 @@ export class CarsDetailCountFormComponent {
 
         this.service.post("Site", "CalculatePrice", this.data).subscribe((resData: any) => {
             this.result = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GetDiscount
+    GetDiscounts() {
+        this.service.get("Site", "GetNoLangContentByCode", "discount").subscribe((resData: any) => {
+            this.discount = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.ShortCode) {
+                    case "week": this.discount.Week = item.ShortDescription; break;
+                    case "month": this.discount.Month = item.ShortDescription; break;
+                    case "year": this.discount.Year = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
     }
 
@@ -66,6 +83,11 @@ export class CarsDetailCountFormComponent {
                         this.langs.Title = item.ShortDescription;
                         this.langs.Submit = item.ShortDescription2;
                         break;
+                    case "car_book":
+                        switch (item.ShortCode) {
+                            case "time": this.langs.Time = item.ShortDescription; break;
+                        }
+                        break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -76,5 +98,6 @@ export class CarsDetailCountFormComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "count_form"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_book", "time"));
     }
 }

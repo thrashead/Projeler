@@ -11,6 +11,7 @@ using Cacher = System.Web.HttpRuntime;
 using Repository.UsersModel;
 using Repository.TranslationModel;
 using System.Web.Mvc;
+using Repository.NoLangContentModel;
 
 namespace RentACar
 {
@@ -72,9 +73,7 @@ namespace RentACar
         {
             get
             {
-                string conValue = WebConfigurationManager.AppSettings["WeekDiscount"] != null ? WebConfigurationManager.AppSettings["WeekDiscount"].ToString() : "0";
-
-                return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
+                return Lib.GetDiscount("week");
             }
         }
 
@@ -82,9 +81,7 @@ namespace RentACar
         {
             get
             {
-                string conValue = WebConfigurationManager.AppSettings["MonthDiscount"] != null ? WebConfigurationManager.AppSettings["MonthDiscount"].ToString() : "0";
-
-                return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
+                return Lib.GetDiscount("month");
             }
         }
 
@@ -92,9 +89,7 @@ namespace RentACar
         {
             get
             {
-                string conValue = WebConfigurationManager.AppSettings["YearDiscount"] != null ? WebConfigurationManager.AppSettings["YearDiscount"].ToString() : "0";
-
-                return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
+                return Lib.GetDiscount("year");
             }
         }
     }
@@ -280,6 +275,15 @@ namespace RentACar
         public static bool SendMail()
         {
             return true;
+        }
+
+        public static decimal GetDiscount(string shortCode)
+        {
+            NoLangContent noLangContent = new NoLangContent();
+
+            string conValue = noLangContent.DetailSelectByCodeAndShortCode("discount", shortCode, 1)?.FirstOrDefault()?.ShortDescription;
+
+            return decimal.TryParse(conValue, out decimal returnValue) ? returnValue : 0;
         }
     }
 }

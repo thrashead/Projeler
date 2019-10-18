@@ -29,6 +29,8 @@ export class CarsBookComponent {
     ExtColors: any;
     IntColors: any;
 
+    discount: any;
+
 
     constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
@@ -36,6 +38,7 @@ export class CarsBookComponent {
     ngOnInit() {
         this.SetLangContents();
         this.FillCombo();
+        this.GetDiscounts();
 
         this.bookForm = this.formBuilder.group({
             StartDate: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
@@ -124,6 +127,21 @@ export class CarsBookComponent {
             this.searchFilters = resData;
 
             this.router.navigate(['/Cars/Book/Features']);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GetDiscounts
+    GetDiscounts() {
+        this.service.get("Site", "GetNoLangContentByCode", "discount").subscribe((resData: any) => {
+            this.discount = new Object();
+
+            resData.forEach((item, i) => {
+                switch (item.ShortCode) {
+                    case "week": this.discount.Week = item.ShortDescription; break;
+                    case "month": this.discount.Month = item.ShortDescription; break;
+                    case "year": this.discount.Year = item.ShortDescription; break;
+                }
+            });
         }, resError => this.errorMsg = resError);
     }
 
@@ -269,7 +287,6 @@ export class CarsBookComponent {
                                 this.langs.search.time = item.ShortDescription;
                                 this.langs.search.timetype = item.ShortDescription2;
                                 break;
-
                         }
                         break;
 
