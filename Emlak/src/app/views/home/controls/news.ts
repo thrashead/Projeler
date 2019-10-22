@@ -1,5 +1,4 @@
-﻿import { Component } from "@angular/core";
-import { EmlakAjaxService } from '../../../services/emlakajax';
+﻿import { Component, Input } from "@angular/core";
 import { SolAjaxService } from '../../../services/solajax';
 
 @Component({
@@ -10,31 +9,17 @@ import { SolAjaxService } from '../../../services/solajax';
 export class NewsComponent {
     errorMsg: string;
 
-    haberlerText: string;
-    haberLinkText: string;
+    @Input() haberlerText: string;
+    @Input() devamText: string;
 
     haberler: any;
 
-    constructor(private _emlakService: EmlakAjaxService, private _solService: SolAjaxService) {
+    constructor(private _solService: SolAjaxService) {
     }
 
     ngOnInit() {
         this._solService.getHaberler()
             .subscribe(resData => this.haberler = resData,
-                resError => this.errorMsg = resError);
-
-        this.KodlaGetir();
-    }
-
-    //KodlaGetir
-
-    KodlaGetir() {
-        this._emlakService.getKodlaGetir("news")
-            .subscribe(resData => this.haberlerText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("devm")
-            .subscribe(resData => this.haberLinkText = resData,
                 resError => this.errorMsg = resError);
     }
 }

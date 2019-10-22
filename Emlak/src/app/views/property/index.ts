@@ -1,7 +1,9 @@
 ﻿import { Component } from "@angular/core";
 import { ActivatedRoute, Params, Router, RouterEvent, ActivationEnd } from '@angular/router';
-import { EmlakAjaxService } from '../../services/emlak.service';
-import { REAjaxService } from '../../services/re.service';
+import { EmlakAjaxService } from '../../services/emlakajax';
+import { REAjaxService } from '../../services/reajax';
+import { LangItem } from '../../model/LangItem';
+import { Lib } from '../../lib/methods';
 
 @Component({
     templateUrl: './index.html',
@@ -9,6 +11,8 @@ import { REAjaxService } from '../../services/re.service';
 })
 
 export class PropertyIndexComponent {
+    errorMsg: string;
+
     liste: any;
     public reData: any;
     public link: string;
@@ -115,7 +119,8 @@ export class PropertyIndexComponent {
     }
 
     //KodlaGetir
-    errorMsg: string;
+    langItems: Array<LangItem>;
+    langItem: LangItem;
 
     atozText: string;
     ztoaText: string;
@@ -127,36 +132,34 @@ export class PropertyIndexComponent {
     noprText: string;
 
     KodlaGetir() {
-        this._emlakService.getKodlaGetir("atoz")
-            .subscribe(resData => this.atozText = resData,
-                resError => this.errorMsg = resError);
+        this.PushLangItems();
 
-        this._emlakService.getKodlaGetir("ztoa")
-            .subscribe(resData => this.ztoaText = resData,
-                resError => this.errorMsg = resError);
+        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "atoz": this.atozText = item.Value; break;
+                    case "ztoa": this.ztoaText = item.Value; break;
+                    case "1to9": this.to19Text = item.Value; break;
+                    case "9to1": this.to91Text = item.Value; break;
+                    case "dto9": this.dto9Text = item.Value; break;
+                    case "dto1": this.dto1Text = item.Value; break;
+                    case "page": this.pageText = item.Value; break;
+                    case "nopr": this.noprText = item.Value; break;
+                }
+            });
+        }, resError => this.errorMsg = resError);
+    }
 
-        this._emlakService.getKodlaGetir("1to9")
-            .subscribe(resData => this.to19Text = resData,
-                resError => this.errorMsg = resError);
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
 
-        this._emlakService.getKodlaGetir("9to1")
-            .subscribe(resData => this.to91Text = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("dto9")
-            .subscribe(resData => this.dto9Text = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("dto1")
-            .subscribe(resData => this.dto1Text = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("page")
-            .subscribe(resData => this.pageText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("nopr")
-            .subscribe(resData => this.noprText = resData,
-                resError => this.errorMsg = resError);
+        this.langItems.push(Lib.SetLangItem(this.langItem, "atoz"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ztoa"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "1to9"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "9to1"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dto9"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dto1"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "page"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "nopr"));
     }
 }

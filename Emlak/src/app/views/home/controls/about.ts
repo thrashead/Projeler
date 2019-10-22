@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 import { EmlakAjaxService } from '../../../services/emlakajax';
 import { SolAjaxService } from '../../../services/solajax';
 
@@ -11,9 +11,10 @@ export class AboutComponent {
     errorMsg: string;
 
     sayac: string;
-    ziyaretciText: string;
-    hakkimizdaText: string;
-    devamText: string;
+
+    @Input() ziyaretciText: string;
+    @Input() hakkimizdaText: string;
+    @Input() devamText: string;
 
     about: any;
 
@@ -27,24 +28,6 @@ export class AboutComponent {
 
         this._emlakService.getIcerikGetir("Hakkimizda")
             .subscribe(resData => this.about = resData,
-                resError => this.errorMsg = resError);
-
-        this.KodlaGetir();
-    }
-
-    //KodlaGetir
-
-    KodlaGetir() {
-        this._emlakService.getKodlaGetir("ziya")
-            .subscribe(resData => this.ziyaretciText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("abus")
-            .subscribe(resData => this.hakkimizdaText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("devm")
-            .subscribe(resData => this.devamText = resData,
                 resError => this.errorMsg = resError);
     }
 }

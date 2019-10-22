@@ -146,6 +146,7 @@ import { EmlakAjaxService } from './services/emlakajax';
 import { SolAjaxService } from './services/solajax';
 import { REAjaxService } from './services/reajax';
 import { HomeAjaxService } from './services/homeajax';
+import { Lib } from './lib/methods';
 
 //Admin Services
 import { SharedService } from './admin/services/shared';
@@ -302,6 +303,7 @@ import { ModelService } from './admin/services/model';
         HomeAjaxService,
         REAjaxService,
         SolAjaxService,
+        Lib,
 
         SharedService,
         ModelService

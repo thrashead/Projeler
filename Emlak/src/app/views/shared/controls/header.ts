@@ -1,6 +1,5 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 import { EmlakAjaxService } from "../../../services/emlakajax";
-import { SharedService } from '../../../admin/services/shared';
 
 @Component({
     selector: "emlak-header",
@@ -12,15 +11,26 @@ export class HeaderComponent {
 
     diller: any;
 
-    constructor(private service: SharedService, private emlakService: EmlakAjaxService) {
+    @Input() anaSayfaText: string;
+    @Input() hakkimizdaText: string;
+    @Input() iletisimText: string;
+    @Input() yeniilanText: string;
+    @Input() tumilanText: string;
+    @Input() haberlerText: string;
+    @Input() ilanlarText: string;
+    @Input() kategorilerText: string;
+    @Input() iceriklerText: string;
+    @Input() satilikilanText: string;
+    @Input() kiralikilanText: string;
+    @Input() girisText: string;
+
+    constructor(private emlakService: EmlakAjaxService) {
     }
 
     ngOnInit() {
         this.emlakService.getLangs()
             .subscribe(resData => this.diller = resData,
                 resError => this.errorMsg = resError);
-
-        this.KodlaGetir();
     }
 
     onClick(lang: string) {
@@ -33,9 +43,5 @@ export class HeaderComponent {
                 },
                     resError => this.errorMsg = resError);
         }
-    }
-
-    //KodlaGetir
-    KodlaGetir() {
     }
 }

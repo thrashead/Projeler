@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 import { EmlakAjaxService } from "../../../services/emlakajax";
 import { SolAjaxService } from '../../../services/solajax';
 import { HomeAjaxService } from '../../../services/homeajax';
@@ -11,17 +11,17 @@ import { HomeAjaxService } from '../../../services/homeajax';
 export class FooterComponent {
     errorMsg: string;
 
+    @Input() anaSayfaText: string;
+    @Input() hakkimizdaText: string;
+    @Input() iletisimText: string;
+    @Input() yeniilanText: string;
+    @Input() tumilanText: string;
+    @Input() haberlerText: string;
+    @Input() ilanlarText: string;
+    @Input() hizlilinkText: string;
+
     kategoriler: any;
     haberler: any;
-
-    anaSayfaText: string;
-    yeniIlanlarText: string;
-    tumIlanlarText: string;
-    hakkimizdaText: string;
-    iletisimText: string;
-    haberlerText: string;
-    hizlilinkText: string;
-    ilanlarText: string;
 
     yasalUyari: any;
     ilanlar: any;
@@ -45,43 +45,6 @@ export class FooterComponent {
 
         this._emlakService.getIcerikGetir("Iletisim")
             .subscribe(resData => this.iletisim = resData,
-                resError => this.errorMsg = resError);
-
-        this.KodlaGetir();
-    }
-
-    //KodlaGetir
-    KodlaGetir() {
-        this._emlakService.getKodlaGetir("news")
-            .subscribe(resData => this.haberlerText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("qklk")
-            .subscribe(resData => this.hizlilinkText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("mnpg")
-            .subscribe(resData => this.anaSayfaText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("ilan")
-            .subscribe(resData => this.ilanlarText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("newi")
-            .subscribe(resData => this.yeniIlanlarText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("alli")
-            .subscribe(resData => this.tumIlanlarText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("abus")
-            .subscribe(resData => this.hakkimizdaText = resData,
-                resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("cont")
-            .subscribe(resData => this.iletisimText = resData,
                 resError => this.errorMsg = resError);
     }
 }

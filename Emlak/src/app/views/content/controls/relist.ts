@@ -1,5 +1,4 @@
-﻿import { Component } from "@angular/core";
-import { EmlakAjaxService } from "../../../services/emlakajax";
+﻿import { Component, Input } from "@angular/core";
 import { HomeAjaxService } from '../../../services/homeajax';
 
 @Component({
@@ -10,25 +9,16 @@ import { HomeAjaxService } from '../../../services/homeajax';
 export class ContentReListComponent {
     errorMsg: string;
 
-    ilanlarText: string;
+    @Input() ilanlarText: string;
 
     ilanlar: any;
 
-    constructor(private homeService: HomeAjaxService, private emlakService: EmlakAjaxService) {
+    constructor(private homeService: HomeAjaxService) {
     }
 
     ngOnInit() {
         this.homeService.getVitrinIlanlar("5")
             .subscribe(resData => this.ilanlar = resData,
-                resError => this.errorMsg = resError);
-
-        this.KodlaGetir();
-    }
-
-    //KodlaGetir
-    KodlaGetir() {
-        this.emlakService.getKodlaGetir("ilan")
-            .subscribe(resData => this.ilanlarText = resData,
                 resError => this.errorMsg = resError);
     }
 }

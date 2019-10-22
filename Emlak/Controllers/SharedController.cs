@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using TDLibrary;
+using Cacher = System.Web.HttpRuntime;
+using System.Web.Caching;
 
 namespace Emlak.Controllers
 {
@@ -53,6 +55,37 @@ namespace Emlak.Controllers
         public JsonResult KodlaGetir(string kod)
         {
             return Json(LangBaslik.KodlaGetir(kod), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetLangItems([System.Web.Http.FromBody] List<LangItem> codes)
+        {
+            List<LangItem> returnList = new List<LangItem>();
+            List<LangBaslik> list;
+            string langCode = ToolBox.LangCode;
+
+            if (Cacher.Cache["LangContents"] == null)
+            {
+                list = LangBaslik.Liste();
+
+                Cacher.Cache.Insert("LangContents", list, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
+            }
+            else
+            {
+                list = Cacher.Cache["LangContents"] as List<LangBaslik>;
+            }
+
+            foreach (LangItem item in codes)
+            {
+                LangBaslik baslik = list.Where(a => a.Code == item.Code)?.FirstOrDefault();
+
+                if (baslik != null)
+                {
+                    returnList.Add(new LangItem() { Code = baslik.Code, Value = langCode == "TR" ? baslik.TR : baslik.EN });
+                }
+            }
+
+            return Json(returnList);
         }
 
         [HttpGet]

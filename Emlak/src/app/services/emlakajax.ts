@@ -7,12 +7,13 @@ import { ICategoryDetail } from '../model/ICategoryDetail';
 @Injectable()
 export class EmlakAjaxService {
     private linkKodlaGetir: string = "Shared/KodlaGetir";
-    private linkLangs: string = "Shared/GetLangs";
     private linkChangeLang: string = "Shared/ChangeLang";
     private linkAdminGiris: string = "Ajax/Ajax/Login";
     private linkRasgeleBanner: string = "Shared/RasgeleBanner";
     private linkIcerikGetir: string = "Shared/IcerikGetir";
     private linkKategoriler: string = "Shared/Kategoriler";
+    private linkLangs: string = "Shared/GetLangs";
+    private linkLangItems: string = "Shared/GetLangItems";
 
     constructor(private _http: HttpClient) {
     }
@@ -53,5 +54,10 @@ export class EmlakAjaxService {
     //Kategoriler
     getKategoriler(): Observable<Array<ICategoryDetail>> {
         return this._http.get<Array<ICategoryDetail>>(this.linkKategoriler);
+    }
+
+    //Lang Items
+    postLangItems(codes: any) {
+        return this._http.post(this.linkLangItems, { codes });
     }
 }

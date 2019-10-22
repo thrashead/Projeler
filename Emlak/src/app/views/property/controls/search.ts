@@ -1,8 +1,10 @@
 ﻿import { Component, AfterContentInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { EmlakAjaxService } from '../../../services/emlak.service';
-import { REAjaxService } from '../../../services/re.service';
+import { EmlakAjaxService } from '../../../services/emlakajax';
+import { REAjaxService } from '../../../services/reajax';
+import { LangItem } from '../../../model/LangItem';
+import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'emlak-propertysearch',
@@ -11,6 +13,8 @@ import { REAjaxService } from '../../../services/re.service';
 })
 
 export class PropertySearchComponent implements AfterContentInit {
+    errorMsg: string;
+
     propSearchForm: FormGroup;
     realCPList: any;
 
@@ -254,7 +258,8 @@ export class PropertySearchComponent implements AfterContentInit {
     }
 
     //KodlaGetir
-    errorMsg: string;
+    langItems: Array<LangItem>;
+    langItem: LangItem;
 
     sdetText: string;
     dstcText: string;
@@ -330,292 +335,162 @@ export class PropertySearchComponent implements AfterContentInit {
     klimaText: string;
 
     KodlaGetir() {
-        this.emlakService.getKodlaGetir("dstc")
-            .subscribe(resData => this.dstcText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("sdet")
-            .subscribe(resData => this.sdetText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("sctm")
-            .subscribe(resData => this.sctmText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("scfs")
-            .subscribe(resData => this.scfsText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("scfr")
-            .subscribe(resData => this.scfrText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("ctgy")
-            .subscribe(resData => this.ctgyText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("sctg")
-            .subscribe(resData => this.sctgText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("sall")
-            .subscribe(resData => this.sallText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("sclr")
-            .subscribe(resData => this.sclrText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("susd")
-            .subscribe(resData => this.susdText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("sdmg")
-            .subscribe(resData => this.sdmgText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("arlk")
-            .subscribe(resData => this.arlkText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("ttle")
-            .subscribe(resData => this.ttleText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("city")
-            .subscribe(resData => this.cityText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("ilce")
-            .subscribe(resData => this.ilceText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("semt")
-            .subscribe(resData => this.semtText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("prcd")
-            .subscribe(resData => this.prcdText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("fall")
-            .subscribe(resData => this.fallText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("fdgz")
-            .subscribe(resData => this.fdgzText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("fwoc")
-            .subscribe(resData => this.fwocText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("flif")
-            .subscribe(resData => this.flifText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("felc")
-            .subscribe(resData => this.felcText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("foth")
-            .subscribe(resData => this.fothText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wall")
-            .subscribe(resData => this.wallText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wsun")
-            .subscribe(resData => this.wsunText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wkat")
-            .subscribe(resData => this.wkatText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wair")
-            .subscribe(resData => this.wairText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wcom")
-            .subscribe(resData => this.wcomText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wcen")
-            .subscribe(resData => this.wcenText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wsto")
-            .subscribe(resData => this.wstoText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("woth")
-            .subscribe(resData => this.wothText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("dsbt")
-            .subscribe(resData => this.dsbtText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("bage")
-            .subscribe(resData => this.binaYasiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("wtyp")
-            .subscribe(resData => this.isinmaTipiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("drmc")
-            .subscribe(resData => this.salonSayisiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("ftyp")
-            .subscribe(resData => this.yakitTipiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("pric")
-            .subscribe(resData => this.fiyatText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("area")
-            .subscribe(resData => this.alanText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("flrn")
-            .subscribe(resData => this.bulunduguKatText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("flrc")
-            .subscribe(resData => this.katSayisiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("romc")
-            .subscribe(resData => this.odasayisiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("stts")
-            .subscribe(resData => this.durumText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("arkc")
-            .subscribe(resData => this.arkaCepheText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("otoy")
-            .subscribe(resData => this.otobanText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("guve")
-            .subscribe(resData => this.guvenlikText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("deny")
-            .subscribe(resData => this.denizeYakinText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("dens")
-            .subscribe(resData => this.denizeSifirText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("kapi")
-            .subscribe(resData => this.kapiciText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("oyup")
-            .subscribe(resData => this.oyunParkiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("yanm")
-            .subscribe(resData => this.yanginMerdiveniText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("balk")
-            .subscribe(resData => this.balkonText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("jaku")
-            .subscribe(resData => this.jakuziText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("once")
-            .subscribe(resData => this.onCepheText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("manz")
-            .subscribe(resData => this.manzaraText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("touy")
-            .subscribe(resData => this.topluUlasimText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("hidr")
-            .subscribe(resData => this.hidroforText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("metr")
-            .subscribe(resData => this.metroText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("jene")
-            .subscribe(resData => this.jeneratorText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("pvcd")
-            .subscribe(resData => this.pVCDogramaText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("yuzh")
-            .subscribe(resData => this.yuzmeHavuzuText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("celk")
-            .subscribe(resData => this.celikKapiText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("katu")
-            .subscribe(resData => this.kabloTVUyduText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("cady")
-            .subscribe(resData => this.caddeyeYakinText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("merk")
-            .subscribe(resData => this.merkezdeText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("asan")
-            .subscribe(resData => this.asansorText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("mant")
-            .subscribe(resData => this.mantolamaText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("bahc")
-            .subscribe(resData => this.bahceText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("otop")
-            .subscribe(resData => this.otoparkText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("siti")
-            .subscribe(resData => this.siteIciText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("alar")
-            .subscribe(resData => this.alarmText = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("gord")
-            .subscribe(resData => this.goruntuluDiafon = resData,
-                resError => this.errorMsg = resError);
-
-        this.emlakService.getKodlaGetir("klim")
-            .subscribe(resData => this.klimaText = resData,
-                resError => this.errorMsg = resError);
+        this.PushLangItems();
+
+        this.emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "sdet": this.sdetText = item.Value; break;
+                    case "dstc": this.dstcText = item.Value; break;
+                    case "sctm": this.sctmText = item.Value; break;
+                    case "scfs": this.scfsText = item.Value; break;
+                    case "scfr": this.scfrText = item.Value; break;
+                    case "ctgy": this.ctgyText = item.Value; break;
+                    case "sctg": this.sctgText = item.Value; break;
+                    case "sall": this.sallText = item.Value; break;
+                    case "sclr": this.sclrText = item.Value; break;
+                    case "susd": this.susdText = item.Value; break;
+                    case "sdmg": this.sdmgText = item.Value; break;
+                    case "arlk": this.arlkText = item.Value; break;
+                    case "ttle": this.ttleText = item.Value; break;
+                    case "city": this.cityText = item.Value; break;
+                    case "ilce": this.ilceText = item.Value; break;
+                    case "semt": this.semtText = item.Value; break;
+                    case "prcd": this.prcdText = item.Value; break;
+                    case "fall": this.fallText = item.Value; break;
+                    case "fdgz": this.fdgzText = item.Value; break;
+                    case "fwoc": this.fwocText = item.Value; break;
+                    case "flif": this.flifText = item.Value; break;
+                    case "felc": this.felcText = item.Value; break;
+                    case "foth": this.fothText = item.Value; break;
+                    case "wall": this.wallText = item.Value; break;
+                    case "wsun": this.wsunText = item.Value; break;
+                    case "wkat": this.wkatText = item.Value; break;
+                    case "wair": this.wairText = item.Value; break;
+                    case "wcom": this.wcomText = item.Value; break;
+                    case "wcen": this.wcenText = item.Value; break;
+                    case "wsto": this.wstoText = item.Value; break;
+                    case "woth": this.wothText = item.Value; break;
+                    case "dsbt": this.dsbtText = item.Value; break;
+                    case "bage": this.binaYasiText = item.Value; break;
+                    case "wtyp": this.isinmaTipiText = item.Value; break;
+                    case "drmc": this.salonSayisiText = item.Value; break;
+                    case "ftyp": this.yakitTipiText = item.Value; break;
+                    case "pric": this.fiyatText = item.Value; break;
+                    case "area": this.alanText = item.Value; break;
+                    case "flrn": this.bulunduguKatText = item.Value; break;
+                    case "flrc": this.katSayisiText = item.Value; break;
+                    case "romc": this.odasayisiText = item.Value; break;
+                    case "stts": this.durumText = item.Value; break;
+                    case "arkc": this.arkaCepheText = item.Value; break;
+                    case "otoy": this.otobanText = item.Value; break;
+                    case "guve": this.guvenlikText = item.Value; break;
+                    case "deny": this.denizeYakinText = item.Value; break;
+                    case "dens": this.denizeSifirText = item.Value; break;
+                    case "kapi": this.kapiciText = item.Value; break;
+                    case "oyup": this.oyunParkiText = item.Value; break;
+                    case "yanm": this.yanginMerdiveniText = item.Value; break;
+                    case "balk": this.balkonText = item.Value; break;
+                    case "jaku": this.jakuziText = item.Value; break;
+                    case "once": this.onCepheText = item.Value; break;
+                    case "manz": this.manzaraText = item.Value; break;
+                    case "touy": this.topluUlasimText = item.Value; break;
+                    case "hidr": this.hidroforText = item.Value; break;
+                    case "metr": this.metroText = item.Value; break;
+                    case "jene": this.jeneratorText = item.Value; break;
+                    case "pvcd": this.pVCDogramaText = item.Value; break;
+                    case "yuzh": this.yuzmeHavuzuText = item.Value; break;
+                    case "celk": this.celikKapiText = item.Value; break;
+                    case "katu": this.kabloTVUyduText = item.Value; break;
+                    case "cady": this.caddeyeYakinText = item.Value; break;
+                    case "merk": this.merkezdeText = item.Value; break;
+                    case "asan": this.asansorText = item.Value; break;
+                    case "mant": this.mantolamaText = item.Value; break;
+                    case "bahc": this.bahceText = item.Value; break;
+                    case "otop": this.otoparkText = item.Value; break;
+                    case "siti": this.siteIciText = item.Value; break;
+                    case "alar": this.alarmText = item.Value; break;
+                    case "gord": this.goruntuluDiafon
+                    case "klim": this.klimaText = item.Value; break;
+                }
+            });
+        }, resError => this.errorMsg = resError);
+    }
+
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
+
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sdet"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dstc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sctm"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "scfs"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "scfr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ctgy"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sctg"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sall"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sclr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "susd"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sdmg"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "arlk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ttle"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "city"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ilce"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "semt"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "prcd"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "fall"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "fdgz"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "fwoc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "flif"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "felc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "foth"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wall"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wsun"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wkat"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wair"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wcom"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wcen"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wsto"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "woth"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dsbt"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "bage"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wtyp"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "drmc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ftyp"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "pric"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "area"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "flrn"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "flrc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "romc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "stts"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "arkc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "otoy"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "guve"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "deny"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dens"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "kapi"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "oyup"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "yanm"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "balk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "jaku"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "once"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "manz"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "touy"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "hidr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "metr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "jene"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "pvcd"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "yuzh"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "celk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "katu"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cady"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "merk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "asan"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "mant"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "bahc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "otop"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "siti"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "alar"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "gord"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "klim"));
     }
 }

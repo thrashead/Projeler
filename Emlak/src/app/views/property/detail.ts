@@ -2,12 +2,16 @@
 import { EmlakAjaxService } from "../../services/emlakajax";
 import { REAjaxService } from "../../services/reajax";
 import { ActivatedRoute, Params } from '@angular/router';
+import { LangItem } from '../../model/LangItem';
+import { Lib } from '../../lib/methods';
 
 @Component({
     templateUrl: './detail.html'
 })
 
 export class PropertyDetailComponent {
+    errorMsg: string;
+
     emlak: any;
     public link: string;
 
@@ -39,13 +43,15 @@ export class PropertyDetailComponent {
                             $('#image-gallery').removeClass('cS-hidden');
                         }
                     });
-                },
-                    resError => this.errorMsg = resError);
+                }, resError => this.errorMsg = resError);
         });
     }
 
     //KodlaGetir
-    errorMsg: string;
+    langItems: Array<LangItem>;
+    langItem: LangItem;
+
+    ilanlarText: string;
 
     sehirText: string;
     ilceText: string;
@@ -103,357 +109,331 @@ export class PropertyDetailComponent {
     adnfText: string;
 
     KodlaGetir() {
-        this._emlakService.getKodlaGetir("desc")
-            .subscribe(resData => this.descText = resData,
-                resError => this.errorMsg = resError);
+        this.PushLangItems();
 
-        this._emlakService.getKodlaGetir("adnf")
-            .subscribe(resData => this.adnfText = resData,
-                resError => this.errorMsg = resError);
+        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "ilan": this.ilanlarText = item.Value; break;
+                    case "desc": this.descText = item.Value; break;
+                    case "adnf": this.adnfText = item.Value; break;
+                    case "feat": this.featText = item.Value; break;
+                    case "city": this.sehirText = item.Value; break;
+                    case "ilce": this.ilceText = item.Value; break;
+                    case "semt": this.semtText = item.Value; break;
+                    case "dtys": this.satilikText = item.Value; break;
+                    case "dtyk": this.kiralikText = item.Value; break;
+                    case "code": this.kodText = item.Value; break;
+                    case "ownr": this.sahipText = item.Value; break;
+                    case "pric": this.fiyatText = item.Value; break;
+                    case "romc": this.odasayisiText = item.Value; break;
+                    case "drmc": this.salonSayisiText = item.Value; break;
+                    case "area": this.alanText = item.Value; break;
+                    case "flrc": this.katSayisiText = item.Value; break;
+                    case "flrn": this.bulunduguKatText = item.Value; break;
+                    case "stts": this.durumText = item.Value; break;
+                    case "wtyp": this.isinmaTipiText = item.Value; break;
+                    case "ftyp": this.yakitTipiText = item.Value; break;
+                    case "bage": this.binaYasiText = item.Value; break;
 
-        this._emlakService.getKodlaGetir("feat")
-            .subscribe(resData => this.featText = resData,
-                resError => this.errorMsg = resError);
+                    case "arkc":
+                        this.arkaCepheText = item.Value;
 
-        this._emlakService.getKodlaGetir("city")
-            .subscribe(resData => this.sehirText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.ArkaCephe == true) {
+                            this.features.push(this.arkaCepheText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("ilce")
-            .subscribe(resData => this.ilceText = resData,
-                resError => this.errorMsg = resError);
+                    case "otoy":
+                        this.otobanText = item.Value;
 
-        this._emlakService.getKodlaGetir("semt")
-            .subscribe(resData => this.semtText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.Otoban == true) {
+                            this.features.push(this.otobanText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("dtys")
-            .subscribe(resData => this.satilikText = resData,
-                resError => this.errorMsg = resError);
+                    case "guve":
+                        this.guvenlikText = item.Value;
 
-        this._emlakService.getKodlaGetir("dtyk")
-            .subscribe(resData => this.kiralikText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.Guvenlik == true) {
+                            this.features.push(this.guvenlikText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("code")
-            .subscribe(resData => this.kodText = resData,
-                resError => this.errorMsg = resError);
+                    case "deny":
+                        this.denizeYakinText = item.Value;
 
-        this._emlakService.getKodlaGetir("ownr")
-            .subscribe(resData => this.sahipText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.DenizeYakin == true) {
+                            this.features.push(this.denizeYakinText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("pric")
-            .subscribe(resData => this.fiyatText = resData,
-                resError => this.errorMsg = resError);
+                    case "dens":
+                        this.denizeSifirText = item.Value;
 
-        this._emlakService.getKodlaGetir("romc")
-            .subscribe(resData => this.odasayisiText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.DenizeSifir == true) {
+                            this.features.push(this.denizeSifirText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("drmc")
-            .subscribe(resData => this.salonSayisiText = resData,
-                resError => this.errorMsg = resError);
+                    case "kapi":
+                        this.kapiciText = item.Value;
 
-        this._emlakService.getKodlaGetir("area")
-            .subscribe(resData => this.alanText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.Kapici == true) {
+                            this.features.push(this.kapiciText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("flrc")
-            .subscribe(resData => this.katSayisiText = resData,
-                resError => this.errorMsg = resError);
+                    case "oyup":
+                        this.oyunParkiText = item.Value;
 
-        this._emlakService.getKodlaGetir("flrn")
-            .subscribe(resData => this.bulunduguKatText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.OyunParki == true) {
+                            this.features.push(this.oyunParkiText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("stts")
-            .subscribe(resData => this.durumText = resData,
-                resError => this.errorMsg = resError);
+                    case "yanm":
+                        this.yanginMerdiveniText = item.Value;
 
-        this._emlakService.getKodlaGetir("wtyp")
-            .subscribe(resData => this.isinmaTipiText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.YanginMerdiveni == true) {
+                            this.features.push(this.yanginMerdiveniText);
+                        }
+                        break;
 
-        this._emlakService.getKodlaGetir("ftyp")
-            .subscribe(resData => this.yakitTipiText = resData,
-                resError => this.errorMsg = resError);
+                    case "balk":
+                        this.balkonText = item.Value;
 
-        this._emlakService.getKodlaGetir("bage")
-            .subscribe(resData => this.binaYasiText = resData,
-                resError => this.errorMsg = resError);
+                        if (this.emlak.Balkon == true) {
+                            this.features.push(this.balkonText);
+                        }
+                        break;
 
+                    case "jaku":
+                        this.jakuziText = item.Value;
 
+                        if (this.emlak.Jakuzi == true) {
+                            this.features.push(this.jakuziText);
+                        }
+                        break;
 
+                    case "once":
+                        this.onCepheText = item.Value;
 
-        this._emlakService.getKodlaGetir("arkc")
-            .subscribe((resData: any) => { 
-                this.arkaCepheText = resData;
+                        if (this.emlak.OnCephe == true) {
+                            this.features.push(this.onCepheText);
+                        }
+                        break;
 
-                if(this.emlak.ArkaCephe == true) {  
-                    this.features.push(this.arkaCepheText);
+                    case "manz":
+                        this.manzaraText = item.Value;
+
+                        if (this.emlak.Manzara == true) {
+                            this.features.push(this.manzaraText);
+                        }
+                        break;
+
+                    case "touy":
+                        this.topluUlasimText = item.Value;
+
+                        if (this.emlak.TopluUlasim == true) {
+                            this.features.push(this.topluUlasimText);
+                        }
+                        break;
+
+                    case "hidr":
+                        this.hidroforText = item.Value;
+
+                        if (this.emlak.Hidrofor == true) {
+                            this.features.push(this.hidroforText);
+                        }
+                        break;
+
+                    case "metr":
+                        this.metroText = item.Value;
+
+                        if (this.emlak.Metro == true) {
+                            this.features.push(this.metroText);
+                        }
+                        break;
+
+                    case "jene":
+                        this.jeneratorText = item.Value;
+
+                        if (this.emlak.Jenerator == true) {
+                            this.features.push(this.jeneratorText);
+                        }
+                        break;
+
+                    case "pvcd":
+                        this.pVCDogramaText = item.Value;
+
+                        if (this.emlak.PVCDograma == true) {
+                            this.features.push(this.pVCDogramaText);
+                        }
+                        break;
+
+                    case "yuzh":
+                        this.yuzmeHavuzuText = item.Value;
+
+                        if (this.emlak.YuzmeHavuzu == true) {
+                            this.features.push(this.yuzmeHavuzuText);
+                        }
+                        break;
+
+                    case "celk":
+                        this.celikKapiText = item.Value;
+
+                        if (this.emlak.CelikKapi == true) {
+                            this.features.push(this.celikKapiText);
+                        }
+                        break;
+
+                    case "katu":
+                        this.kabloTVUyduText = item.Value;
+
+                        if (this.emlak.KabloTVUydu == true) {
+                            this.features.push(this.kabloTVUyduText);
+                        }
+                        break;
+
+                    case "cady":
+                        this.caddeyeYakinText = item.Value;
+
+                        if (this.emlak.CaddeyeYakin == true) {
+                            this.features.push(this.caddeyeYakinText);
+                        }
+                        break;
+
+                    case "merk":
+                        this.merkezdeText = item.Value;
+
+                        if (this.emlak.Merkezde == true) {
+                            this.features.push(this.merkezdeText);
+                        }
+                        break;
+
+                    case "asan":
+                        this.asansorText = item.Value;
+
+                        if (this.emlak.Asansor == true) {
+                            this.features.push(this.asansorText);
+                        }
+                        break;
+
+                    case "mant":
+                        this.mantolamaText = item.Value;
+
+                        if (this.emlak.Mantolama == true) {
+                            this.features.push(this.mantolamaText);
+                        }
+                        break;
+
+                    case "bahc":
+                        this.bahceText = item.Value;
+
+                        if (this.emlak.Bahce == true) {
+                            this.features.push(this.bahceText);
+                        }
+                        break;
+
+                    case "otop":
+                        this.otoparkText = item.Value;
+
+                        if (this.emlak.Otopark == true) {
+                            this.features.push(this.otoparkText);
+                        }
+                        break;
+
+                    case "siti":
+                        this.siteIciText = item.Value;
+
+                        if (this.emlak.SiteIci == true) {
+                            this.features.push(this.siteIciText);
+                        }
+                        break;
+
+                    case "alar":
+                        this.alarmText = item.Value;
+
+                        if (this.emlak.Alarm == true) {
+                            this.features.push(this.alarmText);
+                        }
+                        break;
+
+                    case "gord":
+                        this.goruntuluDiafon = item.Value;
+
+                        if (this.emlak.GoruntuluDiafon == true) {
+                            this.features.push(this.goruntuluDiafon);
+                        }
+                        break;
+
+                    case "klim":
+                        this.klimaText = item.Value;
+
+                        if (this.emlak.Klima == true) {
+                            this.features.push(this.klimaText);
+                        }
+                        break;
                 }
-            }, resError => this.errorMsg = resError);
+            });
+        }, resError => this.errorMsg = resError);
+    }
 
-        this._emlakService.getKodlaGetir("otoy")
-            .subscribe((resData: any) => { 
-                this.otobanText = resData;
+    PushLangItems() {
+        this.langItems = new Array<LangItem>();
 
-                if(this.emlak.Otoban == true) { 
-                    this.features.push(this.otobanText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("guve")
-            .subscribe((resData: any) => { 
-                this.guvenlikText = resData;
-
-                if(this.emlak.Guvenlik == true) { 
-                    this.features.push(this.guvenlikText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("deny")
-            .subscribe((resData: any) => { 
-                this.denizeYakinText = resData;
-
-                if(this.emlak.DenizeYakin == true) { 
-                    this.features.push(this.denizeYakinText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("dens")
-            .subscribe((resData: any) => { 
-                this.denizeSifirText = resData;
-
-                if(this.emlak.DenizeSifir == true) { 
-                    this.features.push(this.denizeSifirText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("kapi")
-            .subscribe((resData: any) => { 
-                this.kapiciText = resData;
-
-                if(this.emlak.Kapici == true) { 
-                    this.features.push(this.kapiciText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("oyup")
-            .subscribe((resData: any) => { 
-                this.oyunParkiText = resData;
-
-                if(this.emlak.OyunParki == true) { 
-                    this.features.push(this.oyunParkiText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("yanm")
-            .subscribe((resData: any) => { 
-                this.yanginMerdiveniText = resData;
-
-                if(this.emlak.YanginMerdiveni == true) { 
-                    this.features.push(this.yanginMerdiveniText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("balk")
-            .subscribe((resData: any) => { 
-                this.balkonText = resData;
-
-                if(this.emlak.Balkon == true) { 
-                    this.features.push(this.balkonText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("jaku")
-            .subscribe((resData: any) => { 
-                this.jakuziText = resData;
-
-                if(this.emlak.Jakuzi == true) { 
-                    this.features.push(this.jakuziText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("once")
-            .subscribe((resData: any) => { 
-                this.onCepheText = resData;    
-
-                if(this.emlak.OnCephe == true) {  
-                    this.features.push(this.onCepheText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("manz")
-            .subscribe((resData: any) => { 
-                this.manzaraText = resData;
-
-                if(this.emlak.Manzara == true) { 
-                    this.features.push(this.manzaraText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("touy")
-            .subscribe((resData: any) => { 
-                this.topluUlasimText = resData;
-
-                if(this.emlak.TopluUlasim == true) { 
-                    this.features.push(this.topluUlasimText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("hidr")
-            .subscribe((resData: any) => { 
-                this.hidroforText = resData;
-
-                if(this.emlak.Hidrofor == true) { 
-                    this.features.push(this.hidroforText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("metr")
-            .subscribe((resData: any) => { 
-                this.metroText = resData;
-
-                if(this.emlak.Metro == true) { 
-                    this.features.push(this.metroText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("jene")
-            .subscribe((resData: any) => { 
-                this.jeneratorText = resData;
-
-                if(this.emlak.Jenerator == true) { 
-                    this.features.push(this.jeneratorText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("pvcd")
-            .subscribe((resData: any) => { 
-                this.pVCDogramaText = resData;
-
-                if(this.emlak.PVCDograma == true) { 
-                    this.features.push(this.pVCDogramaText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("yuzh")
-            .subscribe((resData: any) => { 
-                this.yuzmeHavuzuText = resData;
-
-                if(this.emlak.YuzmeHavuzu == true) { 
-                    this.features.push(this.yuzmeHavuzuText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("celk")
-            .subscribe((resData: any) => { 
-                this.celikKapiText = resData;
-
-                if(this.emlak.CelikKapi == true) { 
-                    this.features.push(this.celikKapiText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("katu")
-            .subscribe((resData: any) => { 
-                this.kabloTVUyduText = resData;
-
-                if(this.emlak.KabloTVUydu == true) { 
-                    this.features.push(this.kabloTVUyduText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("cady")
-            .subscribe((resData: any) => { 
-                this.caddeyeYakinText = resData;
-
-                if(this.emlak.CaddeyeYakin == true) { 
-                    this.features.push(this.caddeyeYakinText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("merk")
-            .subscribe((resData: any) => { 
-                this.merkezdeText = resData;
-
-                if(this.emlak.Merkezde == true) { 
-                    this.features.push(this.merkezdeText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("asan")
-            .subscribe((resData: any) => { 
-                this.asansorText = resData;
-
-                if(this.emlak.Asansor == true) { 
-                    this.features.push(this.asansorText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("mant")
-            .subscribe((resData: any) => { 
-                this.mantolamaText = resData;
-
-                if(this.emlak.Mantolama == true) { 
-                    this.features.push(this.mantolamaText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("bahc")
-            .subscribe((resData: any) => { 
-                this.bahceText = resData;
-
-                if(this.emlak.Bahce == true) { 
-                    this.features.push(this.bahceText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("otop")
-            .subscribe((resData: any) => { 
-                this.otoparkText = resData;
-
-                if(this.emlak.Otopark == true) { 
-                    this.features.push(this.otoparkText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("siti")
-            .subscribe((resData: any) => { 
-                this.siteIciText = resData;
-
-                if(this.emlak.SiteIci == true) { 
-                    this.features.push(this.siteIciText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("alar")
-            .subscribe((resData: any) => { 
-                this.alarmText = resData;
-
-                if(this.emlak.Alarm == true) { 
-                    this.features.push(this.alarmText);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("gord")
-            .subscribe((resData: any) => { 
-                this.goruntuluDiafon = resData;
-
-                if(this.emlak.GoruntuluDiafon == true) { 
-                    this.features.push(this.goruntuluDiafon);
-                }
-            }, resError => this.errorMsg = resError);
-
-        this._emlakService.getKodlaGetir("klim")
-            .subscribe((resData: any) => { 
-                this.klimaText = resData;
-
-                if(this.emlak.Klima == true) { 
-                    this.features.push(this.klimaText);
-                }
-            }, resError => this.errorMsg = resError);
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ilan"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "news"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "desc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "adnf"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "feat"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "city"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ilce"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "semt"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dtys"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dtyk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "code"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ownr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "pric"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "romc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "drmc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "area"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "flrc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "flrn"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "stts"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "wtyp"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ftyp"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "bage"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "arkc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "otoy"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "guve"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "deny"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dens"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "kapi"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "oyup"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "yanm"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "balk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "jaku"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "once"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "manz"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "touy"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "hidr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "metr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "jene"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "pvcd"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "yuzh"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "celk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "katu"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cady"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "merk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "asan"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "mant"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "bahc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "otop"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "siti"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "alar"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "gord"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "klim"));
     }
 }
