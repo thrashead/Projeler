@@ -167,9 +167,6 @@ namespace Emlak.Areas.Ajax.Controllers
                 case 2:
                     List<usp_ContentSelect_Result> icerikler = entity.usp_ContentSelect(null).ToList();
                     return ListeDoldur(icerikler, BaglantiTipi.Tablo, selectedID);
-                case 3:
-                    List<usp_ProductSelect_Result> urunler = entity.usp_ProductSelect(null).ToList();
-                    return ListeDoldur(urunler, BaglantiTipi.Tablo, selectedID);
                 case 4:
                     List<usp_GallerySelect_Result> galeriler = entity.usp_GallerySelect(null).ToList();
                     return ListeDoldur(galeriler, BaglantiTipi.Tablo, selectedID);
@@ -182,9 +179,6 @@ namespace Emlak.Areas.Ajax.Controllers
                 case 7:
                     List<usp_MetaSelect_Result> metalar = entity.usp_MetaSelect(null).ToList();
                     return ListeDoldur(metalar, BaglantiTipi.Tablo, selectedID);
-                case 8:
-                    List<usp_PropertyGroupSelect_Result> formelemanlar = entity.usp_PropertyGroupSelect(null).ToList();
-                    return ListeDoldur(formelemanlar, BaglantiTipi.Tablo, selectedID);
                 case 17:
                     List<usp_RealEstatesSelect_Result> emlaklar = entity.usp_RealEstatesSelect(null).ToList();
                     return ListeDoldur(emlaklar, BaglantiTipi.Emlak, selectedID);

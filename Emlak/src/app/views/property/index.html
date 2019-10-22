@@ -1,0 +1,83 @@
+﻿<emlak-contentheader headerText="{{ liste?.Baslik }}"></emlak-contentheader>
+
+<div class="properties-area recent-property" style="background-color: #FFF;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 p0 padding-top-40">
+                <emlak-propertysearch></emlak-propertysearch>
+            </div>
+
+            <div class="col-md-9  pr0 padding-top-40 properties-page">
+                <div class="col-md-12 clear">
+                    <div class="col-xs-12 page-subheader sorting pl0">
+                        <ul class="sort-by-list">
+                            <li class="active">
+                                <a href="javascript:;" data-value="atoz" (click)="onOrder($event)" title="{{ atozText }}">
+                                    <i class="fa fa-sort-alpha-asc"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-value="ztoa" (click)="onOrder($event)" title="{{ ztoaText }}">
+                                    <i class="fa fa-sort-alpha-desc"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-value="1to9" (click)="onOrder($event)" title="{{ to19Text }}">
+                                    <i class="fa fa-sort-numeric-asc"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-value="9to1" (click)="onOrder($event)" title="{{ to91Text }}">
+                                    <i class="fa fa-sort-numeric-desc"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-value="dto9" (click)="onOrder($event)" title="{{ dto9Text }}">
+                                    <i class="fa fa-sort-amount-asc"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-value="dto1" (click)="onOrder($event)" title="{{ dto1Text }}">
+                                    <i class="fa fa-sort-amount-desc"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-12 clear">
+                    <div id="list-type" class="proerty-th">
+                        <span id="lblSonuc" style="display: none;">{{ noprText }}</span>
+
+                        <div class="col-sm-6 col-md-4 p0" *ngFor="let item of liste?.Emlaklar">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a [routerLink]="['/Emlak/Detay/' + item?.Url]"><img src="{{ item?.PictureName }}"></a>
+                                </div>
+
+                                <div class="item-entry overflow">
+                                    <h5><a [routerLink]="['/Emlak/Detay/' + item?.Url]"> {{ item?.Baslik }} </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b> {{ item?.CategoryName }}</b></span>
+                                    <span class="proerty-price pull-right"> {{ item?.Fiyat }} TL</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <div class="pagination">
+                            <ul>
+                                <li *ngFor="let item of sayfalar; let i = index" [class.active]="i == 0"><a href="javascript:;" (click)="onClick($event)">{{ item }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,12 +21,10 @@ namespace Emlak.Data
         public string LinkedTypeAdi { get; set; }
         public string MainCategoryAdi { get; set; }
         public string MainContentAdi { get; set; }
-        public string MainProductAdi { get; set; }
         public string MainGalleryAdi { get; set; }
         public string MainPictureAdi { get; set; }
         public string MainFileAdi { get; set; }
         public string MainMetaAdi { get; set; }
-        public string MainPropertyGroupAdi { get; set; }
         public string MainRealEstatesAdi { get; set; }
     }
 }

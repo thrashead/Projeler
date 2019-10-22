@@ -101,6 +101,10 @@ namespace Emlak.Controllers
             {
                 model.RouteUrl = urlModel;
             }
+            else
+            {
+                model = null;
+            }
 
             return model;
         }
@@ -167,7 +171,7 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult Sayfalar()
         {
-            var modelList = entity.sp_ContentLinks(ToolBox.LangCode).ToList();
+            var modelList = entity.sp_ContentLinks(ToolBox.LangCode).Where(a=> a.Url != "Hakkimizda" && a.Url != "Iletisim").ToList();
 
             return Json(modelList, JsonRequestBehavior.AllowGet);
         }

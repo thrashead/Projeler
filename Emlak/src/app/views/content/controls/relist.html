@@ -1,0 +1,18 @@
+﻿<div class="panel panel-default sidebar-menu wow fadeInRight animated">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ ilanlarText }}</h3>
+    </div>
+    <div class="panel-body recent-property-widget">
+        <ul>
+            <li *ngFor="let item of ilanlar">
+                <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                    <a [routerLink]="['/Emlak/Detay/' + item?.Url]"><img src="{{item?.Picture}}"></a>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                    <h6> <a [routerLink]="['/Emlak/Detay/' + item?.Url]">{{item?.Baslik}} </a></h6>
+                    <span class="property-price">{{item?.Fiyat}} TL</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

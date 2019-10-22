@@ -1,0 +1,30 @@
+﻿<!-- property area -->
+<div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                <h2>{{yeniIlanlarText}}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="proerty-th">
+
+                <div class="col-sm-6 col-md-3 p0" *ngFor="let item of ilanlar">
+                    <div class="box-two proerty-item">
+                        <div class="item-thumb">
+                            <a [routerLink]="['/Emlak/Detay/' + item?.Url]"><img src="{{item?.Picture}}"></a>
+                        </div>
+                        <div class="item-entry overflow">
+                            <h5><a [routerLink]="['/Emlak/Detay/' + item?.Url]">{{item?.Baslik}} </a></h5>
+                            <div class="dot-hr"></div>
+                            <span class="pull-left"><b>{{item?.CategoryName}}</b> </span>
+                            <span class="proerty-price pull-right">{{item?.Fiyat}} TL</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

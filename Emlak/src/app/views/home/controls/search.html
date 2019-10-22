@@ -1,0 +1,413 @@
+﻿<div class="slider-content">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+            <div class="search-form wow pulse" data-wow-delay="0.8s">
+
+                <form [formGroup]="detailSearchForm" class="form-inline" (ngSubmit)="onSubmit()">
+                    <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
+
+                    <div class="form-group">
+                        <input type="text" id="txtBaslik" formControlName="baslik" class="form-control" placeholder="{{ ttleText }}" />
+                    </div>
+                    <div class="form-group">
+                        <select id="drpKategori" formControlName="kategori" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <select id="drpDurum" formControlName="durum" class="form-control">
+                            <option value="{{ sallText }}">{{ sallText }}</option>
+                            <option value="{{ sclrText }}">{{ sclrText }}</option>
+                            <option value="{{ susdText }}">{{ susdText }}</option>
+                            <option value="{{ sdmgText }}">{{ sdmgText }}</option>
+                        </select>
+                    </div>
+                    <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
+
+                    <div style="display: none;" class="search-toggle">
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label><input name="satilik" id="rbTumu" type="radio" class="form-control" formControlName="satilik" checked="checked" value="{{ sctmText }}" /> <b>{{ sctmText }}</b></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label><input name="satilik" id="rbSatilik" type="radio" class="form-control" formControlName="satilik" value="{{ scfsText }}" /> <b>{{ scfsText }}</b></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label><input name="satilik" id="rbKiralik" type="radio" class="form-control" formControlName="satilik" value="{{ scfrText }}" /> <b>{{ scfrText }}</b></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <b>{{ cityText }} :</b>
+                                <select id="drpSehir" class="form-control"></select>
+                            </div>
+                            <div class="form-group mar-l-20">
+                                <b>{{ ilceText }} :</b>
+                                <input type="text" id="txtIlce" class="form-control" formControlName="ilce" />
+                            </div>
+                            <div class="form-group mar-l-20">
+                                <b>{{ semtText }} :</b>
+                                <input type="text" id="txtSemt" class="form-control" formControlName="semt" />
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+
+                            <div class="form-group">
+                                <b>{{ yakitTipiText }} :</b>
+                                <select id="drpYakit" formControlName="yakit" class="form-control">
+                                    <option value="{{ fallText }}">{{ fallText }}</option>
+                                    <option value="{{ fdgzText }}">{{ fdgzText }}</option>
+                                    <option value="{{ fwocText }}">{{ fwocText }}</option>
+                                    <option value="{{ flifText }}">{{ flifText }}</option>
+                                    <option value="{{ felcText }}">{{ felcText }}</option>
+                                    <option value="{{ fothText }}">{{ fothText }}</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mar-l-20">
+                                <b>{{ isinmaTipiText }} :</b>
+                                <select id="drpIsinma" formControlName="isinma" class="form-control">
+                                    <option value="{{ wallText }}">{{ wallText }}</option>
+                                    <option value="{{ wsunText }}">{{ wsunText }}</option>
+                                    <option value="{{ wkatText }}">{{ wkatText }}</option>
+                                    <option value="{{ wairText }}">{{ wairText }}</option>
+                                    <option value="{{ wcomText }}">{{ wcomText }}</option>
+                                    <option value="{{ wcenText }}">{{ wcenText }}</option>
+                                    <option value="{{ wstoText }}">{{ wstoText }}</option>
+                                    <option value="{{ wothText }}">{{ wothText }}</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="search-row">
+
+                            <div class="col-md-8 col-md-offset-2 col-sm-12" style="padding:0px;">
+                                <label for="fiyat1">{{ fiyatText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="fiyat1" value="" data-slider-min="0"
+                                       data-slider-max="1000000" data-slider-step="5000"
+                                       data-slider-value="[0,1000000]" id="fiyat1"><br />
+                                <b class="pull-left color">0 TL</b>
+                                <b class="pull-right color">1000000 TL</b>
+                            </div>
+
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <label for="roomCount1">{{ odasayisiText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="roomCount1" value="" data-slider-min="0"
+                                       data-slider-max="10" data-slider-step="1"
+                                       data-slider-value="[0,10]" id="roomCount1"><br />
+                                <b class="pull-left color">0</b>
+                                <b class="pull-right color">10</b>
+                            </div>
+
+                            <div class="form-group mar-l-20">
+                                <label for="salon1">{{ salonSayisiText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="salon1" value="" data-slider-min="0"
+                                       data-slider-max="10" data-slider-step="1"
+                                       data-slider-value="[0,10]" id="salon1"><br />
+                                <b class="pull-left color">0</b>
+                                <b class="pull-right color">10</b>
+                            </div>
+
+                            <div class="form-group mar-l-20">
+                                <label for="alan1">{{ alanText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="alan1" value="" data-slider-min="0"
+                                       data-slider-max="2000" data-slider-step="100"
+                                       data-slider-value="[0,2000]" id="alan1"><br />
+                                <b class="pull-left color">0</b>
+                                <b class="pull-right color">2000</b>
+                            </div>
+
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <label for="katSayi1">{{ katSayisiText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="katSayi1" value="" data-slider-min="0"
+                                       data-slider-max="40" data-slider-step="1"
+                                       data-slider-value="[0,40]" id="katSayi1"><br />
+                                <b class="pull-left color">0</b>
+                                <b class="pull-right color">40</b>
+                            </div>
+
+                            <div class="form-group mar-l-20">
+                                <label for="bulunduguKat1">{{ bulunduguKatText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="bulunduguKat1" value="" data-slider-min="0"
+                                       data-slider-max="10" data-slider-step="1"
+                                       data-slider-value="[0,40]" id="bulunduguKat1"><br />
+                                <b class="pull-left color">0</b>
+                                <b class="pull-right color">40</b>
+                            </div>
+
+                            <div class="form-group mar-l-20">
+                                <label for="binaYas1">{{ binaYasiText }} <i>({{ arlkText }})</i></label>
+                                <input type="text" class="span2" formControlName="binaYas1" value="" data-slider-min="0"
+                                       data-slider-max="100" data-slider-step="5"
+                                       data-slider-value="[0,100]" id="binaYas1"><br />
+                                <b class="pull-left color">0</b>
+                                <b class="pull-right color">100</b>
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="caddeyeYakin" formControlName="caddeyeYakin" /> <b>{{ caddeyeYakinText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="merkezde" formControlName="merkezde" /> <b>{{ merkezdeText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="asansor" formControlName="asansor" /> <b>{{ asansorText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="mantolama" formControlName="mantolama" /> <b>{{ mantolamaText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="bahce" formControlName="bahce" /> <b>{{ bahceText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="otopark" formControlName="otopark" /> <b>{{ otoparkText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="siteIci" formControlName="siteIci" /> <b>{{ siteIciText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="alarm" formControlName="alarm" /> <b>{{ alarmText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="goruntuluDiafon" formControlName="goruntuluDiafon" /> <b>{{ goruntuluDiafon }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="klima" formControlName="klima" /> <b>{{ klimaText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="onCephe" formControlName="onCephe" /> <b>{{ onCepheText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="manzarali" formControlName="manzarali" /> <b>{{ manzaraText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="topluUlasim" formControlName="topluUlasim" /> <b>{{ topluUlasimText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="hidrofor" formControlName="hidrofor" /> <b>{{ hidroforText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="metro" formControlName="metro" /> <b>{{ metroText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="jenerator" formControlName="jenerator" /> <b>{{ jeneratorText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="pVCDograma" formControlName="pVCDograma" /> <b>{{ pVCDogramaText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="yuzmeHavuzu" formControlName="yuzmeHavuzu" /> <b>{{ yuzmeHavuzuText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="celikKapi" formControlName="celikKapi" /> <b>{{ celikKapiText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="kabloTVUydu" formControlName="kabloTVUydu" /> <b>{{ kabloTVUyduText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="arkaCephe" formControlName="arkaCephe" /> <b>{{ arkaCepheText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="denizeYakin" formControlName="denizeYakin" /> <b>{{ denizeYakinText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="otoban" formControlName="otoban" /> <b>{{ otobanText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="guvenlik" formControlName="guvenlik" /> <b>{{ guvenlikText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="denizeSifir" formControlName="denizeSifir" /> <b>{{ denizeSifirText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="kapici" formControlName="kapici" /> <b>{{ kapiciText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="oyunParki" formControlName="oyunParki" /> <b>{{ oyunParkiText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-row">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="yanginMerdiveni" formControlName="yanginMerdiveni" /> <b>{{ yanginMerdiveniText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="balkon" formControlName="balkon" /> <b>{{ balkonText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="jakuzi" formControlName="jakuzi" /> <b>{{ jakuziText }}</b>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <br>
+                            <hr>
+                        </div>
+
+                        <button class="btn search-btn prop-btm-sheaerch" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,41 +7,32 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app';
 
-import { LayoutComponent } from './shared/layout';
+//Site
+import { LayoutComponent } from './views/shared/layout';
+import { ScriptsComponent } from './views/shared/controls/scripts';
+import { HeaderComponent } from './views/shared/controls/header';
+import { HeaderMenuComponent } from './views/shared/controls/menu';
+import { FooterComponent } from './views/shared/controls/footer';
 
-//giris
-import { GirisComponent } from './giris/giris';
+import { IndexComponent } from './views/home/index';
+import { SliderComponent } from './views/home/controls/slider';
+import { SearchComponent } from './views/home/controls/search';
+import { ReOfDayComponent } from './views/home/controls/reofday';
+import { ShowroomComponent } from './views/home/controls/showroom';
+import { NewReComponent } from './views/home/controls/newre';
+import { NewsComponent } from './views/home/controls/news';
+import { AboutComponent } from './views/home/controls/about';
 
-//giris//controls
-import { MPAboutComponent } from './giris/controls/mpabout';
-import { MPNewPropsComponent } from './giris/controls/mpnewprops';
-import { MPNewsComponent } from './giris/controls/mpnews';
-import { MPShowroomComponent } from './giris/controls/mpshowroom';
-import { SliderComponent } from './giris/controls/slider';
+import { ContentIndexComponent } from './views/content';
+import { ContentHeaderComponent } from './views/content/controls/header';
+import { ContentReListComponent } from './views/content/controls/relist';
+import { ContentSearchComponent } from './views/content/controls/search';
+import { ContentContactComponent } from './views/content/contact';
+import { ContentNewsComponent } from './views/content/news';
 
-//controls/
-import { BannerComponent } from './controls/banner';
-import { FooterComponent } from './controls/footer';
-import { HeaderComponent } from './controls/header';
-import { ScriptsComponent } from './controls/scripts';
-
-//controls///left
-import { AramaSolComponent } from './controls/left/aramasol';
-import { GununEmlagiComponent } from './controls/left/gununemlagi';
-import { HaberlerSolComponent } from './controls/left/haberlersol';
-import { KategoriMenuComponent } from './controls/left/kategorimenu';
-import { SayfaGetirComponent } from './controls/left/sayfagetir';
-import { YeniIlanSolComponent } from './controls/left/yeniilansol';
-
-//emlak
-import { EmlakDetayComponent } from './emlak/emlakdetay';
-import { EmlakListeleComponent } from './emlak/emlaklistele';
-import { EmlakDetayliAraComponent } from './emlak/emlakdetayliara';
-
-//icerik
-import { IcerikComponent } from './icerik/icerik';
-import { HaberlerComponent } from './icerik/haberler';
-import { IletisimComponent } from './icerik/iletisim';
+import { PropertyIndexComponent } from './views/property';
+import { PropertySearchComponent } from './views/property/controls/search';
+import { PropertyDetailComponent } from './views/property/detail';
 
 //Admin
 import { AdminGirisComponent } from './admin/views/giris/giris';
@@ -76,26 +67,6 @@ import { AdminEmlakDuzenleComponent } from './admin/views/emlak/duzenle';
 import { AdminEmlakDilIndexComponent } from './admin/views/emlakdil';
 import { AdminEmlakDilEkleComponent } from './admin/views/emlakdil/ekle';
 import { AdminEmlakDilDuzenleComponent } from './admin/views/emlakdil/duzenle';
-
-import { AdminFormElemanIndexComponent } from './admin/views/formeleman';
-import { AdminFormElemanEkleComponent } from './admin/views/formeleman/ekle';
-import { AdminFormElemanDuzenleComponent } from './admin/views/formeleman/duzenle';
-
-import { AdminFormElemanDegerIndexComponent } from './admin/views/formelemandeger';
-import { AdminFormElemanDegerEkleComponent } from './admin/views/formelemandeger/ekle';
-import { AdminFormElemanDegerDuzenleComponent } from './admin/views/formelemandeger/duzenle';
-
-import { AdminFormElemanGrupIndexComponent } from './admin/views/formelemangrup';
-import { AdminFormElemanGrupEkleComponent } from './admin/views/formelemangrup/ekle';
-import { AdminFormElemanGrupDuzenleComponent } from './admin/views/formelemangrup/duzenle';
-
-import { AdminFormElemanOzellikIndexComponent } from './admin/views/formelemanozellik';
-import { AdminFormElemanOzellikEkleComponent } from './admin/views/formelemanozellik/ekle';
-import { AdminFormElemanOzellikDuzenleComponent } from './admin/views/formelemanozellik/duzenle';
-
-import { AdminFormTiplerIndexComponent } from './admin/views/formtipler';
-import { AdminFormTiplerEkleComponent } from './admin/views/formtipler/ekle';
-import { AdminFormTiplerDuzenleComponent } from './admin/views/formtipler/duzenle';
 
 import { AdminGaleriIndexComponent } from './admin/views/galeri';
 import { AdminGaleriEkleComponent } from './admin/views/galeri/ekle';
@@ -168,14 +139,6 @@ import { AdminTiplerIndexComponent } from './admin/views/tipler';
 import { AdminTiplerEkleComponent } from './admin/views/tipler/ekle';
 import { AdminTiplerDuzenleComponent } from './admin/views/tipler/duzenle';
 
-import { AdminUrunIndexComponent } from './admin/views/urun';
-import { AdminUrunEkleComponent } from './admin/views/urun/ekle';
-import { AdminUrunDuzenleComponent } from './admin/views/urun/duzenle';
-
-import { AdminUrunDilIndexComponent } from './admin/views/urundil';
-import { AdminUrunDilEkleComponent } from './admin/views/urundil/ekle';
-import { AdminUrunDilDuzenleComponent } from './admin/views/urundil/duzenle';
-
 import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
 
 //Services
@@ -188,34 +151,39 @@ import { HomeAjaxService } from './services/homeajax';
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
 
+
 @NgModule({
     declarations: [
         AppComponent,
 
+        //Site
         LayoutComponent,
-        GirisComponent,
-        BannerComponent,
-        FooterComponent,
-        HeaderComponent,
         ScriptsComponent,
-        AramaSolComponent,
-        GununEmlagiComponent,
-        HaberlerSolComponent,
-        KategoriMenuComponent,
-        SayfaGetirComponent,
-        YeniIlanSolComponent,
-        MPAboutComponent,
-        MPNewPropsComponent,
-        MPNewsComponent,
-        MPShowroomComponent,
-        SliderComponent,
-        EmlakDetayComponent,
-        EmlakListeleComponent,
-        EmlakDetayliAraComponent,
-        IcerikComponent,
-        HaberlerComponent,
-        IletisimComponent,
+        HeaderComponent,
+        HeaderMenuComponent,
+        FooterComponent,
 
+        IndexComponent,
+        SliderComponent,
+        SearchComponent,
+        ReOfDayComponent,
+        ShowroomComponent,
+        NewReComponent,
+        NewsComponent,
+        AboutComponent,
+
+        ContentIndexComponent,
+        ContentHeaderComponent,
+        ContentReListComponent,
+        ContentSearchComponent,
+        ContentContactComponent,
+        ContentNewsComponent,
+
+        PropertyIndexComponent,
+        PropertyDetailComponent,
+        PropertySearchComponent,
+
+        //Admin
         AdminGirisComponent,
         AdminLayoutComponent,
         AdminFooterComponent,
@@ -248,26 +216,6 @@ import { ModelService } from './admin/services/model';
         AdminEmlakDilIndexComponent,
         AdminEmlakDilEkleComponent,
         AdminEmlakDilDuzenleComponent,
-
-        AdminFormElemanIndexComponent,
-        AdminFormElemanEkleComponent,
-        AdminFormElemanDuzenleComponent,
-
-        AdminFormElemanDegerIndexComponent,
-        AdminFormElemanDegerEkleComponent,
-        AdminFormElemanDegerDuzenleComponent,
-
-        AdminFormElemanGrupIndexComponent,
-        AdminFormElemanGrupEkleComponent,
-        AdminFormElemanGrupDuzenleComponent,
-
-        AdminFormElemanOzellikIndexComponent,
-        AdminFormElemanOzellikEkleComponent,
-        AdminFormElemanOzellikDuzenleComponent,
-
-        AdminFormTiplerIndexComponent,
-        AdminFormTiplerEkleComponent,
-        AdminFormTiplerDuzenleComponent,
 
         AdminGaleriIndexComponent,
         AdminGaleriEkleComponent,
@@ -339,14 +287,6 @@ import { ModelService } from './admin/services/model';
         AdminTiplerIndexComponent,
         AdminTiplerEkleComponent,
         AdminTiplerDuzenleComponent,
-
-        AdminUrunIndexComponent,
-        AdminUrunEkleComponent,
-        AdminUrunDuzenleComponent,
-
-        AdminUrunDilIndexComponent,
-        AdminUrunDilEkleComponent,
-        AdminUrunDilDuzenleComponent,
 
         AdminZiyaretciIndexComponent
     ],

@@ -13,12 +13,10 @@ export class AdminLeftMenuComponent implements AfterContentInit {
     hasRightEmlak: boolean;
     hasRightKategori: boolean;
     hasRightIcerik: boolean;
-    hasRightUrun: boolean;
     hasRightGaleri: boolean;
     hasRightResim: boolean;
     hasRightDosya: boolean;
     hasRightMeta: boolean;
-    hasRightFormEleman: boolean;
     hasRightBagliTipler: boolean;
     hasRightDil: boolean;
     hasRightLoglar: boolean;
@@ -29,12 +27,10 @@ export class AdminLeftMenuComponent implements AfterContentInit {
     showTypeEmlak: boolean;
     showTypeKategori: boolean;
     showTypeIcerik: boolean;
-    showTypeUrun: boolean;
     showTypeGaleri: boolean;
     showTypeResim: boolean;
     showTypeDosya: boolean;
     showTypeMeta: boolean;
-    showTypeFormEleman: boolean;
     showTypeBagliTipler: boolean;
     showTypeDil: boolean;
     showTypeLoglar: boolean;
@@ -120,59 +116,47 @@ export class AdminLeftMenuComponent implements AfterContentInit {
                             this.hasRightIcerik = resData;
                             this.sharedService.getShowType("Icerik").subscribe((resData: any) => {
                                 this.showTypeIcerik = resData;
-                                this.sharedService.getHasRight("Urun", "s").subscribe((resData: any) => {
-                                    this.hasRightUrun = resData;
-                                    this.sharedService.getShowType("Urun").subscribe((resData: any) => {
-                                        this.showTypeUrun = resData;
-                                        this.sharedService.getHasRight("Galeri", "s").subscribe((resData: any) => {
-                                            this.hasRightGaleri = resData;
-                                            this.sharedService.getShowType("Galeri").subscribe((resData: any) => {
-                                                this.showTypeGaleri = resData;
-                                                this.sharedService.getHasRight("Resim", "s").subscribe((resData: any) => {
-                                                    this.hasRightResim = resData;
-                                                    this.sharedService.getShowType("Resim").subscribe((resData: any) => {
-                                                        this.showTypeResim = resData;
-                                                        this.sharedService.getHasRight("Dosya", "s").subscribe((resData: any) => {
-                                                            this.hasRightDosya = resData;
-                                                            this.sharedService.getShowType("Dosya").subscribe((resData: any) => {
-                                                                this.showTypeDosya = resData;
-                                                                this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
-                                                                    this.hasRightMeta = resData;
-                                                                    this.sharedService.getShowType("Meta").subscribe((resData: any) => {
-                                                                        this.showTypeMeta = resData;
-                                                                        this.sharedService.getHasRight("FormEleman", "s").subscribe((resData: any) => {
-                                                                            this.hasRightFormEleman = resData;
-                                                                            this.sharedService.getShowType("FormEleman").subscribe((resData: any) => {
-                                                                                this.showTypeFormEleman = resData;
-                                                                                this.sharedService.getHasRight("BagliTipler", "s").subscribe((resData: any) => {
-                                                                                    this.hasRightBagliTipler = resData;
-                                                                                    this.sharedService.getShowType("BagliTipler").subscribe((resData: any) => {
-                                                                                        this.showTypeBagliTipler = resData;
-                                                                                        this.sharedService.getHasRight("Dil", "s").subscribe((resData: any) => {
-                                                                                            this.hasRightDil = resData;
-                                                                                            this.sharedService.getShowType("Dil").subscribe((resData: any) => {
-                                                                                                this.showTypeDil = resData;
-                                                                                                this.sharedService.getHasRight("Loglar", "s").subscribe((resData: any) => {
-                                                                                                    this.hasRightLoglar = resData;
-                                                                                                    this.sharedService.getShowType("Loglar").subscribe((resData: any) => {
-                                                                                                        this.showTypeLoglar = resData;
-                                                                                                        this.sharedService.getHasRight("Ziyaretci", "s").subscribe((resData: any) => {
-                                                                                                            this.hasRightZiyaretci = resData;
-                                                                                                            this.sharedService.getShowType("Ziyaretci").subscribe((resData: any) => {
-                                                                                                                this.showTypeZiyaretci = resData;
-                                                                                                                this.sharedService.getHasRight("Kullanicilar", "s").subscribe((resData: any) => {
-                                                                                                                    this.hasRightKullanicilar = resData;
-                                                                                                                    this.sharedService.getShowType("Kullanicilar").subscribe((resData: any) => {
-                                                                                                                        this.showTypeKullanicilar = resData;
-                                                                                                                        this.sharedService.getHasRight("Tipler", "s").subscribe((resData: any) => {
-                                                                                                                            this.hasRightTipler = resData;
-                                                                                                                            this.sharedService.getShowType("Tipler").subscribe((resData: any) => {
-                                                                                                                                this.showTypeTipler = resData;
-                                                                                                                                this.DoIt();
-                                                                                                                            }, resError => this.errorMsg = resError);
-                                                                                                                        }, resError => this.errorMsg = resError);
-                                                                                                                    }, resError => this.errorMsg = resError);
-                                                                                                                }, resError => this.errorMsg = resError);
+                                this.sharedService.getHasRight("Galeri", "s").subscribe((resData: any) => {
+                                    this.hasRightGaleri = resData;
+                                    this.sharedService.getShowType("Galeri").subscribe((resData: any) => {
+                                        this.showTypeGaleri = resData;
+                                        this.sharedService.getHasRight("Resim", "s").subscribe((resData: any) => {
+                                            this.hasRightResim = resData;
+                                            this.sharedService.getShowType("Resim").subscribe((resData: any) => {
+                                                this.showTypeResim = resData;
+                                                this.sharedService.getHasRight("Dosya", "s").subscribe((resData: any) => {
+                                                    this.hasRightDosya = resData;
+                                                    this.sharedService.getShowType("Dosya").subscribe((resData: any) => {
+                                                        this.showTypeDosya = resData;
+                                                        this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
+                                                            this.hasRightMeta = resData;
+                                                            this.sharedService.getShowType("Meta").subscribe((resData: any) => {
+                                                                this.showTypeMeta = resData;
+                                                                this.sharedService.getHasRight("BagliTipler", "s").subscribe((resData: any) => {
+                                                                    this.hasRightBagliTipler = resData;
+                                                                    this.sharedService.getShowType("BagliTipler").subscribe((resData: any) => {
+                                                                        this.showTypeBagliTipler = resData;
+                                                                        this.sharedService.getHasRight("Dil", "s").subscribe((resData: any) => {
+                                                                            this.hasRightDil = resData;
+                                                                            this.sharedService.getShowType("Dil").subscribe((resData: any) => {
+                                                                                this.showTypeDil = resData;
+                                                                                this.sharedService.getHasRight("Loglar", "s").subscribe((resData: any) => {
+                                                                                    this.hasRightLoglar = resData;
+                                                                                    this.sharedService.getShowType("Loglar").subscribe((resData: any) => {
+                                                                                        this.showTypeLoglar = resData;
+                                                                                        this.sharedService.getHasRight("Ziyaretci", "s").subscribe((resData: any) => {
+                                                                                            this.hasRightZiyaretci = resData;
+                                                                                            this.sharedService.getShowType("Ziyaretci").subscribe((resData: any) => {
+                                                                                                this.showTypeZiyaretci = resData;
+                                                                                                this.sharedService.getHasRight("Kullanicilar", "s").subscribe((resData: any) => {
+                                                                                                    this.hasRightKullanicilar = resData;
+                                                                                                    this.sharedService.getShowType("Kullanicilar").subscribe((resData: any) => {
+                                                                                                        this.showTypeKullanicilar = resData;
+                                                                                                        this.sharedService.getHasRight("Tipler", "s").subscribe((resData: any) => {
+                                                                                                            this.hasRightTipler = resData;
+                                                                                                            this.sharedService.getShowType("Tipler").subscribe((resData: any) => {
+                                                                                                                this.showTypeTipler = resData;
+                                                                                                                this.DoIt();
                                                                                                             }, resError => this.errorMsg = resError);
                                                                                                         }, resError => this.errorMsg = resError);
                                                                                                     }, resError => this.errorMsg = resError);

@@ -24,9 +24,9 @@ namespace Emlak.Data
         public int TypeID { get; set; }
         public int UserGroupID { get; set; }
     
+        public virtual Types Types { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserGroupRights> UserGroupRights { get; set; }
         public virtual UserGroups UserGroups { get; set; }
-        public virtual Types Types { get; set; }
     }
 }

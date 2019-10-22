@@ -62,6 +62,12 @@ namespace Emlak.Controllers
         }
 
         [HttpGet]
+        public JsonResult BannerSlider()
+        {
+            return Json(ToolBox.Banners(), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
         public JsonResult IcerikGetir(string kod)
         {
             IcerikJson icerik = new IcerikJson();

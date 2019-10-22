@@ -35,6 +35,8 @@
   <Lang Code="dstc" TR="Detaylı İlan Arama" EN="Detailed Property Search"></Lang>
   <Lang Code="ctgy" TR="Kategori" EN="Category"></Lang>
   <Lang Code="sctg" TR="Alt Kategori" EN="Subcategory"></Lang>
+  <Lang Code="ctgs" TR="Kategoriler" EN="Categories"></Lang>
+  <Lang Code="cnts" TR="İçerikler" EN="Contents"></Lang>
   <Lang Code="stts" TR="Durumu" EN="Status"></Lang>
   <Lang Code="romc" TR="Oda Sayısı" EN="Num. Of Rooms"></Lang>
   <Lang Code="ttle" TR="İlan Başlığı" EN="Title"></Lang>
@@ -42,7 +44,7 @@
   <Lang Code="city" TR="Şehir" EN="City"></Lang>
   <Lang Code="flrc" TR="Kat Sayısı" EN="Num. Of Floor"></Lang>
   <Lang Code="arlk" TR="Aralık" EN="Interval"></Lang>
-  <Lang Code="flrn" TR="Bulunduğu Kat" EN="Floor Number"></Lang>
+  <Lang Code="flrn" TR="Kaçıncı Kat" EN="Floor Number"></Lang>
   <Lang Code="ilce" TR="İlçe" EN="County"></Lang>
   <Lang Code="semt" TR="Semt" EN="District"></Lang>
   <Lang Code="area" TR="Alan" EN="Area"></Lang>
@@ -81,9 +83,9 @@
   <Lang Code="klim" TR="Klima" EN="Air Conditioning"></Lang>
   <Lang Code="once" TR="Ön Cephe" EN="Frontage"></Lang>
   <Lang Code="manz" TR="Manzaralı" EN="Scenic"></Lang>
-  <Lang Code="touy" TR="Toplu Ulaşıma Yakın" EN="Close to Public Transportation"></Lang>
+  <Lang Code="touy" TR="Toplu Ulaşım" EN="Public Transport"></Lang>
   <Lang Code="hidr" TR="Hidrofor" EN="Booster"></Lang>
-  <Lang Code="metr" TR="Metroya Yakın" EN="Close to Metro"></Lang>
+  <Lang Code="metr" TR="Metro" EN="Metro"></Lang>
   <Lang Code="jene" TR="Jeneratör" EN="Generator"></Lang>
   <Lang Code="pvcd" TR="PVC Doğrama" EN="PVC Window"></Lang>
   <Lang Code="yuzh" TR="Yüzme Havuzu" EN="Swimming Pool"></Lang>
@@ -129,4 +131,8 @@
   <Lang Code="load" TR="Yükleniyor..." EN="Loading..."></Lang>
   <Lang Code="swrm" TR="Vitrin" EN="Showroom"></Lang>
   <Lang Code="page" TR="Sayfa" EN="Page"></Lang>
+  <Lang Code="qklk" TR="Hızlı Linkler" EN="Quick Links"></Lang>
+  <Lang Code="desc" TR="Açıklama" EN="Description"></Lang>
+  <Lang Code="feat" TR="Özellikler" EN="Features"></Lang>
+  <Lang Code="adnf" TR="Ek Detaylar" EN="Additional Details"></Lang>
 </LangCollection>

@@ -1,0 +1,32 @@
+﻿<emlak-contentheader headerText="{{ icerik?.Baslik }}"></emlak-contentheader>
+
+<div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="blog-asside-right col-md-3">
+                <emlak-contentsearch></emlak-contentsearch>
+                <emlak-contentrelist></emlak-contentrelist>
+            </div>
+
+            <div class="blog-lst col-md-9 p0">
+                <section id="id-100" class="post single">
+
+                    <div class="post-header single">
+                        <div class="">
+                            <h3 class="wow fadeInLeft animated">{{icerik?.Baslik}}</h3>
+                            <div class="title-line wow fadeInRight animated"></div>
+                        </div>
+                    </div>
+
+                    <div id="post-content" class="post-body single wow fadeInLeft animated">
+                        <p [innerHtml]="icerik?.Aciklama"></p>
+                    </div>
+
+                </section>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,174 @@
+﻿<emlak-contentheader headerText="{{ emlak?.Baslik }}"></emlak-contentheader>
+
+<div class="content-area single-property" style="background-color: #FCFCFC;">
+    &nbsp;
+    <div class="container">
+
+        <div class="clearfix padding-top-40">
+
+            <div class="col-md-8 single-property-content prp-style-1 ">
+                <div class="row">
+                    <div class="light-slide-item">
+                        <div class="clearfix">
+                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                <li [attr.data-thumb]="['/Emlak/Uploads/' + item]" *ngFor="let item of emlak?.Pictures">
+                                    <img src="/Emlak/Uploads/{{ item }}" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single-property-wrapper">
+                    <div class="single-property-header">
+                        <h1 class="property-title pull-left">{{emlak?.Baslik}}</h1>
+                        <span class="property-price pull-right">{{emlak?.Fiyat}} TL</span>
+                    </div>
+
+                    <div class="property-meta entry-meta clearfix ">
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-tag">
+                                <img src="/Emlak/Content/img/icon/sale-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ durumText }}</span>
+                                <span class="property-info-value">
+                                    {{emlak?.Durum}} /
+                                    <i *ngIf="emlak?.Satilik">{{ satilikText }}</i>
+                                    <i *ngIf="!emlak?.Satilik">{{ kiralikText }}</i>
+                                </span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info icon-area">
+                                <img src="/Emlak/Content/img/icon/room-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ alanText }}</span>
+                                <span class="property-info-value">{{emlak?.Alan}} m2</span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-area">
+                                <img src="/Emlak/Content/img/icon/room-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ odasayisiText }}</span>
+                                <span class="property-info-value">{{emlak?.OdaSayisi}}</span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-area">
+                                <img src="/Emlak/Content/img/icon/room-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ salonSayisiText }}</span>
+                                <span class="property-info-value">{{emlak?.SalonSayisi}}</span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-area">
+                                <img src="/Emlak/Content/img/icon/room-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ katSayisiText }}</span>
+                                <span class="property-info-value">{{emlak?.KatSayisi}}</span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-area">
+                                <img src="/Emlak/Content/img/icon/room-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ bulunduguKatText }}</span>
+                                <span class="property-info-value">{{emlak?.BulunduguKat}}</span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-bath">
+                                <img src="/Emlak/Content/img/icon/os-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ isinmaTipiText }}</span>
+                                <span class="property-info-value">{{emlak?.IsinmaTipi}}</span>
+                            </span>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                            <span class="property-info-icon icon-bath">
+                                <img src="/Emlak/Content/img/icon/os-orange.png">
+                            </span>
+                            <span class="property-info-entry">
+                                <span class="property-info-label">{{ yakitTipiText }}</span>
+                                <span class="property-info-value">{{emlak?.YakitTipi}}</span>
+                            </span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="section">
+                        <h4 class="s-property-title">{{ descText }}</h4>
+                        <div class="s-property-content">
+                            <p [innerHtml]="emlak?.Aciklama"></p>
+                        </div>
+                    </div>
+
+                    <div class="section additional-details">
+
+                        <h4 class="s-property-title">{{ adnfText }}</h4>
+
+                        <ul class="additional-details-list clearfix">
+                            <li>
+                                <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">{{ kodText }}</span>
+                                <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">{{emlak?.Code}}</span>
+                            </li>
+                            <li>
+                                <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">{{semtText}} / {{ilceText}} / {{sehirText}}</span>
+                                <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">{{emlak?.Semt}} / {{emlak?.Ilce}} / {{emlak?.Sehir}}</span>
+                            </li>
+
+                            <li>
+                                <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">{{ sahipText }}</span>
+                                <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">{{emlak?.Sahibi}}</span>
+                            </li>
+
+                            <li>
+                                <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">{{ binaYasiText }}</span>
+                                <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">{{emlak?.BinaYasi}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="section property-features" *ngIf="features?.length > 0">
+
+                        <h4 class="s-property-title">{{ featText }}</h4>
+                        <ul>
+                            <li *ngFor="let item of features"><a>{{ item }}</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 p0">
+                <aside class="sidebar sidebar-property blog-asside-right">
+
+                    <emlak-contentrelist></emlak-contentrelist>
+
+                    <emlak-propertysearch></emlak-propertysearch>
+                </aside>
+            </div>
+        </div>
+
+    </div>
+</div>

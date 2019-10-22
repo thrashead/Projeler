@@ -15,5 +15,6 @@ namespace Emlak.Data
     {
         public string ContentName { get; set; }
         public string Url { get; set; }
+        public string Aciklama { get; set; }
     }
 }

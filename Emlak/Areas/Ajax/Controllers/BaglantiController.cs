@@ -185,15 +185,6 @@ namespace Emlak.Areas.Ajax.Controllers
                         else
                             linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title });
                     break;
-                case 3:
-                    List<usp_ProductSelect_Result> tableProdItems = entity.usp_ProductSelect(null).ToList();
-
-                    foreach (var item in tableProdItems)
-                        if (item.ID == linkID)
-                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title, Selected = true });
-                        else
-                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title });
-                    break;
                 case 4:
                     List<usp_GallerySelect_Result> tableGalItems = entity.usp_GallerySelect(null).ToList();
 
@@ -225,15 +216,6 @@ namespace Emlak.Areas.Ajax.Controllers
                     List<usp_MetaSelect_Result> tableMetaItems = entity.usp_MetaSelect(null).ToList();
 
                     foreach (var item in tableMetaItems)
-                        if (item.ID == linkID)
-                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title, Selected = true });
-                        else
-                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title });
-                    break;
-                case 8:
-                    List<usp_PropertyGroupSelect_Result> tablePropertyGroupItems = entity.usp_PropertyGroupSelect(null).ToList();
-
-                    foreach (var item in tablePropertyGroupItems)
                         if (item.ID == linkID)
                             linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title, Selected = true });
                         else

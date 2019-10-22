@@ -505,8 +505,7 @@ namespace Emlak.Controllers
                     reItem.Url = item.Url;
                     reItem.CategoryName = item.CategoryName;
                     reItem.Baslik = item.TBaslik;
-                    reItem.PictureName = item.Picture;
-
+                    reItem.PictureName = item.Picture != null ? AppMgr.UploadPath + "/" + item.Picture : AppMgr.ImagePath + "/resimyok.png";
                     returnList.Add(reItem);
                 }
 

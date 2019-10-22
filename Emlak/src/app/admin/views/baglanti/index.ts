@@ -40,12 +40,10 @@ export class AdminBaglantiIndexComponent {
                                 switch (resData[i].LinkedTypeID) {
                                     case 1: resData[i].LinkedAdi = resData[i].LinkedCategoryAdi; break;
                                     case 2: resData[i].LinkedAdi = resData[i].LinkedContentAdi; break;
-                                    case 3: resData[i].LinkedAdi = resData[i].LinkedProductAdi; break;
                                     case 4: resData[i].LinkedAdi = resData[i].LinkedGalleryAdi; break;
                                     case 5: resData[i].LinkedAdi = resData[i].LinkedPictureAdi; break;
                                     case 6: resData[i].LinkedAdi = resData[i].LinkedFileAdi; break;
                                     case 7: resData[i].LinkedAdi = resData[i].LinkedMetaAdi; break;
-                                    case 8: resData[i].LinkedAdi = resData[i].LinkedPropertyGroupAdi; break;
                                     case 17: resData[i].LinkedAdi = resData[i].LinkedRealEstatesAdi; break;
                                 }
                             }

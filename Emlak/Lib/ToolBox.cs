@@ -189,6 +189,15 @@ namespace Lib
             return BannerImage;
         }
 
+        public static List<Resim> Banners()
+        {
+            EmlakEntities entity = new EmlakEntities();
+
+            List<Resim> pictures = entity.sp_PictureByCodeSelect("banner").ToList().ChangeModelList<Resim, sp_PictureByCodeSelect_Result>();
+
+            return pictures;
+        }
+
         public static string GetLogo()
         {
             EmlakEntities entity = new EmlakEntities();

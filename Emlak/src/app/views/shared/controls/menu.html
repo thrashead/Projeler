@@ -1,0 +1,57 @@
+﻿<nav class="navbar navbar-default ">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/']"><img src="/Emlak/Content/img/logo.png" alt=""></a>
+        </div>
+
+        <div class="collapse navbar-collapse yamm" id="navigation">
+            <div class="button navbar-right">
+                <a class="navbar-btn nav-button wow bounceInRight login" href="/Emlak/Admin" target="_blank" data-wow-delay="0.45s">{{ girisText }}</a>
+            </div>
+            <ul class="main-nav nav navbar-nav navbar-right">
+                <li class="wow fadeInDown" data-wow-delay="0.2s"><a data-url="Index" class="active" [routerLink]="['/']">{{ anaSayfaText }}</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.2s"><a data-url="Hakkimizda" [routerLink]="['/Icerik/Hakkimizda']">{{ hakkimizdaText }}</a></li>
+                <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                    <a data-url="Listele" data-url2="Detay" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ ilanlarText }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu navbar-nav">
+                        <li>
+                            <a [routerLink]="['/Emlak/Listele']">{{ tumilanText }}</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/Emlak/Listele/Yeni']">{{ yeniilanText }}</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/Emlak/Listele/Satilik']">{{ satilikilanText }}</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/Emlak/Listele/Kiralik']">{{ kiralikilanText }}</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                    <a data-url="Kategori" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ kategorilerText }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu navbar-nav">
+                        <li *ngFor="let item of kategoriMenu"><a [routerLink]="['/Emlak/Kategori/' + item?.Url]">{{item?.CategoryName}}</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                    <a data-url="Icerik" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ iceriklerText }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu navbar-nav">
+                        <li *ngFor="let item of sayfalar"><a [routerLink]="['/Icerik/' + item?.Url]">{{item?.ContentName}}</a></li>
+                    </ul>
+                </li>
+
+                <li class="wow fadeInDown" data-wow-delay="0.2s"><a data-url="Iletisim" [routerLink]="['/Icerik/Iletisim']">{{ iletisimText }}</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

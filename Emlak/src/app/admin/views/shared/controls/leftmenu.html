@@ -25,13 +25,6 @@
                 <li data-url="IcerikDil"><a routerLink="/Admin/IcerikDil">İçerikler (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightUrun && showTypeUrun">
-            <a href="javascript:;"><i class="icon icon-barcode"></i> <span>Ürünler</span></a>
-            <ul>
-                <li data-url="Urun"><a routerLink="/Admin/Urun">Ürünler</a></li>
-                <li data-url="UrunDil"><a routerLink="/Admin/UrunDil">Ürünler (Dil)</a></li>
-            </ul>
-        </li>
         <li class="submenu" *ngIf="hasRightGaleri && showTypeGaleri">
             <a href="javascript:;"><i class="icon icon-picture"></i> <span>Galeri</span></a>
             <ul>
@@ -50,16 +43,6 @@
             <ul>
                 <li data-url="Meta"><a routerLink="/Admin/Meta">Meta</a></li>
                 <li data-url="MetaDil"><a routerLink="/Admin/MetaDil">Meta (Dil)</a></li>
-            </ul>
-        </li>
-        <li class="submenu" *ngIf="hasRightFormEleman && showTypeFormEleman">
-            <a href="javascript:;"><i class="icon icon-tasks"></i> <span>Form Elemanları</span></a>
-            <ul>
-                <li data-url="FormEleman"><a routerLink="/Admin/FormEleman">Form Elemanları</a></li>
-                <li data-url="FormElemanGrup"><a routerLink="/Admin/FormElemanGrup">Form Grupları</a></li>
-                <li data-url="FormElemanOzellik"><a routerLink="/Admin/FormElemanOzellik">Form Eleman Özellikleri</a></li>
-                <li data-url="FormElemanDeger"><a routerLink="/Admin/FormElemanDeger">Form Eleman Değerleri</a></li>
-                <li data-url="FormTipler"><a routerLink="/Admin/FormTipler">Form Tipleri</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightBagliTipler && showTypeBagliTipler">

@@ -1,0 +1,24 @@
+﻿<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<div class="header-connect">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-8  col-xs-12">
+            </div>
+            <div class="col-md-2 col-md-offset-5 col-sm-3 col-sm-offset-1 col-xs-12">
+                <div class="header-half header-social">
+                    <ul class="list-inline">
+                        <li *ngFor="let item of diller">
+                            <a class="btnLang" href="javascript:;" title="{{item.LangName}}" (click)="onClick(item.ShortName)">
+                                <img src="{{item.FlagImage}}" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<emlak-headermenu></emlak-headermenu>

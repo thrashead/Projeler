@@ -17,9 +17,6 @@ export class AdminAnaSayfaComponent {
     hasRightIcerik: boolean;
     showTypeIcerik: boolean;
 
-    hasRightUrun: boolean;
-    showTypeUrun: boolean;
-
     hasRightGaleri: boolean;
     showTypeGaleri: boolean;
 
@@ -31,9 +28,6 @@ export class AdminAnaSayfaComponent {
 
     hasRightMeta: boolean;
     showTypeMeta: boolean;
-
-    hasRightFormEleman: boolean;
-    showTypeFormEleman: boolean;
 
     hasRightBagliTipler: boolean;
     showTypeBagliTipler: boolean;
@@ -74,10 +68,6 @@ export class AdminAnaSayfaComponent {
             this.hasRightIcerik = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Urun", "s").subscribe((resData: any) => {
-            this.hasRightUrun = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getHasRight("Galeri", "s").subscribe((resData: any) => {
             this.hasRightGaleri = resData;
         }, resError => this.errorMsg = resError);
@@ -92,10 +82,6 @@ export class AdminAnaSayfaComponent {
 
         this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
             this.hasRightMeta = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("FormEleman", "s").subscribe((resData: any) => {
-            this.hasRightFormEleman = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getHasRight("BagliTipler", "s").subscribe((resData: any) => {
@@ -136,10 +122,6 @@ export class AdminAnaSayfaComponent {
             this.showTypeIcerik = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Urun").subscribe((resData: any) => {
-            this.showTypeUrun = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getShowType("Galeri").subscribe((resData: any) => {
             this.showTypeGaleri = resData;
         }, resError => this.errorMsg = resError);
@@ -154,10 +136,6 @@ export class AdminAnaSayfaComponent {
 
         this.sharedService.getShowType("Meta").subscribe((resData: any) => {
             this.showTypeMeta = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("FormEleman").subscribe((resData: any) => {
-            this.showTypeFormEleman = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getShowType("BagliTipler").subscribe((resData: any) => {

@@ -1,0 +1,32 @@
+﻿<div class="count-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                <h2>{{hakkimizdaText}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="count-item">
+                            <div class="count-item-circle">
+                                <span class="pe-7s-users"></span>
+                            </div>
+                            <div>
+                                <h2>{{sayac}}</h2>
+                                <h5>{{ziyaretciText}} </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-xs-12">
+                        <div class="about-item">
+                            <p [innerHtml]="about?.Aciklama"></p>
+                            <a [routerLink]="['/Icerik/Hakkimizda']" style="float: right;">{{devamText}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

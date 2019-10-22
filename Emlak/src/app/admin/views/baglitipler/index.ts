@@ -44,12 +44,10 @@ export class AdminBagliTiplerIndexComponent {
                                     switch (resData[i].MainTypeID) {
                                         case 1: resData[i].MainAdi = resData[i].MainCategoryAdi; break;
                                         case 2: resData[i].MainAdi = resData[i].MainContentAdi; break;
-                                        case 3: resData[i].MainAdi = resData[i].MainProductAdi; break;
                                         case 4: resData[i].MainAdi = resData[i].MainGalleryAdi; break;
                                         case 5: resData[i].MainAdi = resData[i].MainPictureAdi; break;
                                         case 6: resData[i].MainAdi = resData[i].MainFileAdi; break;
                                         case 7: resData[i].MainAdi = resData[i].MainMetaAdi; break;
-                                        case 8: resData[i].MainAdi = resData[i].MainPropertyGroupAdi; break;
                                         case 17: resData[i].MainAdi = resData[i].MainRealEstatesAdi; break;
                                     }
                                 }

@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LayoutComponent } from './shared/layout';
-import { GirisComponent } from './giris/giris';
-import { EmlakListeleComponent } from './emlak/emlaklistele';
-import { EmlakDetayComponent } from './emlak/emlakdetay';
-import { EmlakDetayliAraComponent } from './emlak/emlakdetayliara';
-import { IcerikComponent } from './icerik/icerik';
-import { HaberlerComponent } from './icerik/haberler';
-import { IletisimComponent } from './icerik/iletisim';
+import { LayoutComponent } from './views/shared/layout';
+import { IndexComponent } from './views/home/index';
+import { ContentIndexComponent } from './views/content';
+import { ContentContactComponent } from './views/content/contact';
+import { ContentNewsComponent } from './views/content/news';
+import { PropertyIndexComponent } from './views/property';
+import { PropertyDetailComponent } from './views/property/detail';
 
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminGirisComponent } from './admin/views/giris/giris';
@@ -37,26 +36,6 @@ import { AdminEmlakEkleComponent } from './admin/views/emlak/ekle';
 import { AdminEmlakDilIndexComponent } from './admin/views/emlakdil';
 import { AdminEmlakDilEkleComponent } from './admin/views/emlakdil/ekle';
 import { AdminEmlakDilDuzenleComponent } from './admin/views/emlakdil/duzenle';
-
-import { AdminFormElemanIndexComponent } from './admin/views/formeleman';
-import { AdminFormElemanEkleComponent } from './admin/views/formeleman/ekle';
-import { AdminFormElemanDuzenleComponent } from './admin/views/formeleman/duzenle';
-
-import { AdminFormElemanDegerIndexComponent } from './admin/views/formelemandeger';
-import { AdminFormElemanDegerEkleComponent } from './admin/views/formelemandeger/ekle';
-import { AdminFormElemanDegerDuzenleComponent } from './admin/views/formelemandeger/duzenle';
-
-import { AdminFormElemanGrupIndexComponent } from './admin/views/formelemangrup';
-import { AdminFormElemanGrupEkleComponent } from './admin/views/formelemangrup/ekle';
-import { AdminFormElemanGrupDuzenleComponent } from './admin/views/formelemangrup/duzenle';
-
-import { AdminFormElemanOzellikIndexComponent } from './admin/views/formelemanozellik';
-import { AdminFormElemanOzellikEkleComponent } from './admin/views/formelemanozellik/ekle';
-import { AdminFormElemanOzellikDuzenleComponent } from './admin/views/formelemanozellik/duzenle';
-
-import { AdminFormTiplerIndexComponent } from './admin/views/formtipler';
-import { AdminFormTiplerEkleComponent } from './admin/views/formtipler/ekle';
-import { AdminFormTiplerDuzenleComponent } from './admin/views/formtipler/duzenle';
 
 import { AdminGaleriIndexComponent } from './admin/views/galeri';
 import { AdminGaleriEkleComponent } from './admin/views/galeri/ekle';
@@ -129,40 +108,31 @@ import { AdminTiplerIndexComponent } from './admin/views/tipler';
 import { AdminTiplerEkleComponent } from './admin/views/tipler/ekle';
 import { AdminTiplerDuzenleComponent } from './admin/views/tipler/duzenle';
 
-import { AdminUrunIndexComponent } from './admin/views/urun';
-import { AdminUrunEkleComponent } from './admin/views/urun/ekle';
-import { AdminUrunDuzenleComponent } from './admin/views/urun/duzenle';
-
-import { AdminUrunDilIndexComponent } from './admin/views/urundil';
-import { AdminUrunDilEkleComponent } from './admin/views/urundil/ekle';
-import { AdminUrunDilDuzenleComponent } from './admin/views/urundil/duzenle';
-
 import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
 
 const routes: Routes = [
-    { path: 'Admin', component: AdminGirisComponent },
-    { path: 'Admin/Index', component: AdminGirisComponent },
-    { path: 'Admin/Giris', component: AdminGirisComponent },
-
     {
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', component: GirisComponent, pathMatch: 'full' },
+            { path: '', component: IndexComponent, pathMatch: 'full' },
 
-            { path: 'Emlak', component: EmlakListeleComponent },
+            { path: 'Emlak', component: PropertyIndexComponent },
+            { path: 'Emlak/Listele', component: PropertyIndexComponent },
+            { path: 'Emlak/Listele/:link', component: PropertyIndexComponent },
+            { path: 'Emlak/Kategori/:link', component: PropertyIndexComponent },
+            { path: 'Emlak/Detay/:link', component: PropertyDetailComponent },
 
-            { path: 'Emlak/Listele', component: EmlakListeleComponent },
-            { path: 'Emlak/Listele/:link', component: EmlakListeleComponent },
-            { path: 'Emlak/Detay/:link', component: EmlakDetayComponent },
-            { path: 'Emlak/DetayliAra', component: EmlakDetayliAraComponent },
-
-            { path: 'Icerik/Haberler', component: HaberlerComponent },
-            { path: 'Icerik/Haberler/:link', component: IcerikComponent },
-            { path: 'Icerik/Iletisim', component: IletisimComponent },
-            { path: 'Icerik/:link', component: IcerikComponent }
+            { path: 'Haberler', component: ContentNewsComponent },
+            { path: 'Haber/:link', component: ContentIndexComponent },
+            { path: 'Icerik/Iletisim', component: ContentContactComponent },
+            { path: 'Icerik/:link', component: ContentIndexComponent },
         ]
     },
+
+    { path: 'Admin', component: AdminGirisComponent },
+    { path: 'Admin/Index', component: AdminGirisComponent },
+    { path: 'Admin/Giris', component: AdminGirisComponent },
 
     {
         path: '',
@@ -201,34 +171,6 @@ const routes: Routes = [
             { path: 'Admin/EmlakDil/Ekle', component: AdminEmlakDilEkleComponent },
             { path: 'Admin/EmlakDil/Ekle/:linkID', component: AdminEmlakDilEkleComponent },
             { path: 'Admin/EmlakDil/Duzenle/:id', component: AdminEmlakDilDuzenleComponent },
-
-            { path: 'Admin/FormEleman', component: AdminFormElemanIndexComponent },
-            { path: 'Admin/FormEleman/Index', component: AdminFormElemanIndexComponent },
-            { path: 'Admin/FormEleman/Ekle', component: AdminFormElemanEkleComponent },
-            { path: 'Admin/FormEleman/Ekle/:linkID', component: AdminFormElemanEkleComponent },
-            { path: 'Admin/FormEleman/Duzenle/:id', component: AdminFormElemanDuzenleComponent },
-
-            { path: 'Admin/FormElemanDeger', component: AdminFormElemanDegerIndexComponent },
-            { path: 'Admin/FormElemanDeger/Index', component: AdminFormElemanDegerIndexComponent },
-            { path: 'Admin/FormElemanDeger/Ekle', component: AdminFormElemanDegerEkleComponent },
-            { path: 'Admin/FormElemanDeger/Ekle/:linkID', component: AdminFormElemanDegerEkleComponent },
-            { path: 'Admin/FormElemanDeger/Duzenle/:id', component: AdminFormElemanDegerDuzenleComponent },
-
-            { path: 'Admin/FormElemanGrup', component: AdminFormElemanGrupIndexComponent },
-            { path: 'Admin/FormElemanGrup/Index', component: AdminFormElemanGrupIndexComponent },
-            { path: 'Admin/FormElemanGrup/Ekle', component: AdminFormElemanGrupEkleComponent },
-            { path: 'Admin/FormElemanGrup/Duzenle/:id', component: AdminFormElemanGrupDuzenleComponent },
-
-            { path: 'Admin/FormElemanOzellik', component: AdminFormElemanOzellikIndexComponent },
-            { path: 'Admin/FormElemanOzellik/Index', component: AdminFormElemanOzellikIndexComponent },
-            { path: 'Admin/FormElemanOzellik/Ekle', component: AdminFormElemanOzellikEkleComponent },
-            { path: 'Admin/FormElemanOzellik/Ekle/:linkID', component: AdminFormElemanOzellikEkleComponent },
-            { path: 'Admin/FormElemanOzellik/Duzenle/:id', component: AdminFormElemanOzellikDuzenleComponent },
-
-            { path: 'Admin/FormTipler', component: AdminFormTiplerIndexComponent },
-            { path: 'Admin/FormTipler/Index', component: AdminFormTiplerIndexComponent },
-            { path: 'Admin/FormTipler/Ekle', component: AdminFormTiplerEkleComponent },
-            { path: 'Admin/FormTipler/Duzenle/:id', component: AdminFormTiplerDuzenleComponent },
 
             { path: 'Admin/Galeri', component: AdminGaleriIndexComponent },
             { path: 'Admin/Galeri/Index', component: AdminGaleriIndexComponent },
@@ -325,17 +267,6 @@ const routes: Routes = [
             { path: 'Admin/Tipler/Index', component: AdminTiplerIndexComponent },
             { path: 'Admin/Tipler/Ekle', component: AdminTiplerEkleComponent },
             { path: 'Admin/Tipler/Duzenle/:id', component: AdminTiplerDuzenleComponent },
-
-            { path: 'Admin/Urun', component: AdminUrunIndexComponent },
-            { path: 'Admin/Urun/Index', component: AdminUrunIndexComponent },
-            { path: 'Admin/Urun/Ekle', component: AdminUrunEkleComponent },
-            { path: 'Admin/Urun/Duzenle/:id', component: AdminUrunDuzenleComponent },
-
-            { path: 'Admin/UrunDil', component: AdminUrunDilIndexComponent },
-            { path: 'Admin/UrunDil/Index', component: AdminUrunDilIndexComponent },
-            { path: 'Admin/UrunDil/Ekle', component: AdminUrunDilEkleComponent },
-            { path: 'Admin/UrunDil/Ekle/:linkID', component: AdminUrunDilEkleComponent },
-            { path: 'Admin/UrunDil/Duzenle/:id', component: AdminUrunDilDuzenleComponent },
 
             { path: 'Admin/Ziyaretci', component: AdminZiyaretciIndexComponent },
             { path: 'Admin/Ziyaretci/Index', component: AdminZiyaretciIndexComponent },

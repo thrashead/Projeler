@@ -7,9 +7,15 @@ import { IRealEstatesForList } from '../model/IRealEstatesForList';
 @Injectable()
 export class HomeAjaxService {
     private linkSlider: string = "Home/Slider";
+    private linkBanners: string = "Shared/BannerSlider";
     private linkVitrinIlanlar: string = "Home/VitrinIlanlar";
 
     constructor(private _http: HttpClient) {
+    }
+
+    //Baners
+    getBanners() {
+        return this._http.get(this.linkBanners);
     }
 
     //Slider

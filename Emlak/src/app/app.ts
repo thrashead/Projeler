@@ -6,6 +6,11 @@ declare global {
         tdSlider(obj: any): JQuery;
         dataTable(obj: any): JQuery;
         typeahead(obj: any): JQuery;
+        owlCarousel(obj: any): JQuery;
+        iCheck(obj: any): JQuery;
+        lightSlider(obj: any): JQuery;
+        selectpicker(): JQuery;
+        slider(): JQuery;
     }
 }
 

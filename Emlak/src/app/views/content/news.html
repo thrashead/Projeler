@@ -1,0 +1,30 @@
+﻿<emlak-contentheader headerText="{{ haberlerText }}"></emlak-contentheader>
+
+<div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="blog-asside-right col-md-3">
+                <emlak-contentsearch></emlak-contentsearch>
+                <emlak-contentrelist></emlak-contentrelist>
+            </div>
+
+            <div class="blog-lst col-md-9">
+                <div id="news-slider">
+                    <div *ngFor="let haber of haberler">
+                        <section class="post" *ngFor="let item of haber?.Items">
+                            <div class="text-center padding-b-50">
+                                <h4 class="wow fadeInLeft animated">{{item?.ContentName}}</h4>
+                                <div class="title-line wow fadeInRight animated"></div>
+                            </div>
+                            <p class="read-more">
+                                <a [routerLink]="['/Haber/' + item?.Url]" class="btn btn-default btn-border">{{ devamText }}</a>
+                            </p>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>

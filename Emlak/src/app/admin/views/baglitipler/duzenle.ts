@@ -98,12 +98,10 @@ export class AdminBagliTiplerDuzenleComponent {
                                     switch (resData.LinkedTypeID) {
                                         case 1: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedCategoryAdi; break;
                                         case 2: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedContentAdi; break;
-                                        case 3: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedProductAdi; break;
                                         case 4: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedGalleryAdi; break;
                                         case 5: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPictureAdi; break;
                                         case 6: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFileAdi; break;
                                         case 7: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi; break;
-                                        case 8: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPropertyGroupAdi; break;
                                         case 17: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedRealEstatesAdi; break;
                                     }
                                 }

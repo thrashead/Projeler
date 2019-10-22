@@ -1,0 +1,30 @@
+﻿<div class="Welcome-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 Welcome-entry  col-sm-12">
+                <div class="col-md-5 col-md-offset-2 col-sm-6 col-xs-12">
+                    <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                                <h2>{{ gununIlaniText }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-12">
+                    <div class="box proerty-item">
+                        <div class="item-thumb">
+                            <a [routerLink]="['/Emlak/Detay/' + emlak?.Url]"><img src="{{emlak?.Picture}}"></a>
+                        </div>
+                        <div class="item-entry overflow">
+                            <h5><a [routerLink]="['/Emlak/Detay/' + emlak?.Url]">{{emlak?.Baslik}}</a></h5>
+                            <div class="dot-hr"></div>
+                            <span class="pull-left"><b>{{item?.CategoryName}}</b> </span>
+                            <span class="proerty-price pull-right">{{emlak?.Fiyat}} TL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

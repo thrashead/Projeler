@@ -1,0 +1,17 @@
+﻿<div class="panel panel-default sidebar-menu wow  fadeInRight animated">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ aramaText }}</h3>
+    </div>
+    <div class="panel-body">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" role="search">
+            <div class="input-group">
+                <input class="form-control" placeholder="{{ araText }}" type="text" formControlName="Kelime">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-smal" [disabled]="!searchForm.valid">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
