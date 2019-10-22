@@ -18,6 +18,7 @@ export class HeaderMenuComponent {
     ilanlarText: string;
     kategorilerText: string;
     iceriklerText: string;
+    haberlerText: string;
     tumilanText: string;
     yeniilanText: string;
     satilikilanText: string;
@@ -44,6 +45,10 @@ export class HeaderMenuComponent {
 
     //KodlaGetir
     KodlaGetir() {
+        this.emlakService.getKodlaGetir("news")
+            .subscribe(resData => this.haberlerText = resData,
+                resError => this.errorMsg = resError);
+
         this.emlakService.getKodlaGetir("mnpg")
             .subscribe(resData => this.anaSayfaText = resData,
                 resError => this.errorMsg = resError);

@@ -200,6 +200,8 @@ export class ScriptsComponent implements AfterViewChecked {
 
         if (Url != undefined) {
             var tempurl = Url.replace(MainPath + "/", "");
+            tempurl = tempurl.replace(";detail=true", "");
+
             var extParams = tempurl.split('?')[1];
 
             tempurl = tempurl.replace("?" + extParams, "");
@@ -224,6 +226,9 @@ export class ScriptsComponent implements AfterViewChecked {
             }
             else if ($("ul.main-nav li a[data-url2='" + Urling.action + "']").length > 0) {
                 $("ul.main-nav li a[data-url2='" + Urling.action + "']").addClass("active");
+            }
+            else if ($("ul.main-nav li a[data-url2='" + Urling.controller + "']").length > 0) {
+                $("ul.main-nav li a[data-url2='" + Urling.controller + "']").addClass("active");
             }
         }
         else {

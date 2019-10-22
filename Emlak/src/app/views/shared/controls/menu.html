@@ -44,8 +44,9 @@
                 </li>
 
                 <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                    <a data-url="Icerik" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ iceriklerText }} <b class="caret"></b></a>
+                    <a data-url="Icerik" data-url2="Haberler" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ iceriklerText }} <b class="caret"></b></a>
                     <ul class="dropdown-menu navbar-nav">
+                        <li><a [routerLink]="['/Haberler']">{{haberlerText}}</a></li>
                         <li *ngFor="let item of sayfalar"><a [routerLink]="['/Icerik/' + item?.Url]">{{item?.ContentName}}</a></li>
                     </ul>
                 </li>

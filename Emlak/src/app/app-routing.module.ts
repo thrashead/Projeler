@@ -124,7 +124,7 @@ const routes: Routes = [
             { path: 'Emlak/Detay/:link', component: PropertyDetailComponent },
 
             { path: 'Haberler', component: ContentNewsComponent },
-            { path: 'Haber/:link', component: ContentIndexComponent },
+            { path: 'Haberler/:link', component: ContentIndexComponent },
             { path: 'Icerik/Iletisim', component: ContentContactComponent },
             { path: 'Icerik/:link', component: ContentIndexComponent },
         ]
