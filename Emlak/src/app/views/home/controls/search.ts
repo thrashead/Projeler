@@ -21,6 +21,7 @@ export class SearchComponent implements AfterContentInit {
     }
 
     ngOnInit() {
+        this.KodlaGetir();
         this.FormOlustur();
 
         this._reService.getSehirler()
@@ -41,7 +42,42 @@ export class SearchComponent implements AfterContentInit {
             },
                 resError => this.errorMsg = resError);
 
-        this.KodlaGetir();
+
+        $(".tdslider").each(function (i) {
+            var slider = $(this);
+
+            var min = parseInt(slider.attr("data-min"));
+            var max = parseInt(slider.attr("data-max"));
+            var step = parseInt(slider.attr("data-step"));
+
+            if (slider.length) {
+                slider.slider({
+                    min: min,
+                    max: max,
+                    step: step,
+                    values: [min, max],
+                    range: true,
+                    slide: function (event, ui) {
+                        slider.find(".ui-slider-handle span.min").text(ui.values[0]);
+                        slider.find(".ui-slider-handle span.max").text(ui.values[1]);
+                        slider.parent().find("input.j-min").val(ui.values[0]);
+                        slider.parent().find("input.j-max").val(ui.values[1]);
+                    },
+                    stop: function (event, ui) {
+                        slider.find(".ui-slider-handle span.min").text(ui.values[0]);
+                        slider.find(".ui-slider-handle span.max").text(ui.values[1]);
+                        slider.parent().find("input.j-min").val(ui.values[0]);
+                        slider.parent().find("input.j-max").val(ui.values[1]);
+                    }
+                });
+
+                if (slider.find("span.min").length <= 0)
+                    slider.find(".ui-slider-handle:first-of-type").append("<span class='min'>" + min + "</span>");
+
+                if (slider.find("span.max").length <= 0)
+                    slider.find(".ui-slider-handle:last-of-type").append("<span class='max'>" + max + "</span>");
+            }
+        });
     }
 
     ngAfterContentInit() {
@@ -78,19 +114,19 @@ export class SearchComponent implements AfterContentInit {
         realCPList.AltKatID = 0;
         realCPList.Baslik = this.detailSearchForm.get("baslik").value;
         realCPList.Fiyat = this.GetMin("fiyat1");
-        realCPList.Fiyat2 = this.GetMax("fiyat1");
+        realCPList.Fiyat2 = this.GetMax("fiyat2");
         realCPList.OdaSayisi = this.GetMin("roomCount1");
-        realCPList.OdaSayisi2 = this.GetMax("roomCount1");
+        realCPList.OdaSayisi2 = this.GetMax("roomCount2");
         realCPList.KatSayisi = this.GetMin("katSayi1");
-        realCPList.KatSayisi2 = this.GetMax("katSayi1");
+        realCPList.KatSayisi2 = this.GetMax("katSayi2");
         realCPList.SalonSayisi = this.GetMin("salon1");
-        realCPList.SalonSayisi2 = this.GetMax("salon1");
+        realCPList.SalonSayisi2 = this.GetMax("salon2");
         realCPList.BulunduguKat = this.GetMin("bulunduguKat1");
-        realCPList.BulunduguKat2 = this.GetMax("bulunduguKat1");
+        realCPList.BulunduguKat2 = this.GetMax("bulunduguKat2");
         realCPList.Alan = this.GetMin("alan1");
-        realCPList.Alan2 = this.GetMax("alan1");
+        realCPList.Alan2 = this.GetMax("alan2");
         realCPList.BinaYasi = this.GetMin("binaYas1");
-        realCPList.BinaYasi2 = this.GetMax("binaYas1");
+        realCPList.BinaYasi2 = this.GetMax("binaYas2");
         realCPList.Sehir = this.detailSearchForm.get("sehir").value;
         realCPList.Ilce = this.detailSearchForm.get("ilce").value;
         realCPList.Semt = this.detailSearchForm.get("semt").value;
@@ -98,36 +134,36 @@ export class SearchComponent implements AfterContentInit {
         realCPList.YakitTipi = this.detailSearchForm.get("yakit").value;
         realCPList.Durum = this.detailSearchForm.get("durum").value;
 
-        realCPList.ArkaCephe = this.IsChecked("arkaCephe");
-        realCPList.OnCephe = this.IsChecked("onCephe");
-        realCPList.CaddeyeYakin = this.IsChecked("caddeyeYakin");
-        realCPList.DenizeSifir = this.IsChecked("denizeSifir");
-        realCPList.DenizeYakin = this.IsChecked("denizeYakin");
-        realCPList.Manzara = this.IsChecked("manzarali");
-        realCPList.Merkezde = this.IsChecked("merkezde");
-        realCPList.Metro = this.IsChecked("metro");
-        realCPList.Otoban = this.IsChecked("otoban");
-        realCPList.TopluUlasim = this.IsChecked("topluUlasim");
-        realCPList.Asansor = this.IsChecked("asansor");
-        realCPList.Bahce = this.IsChecked("bahce");
-        realCPList.Guvenlik = this.IsChecked("guvenlik");
-        realCPList.Hidrofor = this.IsChecked("hidrofor");
-        realCPList.Mantolama = this.IsChecked("mantolama");
-        realCPList.Jenerator = this.IsChecked("jenerator");
-        realCPList.Kapici = this.IsChecked("kapici");
-        realCPList.Otopark = this.IsChecked("otopark");
-        realCPList.OyunParki = this.IsChecked("oyunParki");
-        realCPList.PVCDograma = this.IsChecked("pVCDograma");
-        realCPList.SiteIci = this.IsChecked("siteIci");
-        realCPList.YanginMerdiveni = this.IsChecked("yanginMerdiveni");
-        realCPList.YuzmeHavuzu = this.IsChecked("yuzmeHavuzu");
-        realCPList.Alarm = this.IsChecked("alarm");
-        realCPList.Balkon = this.IsChecked("balkon");
-        realCPList.CelikKapi = this.IsChecked("celikKapi");
-        realCPList.GoruntuluDiafon = this.IsChecked("goruntuluDiafon");
-        realCPList.Jakuzi = this.IsChecked("jakuzi");
-        realCPList.KabloTVUydu = this.IsChecked("kabloTVUydu");
-        realCPList.Klima = this.IsChecked("klima");
+        realCPList.ArkaCephe = this.detailSearchForm.get("arkaCephe").value;
+        realCPList.OnCephe = this.detailSearchForm.get("onCephe").value;
+        realCPList.CaddeyeYakin = this.detailSearchForm.get("caddeyeYakin").value;
+        realCPList.DenizeSifir = this.detailSearchForm.get("denizeSifir").value;
+        realCPList.DenizeYakin = this.detailSearchForm.get("denizeYakin").value;
+        realCPList.Manzara = this.detailSearchForm.get("manzarali").value;
+        realCPList.Merkezde = this.detailSearchForm.get("merkezde").value;
+        realCPList.Metro = this.detailSearchForm.get("metro").value;
+        realCPList.Otoban = this.detailSearchForm.get("otoban").value;
+        realCPList.TopluUlasim = this.detailSearchForm.get("topluUlasim").value;
+        realCPList.Asansor = this.detailSearchForm.get("asansor").value;
+        realCPList.Bahce = this.detailSearchForm.get("bahce").value;
+        realCPList.Guvenlik = this.detailSearchForm.get("guvenlik").value;
+        realCPList.Hidrofor = this.detailSearchForm.get("hidrofor").value;
+        realCPList.Mantolama = this.detailSearchForm.get("mantolama").value;
+        realCPList.Jenerator = this.detailSearchForm.get("jenerator").value;
+        realCPList.Kapici = this.detailSearchForm.get("kapici").value;
+        realCPList.Otopark = this.detailSearchForm.get("otopark").value;
+        realCPList.OyunParki = this.detailSearchForm.get("oyunParki").value;
+        realCPList.PVCDograma = this.detailSearchForm.get("pVCDograma").value;
+        realCPList.SiteIci = this.detailSearchForm.get("siteIci").value;
+        realCPList.YanginMerdiveni = this.detailSearchForm.get("yanginMerdiveni").value;
+        realCPList.YuzmeHavuzu = this.detailSearchForm.get("yuzmeHavuzu").value;
+        realCPList.Alarm = this.detailSearchForm.get("alarm").value;
+        realCPList.Balkon = this.detailSearchForm.get("balkon").value;
+        realCPList.CelikKapi = this.detailSearchForm.get("celikKapi").value;
+        realCPList.GoruntuluDiafon = this.detailSearchForm.get("goruntuluDiafon").value;
+        realCPList.Jakuzi = this.detailSearchForm.get("jakuzi").value;
+        realCPList.KabloTVUydu = this.detailSearchForm.get("kabloTVUydu").value;
+        realCPList.Klima = this.detailSearchForm.get("klima").value;
 
         realCPList.Alan = isNaN(realCPList.Alan) ? null : realCPList.Alan;
         realCPList.Alan2 = isNaN(realCPList.Alan2) ? null : realCPList.Alan2;
@@ -244,11 +280,17 @@ export class SearchComponent implements AfterContentInit {
     }
 
     GetMin(id: string) {
-        return parseInt($("#" + id).prev(".tooltip").children(".tooltip-inner").text().split(':')[0].trim());
+        let minPrice: number = parseInt($("#" + id).val().toString());
+        minPrice = minPrice == 0 ? null : minPrice;
+
+        return minPrice;
     }
 
     GetMax(id: string) {
-        return parseInt($("#" + id).prev(".tooltip").children(".tooltip-inner").text().split(':')[1].trim());
+        let maxPrice: number = parseInt($("#" + id).val().toString());
+        maxPrice = maxPrice == 100000 ? null : maxPrice;
+
+        return maxPrice;
     }
 
     IsChecked(id: string) {

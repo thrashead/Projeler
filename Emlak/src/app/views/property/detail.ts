@@ -31,17 +31,27 @@ export class PropertyDetailComponent {
 
                     this.KodlaGetir();
 
-                    $('#image-gallery').lightSlider({
-                        gallery: true,
-                        item: 1,
-                        thumbItem: 9,
-                        slideMargin: 0,
-                        speed: 500,
-                        auto: true,
-                        loop: true,
-                        onSliderLoad: function () {
-                            $('#image-gallery').removeClass('cS-hidden');
-                        }
+                    $("#slider").html("");
+
+                    for (var i = 0; i < resData.Pictures.length; i++) {
+                        $("#slider").append("<img src=\"Uploads\/" + resData.Pictures[i] + "\" data-tab=\"" + resData.Baslik + "\" />")
+                    }
+
+                    $("#slider").tdSlider({
+                        autostart: false,
+                        slideonclick: true,
+                        imagestretch: true,
+                        width: 760,
+                        height: 509,
+                        direction: "LTR",
+                        duration: 1000,
+                        effect: "slide",
+                        showbuttons: true,
+                        buttonstyle: "thumb",
+                        thumbheight: 65,
+                        thumbwidth: 90,
+                        tabeffect: "fade",
+                        border: 0
                     });
                 }, resError => this.errorMsg = resError);
         });

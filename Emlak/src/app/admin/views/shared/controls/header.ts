@@ -29,8 +29,6 @@ export class AdminHeaderComponent {
                 'Kategoriler (Dil)',
                 'İçerikler',
                 'İçerikler (Dil)',
-                'Ürünler',
-                'Ürünler (Dil)',
                 'Galeri',
                 'Galeri (Dil)',
                 'Resimler',
@@ -61,12 +59,6 @@ export class AdminHeaderComponent {
                 break;
             case "İçerikler (Dil)":
                 this.router.navigate(['/Admin/IcerikDil']);
-                break;
-            case "Ürünler":
-                this.router.navigate(['/Admin/Urun']);
-                break;
-            case "Ürünler (Dil)":
-                this.router.navigate(['/Admin/UrunDil']);
                 break;
             case "Galeri":
                 this.router.navigate(['/Admin/Galeri']);

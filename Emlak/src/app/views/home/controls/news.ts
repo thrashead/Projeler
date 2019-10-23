@@ -19,7 +19,12 @@ export class NewsComponent {
 
     ngOnInit() {
         this._solService.getHaberler()
-            .subscribe(resData => this.haberler = resData,
-                resError => this.errorMsg = resError);
+            .subscribe((resData: any) => {
+                const length = Math.ceil(resData.length / 3);
+
+                this.haberler = Array.from({ length }).map((x, j) => ({
+                    Items: resData.filter((y, i) => i >= 3 * j && i < 3 * (j + 1))
+                }));
+            }, resError => this.errorMsg = resError);
     }
 }

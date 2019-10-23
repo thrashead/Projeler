@@ -1,11 +1,10 @@
 ﻿import { Component, ViewEncapsulation, AfterViewChecked } from '@angular/core';
 import { Router, ActivationEnd, RouterEvent } from '@angular/router';
-import '../../../../../Content/js/jquery-1.10.2.min.js';
+//import '../../../../../Content/js/jquery-1.10.2.min.js';
 import '../../../../../Content/js/bootstrap-hover-dropdown.js';
-import '../../../../../Content/js/owl.carousel.min.js';
-import '../../../../../Content/js/icheck.min.js';
-import '../../../../../Content/js/price-range.js';
-import '../../../../../Content/js/lightslider.min.js';
+import '../../../../../Content/js/owl-carousel/owl.carousel.min.js';
+import '../../../../../Content/js/jquery.ui-slider.js';
+import '../../../../../Content/js/tdSlider/tdSlider.js';
 import '../../../../../Content/js/main.js';
 
 @Component({
@@ -18,14 +17,9 @@ import '../../../../../Content/js/main.js';
         '../../../../../Content/fonts/icon-7-stroke/css/pe-icon-7-stroke.css',
         '../../../../../Content/fonts/icon-7-stroke/css/helper.css',
         '../../../../../Content/css/bootstrap.min.css',
-        '../../../../../Content/css/icheck.min_all.css',
-        '../../../../../Content/css/price-range.css',
-        '../../../../../Content/css/owl.carousel.css',
-        '../../../../../Content/css/owl.theme.css',
-        '../../../../../Content/css/owl.transitions.css',
         '../../../../../Content/css/style.css',
         '../../../../../Content/css/responsive.css',
-        '../../../../../Content/css/lightslider.min.css',
+        '../../../../../Content/js/tdSlider/tdSlider.css',
         '../../../../../Content/css/stil.css'
     ],
     encapsulation: ViewEncapsulation.None
@@ -55,92 +49,8 @@ export class ScriptsComponent implements AfterViewChecked {
 
     LoadScripts() {
         this.MenuActive();
-
-        setTimeout(() => {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-yellow',
-                radioClass: 'iradio_square-yellow',
-                increaseArea: '20%' // optional
-            });
-
-            $("input[checked='checked']").parent(".iradio_square-yellow").addClass("checked");
-        }, 500);
-
-        $('.layout-grid').off('click').on('click', function () {
-            $('.layout-grid').addClass('active');
-            $('.layout-list').removeClass('active');
-
-            $('#list-type').removeClass('proerty-th-list');
-            $('#list-type').addClass('proerty-th');
-
-        });
-
-        $('.layout-list').off('click').on('click', function () {
-            $('.layout-grid').removeClass('active');
-            $('.layout-list').addClass('active');
-
-            $('#list-type').addClass('proerty-th-list');
-            $('#list-type').removeClass('proerty-th');
-        });
-
-
-        setTimeout(() => {
-            $("#bg-slider").owlCarousel({
-                navigation: false, // Show next and prev buttons
-                slideSpeed: 100,
-                autoPlay: 5000,
-                paginationSpeed: 100,
-                singleItem: true,
-                mouseDrag: false,
-                transitionStyle: "fade",
-                //"singleItem:true" is a shortcut for:
-                items: 1,
-                itemsDesktop: false,
-                itemsDesktopSmall: false,
-                itemsTablet: false,
-                itemsMobile: false
-            });
-            $("#prop-smlr-slide_0").owlCarousel({
-                navigation: false, // Show next and prev buttons
-                slideSpeed: 100,
-                pagination: true,
-                paginationSpeed: 100,
-                items: 3
-
-            });
-            $("#testimonial-slider").owlCarousel({
-                navigation: false, // Show next and prev buttons
-                slideSpeed: 100,
-                pagination: true,
-                paginationSpeed: 100,
-                items: 3
-            });
-            $("#news-slider").owlCarousel({
-                navigation: false, // Show next and prev buttons
-                slideSpeed: 100,
-                pagination: true,
-                //singleItem: true,
-                transitionStyle: "fade",
-                paginationSpeed: 100,
-                items: 1,
-                itemsDesktop: false,
-                itemsDesktopSmall: false,
-                itemsTablet: false,
-                itemsMobile: false
-            });
-        }, 2500);
-
-        $('#fiyat1').slider();
-        $('#roomCount1').slider();
-        $('#salon1').slider();
-        $('#katSayi1').slider();
-        $('#bulunduguKat1').slider();
-        $('#binaYas1').slider();
-        $('#alan1').slider();
-
-        var RGBChange = function () {
-            $('#RGB').css('background', '#FDC600')
-        };
+        this.Carousel();
+        this.OwlCarousel();
 
         // Advanced search toggle
         var $SearchToggle = $('.search-form .search-toggle');
@@ -150,6 +60,45 @@ export class ScriptsComponent implements AfterViewChecked {
             e.preventDefault();
             $SearchToggle.slideToggle(300);
         });
+    }
+
+    //Carousel
+    Carousel() {
+        setTimeout(() => {
+            $("#bg-slider").carousel();
+        }, 2500);
+    }
+
+    //OwlCarousel
+    OwlCarousel() {
+        setTimeout(() => {
+            $(".enable-owl-carousel").each(function (i) {
+                var $owl = $(this);
+                var itemsData = $owl.data('items');
+                var autoPlayData = $owl.data('auto-play');
+                var navigationData = $owl.data('navigation');
+                var stopOnHoverData = $owl.data('stop-on-hover');
+                var itemsDesktopData = $owl.data('items-desktop');
+                var itemsDesktopSmallData = $owl.data('items-desktop-small');
+                var itemsTabletData = $owl.data('items-tablet');
+                var itemsTabletSmallData = $owl.data('items-tablet-small');
+                $owl.owlCarousel({
+                    items: itemsData,
+                    pagination: false,
+                    navigation: navigationData,
+                    autoPlay: autoPlayData,
+                    stopOnHover: stopOnHoverData,
+                    navigationText: ["", ""],
+                    itemsCustom: [
+                        [0, 1],
+                        [500, itemsTabletSmallData],
+                        [710, itemsTabletData],
+                        [992, itemsDesktopSmallData],
+                        [1199, itemsDesktopData]
+                    ],
+                });
+            });
+        }, 2500);
     }
 
     //MenuActive

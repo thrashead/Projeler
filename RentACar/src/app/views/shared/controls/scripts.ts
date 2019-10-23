@@ -1,9 +1,9 @@
 ﻿import { Component, ViewEncapsulation, AfterViewChecked } from '@angular/core';
 import { Router, ActivationEnd, RouterEvent } from '@angular/router';
-import '../../../../../Content/js/owl-carousel/owl.carousel.min.js'
-import '../../../../../Content/js/bxslider/jquery.bxslider.min.js'
-import '../../../../../Content/js/jquery.ui-slider.js'
-//import '../../../../../node_modules/wowjs/dist/wow.js'
+import '../../../../../Content/js/owl-carousel/owl.carousel.min.js';
+import '../../../../../Content/js/bxslider/jquery.bxslider.min.js';
+import '../../../../../Content/js/jquery.ui-slider.js';
+//import '../../../../../node_modules/wowjs/dist/wow.js';
 
 import '../../../../../Content/js/pathscript.js';
 import '../../../../../Content/js/script.js';

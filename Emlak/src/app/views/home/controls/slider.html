@@ -1,7 +1,11 @@
 ﻿<div class="slider-area">
     <div class="slider">
-        <div id="bg-slider" class="owl-carousel owl-theme">
-            <div class="item" *ngFor="let item of slider"><img src="/Emlak/Uploads/{{item.PictureUrl}}"></div>
+        <div id="bg-slider" class="slide carousel carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item{{ i == 0 ? ' active' : ''}}" *ngFor="let item of slider; let i = index;">
+                    <img src="/Emlak/Uploads/{{item.PictureUrl}}" alt="sliderImg">
+                </div>
+            </div>
         </div>
     </div>
     <emlak-search></emlak-search>

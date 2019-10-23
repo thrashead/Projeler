@@ -12,6 +12,7 @@ declare var DataTable;
 export class AdminKullaniciGrupDuzenleComponent {
     errorMsg: string;
     id: string;
+    CurrentUserID: number;
 
     duzenleForm: FormGroup;
     data: any;
@@ -71,21 +72,25 @@ export class AdminKullaniciGrupDuzenleComponent {
                         this.realDeleteShow = rdRight;
 
                         if (this.callTable == true) {
-                            this.route.params.subscribe((params: Params) => {
-                                this.id = params['id'];
-                                this.service.get("KullaniciGrup", "Duzenle", this.id).subscribe((resData: any) => {
-                                    this.model = resData;
-                                    this.callTable = false;
+                            this.sharedService.getCurrentUser().subscribe((resData: any) => {
+                                this.CurrentUserID = resData.ID;
 
-                                    DataTable();
+                                this.route.params.subscribe((params: Params) => {
+                                    this.id = params['id'];
+                                    this.service.get("KullaniciGrup", "Duzenle", this.id).subscribe((resData: any) => {
+                                        this.model = resData;
+                                        this.callTable = false;
 
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnModel").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            });
+                                        DataTable();
+
+                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                            setTimeout(() => {
+                                                this.UserRightsControl($("#hdnModel").val());
+                                            }, 1);
+                                        });
+                                    }, resError => this.errorMsg = resError);
+                                });
+                            }, resError => this.errorMsg = resError);
                         }
 
                         setTimeout(() => {

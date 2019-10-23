@@ -90,11 +90,9 @@
 
                             <div class="col-md-8 col-md-offset-2 col-sm-12" style="padding:0px;">
                                 <label for="fiyat1">{{ fiyatText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="fiyat1" value="" data-slider-min="0"
-                                       data-slider-max="1000000" data-slider-step="5000"
-                                       data-slider-value="[0,1000000]" id="fiyat1"><br />
-                                <b class="pull-left color">0 TL</b>
-                                <b class="pull-right color">1000000 TL</b>
+                                <div class="tdslider" id="fiyat" data-min="0" data-max="1000000" data-step="5000"></div>
+                                <input type="hidden" id="fiyat1" class="j-min" formControlName="fiyat1" />
+                                <input type="hidden" id="fiyat2" class="j-max" formControlName="fiyat2" />
                             </div>
 
                         </div>
@@ -102,29 +100,23 @@
                         <div class="search-row">
                             <div class="form-group">
                                 <label for="roomCount1">{{ odasayisiText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="roomCount1" value="" data-slider-min="0"
-                                       data-slider-max="10" data-slider-step="1"
-                                       data-slider-value="[0,10]" id="roomCount1"><br />
-                                <b class="pull-left color">0</b>
-                                <b class="pull-right color">10</b>
+                                <div class="tdslider" id="roomCount" data-min="0" data-max="10" data-step="1"></div>
+                                <input type="hidden" id="roomCount1" class="j-min" formControlName="roomCount1" />
+                                <input type="hidden" id="roomCount2" class="j-max" formControlName="roomCount2" />
                             </div>
 
                             <div class="form-group mar-l-20">
                                 <label for="salon1">{{ salonSayisiText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="salon1" value="" data-slider-min="0"
-                                       data-slider-max="10" data-slider-step="1"
-                                       data-slider-value="[0,10]" id="salon1"><br />
-                                <b class="pull-left color">0</b>
-                                <b class="pull-right color">10</b>
+                                <div class="tdslider" id="salon" data-min="0" data-max="10" data-step="1"></div>
+                                <input type="hidden" id="salon1" class="j-min" formControlName="salon1" />
+                                <input type="hidden" id="salon2" class="j-max" formControlName="salon2" />
                             </div>
 
                             <div class="form-group mar-l-20">
                                 <label for="alan1">{{ alanText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="alan1" value="" data-slider-min="0"
-                                       data-slider-max="2000" data-slider-step="100"
-                                       data-slider-value="[0,2000]" id="alan1"><br />
-                                <b class="pull-left color">0</b>
-                                <b class="pull-right color">2000</b>
+                                <div class="tdslider" id="alan" data-min="0" data-max="2000" data-step="100"></div>
+                                <input type="hidden" id="alan1" class="j-min" formControlName="alan1" />
+                                <input type="hidden" id="alan2" class="j-max" formControlName="alan2" />
                             </div>
 
                         </div>
@@ -132,29 +124,23 @@
                         <div class="search-row">
                             <div class="form-group">
                                 <label for="katSayi1">{{ katSayisiText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="katSayi1" value="" data-slider-min="0"
-                                       data-slider-max="40" data-slider-step="1"
-                                       data-slider-value="[0,40]" id="katSayi1"><br />
-                                <b class="pull-left color">0</b>
-                                <b class="pull-right color">40</b>
+                                <div class="tdslider" id="katSayi" data-min="0" data-max="40" data-step="1"></div>
+                                <input type="hidden" id="katSayi1" class="j-min" formControlName="katSayi1" />
+                                <input type="hidden" id="katSayi2" class="j-max" formControlName="katSayi2" />
                             </div>
 
                             <div class="form-group mar-l-20">
                                 <label for="bulunduguKat1">{{ bulunduguKatText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="bulunduguKat1" value="" data-slider-min="0"
-                                       data-slider-max="10" data-slider-step="1"
-                                       data-slider-value="[0,40]" id="bulunduguKat1"><br />
-                                <b class="pull-left color">0</b>
-                                <b class="pull-right color">40</b>
+                                <div class="tdslider" id="bulunduguKat" data-min="0" data-max="40" data-step="1"></div>
+                                <input type="hidden" id="bulunduguKat1" class="j-min" formControlName="bulunduguKat1" />
+                                <input type="hidden" id="bulunduguKat2" class="j-max" formControlName="bulunduguKat2" />
                             </div>
 
                             <div class="form-group mar-l-20">
                                 <label for="binaYas1">{{ binaYasiText }} <i>({{ arlkText }})</i></label>
-                                <input type="text" class="span2" formControlName="binaYas1" value="" data-slider-min="0"
-                                       data-slider-max="100" data-slider-step="5"
-                                       data-slider-value="[0,100]" id="binaYas1"><br />
-                                <b class="pull-left color">0</b>
-                                <b class="pull-right color">100</b>
+                                <div class="tdslider" id="binaYas" data-min="0" data-max="100" data-step="5"></div>
+                                <input type="hidden" id="binaYas1" class="j-min" formControlName="binaYas1" />
+                                <input type="hidden" id="binaYas2" class="j-max" formControlName="binaYas2" />
                             </div>
 
                         </div>
