@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 p0 padding-top-40">
-                <emlak-propertysearch></emlak-propertysearch>
+                <emlak-propertysearch (searchFilter)="Listele(reData)" (firstPage)="onClick($event)"></emlak-propertysearch>
             </div>
 
             <div class="col-md-9  pr0 padding-top-40 properties-page">

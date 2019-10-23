@@ -4,7 +4,7 @@
         <h3 class="panel-title">{{ sdetText }}</h3>
     </div>
     <div class="panel-body search-widget">
-        <form [formGroup]="propSearchForm" class="form-inline" (ngSubmit)="onSubmit()">
+        <form [formGroup]="propSearchForm" class="form-inline">
             <fieldset>
                 <div class="row">
                     <div class="col-xs-12">
@@ -30,9 +30,11 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-6">
+                        <b>{{ ctgyText }} :</b>
                         <select id="drpKategori" formControlName="kategori" class="form-control"></select>
                     </div>
                     <div class="col-xs-6">
+                        <b>{{ durumText }} :</b>
                         <select id="drpDurum" formControlName="durum" class="form-control">
                             <option value="{{ sallText }}">{{ sallText }}</option>
                             <option value="{{ sclrText }}">{{ sclrText }}</option>
@@ -471,7 +473,7 @@
             <fieldset>
                 <div class="row">
                     <div class="col-xs-12">
-                        <button class="btn search-btn largesearch-btn" type="submit"><i class="fa fa-search"></i></button>
+                        <button class="btn search-btn largesearch-btn" (click)="onClick()"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </fieldset>

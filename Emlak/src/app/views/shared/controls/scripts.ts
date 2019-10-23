@@ -56,11 +56,15 @@ export class ScriptsComponent implements AfterViewChecked {
     LoadScripts() {
         this.MenuActive();
 
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-yellow',
-            radioClass: 'iradio_square-yellow',
-            increaseArea: '20%' // optional
-        });
+        setTimeout(() => {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-yellow',
+                radioClass: 'iradio_square-yellow',
+                increaseArea: '20%' // optional
+            });
+
+            $("input[checked='checked']").parent(".iradio_square-yellow").addClass("checked");
+        }, 500);
 
         $('.layout-grid').off('click').on('click', function () {
             $('.layout-grid').addClass('active');
@@ -90,11 +94,11 @@ export class ScriptsComponent implements AfterViewChecked {
                 mouseDrag: false,
                 transitionStyle: "fade",
                 //"singleItem:true" is a shortcut for:
-                items : 1, 
-                itemsDesktop : false,
-                itemsDesktopSmall : false,
+                items: 1,
+                itemsDesktop: false,
+                itemsDesktopSmall: false,
                 itemsTablet: false,
-                itemsMobile : false 
+                itemsMobile: false
             });
             $("#prop-smlr-slide_0").owlCarousel({
                 navigation: false, // Show next and prev buttons
@@ -122,7 +126,7 @@ export class ScriptsComponent implements AfterViewChecked {
                 itemsDesktop: false,
                 itemsDesktopSmall: false,
                 itemsTablet: false,
-                itemsMobile: false 
+                itemsMobile: false
             });
         }, 2500);
 

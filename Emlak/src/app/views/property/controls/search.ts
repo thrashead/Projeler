@@ -1,5 +1,5 @@
-﻿import { Component, AfterContentInit } from "@angular/core";
-import { Router } from '@angular/router';
+﻿import { Component, AfterContentInit, Output, EventEmitter } from "@angular/core";
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { EmlakAjaxService } from '../../../services/emlakajax';
 import { REAjaxService } from '../../../services/reajax';
@@ -15,13 +15,24 @@ import { Lib } from '../../../lib/methods';
 export class PropertySearchComponent implements AfterContentInit {
     errorMsg: string;
 
+    @Output() searchFilter = new EventEmitter<any>();
+    @Output() firstPage = new EventEmitter<any>();
+    public reData: any;
+    public link: string;
+    public detail: string;
+
     propSearchForm: FormGroup;
     realCPList: any;
 
-    constructor(private emlakService: EmlakAjaxService, private reService: REAjaxService, private router: Router, private formBuilder: FormBuilder) {
+    constructor(private emlakService: EmlakAjaxService, private reService: REAjaxService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.route.params.subscribe((params: Params) => {
+            this.link = params['link'] == undefined ? "tumu" : params['link'];
+            this.detail = params['detail'];
+        });
+
         this.FormOlustur();
 
         this.reService.getSehirler()
@@ -53,7 +64,7 @@ export class PropertySearchComponent implements AfterContentInit {
         }, 500);
     }
 
-    onSubmit() {
+    onClick() {
         this.realCPList = new Object();
 
         if ($("#rbSatilik").is(':checked')) {
@@ -65,13 +76,21 @@ export class PropertySearchComponent implements AfterContentInit {
 
         this.Doldur(this.realCPList);
 
-        this.reService.getEmlakDetayliArama(this.realCPList)
-            .subscribe((resData: any) => {
-                if (resData == true) {
+        this.reService.getEmlakDetayliArama(this.realCPList).subscribe((resData: any) => {
+            if (resData == true) {
+                if (!this.detail)
                     this.router.navigate(['/'], { skipLocationChange: true }).then(() => { this.router.navigate(['/Emlak/Listele', { detail: true }]) });
-                }
-            },
-                resError => this.errorMsg = resError);
+
+                this.reData = new Object();
+                this.reData.OrderBy = "";
+                this.reData.Word = this.link;
+                this.reData.Page = 1;
+                this.reData.Detail = this.detail;
+
+                this.searchFilter.emit(resData);
+                this.firstPage.emit($(".pagination ul li a").eq(0));
+            }
+        }, resError => this.errorMsg = resError);
     }
 
     Doldur(realCPList: any) {
@@ -129,7 +148,6 @@ export class PropertySearchComponent implements AfterContentInit {
         realCPList.Jakuzi = this.IsChecked("jakuzi");
         realCPList.KabloTVUydu = this.IsChecked("kabloTVUydu");
         realCPList.Klima = this.IsChecked("klima");
-
 
         realCPList.Alan = isNaN(realCPList.Alan) ? null : realCPList.Alan;
         realCPList.Alan2 = isNaN(realCPList.Alan2) ? null : realCPList.Alan2;

@@ -1,5 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { ActivatedRoute, Params, Router, RouterEvent, ActivationEnd } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EmlakAjaxService } from '../../services/emlakajax';
 import { REAjaxService } from '../../services/reajax';
 import { LangItem } from '../../model/LangItem';
@@ -25,10 +25,11 @@ export class PropertyIndexComponent {
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
-            this.link = params['link'];
+            this.link = params['link'] == undefined ? "tumu" : params['link'];
+
             this.reData = new Object();
             this.reData.OrderBy = "";
-            this.reData.Word = params['link'];
+            this.reData.Word = this.link;
             this.reData.Page = 1;
             this.reData.Detail = params['detail'];
 
@@ -53,8 +54,7 @@ export class PropertyIndexComponent {
                 }
 
                 this.sayfalar = this.sayiList(this.liste.SayfaSayisi);
-            },
-                resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
     }
 
     sayiList(adet: number) {
@@ -69,16 +69,26 @@ export class PropertyIndexComponent {
 
     onClick(event: any) {
         var target = event.target || event.srcElement || event.currentTarget;
+
         var orderBy = $(".sort-by-list li.active a").attr("data-value");
+        var page = 1;
 
         $(".pagination ul li").removeClass("active");
-        target.parentNode.classList.add("active");
+
+        if (target == undefined) {
+            target = $(".pagination ul li").eq(0).children("a");
+            target.parent().addClass("active");
+        }
+        else {
+            target.parentNode.classList.add("active");
+            page = parseInt(target.text);
+        }
 
         this.route.params.subscribe((params: Params) => {
             this.reData = new Object();
             this.reData.OrderBy = orderBy;
             this.reData.Word = this.link;
-            this.reData.Page = parseInt(target.text);
+            this.reData.Page = page;
             this.reData.Detail = params['detail'];
 
             this.Listele(this.reData);
