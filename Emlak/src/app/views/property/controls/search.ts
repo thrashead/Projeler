@@ -428,7 +428,7 @@ export class PropertySearchComponent implements AfterContentInit {
                     case "otop": this.otoparkText = item.Value; break;
                     case "siti": this.siteIciText = item.Value; break;
                     case "alar": this.alarmText = item.Value; break;
-                    case "gord": this.goruntuluDiafon
+                    case "gord": this.goruntuluDiafon = item.Value; break;
                     case "klim": this.klimaText = item.Value; break;
                 }
             });
