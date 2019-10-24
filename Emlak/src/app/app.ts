@@ -7,9 +7,10 @@ declare global {
         carousel(): JQuery;
         carousel(obj: any): JQuery;
         owlCarousel(obj: any): JQuery;
-        tdSlider(obj: any): JQuery;
+        lightSlider(obj: any): JQuery;
         selectpicker(): JQuery;
         slider(obj: any): JQuery;
+        slider(): JQuery;
     }
 }
 

@@ -85,7 +85,7 @@ input[type='radio']:checked::after {content:"\2713";color:#FDC600;font-weight:bo
 }
 .ui-slider-handle span {
     top:20px;
-    position:relative;
+    position:absolute;
 }
 
 .ui-widget-header {

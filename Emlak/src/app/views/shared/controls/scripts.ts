@@ -4,7 +4,7 @@ import { Router, ActivationEnd, RouterEvent } from '@angular/router';
 import '../../../../../Content/js/bootstrap-hover-dropdown.js';
 import '../../../../../Content/js/owl-carousel/owl.carousel.min.js';
 import '../../../../../Content/js/jquery.ui-slider.js';
-import '../../../../../Content/js/tdSlider/tdSlider.js';
+import '../../../../../Content/js/lightslider.min.js';
 import '../../../../../Content/js/main.js';
 
 @Component({
@@ -19,7 +19,7 @@ import '../../../../../Content/js/main.js';
         '../../../../../Content/css/bootstrap.min.css',
         '../../../../../Content/css/style.css',
         '../../../../../Content/css/responsive.css',
-        '../../../../../Content/js/tdSlider/tdSlider.css',
+        '../../../../../Content/css/lightslider.min.css',
         '../../../../../Content/css/stil.css'
     ],
     encapsulation: ViewEncapsulation.None

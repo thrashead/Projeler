@@ -42,6 +42,13 @@ export class SearchComponent implements AfterContentInit {
             },
                 resError => this.errorMsg = resError);
 
+        var $SearchToggle = $('.search-form .search-toggle');
+        $SearchToggle.hide();
+
+        $('.search-form .toggle-btn').off("click").on('click', function (e) {
+            e.preventDefault();
+            $SearchToggle.slideToggle(300);
+        });
 
         $(".tdslider").each(function (i) {
             var slider = $(this);

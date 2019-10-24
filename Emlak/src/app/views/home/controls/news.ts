@@ -25,6 +25,11 @@ export class NewsComponent {
                 this.haberler = Array.from({ length }).map((x, j) => ({
                     Items: resData.filter((y, i) => i >= 3 * j && i < 3 * (j + 1))
                 }));
+
+                setTimeout(() => {
+                    $(".owl-carousel").css("opacity", "1");
+                    $(".owl-carousel").css("display", "block");
+                }, 300);
             }, resError => this.errorMsg = resError);
     }
 }
