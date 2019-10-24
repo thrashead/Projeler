@@ -38,11 +38,11 @@
   <Lang Code="ctgs" TR="Kategoriler" EN="Categories"></Lang>
   <Lang Code="cnts" TR="İçerikler" EN="Contents"></Lang>
   <Lang Code="stts" TR="Durumu" EN="Status"></Lang>
-  <Lang Code="romc" TR="Oda Sayısı" EN="Num. Of Rooms"></Lang>
+  <Lang Code="romc" TR="Oda Sayısı" EN="Rooms"></Lang>
   <Lang Code="ttle" TR="İlan Başlığı" EN="Title"></Lang>
-  <Lang Code="drmc" TR="Salon Sayısı" EN="Num. Of Dr. Rooms"></Lang>
+  <Lang Code="drmc" TR="Salon Sayısı" EN="Liv. Rooms"></Lang>
   <Lang Code="city" TR="Şehir" EN="City"></Lang>
-  <Lang Code="flrc" TR="Kat Sayısı" EN="Num. Of Floor"></Lang>
+  <Lang Code="flrc" TR="Kat Sayısı" EN="Floors"></Lang>
   <Lang Code="arlk" TR="Aralık" EN="Interval"></Lang>
   <Lang Code="flrn" TR="Kaçıncı Kat" EN="Floor Number"></Lang>
   <Lang Code="ilce" TR="İlçe" EN="County"></Lang>
