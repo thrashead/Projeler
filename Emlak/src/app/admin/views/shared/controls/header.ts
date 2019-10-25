@@ -38,6 +38,8 @@ export class AdminHeaderComponent {
                 'Bağlı Tipler',
                 'Bağlantılar',
                 'Diller',
+                'Dil İçerik',
+                'Dil İçerik (Dil)',
                 'Kullanıcılar'
             ],
             items: 4
@@ -86,6 +88,12 @@ export class AdminHeaderComponent {
                 break;
             case "Diller":
                 this.router.navigate(['/Admin/Dil']);
+                break;
+            case "Dil İçerik":
+                this.router.navigate(['/Admin/DilIcerik']);
+                break;
+            case "Dil İçerik (Dil)":
+                this.router.navigate(['/Admin/DilIcerikDil']);
                 break;
             case "Kullanıcılar":
                 this.router.navigate(['/Admin/Kullanicilar']);

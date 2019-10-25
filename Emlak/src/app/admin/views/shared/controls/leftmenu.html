@@ -52,8 +52,13 @@
                 <li data-url="Baglanti"><a routerLink="/Admin/Baglanti">Bağlantılar</a></li>
             </ul>
         </li>
-        <li data-url="Dil" *ngIf="hasRightDil && showTypeDil">
-            <a routerLink="/Admin/Dil"><i class="icon icon-globe"></i> <span>Diller</span></a>
+        <li class="submenu" *ngIf="hasRightDil && hasRightDil">
+            <a href="javascript:;"><i class="icon icon-globe"></i> <span>Diller</span></a>
+            <ul>
+                <li data-url="Dil"><a routerLink="/Admin/Dil">Diller</a></li>
+                <li data-url="DilIcerik"><a routerLink="/Admin/DilIcerik">Dil İçerik</a></li>
+                <li data-url="DilIcerikDil"><a routerLink="/Admin/DilIcerikDil">Dil İçerik (Dil)</a></li>
+            </ul>
         </li>
         <li class="submenu" *ngIf="hasRightLoglar && showTypeLoglar">
             <a href="javascript:;"><i class="icon icon-eye-open"></i> <span>Loglar</span></a>

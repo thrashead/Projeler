@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using TDLibrary;
-using Cacher = System.Web.HttpRuntime;
-using System.Web.Caching;
 using System.Xml;
 
 
@@ -45,19 +43,19 @@ namespace Emlak.Controllers
                 {
                     list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, true, null, null, null, null).ToList();
 
-                    pageHeader = LangBaslik.KodlaGetir("stlk");
+                    pageHeader = LangBaslik.KodlaGetir("stlk").Text;
                 }
                 else if (param.Word.ToLower() == "kiralik")
                 {
                     list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, false, null, null, null, null).ToList();
 
-                    pageHeader = LangBaslik.KodlaGetir("krlk");
+                    pageHeader = LangBaslik.KodlaGetir("krlk").Text;
                 }
                 else if (param.Word.ToLower() == "yeni")
                 {
                     list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, true, null, null, null).ToList();
 
-                    pageHeader = LangBaslik.KodlaGetir("newi");
+                    pageHeader = LangBaslik.KodlaGetir("newi").Text;
                 }
                 else if (param.Word.ToLower() == "tumu")
                 {
@@ -115,7 +113,7 @@ namespace Emlak.Controllers
             {
                 list = Session["Emlaklar"] as List<sp_RealEstatesForListSelect_Result>;
 
-                pageHeader = LangBaslik.KodlaGetir("dsrs");
+                pageHeader = LangBaslik.KodlaGetir("dsrs").Text;
 
                 switch (param.OrderBy)
                 {
@@ -140,7 +138,7 @@ namespace Emlak.Controllers
             }
             else
             {
-                reOutputItem.Baslik = LangBaslik.KodlaGetir("alli");
+                reOutputItem.Baslik = LangBaslik.KodlaGetir("alli").Text;
             }
 
             List<ListeleItem> returnList = new List<ListeleItem>();
@@ -167,7 +165,7 @@ namespace Emlak.Controllers
                 }
                 else
                 {
-                    reOutputItem.Baslik = LangBaslik.KodlaGetir("alli");
+                    reOutputItem.Baslik = LangBaslik.KodlaGetir("alli").Text;
                 }
 
                 returnList.Add(reItem);
@@ -756,7 +754,7 @@ namespace Emlak.Controllers
         {
             List<FillCategoryReturnJson> _result = new List<FillCategoryReturnJson>();
 
-            _result.Add(new FillCategoryReturnJson() { ID = 0, CategoryName = LangBaslik.KodlaGetir("sctm") });
+            _result.Add(new FillCategoryReturnJson() { ID = 0, CategoryName = LangBaslik.KodlaGetir("sctm").Text });
 
             var rb = entity.sp_CategoriesByParentID(param, ToolBox.LangCode).ToList();
 
@@ -880,27 +878,14 @@ namespace Emlak.Controllers
         public JsonResult GetLangItems([System.Web.Http.FromBody] List<LangItem> param)
         {
             List<LangItem> returnList = new List<LangItem>();
-            List<LangBaslik> list;
-            string langCode = ToolBox.LangCode;
-
-            if (Cacher.Cache["LangContents"] == null)
-            {
-                list = LangBaslik.Liste();
-
-                Cacher.Cache.Insert("LangContents", list, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
-            }
-            else
-            {
-                list = Cacher.Cache["LangContents"] as List<LangBaslik>;
-            }
 
             foreach (LangItem item in param)
             {
-                LangBaslik baslik = list.Where(a => a.Code == item.Code)?.FirstOrDefault();
+                LangBaslik baslik = LangBaslik.KodlaGetir(item.Code);
 
                 if (baslik != null)
                 {
-                    returnList.Add(new LangItem() { Code = baslik.Code, Value = langCode == "TR" ? baslik.TR : baslik.EN });
+                    returnList.Add(new LangItem() { Code = baslik.Code, Value = baslik.Text });
                 }
             }
 

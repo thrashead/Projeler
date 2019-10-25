@@ -48,7 +48,7 @@
                         <ul class="footer-blog blog-news">
                             <li *ngFor="let item of haberler">
                                 <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                    <h6> <a [routerLink]="['/Icerik/Haberler/' + item?.Url]">{{item?.ContentName}} </a></h6>
+                                    <h6> <a [routerLink]="['/Haberler/' + item?.Url]">{{item?.ContentName}} </a></h6>
                                     <p style="line-height: 17px; padding: 8px 2px;" [innerHtml]="item?.Aciklama"></p>
                                 </div>
                             </li>

@@ -56,6 +56,14 @@ import { AdminDilIndexComponent } from './admin/views/dil';
 import { AdminDilEkleComponent } from './admin/views/dil/ekle';
 import { AdminDilDuzenleComponent } from './admin/views/dil/duzenle';
 
+import { AdminDilIcerikIndexComponent } from './admin/views/dilicerik';
+import { AdminDilIcerikEkleComponent } from './admin/views/dilicerik/ekle';
+import { AdminDilIcerikDuzenleComponent } from './admin/views/dilicerik/duzenle';
+
+import { AdminDilIcerikDilIndexComponent } from './admin/views/dilicerikdil';
+import { AdminDilIcerikDilEkleComponent } from './admin/views/dilicerikdil/ekle';
+import { AdminDilIcerikDilDuzenleComponent } from './admin/views/dilicerikdil/duzenle';
+
 import { AdminDosyaIndexComponent } from './admin/views/dosya';
 import { AdminDosyaEkleComponent } from './admin/views/dosya/ekle';
 import { AdminDosyaDuzenleComponent } from './admin/views/dosya/duzenle';
@@ -260,6 +268,14 @@ import { ModelService } from './admin/services/model';
         AdminKullanicilarEkleComponent,
         AdminKullanicilarDuzenleComponent,
         AdminKullanicilarGrupDegistirComponent,
+
+        AdminDilIcerikIndexComponent,
+        AdminDilIcerikEkleComponent,
+        AdminDilIcerikDuzenleComponent,
+
+        AdminDilIcerikDilIndexComponent,
+        AdminDilIcerikDilEkleComponent,
+        AdminDilIcerikDilDuzenleComponent,
 
         AdminLogIslemIndexComponent,
         AdminLogIslemEkleComponent,

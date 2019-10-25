@@ -25,6 +25,14 @@ import { AdminDilIndexComponent } from './admin/views/dil';
 import { AdminDilEkleComponent } from './admin/views/dil/ekle';
 import { AdminDilDuzenleComponent } from './admin/views/dil/duzenle';
 
+import { AdminDilIcerikIndexComponent } from './admin/views/dilicerik';
+import { AdminDilIcerikEkleComponent } from './admin/views/dilicerik/ekle';
+import { AdminDilIcerikDuzenleComponent } from './admin/views/dilicerik/duzenle';
+
+import { AdminDilIcerikDilIndexComponent } from './admin/views/dilicerikdil';
+import { AdminDilIcerikDilEkleComponent } from './admin/views/dilicerikdil/ekle';
+import { AdminDilIcerikDilDuzenleComponent } from './admin/views/dilicerikdil/duzenle';
+
 import { AdminDosyaIndexComponent } from './admin/views/dosya';
 import { AdminDosyaEkleComponent } from './admin/views/dosya/ekle';
 import { AdminDosyaDuzenleComponent } from './admin/views/dosya/duzenle';
@@ -155,6 +163,16 @@ const routes: Routes = [
             { path: 'Admin/Dil/Index', component: AdminDilIndexComponent },
             { path: 'Admin/Dil/Ekle', component: AdminDilEkleComponent },
             { path: 'Admin/Dil/Duzenle/:id', component: AdminDilDuzenleComponent },
+
+            { path: 'Admin/DilIcerik', component: AdminDilIcerikIndexComponent },
+            { path: 'Admin/DilIcerik/Index', component: AdminDilIcerikIndexComponent },
+            { path: 'Admin/DilIcerik/Ekle', component: AdminDilIcerikEkleComponent },
+            { path: 'Admin/DilIcerik/Duzenle/:id', component: AdminDilIcerikDuzenleComponent },
+
+            { path: 'Admin/DilIcerikDil', component: AdminDilIcerikDilIndexComponent },
+            { path: 'Admin/DilIcerikDil/Index', component: AdminDilIcerikDilIndexComponent },
+            { path: 'Admin/DilIcerikDil/Ekle', component: AdminDilIcerikDilEkleComponent },
+            { path: 'Admin/DilIcerikDil/Duzenle/:id', component: AdminDilIcerikDilDuzenleComponent },
 
             { path: 'Admin/Dosya', component: AdminDosyaIndexComponent },
             { path: 'Admin/Dosya/Index', component: AdminDosyaIndexComponent },

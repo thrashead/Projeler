@@ -22,6 +22,7 @@ namespace Emlak.Data
             this.GalleryT = new HashSet<GalleryT>();
             this.MetaT = new HashSet<MetaT>();
             this.RealEstatesT = new HashSet<RealEstatesT>();
+            this.LangContentT = new HashSet<LangContentT>();
         }
     
         public int ID { get; set; }
@@ -41,5 +42,7 @@ namespace Emlak.Data
         public virtual ICollection<MetaT> MetaT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RealEstatesT> RealEstatesT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LangContentT> LangContentT { get; set; }
     }
 }

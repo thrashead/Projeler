@@ -207,13 +207,21 @@ namespace Lib
         {
             get
             {
-                EmlakEntities entity = new EmlakEntities();
-
-                int? langID = entity.sp_TranslationIDByShortName(LangCode).FirstOrDefault();
-
-                if (langID != null)
+                if(HttpContext.Current.Session["LangID"] != null)
                 {
-                    return (int)langID;
+                    return (int)HttpContext.Current.Session["LangID"];
+                }
+                else
+                {
+                    EmlakEntities entity = new EmlakEntities();
+
+                    int? langID = entity.sp_TranslationIDByShortName(LangCode).FirstOrDefault();
+
+                    if (langID != null)
+                    {
+                        HttpContext.Current.Session["LangID"] = (int)langID;
+                        return (int)langID;
+                    }
                 }
 
                 return 1;
