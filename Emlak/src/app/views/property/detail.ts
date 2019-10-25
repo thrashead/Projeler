@@ -1,6 +1,5 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakAjaxService } from "../../services/emlakajax";
-import { REAjaxService } from "../../services/reajax";
+import { SiteService } from '../../services/site';
 import { ActivatedRoute, Params } from '@angular/router';
 import { LangItem } from '../../model/LangItem';
 import { Lib } from '../../lib/methods';
@@ -17,7 +16,7 @@ export class PropertyDetailComponent {
 
     features: Array<string>;
 
-    constructor(private _emlakService: EmlakAjaxService, private _reService: REAjaxService, private route: ActivatedRoute) {
+    constructor(private service: SiteService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -25,25 +24,24 @@ export class PropertyDetailComponent {
             this.link = params['link'];
             this.features = new Array();
 
-            this._reService.getEmlakDetay(this.link)
-                .subscribe((resData: any) => {
-                    this.emlak = resData;
+            this.service.get("Site", "Detay", this.link).subscribe((resData: any) => {
+                this.emlak = resData;
 
-                    this.KodlaGetir();
+                this.KodlaGetir();
 
-                    $('#image-gallery').lightSlider({
-                        gallery: true,
-                        item: 1,
-                        thumbItem: 9,
-                        slideMargin: 0,
-                        speed: 500,
-                        auto: true,
-                        loop: true,
-                        onSliderLoad: function () {
-                            $('#image-gallery').removeClass('cS-hidden');
-                        }
-                    });
-                }, resError => this.errorMsg = resError);
+                $('#image-gallery').lightSlider({
+                    gallery: true,
+                    item: 1,
+                    thumbItem: 9,
+                    slideMargin: 0,
+                    speed: 500,
+                    auto: true,
+                    loop: true,
+                    onSliderLoad: function () {
+                        $('#image-gallery').removeClass('cS-hidden');
+                    }
+                });
+            }, resError => this.errorMsg = resError);
         });
     }
 
@@ -111,7 +109,7 @@ export class PropertyDetailComponent {
     KodlaGetir() {
         this.PushLangItems();
 
-        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "ilan": this.ilanlarText = item.Value; break;

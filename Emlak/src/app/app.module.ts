@@ -142,10 +142,8 @@ import { AdminTiplerDuzenleComponent } from './admin/views/tipler/duzenle';
 import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
 
 //Services
-import { EmlakAjaxService } from './services/emlakajax';
-import { SolAjaxService } from './services/solajax';
-import { REAjaxService } from './services/reajax';
-import { HomeAjaxService } from './services/homeajax';
+import { SiteService } from './services/site';
+
 import { Lib } from './lib/methods';
 
 //Admin Services
@@ -299,10 +297,8 @@ import { ModelService } from './admin/services/model';
     ],
     //'/Emlak/' -> '/' Bu þekilde deðiþecek
     providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' },
-        EmlakAjaxService,
-        HomeAjaxService,
-        REAjaxService,
-        SolAjaxService,
+        SiteService,
+
         Lib,
 
         SharedService,

@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { EmlakAjaxService } from "../../../services/emlakajax";
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: "emlak-header",
@@ -24,18 +24,18 @@ export class HeaderComponent {
     @Input() kiralikilanText: string;
     @Input() girisText: string;
 
-    constructor(private emlakService: EmlakAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.emlakService.getLangs()
+        this.service.get("Site","GetLangs")
             .subscribe(resData => this.diller = resData,
                 resError => this.errorMsg = resError);
     }
 
     onClick(lang: string) {
         if (lang != undefined) {
-            this.emlakService.chanegeLang(lang)
+            this.service.get("Site", "ChangeLang", lang)
                 .subscribe((resData: any) => {
                     if (resData == true) {
                         window.location.reload();

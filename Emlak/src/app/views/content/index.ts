@@ -1,8 +1,8 @@
 ﻿import { Component } from "@angular/core";
 import { ActivatedRoute, Params } from '@angular/router';
-import { EmlakAjaxService } from "../../services/emlakajax";
 import { LangItem } from '../../model/LangItem';
 import { Lib } from '../../lib/methods';
+import { SiteService } from '../../services/site';
 
 @Component({
     templateUrl: './index.html'
@@ -14,15 +14,15 @@ export class ContentIndexComponent {
     icerik: any;
     public link: string;
 
-    constructor(private _emlakService: EmlakAjaxService, private route: ActivatedRoute) {
+    constructor(private service: SiteService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {
             this.link = params['link'];
 
-            this._emlakService.getIcerikGetir(this.link)
-                .subscribe((resData: any) => {
+            this.service.get("Site", "IcerikGetir", this.link)
+            .subscribe((resData: any) => {
                     this.icerik = resData;
                 },
                     resError => this.errorMsg = resError);
@@ -42,7 +42,7 @@ export class ContentIndexComponent {
     KodlaGetir() {
         this.PushLangItems();
 
-        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "ilan": this.ilanlarText = item.Value; break;

@@ -1,8 +1,7 @@
 ﻿import { Component, AfterContentInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { EmlakAjaxService } from '../../../services/emlakajax';
-import { REAjaxService } from '../../../services/reajax';
+import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../model/LangItem';
 import { Lib } from '../../../lib/methods';
 
@@ -17,30 +16,26 @@ export class SearchComponent implements AfterContentInit {
     detailSearchForm: FormGroup;
     realCPList: any;
 
-    constructor(private emlakService: EmlakAjaxService, private _reService: REAjaxService, private _router: Router, private _formBuilder: FormBuilder) {
+    constructor(private service: SiteService, private _router: Router, private _formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.KodlaGetir();
         this.FormOlustur();
 
-        this._reService.getSehirler()
-            .subscribe((resData: any) => {
-                for (var i = 0; i < resData.length; i++) {
-                    $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
-                }
-            },
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "Sehirler").subscribe((resData: any) => {
+            for (var i = 0; i < resData.length; i++) {
+                $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
+            }
+        }, resError => this.errorMsg = resError);
 
-        this._reService.getKategoriler("0")
-            .subscribe((resData: any) => {
-                $("#drpAltKategori").append("<option value=\"0\">Tümü</option>");
+        this.service.get("Site", "Kategoriler", 0).subscribe((resData: any) => {
+            $("#drpAltKategori").append("<option value=\"0\">Tümü</option>");
 
-                for (var i = 0; i < resData.length; i++) {
-                    $("#drpKategori").append("<option value=\"" + resData[i].ID + "\">" + resData[i].CategoryName + "</option>");
-                }
-            },
-                resError => this.errorMsg = resError);
+            for (var i = 0; i < resData.length; i++) {
+                $("#drpKategori").append("<option value=\"" + resData[i].ID + "\">" + resData[i].CategoryName + "</option>");
+            }
+        }, resError => this.errorMsg = resError);
 
         var $SearchToggle = $('.search-form .search-toggle');
         $SearchToggle.hide();
@@ -78,11 +73,13 @@ export class SearchComponent implements AfterContentInit {
                     }
                 });
 
+                let leftCss = max > 99999 ? " style='left:-20px;'" : max > 9999 ? " style='left:-15px;'" : max > 999 ? " style='left:-10px;'" : max > 99 ? " style='left:-5px;'" : "";
+
                 if (slider.find("span.min").length <= 0)
                     slider.find(".ui-slider-handle:first-of-type").append("<span class='min'>" + min + "</span>");
 
                 if (slider.find("span.max").length <= 0)
-                    slider.find(".ui-slider-handle:last-of-type").append("<span class='max'>" + max + "</span>");
+                    slider.find(".ui-slider-handle:last-of-type").append("<span class='max'" + leftCss + ">" + max + "</span>");
             }
         });
     }
@@ -107,13 +104,11 @@ export class SearchComponent implements AfterContentInit {
 
         this.Doldur(this.realCPList);
 
-        this._reService.getEmlakDetayliArama(this.realCPList)
-            .subscribe((resData: any) => {
-                if (resData == true) {
-                    this._router.navigate(['/Emlak/Listele', { detail: true }]);
-                }
-            },
-                resError => this.errorMsg = resError);
+        this.service.post("Site", "DetayliAramaSession", this.realCPList).subscribe((resData: any) => {
+            if (resData == true) {
+                this._router.navigate(['/Emlak/Listele', { detail: true }]);
+            }
+        }, resError => this.errorMsg = resError);
     }
 
     Doldur(realCPList: any) {
@@ -383,7 +378,7 @@ export class SearchComponent implements AfterContentInit {
     KodlaGetir() {
         this.PushLangItems();
 
-        this.emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "dstc": this.dstcText = item.Value; break;

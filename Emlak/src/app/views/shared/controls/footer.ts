@@ -1,7 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { EmlakAjaxService } from "../../../services/emlakajax";
-import { SolAjaxService } from '../../../services/solajax';
-import { HomeAjaxService } from '../../../services/homeajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: "emlak-footer",
@@ -27,23 +25,23 @@ export class FooterComponent {
     ilanlar: any;
     iletisim: any;
 
-    constructor(private _emlakService: EmlakAjaxService, private _homeService: HomeAjaxService, private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._homeService.getVitrinIlanlar("3")
-            .subscribe(resData => this.ilanlar = resData,
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "VitrinIlanlar", 3)
+        .subscribe(resData => this.ilanlar = resData,
+            resError => this.errorMsg = resError);
 
-        this._solService.getHaberler()
+        this.service.get("Site", "Haberler")
             .subscribe(resData => this.haberler = resData,
                 resError => this.errorMsg = resError);
 
-        this._emlakService.getIcerikGetir("Yasal-Uyari")
+        this.service.get("Site", "IcerikGetir", "Yasal-Uyari")
             .subscribe(resData => this.yasalUyari = resData,
                 resError => this.errorMsg = resError);
 
-        this._emlakService.getIcerikGetir("Iletisim")
+        this.service.get("Site", "IcerikGetir", "Iletisim")
             .subscribe(resData => this.iletisim = resData,
                 resError => this.errorMsg = resError);
     }

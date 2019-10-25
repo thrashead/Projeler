@@ -1,15 +1,13 @@
 ﻿import { Component, AfterContentInit, Output, EventEmitter } from "@angular/core";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { EmlakAjaxService } from '../../../services/emlakajax';
-import { REAjaxService } from '../../../services/reajax';
+import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../model/LangItem';
 import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'emlak-propertysearch',
-    templateUrl: './search.html',
-    providers: [EmlakAjaxService, REAjaxService]
+    templateUrl: './search.html'
 })
 
 export class PropertySearchComponent implements AfterContentInit {
@@ -24,7 +22,7 @@ export class PropertySearchComponent implements AfterContentInit {
     propSearchForm: FormGroup;
     realCPList: any;
 
-    constructor(private emlakService: EmlakAjaxService, private reService: REAjaxService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+    constructor(private service: SiteService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -37,23 +35,20 @@ export class PropertySearchComponent implements AfterContentInit {
 
         this.FormOlustur();
 
-        this.reService.getSehirler()
-            .subscribe((resData: any) => {
-                for (var i = 0; i < resData.length; i++) {
-                    $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
-                }
-            },
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "Sehirler").subscribe((resData: any) => {
+            for (var i = 0; i < resData.length; i++) {
+                $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
+            }
+        }, resError => this.errorMsg = resError);
 
-        this.reService.getKategoriler("0")
+        this.service.get("Site", "Kategoriler", 0)
             .subscribe((resData: any) => {
                 $("#drpAltKategori").append("<option value=\"0\">Tümü</option>");
 
                 for (var i = 0; i < resData.length; i++) {
                     $("#drpKategori").append("<option value=\"" + resData[i].ID + "\">" + resData[i].CategoryName + "</option>");
                 }
-            },
-                resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
 
         $(".tdslider").each(function (i) {
             var slider = $(this);
@@ -83,11 +78,13 @@ export class PropertySearchComponent implements AfterContentInit {
                     }
                 });
 
+                let leftCss = max > 99999 ? " style='left:-20px;'" : max > 999 ? " style='left:-10px;'" : "";
+
                 if (slider.find("span.min").length <= 0)
                     slider.find(".ui-slider-handle:first-of-type").append("<span class='min'>" + min + "</span>");
 
                 if (slider.find("span.max").length <= 0)
-                    slider.find(".ui-slider-handle:last-of-type").append("<span class='max'>" + max + "</span>");
+                    slider.find(".ui-slider-handle:last-of-type").append("<span class='max'" + leftCss + ">" + max + "</span>");
             }
         });
     }
@@ -112,7 +109,7 @@ export class PropertySearchComponent implements AfterContentInit {
 
         this.Doldur(this.realCPList);
 
-        this.reService.getEmlakDetayliArama(this.realCPList).subscribe((resData: any) => {
+        this.service.post("Site", "DetayliAramaSession", this.realCPList).subscribe((resData: any) => {
             if (resData == true) {
                 if (!this.detail)
                     this.router.navigate(['/'], { skipLocationChange: true }).then(() => { this.router.navigate(['/Emlak/Listele', { detail: true }]) });
@@ -397,7 +394,7 @@ export class PropertySearchComponent implements AfterContentInit {
     KodlaGetir() {
         this.PushLangItems();
 
-        this.emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "sdet": this.sdetText = item.Value; break;

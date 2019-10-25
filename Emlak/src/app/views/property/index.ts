@@ -1,13 +1,11 @@
 ﻿import { Component } from "@angular/core";
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { EmlakAjaxService } from '../../services/emlakajax';
-import { REAjaxService } from '../../services/reajax';
+import { ActivatedRoute, Params } from '@angular/router';
+import { SiteService } from '../../services/site';
 import { LangItem } from '../../model/LangItem';
 import { Lib } from '../../lib/methods';
 
 @Component({
-    templateUrl: './index.html',
-    providers: [EmlakAjaxService, REAjaxService]
+    templateUrl: './index.html'
 })
 
 export class PropertyIndexComponent {
@@ -20,7 +18,7 @@ export class PropertyIndexComponent {
     sayfa: number;
     sayfalar: number[] = new Array();
 
-    constructor(private _emlakService: EmlakAjaxService, private _reService: REAjaxService, private router: Router, private route: ActivatedRoute) {
+    constructor(private service: SiteService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -42,19 +40,18 @@ export class PropertyIndexComponent {
     Listele(data: any) {
         $("#lblSonuc").css("display", "none");
 
-        this._reService.getEmlakListele(data)
-            .subscribe((resData: any) => {
-                this.liste = resData;
+        this.service.post("Site", "Listele", data).subscribe((resData: any) => {
+            this.liste = resData;
 
-                if (this.liste.Adet > 12) {
-                    $(".IcerikMetin.Paging").css("display", "block");
-                }
-                else if (this.liste.Adet <= 0) {
-                    $("#lblSonuc").css("display", "block");
-                }
+            if (this.liste.Adet > 12) {
+                $(".IcerikMetin.Paging").css("display", "block");
+            }
+            else if (this.liste.Adet <= 0) {
+                $("#lblSonuc").css("display", "block");
+            }
 
-                this.sayfalar = this.sayiList(this.liste.SayfaSayisi);
-            }, resError => this.errorMsg = resError);
+            this.sayfalar = this.sayiList(this.liste.SayfaSayisi);
+        }, resError => this.errorMsg = resError);
     }
 
     sayiList(adet: number) {
@@ -144,7 +141,7 @@ export class PropertyIndexComponent {
     KodlaGetir() {
         this.PushLangItems();
 
-        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "atoz": this.atozText = item.Value; break;

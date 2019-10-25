@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { SolAjaxService } from '../../../services/solajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: 'emlak-news',
@@ -14,11 +14,11 @@ export class NewsComponent {
 
     haberler: any;
 
-    constructor(private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._solService.getHaberler()
+        this.service.get("Site", "Haberler")
             .subscribe((resData: any) => {
                 const length = Math.ceil(resData.length / 3);
 

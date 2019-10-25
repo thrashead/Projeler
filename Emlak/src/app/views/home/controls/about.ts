@@ -1,6 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { EmlakAjaxService } from '../../../services/emlakajax';
-import { SolAjaxService } from '../../../services/solajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: 'emlak-about',
@@ -18,15 +17,15 @@ export class AboutComponent {
 
     about: any;
 
-    constructor(private _emlakService: EmlakAjaxService, private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._solService.getSayac()
+        this.service.get("Site", "Sayac")
             .subscribe(resData => this.sayac = resData.toString(),
                 resError => this.errorMsg = resError);
 
-        this._emlakService.getIcerikGetir("Hakkimizda")
+        this.service.get("Site", "IcerikGetir", "Hakkimizda")
             .subscribe(resData => this.about = resData,
                 resError => this.errorMsg = resError);
     }

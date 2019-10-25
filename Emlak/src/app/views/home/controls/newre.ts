@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { SolAjaxService } from '../../../services/solajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: 'emlak-newre',
@@ -13,11 +13,11 @@ export class NewReComponent {
 
     ilanlar: any;
 
-    constructor(private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._solService.getYeniIlanlar("4")
+        this.service.get("Site", "YeniIlanlar", 4)
             .subscribe(resData => this.ilanlar = resData,
                 resError => this.errorMsg = resError);
     }

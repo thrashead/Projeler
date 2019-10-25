@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmlakAjaxService } from "../../services/emlakajax";
+import { SiteService } from '../../services/site';
 import { LangItem } from '../../model/LangItem';
 import { Lib } from '../../lib/methods';
 
@@ -11,7 +11,7 @@ import { Lib } from '../../lib/methods';
 export class LayoutComponent {
     errorMsg: string;
 
-    constructor(private _emlakService: EmlakAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
@@ -39,7 +39,7 @@ export class LayoutComponent {
     KodlaGetir() {
         this.PushLangItems();
 
-        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "news": this.haberlerText = item.Value; break;

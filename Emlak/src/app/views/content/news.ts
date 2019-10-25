@@ -1,8 +1,7 @@
-﻿import { Component, Input } from "@angular/core";
-import { EmlakAjaxService } from "../../services/emlakajax";
-import { SolAjaxService } from '../../services/solajax';
+﻿import { Component } from "@angular/core";
 import { LangItem } from '../../model/LangItem';
 import { Lib } from '../../lib/methods';
+import { SiteService } from '../../services/site';
 
 @Component({
     templateUrl: './news.html'
@@ -13,11 +12,11 @@ export class ContentNewsComponent {
 
     haberler: any;
 
-    constructor(private _emlakService: EmlakAjaxService, private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._solService.getHaberler()
+        this.service.get("Site", "Haberler")
             .subscribe((resData: any) => {
                 const length = Math.ceil(resData.length / 8);
 
@@ -42,7 +41,7 @@ export class ContentNewsComponent {
     KodlaGetir() {
         this.PushLangItems();
 
-        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "news": this.haberlerText = item.Value; break;

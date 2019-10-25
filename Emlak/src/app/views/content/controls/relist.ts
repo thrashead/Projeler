@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { HomeAjaxService } from '../../../services/homeajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: "emlak-contentrelist",
@@ -13,11 +13,11 @@ export class ContentReListComponent {
 
     ilanlar: any;
 
-    constructor(private homeService: HomeAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.homeService.getVitrinIlanlar("5")
+        this.service.get("Site", "VitrinIlanlar", 5)
             .subscribe(resData => this.ilanlar = resData,
                 resError => this.errorMsg = resError);
     }

@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
-import { EmlakAjaxService } from "../../services/emlakajax";
 import { LangItem } from '../../model/LangItem';
 import { Lib } from '../../lib/methods';
+import { SiteService } from '../../services/site';
 
 @Component({
     templateUrl: './contact.html'
@@ -13,11 +13,11 @@ export class ContentContactComponent {
 
     errorMsg: string;
 
-    constructor(private _emlakService: EmlakAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._emlakService.getIcerikGetir("Iletisim")
+        this.service.get("Site", "IcerikGetir", "Iletisim")
             .subscribe((resData: any) => {
                 this.iletisim = resData;
             },
@@ -37,7 +37,7 @@ export class ContentContactComponent {
     KodlaGetir() {
         this.PushLangItems();
 
-        this._emlakService.postLangItems(this.langItems).subscribe((resData: any) => {
+        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
             resData.forEach((item, i) => {
                 switch (item.Code) {
                     case "ilan": this.ilanlarText = item.Value; break;

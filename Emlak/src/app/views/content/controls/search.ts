@@ -1,7 +1,7 @@
 ﻿import { Component, Input } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { SolAjaxService } from '../../../services/solajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: "emlak-contentsearch",
@@ -19,7 +19,7 @@ export class ContentSearchComponent {
 
     searchForm: FormGroup;
 
-    constructor(private solService: SolAjaxService, private formBuilder: FormBuilder, private router: Router) {
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
@@ -31,7 +31,7 @@ export class ContentSearchComponent {
     onSubmit() {
         this.Kelime = this.searchForm.get("Kelime").value;
 
-        this.solService.getSolAraSonuc(this.Kelime, "kod")
+        this.service.get("Site", "AramaSonuc", this.Kelime, "kod")
             .subscribe((answer: any) => {
                 if (answer != "") {
                     this.router.navigate(['/Emlak/Detay', answer.RouteUrl]);

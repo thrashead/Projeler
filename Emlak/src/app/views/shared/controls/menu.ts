@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { SolAjaxService } from '../../../services/solajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: "emlak-headermenu",
@@ -25,15 +25,15 @@ export class HeaderMenuComponent {
     @Input() kiralikilanText: string;
     @Input() girisText: string;
 
-    constructor(private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._solService.getKategoriMenu()
+        this.service.get("Site", "KategoriMenu")
             .subscribe(resData => this.kategoriMenu = resData,
                 resError => this.errorMsg = resError);
 
-        this._solService.getSayfalar()
+        this.service.get("Site", "Sayfalar")
             .subscribe(resData => this.sayfalar = resData,
                 resError => this.errorMsg = resError);
     }

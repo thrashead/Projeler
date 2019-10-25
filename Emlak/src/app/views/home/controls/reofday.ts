@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from "@angular/core";
-import { SolAjaxService } from '../../../services/solajax';
+import { SiteService } from '../../../services/site';
 
 @Component({
     selector: 'emlak-reofday',
@@ -13,11 +13,11 @@ export class ReOfDayComponent {
 
     emlak: any;
 
-    constructor(private _solService: SolAjaxService) {
+    constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this._solService.getGununIlani()
+        this.service.get("Site", "GununIlani")
             .subscribe(resData => this.emlak = resData,
                 resError => this.errorMsg = resError);
     }

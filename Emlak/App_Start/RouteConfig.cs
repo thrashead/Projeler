@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Emlak
@@ -20,28 +16,15 @@ namespace Emlak
             );
 
             routes.MapRoute(
-                name: "Shared",
-                url: "Shared/{action}/{id}",
-                defaults: new { controller = "Shared", action = "GetLangs", id = UrlParameter.Optional },
-                new[] { "Emlak.Controllers" }
-            );
-
-            routes.MapRoute(
-                name: "Sol",
-                url: "Sol/{action}/{id}",
-                defaults: new { controller = "Sol", action = "AramaSonuc", id = UrlParameter.Optional }
+                name: "Site",
+                url: "Site/{action}/{id}",
+                defaults: new { controller = "Site", action = "Slider", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Home",
                 url: "Home/{action}/{id}",
                 defaults: new { controller = "Home", action = "Hakkimizda", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "RE",
-                url: "RE/{action}/{id}",
-                defaults: new { controller = "RE", action = "Detay", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
