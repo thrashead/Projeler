@@ -1,4 +1,4 @@
-﻿import { Component, AfterContentInit, Output, EventEmitter } from "@angular/core";
+﻿import { Component, Output, EventEmitter } from "@angular/core";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { SiteService } from '../../../services/site';
@@ -10,7 +10,7 @@ import { Lib } from '../../../lib/methods';
     templateUrl: './search.html'
 })
 
-export class PropertySearchComponent implements AfterContentInit {
+export class PropertySearchComponent {
     errorMsg: string;
 
     @Output() searchFilter = new EventEmitter<any>();
@@ -19,8 +19,13 @@ export class PropertySearchComponent implements AfterContentInit {
     public link: string;
     public detail: string;
 
-    propSearchForm: FormGroup;
+    searchForm: FormGroup;
     realCPList: any;
+    kategoriList: any;
+    sehirList: any;
+    durumList: any;
+    yakitList: any;
+    isinmaList: any;
 
     constructor(private service: SiteService, private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute) {
     }
@@ -32,23 +37,8 @@ export class PropertySearchComponent implements AfterContentInit {
         });
 
         this.KodlaGetir();
-
+        this.ComboDoldur();
         this.FormOlustur();
-
-        this.service.get("Site", "Sehirler").subscribe((resData: any) => {
-            for (var i = 0; i < resData.length; i++) {
-                $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
-            }
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "Kategoriler", 0)
-            .subscribe((resData: any) => {
-                $("#drpAltKategori").append("<option value=\"0\">Tümü</option>");
-
-                for (var i = 0; i < resData.length; i++) {
-                    $("#drpKategori").append("<option value=\"" + resData[i].ID + "\">" + resData[i].CategoryName + "</option>");
-                }
-            }, resError => this.errorMsg = resError);
 
         $(".tdslider").each(function (i) {
             var slider = $(this);
@@ -89,12 +79,26 @@ export class PropertySearchComponent implements AfterContentInit {
         });
     }
 
-    ngAfterContentInit() {
-        setTimeout(function () {
-            $("#drpDurum").val($("#drpDurum option:first").val());
-            $("#drpIsinma").val($("#drpIsinma option:first").val());
-            $("#drpYakit").val($("#drpYakit option:first").val());
-        }, 500);
+    ComboDoldur() {
+        this.service.get("Site", "Sehirler").subscribe((resData: any) => {
+            this.sehirList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "Kategoriler", 0).subscribe((resData: any) => {
+            this.kategoriList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "Durumlar").subscribe((resData: any) => {
+            this.durumList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "YakitTipleri").subscribe((resData: any) => {
+            this.yakitList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "IsinmaTipleri").subscribe((resData: any) => {
+            this.isinmaList = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     onClick() {
@@ -127,9 +131,22 @@ export class PropertySearchComponent implements AfterContentInit {
     }
 
     Doldur(realCPList: any) {
-        realCPList.KatID = parseInt(this.propSearchForm.get("kategori").value);
+        let kategori = parseInt(this.searchForm.get("kategori").value);
+        let isinma = parseInt(this.searchForm.get("isinma").value);
+        let yakit = parseInt(this.searchForm.get("yakit").value);
+        let durum = parseInt(this.searchForm.get("durum").value);
+        let sehir = parseInt(this.searchForm.get("sehir").value);
+
+        realCPList.KatID = kategori == 0 ? null : kategori;
+        realCPList.IsinmaTipi = isinma == 0 ? null : isinma;
+        realCPList.YakitTipi = yakit == 0 ? null : yakit;
+        realCPList.Durum = durum == 0 ? null : durum;
+        realCPList.Sehir = sehir == 0 ? null : sehir;
+
         realCPList.AltKatID = 0;
-        realCPList.Baslik = this.propSearchForm.get("baslik").value;
+        realCPList.Ilce = this.searchForm.get("ilce").value;
+        realCPList.Semt = this.searchForm.get("semt").value;
+        realCPList.Baslik = this.searchForm.get("baslik").value;
         realCPList.Fiyat = this.GetMin("fiyat1");
         realCPList.Fiyat2 = this.GetMax("fiyat2");
         realCPList.OdaSayisi = this.GetMin("roomCount1");
@@ -144,67 +161,58 @@ export class PropertySearchComponent implements AfterContentInit {
         realCPList.Alan2 = this.GetMax("alan2");
         realCPList.BinaYasi = this.GetMin("binaYas1");
         realCPList.BinaYasi2 = this.GetMax("binaYas2");
-        realCPList.Sehir = this.propSearchForm.get("sehir").value;
-        realCPList.Ilce = this.propSearchForm.get("ilce").value;
-        realCPList.Semt = this.propSearchForm.get("semt").value;
-        realCPList.IsinmaTipi = this.propSearchForm.get("isinma").value;
-        realCPList.YakitTipi = this.propSearchForm.get("yakit").value;
-        realCPList.Durum = this.propSearchForm.get("durum").value;
 
-        realCPList.ArkaCephe = this.propSearchForm.get("arkaCephe").value;
-        realCPList.OnCephe = this.propSearchForm.get("onCephe").value;
-        realCPList.CaddeyeYakin = this.propSearchForm.get("caddeyeYakin").value;
-        realCPList.DenizeSifir = this.propSearchForm.get("denizeSifir").value;
-        realCPList.DenizeYakin = this.propSearchForm.get("denizeYakin").value;
-        realCPList.Manzara = this.propSearchForm.get("manzarali").value;
-        realCPList.Merkezde = this.propSearchForm.get("merkezde").value;
-        realCPList.Metro = this.propSearchForm.get("metro").value;
-        realCPList.Otoban = this.propSearchForm.get("otoban").value;
-        realCPList.TopluUlasim = this.propSearchForm.get("topluUlasim").value;
-        realCPList.Asansor = this.propSearchForm.get("asansor").value;
-        realCPList.Bahce = this.propSearchForm.get("bahce").value;
-        realCPList.Guvenlik = this.propSearchForm.get("guvenlik").value;
-        realCPList.Hidrofor = this.propSearchForm.get("hidrofor").value;
-        realCPList.Mantolama = this.propSearchForm.get("mantolama").value;
-        realCPList.Jenerator = this.propSearchForm.get("jenerator").value;
-        realCPList.Kapici = this.propSearchForm.get("kapici").value;
-        realCPList.Otopark = this.propSearchForm.get("otopark").value;
-        realCPList.OyunParki = this.propSearchForm.get("oyunParki").value;
-        realCPList.PVCDograma = this.propSearchForm.get("pVCDograma").value;
-        realCPList.SiteIci = this.propSearchForm.get("siteIci").value;
-        realCPList.YanginMerdiveni = this.propSearchForm.get("yanginMerdiveni").value;
-        realCPList.YuzmeHavuzu = this.propSearchForm.get("yuzmeHavuzu").value;
-        realCPList.Alarm = this.propSearchForm.get("alarm").value;
-        realCPList.Balkon = this.propSearchForm.get("balkon").value;
-        realCPList.CelikKapi = this.propSearchForm.get("celikKapi").value;
-        realCPList.GoruntuluDiafon = this.propSearchForm.get("goruntuluDiafon").value;
-        realCPList.Jakuzi = this.propSearchForm.get("jakuzi").value;
-        realCPList.KabloTVUydu = this.propSearchForm.get("kabloTVUydu").value;
-        realCPList.Klima = this.propSearchForm.get("klima").value;
+        realCPList.ArkaCephe = this.searchForm.get("arkaCephe").value;
+        realCPList.OnCephe = this.searchForm.get("onCephe").value;
+        realCPList.CaddeyeYakin = this.searchForm.get("caddeyeYakin").value;
+        realCPList.DenizeSifir = this.searchForm.get("denizeSifir").value;
+        realCPList.DenizeYakin = this.searchForm.get("denizeYakin").value;
+        realCPList.Manzara = this.searchForm.get("manzarali").value;
+        realCPList.Merkezde = this.searchForm.get("merkezde").value;
+        realCPList.Metro = this.searchForm.get("metro").value;
+        realCPList.Otoban = this.searchForm.get("otoban").value;
+        realCPList.TopluUlasim = this.searchForm.get("topluUlasim").value;
+        realCPList.Asansor = this.searchForm.get("asansor").value;
+        realCPList.Bahce = this.searchForm.get("bahce").value;
+        realCPList.Guvenlik = this.searchForm.get("guvenlik").value;
+        realCPList.Hidrofor = this.searchForm.get("hidrofor").value;
+        realCPList.Mantolama = this.searchForm.get("mantolama").value;
+        realCPList.Jenerator = this.searchForm.get("jenerator").value;
+        realCPList.Kapici = this.searchForm.get("kapici").value;
+        realCPList.Otopark = this.searchForm.get("otopark").value;
+        realCPList.OyunParki = this.searchForm.get("oyunParki").value;
+        realCPList.PVCDograma = this.searchForm.get("pVCDograma").value;
+        realCPList.SiteIci = this.searchForm.get("siteIci").value;
+        realCPList.YanginMerdiveni = this.searchForm.get("yanginMerdiveni").value;
+        realCPList.YuzmeHavuzu = this.searchForm.get("yuzmeHavuzu").value;
+        realCPList.Alarm = this.searchForm.get("alarm").value;
+        realCPList.Balkon = this.searchForm.get("balkon").value;
+        realCPList.CelikKapi = this.searchForm.get("celikKapi").value;
+        realCPList.GoruntuluDiafon = this.searchForm.get("goruntuluDiafon").value;
+        realCPList.Jakuzi = this.searchForm.get("jakuzi").value;
+        realCPList.KabloTVUydu = this.searchForm.get("kabloTVUydu").value;
+        realCPList.Klima = this.searchForm.get("klima").value;
 
         realCPList.Alan = isNaN(realCPList.Alan) ? null : realCPList.Alan;
         realCPList.Alan2 = isNaN(realCPList.Alan2) ? null : realCPList.Alan2;
-        realCPList.AltKatID = isNaN(realCPList.AltKatID) ? 0 : realCPList.AltKatID;
-        realCPList.Baslik = realCPList.Baslik == null ? "" : realCPList.Baslik;
+        realCPList.KatID = isNaN(realCPList.KatID) ? null : realCPList.KatID;
+        realCPList.AltKatID = isNaN(realCPList.AltKatID) ? null : realCPList.AltKatID;
+        realCPList.Sehir = isNaN(realCPList.Sehir) ? null : realCPList.Sehir;
         realCPList.BinaYasi = isNaN(realCPList.BinaYasi) ? null : realCPList.BinaYasi;
         realCPList.BinaYasi2 = isNaN(realCPList.BinaYasi2) ? null : realCPList.BinaYasi2;
         realCPList.BulunduguKat = isNaN(realCPList.BulunduguKat) ? null : realCPList.BulunduguKat;
         realCPList.BulunduguKat2 = isNaN(realCPList.BulunduguKat2) ? null : realCPList.BulunduguKat2;
-        realCPList.Durum = realCPList.Durum == null ? "Tümü" : realCPList.Durum;
         realCPList.Fiyat = isNaN(realCPList.Fiyat) ? null : realCPList.Fiyat;
         realCPList.Fiyat2 = isNaN(realCPList.Fiyat2) ? null : realCPList.Fiyat2;
-        realCPList.Ilce = realCPList.Ilce == null ? "" : realCPList.Ilce;
-        realCPList.IsinmaTipi = realCPList.IsinmaTipi == null ? "Farketmez" : realCPList.IsinmaTipi;
-        realCPList.KatID = isNaN(realCPList.KatID) ? 0 : realCPList.KatID;
         realCPList.KatSayisi = isNaN(realCPList.KatSayisi) ? null : realCPList.KatSayisi;
         realCPList.KatSayisi2 = isNaN(realCPList.KatSayisi2) ? null : realCPList.KatSayisi2;
         realCPList.OdaSayisi = isNaN(realCPList.OdaSayisi) ? null : realCPList.OdaSayisi;
         realCPList.OdaSayisi2 = isNaN(realCPList.OdaSayisi2) ? null : realCPList.OdaSayisi2;
         realCPList.SalonSayisi = isNaN(realCPList.SalonSayisi) ? null : realCPList.SalonSayisi;
         realCPList.SalonSayisi2 = isNaN(realCPList.SalonSayisi2) ? null : realCPList.SalonSayisi2;
-        realCPList.Sehir = realCPList.Sehir == null ? "Tümü" : realCPList.Sehir;
-        realCPList.Semt = realCPList.Semt == null ? "" : realCPList.Semt;
-        realCPList.YakitTipi = realCPList.YakitTipi == null ? "Farketmez" : realCPList.YakitTipi;
+        realCPList.Durum = isNaN(realCPList.Durum) ? null : realCPList.Durum;
+        realCPList.YakitTipi = isNaN(realCPList.YakitTipi) ? null : realCPList.YakitTipi;
+        realCPList.IsinmaTipi = isNaN(realCPList.IsinmaTipi) ? null : realCPList.IsinmaTipi;
         realCPList.Alarm = realCPList.Alarm == null ? false : realCPList.Alarm;
         realCPList.ArkaCephe = realCPList.ArkaCephe == null ? false : realCPList.ArkaCephe;
         realCPList.Asansor = realCPList.Asansor == null ? false : realCPList.Asansor;
@@ -239,7 +247,7 @@ export class PropertySearchComponent implements AfterContentInit {
 
     //Form Oluştur
     FormOlustur() {
-        this.propSearchForm = this.formBuilder.group({
+        this.searchForm = this.formBuilder.group({
             satilik: [null],
             kategori: [null],
             durum: [null],
@@ -308,10 +316,6 @@ export class PropertySearchComponent implements AfterContentInit {
         maxPrice = maxPrice == 100000 ? null : maxPrice;
 
         return maxPrice;
-    }
-
-    IsChecked(id: string) {
-        return $("#" + id).parent().hasClass("checked");
     }
 
     //KodlaGetir

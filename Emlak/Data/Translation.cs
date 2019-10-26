@@ -23,6 +23,10 @@ namespace Emlak.Data
             this.MetaT = new HashSet<MetaT>();
             this.RealEstatesT = new HashSet<RealEstatesT>();
             this.LangContentT = new HashSet<LangContentT>();
+            this.FuelTypeT = new HashSet<FuelTypeT>();
+            this.PropertyStatusT = new HashSet<PropertyStatusT>();
+            this.PropertyT = new HashSet<PropertyT>();
+            this.WarmTypeT = new HashSet<WarmTypeT>();
         }
     
         public int ID { get; set; }
@@ -44,5 +48,13 @@ namespace Emlak.Data
         public virtual ICollection<RealEstatesT> RealEstatesT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LangContentT> LangContentT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FuelTypeT> FuelTypeT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyStatusT> PropertyStatusT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyT> PropertyT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WarmTypeT> WarmTypeT { get; set; }
     }
 }

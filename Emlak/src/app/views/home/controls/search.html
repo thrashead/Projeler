@@ -3,21 +3,22 @@
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
             <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                <form [formGroup]="detailSearchForm" class="form-inline" (ngSubmit)="onSubmit()">
+                <form [formGroup]="searchForm" class="form-inline" (ngSubmit)="onSubmit()">
                     <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
 
                     <div class="form-group">
                         <input type="text" id="txtBaslik" formControlName="baslik" class="form-control" placeholder="{{ ttleText }}" />
                     </div>
                     <div class="form-group">
-                        <select id="drpKategori" formControlName="kategori" class="form-control"></select>
+                        <select id="drpKategori" formControlName="kategori" class="form-control">
+                            <option value="0">{{ sctmText }}</option>
+                            <option *ngFor="let item of kategoriList" value="{{ item?.ID }}">{{ item?.CategoryName }}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <select id="drpDurum" formControlName="durum" class="form-control">
-                            <option value="{{ sallText }}">{{ sallText }}</option>
-                            <option value="{{ sclrText }}">{{ sclrText }}</option>
-                            <option value="{{ susdText }}">{{ susdText }}</option>
-                            <option value="{{ sdmgText }}">{{ sdmgText }}</option>
+                            <option value="0">{{ sctmText }}</option>
+                            <option *ngFor="let item of durumList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
                     <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
@@ -44,7 +45,10 @@
                         <div class="search-row">
                             <div class="form-group">
                                 <b>{{ cityText }} :</b>
-                                <select id="drpSehir" class="form-control" formControlName="sehir"></select>
+                                <select id="drpSehir" class="form-control" formControlName="sehir">
+                                    <option value="0">{{ sctmText }}</option>
+                                    <option *ngFor="let item of sehirList" value="{{ item?.ID }}">{{ item?.Title }}</option>
+                                </select>
                             </div>
                             <div class="form-group mar-l-20">
                                 <b>{{ ilceText }} :</b>
@@ -61,26 +65,16 @@
                             <div class="form-group">
                                 <b>{{ yakitTipiText }} :</b>
                                 <select id="drpYakit" class="form-control" formControlName="yakit">
-                                    <option value="{{ fallText }}">{{ fallText }}</option>
-                                    <option value="{{ fdgzText }}">{{ fdgzText }}</option>
-                                    <option value="{{ fwocText }}">{{ fwocText }}</option>
-                                    <option value="{{ flifText }}">{{ flifText }}</option>
-                                    <option value="{{ felcText }}">{{ felcText }}</option>
-                                    <option value="{{ fothText }}">{{ fothText }}</option>
+                                    <option value="0">{{ sallText }}</option>
+                                    <option *ngFor="let item of yakitList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                                 </select>
                             </div>
 
                             <div class="form-group mar-l-20">
                                 <b>{{ isinmaTipiText }} :</b>
                                 <select id="drpIsinma" class="form-control" formControlName="isinma">
-                                    <option value="{{ wallText }}">{{ wallText }}</option>
-                                    <option value="{{ wsunText }}">{{ wsunText }}</option>
-                                    <option value="{{ wkatText }}">{{ wkatText }}</option>
-                                    <option value="{{ wairText }}">{{ wairText }}</option>
-                                    <option value="{{ wcomText }}">{{ wcomText }}</option>
-                                    <option value="{{ wcenText }}">{{ wcenText }}</option>
-                                    <option value="{{ wstoText }}">{{ wstoText }}</option>
-                                    <option value="{{ wothText }}">{{ wothText }}</option>
+                                    <option value="0">{{ sallText }}</option>
+                                    <option *ngFor="let item of isinmaList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                                 </select>
                             </div>
 

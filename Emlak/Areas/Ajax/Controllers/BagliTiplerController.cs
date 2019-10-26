@@ -182,6 +182,9 @@ namespace Emlak.Areas.Ajax.Controllers
                 case 17:
                     List<usp_RealEstatesSelect_Result> emlaklar = entity.usp_RealEstatesSelect(null).ToList();
                     return ListeDoldur(emlaklar, BaglantiTipi.Emlak, selectedID);
+                case 18:
+                    List<usp_PropertySelect_Result> properties = entity.usp_PropertySelect(null).ToList();
+                    return ListeDoldur(properties, BaglantiTipi.Property, selectedID);
                 default:
                     List<usp_TypesLinkableSelect_Result> tipler = entity.usp_TypesLinkableSelect(null).ToList();
                     return ListeDoldur(tipler, BaglantiTipi.Tip, selectedID);

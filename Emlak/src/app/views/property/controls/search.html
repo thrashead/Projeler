@@ -4,7 +4,7 @@
         <h3 class="panel-title">{{ sdetText }}</h3>
     </div>
     <div class="panel-body search-widget">
-        <form [formGroup]="propSearchForm" class="form-inline">
+        <form [formGroup]="searchForm" class="form-inline">
             <fieldset>
                 <div class="row">
                     <div class="col-xs-12">
@@ -31,15 +31,16 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <b>{{ ctgyText }} :</b>
-                        <select id="drpKategori" class="form-control" formControlName="kategori"></select>
+                        <select id="drpKategori" class="form-control" formControlName="kategori">
+                            <option value="0">{{ sctmText }}</option>
+                            <option *ngFor="let item of kategoriList" value="{{ item?.ID }}">{{ item?.CategoryName }}</option>
+                        </select>
                     </div>
                     <div class="col-xs-6">
                         <b>{{ durumText }} :</b>
                         <select id="drpDurum" class="form-control" formControlName="durum">
-                            <option value="{{ sallText }}">{{ sallText }}</option>
-                            <option value="{{ sclrText }}">{{ sclrText }}</option>
-                            <option value="{{ susdText }}">{{ susdText }}</option>
-                            <option value="{{ sdmgText }}">{{ sdmgText }}</option>
+                            <option value="0">{{ sctmText }}</option>
+                            <option *ngFor="let item of durumList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
                 </div>
@@ -49,7 +50,10 @@
                 <div class="row">
                     <div class="col-xs-4">
                         <b>{{ cityText }} :</b>
-                        <select id="drpSehir" class="form-control" formControlName="sehir"></select>
+                        <select id="drpSehir" class="form-control" formControlName="sehir">
+                            <option value="0">{{ sctmText }}</option>
+                            <option *ngFor="let item of sehirList" value="{{ item?.ID }}">{{ item?.Title }}</option>
+                        </select>
                     </div>
                     <div class="col-xs-4">
                         <b>{{ ilceText }} :</b>
@@ -67,25 +71,15 @@
                     <div class="col-xs-6">
                         <b>{{ yakitTipiText }} :</b>
                         <select id="drpYakit" class="form-control" formControlName="yakit">
-                            <option value="{{ fallText }}">{{ fallText }}</option>
-                            <option value="{{ fdgzText }}">{{ fdgzText }}</option>
-                            <option value="{{ fwocText }}">{{ fwocText }}</option>
-                            <option value="{{ flifText }}">{{ flifText }}</option>
-                            <option value="{{ felcText }}">{{ felcText }}</option>
-                            <option value="{{ fothText }}">{{ fothText }}</option>
+                            <option value="0">{{ sallText }}</option>
+                            <option *ngFor="let item of yakitList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <b>{{ isinmaTipiText }} :</b>
                         <select id="drpIsinma" class="form-control" formControlName="isinma">
-                            <option value="{{ wallText }}">{{ wallText }}</option>
-                            <option value="{{ wsunText }}">{{ wsunText }}</option>
-                            <option value="{{ wkatText }}">{{ wkatText }}</option>
-                            <option value="{{ wairText }}">{{ wairText }}</option>
-                            <option value="{{ wcomText }}">{{ wcomText }}</option>
-                            <option value="{{ wcenText }}">{{ wcenText }}</option>
-                            <option value="{{ wstoText }}">{{ wstoText }}</option>
-                            <option value="{{ wothText }}">{{ wothText }}</option>
+                            <option value="0">{{ sallText }}</option>
+                            <option *ngFor="let item of isinmaList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
                 </div>

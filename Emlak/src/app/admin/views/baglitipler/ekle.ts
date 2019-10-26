@@ -26,7 +26,7 @@ export class AdminBagliTiplerEkleComponent {
         });
 
         this.ekleForm = this.formBuilder.group({
-            Title: new FormControl(null, [Validators.maxLength(50)]),
+            Title: new FormControl(null, [Validators.maxLength(255)]),
             MainTypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
             MainID: new FormControl(null, [Validators.required, Validators.min(1)]),
             LinkedTypeID: new FormControl(null, [Validators.required, Validators.min(1)]),

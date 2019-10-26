@@ -34,7 +34,7 @@ export class AdminBagliTiplerDuzenleComponent {
 
         this.duzenleForm = this.formBuilder.group({
             ID: new FormControl(null, [Validators.required, Validators.min(1)]),
-            Title: new FormControl(null, [Validators.maxLength(50)]),
+            Title: new FormControl(null, [Validators.maxLength(255)]),
             MainTypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
             MainID: new FormControl(null, [Validators.required, Validators.min(1)]),
             LinkedTypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -103,6 +103,7 @@ export class AdminBagliTiplerDuzenleComponent {
                                         case 6: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFileAdi; break;
                                         case 7: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi; break;
                                         case 17: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedRealEstatesAdi; break;
+                                        case 18: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPropertyAdi; break;
                                     }
                                 }
 

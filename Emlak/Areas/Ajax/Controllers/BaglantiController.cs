@@ -230,6 +230,15 @@ namespace Emlak.Areas.Ajax.Controllers
                         else
                             linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Baslik });
                     break;
+                case 18:
+                    List<usp_PropertySelect_Result> tablePropertyItems = entity.usp_PropertySelect(null).ToList();
+
+                    foreach (var item in tablePropertyItems)
+                        if (item.ID == linkID)
+                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title, Selected = true });
+                        else
+                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title });
+                    break;
             }
 
             return linkItems;
