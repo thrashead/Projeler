@@ -35,128 +35,130 @@ import { PropertySearchComponent } from './views/property/controls/search';
 import { PropertyDetailComponent } from './views/property/detail';
 
 //Admin
-import { AdminGirisComponent } from './admin/views/giris/giris';
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminHeaderComponent } from './admin/views/shared/controls/header';
 import { AdminLeftMenuComponent } from './admin/views/shared/controls/leftmenu';
 import { AdminFooterComponent } from './admin/views/shared/controls/footer';
 import { AdminScriptsComponent } from './admin/views/shared/controls/scripts';
 import { AdminCopyDeleteComponent } from './admin/views/shared/controls/copydelete';
-import { AdminAnaSayfaComponent } from './admin/views/giris/anasayfa';
+import { AdminIndexComponent } from './admin/views/home/index';
+import { AdminLoginComponent } from './admin/views/home/login';
 
-import { AdminBaglantiIndexComponent } from './admin/views/baglanti';
-import { AdminBaglantiEkleComponent } from './admin/views/baglanti/ekle';
-import { AdminBaglantiDuzenleComponent } from './admin/views/baglanti/duzenle';
+import { AdminRealEstatesIndexComponent } from './admin/views/property/realestates';
+import { AdminRealEstatesInsertComponent } from './admin/views/property/realestates/insert';
+import { AdminRealEstatesUpdateComponent } from './admin/views/property/realestates/update';
 
-import { AdminBagliTiplerIndexComponent } from './admin/views/baglitipler';
-import { AdminBagliTiplerEkleComponent } from './admin/views/baglitipler/ekle';
-import { AdminBagliTiplerDuzenleComponent } from './admin/views/baglitipler/duzenle';
+import { AdminRealEstatesTIndexComponent } from './admin/views/property/realestatest';
+import { AdminRealEstatesTInsertComponent } from './admin/views/property/realestatest/insert';
+import { AdminRealEstatesTUpdateComponent } from './admin/views/property/realestatest/update';
 
-import { AdminDilIndexComponent } from './admin/views/dil';
-import { AdminDilEkleComponent } from './admin/views/dil/ekle';
-import { AdminDilDuzenleComponent } from './admin/views/dil/duzenle';
+import { AdminLangContentIndexComponent } from './admin/views/general/langcontent';
+import { AdminLangContentInsertComponent } from './admin/views/general/langcontent/insert';
+import { AdminLangContentUpdateComponent } from './admin/views/general/langcontent/update';
 
-import { AdminDilIcerikIndexComponent } from './admin/views/dilicerik';
-import { AdminDilIcerikEkleComponent } from './admin/views/dilicerik/ekle';
-import { AdminDilIcerikDuzenleComponent } from './admin/views/dilicerik/duzenle';
+import { AdminLangContentTIndexComponent } from './admin/views/general/langcontentt';
+import { AdminLangContentTInsertComponent } from './admin/views/general/langcontentt/insert';
+import { AdminLangContentTUpdateComponent } from './admin/views/general/langcontentt/update';
 
-import { AdminDilIcerikDilIndexComponent } from './admin/views/dilicerikdil';
-import { AdminDilIcerikDilEkleComponent } from './admin/views/dilicerikdil/ekle';
-import { AdminDilIcerikDilDuzenleComponent } from './admin/views/dilicerikdil/duzenle';
+import { AdminLinksIndexComponent } from './admin/views/general/links';
+import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
+import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
 
-import { AdminDosyaIndexComponent } from './admin/views/dosya';
-import { AdminDosyaEkleComponent } from './admin/views/dosya/ekle';
-import { AdminDosyaDuzenleComponent } from './admin/views/dosya/duzenle';
+import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
+import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
+import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
 
-import { AdminEmlakIndexComponent } from './admin/views/emlak';
-import { AdminEmlakEkleComponent } from './admin/views/emlak/ekle';
-import { AdminEmlakDuzenleComponent } from './admin/views/emlak/duzenle';
+import { AdminTranslationIndexComponent } from './admin/views/general/translation';
+import { AdminTranslationInsertComponent } from './admin/views/general/translation/insert';
+import { AdminTranslationUpdateComponent } from './admin/views/general/translation/update';
 
-import { AdminEmlakDilIndexComponent } from './admin/views/emlakdil';
-import { AdminEmlakDilEkleComponent } from './admin/views/emlakdil/ekle';
-import { AdminEmlakDilDuzenleComponent } from './admin/views/emlakdil/duzenle';
+import { AdminFileIndexComponent } from './admin/views/general/file';
+import { AdminFileInsertComponent } from './admin/views/general/file/insert';
+import { AdminFileUpdateComponent } from './admin/views/general/file/update';
 
-import { AdminGaleriIndexComponent } from './admin/views/galeri';
-import { AdminGaleriEkleComponent } from './admin/views/galeri/ekle';
-import { AdminGaleriDuzenleComponent } from './admin/views/galeri/duzenle';
+import { AdminGalleryIndexComponent } from './admin/views/general/gallery';
+import { AdminGalleryInsertComponent } from './admin/views/general/gallery/insert';
+import { AdminGalleryUpdateComponent } from './admin/views/general/gallery/update';
 
-import { AdminGaleriDilIndexComponent } from './admin/views/galeridil';
-import { AdminGaleriDilEkleComponent } from './admin/views/galeridil/ekle';
-import { AdminGaleriDilDuzenleComponent } from './admin/views/galeridil/duzenle';
+import { AdminGalleryTIndexComponent } from './admin/views/general/galleryt';
+import { AdminGalleryTInsertComponent } from './admin/views/general/galleryt/insert';
+import { AdminGalleryTUpdateComponent } from './admin/views/general/galleryt/update';
 
-import { AdminIcerikIndexComponent } from './admin/views/icerik';
-import { AdminIcerikEkleComponent } from './admin/views/icerik/ekle';
-import { AdminIcerikDuzenleComponent } from './admin/views/icerik/duzenle';
+import { AdminContentIndexComponent } from './admin/views/general/content';
+import { AdminContentInsertComponent } from './admin/views/general/content/insert';
+import { AdminContentUpdateComponent } from './admin/views/general/content/update';
 
-import { AdminIcerikDilIndexComponent } from './admin/views/icerikdil';
-import { AdminIcerikDilEkleComponent } from './admin/views/icerikdil/ekle';
-import { AdminIcerikDilDuzenleComponent } from './admin/views/icerikdil/duzenle';
+import { AdminContentTIndexComponent } from './admin/views/general/contentt';
+import { AdminContentTInsertComponent } from './admin/views/general/contentt/insert';
+import { AdminContentTUpdateComponent } from './admin/views/general/contentt/update';
 
-import { AdminKategoriIndexComponent } from './admin/views/kategori';
-import { AdminKategoriEkleComponent } from './admin/views/kategori/ekle';
-import { AdminKategoriDuzenleComponent } from './admin/views/kategori/duzenle';
+import { AdminCategoryIndexComponent } from './admin/views/general/category';
+import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
+import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminKategoriDilIndexComponent } from './admin/views/kategoridil';
-import { AdminKategoriDilEkleComponent } from './admin/views/kategoridil/ekle';
-import { AdminKategoriDilDuzenleComponent } from './admin/views/kategoridil/duzenle';
+import { AdminCategoryTIndexComponent } from './admin/views/general/categoryt';
+import { AdminCategoryTInsertComponent } from './admin/views/general/categoryt/insert';
+import { AdminCategoryTUpdateComponent } from './admin/views/general/categoryt/update';
 
-import { AdminKullaniciGrupIndexComponent } from './admin/views/kullanicigrup';
-import { AdminKullaniciGrupEkleComponent } from './admin/views/kullanicigrup/ekle';
-import { AdminKullaniciGrupDuzenleComponent } from './admin/views/kullanicigrup/duzenle';
+import { AdminUserGroupsIndexComponent } from './admin/views/general/usergroups';
+import { AdminUserGroupsInsertComponent } from './admin/views/general/usergroups/insert';
+import { AdminUserGroupsUpdateComponent } from './admin/views/general/usergroups/update';
 
-import { AdminKullaniciGrupHakIndexComponent } from './admin/views/kullanicigruphak';
-import { AdminKullaniciGrupHakEkleComponent } from './admin/views/kullanicigruphak/ekle';
-import { AdminKullaniciGrupHakDuzenleComponent } from './admin/views/kullanicigruphak/duzenle';
+import { AdminUserGroupRightsIndexComponent } from './admin/views/general/usergrouprights';
+import { AdminUserGroupRightsInsertComponent } from './admin/views/general/usergrouprights/insert';
+import { AdminUserGroupRightsUpdateComponent } from './admin/views/general/usergrouprights/update';
 
-import { AdminKullaniciGrupIslemIndexComponent } from './admin/views/kullanicigrupislem';
-import { AdminKullaniciGrupIslemEkleComponent } from './admin/views/kullanicigrupislem/ekle';
-import { AdminKullaniciGrupIslemDuzenleComponent } from './admin/views/kullanicigrupislem/duzenle';
+import { AdminUserGroupProcessIndexComponent } from './admin/views/general/usergroupprocess';
+import { AdminUserGroupProcessInsertComponent } from './admin/views/general/usergroupprocess/insert';
+import { AdminUserGroupProcessUpdateComponent } from './admin/views/general/usergroupprocess/update';
 
-import { AdminKullaniciGrupTabloIndexComponent } from './admin/views/kullanicigruptablo';
-import { AdminKullaniciGrupTabloEkleComponent } from './admin/views/kullanicigruptablo/ekle';
-import { AdminKullaniciGrupTabloDuzenleComponent } from './admin/views/kullanicigruptablo/duzenle';
+import { AdminUserGroupTablesIndexComponent } from './admin/views/general/usergrouptables';
+import { AdminUserGroupTablesInsertComponent } from './admin/views/general/usergrouptables/insert';
+import { AdminUserGroupTablesUpdateComponent } from './admin/views/general/usergrouptables/update';
 
-import { AdminKullanicilarIndexComponent } from './admin/views/kullanicilar';
-import { AdminKullanicilarEkleComponent } from './admin/views/kullanicilar/ekle';
-import { AdminKullanicilarDuzenleComponent } from './admin/views/kullanicilar/duzenle';
-import { AdminKullanicilarGrupDegistirComponent } from './admin/views/kullanicilar/grupdegistir';
+import { AdminUsersIndexComponent } from './admin/views/general/users';
+import { AdminUsersInsertComponent } from './admin/views/general/users/insert';
+import { AdminUsersUpdateComponent } from './admin/views/general/users/update';
+import { AdminUsersGrupDegistirComponent } from './admin/views/general/users/grupdegistir';
 
-import { AdminLogIslemIndexComponent } from './admin/views/logislem';
-import { AdminLogIslemEkleComponent } from './admin/views/logislem/ekle';
-import { AdminLogIslemDuzenleComponent } from './admin/views/logislem/duzenle';
+import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
+import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
+import { AdminLogProcessUpdateComponent } from './admin/views/general/logprocess/update';
 
-import { AdminLoglarIndexComponent } from './admin/views/loglar';
+import { AdminLogsIndexComponent } from './admin/views/general/logs';
 
-import { AdminLogTiplerIndexComponent } from './admin/views/logtipler';
-import { AdminLogTiplerEkleComponent } from './admin/views/logtipler/ekle';
-import { AdminLogTiplerDuzenleComponent } from './admin/views/logtipler/duzenle';
+import { AdminLogTypesIndexComponent } from './admin/views/general/logtypes';
+import { AdminLogTypesInsertComponent } from './admin/views/general/logtypes/insert';
+import { AdminLogTypesUpdateComponent } from './admin/views/general/logtypes/update';
 
-import { AdminMetaIndexComponent } from './admin/views/meta';
-import { AdminMetaEkleComponent } from './admin/views/meta/ekle';
-import { AdminMetaDuzenleComponent } from './admin/views/meta/duzenle';
+import { AdminMetaIndexComponent } from './admin/views/general/meta';
+import { AdminMetaInsertComponent } from './admin/views/general/meta/insert';
+import { AdminMetaUpdateComponent } from './admin/views/general/meta/update';
 
-import { AdminMetaDilIndexComponent } from './admin/views/metadil';
-import { AdminMetaDilEkleComponent } from './admin/views/metadil/ekle';
-import { AdminMetaDilDuzenleComponent } from './admin/views/metadil/duzenle';
+import { AdminMetaTIndexComponent } from './admin/views/general/metat';
+import { AdminMetaTInsertComponent } from './admin/views/general/metat/insert';
+import { AdminMetaTUpdateComponent } from './admin/views/general/metat/update';
 
-import { AdminResimIndexComponent } from './admin/views/resim';
-import { AdminResimEkleComponent } from './admin/views/resim/ekle';
-import { AdminResimDuzenleComponent } from './admin/views/resim/duzenle';
+import { AdminPictureIndexComponent } from './admin/views/general/picture';
+import { AdminPictureInsertComponent } from './admin/views/general/picture/insert';
+import { AdminPictureUpdateComponent } from './admin/views/general/picture/update';
 
-import { AdminTiplerIndexComponent } from './admin/views/tipler';
-import { AdminTiplerEkleComponent } from './admin/views/tipler/ekle';
-import { AdminTiplerDuzenleComponent } from './admin/views/tipler/duzenle';
+import { AdminTypesIndexComponent } from './admin/views/general/types';
+import { AdminTypesInsertComponent } from './admin/views/general/types/insert';
+import { AdminTypesUpdateComponent } from './admin/views/general/types/update';
 
-import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
+import { AdminVisitorCounterIndexComponent } from './admin/views/general/visitorcounter';
 
 //Services
 import { SiteService } from './services/site';
 
-import { Lib } from './lib/methods';
-
 //Admin Services
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
+
+//Library
+import { Lib } from './lib/methods';
+import { AdminLib } from './admin/lib/methods';
 
 
 @NgModule({
@@ -191,119 +193,119 @@ import { ModelService } from './admin/services/model';
         PropertySearchComponent,
 
         //Admin
-        AdminGirisComponent,
         AdminLayoutComponent,
         AdminFooterComponent,
         AdminHeaderComponent,
         AdminLeftMenuComponent,
         AdminScriptsComponent,
         AdminCopyDeleteComponent,
-        AdminAnaSayfaComponent,
+        AdminIndexComponent,
+        AdminLoginComponent,
 
-        AdminBaglantiIndexComponent,
-        AdminBaglantiEkleComponent,
-        AdminBaglantiDuzenleComponent,
+        AdminLinksIndexComponent,
+        AdminLinksInsertComponent,
+        AdminLinksUpdateComponent,
 
-        AdminBagliTiplerIndexComponent,
-        AdminBagliTiplerEkleComponent,
-        AdminBagliTiplerDuzenleComponent,
+        AdminLinkTypesIndexComponent,
+        AdminLinkTypesInsertComponent,
+        AdminLinkTypesUpdateComponent,
 
-        AdminDilIndexComponent,
-        AdminDilEkleComponent,
-        AdminDilDuzenleComponent,
+        AdminTranslationIndexComponent,
+        AdminTranslationInsertComponent,
+        AdminTranslationUpdateComponent,
 
-        AdminDosyaIndexComponent,
-        AdminDosyaEkleComponent,
-        AdminDosyaDuzenleComponent,
+        AdminFileIndexComponent,
+        AdminFileInsertComponent,
+        AdminFileUpdateComponent,
 
-        AdminEmlakIndexComponent,
-        AdminEmlakEkleComponent,
-        AdminEmlakDuzenleComponent,
+        AdminRealEstatesIndexComponent,
+        AdminRealEstatesInsertComponent,
+        AdminRealEstatesUpdateComponent,
 
-        AdminEmlakDilIndexComponent,
-        AdminEmlakDilEkleComponent,
-        AdminEmlakDilDuzenleComponent,
+        AdminRealEstatesTIndexComponent,
+        AdminRealEstatesTInsertComponent,
+        AdminRealEstatesTUpdateComponent,
 
-        AdminGaleriIndexComponent,
-        AdminGaleriEkleComponent,
-        AdminGaleriDuzenleComponent,
+        AdminGalleryIndexComponent,
+        AdminGalleryInsertComponent,
+        AdminGalleryUpdateComponent,
 
-        AdminGaleriDilIndexComponent,
-        AdminGaleriDilEkleComponent,
-        AdminGaleriDilDuzenleComponent,
+        AdminGalleryTIndexComponent,
+        AdminGalleryTInsertComponent,
+        AdminGalleryTUpdateComponent,
 
-        AdminIcerikIndexComponent,
-        AdminIcerikEkleComponent,
-        AdminIcerikDuzenleComponent,
+        AdminContentIndexComponent,
+        AdminContentInsertComponent,
+        AdminContentUpdateComponent,
 
-        AdminIcerikDilIndexComponent,
-        AdminIcerikDilEkleComponent,
-        AdminIcerikDilDuzenleComponent,
+        AdminContentTIndexComponent,
+        AdminContentTInsertComponent,
+        AdminContentTUpdateComponent,
 
-        AdminKategoriIndexComponent,
-        AdminKategoriEkleComponent,
-        AdminKategoriDuzenleComponent,
+        AdminCategoryIndexComponent,
+        AdminCategoryInsertComponent,
+        AdminCategoryUpdateComponent,
 
-        AdminKategoriDilIndexComponent,
-        AdminKategoriDilEkleComponent,
-        AdminKategoriDilDuzenleComponent,
+        AdminCategoryTIndexComponent,
+        AdminCategoryTInsertComponent,
+        AdminCategoryTUpdateComponent,
 
-        AdminKullaniciGrupIndexComponent,
-        AdminKullaniciGrupEkleComponent,
-        AdminKullaniciGrupDuzenleComponent,
+        AdminUserGroupsIndexComponent,
+        AdminUserGroupsInsertComponent,
+        AdminUserGroupsUpdateComponent,
 
-        AdminKullaniciGrupHakIndexComponent,
-        AdminKullaniciGrupHakEkleComponent,
-        AdminKullaniciGrupHakDuzenleComponent,
+        AdminUserGroupRightsIndexComponent,
+        AdminUserGroupRightsInsertComponent,
+        AdminUserGroupRightsUpdateComponent,
 
-        AdminKullaniciGrupIslemIndexComponent,
-        AdminKullaniciGrupIslemEkleComponent,
-        AdminKullaniciGrupIslemDuzenleComponent,
+        AdminUserGroupProcessIndexComponent,
+        AdminUserGroupProcessInsertComponent,
+        AdminUserGroupProcessUpdateComponent,
 
-        AdminKullaniciGrupTabloIndexComponent,
-        AdminKullaniciGrupTabloEkleComponent,
-        AdminKullaniciGrupTabloDuzenleComponent,
+        AdminUserGroupTablesIndexComponent,
+        AdminUserGroupTablesInsertComponent,
+        AdminUserGroupTablesUpdateComponent,
 
-        AdminKullanicilarIndexComponent,
-        AdminKullanicilarEkleComponent,
-        AdminKullanicilarDuzenleComponent,
-        AdminKullanicilarGrupDegistirComponent,
+        AdminUsersIndexComponent,
+        AdminUsersInsertComponent,
+        AdminUsersUpdateComponent,
+        AdminUsersGrupDegistirComponent,
 
-        AdminDilIcerikIndexComponent,
-        AdminDilIcerikEkleComponent,
-        AdminDilIcerikDuzenleComponent,
+        AdminLangContentIndexComponent,
+        AdminLangContentInsertComponent,
+        AdminLangContentUpdateComponent,
 
-        AdminDilIcerikDilIndexComponent,
-        AdminDilIcerikDilEkleComponent,
-        AdminDilIcerikDilDuzenleComponent,
+        AdminLangContentTIndexComponent,
+        AdminLangContentTInsertComponent,
+        AdminLangContentTUpdateComponent,
 
-        AdminLogIslemIndexComponent,
-        AdminLogIslemEkleComponent,
-        AdminLogIslemDuzenleComponent,
+        AdminLogProcessIndexComponent,
+        AdminLogProcessInsertComponent,
+        AdminLogProcessUpdateComponent,
 
-        AdminLoglarIndexComponent,
+        AdminLogsIndexComponent,
 
-        AdminLogTiplerIndexComponent,
-        AdminLogTiplerEkleComponent,
-        AdminLogTiplerDuzenleComponent,
+        AdminLogTypesIndexComponent,
+        AdminLogTypesInsertComponent,
+        AdminLogTypesUpdateComponent,
 
         AdminMetaIndexComponent,
-        AdminMetaEkleComponent,
-        AdminMetaDuzenleComponent,
+        AdminMetaInsertComponent,
+        AdminMetaUpdateComponent,
 
-        AdminMetaDilIndexComponent,
-        AdminMetaDilEkleComponent,
-        AdminMetaDilDuzenleComponent,
+        AdminMetaTIndexComponent,
+        AdminMetaTInsertComponent,
+        AdminMetaTUpdateComponent,
 
-        AdminResimIndexComponent,
-        AdminResimEkleComponent,
-        AdminResimDuzenleComponent,
+        AdminPictureIndexComponent,
+        AdminPictureInsertComponent,
+        AdminPictureUpdateComponent,
 
-        AdminTiplerIndexComponent,
-        AdminTiplerEkleComponent,
-        AdminTiplerDuzenleComponent,
+        AdminTypesIndexComponent,
+        AdminTypesInsertComponent,
+        AdminTypesUpdateComponent,
 
-        AdminZiyaretciIndexComponent
+        AdminVisitorCounterIndexComponent
     ],
     imports: [
         BrowserModule,
@@ -315,11 +317,12 @@ import { ModelService } from './admin/services/model';
     providers: [{ provide: APP_BASE_HREF, useValue: '/Emlak/' },
         SiteService,
 
-        Lib,
-
         SharedService,
-        ModelService
-],
+        ModelService,
+
+        Lib,
+        AdminLib
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

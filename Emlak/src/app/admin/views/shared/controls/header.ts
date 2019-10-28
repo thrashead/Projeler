@@ -51,52 +51,52 @@ export class AdminHeaderComponent {
 
         switch (txtValue) {
             case "Kategoriler":
-                this.router.navigate(['/Admin/Kategori']);
+                this.router.navigate(['/Admin/Category']);
                 break;
             case "Kategoriler (Dil)":
-                this.router.navigate(['/Admin/KategoriDil']);
+                this.router.navigate(['/Admin/CategoryT']);
                 break;
             case "İçerikler":
-                this.router.navigate(['/Admin/Icerik']);
+                this.router.navigate(['/Admin/Content']);
                 break;
             case "İçerikler (Dil)":
-                this.router.navigate(['/Admin/IcerikDil']);
+                this.router.navigate(['/Admin/ContentT']);
                 break;
-            case "Galeri":
-                this.router.navigate(['/Admin/Galeri']);
+            case "Gallery":
+                this.router.navigate(['/Admin/Gallery']);
                 break;
             case "Galeri (Dil)":
-                this.router.navigate(['/Admin/GaleriDil']);
+                this.router.navigate(['/Admin/GalleryT']);
                 break;
             case "Resimler":
-                this.router.navigate(['/Admin/Resim']);
+                this.router.navigate(['/Admin/Picture']);
                 break;
             case "Dosyalar":
-                this.router.navigate(['/Admin/Dosya']);
+                this.router.navigate(['/Admin/File']);
                 break;
             case "Meta":
                 this.router.navigate(['/Admin/Meta']);
                 break;
             case "Meta (Dil)":
-                this.router.navigate(['/Admin/MetaDil']);
+                this.router.navigate(['/Admin/MetaT']);
                 break;
             case "Bağlı Tipler":
-                this.router.navigate(['/Admin/BagliTipler']);
+                this.router.navigate(['/Admin/LinkTypes']);
                 break;
             case "Bağlantılar":
-                this.router.navigate(['/Admin/Baglanti']);
+                this.router.navigate(['/Admin/Links']);
                 break;
             case "Diller":
-                this.router.navigate(['/Admin/Dil']);
+                this.router.navigate(['/Admin/Translation']);
                 break;
             case "Dil İçerik":
-                this.router.navigate(['/Admin/DilIcerik']);
+                this.router.navigate(['/Admin/LangContent']);
                 break;
             case "Dil İçerik (Dil)":
-                this.router.navigate(['/Admin/DilIcerikDil']);
+                this.router.navigate(['/Admin/LangContentT']);
                 break;
             case "Kullanıcılar":
-                this.router.navigate(['/Admin/Kullanicilar']);
+                this.router.navigate(['/Admin/Users']);
                 break;
             default:
                 alert("Aradığınız kelimeye uygun sonuç bulunamadı...");
@@ -107,7 +107,7 @@ export class AdminHeaderComponent {
     onLogout() {
         this.service.getLogout().subscribe((resData: any) => {
             if (resData == true) {
-                window.location.href = '/Emlak/';
+                this.router.navigate(['/Admin/Login']);
             }
         }, resError => this.errorMsg = resError);
     }

@@ -20,6 +20,7 @@ namespace Emlak.Data
             this.PropertyDetails = new HashSet<PropertyDetails>();
             this.PropertyFeatures = new HashSet<PropertyFeatures>();
             this.PropertyT = new HashSet<PropertyT>();
+            this.PropertyPictures = new HashSet<PropertyPictures>();
         }
     
         public int ID { get; set; }
@@ -39,5 +40,7 @@ namespace Emlak.Data
         public virtual ICollection<PropertyFeatures> PropertyFeatures { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PropertyT> PropertyT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyPictures> PropertyPictures { get; set; }
     }
 }
