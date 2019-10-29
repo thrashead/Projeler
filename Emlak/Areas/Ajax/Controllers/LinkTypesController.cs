@@ -1,10 +1,10 @@
-using System.Linq;
 using System.Web.Mvc;
 using System.Collections.Generic;
 using Emlak.Data;
 using TDLibrary;
 using Models;
 using static Models.BagliTipler;
+using System.Linq;
 
 namespace Emlak.Areas.Ajax.Controllers
 {
