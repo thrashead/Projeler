@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using TDLibrary;
-using System.Xml;
 
 
 namespace Emlak.Controllers
@@ -32,7 +31,7 @@ namespace Emlak.Controllers
             param.OrderBy = param.OrderBy == null ? "" : param.OrderBy;
             param.Page = param.Page < 1 ? 1 : param.Page;
 
-            List<sp_RealEstatesForListSelect_Result> list = new List<sp_RealEstatesForListSelect_Result>();
+            List<sp_PropertyForListSelect_Result> list = new List<sp_PropertyForListSelect_Result>();
 
             string pageHeader = "";
             int count = 0;
@@ -41,25 +40,25 @@ namespace Emlak.Controllers
             {
                 if (param.Word.ToLower() == "satilik")
                 {
-                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, true, null, null, null, null).ToList();
+                    list = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, true, null, null, null, null).ToList();
 
                     pageHeader = LangBaslik.KodlaGetir("stlk").Text;
                 }
                 else if (param.Word.ToLower() == "kiralik")
                 {
-                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, false, null, null, null, null).ToList();
+                    list = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, false, null, null, null, null).ToList();
 
                     pageHeader = LangBaslik.KodlaGetir("krlk").Text;
                 }
                 else if (param.Word.ToLower() == "yeni")
                 {
-                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, true, null, null, null).ToList();
+                    list = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, true, null, null, null).ToList();
 
                     pageHeader = LangBaslik.KodlaGetir("newi").Text;
                 }
                 else if (param.Word.ToLower() == "tumu")
                 {
-                    list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, null, null, null, null).ToList();
+                    list = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, null, null, null, null).ToList();
                 }
                 else
                 {
@@ -67,13 +66,13 @@ namespace Emlak.Controllers
 
                     if (!pageHeader.IsNull())
                     {
-                        list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, param.Word, null, null, null, null, null, null).ToList();
+                        list = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, param.Word, null, null, null, null, null, null).ToList();
                     }
                     else
                     {
                         pageHeader = param.Word;
 
-                        list = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, param.Word, null, null, null, null, null).ToList();
+                        list = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, param.Word, null, null, null, null, null).ToList();
                     }
                 }
 
@@ -111,7 +110,7 @@ namespace Emlak.Controllers
             }
             else
             {
-                list = Session["Emlaklar"] as List<sp_RealEstatesForListSelect_Result>;
+                list = Session["Emlaklar"] as List<sp_PropertyForListSelect_Result>;
 
                 pageHeader = LangBaslik.KodlaGetir("dsrs").Text;
 
@@ -143,12 +142,12 @@ namespace Emlak.Controllers
 
             List<ListeleItem> returnList = new List<ListeleItem>();
 
-            foreach (sp_RealEstatesForListSelect_Result item in list)
+            foreach (sp_PropertyForListSelect_Result item in list)
             {
                 ListeleItem reItem = new ListeleItem();
 
                 reItem.Baslik = item.TBaslik;
-                reItem.Yeni = item.Yeni;
+                reItem.Yeni = item.Yeni == null ? false : true;
                 reItem.Fiyat = item.Fiyat;
                 reItem.Url = item.Url;
                 reItem.Enlem = item.Enlem;
@@ -210,7 +209,7 @@ namespace Emlak.Controllers
 
             param = param.IsNull() == true ? Urling.URLBlocks[3] : param;
 
-            var realestateads = entity.sp_RealEstatesByUrl(ToolBox.LangCode, param).FirstOrDefault();
+            var realestateads = entity.sp_PropertyByUrl(ToolBox.LangCode, param).FirstOrDefault();
 
             if (realestateads != null)
             {
@@ -219,8 +218,8 @@ namespace Emlak.Controllers
                 model.Aciklama = realestateads.Aciklama;
                 model.Code = realestateads.Code;
                 model.Fiyat = realestateads.Fiyat;
-                model.Yeni = realestateads.Yeni;
-                model.GununEmlagi = realestateads.GununEmlagi;
+                model.Yeni = realestateads.Yeni == null ? false : true;
+                model.GununEmlagi = realestateads.GununEmlagi == null ? false : true;
                 model.Sehir = realestateads.Sehir;
                 model.Ilce = realestateads.Ilce;
                 model.Semt = realestateads.Semt;
@@ -270,7 +269,7 @@ namespace Emlak.Controllers
                 model.Enlem = realestateads.Enlem;
                 model.Boylam = realestateads.Boylam;
 
-                var pictures = entity.sp_RealEstatePicturesByID(realestateads.ID).ToList();
+                var pictures = entity.sp_PropertyPicturesByID(realestateads.ID).ToList();
 
                 model.Pictures.AddRange(pictures);
             }
@@ -292,42 +291,38 @@ namespace Emlak.Controllers
 
             ListeleOutputItem reOutputItem = new ListeleOutputItem();
 
-            reOutputItem.Baslik = "Detaylı Arama Sonuçları";
+            reOutputItem.Baslik = LangBaslik.KodlaGetir("dsrs").Text;
 
             if (Session["DetayKriter"] != null)
             {
                 listReCP = (RealEstateAdsExt)Session["DetayKriter"];
             }
 
-            List<sp_RealEstatesForListSelect_Result> rb = new List<sp_RealEstatesForListSelect_Result>();
+            List<sp_PropertyForListSelect_Result> rb = new List<sp_PropertyForListSelect_Result>();
 
-            if (listReCP.KatID <= 0 && listReCP.AltKatID <= 0)
+            if (listReCP.KatID == null)
             {
-                rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, null, null, null, null).ToList();
+                rb = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, null, null, null, null).ToList();
             }
-            else if (listReCP.AltKatID > 0)
+            else
             {
-                rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, listReCP.AltKatID, null, null, null, null, null, null, null).ToList();
-            }
-            else if (listReCP.KatID > 0)
-            {
-                rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, listReCP.KatID, null, null, null, null, null, null, null).ToList();
+                rb = entity.sp_PropertyForListSelect(ToolBox.LangCode, listReCP.KatID, null, null, null, null, null, null, null).ToList();
             }
 
             if (!listReCP.Baslik.IsNull())
                 rb = rb.Where(a => a.Baslik.ToLower().Contains(listReCP.Baslik.ToLower()) || a.TBaslik.ToLower().Contains(listReCP.Baslik.ToLower())).ToList();
-            if (listReCP.Sehir != "Tümü")
-                rb = rb.Where(a => a.Sehir.ToLower().Contains(listReCP.Sehir.ToLower())).ToList();
+            if (listReCP.Sehir != null)
+                rb = rb.Where(a => a.SehirID == listReCP.Sehir).ToList();
             if (!listReCP.Ilce.IsNull())
                 rb = rb.Where(a => a.Ilce.ToLower().Contains(listReCP.Ilce.ToLower())).ToList();
             if (!listReCP.Semt.IsNull())
                 rb = rb.Where(a => a.Semt.ToLower().Contains(listReCP.Semt.ToLower())).ToList();
-            if (listReCP.Durum != "Tümü")
-                rb = rb.Where(a => a.Durum == listReCP.Durum).ToList();
-            if (listReCP.IsinmaTipi != "Farketmez")
-                rb = rb.Where(a => a.IsinmaTipi == listReCP.IsinmaTipi).ToList();
-            if (listReCP.YakitTipi != "Farketmez")
-                rb = rb.Where(a => a.YakitTipi == listReCP.YakitTipi).ToList();
+            if (listReCP.Durum != null)
+                rb = rb.Where(a => a.DurumID == listReCP.Durum).ToList();
+            if (listReCP.IsinmaTipi != null)
+                rb = rb.Where(a => a.IsinmaTipiID == listReCP.IsinmaTipi).ToList();
+            if (listReCP.YakitTipi != null)
+                rb = rb.Where(a => a.YakitTipiID == listReCP.YakitTipi).ToList();
             if (listReCP.ArkaCephe == true)
                 rb = rb.Where(a => a.ArkaCephe == listReCP.ArkaCephe).ToList();
             if (listReCP.DenizeYakin == true)
@@ -492,16 +487,16 @@ namespace Emlak.Controllers
 
                 rb = rb.Skip(12 * (listRE.Page - 1)).Take(12).ToList();
 
-                reOutputItem.Emlaklar = rb.ChangeModelList<ListeleItem, sp_RealEstatesForListSelect_Result>();
+                reOutputItem.Emlaklar = rb.ChangeModelList<ListeleItem, sp_PropertyForListSelect_Result>();
 
                 List<ListeleItem> returnList = new List<ListeleItem>();
 
-                foreach (sp_RealEstatesForListSelect_Result item in rb)
+                foreach (sp_PropertyForListSelect_Result item in rb)
                 {
                     ListeleItem reItem = new ListeleItem();
 
                     reItem.Baslik = item.TBaslik;
-                    reItem.Yeni = item.Yeni;
+                    reItem.Yeni = item.Yeni == null ? false : true;
                     reItem.Fiyat = item.Fiyat;
                     reItem.NewLogo = ToolBox.NewLogo;
                     reItem.Url = item.Url;
@@ -521,23 +516,23 @@ namespace Emlak.Controllers
             public int? ID { get; set; }
             public int? KatID { get; set; }
             public int? AltKatID { get; set; }
+            public int? Sehir { get; set; }
+            public int? Durum { get; set; }
+            public int? YakitTipi { get; set; }
+            public int? IsinmaTipi { get; set; }
             public string Baslik { get; set; }
             public string Code { get; set; }
             public int? Fiyat { get; set; }
             public bool? Yeni { get; set; }
             public bool? GununEmlagi { get; set; }
-            public string Sehir { get; set; }
             public string Ilce { get; set; }
             public string Semt { get; set; }
             public string Sahibi { get; set; }
             public int? OdaSayisi { get; set; }
             public int? KatSayisi { get; set; }
-            public string IsinmaTipi { get; set; }
             public int? SalonSayisi { get; set; }
             public int? BulunduguKat { get; set; }
-            public string YakitTipi { get; set; }
             public int? Alan { get; set; }
-            public string Durum { get; set; }
             public int? BinaYasi { get; set; }
             public bool? ArkaCephe { get; set; }
             public bool? OnCephe { get; set; }
@@ -626,7 +621,7 @@ namespace Emlak.Controllers
         {
             List<SiralaREReturnJson> _listRV = null;
 
-            var rb = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, kelime, null, null, null, null, null).ToList();
+            var rb = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, kelime, null, null, null, null, null).ToList();
 
             if (rb.Count > 0)
             {
@@ -638,7 +633,7 @@ namespace Emlak.Controllers
 
                     reItem.Baslik = item.Baslik;
                     reItem.Fiyat = item.Fiyat;
-                    reItem.Yeni = item.Yeni;
+                    reItem.Yeni = item.Yeni == null ? false : true;
                     reItem.Url = item.Url;
                     reItem.Enlem = item.Enlem;
                     reItem.Boylam = item.Boylam;
@@ -683,7 +678,7 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult VitrinIlanlar(int param = 0)
         {
-            var modelList = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, null, null, true, param).ToList();
+            var modelList = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, null, null, true, param).ToList();
 
             foreach (var item in modelList)
             {
@@ -703,7 +698,7 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult GununIlani()
         {
-            var item = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, null, true, null, 1).FirstOrDefault();
+            var item = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, null, true, null, 1).FirstOrDefault();
 
             if (item.Picture != null)
             {
@@ -720,7 +715,7 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult YeniIlanlar(int param = 0)
         {
-            var modelList = entity.sp_RealEstatesForListSelect(ToolBox.LangCode, null, null, null, null, true, null, true, param).ToList();
+            var modelList = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, true, null, true, param).ToList();
 
             foreach (var item in modelList)
             {
@@ -752,28 +747,9 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult Kategoriler(int param)
         {
-            List<FillCategoryReturnJson> _result = new List<FillCategoryReturnJson>();
+            List<sp_CategoriesByParentID_Result> result = entity.sp_CategoriesByParentID(param, ToolBox.LangCode).ToList();
 
-            _result.Add(new FillCategoryReturnJson() { ID = 0, CategoryName = LangBaslik.KodlaGetir("sctm").Text });
-
-            var rb = entity.sp_CategoriesByParentID(param, ToolBox.LangCode).ToList();
-
-            foreach (var item in rb)
-            {
-                _result.Add(new FillCategoryReturnJson() { ID = item.ID, CategoryName = item.CategoryName });
-            }
-
-            return Json(_result, JsonRequestBehavior.AllowGet);
-        }
-        public class FillCategoryJson
-        {
-            public int ParentID { get; set; }
-            public string Lang { get; set; }
-        }
-        public class FillCategoryReturnJson
-        {
-            public int ID { get; set; }
-            public string CategoryName { get; set; }
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -865,6 +841,17 @@ namespace Emlak.Controllers
             try
             {
                 Session["lang"] = param;
+
+                int? langID = entity.sp_TranslationIDByShortName(param).FirstOrDefault();
+
+                if (langID != null)
+                {
+                    Session["LangID"] = (int)langID;
+                }
+                else
+                {
+                    Session["LangID"] = null;
+                }
             }
             catch (Exception)
             {
@@ -917,26 +904,33 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult Sehirler()
         {
-            List<FillCityReturnJson> _result = new List<FillCityReturnJson>();
+            List<usp_CitySelect_Result> result = entity.usp_CitySelect(null).ToList();
 
-            XmlReader oku = XmlReader.Create(HttpContext.Server.MapPath("~/App_Data/Sehir.xml"));
-            while (oku.Read())
-            {
-                if (oku.NodeType == XmlNodeType.Element && oku.Name == "sehir")
-                {
-                    _result.Add(new FillCityReturnJson()
-                    {
-                        Sehir = oku.GetAttribute("ad").ToString(),
-                    });
-                }
-            }
-            oku.Close();
-
-            return Json(_result, JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
-        public class FillCityReturnJson
+
+        [HttpGet]
+        public JsonResult Durumlar()
         {
-            public string Sehir { get; set; }
+            List<sp_PropertyStatusSelect_Result> result = entity.sp_PropertyStatusSelect(null, ToolBox.LangID).ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult YakitTipleri()
+        {
+            List<sp_FuelTypeSelect_Result> result = entity.sp_FuelTypeSelect(null, ToolBox.LangID).ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult IsinmaTipleri()
+        {
+            List<sp_WarmTypeSelect_Result> result = entity.sp_WarmTypeSelect(null, ToolBox.LangID).ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

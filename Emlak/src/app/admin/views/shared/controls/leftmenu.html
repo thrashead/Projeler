@@ -2,87 +2,87 @@
     <a href="javascript:;" class="visible-phone"><i class="icon icon-reorder"></i> Menü</a>
     <ul>
         <li data-url="AnaSayfa" class="active">
-            <a routerLink="/Admin/AnaSayfa"><i class="icon icon-home"></i> <span>Ana Sayfa</span></a>
+            <a routerLink="/Admin/Index"><i class="icon icon-home"></i> <span>Ana Sayfa</span></a>
         </li>
-        <li class="submenu" *ngIf="hasRightEmlak && showTypeEmlak">
+        <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
             <a href="javascript:;"><i class="icon icon-home"></i> <span>Emlaklar</span></a>
             <ul>
-                <li data-url="Emlak"><a routerLink="/Admin/Emlak">Emlaklar</a></li>
-                <li data-url="EmlakDil"><a routerLink="/Admin/EmlakDil">Emlaklar (Dil)</a></li>
+                <li data-url="RealEstates"><a routerLink="/Admin/RealEstates">Emlaklar</a></li>
+                <li data-url="RealEstatesT"><a routerLink="/Admin/RealEstatesT">Emlaklar (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightKategori && showTypeKategori">
             <a href="javascript:;"><i class="icon icon-sitemap"></i> <span>Kategoriler</span></a>
             <ul>
-                <li data-url="Kategori"><a routerLink="/Admin/Kategori">Kategoriler</a></li>
-                <li data-url="KategoriDil"><a routerLink="/Admin/KategoriDil">Kategoriler (Dil)</a></li>
+                <li data-url="Category"><a routerLink="/Admin/Category">Kategoriler</a></li>
+                <li data-url="CategoryT"><a routerLink="/Admin/CategoryT">Kategoriler (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightIcerik && showTypeIcerik">
             <a href="javascript:;"><i class="icon icon-edit"></i> <span>İçerikler</span></a>
             <ul>
-                <li data-url="Icerik"><a routerLink="/Admin/Icerik">İçerikler</a></li>
-                <li data-url="IcerikDil"><a routerLink="/Admin/IcerikDil">İçerikler (Dil)</a></li>
+                <li data-url="Content"><a routerLink="/Admin/Content">İçerikler</a></li>
+                <li data-url="ContentT"><a routerLink="/Admin/ContentT">İçerikler (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightGaleri && showTypeGaleri">
             <a href="javascript:;"><i class="icon icon-picture"></i> <span>Galeri</span></a>
             <ul>
-                <li data-url="Galeri"><a routerLink="/Admin/Galeri">Galeri</a></li>
-                <li data-url="GaleriDil"><a routerLink="/Admin/GaleriDil">Galeri (Dil)</a></li>
+                <li data-url="Gallery"><a routerLink="/Admin/Gallery">Galeri</a></li>
+                <li data-url="GalleryT"><a routerLink="/Admin/GalleryT">Galeri (Dil)</a></li>
             </ul>
         </li>
-        <li data-url="Resim" *ngIf="hasRightResim && showTypeResim">
-            <a routerLink="/Admin/Resim"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
+        <li data-url="Picture" *ngIf="hasRightResim && showTypeResim">
+            <a routerLink="/Admin/Picture"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
         </li>
-        <li data-url="Dosya" *ngIf="hasRightDosya && showTypeDosya">
-            <a routerLink="/Admin/Dosya"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
+        <li data-url="File" *ngIf="hasRightDosya && showTypeDosya">
+            <a routerLink="/Admin/File"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
         </li>
         <li class="submenu" *ngIf="hasRightMeta && showTypeMeta">
             <a href="javascript:;"><i class="icon icon-tags"></i> <span>Meta</span></a>
             <ul>
                 <li data-url="Meta"><a routerLink="/Admin/Meta">Meta</a></li>
-                <li data-url="MetaDil"><a routerLink="/Admin/MetaDil">Meta (Dil)</a></li>
+                <li data-url="MetaT"><a routerLink="/Admin/MetaT">Meta (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightBagliTipler && showTypeBagliTipler">
             <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
             <ul>
-                <li data-url="BagliTipler"><a routerLink="/Admin/BagliTipler">Bağlı Tipler</a></li>
-                <li data-url="Baglanti"><a routerLink="/Admin/Baglanti">Bağlantılar</a></li>
+                <li data-url="LinkTypes"><a routerLink="/Admin/LinkTypes">Bağlı Tipler</a></li>
+                <li data-url="Links"><a routerLink="/Admin/Links">Bağlantılar</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightDil && hasRightDil">
             <a href="javascript:;"><i class="icon icon-globe"></i> <span>Diller</span></a>
             <ul>
-                <li data-url="Dil"><a routerLink="/Admin/Dil">Diller</a></li>
-                <li data-url="DilIcerik"><a routerLink="/Admin/DilIcerik">Dil İçerik</a></li>
-                <li data-url="DilIcerikDil"><a routerLink="/Admin/DilIcerikDil">Dil İçerik (Dil)</a></li>
+                <li data-url="Translation"><a routerLink="/Admin/Translation">Diller</a></li>
+                <li data-url="LangContent"><a routerLink="/Admin/LangContent">Dil İçerik</a></li>
+                <li data-url="LangContentT"><a routerLink="/Admin/LangContentT">Dil İçerik (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightLoglar && showTypeLoglar">
             <a href="javascript:;"><i class="icon icon-eye-open"></i> <span>Loglar</span></a>
             <ul>
-                <li data-url="Loglar"><a routerLink="/Admin/Loglar">Loglar</a></li>
-                <li data-url="LogTipler"><a routerLink="/Admin/LogTipler">Log Tipleri</a></li>
-                <li data-url="LogIslem"><a routerLink="/Admin/LogIslem">Log İşlemleri</a></li>
+                <li data-url="Logs"><a routerLink="/Admin/Logs">Loglar</a></li>
+                <li data-url="LogTypes"><a routerLink="/Admin/LogTypes">Log Tipleri</a></li>
+                <li data-url="LogProcess"><a routerLink="/Admin/LogProcess">Log İşlemleri</a></li>
             </ul>
         </li>
-        <li data-url="Ziyaretci" *ngIf="hasRightZiyaretci && showTypeZiyaretci">
-            <a routerLink="/Admin/Ziyaretci"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
+        <li data-url="VisitorCounter" *ngIf="hasRightZiyaretci && showTypeZiyaretci">
+            <a routerLink="/Admin/VisitorCounter"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
         </li>
         <li class="submenu" *ngIf="hasRightKullanicilar && showTypeKullanicilar">
             <a href="javascript:;"><i class="icon icon-user"></i> <span>Kullanıcılar</span></a>
             <ul>
-                <li data-url="Kullanicilar"><a routerLink="/Admin/Kullanicilar">Kullanıcılar</a></li>
-                <li data-url="KullaniciGrup"><a routerLink="/Admin/KullaniciGrup">Kullanıcı Grupları</a></li>
-                <li data-url="KullaniciGrupTablo"><a routerLink="/Admin/KullaniciGrupTablo">Kullanıcı Grup Tabloları</a></li>
-                <li data-url="KullaniciGrupHak"><a routerLink="/Admin/KullaniciGrupHak">Kullanıcı Grup Hakları</a></li>
-                <li data-url="KullaniciGrupIslem"><a routerLink="/Admin/KullaniciGrupIslem">Kullanıcı Grup İşlemleri</a></li>
+                <li data-url="Users"><a routerLink="/Admin/Users">Kullanıcılar</a></li>
+                <li data-url="UserGroups"><a routerLink="/Admin/UserGroups">Kullanıcı Grupları</a></li>
+                <li data-url="UserGroupTables"><a routerLink="/Admin/UserGroupTables">Kullanıcı Grup Tabloları</a></li>
+                <li data-url="UserGroupRights"><a routerLink="/Admin/UserGroupRights">Kullanıcı Grup Hakları</a></li>
+                <li data-url="UserGroupProcess"><a routerLink="/Admin/UserGroupProcess">Kullanıcı Grup İşlemleri</a></li>
             </ul>
         </li>
-        <li data-url="Tipler" *ngIf="hasRightTipler && showTypeTipler">
-            <a routerLink="/Admin/Tipler"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>
+        <li data-url="Types" *ngIf="hasRightTipler && showTypeTipler">
+            <a routerLink="/Admin/Types"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>
         </li>
     </ul>
 </div>

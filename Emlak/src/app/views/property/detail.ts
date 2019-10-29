@@ -29,13 +29,15 @@ export class PropertyDetailComponent {
 
                 this.KodlaGetir();
 
+                this.SliderReset();
+
                 $('#image-gallery').lightSlider({
                     gallery: true,
                     item: 1,
                     thumbItem: 9,
                     slideMargin: 0,
                     speed: 500,
-                    auto: true,
+                    auto: false,
                     loop: true,
                     onSliderLoad: function () {
                         $('#image-gallery').removeClass('cS-hidden');
@@ -43,6 +45,19 @@ export class PropertyDetailComponent {
                 });
             }, resError => this.errorMsg = resError);
         });
+    }
+
+    SliderReset() {
+        $('#image-gallery').removeClass("lightSlider");
+        $('#image-gallery').removeClass("lsGrab");
+        $('#image-gallery').removeClass("lSSlide");
+        $('#image-gallery').removeAttr("style");
+        $('#image-gallery li').removeAttr("class");
+        $('#image-gallery li').removeAttr("style");
+        $('#image-gallery').parent().parent().parent(".clearfix").append($('#image-gallery'));
+        $('.lSSlideOuter').remove();
+        $('.lSAction').remove();
+        $('.lSPager.lSGallery').remove();
     }
 
     //KodlaGetir

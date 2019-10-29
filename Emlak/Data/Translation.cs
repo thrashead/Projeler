@@ -19,10 +19,14 @@ namespace Emlak.Data
         {
             this.CategoryT = new HashSet<CategoryT>();
             this.ContentT = new HashSet<ContentT>();
+            this.FuelTypeT = new HashSet<FuelTypeT>();
             this.GalleryT = new HashSet<GalleryT>();
-            this.MetaT = new HashSet<MetaT>();
-            this.RealEstatesT = new HashSet<RealEstatesT>();
             this.LangContentT = new HashSet<LangContentT>();
+            this.MetaT = new HashSet<MetaT>();
+            this.PropertyStatusT = new HashSet<PropertyStatusT>();
+            this.PropertyT = new HashSet<PropertyT>();
+            this.RealEstatesT = new HashSet<RealEstatesT>();
+            this.WarmTypeT = new HashSet<WarmTypeT>();
         }
     
         public int ID { get; set; }
@@ -37,12 +41,20 @@ namespace Emlak.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContentT> ContentT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FuelTypeT> FuelTypeT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GalleryT> GalleryT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LangContentT> LangContentT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MetaT> MetaT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyStatusT> PropertyStatusT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyT> PropertyT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RealEstatesT> RealEstatesT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LangContentT> LangContentT { get; set; }
+        public virtual ICollection<WarmTypeT> WarmTypeT { get; set; }
     }
 }

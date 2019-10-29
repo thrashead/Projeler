@@ -20,5 +20,6 @@ namespace Emlak.Data
         public string Column5 { get; set; }
         public string Column6 { get; set; }
         public string Column7 { get; set; }
+        public string Column8 { get; set; }
     }
 }

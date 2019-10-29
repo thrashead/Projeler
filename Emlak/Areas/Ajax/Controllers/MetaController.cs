@@ -24,7 +24,7 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpPost]
-        public JsonResult Ekle([System.Web.Http.FromBody] Metalar meta)
+        public JsonResult Insert([System.Web.Http.FromBody] Metalar meta)
         {
             if (!curUser.HasRight("Meta", "i"))
                 return Json(null);
@@ -44,7 +44,7 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpGet]
-        public JsonResult Duzenle(int id)
+        public JsonResult Update(int id)
         {
             if (!curUser.HasRight("Meta", "u"))
                 return Json(null, JsonRequestBehavior.AllowGet);
@@ -60,7 +60,7 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpPost]
-        public JsonResult Duzenle([System.Web.Http.FromBody] Metalar meta)
+        public JsonResult Update([System.Web.Http.FromBody] Metalar meta)
         {
             if (!curUser.HasRight("Meta", "u"))
                 return Json(null);
@@ -83,14 +83,14 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpGet]
-        public JsonResult Sil(int id)
+        public JsonResult Delete(int id)
         {
             if (!curUser.HasRight("Meta", "d"))
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             try
             {
-                entity.usp_MetaCheckSetDeleted(id);
+                entity.usp_MetaCheckDelete(id);
 
                 curUser.Log(id, "d", "Metalar");
 
@@ -103,16 +103,16 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpGet]
-        public JsonResult Kaldir(int id)
+        public JsonResult Remove(int id)
         {
-            if (!curUser.HasRight("Meta", "rd"))
+            if (!curUser.HasRight("Meta", "r"))
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             try
             {
-                entity.usp_MetaCheckDelete(id);
+                entity.usp_MetaCheckSetDeleted(id);
 
-                curUser.Log(id, "rd", "Metalar");
+                curUser.Log(id, "r", "Metalar");
 
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
@@ -123,7 +123,7 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpGet]
-        public JsonResult Kopyala(int id)
+        public JsonResult Copy(int id)
         {
             if (!curUser.HasRight("Meta", "c"))
                 return Json(false, JsonRequestBehavior.AllowGet);

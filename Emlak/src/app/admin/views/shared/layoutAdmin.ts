@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../../services/shared';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'admin-layout',
@@ -9,13 +10,13 @@ import { SharedService } from '../../services/shared';
 export class AdminLayoutComponent {
     errorMsg: string;
 
-    constructor(private service: SharedService) {
+    constructor(private service: SharedService, private router: Router) {
     }
 
     ngOnInit() {
         this.service.getLoginControl().subscribe((resData: any) => {
             if (resData == false) {
-                window.location.href = '/Emlak/';
+                this.router.navigate(['/Admin/Login']);
             }
         }, resError => this.errorMsg = resError);
     }

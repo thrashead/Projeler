@@ -30,5 +30,7 @@ namespace Emlak.Data
         public string LinkedMetaAdi { get; set; }
         public string MainRealEstatesAdi { get; set; }
         public string LinkedRealEstatesAdi { get; set; }
+        public string MainPropertyAdi { get; set; }
+        public string LinkedPropertyAdi { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿import { Component, AfterContentInit } from "@angular/core";
+﻿import { Component } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { SiteService } from '../../../services/site';
@@ -10,32 +10,24 @@ import { Lib } from '../../../lib/methods';
     templateUrl: './search.html'
 })
 
-export class SearchComponent implements AfterContentInit {
+export class SearchComponent {
     errorMsg: string;
 
-    detailSearchForm: FormGroup;
+    searchForm: FormGroup;
     realCPList: any;
+    kategoriList: any;
+    sehirList: any;
+    durumList: any;
+    yakitList: any;
+    isinmaList: any;
 
     constructor(private service: SiteService, private _router: Router, private _formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.KodlaGetir();
+        this.ComboDoldur();
         this.FormOlustur();
-
-        this.service.get("Site", "Sehirler").subscribe((resData: any) => {
-            for (var i = 0; i < resData.length; i++) {
-                $("#drpSehir").append("<option value=\"" + resData[i].Sehir + "\">" + resData[i].Sehir + "</option>");
-            }
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "Kategoriler", 0).subscribe((resData: any) => {
-            $("#drpAltKategori").append("<option value=\"0\">Tümü</option>");
-
-            for (var i = 0; i < resData.length; i++) {
-                $("#drpKategori").append("<option value=\"" + resData[i].ID + "\">" + resData[i].CategoryName + "</option>");
-            }
-        }, resError => this.errorMsg = resError);
 
         var $SearchToggle = $('.search-form .search-toggle');
         $SearchToggle.hide();
@@ -84,12 +76,26 @@ export class SearchComponent implements AfterContentInit {
         });
     }
 
-    ngAfterContentInit() {
-        setTimeout(function () {
-            $("#drpDurum").val($("#drpDurum option:first").val());
-            $("#drpIsinma").val($("#drpIsinma option:first").val());
-            $("#drpYakit").val($("#drpYakit option:first").val());
-        }, 500);
+    ComboDoldur() {
+        this.service.get("Site", "Sehirler").subscribe((resData: any) => {
+            this.sehirList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "Kategoriler", 0).subscribe((resData: any) => {
+            this.kategoriList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "Durumlar").subscribe((resData: any) => {
+            this.durumList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "YakitTipleri").subscribe((resData: any) => {
+            this.yakitList = resData;
+        }, resError => this.errorMsg = resError);
+
+        this.service.get("Site", "IsinmaTipleri").subscribe((resData: any) => {
+            this.isinmaList = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     onSubmit() {
@@ -112,9 +118,22 @@ export class SearchComponent implements AfterContentInit {
     }
 
     Doldur(realCPList: any) {
-        realCPList.KatID = parseInt(this.detailSearchForm.get("kategori").value);
+        let kategori = parseInt(this.searchForm.get("kategori").value);
+        let isinma = parseInt(this.searchForm.get("isinma").value);
+        let yakit = parseInt(this.searchForm.get("yakit").value);
+        let durum = parseInt(this.searchForm.get("durum").value);
+        let sehir = parseInt(this.searchForm.get("sehir").value);
+
+        realCPList.KatID = kategori == 0 ? null : kategori;
+        realCPList.IsinmaTipi = isinma == 0 ? null : isinma;
+        realCPList.YakitTipi = yakit == 0 ? null : yakit;
+        realCPList.Durum = durum == 0 ? null : durum;
+        realCPList.Sehir = sehir == 0 ? null : sehir;
+
         realCPList.AltKatID = 0;
-        realCPList.Baslik = this.detailSearchForm.get("baslik").value;
+        realCPList.Ilce = this.searchForm.get("ilce").value;
+        realCPList.Semt = this.searchForm.get("semt").value;
+        realCPList.Baslik = this.searchForm.get("baslik").value;
         realCPList.Fiyat = this.GetMin("fiyat1");
         realCPList.Fiyat2 = this.GetMax("fiyat2");
         realCPList.OdaSayisi = this.GetMin("roomCount1");
@@ -129,67 +148,58 @@ export class SearchComponent implements AfterContentInit {
         realCPList.Alan2 = this.GetMax("alan2");
         realCPList.BinaYasi = this.GetMin("binaYas1");
         realCPList.BinaYasi2 = this.GetMax("binaYas2");
-        realCPList.Sehir = this.detailSearchForm.get("sehir").value;
-        realCPList.Ilce = this.detailSearchForm.get("ilce").value;
-        realCPList.Semt = this.detailSearchForm.get("semt").value;
-        realCPList.IsinmaTipi = this.detailSearchForm.get("isinma").value;
-        realCPList.YakitTipi = this.detailSearchForm.get("yakit").value;
-        realCPList.Durum = this.detailSearchForm.get("durum").value;
 
-        realCPList.ArkaCephe = this.detailSearchForm.get("arkaCephe").value;
-        realCPList.OnCephe = this.detailSearchForm.get("onCephe").value;
-        realCPList.CaddeyeYakin = this.detailSearchForm.get("caddeyeYakin").value;
-        realCPList.DenizeSifir = this.detailSearchForm.get("denizeSifir").value;
-        realCPList.DenizeYakin = this.detailSearchForm.get("denizeYakin").value;
-        realCPList.Manzara = this.detailSearchForm.get("manzarali").value;
-        realCPList.Merkezde = this.detailSearchForm.get("merkezde").value;
-        realCPList.Metro = this.detailSearchForm.get("metro").value;
-        realCPList.Otoban = this.detailSearchForm.get("otoban").value;
-        realCPList.TopluUlasim = this.detailSearchForm.get("topluUlasim").value;
-        realCPList.Asansor = this.detailSearchForm.get("asansor").value;
-        realCPList.Bahce = this.detailSearchForm.get("bahce").value;
-        realCPList.Guvenlik = this.detailSearchForm.get("guvenlik").value;
-        realCPList.Hidrofor = this.detailSearchForm.get("hidrofor").value;
-        realCPList.Mantolama = this.detailSearchForm.get("mantolama").value;
-        realCPList.Jenerator = this.detailSearchForm.get("jenerator").value;
-        realCPList.Kapici = this.detailSearchForm.get("kapici").value;
-        realCPList.Otopark = this.detailSearchForm.get("otopark").value;
-        realCPList.OyunParki = this.detailSearchForm.get("oyunParki").value;
-        realCPList.PVCDograma = this.detailSearchForm.get("pVCDograma").value;
-        realCPList.SiteIci = this.detailSearchForm.get("siteIci").value;
-        realCPList.YanginMerdiveni = this.detailSearchForm.get("yanginMerdiveni").value;
-        realCPList.YuzmeHavuzu = this.detailSearchForm.get("yuzmeHavuzu").value;
-        realCPList.Alarm = this.detailSearchForm.get("alarm").value;
-        realCPList.Balkon = this.detailSearchForm.get("balkon").value;
-        realCPList.CelikKapi = this.detailSearchForm.get("celikKapi").value;
-        realCPList.GoruntuluDiafon = this.detailSearchForm.get("goruntuluDiafon").value;
-        realCPList.Jakuzi = this.detailSearchForm.get("jakuzi").value;
-        realCPList.KabloTVUydu = this.detailSearchForm.get("kabloTVUydu").value;
-        realCPList.Klima = this.detailSearchForm.get("klima").value;
+        realCPList.ArkaCephe = this.searchForm.get("arkaCephe").value;
+        realCPList.OnCephe = this.searchForm.get("onCephe").value;
+        realCPList.CaddeyeYakin = this.searchForm.get("caddeyeYakin").value;
+        realCPList.DenizeSifir = this.searchForm.get("denizeSifir").value;
+        realCPList.DenizeYakin = this.searchForm.get("denizeYakin").value;
+        realCPList.Manzara = this.searchForm.get("manzarali").value;
+        realCPList.Merkezde = this.searchForm.get("merkezde").value;
+        realCPList.Metro = this.searchForm.get("metro").value;
+        realCPList.Otoban = this.searchForm.get("otoban").value;
+        realCPList.TopluUlasim = this.searchForm.get("topluUlasim").value;
+        realCPList.Asansor = this.searchForm.get("asansor").value;
+        realCPList.Bahce = this.searchForm.get("bahce").value;
+        realCPList.Guvenlik = this.searchForm.get("guvenlik").value;
+        realCPList.Hidrofor = this.searchForm.get("hidrofor").value;
+        realCPList.Mantolama = this.searchForm.get("mantolama").value;
+        realCPList.Jenerator = this.searchForm.get("jenerator").value;
+        realCPList.Kapici = this.searchForm.get("kapici").value;
+        realCPList.Otopark = this.searchForm.get("otopark").value;
+        realCPList.OyunParki = this.searchForm.get("oyunParki").value;
+        realCPList.PVCDograma = this.searchForm.get("pVCDograma").value;
+        realCPList.SiteIci = this.searchForm.get("siteIci").value;
+        realCPList.YanginMerdiveni = this.searchForm.get("yanginMerdiveni").value;
+        realCPList.YuzmeHavuzu = this.searchForm.get("yuzmeHavuzu").value;
+        realCPList.Alarm = this.searchForm.get("alarm").value;
+        realCPList.Balkon = this.searchForm.get("balkon").value;
+        realCPList.CelikKapi = this.searchForm.get("celikKapi").value;
+        realCPList.GoruntuluDiafon = this.searchForm.get("goruntuluDiafon").value;
+        realCPList.Jakuzi = this.searchForm.get("jakuzi").value;
+        realCPList.KabloTVUydu = this.searchForm.get("kabloTVUydu").value;
+        realCPList.Klima = this.searchForm.get("klima").value;
 
         realCPList.Alan = isNaN(realCPList.Alan) ? null : realCPList.Alan;
         realCPList.Alan2 = isNaN(realCPList.Alan2) ? null : realCPList.Alan2;
-        realCPList.AltKatID = isNaN(realCPList.AltKatID) ? 0 : realCPList.AltKatID;
-        realCPList.Baslik = realCPList.Baslik == null ? "" : realCPList.Baslik;
+        realCPList.KatID = isNaN(realCPList.KatID) ? null : realCPList.KatID;
+        realCPList.AltKatID = isNaN(realCPList.AltKatID) ? null : realCPList.AltKatID;
+        realCPList.Sehir = isNaN(realCPList.Sehir) ? null : realCPList.Sehir;
         realCPList.BinaYasi = isNaN(realCPList.BinaYasi) ? null : realCPList.BinaYasi;
         realCPList.BinaYasi2 = isNaN(realCPList.BinaYasi2) ? null : realCPList.BinaYasi2;
         realCPList.BulunduguKat = isNaN(realCPList.BulunduguKat) ? null : realCPList.BulunduguKat;
         realCPList.BulunduguKat2 = isNaN(realCPList.BulunduguKat2) ? null : realCPList.BulunduguKat2;
-        realCPList.Durum = realCPList.Durum == null ? "Tümü" : realCPList.Durum;
         realCPList.Fiyat = isNaN(realCPList.Fiyat) ? null : realCPList.Fiyat;
         realCPList.Fiyat2 = isNaN(realCPList.Fiyat2) ? null : realCPList.Fiyat2;
-        realCPList.Ilce = realCPList.Ilce == null ? "" : realCPList.Ilce;
-        realCPList.IsinmaTipi = realCPList.IsinmaTipi == null ? "Farketmez" : realCPList.IsinmaTipi;
-        realCPList.KatID = isNaN(realCPList.KatID) ? 0 : realCPList.KatID;
         realCPList.KatSayisi = isNaN(realCPList.KatSayisi) ? null : realCPList.KatSayisi;
         realCPList.KatSayisi2 = isNaN(realCPList.KatSayisi2) ? null : realCPList.KatSayisi2;
         realCPList.OdaSayisi = isNaN(realCPList.OdaSayisi) ? null : realCPList.OdaSayisi;
         realCPList.OdaSayisi2 = isNaN(realCPList.OdaSayisi2) ? null : realCPList.OdaSayisi2;
         realCPList.SalonSayisi = isNaN(realCPList.SalonSayisi) ? null : realCPList.SalonSayisi;
         realCPList.SalonSayisi2 = isNaN(realCPList.SalonSayisi2) ? null : realCPList.SalonSayisi2;
-        realCPList.Sehir = realCPList.Sehir == null ? "Tümü" : realCPList.Sehir;
-        realCPList.Semt = realCPList.Semt == null ? "" : realCPList.Semt;
-        realCPList.YakitTipi = realCPList.YakitTipi == null ? "Farketmez" : realCPList.YakitTipi;
+        realCPList.Durum = isNaN(realCPList.Durum) ? null : realCPList.Durum;
+        realCPList.YakitTipi = isNaN(realCPList.YakitTipi) ? null : realCPList.YakitTipi;
+        realCPList.IsinmaTipi = isNaN(realCPList.IsinmaTipi) ? null : realCPList.IsinmaTipi;
         realCPList.Alarm = realCPList.Alarm == null ? false : realCPList.Alarm;
         realCPList.ArkaCephe = realCPList.ArkaCephe == null ? false : realCPList.ArkaCephe;
         realCPList.Asansor = realCPList.Asansor == null ? false : realCPList.Asansor;
@@ -224,7 +234,7 @@ export class SearchComponent implements AfterContentInit {
 
     //Form Oluştur
     FormOlustur() {
-        this.detailSearchForm = this._formBuilder.group({
+        this.searchForm = this._formBuilder.group({
             satilik: [null],
             kategori: [null],
             durum: [null],
@@ -295,10 +305,6 @@ export class SearchComponent implements AfterContentInit {
         return maxPrice;
     }
 
-    IsChecked(id: string) {
-        return $("#" + id).parent().hasClass("checked");
-    }
-
     //KodlaGetir
     langItems: Array<LangItem>;
     langItem: LangItem;
@@ -310,29 +316,12 @@ export class SearchComponent implements AfterContentInit {
     ctgyText: string;
     sctgText: string;
     sallText: string;
-    sclrText: string;
-    susdText: string;
-    sdmgText: string;
     arlkText: string;
     ttleText: string;
     cityText: string;
     ilceText: string;
     semtText: string;
     prcdText: string;
-    fallText: string;
-    fdgzText: string;
-    fwocText: string;
-    flifText: string;
-    felcText: string;
-    fothText: string;
-    wallText: string;
-    wsunText: string;
-    wkatText: string;
-    wairText: string;
-    wcomText: string;
-    wcenText: string;
-    wstoText: string;
-    wothText: string;
     dsbtText: string;
     fiyatText: string;
     odasayisiText: string;
@@ -388,29 +377,12 @@ export class SearchComponent implements AfterContentInit {
                     case "ctgy": this.ctgyText = item.Value; break;
                     case "sctg": this.sctgText = item.Value; break;
                     case "sall": this.sallText = item.Value; break;
-                    case "sclr": this.sclrText = item.Value; break;
-                    case "susd": this.susdText = item.Value; break;
-                    case "sdmg": this.sdmgText = item.Value; break;
                     case "arlk": this.arlkText = item.Value; break;
                     case "ttle": this.ttleText = item.Value; break;
                     case "city": this.cityText = item.Value; break;
                     case "ilce": this.ilceText = item.Value; break;
                     case "semt": this.semtText = item.Value; break;
                     case "prcd": this.prcdText = item.Value; break;
-                    case "fall": this.fallText = item.Value; break;
-                    case "fdgz": this.fdgzText = item.Value; break;
-                    case "fwoc": this.fwocText = item.Value; break;
-                    case "flif": this.flifText = item.Value; break;
-                    case "felc": this.felcText = item.Value; break;
-                    case "foth": this.fothText = item.Value; break;
-                    case "wall": this.wallText = item.Value; break;
-                    case "wsun": this.wsunText = item.Value; break;
-                    case "wkat": this.wkatText = item.Value; break;
-                    case "wair": this.wairText = item.Value; break;
-                    case "wcom": this.wcomText = item.Value; break;
-                    case "wcen": this.wcenText = item.Value; break;
-                    case "wsto": this.wstoText = item.Value; break;
-                    case "woth": this.wothText = item.Value; break;
                     case "dsbt": this.dsbtText = item.Value; break;
                     case "bage": this.binaYasiText = item.Value; break;
                     case "wtyp": this.isinmaTipiText = item.Value; break;
@@ -467,29 +439,12 @@ export class SearchComponent implements AfterContentInit {
         this.langItems.push(Lib.SetLangItem(this.langItem, "ctgy"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "sctg"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "sall"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "sclr"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "susd"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "sdmg"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "arlk"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "ttle"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "city"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "ilce"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "semt"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "prcd"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "fall"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "fdgz"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "fwoc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "flif"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "felc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "foth"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wall"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wsun"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wkat"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wair"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wcom"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wcen"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wsto"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "woth"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "dsbt"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "bage"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "wtyp"));

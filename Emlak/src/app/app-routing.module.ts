@@ -10,113 +10,113 @@ import { PropertyIndexComponent } from './views/property';
 import { PropertyDetailComponent } from './views/property/detail';
 
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
-import { AdminGirisComponent } from './admin/views/giris/giris';
-import { AdminAnaSayfaComponent } from './admin/views/giris/anasayfa';
+import { AdminLoginComponent } from './admin/views/home/login';
+import { AdminIndexComponent } from './admin/views/home/index';
 
-import { AdminBaglantiIndexComponent } from './admin/views/baglanti';
-import { AdminBaglantiEkleComponent } from './admin/views/baglanti/ekle';
-import { AdminBaglantiDuzenleComponent } from './admin/views/baglanti/duzenle';
+import { AdminRealEstatesIndexComponent } from './admin/views/property/realestates';
+import { AdminRealEstatesInsertComponent } from './admin/views/property/realestates/insert';
+import { AdminRealEstatesUpdateComponent } from './admin/views/property/realestates/update';
 
-import { AdminBagliTiplerIndexComponent } from './admin/views/baglitipler';
-import { AdminBagliTiplerEkleComponent } from './admin/views/baglitipler/ekle';
-import { AdminBagliTiplerDuzenleComponent } from './admin/views/baglitipler/duzenle';
+import { AdminRealEstatesTIndexComponent } from './admin/views/property/realestatest';
+import { AdminRealEstatesTInsertComponent } from './admin/views/property/realestatest/insert';
+import { AdminRealEstatesTUpdateComponent } from './admin/views/property/realestatest/update';
 
-import { AdminDilIndexComponent } from './admin/views/dil';
-import { AdminDilEkleComponent } from './admin/views/dil/ekle';
-import { AdminDilDuzenleComponent } from './admin/views/dil/duzenle';
+import { AdminLangContentIndexComponent } from './admin/views/general/langcontent';
+import { AdminLangContentInsertComponent } from './admin/views/general/langcontent/insert';
+import { AdminLangContentUpdateComponent } from './admin/views/general/langcontent/update';
 
-import { AdminDilIcerikIndexComponent } from './admin/views/dilicerik';
-import { AdminDilIcerikEkleComponent } from './admin/views/dilicerik/ekle';
-import { AdminDilIcerikDuzenleComponent } from './admin/views/dilicerik/duzenle';
+import { AdminLangContentTIndexComponent } from './admin/views/general/langcontentt';
+import { AdminLangContentTInsertComponent } from './admin/views/general/langcontentt/insert';
+import { AdminLangContentTUpdateComponent } from './admin/views/general/langcontentt/update';
 
-import { AdminDilIcerikDilIndexComponent } from './admin/views/dilicerikdil';
-import { AdminDilIcerikDilEkleComponent } from './admin/views/dilicerikdil/ekle';
-import { AdminDilIcerikDilDuzenleComponent } from './admin/views/dilicerikdil/duzenle';
+import { AdminLinksIndexComponent } from './admin/views/general/links';
+import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
+import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
 
-import { AdminDosyaIndexComponent } from './admin/views/dosya';
-import { AdminDosyaEkleComponent } from './admin/views/dosya/ekle';
-import { AdminDosyaDuzenleComponent } from './admin/views/dosya/duzenle';
+import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
+import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
+import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
 
-import { AdminEmlakIndexComponent } from './admin/views/emlak';
-import { AdminEmlakDuzenleComponent } from './admin/views/emlak/duzenle';
-import { AdminEmlakEkleComponent } from './admin/views/emlak/ekle';
+import { AdminTranslationIndexComponent } from './admin/views/general/translation';
+import { AdminTranslationInsertComponent } from './admin/views/general/translation/insert';
+import { AdminTranslationUpdateComponent } from './admin/views/general/translation/update';
 
-import { AdminEmlakDilIndexComponent } from './admin/views/emlakdil';
-import { AdminEmlakDilEkleComponent } from './admin/views/emlakdil/ekle';
-import { AdminEmlakDilDuzenleComponent } from './admin/views/emlakdil/duzenle';
+import { AdminFileIndexComponent } from './admin/views/general/file';
+import { AdminFileInsertComponent } from './admin/views/general/file/insert';
+import { AdminFileUpdateComponent } from './admin/views/general/file/update';
 
-import { AdminGaleriIndexComponent } from './admin/views/galeri';
-import { AdminGaleriEkleComponent } from './admin/views/galeri/ekle';
-import { AdminGaleriDuzenleComponent } from './admin/views/galeri/duzenle';
+import { AdminGalleryIndexComponent } from './admin/views/general/gallery';
+import { AdminGalleryInsertComponent } from './admin/views/general/gallery/insert';
+import { AdminGalleryUpdateComponent } from './admin/views/general/gallery/update';
 
-import { AdminGaleriDilIndexComponent } from './admin/views/galeridil';
-import { AdminGaleriDilEkleComponent } from './admin/views/galeridil/ekle';
-import { AdminGaleriDilDuzenleComponent } from './admin/views/galeridil/duzenle';
+import { AdminGalleryTIndexComponent } from './admin/views/general/galleryt';
+import { AdminGalleryTInsertComponent } from './admin/views/general/galleryt/insert';
+import { AdminGalleryTUpdateComponent } from './admin/views/general/galleryt/update';
 
-import { AdminIcerikIndexComponent } from './admin/views/icerik';
-import { AdminIcerikEkleComponent } from './admin/views/icerik/ekle';
-import { AdminIcerikDuzenleComponent } from './admin/views/icerik/duzenle';
+import { AdminContentIndexComponent } from './admin/views/general/content';
+import { AdminContentInsertComponent } from './admin/views/general/content/insert';
+import { AdminContentUpdateComponent } from './admin/views/general/content/update';
 
-import { AdminIcerikDilIndexComponent } from './admin/views/icerikdil';
-import { AdminIcerikDilEkleComponent } from './admin/views/icerikdil/ekle';
-import { AdminIcerikDilDuzenleComponent } from './admin/views/icerikdil/duzenle';
+import { AdminContentTIndexComponent } from './admin/views/general/contentt';
+import { AdminContentTInsertComponent } from './admin/views/general/contentt/insert';
+import { AdminContentTUpdateComponent } from './admin/views/general/contentt/update';
 
-import { AdminKategoriIndexComponent } from './admin/views/kategori';
-import { AdminKategoriEkleComponent } from './admin/views/kategori/ekle';
-import { AdminKategoriDuzenleComponent } from './admin/views/kategori/duzenle';
+import { AdminCategoryIndexComponent } from './admin/views/general/category';
+import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
+import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminKategoriDilIndexComponent } from './admin/views/kategoridil';
-import { AdminKategoriDilEkleComponent } from './admin/views/kategoridil/ekle';
-import { AdminKategoriDilDuzenleComponent } from './admin/views/kategoridil/duzenle';
+import { AdminCategoryTIndexComponent } from './admin/views/general/categoryt';
+import { AdminCategoryTInsertComponent } from './admin/views/general/categoryt/insert';
+import { AdminCategoryTUpdateComponent } from './admin/views/general/categoryt/update';
 
-import { AdminKullaniciGrupIndexComponent } from './admin/views/kullanicigrup';
-import { AdminKullaniciGrupEkleComponent } from './admin/views/kullanicigrup/ekle';
-import { AdminKullaniciGrupDuzenleComponent } from './admin/views/kullanicigrup/duzenle';
+import { AdminUserGroupsIndexComponent } from './admin/views/general/usergroups';
+import { AdminUserGroupsInsertComponent } from './admin/views/general/usergroups/insert';
+import { AdminUserGroupsUpdateComponent } from './admin/views/general/usergroups/update';
 
-import { AdminKullaniciGrupHakIndexComponent } from './admin/views/kullanicigruphak';
-import { AdminKullaniciGrupHakEkleComponent } from './admin/views/kullanicigruphak/ekle';
-import { AdminKullaniciGrupHakDuzenleComponent } from './admin/views/kullanicigruphak/duzenle';
+import { AdminUserGroupRightsIndexComponent } from './admin/views/general/usergrouprights';
+import { AdminUserGroupRightsInsertComponent } from './admin/views/general/usergrouprights/insert';
+import { AdminUserGroupRightsUpdateComponent } from './admin/views/general/usergrouprights/update';
 
-import { AdminKullaniciGrupIslemIndexComponent } from './admin/views/kullanicigrupislem';
-import { AdminKullaniciGrupIslemEkleComponent } from './admin/views/kullanicigrupislem/ekle';
-import { AdminKullaniciGrupIslemDuzenleComponent } from './admin/views/kullanicigrupislem/duzenle';
+import { AdminUserGroupProcessIndexComponent } from './admin/views/general/usergroupprocess';
+import { AdminUserGroupProcessInsertComponent } from './admin/views/general/usergroupprocess/insert';
+import { AdminUserGroupProcessUpdateComponent } from './admin/views/general/usergroupprocess/update';
 
-import { AdminKullaniciGrupTabloIndexComponent } from './admin/views/kullanicigruptablo';
-import { AdminKullaniciGrupTabloEkleComponent } from './admin/views/kullanicigruptablo/ekle';
-import { AdminKullaniciGrupTabloDuzenleComponent } from './admin/views/kullanicigruptablo/duzenle';
+import { AdminUserGroupTablesIndexComponent } from './admin/views/general/usergrouptables';
+import { AdminUserGroupTablesInsertComponent } from './admin/views/general/usergrouptables/insert';
+import { AdminUserGroupTablesUpdateComponent } from './admin/views/general/usergrouptables/update';
 
-import { AdminKullanicilarIndexComponent } from './admin/views/kullanicilar';
-import { AdminKullanicilarEkleComponent } from './admin/views/kullanicilar/ekle';
-import { AdminKullanicilarDuzenleComponent } from './admin/views/kullanicilar/duzenle';
-import { AdminKullanicilarGrupDegistirComponent } from './admin/views/kullanicilar/grupdegistir';
+import { AdminUsersIndexComponent } from './admin/views/general/users';
+import { AdminUsersInsertComponent } from './admin/views/general/users/insert';
+import { AdminUsersUpdateComponent } from './admin/views/general/users/update';
+import { AdminUsersGrupDegistirComponent } from './admin/views/general/users/grupdegistir';
 
-import { AdminLogIslemIndexComponent } from './admin/views/logislem';
-import { AdminLogIslemEkleComponent } from './admin/views/logislem/ekle';
-import { AdminLogIslemDuzenleComponent } from './admin/views/logislem/duzenle';
+import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
+import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
+import { AdminLogProcessUpdateComponent } from './admin/views/general/logprocess/update';
 
-import { AdminLoglarIndexComponent } from './admin/views/loglar';
+import { AdminLogsIndexComponent } from './admin/views/general/logs';
 
-import { AdminLogTiplerIndexComponent } from './admin/views/logtipler';
-import { AdminLogTiplerEkleComponent } from './admin/views/logtipler/ekle';
-import { AdminLogTiplerDuzenleComponent } from './admin/views/logtipler/duzenle';
+import { AdminLogTypesIndexComponent } from './admin/views/general/logtypes';
+import { AdminLogTypesInsertComponent } from './admin/views/general/logtypes/insert';
+import { AdminLogTypesUpdateComponent } from './admin/views/general/logtypes/update';
 
-import { AdminMetaIndexComponent } from './admin/views/meta';
-import { AdminMetaEkleComponent } from './admin/views/meta/ekle';
-import { AdminMetaDuzenleComponent } from './admin/views/meta/duzenle';
+import { AdminMetaIndexComponent } from './admin/views/general/meta';
+import { AdminMetaInsertComponent } from './admin/views/general/meta/insert';
+import { AdminMetaUpdateComponent } from './admin/views/general/meta/update';
 
-import { AdminMetaDilIndexComponent } from './admin/views/metadil';
-import { AdminMetaDilEkleComponent } from './admin/views/metadil/ekle';
-import { AdminMetaDilDuzenleComponent } from './admin/views/metadil/duzenle';
+import { AdminMetaTIndexComponent } from './admin/views/general/metat';
+import { AdminMetaTInsertComponent } from './admin/views/general/metat/insert';
+import { AdminMetaTUpdateComponent } from './admin/views/general/metat/update';
 
-import { AdminResimIndexComponent } from './admin/views/resim';
-import { AdminResimEkleComponent } from './admin/views/resim/ekle';
-import { AdminResimDuzenleComponent } from './admin/views/resim/duzenle';
+import { AdminPictureIndexComponent } from './admin/views/general/picture';
+import { AdminPictureInsertComponent } from './admin/views/general/picture/insert';
+import { AdminPictureUpdateComponent } from './admin/views/general/picture/update';
 
-import { AdminTiplerIndexComponent } from './admin/views/tipler';
-import { AdminTiplerEkleComponent } from './admin/views/tipler/ekle';
-import { AdminTiplerDuzenleComponent } from './admin/views/tipler/duzenle';
+import { AdminTypesIndexComponent } from './admin/views/general/types';
+import { AdminTypesInsertComponent } from './admin/views/general/types/insert';
+import { AdminTypesUpdateComponent } from './admin/views/general/types/update';
 
-import { AdminZiyaretciIndexComponent } from './admin/views/ziyaretci';
+import { AdminVisitorCounterIndexComponent } from './admin/views/general/visitorcounter';
 
 const routes: Routes = [
     {
@@ -138,156 +138,155 @@ const routes: Routes = [
         ]
     },
 
-    { path: 'Admin', component: AdminGirisComponent },
-    { path: 'Admin/Index', component: AdminGirisComponent },
-    { path: 'Admin/Giris', component: AdminGirisComponent },
+    { path: 'Admin/Login', component: AdminLoginComponent },
 
     {
         path: '',
         component: AdminLayoutComponent,
         children: [
-            { path: 'Admin/AnaSayfa', component: AdminAnaSayfaComponent },
+            { path: 'Admin', component: AdminIndexComponent },
+            { path: 'Admin/Index', component: AdminIndexComponent },
 
-            { path: 'Admin/Baglanti', component: AdminBaglantiIndexComponent },
-            { path: 'Admin/Baglanti/Index', component: AdminBaglantiIndexComponent },
-            { path: 'Admin/Baglanti/Ekle', component: AdminBaglantiEkleComponent },
-            { path: 'Admin/Baglanti/Ekle/:linkID', component: AdminBaglantiEkleComponent },
-            { path: 'Admin/Baglanti/Duzenle/:id', component: AdminBaglantiDuzenleComponent },
+            { path: 'Admin/Links', component: AdminLinksIndexComponent },
+            { path: 'Admin/Links/Index', component: AdminLinksIndexComponent },
+            { path: 'Admin/Links/Insert', component: AdminLinksInsertComponent },
+            { path: 'Admin/Links/Insert/:linkID', component: AdminLinksInsertComponent },
+            { path: 'Admin/Links/Update/:id', component: AdminLinksUpdateComponent },
 
-            { path: 'Admin/BagliTipler', component: AdminBagliTiplerIndexComponent },
-            { path: 'Admin/BagliTipler/Index', component: AdminBagliTiplerIndexComponent },
-            { path: 'Admin/BagliTipler/Ekle', component: AdminBagliTiplerEkleComponent },
-            { path: 'Admin/BagliTipler/Duzenle/:id', component: AdminBagliTiplerDuzenleComponent },
+            { path: 'Admin/LinkTypes', component: AdminLinkTypesIndexComponent },
+            { path: 'Admin/LinkTypes/Index', component: AdminLinkTypesIndexComponent },
+            { path: 'Admin/LinkTypes/Insert', component: AdminLinkTypesInsertComponent },
+            { path: 'Admin/LinkTypes/Update/:id', component: AdminLinkTypesUpdateComponent },
 
-            { path: 'Admin/Dil', component: AdminDilIndexComponent },
-            { path: 'Admin/Dil/Index', component: AdminDilIndexComponent },
-            { path: 'Admin/Dil/Ekle', component: AdminDilEkleComponent },
-            { path: 'Admin/Dil/Duzenle/:id', component: AdminDilDuzenleComponent },
+            { path: 'Admin/Translation', component: AdminTranslationIndexComponent },
+            { path: 'Admin/Translation/Index', component: AdminTranslationIndexComponent },
+            { path: 'Admin/Translation/Insert', component: AdminTranslationInsertComponent },
+            { path: 'Admin/Translation/Update/:id', component: AdminTranslationUpdateComponent },
 
-            { path: 'Admin/DilIcerik', component: AdminDilIcerikIndexComponent },
-            { path: 'Admin/DilIcerik/Index', component: AdminDilIcerikIndexComponent },
-            { path: 'Admin/DilIcerik/Ekle', component: AdminDilIcerikEkleComponent },
-            { path: 'Admin/DilIcerik/Duzenle/:id', component: AdminDilIcerikDuzenleComponent },
+            { path: 'Admin/LangContent', component: AdminLangContentIndexComponent },
+            { path: 'Admin/LangContent/Index', component: AdminLangContentIndexComponent },
+            { path: 'Admin/LangContent/Insert', component: AdminLangContentInsertComponent },
+            { path: 'Admin/LangContent/Update/:id', component: AdminLangContentUpdateComponent },
 
-            { path: 'Admin/DilIcerikDil', component: AdminDilIcerikDilIndexComponent },
-            { path: 'Admin/DilIcerikDil/Index', component: AdminDilIcerikDilIndexComponent },
-            { path: 'Admin/DilIcerikDil/Ekle', component: AdminDilIcerikDilEkleComponent },
-            { path: 'Admin/DilIcerikDil/Duzenle/:id', component: AdminDilIcerikDilDuzenleComponent },
+            { path: 'Admin/LangContentT', component: AdminLangContentTIndexComponent },
+            { path: 'Admin/LangContentT/Index', component: AdminLangContentTIndexComponent },
+            { path: 'Admin/LangContentT/Insert', component: AdminLangContentTInsertComponent },
+            { path: 'Admin/LangContentT/Update/:id', component: AdminLangContentTUpdateComponent },
 
-            { path: 'Admin/Dosya', component: AdminDosyaIndexComponent },
-            { path: 'Admin/Dosya/Index', component: AdminDosyaIndexComponent },
-            { path: 'Admin/Dosya/Ekle', component: AdminDosyaEkleComponent },
-            { path: 'Admin/Dosya/Duzenle/:id', component: AdminDosyaDuzenleComponent },
+            { path: 'Admin/File', component: AdminFileIndexComponent },
+            { path: 'Admin/File/Index', component: AdminFileIndexComponent },
+            { path: 'Admin/File/Insert', component: AdminFileInsertComponent },
+            { path: 'Admin/File/Update/:id', component: AdminFileUpdateComponent },
 
-            { path: 'Admin/Emlak', component: AdminEmlakIndexComponent },
-            { path: 'Admin/Emlak/Index', component: AdminEmlakIndexComponent },
-            { path: 'Admin/Emlak/Ekle', component: AdminEmlakEkleComponent },
-            { path: 'Admin/Emlak/Duzenle/:id', component: AdminEmlakDuzenleComponent },
+            { path: 'Admin/RealEstates', component: AdminRealEstatesIndexComponent },
+            { path: 'Admin/RealEstates/Index', component: AdminRealEstatesIndexComponent },
+            { path: 'Admin/RealEstates/Insert', component: AdminRealEstatesInsertComponent },
+            { path: 'Admin/RealEstates/Update/:id', component: AdminRealEstatesUpdateComponent },
 
-            { path: 'Admin/EmlakDil', component: AdminEmlakDilIndexComponent },
-            { path: 'Admin/EmlakDil/Index', component: AdminEmlakDilIndexComponent },
-            { path: 'Admin/EmlakDil/Ekle', component: AdminEmlakDilEkleComponent },
-            { path: 'Admin/EmlakDil/Ekle/:linkID', component: AdminEmlakDilEkleComponent },
-            { path: 'Admin/EmlakDil/Duzenle/:id', component: AdminEmlakDilDuzenleComponent },
+            { path: 'Admin/RealEstatesT', component: AdminRealEstatesTIndexComponent },
+            { path: 'Admin/RealEstatesT/Index', component: AdminRealEstatesTIndexComponent },
+            { path: 'Admin/RealEstatesT/Insert', component: AdminRealEstatesTInsertComponent },
+            { path: 'Admin/RealEstatesT/Insert/:linkID', component: AdminRealEstatesTInsertComponent },
+            { path: 'Admin/RealEstatesT/Update/:id', component: AdminRealEstatesTUpdateComponent },
 
-            { path: 'Admin/Galeri', component: AdminGaleriIndexComponent },
-            { path: 'Admin/Galeri/Index', component: AdminGaleriIndexComponent },
-            { path: 'Admin/Galeri/Ekle', component: AdminGaleriEkleComponent },
-            { path: 'Admin/Galeri/Duzenle/:id', component: AdminGaleriDuzenleComponent },
+            { path: 'Admin/Gallery', component: AdminGalleryIndexComponent },
+            { path: 'Admin/Gallery/Index', component: AdminGalleryIndexComponent },
+            { path: 'Admin/Gallery/Insert', component: AdminGalleryInsertComponent },
+            { path: 'Admin/Gallery/Update/:id', component: AdminGalleryUpdateComponent },
 
-            { path: 'Admin/GaleriDil', component: AdminGaleriDilIndexComponent },
-            { path: 'Admin/GaleriDil/Index', component: AdminGaleriDilIndexComponent },
-            { path: 'Admin/GaleriDil/Ekle', component: AdminGaleriDilEkleComponent },
-            { path: 'Admin/GaleriDil/Ekle/:linkID', component: AdminGaleriDilEkleComponent },
-            { path: 'Admin/GaleriDil/Duzenle/:id', component: AdminGaleriDilDuzenleComponent },
+            { path: 'Admin/GalleryT', component: AdminGalleryTIndexComponent },
+            { path: 'Admin/GalleryT/Index', component: AdminGalleryTIndexComponent },
+            { path: 'Admin/GalleryT/Insert', component: AdminGalleryTInsertComponent },
+            { path: 'Admin/GalleryT/Insert/:linkID', component: AdminGalleryTInsertComponent },
+            { path: 'Admin/GalleryT/Update/:id', component: AdminGalleryTUpdateComponent },
 
-            { path: 'Admin/Icerik', component: AdminIcerikIndexComponent },
-            { path: 'Admin/Icerik/Index', component: AdminIcerikIndexComponent },
-            { path: 'Admin/Icerik/Ekle', component: AdminIcerikEkleComponent },
-            { path: 'Admin/Icerik/Duzenle/:id', component: AdminIcerikDuzenleComponent },
+            { path: 'Admin/Content', component: AdminContentIndexComponent },
+            { path: 'Admin/Content/Index', component: AdminContentIndexComponent },
+            { path: 'Admin/Content/Insert', component: AdminContentInsertComponent },
+            { path: 'Admin/Content/Update/:id', component: AdminContentUpdateComponent },
 
-            { path: 'Admin/IcerikDil', component: AdminIcerikDilIndexComponent },
-            { path: 'Admin/IcerikDil/Index', component: AdminIcerikDilIndexComponent },
-            { path: 'Admin/IcerikDil/Ekle', component: AdminIcerikDilEkleComponent },
-            { path: 'Admin/IcerikDil/Ekle/:linkID', component: AdminIcerikDilEkleComponent },
-            { path: 'Admin/IcerikDil/Duzenle/:id', component: AdminIcerikDilDuzenleComponent },
+            { path: 'Admin/ContentT', component: AdminContentTIndexComponent },
+            { path: 'Admin/ContentT/Index', component: AdminContentTIndexComponent },
+            { path: 'Admin/ContentT/Insert', component: AdminContentTInsertComponent },
+            { path: 'Admin/ContentT/Insert/:linkID', component: AdminContentTInsertComponent },
+            { path: 'Admin/ContentT/Update/:id', component: AdminContentTUpdateComponent },
 
-            { path: 'Admin/Kategori', component: AdminKategoriIndexComponent },
-            { path: 'Admin/Kategori/Index', component: AdminKategoriIndexComponent },
-            { path: 'Admin/Kategori/Ekle', component: AdminKategoriEkleComponent },
-            { path: 'Admin/Kategori/Duzenle/:id', component: AdminKategoriDuzenleComponent },
+            { path: 'Admin/Category', component: AdminCategoryIndexComponent },
+            { path: 'Admin/Category/Index', component: AdminCategoryIndexComponent },
+            { path: 'Admin/Category/Insert', component: AdminCategoryInsertComponent },
+            { path: 'Admin/Category/Update/:id', component: AdminCategoryUpdateComponent },
 
-            { path: 'Admin/KategoriDil', component: AdminKategoriDilIndexComponent },
-            { path: 'Admin/KategoriDil/Index', component: AdminKategoriDilIndexComponent },
-            { path: 'Admin/KategoriDil/Ekle', component: AdminKategoriDilEkleComponent },
-            { path: 'Admin/KategoriDil/Ekle/:linkID', component: AdminKategoriDilEkleComponent },
-            { path: 'Admin/KategoriDil/Duzenle/:id', component: AdminKategoriDilDuzenleComponent },
+            { path: 'Admin/CategoryT', component: AdminCategoryTIndexComponent },
+            { path: 'Admin/CategoryT/Index', component: AdminCategoryTIndexComponent },
+            { path: 'Admin/CategoryT/Insert', component: AdminCategoryTInsertComponent },
+            { path: 'Admin/CategoryT/Insert/:linkID', component: AdminCategoryTInsertComponent },
+            { path: 'Admin/CategoryT/Update/:id', component: AdminCategoryTUpdateComponent },
 
-            { path: 'Admin/Kullanicilar', component: AdminKullanicilarIndexComponent },
-            { path: 'Admin/Kullanicilar/Index', component: AdminKullanicilarIndexComponent },
-            { path: 'Admin/Kullanicilar/Ekle', component: AdminKullanicilarEkleComponent },
-            { path: 'Admin/Kullanicilar/Duzenle/:id', component: AdminKullanicilarDuzenleComponent },
-            { path: 'Admin/Kullanicilar/GrupDegistir/:id', component: AdminKullanicilarGrupDegistirComponent },
+            { path: 'Admin/Users', component: AdminUsersIndexComponent },
+            { path: 'Admin/Users/Index', component: AdminUsersIndexComponent },
+            { path: 'Admin/Users/Insert', component: AdminUsersInsertComponent },
+            { path: 'Admin/Users/Update/:id', component: AdminUsersUpdateComponent },
+            { path: 'Admin/Users/GrupDegistir/:id', component: AdminUsersGrupDegistirComponent },
 
-            { path: 'Admin/KullaniciGrup', component: AdminKullaniciGrupIndexComponent },
-            { path: 'Admin/KullaniciGrup/Index', component: AdminKullaniciGrupIndexComponent },
-            { path: 'Admin/KullaniciGrup/Ekle', component: AdminKullaniciGrupEkleComponent },
-            { path: 'Admin/KullaniciGrup/Duzenle/:id', component: AdminKullaniciGrupDuzenleComponent },
+            { path: 'Admin/UserGroups', component: AdminUserGroupsIndexComponent },
+            { path: 'Admin/UserGroups/Index', component: AdminUserGroupsIndexComponent },
+            { path: 'Admin/UserGroups/Insert', component: AdminUserGroupsInsertComponent },
+            { path: 'Admin/UserGroups/Update/:id', component: AdminUserGroupsUpdateComponent },
 
-            { path: 'Admin/KullaniciGrupHak', component: AdminKullaniciGrupHakIndexComponent },
-            { path: 'Admin/KullaniciGrupHak/Index', component: AdminKullaniciGrupHakIndexComponent },
-            { path: 'Admin/KullaniciGrupHak/Ekle', component: AdminKullaniciGrupHakEkleComponent },
-            { path: 'Admin/KullaniciGrupHak/Ekle/:linkID', component: AdminKullaniciGrupHakEkleComponent },
-            { path: 'Admin/KullaniciGrupHak/Duzenle/:id', component: AdminKullaniciGrupHakDuzenleComponent },
+            { path: 'Admin/UserGroupRights', component: AdminUserGroupRightsIndexComponent },
+            { path: 'Admin/UserGroupRights/Index', component: AdminUserGroupRightsIndexComponent },
+            { path: 'Admin/UserGroupRights/Insert', component: AdminUserGroupRightsInsertComponent },
+            { path: 'Admin/UserGroupRights/Insert/:linkID', component: AdminUserGroupRightsInsertComponent },
+            { path: 'Admin/UserGroupRights/Update/:id', component: AdminUserGroupRightsUpdateComponent },
 
-            { path: 'Admin/KullaniciGrupIslem', component: AdminKullaniciGrupIslemIndexComponent },
-            { path: 'Admin/KullaniciGrupIslem/Index', component: AdminKullaniciGrupIslemIndexComponent },
-            { path: 'Admin/KullaniciGrupIslem/Ekle', component: AdminKullaniciGrupIslemEkleComponent },
-            { path: 'Admin/KullaniciGrupIslem/Duzenle/:id', component: AdminKullaniciGrupIslemDuzenleComponent },
+            { path: 'Admin/UserGroupProcess', component: AdminUserGroupProcessIndexComponent },
+            { path: 'Admin/UserGroupProcess/Index', component: AdminUserGroupProcessIndexComponent },
+            { path: 'Admin/UserGroupProcess/Insert', component: AdminUserGroupProcessInsertComponent },
+            { path: 'Admin/UserGroupProcess/Update/:id', component: AdminUserGroupProcessUpdateComponent },
 
-            { path: 'Admin/KullaniciGrupTablo', component: AdminKullaniciGrupTabloIndexComponent },
-            { path: 'Admin/KullaniciGrupTablo/Index', component: AdminKullaniciGrupTabloIndexComponent },
-            { path: 'Admin/KullaniciGrupTablo/Ekle', component: AdminKullaniciGrupTabloEkleComponent },
-            { path: 'Admin/KullaniciGrupTablo/Ekle/:linkID', component: AdminKullaniciGrupTabloEkleComponent },
-            { path: 'Admin/KullaniciGrupTablo/Duzenle/:id', component: AdminKullaniciGrupTabloDuzenleComponent },
+            { path: 'Admin/UserGroupTables', component: AdminUserGroupTablesIndexComponent },
+            { path: 'Admin/UserGroupTables/Index', component: AdminUserGroupTablesIndexComponent },
+            { path: 'Admin/UserGroupTables/Insert', component: AdminUserGroupTablesInsertComponent },
+            { path: 'Admin/UserGroupTables/Insert/:linkID', component: AdminUserGroupTablesInsertComponent },
+            { path: 'Admin/UserGroupTables/Update/:id', component: AdminUserGroupTablesUpdateComponent },
 
-            { path: 'Admin/LogIslem', component: AdminLogIslemIndexComponent },
-            { path: 'Admin/LogIslem/Index', component: AdminLogIslemIndexComponent },
-            { path: 'Admin/LogIslem/Ekle', component: AdminLogIslemEkleComponent },
-            { path: 'Admin/LogIslem/Ekle/:linkID', component: AdminLogIslemEkleComponent },
-            { path: 'Admin/LogIslem/Duzenle/:id', component: AdminLogIslemDuzenleComponent },
+            { path: 'Admin/LogProcess', component: AdminLogProcessIndexComponent },
+            { path: 'Admin/LogProcess/Index', component: AdminLogProcessIndexComponent },
+            { path: 'Admin/LogProcess/Insert', component: AdminLogProcessInsertComponent },
+            { path: 'Admin/LogProcess/Insert/:linkID', component: AdminLogProcessInsertComponent },
+            { path: 'Admin/LogProcess/Update/:id', component: AdminLogProcessUpdateComponent },
 
-            { path: 'Admin/Loglar', component: AdminLoglarIndexComponent },
-            { path: 'Admin/Loglar/Index', component: AdminLoglarIndexComponent },
+            { path: 'Admin/Logs', component: AdminLogsIndexComponent },
+            { path: 'Admin/Logs/Index', component: AdminLogsIndexComponent },
 
-            { path: 'Admin/LogTipler', component: AdminLogTiplerIndexComponent },
-            { path: 'Admin/LogTipler/Index', component: AdminLogTiplerIndexComponent },
-            { path: 'Admin/LogTipler/Ekle', component: AdminLogTiplerEkleComponent },
-            { path: 'Admin/LogTipler/Duzenle/:id', component: AdminLogTiplerDuzenleComponent },
+            { path: 'Admin/LogTypes', component: AdminLogTypesIndexComponent },
+            { path: 'Admin/LogTypes/Index', component: AdminLogTypesIndexComponent },
+            { path: 'Admin/LogTypes/Insert', component: AdminLogTypesInsertComponent },
+            { path: 'Admin/LogTypes/Update/:id', component: AdminLogTypesUpdateComponent },
 
             { path: 'Admin/Meta', component: AdminMetaIndexComponent },
             { path: 'Admin/Meta/Index', component: AdminMetaIndexComponent },
-            { path: 'Admin/Meta/Ekle', component: AdminMetaEkleComponent },
-            { path: 'Admin/Meta/Duzenle/:id', component: AdminMetaDuzenleComponent },
+            { path: 'Admin/Meta/Insert', component: AdminMetaInsertComponent },
+            { path: 'Admin/Meta/Update/:id', component: AdminMetaUpdateComponent },
 
-            { path: 'Admin/MetaDil', component: AdminMetaDilIndexComponent },
-            { path: 'Admin/MetaDil/Index', component: AdminMetaDilIndexComponent },
-            { path: 'Admin/MetaDil/Ekle', component: AdminMetaDilEkleComponent },
-            { path: 'Admin/MetaDil/Ekle/:linkID', component: AdminMetaDilEkleComponent },
-            { path: 'Admin/MetaDil/Duzenle/:id', component: AdminMetaDilDuzenleComponent },
+            { path: 'Admin/MetaT', component: AdminMetaTIndexComponent },
+            { path: 'Admin/MetaT/Index', component: AdminMetaTIndexComponent },
+            { path: 'Admin/MetaT/Insert', component: AdminMetaTInsertComponent },
+            { path: 'Admin/MetaT/Insert/:linkID', component: AdminMetaTInsertComponent },
+            { path: 'Admin/MetaT/Update/:id', component: AdminMetaTUpdateComponent },
 
-            { path: 'Admin/Resim', component: AdminResimIndexComponent },
-            { path: 'Admin/Resim/Index', component: AdminResimIndexComponent },
-            { path: 'Admin/Resim/Ekle', component: AdminResimEkleComponent },
-            { path: 'Admin/Resim/Duzenle/:id', component: AdminResimDuzenleComponent },
+            { path: 'Admin/Picture', component: AdminPictureIndexComponent },
+            { path: 'Admin/Picture/Index', component: AdminPictureIndexComponent },
+            { path: 'Admin/Picture/Insert', component: AdminPictureInsertComponent },
+            { path: 'Admin/Picture/Update/:id', component: AdminPictureUpdateComponent },
 
-            { path: 'Admin/Tipler', component: AdminTiplerIndexComponent },
-            { path: 'Admin/Tipler/Index', component: AdminTiplerIndexComponent },
-            { path: 'Admin/Tipler/Ekle', component: AdminTiplerEkleComponent },
-            { path: 'Admin/Tipler/Duzenle/:id', component: AdminTiplerDuzenleComponent },
+            { path: 'Admin/Types', component: AdminTypesIndexComponent },
+            { path: 'Admin/Types/Index', component: AdminTypesIndexComponent },
+            { path: 'Admin/Types/Insert', component: AdminTypesInsertComponent },
+            { path: 'Admin/Types/Update/:id', component: AdminTypesUpdateComponent },
 
-            { path: 'Admin/Ziyaretci', component: AdminZiyaretciIndexComponent },
-            { path: 'Admin/Ziyaretci/Index', component: AdminZiyaretciIndexComponent },
+            { path: 'Admin/VisitorCounter', component: AdminVisitorCounterIndexComponent },
+            { path: 'Admin/VisitorCounter/Index', component: AdminVisitorCounterIndexComponent },
         ]
     },
 
