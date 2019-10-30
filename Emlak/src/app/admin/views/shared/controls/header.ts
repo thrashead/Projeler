@@ -25,6 +25,21 @@ export class AdminHeaderComponent {
 
         $('#txtMainSearch').typeahead({
             source: [
+                'Ana Sayfa',
+                'Emlaklar',
+                'Emlaklar (Dil)',
+                'Emlak Kategorileri',
+                'Emlak Kategorileri (Dil)',
+                'Emlak Detay',
+                'Emlak Özellikleri',
+                'Emlak Resimleri',
+                'Şehirler',
+                'Durumlar',
+                'Durumlar (Dil)',
+                'Yakıt Tipleri',
+                'Yakıt Tipleri (Dil)',
+                'Isınma Tipleri',
+                'Isınma Tipleri (Dil)',
                 'Kategoriler',
                 'Kategoriler (Dil)',
                 'İçerikler',
@@ -40,7 +55,16 @@ export class AdminHeaderComponent {
                 'Diller',
                 'Dil İçerik',
                 'Dil İçerik (Dil)',
-                'Kullanıcılar'
+                'Loglar',
+                'Log Tipleri',
+                'Log İşlemleri',
+                'Ziyaretçiler',
+                'Kullanıcılar',
+                'Kullanıcı Grupları',
+                'Kullanıcı Grup Tabloları',
+                'Kullanıcı Grup Hakları',
+                'Kullanıcı Grup İşlemleri',
+                'Tipler'
             ],
             items: 4
         });
@@ -50,6 +74,51 @@ export class AdminHeaderComponent {
         var txtValue = $("#txtMainSearch").val();
 
         switch (txtValue) {
+            case "Ana Sayfa":
+                this.router.navigate(['/Admin/Index']);
+                break;
+            case "Emlaklar":
+                this.router.navigate(['/Admin/Property']);
+                break;
+            case "Emlaklar (Dil)":
+                this.router.navigate(['/Admin/PropertyT']);
+                break;
+            case "Emlak Kategorileri":
+                this.router.navigate(['/Admin/PropertyCategories']);
+                break;
+            case "Emlak Kategorileri (Dil)":
+                this.router.navigate(['/Admin/PropertyCategoriesT']);
+                break;
+            case "Emlak Detay":
+                this.router.navigate(['/Admin/PropertyDetails']);
+                break;
+            case "Emlak Özellikleri":
+                this.router.navigate(['/Admin/PropertyFeatures']);
+                break;
+            case "Emlak Resimleri":
+                this.router.navigate(['/Admin/PropertyPictures']);
+                break;
+            case "Şehirler":
+                this.router.navigate(['/Admin/City']);
+                break;
+            case "Durumlar":
+                this.router.navigate(['/Admin/PropertyStatus']);
+                break;
+            case "Durumlar (Dil)":
+                this.router.navigate(['/Admin/PropertyStatusT']);
+                break;
+            case "Yakıt Tipleri":
+                this.router.navigate(['/Admin/FuelType']);
+                break;
+            case "Yakıt Tipleri (Dil)":
+                this.router.navigate(['/Admin/FuelTypeT']);
+                break;
+            case "Isınma Tipleri":
+                this.router.navigate(['/Admin/WarmType']);
+                break;
+            case "Isınma Tipleri (Dil)":
+                this.router.navigate(['/Admin/WarmTypeT']);
+                break;
             case "Kategoriler":
                 this.router.navigate(['/Admin/Category']);
                 break;
@@ -62,7 +131,7 @@ export class AdminHeaderComponent {
             case "İçerikler (Dil)":
                 this.router.navigate(['/Admin/ContentT']);
                 break;
-            case "Gallery":
+            case "Galeri":
                 this.router.navigate(['/Admin/Gallery']);
                 break;
             case "Galeri (Dil)":
@@ -95,8 +164,35 @@ export class AdminHeaderComponent {
             case "Dil İçerik (Dil)":
                 this.router.navigate(['/Admin/LangContentT']);
                 break;
+            case "Loglar":
+                this.router.navigate(['/Admin/Logs']);
+                break;
+            case "Log Tipleri":
+                this.router.navigate(['/Admin/LogTypes']);
+                break;
+            case "Log İşlemleri":
+                this.router.navigate(['/Admin/LogProcess']);
+                break;
+            case "Ziyaretçiler":
+                this.router.navigate(['/Admin/VisitorCounter']);
+                break;
             case "Kullanıcılar":
                 this.router.navigate(['/Admin/Users']);
+                break;
+            case "Kullanıcı Grupları":
+                this.router.navigate(['/Admin/UserGroups']);
+                break;
+            case "Kullanıcı Grup Tabloları":
+                this.router.navigate(['/Admin/UserGroupTables']);
+                break;
+            case "Kullanıcı Grup Hakları":
+                this.router.navigate(['/Admin/UserGroupRights']);
+                break;
+            case "Kullanıcı Grup İşlemleri":
+                this.router.navigate(['/Admin/UserGroupProcess']);
+                break;
+            case "Tipler":
+                this.router.navigate(['/Admin/Types']);
                 break;
             default:
                 alert("Aradığınız kelimeye uygun sonuç bulunamadı...");

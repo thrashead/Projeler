@@ -44,13 +44,61 @@ import { AdminCopyDeleteComponent } from './admin/views/shared/controls/copydele
 import { AdminIndexComponent } from './admin/views/home/index';
 import { AdminLoginComponent } from './admin/views/home/login';
 
-import { AdminRealEstatesIndexComponent } from './admin/views/property/realestates';
-import { AdminRealEstatesInsertComponent } from './admin/views/property/realestates/insert';
-import { AdminRealEstatesUpdateComponent } from './admin/views/property/realestates/update';
+import { AdminCityIndexComponent } from './admin/views/property/city';
+import { AdminCityInsertComponent } from './admin/views/property/city/insert';
+import { AdminCityUpdateComponent } from './admin/views/property/city/update';
 
-import { AdminRealEstatesTIndexComponent } from './admin/views/property/realestatest';
-import { AdminRealEstatesTInsertComponent } from './admin/views/property/realestatest/insert';
-import { AdminRealEstatesTUpdateComponent } from './admin/views/property/realestatest/update';
+import { AdminFuelTypeIndexComponent } from './admin/views/property/fueltype';
+import { AdminFuelTypeInsertComponent } from './admin/views/property/fueltype/insert';
+import { AdminFuelTypeUpdateComponent } from './admin/views/property/fueltype/update';
+
+import { AdminFuelTypeTIndexComponent } from './admin/views/property/fueltypet';
+import { AdminFuelTypeTInsertComponent } from './admin/views/property/fueltypet/insert';
+import { AdminFuelTypeTUpdateComponent } from './admin/views/property/fueltypet/update';
+
+import { AdminPropertyIndexComponent } from './admin/views/property/property';
+import { AdminPropertyInsertComponent } from './admin/views/property/property/insert';
+import { AdminPropertyUpdateComponent } from './admin/views/property/property/update';
+
+import { AdminPropertyCategoriesIndexComponent } from './admin/views/property/propertycategories';
+import { AdminPropertyCategoriesInsertComponent } from './admin/views/property/propertycategories/insert';
+import { AdminPropertyCategoriesUpdateComponent } from './admin/views/property/propertycategories/update';
+
+import { AdminPropertyCategoriesTIndexComponent } from './admin/views/property/propertycategoriest';
+import { AdminPropertyCategoriesTInsertComponent } from './admin/views/property/propertycategoriest/insert';
+import { AdminPropertyCategoriesTUpdateComponent } from './admin/views/property/propertycategoriest/update';
+
+import { AdminPropertyDetailsIndexComponent } from './admin/views/property/propertydetails';
+import { AdminPropertyDetailsInsertComponent } from './admin/views/property/propertydetails/insert';
+import { AdminPropertyDetailsUpdateComponent } from './admin/views/property/propertydetails/update';
+
+import { AdminPropertyFeaturesIndexComponent } from './admin/views/property/propertyfeatures';
+import { AdminPropertyFeaturesInsertComponent } from './admin/views/property/propertyfeatures/insert';
+import { AdminPropertyFeaturesUpdateComponent } from './admin/views/property/propertyfeatures/update';
+
+import { AdminPropertyPicturesIndexComponent } from './admin/views/property/propertypictures';
+import { AdminPropertyPicturesInsertComponent } from './admin/views/property/propertypictures/insert';
+import { AdminPropertyPicturesUpdateComponent } from './admin/views/property/propertypictures/update';
+
+import { AdminPropertyStatusIndexComponent } from './admin/views/property/propertystatus';
+import { AdminPropertyStatusInsertComponent } from './admin/views/property/propertystatus/insert';
+import { AdminPropertyStatusUpdateComponent } from './admin/views/property/propertystatus/update';
+
+import { AdminPropertyStatusTIndexComponent } from './admin/views/property/propertystatust';
+import { AdminPropertyStatusTInsertComponent } from './admin/views/property/propertystatust/insert';
+import { AdminPropertyStatusTUpdateComponent } from './admin/views/property/propertystatust/update';
+
+import { AdminPropertyTIndexComponent } from './admin/views/property/propertyt';
+import { AdminPropertyTInsertComponent } from './admin/views/property/propertyt/insert';
+import { AdminPropertyTUpdateComponent } from './admin/views/property/propertyt/update';
+
+import { AdminWarmTypeIndexComponent } from './admin/views/property/warmtype';
+import { AdminWarmTypeInsertComponent } from './admin/views/property/warmtype/insert';
+import { AdminWarmTypeUpdateComponent } from './admin/views/property/warmtype/update';
+
+import { AdminWarmTypeTIndexComponent } from './admin/views/property/warmtypet';
+import { AdminWarmTypeTInsertComponent } from './admin/views/property/warmtypet/insert';
+import { AdminWarmTypeTUpdateComponent } from './admin/views/property/warmtypet/update';
 
 import { AdminLangContentIndexComponent } from './admin/views/general/langcontent';
 import { AdminLangContentInsertComponent } from './admin/views/general/langcontent/insert';
@@ -202,6 +250,62 @@ import { AdminLib } from './admin/lib/methods';
         AdminIndexComponent,
         AdminLoginComponent,
 
+        AdminCityIndexComponent,
+        AdminCityInsertComponent,
+        AdminCityUpdateComponent,
+
+        AdminFuelTypeIndexComponent,
+        AdminFuelTypeInsertComponent,
+        AdminFuelTypeUpdateComponent,
+
+        AdminFuelTypeTIndexComponent,
+        AdminFuelTypeTInsertComponent,
+        AdminFuelTypeTUpdateComponent,
+
+        AdminPropertyIndexComponent,
+        AdminPropertyInsertComponent,
+        AdminPropertyUpdateComponent,
+
+        AdminPropertyCategoriesIndexComponent,
+        AdminPropertyCategoriesInsertComponent,
+        AdminPropertyCategoriesUpdateComponent,
+
+        AdminPropertyCategoriesTIndexComponent,
+        AdminPropertyCategoriesTInsertComponent,
+        AdminPropertyCategoriesTUpdateComponent,
+
+        AdminPropertyDetailsIndexComponent,
+        AdminPropertyDetailsInsertComponent,
+        AdminPropertyDetailsUpdateComponent,
+
+        AdminPropertyFeaturesIndexComponent,
+        AdminPropertyFeaturesInsertComponent,
+        AdminPropertyFeaturesUpdateComponent,
+
+        AdminPropertyPicturesIndexComponent,
+        AdminPropertyPicturesInsertComponent,
+        AdminPropertyPicturesUpdateComponent,
+
+        AdminPropertyStatusIndexComponent,
+        AdminPropertyStatusInsertComponent,
+        AdminPropertyStatusUpdateComponent,
+
+        AdminPropertyStatusTIndexComponent,
+        AdminPropertyStatusTInsertComponent,
+        AdminPropertyStatusTUpdateComponent,
+
+        AdminPropertyTIndexComponent,
+        AdminPropertyTInsertComponent,
+        AdminPropertyTUpdateComponent,
+
+        AdminWarmTypeIndexComponent,
+        AdminWarmTypeInsertComponent,
+        AdminWarmTypeUpdateComponent,
+
+        AdminWarmTypeTIndexComponent,
+        AdminWarmTypeTInsertComponent,
+        AdminWarmTypeTUpdateComponent,
+
         AdminLinksIndexComponent,
         AdminLinksInsertComponent,
         AdminLinksUpdateComponent,
@@ -217,14 +321,6 @@ import { AdminLib } from './admin/lib/methods';
         AdminFileIndexComponent,
         AdminFileInsertComponent,
         AdminFileUpdateComponent,
-
-        AdminRealEstatesIndexComponent,
-        AdminRealEstatesInsertComponent,
-        AdminRealEstatesUpdateComponent,
-
-        AdminRealEstatesTIndexComponent,
-        AdminRealEstatesTInsertComponent,
-        AdminRealEstatesTUpdateComponent,
 
         AdminGalleryIndexComponent,
         AdminGalleryInsertComponent,

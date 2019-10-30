@@ -1,0 +1,129 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-dashboard"></i> Durum Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+				</div>
+				<div class="editor-label">
+					Başlık
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" value="{{ model?.Title }}" />
+					<br />
+					<!-- Title -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Kod
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" value="{{ model?.Code }}" />
+					<br />
+					<!-- Code -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+					<a routerLink="/Admin/PropertyStatus" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-dashboard"></i></span>
+						<h5>Bağlı Emlak Detay</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Sahibi</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.PropertyDetailsList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Owner }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyDetails/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyDetails" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyDetails" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+			<a routerLink="/Admin/PropertyDetails/Insert" class="btn btn-primary btn-add">Emlak Detay Ekle</a>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-dashboard"></i></span>
+                        <h5>Bağlı Durumlar (Dil)</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>İsim</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.PropertyStatusTList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Name }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyStatusT/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyStatusT" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyStatusT" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+            <a routerLink="/Admin/PropertyStatusT/Insert" class="btn btn-primary btn-add">Durum (Dil) Ekle</a>
+		</div>
+	</div>
+</div>
+
+<admin-copydelete></admin-copydelete>

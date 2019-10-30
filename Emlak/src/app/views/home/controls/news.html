@@ -14,7 +14,7 @@
                         <div *ngFor="let haber of haberler">
                             <div class="item col-md-4" *ngFor="let item of haber.Items">
                                 <div class="client-text">
-                                    <p [innerHtml]="item?.Aciklama"></p>
+                                    <p>{{item?.KisaAciklama}}</p>
                                     <h4>
                                         <strong>{{item?.ContentName}}</strong>
                                         <a [routerLink]="['/Haberler/' + item?.Url]" style="float: right;">{{ devamText }}</a>

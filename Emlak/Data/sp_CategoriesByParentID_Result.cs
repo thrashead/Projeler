@@ -18,7 +18,6 @@ namespace Emlak.Data
         public string Title { get; set; }
         public string Url { get; set; }
         public string Code { get; set; }
-        public bool Active { get; set; }
         public string CategoryName { get; set; }
     }
 }

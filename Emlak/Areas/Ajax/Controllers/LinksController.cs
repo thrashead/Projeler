@@ -10,7 +10,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class LinksController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Users curUser = AppTools.User;
+        Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()
@@ -220,15 +220,6 @@ namespace Emlak.Areas.Ajax.Controllers
                             linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title, Selected = true });
                         else
                             linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Title });
-                    break;
-                case 17:
-                    List<usp_RealEstatesSelect_Result> tableRealEstatesItems = entity.usp_RealEstatesSelect(null).ToList();
-
-                    foreach (var item in tableRealEstatesItems)
-                        if (item.ID == linkID)
-                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Baslik, Selected = true });
-                        else
-                            linkItems.Add(new SelectListItem() { Value = item.ID.ToString(), Text = item.Baslik });
                     break;
                 case 18:
                     List<usp_PropertySelect_Result> tablePropertyItems = entity.usp_PropertySelect(null).ToList();

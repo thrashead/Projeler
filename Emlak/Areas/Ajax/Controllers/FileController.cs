@@ -10,7 +10,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class FileController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Users curUser = AppTools.User;
+        Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()

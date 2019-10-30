@@ -10,15 +10,15 @@ namespace Emlak.Servis
     {
         [OperationContract]
         [WebGet(UriTemplate = "/Ilan/?ilanurl={ilanurl}", ResponseFormat = WebMessageFormat.Json)]
-        RealEstateData Ilan(string ilanurl);
+        PropertyData Ilan(string ilanurl);
 
         [OperationContract]
         [WebGet(UriTemplate = "/Ilanlar/?kelime={kelime}&adet={adet}", ResponseFormat = WebMessageFormat.Json)]
-        List<RealEstateData> Ilanlar(string kelime, string adet);
+        List<PropertyData> Ilanlar(string kelime, string adet);
         
         [OperationContract]
         [WebGet(UriTemplate = "/KategoriIlanlar/?kategori={kategori}", ResponseFormat = WebMessageFormat.Json)]
-        List<RealEstateData> KategoriIlanlar(string kategori);
+        List<PropertyData> KategoriIlanlar(string kategori);
 
         [OperationContract]
         [WebGet(UriTemplate = "/Kategoriler/?parentid={parentid}", ResponseFormat = WebMessageFormat.Json)]
@@ -63,7 +63,7 @@ namespace Emlak.Servis
     }
 
     [DataContract]
-    public class RealEstateData
+    public class PropertyData
     {
         [DataMember]
         public string ID { get; set; }

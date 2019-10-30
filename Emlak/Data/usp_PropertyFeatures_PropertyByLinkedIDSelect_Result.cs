@@ -40,6 +40,7 @@ namespace Emlak.Data
         public bool SwimmingPool { get; set; }
         public bool Alarm { get; set; }
         public bool Balcony { get; set; }
+        public bool SteelDoor { get; set; }
         public bool VideoIntercom { get; set; }
         public bool Jacuzzi { get; set; }
         public bool CableTVSatellite { get; set; }

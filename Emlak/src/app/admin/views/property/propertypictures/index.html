@@ -1,0 +1,54 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-home"></i> Emlak Resimleri</a></div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+                        <h5>Emlak Resimleri</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Bağlı Emlak</th>
+									<th>Resim</th>
+									<th class="hideColumn">Kod</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of PropertyPicturesList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.PropertyAdi }}</td>
+									<td><a href="/Emlak/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/Emlak/Uploads/thumb_{{ item?.PictureUrl }}" style="height:40px; max-width:80px;" /></a></td>
+									<td class="hideColumn">{{ item?.Code }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyPictures/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyPictures" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyPictures" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+            <a routerLink="/Admin/PropertyPictures/Insert" class="btn btn-primary btn-add">Emlak Resim Ekle</a>
+		</div>
+	</div>
+</div>
+
+<admin-copydelete></admin-copydelete>

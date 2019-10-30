@@ -24,6 +24,7 @@ namespace Emlak.Data
         }
     
         public int ID { get; set; }
+        public int CatID { get; set; }
         public string Title { get; set; }
         public string Code { get; set; }
         public string Url { get; set; }
@@ -34,6 +35,7 @@ namespace Emlak.Data
         public bool Active { get; set; }
         public bool Deleted { get; set; }
     
+        public virtual PropertyCategories PropertyCategories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PropertyDetails> PropertyDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

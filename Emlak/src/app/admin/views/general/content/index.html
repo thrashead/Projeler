@@ -31,7 +31,7 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Content/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Emlak/Content/Update/' + item?.ID]">Düzenle</a></li>
                                                 <li><a class="cpyLink" *ngIf="copyShow" data-toggle="modal" href="#cpyData" data-controller="Content" [attr.data-id]="item?.ID">Kopyala</a></li>
                                                 <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="Content" [attr.data-id]="item?.ID">Sil</a></li>
                                                 <li><a class="rmvLink" *ngIf="removeShow" data-toggle="modal" href="#rmvData" data-controller="Content" [attr.data-id]="item?.ID">Kaldır</a></li>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/Content/Insert" class="btn btn-primary btn-add" *ngIf="insertShow">İçerik Ekle</a>
+            <a routerLink="/Admin/Emlak/Content/Insert" class="btn btn-primary btn-add" *ngIf="insertShow">İçerik Ekle</a>
         </div>
 
         <input id="hdnModel" type="hidden" value="Content" />

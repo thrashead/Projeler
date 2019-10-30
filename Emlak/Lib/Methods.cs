@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using System.Web.Caching;
 using Cacher = System.Web.HttpRuntime;
+using Models;
 
 namespace Emlak
 {
@@ -22,11 +23,11 @@ namespace Emlak
             }
         }
 
-        public static Users User
+        public static Kullanicilar User
         {
             get
             {
-                return HttpContext.Current.Session["CurrentUser"] != null ? HttpContext.Current.Session["CurrentUser"] as Users : null;
+                return HttpContext.Current.Session["CurrentUser"] != null ? HttpContext.Current.Session["CurrentUser"] as Kullanicilar : null;
             }
         }
 
@@ -41,7 +42,7 @@ namespace Emlak
 
     public static class UserProcesses
     {
-        public static List<usp_UserGroupRightsByUserIDAndUrl_Result> UserRights(this Users user, string url = null, string process = null)
+        public static List<usp_UserGroupRightsByUserIDAndUrl_Result> UserRights(this Kullanicilar user, string url = null, string process = null)
         {
             EmlakEntities entity = new EmlakEntities();
 
@@ -69,7 +70,7 @@ namespace Emlak
             return result;
         }
 
-        public static bool HasRight(this Users user, string url, string process = "s")
+        public static bool HasRight(this Kullanicilar user, string url, string process = "s")
         {
             if (user == null)
             {
@@ -83,7 +84,7 @@ namespace Emlak
             return result;
         }
 
-        public static void Log<T>(this Users user, T model, string processShortName, string description = null, string idName = "ID")
+        public static void Log<T>(this Kullanicilar user, T model, string processShortName, string description = null, string idName = "ID")
         {
             if (user != null)
             {
@@ -107,7 +108,7 @@ namespace Emlak
             }
         }
 
-        public static void Log(this Users user, string processShortName, string description = null)
+        public static void Log(this Kullanicilar user, string processShortName, string description = null)
         {
             if (user != null)
             {

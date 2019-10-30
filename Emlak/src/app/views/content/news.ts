@@ -23,6 +23,11 @@ export class ContentNewsComponent {
                 this.haberler = Array.from({ length }).map((x, j) => ({
                     Items: resData.filter((y, i) => i >= 8 * j && i < 8 * (j + 1))
                 }));
+
+                setTimeout(() => {
+                    $(".owl-carousel").css("opacity", "1");
+                    $(".owl-carousel").css("display", "block");
+                }, 300);
             }, resError => this.errorMsg = resError);
 
         this.KodlaGetir();

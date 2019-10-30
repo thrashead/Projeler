@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
@@ -9,7 +9,7 @@ import { AdminLib } from '../../../lib/methods';
 	templateUrl: './update.html'
 })
 
-export class AdminNoLangContentUpdateComponent {
+export class AdminNoLangContentUpdateComponent implements AfterViewChecked {
 	errorMsg: string;
 	id: string;
 
@@ -41,7 +41,11 @@ export class AdminNoLangContentUpdateComponent {
 			ShortDescription: new FormControl(null),
 			Description: new FormControl(null),
 		});
-	}
+    }
+
+    ngAfterViewChecked() {
+        $("#Description").next("div.ck").find(".ck-content").attr("data-id", "Description");
+    }
 
 	FillData() {
 		if (this.callTable == true) {

@@ -325,15 +325,15 @@ namespace Lib
             return rbContentName;
         }
 
-        public static Users UserKontrol()
+        public static Kullanicilar UserKontrol()
         {
-            Users user = null;
+            Kullanicilar user = null;
 
             if (HttpContext.Current.Session["CurrentUser"] != null)
             {
                 try
                 {
-                    user = ((Users)HttpContext.Current.Session["CurrentUser"]);
+                    user = ((Kullanicilar)HttpContext.Current.Session["CurrentUser"]);
                 }
                 catch
                 {

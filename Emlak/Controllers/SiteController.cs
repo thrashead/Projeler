@@ -181,7 +181,7 @@ namespace Emlak.Controllers
             public int Page { get; set; }
             public bool Detail { get; set; }
         }
-        public class ListeleItem : RealEstates
+        public class ListeleItem : PropertyModel
         {
             public string CategoryName { get; set; }
             public string NewLogo { get; set; }
@@ -205,7 +205,7 @@ namespace Emlak.Controllers
         [HttpGet]
         public JsonResult Detay(string param)
         {
-            RealEstateAdsModel model = new RealEstateAdsModel();
+            PropertyModel model = new PropertyModel();
 
             param = param.IsNull() == true ? Urling.URLBlocks[3] : param;
 
@@ -265,7 +265,7 @@ namespace Emlak.Controllers
                 model.KabloTVUydu = realestateads.KabloTVUydu;
                 model.Klima = realestateads.Klima;
                 model.Active = realestateads.Active;
-                model.RouteUrl = realestateads.Url;
+                model.Url = realestateads.Url;
                 model.Enlem = realestateads.Enlem;
                 model.Boylam = realestateads.Boylam;
 
@@ -566,7 +566,7 @@ namespace Emlak.Controllers
             public bool? KabloTVUydu { get; set; }
             public bool? Klima { get; set; }
             public bool? Active { get; set; }
-            public string RouteUrl { get; set; }
+            public string Url { get; set; }
             public string Enlem { get; set; }
             public string Boylam { get; set; }
             public int? Fiyat2 { get; set; }
@@ -595,7 +595,7 @@ namespace Emlak.Controllers
                         return Json(kelimeModel, JsonRequestBehavior.AllowGet);
                     }
                 case "kod":
-                    RealEstateAdsModel kodModel = KodAra(param);
+                    PropertyModel kodModel = KodAra(param);
                     if (kodModel == null)
                     {
                         return Json("", JsonRequestBehavior.AllowGet);
@@ -608,7 +608,7 @@ namespace Emlak.Controllers
 
             return Json(null, JsonRequestBehavior.AllowGet);
         }
-        public class SiralaREReturnJson : RealEstates
+        public class SiralaREReturnJson : PropertyModel
         {
             public string CategoryName { get; set; }
             public string DetailLogo { get; set; }
@@ -657,15 +657,15 @@ namespace Emlak.Controllers
 
             return _listRV;
         }
-        public RealEstateAdsModel KodAra(string kod)
+        public PropertyModel KodAra(string kod)
         {
-            string urlModel = entity.sp_RealEstatesUrlByCode(kod).FirstOrDefault();
+            string urlModel = entity.sp_PropertyUrlByCode(kod).FirstOrDefault();
 
-            RealEstateAdsModel model = new RealEstateAdsModel();
+            PropertyModel model = new PropertyModel();
 
             if (urlModel != null)
             {
-                model.RouteUrl = urlModel;
+                model.Url = urlModel;
             }
             else
             {
@@ -682,7 +682,7 @@ namespace Emlak.Controllers
 
             foreach (var item in modelList)
             {
-                if (item.Picture != null)
+                if (item?.Picture != null)
                 {
                     item.Picture = AppMgr.UploadPath + "/" + item.Picture;
                 }
@@ -700,13 +700,16 @@ namespace Emlak.Controllers
         {
             var item = entity.sp_PropertyForListSelect(ToolBox.LangCode, null, null, null, null, null, true, null, 1).FirstOrDefault();
 
-            if (item.Picture != null)
+            if (item != null)
             {
-                item.Picture = AppMgr.UploadPath + "/" + item.Picture;
-            }
-            else
-            {
-                item.Picture = AppMgr.ImagePath + "/resimyok.png";
+                if (item?.Picture != null)
+                {
+                    item.Picture = AppMgr.UploadPath + "/" + item.Picture;
+                }
+                else
+                {
+                    item.Picture = AppMgr.ImagePath + "/resimyok.png";
+                }
             }
 
             return Json(item, JsonRequestBehavior.AllowGet);
@@ -719,7 +722,7 @@ namespace Emlak.Controllers
 
             foreach (var item in modelList)
             {
-                if (item.Picture != null)
+                if (item?.Picture != null)
                 {
                     item.Picture = AppMgr.UploadPath + "/" + item.Picture;
                 }

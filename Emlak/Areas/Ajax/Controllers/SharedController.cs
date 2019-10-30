@@ -4,22 +4,23 @@ using System;
 using TDLibrary;
 using System.Globalization;
 using System.Linq;
+using Models;
 
 namespace Emlak.Areas.Ajax.Controllers
 {
     public class SharedController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Users curUser = AppTools.User;
+        Kullanicilar curUser = AppTools.User;
 
         [HttpPost]
-        public JsonResult Login([System.Web.Http.FromBody] Users user)
+        public JsonResult Login([System.Web.Http.FromBody] Kullanicilar user)
         {
             usp_UsersSelectLogin_Result rb = entity.usp_UsersSelectLogin(user.Username, user.Password.ToMD5()).FirstOrDefault();
 
             if (rb != null)
             {
-                user = rb.ChangeModel<Users>();
+                user = rb.ChangeModel<Kullanicilar>();
 
                 Session["CurrentUser"] = user;
 
@@ -54,7 +55,7 @@ namespace Emlak.Areas.Ajax.Controllers
             {
                 try
                 {
-                    Users user = Session["CurrentUser"] as Users;
+                    Kullanicilar user = Session["CurrentUser"] as Kullanicilar;
 
                     usp_UsersSelectLogin_Result rb = entity.usp_UsersSelectLogin(user.Username, user.Password).FirstOrDefault();
 
@@ -77,7 +78,7 @@ namespace Emlak.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult CurrentUser()
         {
-            return Json((Users)Session["CurrentUser"], JsonRequestBehavior.AllowGet);
+            return Json((Kullanicilar)Session["CurrentUser"], JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

@@ -18,7 +18,7 @@ namespace Emlak.Data
         public int TransID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string TranslationAdi { get; set; }
         public string PropertyAdi { get; set; }
+        public string TranslationAdi { get; set; }
     }
 }

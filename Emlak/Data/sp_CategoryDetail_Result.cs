@@ -17,13 +17,11 @@ namespace Emlak.Data
         public string Title { get; set; }
         public string Url { get; set; }
         public string Code { get; set; }
-        public bool Active { get; set; }
         public int TID { get; set; }
-        public int CatID { get; set; }
+        public int PropCatID { get; set; }
         public int TransID { get; set; }
         public string CategoryName { get; set; }
-        public string ShortText1 { get; set; }
-        public string ShortText2 { get; set; }
+        public string ShortText { get; set; }
         public string Description { get; set; }
     }
 }

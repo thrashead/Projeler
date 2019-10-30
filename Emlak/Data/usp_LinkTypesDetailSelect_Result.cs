@@ -25,7 +25,6 @@ namespace Emlak.Data
         public string MainPictureAdi { get; set; }
         public string MainFileAdi { get; set; }
         public string MainMetaAdi { get; set; }
-        public string MainRealEstatesAdi { get; set; }
         public string MainPropertyAdi { get; set; }
     }
 }

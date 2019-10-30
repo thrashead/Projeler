@@ -1,0 +1,287 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Emlak Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+                <div class="editor-label">
+                    Bağlı Kategori
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="CatID" [ngModel]="model?.CatID" formControlName="CatID"><option *ngFor="let item of model?.PropertyCategoriesList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--CatID-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Başlık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" value="{{ model?.Title }}" />
+                    <br />
+                    <!-- Title -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kod
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" value="{{ model?.Code }}" />
+                    <br />
+                    <!-- Code -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Fiyat
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Price" [ngModel]="model?.Price" formControlName="Price" type="number" value="{{ model?.Price }}" />
+                    <br />
+                    <!-- Price -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Satılık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Forsale" [ngModel]="model?.Forsale" formControlName="Forsale" type="checkbox" checked="checked" *ngIf="model?.Forsale" />
+                    <input id="Forsale" [ngModel]="model?.Forsale" formControlName="Forsale" type="checkbox" *ngIf="!model?.Forsale" />
+                    <br />
+                    <!-- Forsale -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Yeni
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="NewBrand" [ngModel]="model?.NewBrand" formControlName="NewBrand" type="checkbox" checked="checked" *ngIf="model?.NewBrand" />
+                    <input id="NewBrand" [ngModel]="model?.NewBrand" formControlName="NewBrand" type="checkbox" *ngIf="!model?.NewBrand" />
+                    <br />
+                    <!-- NewBrand -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Günün İlanı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="PropOfDay" [ngModel]="model?.PropOfDay" formControlName="PropOfDay" type="checkbox" checked="checked" *ngIf="model?.PropOfDay" />
+                    <input id="PropOfDay" [ngModel]="model?.PropOfDay" formControlName="PropOfDay" type="checkbox" *ngIf="!model?.PropOfDay" />
+                    <br />
+                    <!-- PropOfDay -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Aktif
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Active" [ngModel]="model?.Active" formControlName="Active" type="checkbox" checked="checked" *ngIf="model?.Active" />
+                    <input id="Active" [ngModel]="model?.Active" formControlName="Active" type="checkbox" *ngIf="!model?.Active" />
+                    <br />
+                    <!-- Active -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+                    <a routerLink="/Admin/Property" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+		</form>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+                        <h5>Bağlı Emlak Detay</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Sahibi</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.PropertyDetailsList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Owner }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyDetails/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyDetails" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyDetails" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+			<a routerLink="/Admin/PropertyDetails/Insert" class="btn btn-primary btn-add">Emlak Detay Ekle</a>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+						<h5>Bağlı Emlak Özellikleri</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Arka Cephe</th>
+									<th>Ön Cephe</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.PropertyFeaturesList">
+									<td>{{ item?.ID }}</td>
+									<td style="text-align:center;"><img *ngIf="item?.BackSide" class="active" /><img *ngIf="!item?.BackSide" class="passive" /></td>
+									<td style="text-align:center;"><img *ngIf="item?.Frontage" class="active" /><img *ngIf="!item?.Frontage" class="passive" /></td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyFeatures/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyFeatures" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyFeatures" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+            <a routerLink="/Admin/PropertyFeatures/Insert" class="btn btn-primary btn-add">Emlak Özellik Ekle</a>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+						<h5>Bağlı Emlak Resimleri</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Resim</th>
+									<th>Kod</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.PropertyPicturesList">
+									<td>{{ item?.ID }}</td>
+									<td><a href="/Emlak/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/Emlak/Uploads/thumb_{{ item?.PictureUrl }}" style="height:40px; max-width:80px;" /></a></td>
+									<td>{{ item?.Code }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyPictures/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyPictures" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyPictures" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+            <a routerLink="/Admin/PropertyPictures/Insert" class="btn btn-primary btn-add">Emlak Resim Ekle</a>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+						<h5>Bağlı Emlak (Dil)</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Başlık</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of model?.PropertyTList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Title }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyT/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyT" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyT" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+            <a routerLink="/Admin/PropertyT/Insert" class="btn btn-primary btn-add">Emlak (Dil) Ekle</a>
+		</div>
+	</div>
+</div>
+
+<admin-copydelete></admin-copydelete>

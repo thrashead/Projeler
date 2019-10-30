@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
 import { Router } from "@angular/router";
@@ -9,7 +9,7 @@ import { AdminLib } from '../../../lib/methods';
 	templateUrl: './insert.html'
 })
 
-export class AdminNoLangContentInsertComponent {
+export class AdminNoLangContentInsertComponent implements AfterViewChecked {
 	errorMsg: string;
 
 	insertForm: FormGroup;
@@ -34,7 +34,11 @@ export class AdminNoLangContentInsertComponent {
 			ShortDescription: new FormControl(null),
 			Description: new FormControl(null),
 		});
-	}
+    }
+
+    ngAfterViewChecked() {
+        $("#Description").next("div.ck").find(".ck-content").attr("data-id", "Description");
+    }
 
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();

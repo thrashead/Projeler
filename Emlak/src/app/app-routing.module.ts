@@ -13,13 +13,61 @@ import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminLoginComponent } from './admin/views/home/login';
 import { AdminIndexComponent } from './admin/views/home/index';
 
-import { AdminRealEstatesIndexComponent } from './admin/views/property/realestates';
-import { AdminRealEstatesInsertComponent } from './admin/views/property/realestates/insert';
-import { AdminRealEstatesUpdateComponent } from './admin/views/property/realestates/update';
+import { AdminCityIndexComponent } from './admin/views/property/city';
+import { AdminCityInsertComponent } from './admin/views/property/city/insert';
+import { AdminCityUpdateComponent } from './admin/views/property/city/update';
 
-import { AdminRealEstatesTIndexComponent } from './admin/views/property/realestatest';
-import { AdminRealEstatesTInsertComponent } from './admin/views/property/realestatest/insert';
-import { AdminRealEstatesTUpdateComponent } from './admin/views/property/realestatest/update';
+import { AdminFuelTypeIndexComponent } from './admin/views/property/fueltype';
+import { AdminFuelTypeInsertComponent } from './admin/views/property/fueltype/insert';
+import { AdminFuelTypeUpdateComponent } from './admin/views/property/fueltype/update';
+
+import { AdminFuelTypeTIndexComponent } from './admin/views/property/fueltypet';
+import { AdminFuelTypeTInsertComponent } from './admin/views/property/fueltypet/insert';
+import { AdminFuelTypeTUpdateComponent } from './admin/views/property/fueltypet/update';
+
+import { AdminPropertyIndexComponent } from './admin/views/property/property';
+import { AdminPropertyInsertComponent } from './admin/views/property/property/insert';
+import { AdminPropertyUpdateComponent } from './admin/views/property/property/update';
+
+import { AdminPropertyCategoriesIndexComponent } from './admin/views/property/propertycategories';
+import { AdminPropertyCategoriesInsertComponent } from './admin/views/property/propertycategories/insert';
+import { AdminPropertyCategoriesUpdateComponent } from './admin/views/property/propertycategories/update';
+
+import { AdminPropertyCategoriesTIndexComponent } from './admin/views/property/propertycategoriest';
+import { AdminPropertyCategoriesTInsertComponent } from './admin/views/property/propertycategoriest/insert';
+import { AdminPropertyCategoriesTUpdateComponent } from './admin/views/property/propertycategoriest/update';
+
+import { AdminPropertyDetailsIndexComponent } from './admin/views/property/propertydetails';
+import { AdminPropertyDetailsInsertComponent } from './admin/views/property/propertydetails/insert';
+import { AdminPropertyDetailsUpdateComponent } from './admin/views/property/propertydetails/update';
+
+import { AdminPropertyFeaturesIndexComponent } from './admin/views/property/propertyfeatures';
+import { AdminPropertyFeaturesInsertComponent } from './admin/views/property/propertyfeatures/insert';
+import { AdminPropertyFeaturesUpdateComponent } from './admin/views/property/propertyfeatures/update';
+
+import { AdminPropertyPicturesIndexComponent } from './admin/views/property/propertypictures';
+import { AdminPropertyPicturesInsertComponent } from './admin/views/property/propertypictures/insert';
+import { AdminPropertyPicturesUpdateComponent } from './admin/views/property/propertypictures/update';
+
+import { AdminPropertyStatusIndexComponent } from './admin/views/property/propertystatus';
+import { AdminPropertyStatusInsertComponent } from './admin/views/property/propertystatus/insert';
+import { AdminPropertyStatusUpdateComponent } from './admin/views/property/propertystatus/update';
+
+import { AdminPropertyStatusTIndexComponent } from './admin/views/property/propertystatust';
+import { AdminPropertyStatusTInsertComponent } from './admin/views/property/propertystatust/insert';
+import { AdminPropertyStatusTUpdateComponent } from './admin/views/property/propertystatust/update';
+
+import { AdminPropertyTIndexComponent } from './admin/views/property/propertyt';
+import { AdminPropertyTInsertComponent } from './admin/views/property/propertyt/insert';
+import { AdminPropertyTUpdateComponent } from './admin/views/property/propertyt/update';
+
+import { AdminWarmTypeIndexComponent } from './admin/views/property/warmtype';
+import { AdminWarmTypeInsertComponent } from './admin/views/property/warmtype/insert';
+import { AdminWarmTypeUpdateComponent } from './admin/views/property/warmtype/update';
+
+import { AdminWarmTypeTIndexComponent } from './admin/views/property/warmtypet';
+import { AdminWarmTypeTInsertComponent } from './admin/views/property/warmtypet/insert';
+import { AdminWarmTypeTUpdateComponent } from './admin/views/property/warmtypet/update';
 
 import { AdminLangContentIndexComponent } from './admin/views/general/langcontent';
 import { AdminLangContentInsertComponent } from './admin/views/general/langcontent/insert';
@@ -147,6 +195,76 @@ const routes: Routes = [
             { path: 'Admin', component: AdminIndexComponent },
             { path: 'Admin/Index', component: AdminIndexComponent },
 
+            { path: 'Admin/City', component: AdminCityIndexComponent },
+            { path: 'Admin/City/Index', component: AdminCityIndexComponent },
+            { path: 'Admin/City/Insert', component: AdminCityInsertComponent },
+            { path: 'Admin/City/Update/:id', component: AdminCityUpdateComponent },
+
+            { path: 'Admin/FuelType', component: AdminFuelTypeIndexComponent },
+            { path: 'Admin/FuelType/Index', component: AdminFuelTypeIndexComponent },
+            { path: 'Admin/FuelType/Insert', component: AdminFuelTypeInsertComponent },
+            { path: 'Admin/FuelType/Update/:id', component: AdminFuelTypeUpdateComponent },
+
+            { path: 'Admin/FuelTypeT', component: AdminFuelTypeTIndexComponent },
+            { path: 'Admin/FuelTypeT/Index', component: AdminFuelTypeTIndexComponent },
+            { path: 'Admin/FuelTypeT/Insert', component: AdminFuelTypeTInsertComponent },
+            { path: 'Admin/FuelTypeT/Update/:id', component: AdminFuelTypeTUpdateComponent },
+
+            { path: 'Admin/Property', component: AdminPropertyIndexComponent },
+            { path: 'Admin/Property/Index', component: AdminPropertyIndexComponent },
+            { path: 'Admin/Property/Insert', component: AdminPropertyInsertComponent },
+            { path: 'Admin/Property/Update/:id', component: AdminPropertyUpdateComponent },
+
+            { path: 'Admin/PropertyCategories', component: AdminPropertyCategoriesIndexComponent },
+            { path: 'Admin/PropertyCategories/Index', component: AdminPropertyCategoriesIndexComponent },
+            { path: 'Admin/PropertyCategories/Insert', component: AdminPropertyCategoriesInsertComponent },
+            { path: 'Admin/PropertyCategories/Update/:id', component: AdminPropertyCategoriesUpdateComponent },
+
+            { path: 'Admin/PropertyCategoriesT', component: AdminPropertyCategoriesTIndexComponent },
+            { path: 'Admin/PropertyCategoriesT/Index', component: AdminPropertyCategoriesTIndexComponent },
+            { path: 'Admin/PropertyCategoriesT/Insert', component: AdminPropertyCategoriesTInsertComponent },
+            { path: 'Admin/PropertyCategoriesT/Update/:id', component: AdminPropertyCategoriesTUpdateComponent },
+
+            { path: 'Admin/PropertyDetails', component: AdminPropertyDetailsIndexComponent },
+            { path: 'Admin/PropertyDetails/Index', component: AdminPropertyDetailsIndexComponent },
+            { path: 'Admin/PropertyDetails/Insert', component: AdminPropertyDetailsInsertComponent },
+            { path: 'Admin/PropertyDetails/Update/:id', component: AdminPropertyDetailsUpdateComponent },
+
+            { path: 'Admin/PropertyFeatures', component: AdminPropertyFeaturesIndexComponent },
+            { path: 'Admin/PropertyFeatures/Index', component: AdminPropertyFeaturesIndexComponent },
+            { path: 'Admin/PropertyFeatures/Insert', component: AdminPropertyFeaturesInsertComponent },
+            { path: 'Admin/PropertyFeatures/Update/:id', component: AdminPropertyFeaturesUpdateComponent },
+
+            { path: 'Admin/PropertyPictures', component: AdminPropertyPicturesIndexComponent },
+            { path: 'Admin/PropertyPictures/Index', component: AdminPropertyPicturesIndexComponent },
+            { path: 'Admin/PropertyPictures/Insert', component: AdminPropertyPicturesInsertComponent },
+            { path: 'Admin/PropertyPictures/Update/:id', component: AdminPropertyPicturesUpdateComponent },
+
+            { path: 'Admin/PropertyStatus', component: AdminPropertyStatusIndexComponent },
+            { path: 'Admin/PropertyStatus/Index', component: AdminPropertyStatusIndexComponent },
+            { path: 'Admin/PropertyStatus/Insert', component: AdminPropertyStatusInsertComponent },
+            { path: 'Admin/PropertyStatus/Update/:id', component: AdminPropertyStatusUpdateComponent },
+
+            { path: 'Admin/PropertyStatusT', component: AdminPropertyStatusTIndexComponent },
+            { path: 'Admin/PropertyStatusT/Index', component: AdminPropertyStatusTIndexComponent },
+            { path: 'Admin/PropertyStatusT/Insert', component: AdminPropertyStatusTInsertComponent },
+            { path: 'Admin/PropertyStatusT/Update/:id', component: AdminPropertyStatusTUpdateComponent },
+
+            { path: 'Admin/PropertyT', component: AdminPropertyTIndexComponent },
+            { path: 'Admin/PropertyT/Index', component: AdminPropertyTIndexComponent },
+            { path: 'Admin/PropertyT/Insert', component: AdminPropertyTInsertComponent },
+            { path: 'Admin/PropertyT/Update/:id', component: AdminPropertyTUpdateComponent },
+
+            { path: 'Admin/WarmType', component: AdminWarmTypeIndexComponent },
+            { path: 'Admin/WarmType/Index', component: AdminWarmTypeIndexComponent },
+            { path: 'Admin/WarmType/Insert', component: AdminWarmTypeInsertComponent },
+            { path: 'Admin/WarmType/Update/:id', component: AdminWarmTypeUpdateComponent },
+
+            { path: 'Admin/WarmTypeT', component: AdminWarmTypeTIndexComponent },
+            { path: 'Admin/WarmTypeT/Index', component: AdminWarmTypeTIndexComponent },
+            { path: 'Admin/WarmTypeT/Insert', component: AdminWarmTypeTInsertComponent },
+            { path: 'Admin/WarmTypeT/Update/:id', component: AdminWarmTypeTUpdateComponent },
+
             { path: 'Admin/Links', component: AdminLinksIndexComponent },
             { path: 'Admin/Links/Index', component: AdminLinksIndexComponent },
             { path: 'Admin/Links/Insert', component: AdminLinksInsertComponent },
@@ -177,17 +295,6 @@ const routes: Routes = [
             { path: 'Admin/File/Index', component: AdminFileIndexComponent },
             { path: 'Admin/File/Insert', component: AdminFileInsertComponent },
             { path: 'Admin/File/Update/:id', component: AdminFileUpdateComponent },
-
-            { path: 'Admin/RealEstates', component: AdminRealEstatesIndexComponent },
-            { path: 'Admin/RealEstates/Index', component: AdminRealEstatesIndexComponent },
-            { path: 'Admin/RealEstates/Insert', component: AdminRealEstatesInsertComponent },
-            { path: 'Admin/RealEstates/Update/:id', component: AdminRealEstatesUpdateComponent },
-
-            { path: 'Admin/RealEstatesT', component: AdminRealEstatesTIndexComponent },
-            { path: 'Admin/RealEstatesT/Index', component: AdminRealEstatesTIndexComponent },
-            { path: 'Admin/RealEstatesT/Insert', component: AdminRealEstatesTInsertComponent },
-            { path: 'Admin/RealEstatesT/Insert/:linkID', component: AdminRealEstatesTInsertComponent },
-            { path: 'Admin/RealEstatesT/Update/:id', component: AdminRealEstatesTUpdateComponent },
 
             { path: 'Admin/Gallery', component: AdminGalleryIndexComponent },
             { path: 'Admin/Gallery/Index', component: AdminGalleryIndexComponent },

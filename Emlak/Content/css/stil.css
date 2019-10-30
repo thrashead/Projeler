@@ -4,7 +4,7 @@ body {font-family:Arial;}
 .Welcome-area .proerty-item .item-thumb a img {height:248px;}
 .box-two.proerty-item .item-thumb a img {height:225px;}
 .proerty-th .proerty-item .item-entry h5, .footer h4, .page-title h2, 
-.blg-entry h6 a, .page-head-content .page-title, .single-property-header .property-title {text-transform:none;}
+.blg-entry h6 a, .page-head-content .page-title, .single-property-header .property-title, .blog-page .post h4 {text-transform:none;}
 .count-area .about-item {margin-top:20px;}
 .header-social ul.list-inline li {float:right;}
 .navbar-brand {height:auto;}

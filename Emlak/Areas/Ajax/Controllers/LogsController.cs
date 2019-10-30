@@ -9,7 +9,7 @@ namespace Emlak.Areas.Ajax.Controllers
 	public class LogsController : Controller
 	{
         readonly EmlakEntities entity = new EmlakEntities();
-        Users curUser = AppTools.User;
+        Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()

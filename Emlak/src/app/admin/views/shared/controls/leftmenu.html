@@ -7,8 +7,25 @@
         <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
             <a href="javascript:;"><i class="icon icon-home"></i> <span>Emlaklar</span></a>
             <ul>
-                <li data-url="RealEstates"><a routerLink="/Admin/RealEstates">Emlaklar</a></li>
-                <li data-url="RealEstatesT"><a routerLink="/Admin/RealEstatesT">Emlaklar (Dil)</a></li>
+                <li data-url="Property"><a routerLink="/Admin/Property">Emlaklar</a></li>
+                <li data-url="PropertyT"><a routerLink="/Admin/PropertyT">Emlaklar (Dil)</a></li>
+                <li data-url="PropertyCategories"><a routerLink="/Admin/PropertyCategories">Emlak Kategorileri</a></li>
+                <li data-url="PropertyCategoriesT"><a routerLink="/Admin/PropertyCategoriesT">Emlak Kategorileri (Dil)</a></li>
+                <li data-url="PropertyDetails"><a routerLink="/Admin/PropertyDetails">Emlak Detay</a></li>
+                <li data-url="PropertyFeatures"><a routerLink="/Admin/PropertyFeatures">Emlak Özellikleri</a></li>
+                <li data-url="PropertyPictures"><a routerLink="/Admin/PropertyPictures">Emlak Resimleri</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
+            <a href="javascript:;"><i class="icon icon-dashboard"></i> <span>Emlak Ekstra</span></a>
+            <ul>
+                <li data-url="City"><a routerLink="/Admin/City">Şehirler</a></li>
+                <li data-url="PropertyStatus"><a routerLink="/Admin/PropertyStatus">Durumlar</a></li>
+                <li data-url="PropertyStatusT"><a routerLink="/Admin/PropertyStatusT">Durumlar (Dil)</a></li>
+                <li data-url="FuelType"><a routerLink="/Admin/FuelType">Yakıt Tipleri</a></li>
+                <li data-url="FuelTypeT"><a routerLink="/Admin/FuelTypeT">Yakıt Tipleri (Dil)</a></li>
+                <li data-url="WarmType"><a routerLink="/Admin/WarmType">Isınma Tipleri</a></li>
+                <li data-url="WarmTypeT"><a routerLink="/Admin/WarmTypeT">Isınma Tipleri (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightKategori && showTypeKategori">

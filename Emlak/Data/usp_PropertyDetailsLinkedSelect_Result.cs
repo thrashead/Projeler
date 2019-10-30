@@ -30,10 +30,10 @@ namespace Emlak.Data
         public Nullable<int> Area { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
-        public string PropertyStatusAdi { get; set; }
         public string WarmTypeAdi { get; set; }
+        public string CityAdi { get; set; }
         public string FuelTypeAdi { get; set; }
         public string PropertyAdi { get; set; }
-        public string CityAdi { get; set; }
+        public string PropertyStatusAdi { get; set; }
     }
 }

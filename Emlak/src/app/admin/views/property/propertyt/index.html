@@ -1,0 +1,54 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-home"></i> Emlak (Dil)</a></div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-home"></i></span>
+                        <h5>Emlak (Dil)</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Bağlı Emlak</th>
+									<th>Bağlı Dil</th>
+									<th class="hideColumn">Başlık</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of PropertyTList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.PropertyAdi }}</td>
+									<td>{{ item?.TranslationAdi }}</td>
+									<td class="hideColumn">{{ item?.Title }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/PropertyT/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyT" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyT" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+            <a routerLink="/Admin/PropertyT/Insert" class="btn btn-primary btn-add">Emlak (Dil) Ekle</a>
+		</div>
+	</div>
+</div>
+
+<admin-copydelete></admin-copydelete>

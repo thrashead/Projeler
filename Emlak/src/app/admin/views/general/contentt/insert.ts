@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, AfterViewChecked } from "@angular/core";
 import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
@@ -8,7 +8,7 @@ import { AdminLib } from '../../../lib/methods';
     templateUrl: './insert.html'
 })
 
-export class AdminContentTInsertComponent {
+export class AdminContentTInsertComponent implements AfterViewChecked {
     errorMsg: string;
     linkID: string;
 
@@ -38,6 +38,10 @@ export class AdminContentTInsertComponent {
             ShortText2: new FormControl(null),
             Description: new FormControl(null),
         });
+    }
+
+    ngAfterViewChecked() {
+        $("#Description").next("div.ck").find(".ck-content").attr("data-id", "Description");
     }
 
     onSubmit() {

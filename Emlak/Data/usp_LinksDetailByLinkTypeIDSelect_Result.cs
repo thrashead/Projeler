@@ -20,7 +20,6 @@ namespace Emlak.Data
         public string LinkedPictureAdi { get; set; }
         public string LinkedFileAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string LinkedRealEstatesAdi { get; set; }
         public string LinkedPropertyAdi { get; set; }
     }
 }

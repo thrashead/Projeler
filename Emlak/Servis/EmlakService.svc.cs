@@ -11,11 +11,11 @@ namespace Emlak.Servis
     {
         EmlakEntities entity = new EmlakEntities();
 
-        public RealEstateData Ilan(string ilanurl)
+        public PropertyData Ilan(string ilanurl)
         {
-            RealEstateData ilan = new RealEstateData();
+            PropertyData ilan = new PropertyData();
 
-            sp_AndroidRealEstateByUrl_Result data = entity.sp_AndroidRealEstateByUrl(ilanurl).FirstOrDefault();
+            sp_AndroidPropertyByUrl_Result data = entity.sp_AndroidPropertyByUrl(ilanurl).FirstOrDefault();
 
             if (data != null)
             {
@@ -23,7 +23,7 @@ namespace Emlak.Servis
                 ilan.KatID = data.CatID.ToString();
                 ilan.AltKatID = data.PCatID.ToString();
                 ilan.Baslik = data.TBaslik;
-                ilan.Icerik = data.TAciklama;
+                ilan.Icerik = data.Aciklama;
                 ilan.Fiyat = data.Fiyat.ToString();
                 ilan.Sehir = data.Sehir;
                 ilan.Ilce = data.Ilce;
@@ -40,15 +40,15 @@ namespace Emlak.Servis
             return ilan;
         }
 
-        public List<RealEstateData> Ilanlar(string kelime, string adet)
+        public List<PropertyData> Ilanlar(string kelime, string adet)
         {
-            List<RealEstateData> ilanlar = new List<RealEstateData>();
+            List<PropertyData> ilanlar = new List<PropertyData>();
 
             string kategoriAdi = "Arama Sonuçları (" + kelime + ")";
 
             int? _adet = adet?.ToInteger();
 
-            List<sp_RealEstatesForListSelect_Result> dataList = new List<sp_RealEstatesForListSelect_Result>();
+            List<sp_PropertyForListSelect_Result> dataList = new List<sp_PropertyForListSelect_Result>();
 
             if (!String.IsNullOrEmpty(kelime))
             {
@@ -56,40 +56,40 @@ namespace Emlak.Servis
                 {
                     case "tum":
                         kategoriAdi = "Tüm İlanlar";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, null, null, null, null, null, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, null, null, null, null, null, _adet).ToList();
                         break;
                     case "rasgele":
                         kategoriAdi = "Rasgele İlanlar";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, null, null, null, null, true, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, null, null, null, null, true, _adet).ToList();
                         break;
                     case "yeni":
                         kategoriAdi = "Yeni İlanlar";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, null, null, true, null, true, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, null, null, true, null, true, _adet).ToList();
                         break;
                     case "satilik":
                         kategoriAdi = "Satılık İlanlar";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, null, true, null, null, null, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, null, true, null, null, null, _adet).ToList();
                         break;
                     case "kiralik":
                         kategoriAdi = "Kiralık İlanlar";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, null, false, null, null, null, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, null, false, null, null, null, _adet).ToList();
                         break;
                     case "vitrin":
                         kategoriAdi = "Vitrin İlanları";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, null, null, null, null, true, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, null, null, null, null, true, _adet).ToList();
                         break;
                     default:
                         kategoriAdi = "Arama Sonuçları (" + kelime + ")";
-                        dataList = entity.sp_RealEstatesForListSelect("TR", null, null, kelime, null, null, null, null, _adet).ToList();
+                        dataList = entity.sp_PropertyForListSelect("TR", null, null, kelime, null, null, null, null, _adet).ToList();
                         break;
                 }
             }
 
             if (dataList.Count > 0)
             {
-                foreach (sp_RealEstatesForListSelect_Result item in dataList)
+                foreach (sp_PropertyForListSelect_Result item in dataList)
                 {
-                    ilanlar.Add(new RealEstateData()
+                    ilanlar.Add(new PropertyData()
                     {
                         ID = item.ID.ToString(),
                         KatID = item.PCatID.ToString(),
@@ -112,11 +112,11 @@ namespace Emlak.Servis
             return ilanlar;
         }
 
-        public List<RealEstateData> KategoriIlanlar(string kategori)
+        public List<PropertyData> KategoriIlanlar(string kategori)
         {
-            List<RealEstateData> ilanlar = new List<RealEstateData>();
+            List<PropertyData> ilanlar = new List<PropertyData>();
 
-            List<sp_RealEstatesForListSelect_Result> dataList = new List<sp_RealEstatesForListSelect_Result>();
+            List<sp_PropertyForListSelect_Result> dataList = new List<sp_PropertyForListSelect_Result>();
 
             if (!String.IsNullOrEmpty(kategori))
             {
@@ -132,11 +132,11 @@ namespace Emlak.Servis
                 kategori = katText.TrimEnd('-');
             }
 
-            dataList = entity.sp_RealEstatesForListSelect("TR", null, kategori, null, null, null, null, null, null).ToList();
+            dataList = entity.sp_PropertyForListSelect("TR", null, kategori, null, null, null, null, null, null).ToList();
 
-            foreach (sp_RealEstatesForListSelect_Result item in dataList)
+            foreach (sp_PropertyForListSelect_Result item in dataList)
             {
-                ilanlar.Add(new RealEstateData()
+                ilanlar.Add(new PropertyData()
                 {
                     ID = item.ID.ToString(),
                     KatID = item.PCatID.ToString(),
@@ -234,7 +234,7 @@ namespace Emlak.Servis
         {
             List<GalleryData> picNames = new List<GalleryData>();
 
-            var pictures = entity.sp_RealEstatePicturesByUrl(ilanurl).ToList();
+            var pictures = entity.sp_PropertyPicturesByUrl(ilanurl).ToList();
 
             foreach (var item in pictures)
             {
@@ -247,7 +247,7 @@ namespace Emlak.Servis
 
         public SpecsData Ozellikler(string ilanurl)
         {
-            var item = entity.sp_AndroidRealEstateByUrl(ilanurl).FirstOrDefault();
+            var item = entity.sp_AndroidPropertyByUrl(ilanurl).FirstOrDefault();
 
             SpecsData specs = new SpecsData()
             {

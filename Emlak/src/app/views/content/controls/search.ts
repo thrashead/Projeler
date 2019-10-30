@@ -34,7 +34,7 @@ export class ContentSearchComponent {
         this.service.get("Site", "AramaSonuc", this.Kelime, "kod")
             .subscribe((answer: any) => {
                 if (answer != "") {
-                    this.router.navigate(['/Emlak/Detay', answer.RouteUrl]);
+                    this.router.navigate(['/Emlak/Detay', answer.Url]);
                 }
                 else {
                     this.router.navigate(['/Emlak/Listele', this.Kelime]);

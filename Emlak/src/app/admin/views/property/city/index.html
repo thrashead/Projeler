@@ -1,0 +1,52 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-dashboard"></i> Şehirler</a></div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-dashboard"></i></span>
+						<h5>Şehirler</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>İsim</th>
+									<th>Kod</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of CityList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Title }}</td>
+									<td>{{ item?.Code }}</td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li><a class="updLink" [routerLink]="['/Admin/City/Update/' + item?.ID]">Düzenle</a></li>
+												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="City" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="City" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pagelinks">
+			<a routerLink="/Admin/City/Insert" class="btn btn-primary btn-add">Şehir Ekle</a>
+		</div>
+	</div>
+</div>
+
+<admin-copydelete></admin-copydelete>

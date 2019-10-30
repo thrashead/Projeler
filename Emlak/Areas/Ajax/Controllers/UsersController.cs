@@ -1,5 +1,3 @@
-using System;
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using System.Collections.Generic;
@@ -12,7 +10,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class UsersController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Users curUser = AppTools.User;
+        Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()

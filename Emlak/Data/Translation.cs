@@ -23,9 +23,9 @@ namespace Emlak.Data
             this.GalleryT = new HashSet<GalleryT>();
             this.LangContentT = new HashSet<LangContentT>();
             this.MetaT = new HashSet<MetaT>();
+            this.PropertyCategoriesT = new HashSet<PropertyCategoriesT>();
             this.PropertyStatusT = new HashSet<PropertyStatusT>();
             this.PropertyT = new HashSet<PropertyT>();
-            this.RealEstatesT = new HashSet<RealEstatesT>();
             this.WarmTypeT = new HashSet<WarmTypeT>();
         }
     
@@ -49,11 +49,11 @@ namespace Emlak.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MetaT> MetaT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyCategoriesT> PropertyCategoriesT { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PropertyStatusT> PropertyStatusT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PropertyT> PropertyT { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RealEstatesT> RealEstatesT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WarmTypeT> WarmTypeT { get; set; }
     }

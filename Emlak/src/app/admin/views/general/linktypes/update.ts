@@ -102,7 +102,6 @@ export class AdminLinkTypesUpdateComponent {
                                         case 5: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPictureAdi; break;
                                         case 6: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFileAdi; break;
                                         case 7: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi; break;
-                                        case 17: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedRealEstatesAdi; break;
                                         case 18: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPropertyAdi; break;
                                     }
                                 }

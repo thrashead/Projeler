@@ -14,6 +14,7 @@ namespace Emlak.Data
     public partial class usp_PropertySelectAll_Result
     {
         public int ID { get; set; }
+        public int CatID { get; set; }
         public string Title { get; set; }
         public string Code { get; set; }
         public string Url { get; set; }

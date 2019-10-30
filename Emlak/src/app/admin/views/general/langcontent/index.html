@@ -29,7 +29,7 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/LangContent/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li><a class="updLink" [routerLink]="['/Admin/LangEmlak/Content/Update/' + item?.ID]">Düzenle</a></li>
                                                 <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="LangContent" [attr.data-id]="item?.ID">Kopyala</a></li>
                                                 <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="LangContent" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="pagelinks">
-            <a routerLink="/Admin/LangContent/Insert" class="btn btn-primary btn-add">Dil İçerik Ekle</a>
+            <a routerLink="/Admin/LangEmlak/Content/Insert" class="btn btn-primary btn-add">Dil İçerik Ekle</a>
         </div>
 
         <input id="hdnModel" type="hidden" value="Translation" />

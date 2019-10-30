@@ -23,6 +23,11 @@ namespace Emlak.Data
         public Nullable<bool> GununEmlagi { get; set; }
         public bool Active { get; set; }
         public bool Deleted { get; set; }
+        public int CatID { get; set; }
+        public int PCatID { get; set; }
+        public string CatUrl { get; set; }
+        public string CategoryName { get; set; }
+        public string PCatUrl { get; set; }
         public string TBaslik { get; set; }
         public string Sahibi { get; set; }
         public string Ilce { get; set; }
@@ -74,10 +79,5 @@ namespace Emlak.Data
         public bool KabloTVUydu { get; set; }
         public bool Klima { get; set; }
         public string Picture { get; set; }
-        public string CategoryName { get; set; }
-        public Nullable<int> CatID { get; set; }
-        public Nullable<int> PCatID { get; set; }
-        public string CatUrl { get; set; }
-        public string PCatUrl { get; set; }
     }
 }

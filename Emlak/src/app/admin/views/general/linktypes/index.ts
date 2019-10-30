@@ -48,7 +48,6 @@ export class AdminLinkTypesIndexComponent {
                                         case 5: resData[i].MainAdi = resData[i].MainPictureAdi; break;
                                         case 6: resData[i].MainAdi = resData[i].MainFileAdi; break;
                                         case 7: resData[i].MainAdi = resData[i].MainMetaAdi; break;
-                                        case 17: resData[i].MainAdi = resData[i].MainRealEstatesAdi; break;
                                         case 18: resData[i].MainAdi = resData[i].MainPropertyAdi; break;
                                     }
                                 }

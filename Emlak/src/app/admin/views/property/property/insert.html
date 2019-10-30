@@ -1,0 +1,106 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Emlak Ekle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="insertForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    Bağlı Kategori
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="CatID" [ngModel]="model?.CatID" formControlName="CatID"><option *ngFor="let item of model?.PropertyCategoriesList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--CatID-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Başlık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Title" [ngModel]="model?.Title" formControlName="Title" type="text" />
+                    <br />
+                    <!-- Title -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kod
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Code" [ngModel]="model?.Code" formControlName="Code" type="text" />
+                    <br />
+                    <!-- Code -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Fiyat
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Price" [ngModel]="model?.Price" formControlName="Price" type="number" />
+                    <br />
+                    <!-- Price -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Satılık
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Forsale" [ngModel]="model?.Forsale" formControlName="Forsale" type="checkbox" />
+                    <br />
+                    <!-- Forsale -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Yeni
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="NewBrand" [ngModel]="model?.NewBrand" formControlName="NewBrand" type="checkbox" />
+                    <br />
+                    <!-- NewBrand -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Günün İlanı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="PropOfDay" [ngModel]="model?.PropOfDay" formControlName="PropOfDay" type="checkbox" />
+                    <br />
+                    <!-- PropOfDay -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Aktif
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="Active" [ngModel]="model?.Active" formControlName="Active" type="checkbox" />
+                    <br />
+                    <!-- Active -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!insertForm.valid" />
+                    <a routerLink="/Admin/Property" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+		</form>
+	</div>
+</div>

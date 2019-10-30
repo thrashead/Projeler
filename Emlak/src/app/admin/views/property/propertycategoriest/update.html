@@ -1,0 +1,76 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Emlak Kategorisi (Dil) Düzenle</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+			<fieldset>
+				<div class="editor-label">
+					<input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+				</div>
+				<div class="editor-label">
+					Bağlı Kategori
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="PropCatID" [ngModel]="model?.PropCatID" formControlName="PropCatID"><option *ngFor="let item of model?.PropertyCategoriesList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- PropCatID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Bağlı Dil
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<select id="TransID" [ngModel]="model?.TransID" formControlName="TransID"><option *ngFor="let item of model?.TranslationList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+					<br />
+					<!-- TransID -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Kategori Adı
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="CategoryName" [ngModel]="model?.CategoryName" formControlName="CategoryName" type="text" value="{{ model?.CategoryName }}" />
+					<br />
+					<!-- CategoryName -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Kısa Metin
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="ShortText" [ngModel]="model?.ShortText" formControlName="ShortText" type="text" value="{{ model?.ShortText }}" />
+					<br />
+					<!-- ShortText -->
+				</div>
+				<div class="clear"></div>
+
+				<div class="editor-label">
+					Açıklama
+				</div>
+				<div class="clear"></div>
+				<div class="editor-field">
+					<input id="Description" [ngModel]="model?.Description" formControlName="Description" type="text" value="{{ model?.Description }}" />
+					<br />
+					<!-- Description -->
+				</div>
+				<div class="clear"></div>
+
+				<p>
+					<div class="alert alert-error">
+						<strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+					</div>
+
+					<input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+					<a routerLink="/Admin/PropertyCategoriesT" class="btn btn-danger btn-cancel">İptal</a>
+			</fieldset>
+		</form>
+	</div>
+</div>

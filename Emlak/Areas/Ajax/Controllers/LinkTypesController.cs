@@ -11,7 +11,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class LinkTypesController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Users curUser = AppTools.User;
+        Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()
@@ -179,9 +179,6 @@ namespace Emlak.Areas.Ajax.Controllers
                 case 7:
                     List<usp_MetaSelect_Result> metalar = entity.usp_MetaSelect(null).ToList();
                     return ListeDoldur(metalar, BaglantiTipi.Tablo, selectedID);
-                case 17:
-                    List<usp_RealEstatesSelect_Result> emlaklar = entity.usp_RealEstatesSelect(null).ToList();
-                    return ListeDoldur(emlaklar, BaglantiTipi.Emlak, selectedID);
                 case 18:
                     List<usp_PropertySelect_Result> properties = entity.usp_PropertySelect(null).ToList();
                     return ListeDoldur(properties, BaglantiTipi.Tablo, selectedID);

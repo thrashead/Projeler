@@ -10,7 +10,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
-                    <select id="ParentID" [ngModel]="model?.ParentID" formControlName="ParentID"><option *ngFor="let item of model?.ParentCategories" value="item?.Value">{{ item?.Text }}</option></select>
+                    <select id="ParentID" [ngModel]="model?.ParentID" formControlName="ParentID"><option *ngFor="let item of model?.ParentCategories" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
                     <br />
                     <!--ParentID-->
                 </div>
