@@ -21,6 +21,5 @@ namespace Repository.Data
         public string LinkedPicturesAdi { get; set; }
         public string LinkedFilesAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string LinkedFormGroupsAdi { get; set; }
     }
 }

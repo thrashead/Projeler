@@ -26,6 +26,5 @@ namespace Repository.Data
         public string MainPicturesAdi { get; set; }
         public string MainFilesAdi { get; set; }
         public string MainMetaAdi { get; set; }
-        public string MainFormGroupsAdi { get; set; }
     }
 }

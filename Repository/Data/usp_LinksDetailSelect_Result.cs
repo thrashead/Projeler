@@ -30,7 +30,5 @@ namespace Repository.Data
         public string LinkedFilesAdi { get; set; }
         public string MainMetaAdi { get; set; }
         public string LinkedMetaAdi { get; set; }
-        public string MainFormGroupsAdi { get; set; }
-        public string LinkedFormGroupsAdi { get; set; }
     }
 }
