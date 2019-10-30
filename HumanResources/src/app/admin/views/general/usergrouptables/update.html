@@ -1,0 +1,44 @@
+﻿<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a class="tip-bottom"><i class="icon-table"></i> Kullanıcı Grubu Tablosu Düzenle</a></div>
+    </div>
+    <div class="container-fluid">
+        <form [formGroup]="duzenleForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+
+                <div class="editor-label">
+                    Grup Adı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="UserGroupID" [ngModel]="model?.UserGroupID" formControlName="UserGroupID"><option *ngFor="let item of model?.UserGroupsList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--UserGroupID-->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Tablo Adı
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="TypeID" [ngModel]="model?.TypeID" formControlName="TypeID"><option *ngFor="let item of model?.TypesList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!--TypeID-->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!duzenleForm.valid" />
+                    <a routerLink="/Admin/UserGroupTables" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿<div id="content">
+	<div id="content-header">
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-flag"></i> Dil İçeriği Düzenle (Dil)</a></div>
+	</div>
+	<div class="container-fluid">
+		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <div class="editor-label">
+                    <input id="ID" [ngModel]="model?.ID" formControlName="ID" type="hidden" value="{{ model?.ID }}" />
+                </div>
+                <div class="editor-label">
+                    Bağlı Dil İçeriği
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="LangContentID" [ngModel]="model?.LangContentID" formControlName="LangContentID"><option *ngFor="let item of model?.LangContentList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!-- LangContentID -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Bağlı Dil
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <select id="TransID" [ngModel]="model?.TransID" formControlName="TransID"><option *ngFor="let item of model?.TranslationList" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
+                    <br />
+                    <!-- TransID -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kısa Açıklama
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortDescription" [ngModel]="model?.ShortDescription" formControlName="ShortDescription" type="text" value="{{ model?.ShortDescription }}" />
+                    <br />
+                    <!-- ShortDescription -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Açıklama
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <textarea id="Description" [ngModel]="model?.Description" formControlName="Description">{{ model?.Description }}</textarea>
+                    <br />
+                    <!-- Description -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Kısa Açıklama 2
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <input id="ShortDescription2" [ngModel]="model?.ShortDescription2" formControlName="ShortDescription2" type="text" value="{{ model?.ShortDescription2 }}" />
+                    <br />
+                    <!-- ShortDescription2 -->
+                </div>
+                <div class="clear"></div>
+
+                <div class="editor-label">
+                    Açıklama 2
+                </div>
+                <div class="clear"></div>
+                <div class="editor-field">
+                    <textarea id="Description2" [ngModel]="model?.Description2" formControlName="Description2">{{ model?.Description2 }}</textarea>
+                    <br />
+                    <!-- Description2 -->
+                </div>
+                <div class="clear"></div>
+
+                <p>
+                    <div class="alert alert-error">
+                        <strong>Hata! </strong> <span class="alertMessage">{{ model?.Mesaj }}</span>
+                    </div>
+
+                    <input type="submit" value="Kaydet" class="btn btn-success btn-save" [disabled]="!updateForm.valid" />
+                    <a routerLink="/Admin/LangContentT" class="btn btn-danger btn-cancel">İptal</a>
+            </fieldset>
+		</form>
+	</div>
+</div>

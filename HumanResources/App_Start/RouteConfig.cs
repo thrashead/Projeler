@@ -14,8 +14,15 @@ namespace HumanResources
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Site",
+                url: "Site/{action}/{id}",
+                defaults: new { controller = "Site", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "{*anything}",
+                // url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

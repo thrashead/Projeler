@@ -1,0 +1,100 @@
+* {outline: none!important;}
+
+.b-review > img {margin-top: 60px;}
+.b-footer__company a {color:#fff;text-decoration:none;}
+.b-footer__company a:hover {color:#bababa;text-decoration:none;}
+#tabAutoBest > .tab > div > div {height: 400px!important;}
+.b-auto__main-item img.img-responsive {width: 100%;height: 200px;}
+.b-nav__logo h3 a {font-size:22px!important;}
+.b-asks__first-circle span {font-size:32px!important;}
+.b-asks__first-arrow span {font-size:20px!important;}
+.b-world__item a span.fa {font-size:12px!important;}
+.b-info__aside > a span {font-size:14px!important;}
+.b-count__item-circle span {font-size:40px!important;}
+.b-topBar__lang {padding-left: 20px;}
+ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
+.b-search {background-color:none!important;}
+.b-search * {text-transform:none!important;}
+.b-search__main-type-svg {width:108px;height:42px;background-repeat:no-repeat;background-position:center center;cursor:pointer;}
+.b-search__main-type-svg.convertible {background-image:url(/HumanResources/Content/img/vehicletypes/convertible.png);}
+.b-search__main-type-svg.convertible:hover {background-image:url(/HumanResources/Content/img/vehicletypes/convertible-hvr.png);}
+.b-search__main-type-svg.convertible.active {background-image:url(/HumanResources/Content/img/vehicletypes/convertible-hvr.png);}
+.b-search__main-type-svg.coupe {background-image:url(/HumanResources/Content/img/vehicletypes/coupe.png);}
+.b-search__main-type-svg.coupe:hover {background-image:url(/HumanResources/Content/img/vehicletypes/coupe-hvr.png);}
+.b-search__main-type-svg.coupe.active {background-image:url(/HumanResources/Content/img/vehicletypes/coupe-hvr.png);}
+.b-search__main-type-svg.minicar {background-image:url(/HumanResources/Content/img/vehicletypes/minicar.png);}
+.b-search__main-type-svg.minicar:hover {background-image:url(/HumanResources/Content/img/vehicletypes/minicar-hvr.png);}
+.b-search__main-type-svg.minicar.active {background-image:url(/HumanResources/Content/img/vehicletypes/minicar-hvr.png);}
+.b-search__main-type-svg.pickup {background-image:url(/HumanResources/Content/img/vehicletypes/pickup.png);}
+.b-search__main-type-svg.pickup:hover {background-image:url(/HumanResources/Content/img/vehicletypes/pickup-hvr.png);}
+.b-search__main-type-svg.pickup.active {background-image:url(/HumanResources/Content/img/vehicletypes/pickup-hvr.png);}
+.b-search__main-type-svg.sedan {background-image:url(/HumanResources/Content/img/vehicletypes/sedan.png);}
+.b-search__main-type-svg.sedan:hover {background-image:url(/HumanResources/Content/img/vehicletypes/sedan-hvr.png);}
+.b-search__main-type-svg.sedan.active {background-image:url(/HumanResources/Content/img/vehicletypes/sedan-hvr.png);}
+.b-search__main-type-svg.suv {background-image:url(/HumanResources/Content/img/vehicletypes/suv.png);}
+.b-search__main-type-svg.suv:hover {background-image:url(/HumanResources/Content/img/vehicletypes/suv-hvr.png);}
+.b-search__main-type-svg.suv.active {background-image:url(/HumanResources/Content/img/vehicletypes/suv-hvr.png);}
+.b-topBar__addr{overflow-x: hidden;white-space: nowrap;}
+.b-blog__posts-one-body-tags span.blogtags {color:#A1A1A1;}
+.b-world__item {text-align:center;}
+.b-world__item p {margin-bottom: 0px;}
+.b-world__item h2 {height:40px;}
+.b-world__item img.img-responsive {display:unset;height:240px;}
+.b-items div input[type='checkbox'] {position: absolute;visibility: hidden;}
+.b-items div input[type='checkbox']:checked + .b-items__cars-one-img-check span.fa {display: block;}
+.b-items__cars-one-img > img {width: 270px;height: 230px;}
+.b-infoBar__compare {text-align:right;}
+.b-infoBar__select {float:left;}
+#listControls {text-align:center;}
+#listControls #spnPage {color: #636363;text-align: center;width: 40px;display: inline-block;}
+#listControls .owl-next {margin-left: 0px!important;}
+.b-featured__item img {width: 100%;height: 170px;}
+.b-info__latest-article-photo {background-size: cover;}
+.b-contact__form button {margin-left: 10px;}
+.b-contact__form button[disabled] {background-color: #808080;}
+.b-detail__main-info-characteristics-one-top {height: 130px;}
+.b-detail__main-info-characteristics-one-top p {padding: 0px 5px 0px 5px;}
+.b-detail__head {padding-bottom: 10px;}
+.b-detail__head-title {margin-top: 15px;}
+.b-detail__main-info-characteristics-one-bottom {height: 58px;}
+.b-brands__brand img {width:80px;}
+.listNull {font-size: 20px;margin: 0px auto;text-align: center;padding: 10px;display:none;}
+.listNull.show {display:block;}
+.b-compare__block-inside-value ul {height:auto;}
+.s-submit input[type='number'], .s-submit textarea {display: block;width: 100%;padding: 15px 20px;font: 400 13px Arial;border: 1px solid #eeeeee;color: #444;
+                                                    background: #f7f7f7!important;text-transform: none;border-radius: 30px;padding-top: 13px;padding-bottom: 13px;
+                                                    height: 46px;}
+.s-form input[type='number'], .s-form textarea {display: block;width: 100%;padding: 15px 20px;font: 400 10px Arial;border: 1px solid #eeeeee;color: #444;
+                                                    border-radius: 30px;margin-bottom: 15px;}
+.s-form input, .s-form textarea, .b-detail__main-aside form input, .b-detail__main-aside form textarea {text-transform: none!important;}
+.s-submit textarea { height:80px; }
+.b-info__aside {z-index:999;}
+.b-blog__aside-search button {top: 0px;margin-top: 7px;margin-right: 7px;}
+.b-blog__posts-one-body {margin-left:0px;}
+.b-blog__posts-one-body-main-img-small a img {height:60px;}
+.rvwSubmit {margin-bottom:30px;}
+.b-review__main p {font-family:Arial;}
+.b-detail__main-aside-about-form {margin-bottom:0px;}
+.b-detail__main-aside-about-call {margin-bottom:60px;padding-top: 28px;}
+.b-detail__main-aside form input[type='number'] {display: block;width: 100%;margin-bottom: 15px;padding: 15px 20px;font: 400 10px Arial;border: 1px solid #eeeeee;
+                                                 border-radius: 30px;}
+
+.b-submit__main-element .slider {width: 95%;margin-bottom: 55px;}
+.b-submit__main-element .slider a span.min, .b-submit__main-element .slider a span.max {position: absolute;top: 150%;left: -3px;font: 400 12px Arial;text-decoration: none;}
+
+
+.modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}
+.modalitem.show {display:block;}
+.modalitem .modaldialog {margin: 160px auto 0px auto;width: 95%;min-height: 96px;background-color: #fff;border: 3px solid #e54a00;}
+.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}
+.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}
+.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #e54a00;}
+
+@media only screen and (max-width: 1200px) {
+    .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {width:auto!important;}
+}
+
+@media only screen and (max-width: 366px) {
+    .b-search__main-type .col-xs-2[data-filter=radioMainSearch] {float:none;margin:0px auto;}
+    .b-search__main-type-svg {width:auto!important;}
+}
