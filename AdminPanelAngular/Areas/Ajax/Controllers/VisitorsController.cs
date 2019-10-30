@@ -12,7 +12,7 @@ namespace AdminPanelAngular.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult Index()
         {
-            if (!curUser.HasRight("Visitors"))
+            if (!curUser.HasRight("Website"))
                 return Json(null, JsonRequestBehavior.AllowGet);
 
             return Json(model.List(), JsonRequestBehavior.AllowGet);
@@ -21,7 +21,7 @@ namespace AdminPanelAngular.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult Clear()
         {
-            if (!curUser.HasRight("Visitors", "d"))
+            if (!curUser.HasRight("Website", "d"))
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             bool result = model.Clear();

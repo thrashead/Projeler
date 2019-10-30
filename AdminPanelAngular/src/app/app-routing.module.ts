@@ -24,26 +24,6 @@ import { AdminFilesIndexComponent } from './admin/views/files';
 import { AdminFilesInsertComponent } from './admin/views/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/files/update';
 
-import { AdminFormItemsIndexComponent } from './admin/views/formitems';
-import { AdminFormItemsInsertComponent } from './admin/views/formitems/insert';
-import { AdminFormItemsUpdateComponent } from './admin/views/formitems/update';
-
-import { AdminFormValuesIndexComponent } from './admin/views/formvalues';
-import { AdminFormValuesInsertComponent } from './admin/views/formvalues/insert';
-import { AdminFormValuesUpdateComponent } from './admin/views/formvalues/update';
-
-import { AdminFormGroupsIndexComponent } from './admin/views/formgroups';
-import { AdminFormGroupsInsertComponent } from './admin/views/formgroups/insert';
-import { AdminFormGroupsUpdateComponent } from './admin/views/formgroups/update';
-
-import { AdminFormAttributesIndexComponent } from './admin/views/formattributes';
-import { AdminFormAttributesInsertComponent } from './admin/views/formattributes/insert';
-import { AdminFormAttributesUpdateComponent } from './admin/views/formattributes/update';
-
-import { AdminFormTypesIndexComponent } from './admin/views/formtypes';
-import { AdminFormTypesInsertComponent } from './admin/views/formtypes/insert';
-import { AdminFormTypesUpdateComponent } from './admin/views/formtypes/update';
-
 import { AdminGalleryIndexComponent } from './admin/views/gallery';
 import { AdminGalleryInsertComponent } from './admin/views/gallery/insert';
 import { AdminGalleryUpdateComponent } from './admin/views/gallery/update';
@@ -164,34 +144,6 @@ const routes: Routes = [
             { path: 'Admin/Files/Index', component: AdminFilesIndexComponent },
             { path: 'Admin/Files/Insert', component: AdminFilesInsertComponent },
             { path: 'Admin/Files/Update/:id', component: AdminFilesUpdateComponent },
-
-            { path: 'Admin/FormItems', component: AdminFormItemsIndexComponent },
-            { path: 'Admin/FormItems/Index', component: AdminFormItemsIndexComponent },
-            { path: 'Admin/FormItems/Insert', component: AdminFormItemsInsertComponent },
-            { path: 'Admin/FormItems/Insert/:linkID', component: AdminFormItemsInsertComponent },
-            { path: 'Admin/FormItems/Update/:id', component: AdminFormItemsUpdateComponent },
-
-            { path: 'Admin/FormValues', component: AdminFormValuesIndexComponent },
-            { path: 'Admin/FormValues/Index', component: AdminFormValuesIndexComponent },
-            { path: 'Admin/FormValues/Insert', component: AdminFormValuesInsertComponent },
-            { path: 'Admin/FormValues/Insert/:linkID', component: AdminFormValuesInsertComponent },
-            { path: 'Admin/FormValues/Update/:id', component: AdminFormValuesUpdateComponent },
-
-            { path: 'Admin/FormGroups', component: AdminFormGroupsIndexComponent },
-            { path: 'Admin/FormGroups/Index', component: AdminFormGroupsIndexComponent },
-            { path: 'Admin/FormGroups/Insert', component: AdminFormGroupsInsertComponent },
-            { path: 'Admin/FormGroups/Update/:id', component: AdminFormGroupsUpdateComponent },
-
-            { path: 'Admin/FormAttributes', component: AdminFormAttributesIndexComponent },
-            { path: 'Admin/FormAttributes/Index', component: AdminFormAttributesIndexComponent },
-            { path: 'Admin/FormAttributes/Insert', component: AdminFormAttributesInsertComponent },
-            { path: 'Admin/FormAttributes/Insert/:linkID', component: AdminFormAttributesInsertComponent },
-            { path: 'Admin/FormAttributes/Update/:id', component: AdminFormAttributesUpdateComponent },
-
-            { path: 'Admin/FormTypes', component: AdminFormTypesIndexComponent },
-            { path: 'Admin/FormTypes/Index', component: AdminFormTypesIndexComponent },
-            { path: 'Admin/FormTypes/Insert', component: AdminFormTypesInsertComponent },
-            { path: 'Admin/FormTypes/Update/:id', component: AdminFormTypesUpdateComponent },
 
             { path: 'Admin/Gallery', component: AdminGalleryIndexComponent },
             { path: 'Admin/Gallery/Index', component: AdminGalleryIndexComponent },

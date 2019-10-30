@@ -46,33 +46,29 @@
                     {
                         <li class="bg_lv"> <a href="@AppMgr.AdminPath/Meta"> <i class="icon-tags"></i> Meta</a> </li>
                     } }
-                @{ if (user.HasRight("FormItems") && "FormItems".ShowType() == true)
-                    {
-                        <li class="bg_lg"> <a href="@AppMgr.AdminPath/FormItems"> <i class="icon-tasks"></i> Form Elemanları</a> </li>
-                    } }
                 @{ if (user.HasRight("LinkTypes") && "LinkTypes".ShowType() == true)
                     {
-                        <li class="bg_lb"> <a href="@AppMgr.AdminPath/LinkTypes"> <i class="icon-link"></i> Bağlı Tipler</a> </li>
+                        <li class="bg_lg"> <a href="@AppMgr.AdminPath/LinkTypes"> <i class="icon-link"></i> Bağlı Tipler</a> </li>
                     } }
                 @{ if (user.HasRight("Translation") && "Translation".ShowType() == true)
                     {
-                        <li class="bg_ly"> <a href="@AppMgr.AdminPath/Translation"> <i class="icon-globe"></i> Diller</a> </li>
+                        <li class="bg_lb"> <a href="@AppMgr.AdminPath/Translation"> <i class="icon-globe"></i> Diller</a> </li>
                     } }
                 @{ if (user.HasRight("Logs") && "Logs".ShowType() == true)
                     {
-                        <li class="bg_lo"> <a href="@AppMgr.AdminPath/Logs"> <i class="icon-eye-open"></i> Loglar</a> </li>
+                        <li class="bg_ly"> <a href="@AppMgr.AdminPath/Logs"> <i class="icon-eye-open"></i> Loglar</a> </li>
                     } }
-                @{ if (user.HasRight("Visitors") && "Visitors".ShowType() == true)
+                @{ if (user.HasRight("Website") && "Website".ShowType() == true)
                     {
-                        <li class="bg_ls"> <a href="@AppMgr.AdminPath/Visitors"> <i class="icon-plane"></i> Ziyaretci</a> </li>
+                        <li class="bg_lo"> <a href="@AppMgr.AdminPath/Visitors"> <i class="icon-plane"></i> Ziyaretci</a> </li>
                     } }
                 @{ if (user.HasRight("Users") && "Users".ShowType() == true)
                     {
-                        <li class="bg_lr"> <a href="@AppMgr.AdminPath/Users"> <i class="icon-user"></i> Kullanıcılar</a> </li>
+                        <li class="bg_ls"> <a href="@AppMgr.AdminPath/Users"> <i class="icon-user"></i> Kullanıcılar</a> </li>
                     } }
                 @{ if (user.HasRight("Types") && "Types".ShowType() == true)
                     {
-                        <li class="bg_lv"> <a href="@AppMgr.AdminPath/Types"> <i class="icon-pushpin"></i> Tipler</a> </li>
+                        <li class="bg_lr"> <a href="@AppMgr.AdminPath/Types"> <i class="icon-pushpin"></i> Tipler</a> </li>
                     } }
             </ul>
         </div>

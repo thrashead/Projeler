@@ -35,26 +35,6 @@ import { AdminFilesIndexComponent } from './admin/views/files';
 import { AdminFilesInsertComponent } from './admin/views/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/files/update';
 
-import { AdminFormItemsIndexComponent } from './admin/views/formitems';
-import { AdminFormItemsInsertComponent } from './admin/views/formitems/insert';
-import { AdminFormItemsUpdateComponent } from './admin/views/formitems/update';
-
-import { AdminFormValuesIndexComponent } from './admin/views/formvalues';
-import { AdminFormValuesInsertComponent } from './admin/views/formvalues/insert';
-import { AdminFormValuesUpdateComponent } from './admin/views/formvalues/update';
-
-import { AdminFormGroupsIndexComponent } from './admin/views/formgroups';
-import { AdminFormGroupsInsertComponent } from './admin/views/formgroups/insert';
-import { AdminFormGroupsUpdateComponent } from './admin/views/formgroups/update';
-
-import { AdminFormAttributesIndexComponent } from './admin/views/formattributes';
-import { AdminFormAttributesInsertComponent } from './admin/views/formattributes/insert';
-import { AdminFormAttributesUpdateComponent } from './admin/views/formattributes/update';
-
-import { AdminFormTypesIndexComponent } from './admin/views/formtypes';
-import { AdminFormTypesInsertComponent } from './admin/views/formtypes/insert';
-import { AdminFormTypesUpdateComponent } from './admin/views/formtypes/update';
-
 import { AdminGalleryIndexComponent } from './admin/views/gallery';
 import { AdminGalleryInsertComponent } from './admin/views/gallery/insert';
 import { AdminGalleryUpdateComponent } from './admin/views/gallery/update';
@@ -170,26 +150,6 @@ import { ModelService } from './admin/services/model';
         AdminFilesIndexComponent,
         AdminFilesInsertComponent,
         AdminFilesUpdateComponent,
-
-        AdminFormItemsIndexComponent,
-        AdminFormItemsInsertComponent,
-        AdminFormItemsUpdateComponent,
-
-        AdminFormValuesIndexComponent,
-        AdminFormValuesInsertComponent,
-        AdminFormValuesUpdateComponent,
-
-        AdminFormGroupsIndexComponent,
-        AdminFormGroupsInsertComponent,
-        AdminFormGroupsUpdateComponent,
-
-        AdminFormAttributesIndexComponent,
-        AdminFormAttributesInsertComponent,
-        AdminFormAttributesUpdateComponent,
-
-        AdminFormTypesIndexComponent,
-        AdminFormTypesInsertComponent,
-        AdminFormTypesUpdateComponent,
 
         AdminGalleryIndexComponent,
         AdminGalleryInsertComponent,

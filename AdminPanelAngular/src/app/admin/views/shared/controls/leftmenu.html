@@ -45,16 +45,6 @@
                 <li data-url="MetaT"><a routerLink="/Admin/MetaT">Meta (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightFormItems && showTypeFormItems">
-            <a href="javascript:;"><i class="icon icon-tasks"></i> <span>Form Elemanları</span></a>
-            <ul>
-                <li data-url="FormItems"><a routerLink="/Admin/FormItems">Form Elemanları</a></li>
-                <li data-url="FormGroups"><a routerLink="/Admin/FormGroups">Form Grupları</a></li>
-                <li data-url="FormAttributes"><a routerLink="/Admin/FormAttributes">Form Eleman Özellikleri</a></li>
-                <li data-url="FormValues"><a routerLink="/Admin/FormValues">Form Eleman Değerleri</a></li>
-                <li data-url="FormTypes"><a routerLink="/Admin/FormTypes">Form Tipleri</a></li>
-            </ul>
-        </li>
         <li class="submenu" *ngIf="hasRightLinkTypes && showTypeLinkTypes">
             <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
             <ul>
@@ -73,7 +63,7 @@
                 <li data-url="LogProcess"><a routerLink="/Admin/LogProcess">Log İşlemleri</a></li>
             </ul>
         </li>
-        <li data-url="Visitors" *ngIf="hasRightVisitors && showTypeVisitors">
+        <li data-url="Visitors" *ngIf="hasRightWebsite && showTypeWebsite">
             <a routerLink="/Admin/Visitors"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
         </li>
         <li class="submenu" *ngIf="hasRightUsers && showTypeUsers">

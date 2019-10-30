@@ -87,21 +87,6 @@
             }
         }
 
-        @{ if (user.HasRight("FormItems") && "FormItems".ShowType() == true)
-            {
-                <li class="submenu">
-                    <a href="#"><i class="icon icon-tasks"></i> <span>Form Elemanları</span></a>
-                    <ul>
-                        <li data-url="FormItems"><a href="@AppMgr.AdminPath/FormItems">Form Elemanları</a></li>
-                        <li data-url="FormGroups"><a href="@AppMgr.AdminPath/FormGroups">Form Grupları</a></li>
-                        <li data-url="FormAttributes"><a href="@AppMgr.AdminPath/FormAttributes">Form Eleman Özellikleri</a></li>
-                        <li data-url="FormValues"><a href="@AppMgr.AdminPath/FormValues">Form Eleman Değerleri</a></li>
-                        <li data-url="FormTypes"><a href="@AppMgr.AdminPath/FormTypes">Form Tipleri</a></li>
-                    </ul>
-                </li>
-            }
-        }
-
         @{ if (user.HasRight("LinkTypes") && "LinkTypes".ShowType() == true)
             {
                 <li class="submenu">
@@ -135,7 +120,7 @@
             }
         }
 
-        @{ if (user.HasRight("Visitors") && "Visitors".ShowType() == true)
+        @{ if (user.HasRight("Website") && "Website".ShowType() == true)
             {
                 <li data-url="Visitors">
                     <a href="@AppMgr.AdminPath/Visitors"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>

@@ -11,7 +11,7 @@ namespace AdminPanel.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            if (!curUser.HasRight("Visitors"))
+            if (!curUser.HasRight("Website"))
                 return RedirectToAction("Index", "Home");
 
             return View(table.List());
@@ -20,7 +20,7 @@ namespace AdminPanel.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult Clear()
         {
-            if (curUser.HasRight("Visitors", "d"))
+            if (curUser.HasRight("Website", "d"))
             {
                 bool result = table.Clear();
 

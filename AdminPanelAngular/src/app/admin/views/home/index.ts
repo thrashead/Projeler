@@ -29,9 +29,6 @@ export class AdminIndexComponent {
     hasRightMeta: boolean;
     showTypeMeta: boolean;
 
-    hasRightFormItems: boolean;
-    showTypeFormItems: boolean;
-
     hasRightLinkTypes: boolean;
     showTypeLinkTypes: boolean;
 
@@ -41,8 +38,8 @@ export class AdminIndexComponent {
     hasRightLogs: boolean;
     showTypeLogs: boolean;
 
-    hasRightVisitors: boolean;
-    showTypeVisitors: boolean;
+    hasRightWebsite: boolean;
+    showTypeWebsite: boolean;
 
     hasRightUsers: boolean;
     showTypeUsers: boolean;
@@ -87,10 +84,6 @@ export class AdminIndexComponent {
             this.hasRightMeta = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("FormItems", "s").subscribe((resData: any) => {
-            this.hasRightFormItems = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData: any) => {
             this.hasRightLinkTypes = resData;
         }, resError => this.errorMsg = resError);
@@ -103,8 +96,8 @@ export class AdminIndexComponent {
             this.hasRightLogs = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Visitors", "s").subscribe((resData: any) => {
-            this.hasRightVisitors = resData;
+        this.sharedService.getHasRight("Website", "s").subscribe((resData: any) => {
+            this.hasRightWebsite = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getHasRight("Users", "s").subscribe((resData: any) => {
@@ -145,10 +138,6 @@ export class AdminIndexComponent {
             this.showTypeMeta = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("FormItems").subscribe((resData: any) => {
-            this.showTypeFormItems = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getShowType("LinkTypes").subscribe((resData: any) => {
             this.showTypeLinkTypes = resData;
         }, resError => this.errorMsg = resError);
@@ -161,8 +150,8 @@ export class AdminIndexComponent {
             this.showTypeLogs = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getShowType("Visitors").subscribe((resData: any) => {
-            this.showTypeVisitors = resData;
+        this.sharedService.getShowType("Website").subscribe((resData: any) => {
+            this.showTypeWebsite = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getShowType("Users").subscribe((resData: any) => {
