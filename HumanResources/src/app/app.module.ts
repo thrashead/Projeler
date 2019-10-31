@@ -22,29 +22,13 @@ import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminCategoryTIndexComponent } from './admin/views/general/categoryt';
-import { AdminCategoryTInsertComponent } from './admin/views/general/categoryt/insert';
-import { AdminCategoryTUpdateComponent } from './admin/views/general/categoryt/update';
-
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
 import { AdminContentUpdateComponent } from './admin/views/general/content/update';
 
-import { AdminContentTIndexComponent } from './admin/views/general/contentt';
-import { AdminContentTInsertComponent } from './admin/views/general/contentt/insert';
-import { AdminContentTUpdateComponent } from './admin/views/general/contentt/update';
-
 import { AdminFilesIndexComponent } from './admin/views/general/files';
 import { AdminFilesInsertComponent } from './admin/views/general/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/general/files/update';
-
-import { AdminLangContentIndexComponent } from './admin/views/general/langcontent';
-import { AdminLangContentInsertComponent } from './admin/views/general/langcontent/insert';
-import { AdminLangContentUpdateComponent } from './admin/views/general/langcontent/update';
-
-import { AdminLangContentTIndexComponent } from './admin/views/general/langcontentt';
-import { AdminLangContentTInsertComponent } from './admin/views/general/langcontentt/insert';
-import { AdminLangContentTUpdateComponent } from './admin/views/general/langcontentt/update';
 
 import { AdminLinksIndexComponent } from './admin/views/general/links';
 import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
@@ -67,10 +51,6 @@ import { AdminLogTypesUpdateComponent } from './admin/views/general/logtypes/upd
 import { AdminMetaIndexComponent } from './admin/views/general/meta';
 import { AdminMetaInsertComponent } from './admin/views/general/meta/insert';
 import { AdminMetaUpdateComponent } from './admin/views/general/meta/update';
-
-import { AdminMetaTIndexComponent } from './admin/views/general/metat';
-import { AdminMetaTInsertComponent } from './admin/views/general/metat/insert';
-import { AdminMetaTUpdateComponent } from './admin/views/general/metat/update';
 
 import { AdminPicturesIndexComponent } from './admin/views/general/pictures';
 import { AdminPicturesInsertComponent } from './admin/views/general/pictures/insert';
@@ -192,29 +172,13 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         AdminCategoryInsertComponent,
         AdminCategoryUpdateComponent,
 
-        AdminCategoryTIndexComponent,
-        AdminCategoryTInsertComponent,
-        AdminCategoryTUpdateComponent,
-
         AdminContentIndexComponent,
         AdminContentInsertComponent,
         AdminContentUpdateComponent,
 
-        AdminContentTIndexComponent,
-        AdminContentTInsertComponent,
-        AdminContentTUpdateComponent,
-
         AdminFilesIndexComponent,
         AdminFilesInsertComponent,
         AdminFilesUpdateComponent,
-
-        AdminLangContentIndexComponent,
-        AdminLangContentInsertComponent,
-        AdminLangContentUpdateComponent,
-
-        AdminLangContentTIndexComponent,
-        AdminLangContentTInsertComponent,
-        AdminLangContentTUpdateComponent,
 
         AdminLinksIndexComponent,
         AdminLinksInsertComponent,
@@ -237,10 +201,6 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         AdminMetaIndexComponent,
         AdminMetaInsertComponent,
         AdminMetaUpdateComponent,
-
-        AdminMetaTIndexComponent,
-        AdminMetaTInsertComponent,
-        AdminMetaTUpdateComponent,
 
         AdminPicturesIndexComponent,
         AdminPicturesInsertComponent,

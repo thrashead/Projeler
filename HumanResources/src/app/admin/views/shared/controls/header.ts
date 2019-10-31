@@ -27,20 +27,13 @@ export class AdminHeaderComponent {
             source: [
                 'Ana Sayfa',
                 'Kategoriler',
-                'Kategoriler (Dil)',
                 'İçerikler',
-                'İçerikler (Dil)',
                 'Galeri',
-                'Galeri (Dil)',
                 'Resimler',
                 'Dosyalar',
                 'Meta',
-                'Meta (Dil)',
                 'Bağlı Tipler',
                 'Bağlantılar',
-                'Diller',
-                'Dil İçerik',
-                'Dil İçerik (Dil)',
                 'Loglar',
                 'Log Tipleri',
                 'Log İşlemleri',
@@ -66,20 +59,11 @@ export class AdminHeaderComponent {
             case "Kategoriler":
                 this.router.navigate(['/Admin/Category']);
                 break;
-            case "Kategoriler (Dil)":
-                this.router.navigate(['/Admin/CategoryT']);
-                break;
             case "İçerikler":
                 this.router.navigate(['/Admin/Content']);
                 break;
-            case "İçerikler (Dil)":
-                this.router.navigate(['/Admin/ContentT']);
-                break;
             case "Galeri":
                 this.router.navigate(['/Admin/Gallery']);
-                break;
-            case "Galeri (Dil)":
-                this.router.navigate(['/Admin/GalleryT']);
                 break;
             case "Resimler":
                 this.router.navigate(['/Admin/Pictures']);
@@ -90,23 +74,11 @@ export class AdminHeaderComponent {
             case "Meta":
                 this.router.navigate(['/Admin/Meta']);
                 break;
-            case "Meta (Dil)":
-                this.router.navigate(['/Admin/MetaT']);
-                break;
             case "Bağlı Tipler":
                 this.router.navigate(['/Admin/LinkTypes']);
                 break;
             case "Bağlantılar":
                 this.router.navigate(['/Admin/Links']);
-                break;
-            case "Diller":
-                this.router.navigate(['/Admin/Translation']);
-                break;
-            case "Dil İçerik":
-                this.router.navigate(['/Admin/LangContent']);
-                break;
-            case "Dil İçerik (Dil)":
-                this.router.navigate(['/Admin/LangContentT']);
                 break;
             case "Loglar":
                 this.router.navigate(['/Admin/Logs']);

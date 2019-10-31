@@ -4,4 +4,12 @@
 .modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}
 .modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}
 .modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}
-.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;}
+.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}
+
+.main-slider-sec::before {background:none;}
+.forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}
+.forsticky.sticky {opacity: 1;}
+.menu-sec {margin-bottom:30px;}
+.job-search > span {color:#fff;}
+.post-job-btn {float: right;margin-left: 20px;}

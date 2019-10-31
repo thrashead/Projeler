@@ -38,14 +38,6 @@
                 <li data-url="Links"><a routerLink="/Admin/Links">Bağlantılar</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightTranslation && showTypeTranslation">
-            <a href="javascript:;"><i class="icon icon-globe"></i> <span>Diller</span></a>
-            <ul>
-                <li data-url="Translation"><a routerLink="/Admin/Translation">Diller</a></li>
-                <li data-url="LangContent"><a routerLink="/Admin/LangContent">Dil İçerikleri</a></li>
-                <li data-url="LangContentT"><a routerLink="/Admin/LangContentT">Dil İçerikleri (Dil)</a></li>
-            </ul>
-        </li>
         <li class="submenu" *ngIf="hasRightLogs && showTypeLogs">
             <a href="javascript:;"><i class="icon icon-eye-open"></i> <span>Loglar</span></a>
             <ul>

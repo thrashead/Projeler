@@ -26,9 +26,6 @@ export class AdminIndexComponent {
     hasRightLinkTypes: boolean;
     showTypeLinkTypes: boolean;
 
-    hasRightTranslation: boolean;
-    showTypeTranslation: boolean;
-
     hasRightLogs: boolean;
     showTypeLogs: boolean;
 
@@ -74,10 +71,6 @@ export class AdminIndexComponent {
             this.hasRightLinkTypes = resData;
         }, resError => this.errorMsg = resError);
 
-        this.sharedService.getHasRight("Translation", "s").subscribe((resData: any) => {
-            this.hasRightTranslation = resData;
-        }, resError => this.errorMsg = resError);
-
         this.sharedService.getHasRight("Logs", "s").subscribe((resData: any) => {
             this.hasRightLogs = resData;
         }, resError => this.errorMsg = resError);
@@ -118,10 +111,6 @@ export class AdminIndexComponent {
 
         this.sharedService.getShowType("LinkTypes").subscribe((resData: any) => {
             this.showTypeLinkTypes = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Translation").subscribe((resData: any) => {
-            this.showTypeTranslation = resData;
         }, resError => this.errorMsg = resError);
 
         this.sharedService.getShowType("Logs").subscribe((resData: any) => {

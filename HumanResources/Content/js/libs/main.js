@@ -12645,7 +12645,7 @@ module.exports = "/*------------------------------------------------------------
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {margin: 160px auto 0px auto;width: 95%;min-height: 96px;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsMkJBQTJCLENBQUMsVUFBVSxDQUFDLGdCQUFnQixDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQ2xJLHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDIiwiZmlsZSI6IkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubW9kYWxpdGVtIHtwb3NpdGlvbjpmaXhlZDt3aWR0aDoxMDAlO2hlaWdodDoxMDAlO3RvcDowcHg7bGVmdDowcHg7YmFja2dyb3VuZC1pbWFnZTp1cmwoL0h1bWFuUmVzb3VyY2VzL0NvbnRlbnQvaW1nL2FsZXJ0YmcucG5nKTt6LWluZGV4OiAxMDAwO2Rpc3BsYXk6bm9uZTt9XHJcbi5tb2RhbGl0ZW0uc2hvdyB7ZGlzcGxheTpibG9jazt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIHttYXJnaW46IDE2MHB4IGF1dG8gMHB4IGF1dG87d2lkdGg6IDk1JTttaW4taGVpZ2h0OiA5NnB4O2JhY2tncm91bmQtY29sb3I6ICNmZmY7Ym9yZGVyOiAzcHggc29saWQgIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtoZWlnaHQ6IGF1dG87fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGJvZHkge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGZvb3RlciB7bWFyZ2luOiAwcHggMHB4IDBweCAwcHg7ZmxvYXQ6IGxlZnQ7d2lkdGg6IDEwMCU7cGFkZGluZzogMTBweCAxMHB4IDEwcHggMTBweDtiYWNrZ3JvdW5kLWNvbG9yOiAjOUE4MkNFO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIgYnV0dG9uIHtmbG9hdDpub25lO2JhY2tncm91bmQtY29sb3I6ICM1NDJjYWI7fSJdfQ== */"
+module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {margin: 160px auto 0px auto;width: 95%;min-height: 96px;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}\r\n.main-slider-sec::before {background:none;}\r\n.forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);\r\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}\r\n.forsticky.sticky {opacity: 1;}\r\n.menu-sec {margin-bottom:30px;}\r\n.job-search > span {color:#fff;}\r\n.post-job-btn {float: right;margin-left: 20px;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsMkJBQTJCLENBQUMsVUFBVSxDQUFDLGdCQUFnQixDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQ2xJLHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDLGlCQUFpQixDQUFDO0FBRWxILDBCQUEwQixlQUFlLENBQUM7QUFDMUMsWUFBWSw0QkFBNEIsQ0FBQyxxR0FBcUc7WUFDbEksbUhBQW1ILENBQUMsYUFBYSxDQUFDO0FBQzlJLG1CQUFtQixVQUFVLENBQUM7QUFDOUIsV0FBVyxrQkFBa0IsQ0FBQztBQUM5QixvQkFBb0IsVUFBVSxDQUFDO0FBQy9CLGVBQWUsWUFBWSxDQUFDLGlCQUFpQixDQUFDIiwiZmlsZSI6IkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubW9kYWxpdGVtIHtwb3NpdGlvbjpmaXhlZDt3aWR0aDoxMDAlO2hlaWdodDoxMDAlO3RvcDowcHg7bGVmdDowcHg7YmFja2dyb3VuZC1pbWFnZTp1cmwoL0h1bWFuUmVzb3VyY2VzL0NvbnRlbnQvaW1nL2FsZXJ0YmcucG5nKTt6LWluZGV4OiAxMDAwO2Rpc3BsYXk6bm9uZTt9XHJcbi5tb2RhbGl0ZW0uc2hvdyB7ZGlzcGxheTpibG9jazt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIHttYXJnaW46IDE2MHB4IGF1dG8gMHB4IGF1dG87d2lkdGg6IDk1JTttaW4taGVpZ2h0OiA5NnB4O2JhY2tncm91bmQtY29sb3I6ICNmZmY7Ym9yZGVyOiAzcHggc29saWQgIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtoZWlnaHQ6IGF1dG87fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGJvZHkge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGZvb3RlciB7bWFyZ2luOiAwcHggMHB4IDBweCAwcHg7ZmxvYXQ6IGxlZnQ7d2lkdGg6IDEwMCU7cGFkZGluZzogMTBweCAxMHB4IDEwcHggMTBweDtiYWNrZ3JvdW5kLWNvbG9yOiAjOUE4MkNFO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIgYnV0dG9uIHtmbG9hdDpub25lO2JhY2tncm91bmQtY29sb3I6ICM1NDJjYWI7bWFyZ2luLXJpZ2h0OiA1cHg7fVxyXG5cclxuLm1haW4tc2xpZGVyLXNlYzo6YmVmb3JlIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uZm9yc3RpY2t5IHtiYWNrZ3JvdW5kOiByZ2IoMTM5LDE0NSwyMjEpO2JhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgcmdiYSgxMzksMTQ1LDIyMSwxKSAwJSxyZ2JhKDE2LDI1LDkzLDEpIDcxJSxyZ2JhKDE2LDI1LDkzLDEpIDEwMCUpO1xyXG4gICAgICAgICAgICBmaWx0ZXI6IHByb2dpZDpEWEltYWdlVHJhbnNmb3JtLk1pY3Jvc29mdC5ncmFkaWVudCggc3RhcnRDb2xvcnN0cj0nIzhiOTFkZCcsIGVuZENvbG9yc3RyPScjMTAxOTVkJyxHcmFkaWVudFR5cGU9MSApO29wYWNpdHk6IDAuODU7fVxyXG4uZm9yc3RpY2t5LnN0aWNreSB7b3BhY2l0eTogMTt9XHJcbi5tZW51LXNlYyB7bWFyZ2luLWJvdHRvbTozMHB4O31cclxuLmpvYi1zZWFyY2ggPiBzcGFuIHtjb2xvcjojZmZmO31cclxuLnBvc3Qtam9iLWJ0biB7ZmxvYXQ6IHJpZ2h0O21hcmdpbi1sZWZ0OiAyMHB4O30iXX0= */"
 
 /***/ }),
 
@@ -12726,39 +12726,6 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/categoryt/index.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/categoryt/index.html ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-sitemap\"></i> Kategoriler (Dil)</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-sitemap\"></i></span>\r\n                        <h5>Kategoriler (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Bağlı Kategori</th>\r\n                                    <th>Başlık</th>\r\n                                    <th class=\"hideColumn2\">Dil</th>\r\n                                    <th class=\"hideColumn\">Kısa Yazı 1</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of KategoriDilList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.CategoryAdi }}</td>\r\n                                    <td>{{ item?.CategoryName }}</td>\r\n                                    <td class=\"hideColumn2\">{{ item?.TranslationAdi }}</td>\r\n                                    <td class=\"hideColumn\">{{ item?.ShortText1 }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/CategoryT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"CategoryT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"CategoryT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/CategoryT/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Kategori (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Category\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/categoryt/insert.html":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/categoryt/insert.html ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-sitemap\"></i> Kategori (Dil) Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Bağlı Kategori\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"CatID\" [ngModel]=\"model?.CatID\" formControlName=\"CatID\"><option *ngFor=\"let item of model?.CategoryList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--CatID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--TransID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kategori Adı\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"CategoryName\" [ngModel]=\"model?.CategoryName\" formControlName=\"CategoryName\" type=\"text\" />\r\n                    <br />\r\n                    <!--CategoryName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 1\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText1\" [ngModel]=\"model?.ShortText1\" formControlName=\"ShortText1\" type=\"text\" />\r\n                    <br />\r\n                    <!--ShortText1-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText2\" [ngModel]=\"model?.ShortText2\" formControlName=\"ShortText2\" type=\"text\" />\r\n                    <br />\r\n                    <!--ShortText2-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\"></textarea>\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/CategoryT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/categoryt/update.html":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/categoryt/update.html ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-sitemap\"></i> Kategori (Dil) Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Kategori\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"CatID\" [ngModel]=\"model?.CatID\" formControlName=\"CatID\"><option *ngFor=\"let item of model?.CategoryList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--CatID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    TranslationAdi\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--TransID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kategori Adı\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"CategoryName\" [ngModel]=\"model?.CategoryName\" formControlName=\"CategoryName\" type=\"text\" value=\"{{ model?.CategoryName }}\" />\r\n                    <br />\r\n                    <!--CategoryName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 1\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText1\" [ngModel]=\"model?.ShortText1\" formControlName=\"ShortText1\" type=\"text\" value=\"{{ model?.ShortText1 }}\" />\r\n                    <br />\r\n                    <!--ShortText1-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText2\" [ngModel]=\"model?.ShortText2\" formControlName=\"ShortText2\" type=\"text\" value=\"{{ model?.ShortText2 }}\" />\r\n                    <br />\r\n                    <!--ShortText2-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\">{{ model?.Description }}</textarea>\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/CategoryT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/content/index.html":
 /*!**********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/views/general/content/index.html ***!
@@ -12792,39 +12759,6 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/contentt/index.html":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/contentt/index.html ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-edit\"></i> İçerikler (Dil)</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-edit\"></i></span>\r\n                        <h5>İçerikler (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Bağlı İçerik</th>\r\n                                    <th>Başlık</th>\r\n                                    <th class=\"hideColumn2\">Dil</th>\r\n                                    <th class=\"hideColumn\">Kısa Yazı 1</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of IcerikDilList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.ContentAdi }}</td>\r\n                                    <td>{{ item?.ContentName }}</td>\r\n                                    <td class=\"hideColumn2\">{{ item?.TranslationAdi }}</td>\r\n                                    <td class=\"hideColumn\">{{ item?.ShortText1 }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/ContentT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"ContentT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"ContentT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/ContentT/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">İçerik (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Content\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/contentt/insert.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/contentt/insert.html ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-edit\"></i> İçerik (Dil) Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Bağlı İçerik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"ContID\" [ngModel]=\"model?.ContID\" formControlName=\"ContID\"><option *ngFor=\"let item of model?.ContentList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--ContID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--TransID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    İçerik Adı\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ContentName\" [ngModel]=\"model?.ContentName\" formControlName=\"ContentName\" type=\"text\" />\r\n                    <br />\r\n                    <!--ContentName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 1\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText1\" [ngModel]=\"model?.ShortText1\" formControlName=\"ShortText1\" type=\"text\" />\r\n                    <br />\r\n                    <!--ShortText1-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText2\" [ngModel]=\"model?.ShortText2\" formControlName=\"ShortText2\" type=\"text\" />\r\n                    <br />\r\n                    <!--ShortText2-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\"></textarea>\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/ContentT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/contentt/update.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/contentt/update.html ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-edit\"></i> İçerik (Dil) Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı İçerik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"ContID\" [ngModel]=\"model?.ContID\" formControlName=\"ContID\"><option *ngFor=\"let item of model?.ContentList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--ContID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--TransID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    İçerik Adı\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ContentName\" [ngModel]=\"model?.ContentName\" formControlName=\"ContentName\" type=\"text\" value=\"{{ model?.ContentName }}\" />\r\n                    <br />\r\n                    <!--ContentName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 1\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText1\" [ngModel]=\"model?.ShortText1\" formControlName=\"ShortText1\" type=\"text\" value=\"{{ model?.ShortText1 }}\" />\r\n                    <br />\r\n                    <!--ShortText1-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Yazı 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortText2\" [ngModel]=\"model?.ShortText2\" formControlName=\"ShortText2\" type=\"text\" value=\"{{ model?.ShortText2 }}\" />\r\n                    <br />\r\n                    <!--ShortText2-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\">{{ model?.Description }}</textarea>\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/ContentT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/files/index.html":
 /*!********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/views/general/files/index.html ***!
@@ -12855,72 +12789,6 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /***/ (function(module, exports) {
 
 module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-file\"></i> Dosya Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\" type=\"text\" value=\"{{ model?.Description }}\" />\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dosya\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <a class=\"btn btn-mini btn-info\" href=\"/RentACar/Uploads/{{ model?.FileUrl }}\" target=\"_blank\">{{ model?.FileUrl }}</a><br /><br />\r\n                    <input id=\"FileUrl\" [ngModel]=\"model?.FileUrl\" formControlName=\"FileUrl\" type=\"hidden\" value=\"{{ model?.FileUrl }}\" />\r\n                    <input id=\"fileTemp\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"fileTemp\" />\r\n                    <br />\r\n                    <!--FileUrl-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Files\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontent/index.html":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/langcontent/index.html ***!
-  \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-flag\"></i> Dil İçerikleri</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-flag\"></i></span>\r\n\t\t\t\t\t\t<h5>Dil İçerikleri</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>Başlık</th>\r\n\t\t\t\t\t\t\t\t\t<th>Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Kısa Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of LangContentList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Title }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Code }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\">{{ item?.ShortCode }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/LangContent/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"LangContent\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"LangContent\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/LangContent/Insert\" class=\"btn btn-primary btn-add\">Dil İçeriği Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontent/insert.html":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/langcontent/insert.html ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-flag\"></i> Dil İçeriği Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tBaşlık\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Title -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Kod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortCode\" [ngModel]=\"model?.ShortCode\" formControlName=\"ShortCode\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortCode -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/LangContent\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontent/update.html":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/langcontent/update.html ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-flag\"></i> Dil İçeriği Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tBaşlık\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Title -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Kod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortCode\" [ngModel]=\"model?.ShortCode\" formControlName=\"ShortCode\" type=\"text\" value=\"{{ model?.ShortCode }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortCode -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/LangContent\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-flag\"></i></span>\r\n\t\t\t\t\t\t<h5>Bağlı Dil İçerikleri (Dil)</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>Kısa Açıklama</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of model?.LangContentTList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ShortDescription }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/LangContentT/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"LangContentT\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"LangContentT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/LangContentT/Insert/' + model?.ID\" class=\"btn btn-primary btn-add\">Dil İçeriği (Dil) Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/index.html":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/langcontentt/index.html ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-flag\"></i> Dil İçerikleri (Dil)</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-flag\"></i></span>\r\n\t\t\t\t\t\t<h5>Dil İçerikleri (Dil)</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>Bağlı Dil İçeriği</th>\r\n\t\t\t\t\t\t\t\t\t<th>Bağlı Dil</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Kısa Açıklama</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of LangContentTList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.LangContentAdi }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.TranslationAdi }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\">{{ item?.ShortDescription }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/LangContentT/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"LangContentT\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"LangContentT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/LangContentT/Insert\" class=\"btn btn-primary btn-add\">Dil İçeriği (Dil) Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/insert.html":
-/*!****************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/langcontentt/insert.html ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-flag\"></i> Dil İçeriği (Dil) Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Bağlı Dil İçeriği\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LangContentID\" [ngModel]=\"model?.LangContentID\" formControlName=\"LangContentID\"><option *ngFor=\"let item of model?.LangContentList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!-- LangContentID -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!-- TransID -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortDescription\" [ngModel]=\"model?.ShortDescription\" formControlName=\"ShortDescription\" type=\"text\" />\r\n                    <br />\r\n                    <!-- ShortDescription -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\"></textarea>\r\n                    <br />\r\n                    <!-- Description -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Açıklama 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortDescription2\" [ngModel]=\"model?.ShortDescription2\" formControlName=\"ShortDescription2\" type=\"text\" />\r\n                    <br />\r\n                    <!-- ShortDescription2 -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description2\" [ngModel]=\"model?.Description2\" formControlName=\"Description2\"></textarea>\r\n                    <br />\r\n                    <!-- Description2 -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n                    <a routerLink=\"/Admin/LangContentT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/update.html":
-/*!****************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/langcontentt/update.html ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-flag\"></i> Dil İçeriği Düzenle (Dil)</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n                <div class=\"editor-label\">\r\n                    Bağlı Dil İçeriği\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LangContentID\" [ngModel]=\"model?.LangContentID\" formControlName=\"LangContentID\"><option *ngFor=\"let item of model?.LangContentList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!-- LangContentID -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!-- TransID -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortDescription\" [ngModel]=\"model?.ShortDescription\" formControlName=\"ShortDescription\" type=\"text\" value=\"{{ model?.ShortDescription }}\" />\r\n                    <br />\r\n                    <!-- ShortDescription -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\">{{ model?.Description }}</textarea>\r\n                    <br />\r\n                    <!-- Description -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısa Açıklama 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortDescription2\" [ngModel]=\"model?.ShortDescription2\" formControlName=\"ShortDescription2\" type=\"text\" value=\"{{ model?.ShortDescription2 }}\" />\r\n                    <br />\r\n                    <!-- ShortDescription2 -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama 2\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <textarea id=\"Description2\" [ngModel]=\"model?.Description2\" formControlName=\"Description2\">{{ model?.Description2 }}</textarea>\r\n                    <br />\r\n                    <!-- Description2 -->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n                    <a routerLink=\"/Admin/LangContentT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -13097,39 +12965,6 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /***/ (function(module, exports) {
 
 module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Meta Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Meta\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-tags\"></i></span>\r\n                        <h5>Bağlı Metalar (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of model?.MetaTList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Name }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/MetaT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"MetaT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"MetaT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a [routerLink]=\"['/Admin/MetaT/Insert/' + model?.ID]\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Meta (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Meta\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/metat/index.html":
-/*!********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/metat/index.html ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Metalar (Dil)</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-tags\"></i></span>\r\n                        <h5>Metalar (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Bağlı Meta</th>\r\n                                    <th>Başlık</th>\r\n                                    <th class=\"hideColumn2\">Dil</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of MetaDilList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.MetaAdi }}</td>\r\n                                    <td>{{ item?.Name }}</td>\r\n                                    <td class=\"hideColumn2\">{{ item?.TranslationAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/MetaT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"MetaT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"MetaT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/MetaT/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Meta (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Meta\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/metat/insert.html":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/metat/insert.html ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Meta (Dil) Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Bağlı Meta\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MetaID\" [ngModel]=\"model?.MetaID\" formControlName=\"MetaID\"><option *ngFor=\"let item of model?.MetaList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MetaID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--TransID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Özellik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Name\" [ngModel]=\"model?.Name\" formControlName=\"Name\" type=\"text\" />\r\n                    <br />\r\n                    <!--Name-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    İçerik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Content\" [ngModel]=\"model?.Content\" formControlName=\"Content\" type=\"text\" />\r\n                    <br />\r\n                    <!--Content-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/MetaT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/metat/update.html":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/metat/update.html ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Meta (Dil) Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Meta\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MetaID\" [ngModel]=\"model?.MetaID\" formControlName=\"MetaID\"><option *ngFor=\"let item of model?.MetaList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MetaID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"TransID\" [ngModel]=\"model?.TransID\" formControlName=\"TransID\"><option *ngFor=\"let item of model?.TranslationList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--TransID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Özellik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Name\" [ngModel]=\"model?.Name\" formControlName=\"Name\" type=\"text\" value=\"{{ model?.Name }}\" />\r\n                    <br />\r\n                    <!--Name-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    İçerik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Content\" [ngModel]=\"model?.Content\" formControlName=\"Content\" type=\"text\" value=\"{{ model?.Content }}\" />\r\n                    <br />\r\n                    <!--Content-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/MetaT\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13426,7 +13261,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Ana Sayfa</a></div>\r\n    </div>\r\n\r\n    <div class=\"container-fluid\">\r\n        <div class=\"quick-actions_homepage\">\r\n            <ul class=\"quick-actions\">\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightCategory && showTypeCategory\"> <a routerLink=\"/Admin/Category\"> <i class=\"icon-sitemap\"></i> Kategoriler</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightContent && showTypeContent\"> <a routerLink=\"/Admin/Content\"> <i class=\"icon-edit\"></i> İçerikler</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightPictures && showTypePictures\"> <a routerLink=\"/Admin/Pictures\"> <i class=\"icon-camera-retro\"></i> Resimler</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightFiles && showTypeFiles\"> <a routerLink=\"/Admin/Files\"> <i class=\"icon-file\"></i> Dosyalar</a> </li>\r\n                <li class=\"bg_ls\" *ngIf=\"hasRightMeta && showTypeMeta\"> <a routerLink=\"/Admin/Meta\"> <i class=\"icon-tags\"></i> Meta</a> </li>\r\n                <li class=\"bg_lr\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\"> <a routerLink=\"/Admin/LinkTypes\"> <i class=\"icon-link\"></i> Bağlı Tipler</a> </li>\r\n                <li class=\"bg_lv\" *ngIf=\"hasRightTranslation && showTypeTranslation\"> <a routerLink=\"/Admin/Translation\"> <i class=\"icon-globe\"></i> Diller</a> </li>\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightLogs && showTypeLogs\"> <a routerLink=\"/Admin/Logs\"> <i class=\"icon-eye-open\"></i> Loglar</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightWebsite && showTypeWebsite\"> <a routerLink=\"/Admin/Visitors\"> <i class=\"icon-plane\"></i> Ziyaretci</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightUsers && showTypeUsers\"> <a routerLink=\"/Admin/Users\"> <i class=\"icon-user\"></i> Kullanıcılar</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightTypes && showTypeTypes\"> <a routerLink=\"/Admin/Types\"> <i class=\"icon-pushpin\"></i> Tipler</a> </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Ana Sayfa</a></div>\r\n    </div>\r\n\r\n    <div class=\"container-fluid\">\r\n        <div class=\"quick-actions_homepage\">\r\n            <ul class=\"quick-actions\">\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightCategory && showTypeCategory\"> <a routerLink=\"/Admin/Category\"> <i class=\"icon-sitemap\"></i> Kategoriler</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightContent && showTypeContent\"> <a routerLink=\"/Admin/Content\"> <i class=\"icon-edit\"></i> İçerikler</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightPictures && showTypePictures\"> <a routerLink=\"/Admin/Pictures\"> <i class=\"icon-camera-retro\"></i> Resimler</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightFiles && showTypeFiles\"> <a routerLink=\"/Admin/Files\"> <i class=\"icon-file\"></i> Dosyalar</a> </li>\r\n                <li class=\"bg_ls\" *ngIf=\"hasRightMeta && showTypeMeta\"> <a routerLink=\"/Admin/Meta\"> <i class=\"icon-tags\"></i> Meta</a> </li>\r\n                <li class=\"bg_lr\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\"> <a routerLink=\"/Admin/LinkTypes\"> <i class=\"icon-link\"></i> Bağlı Tipler</a> </li>\r\n                <li class=\"bg_lv\" *ngIf=\"hasRightLogs && showTypeLogs\"> <a routerLink=\"/Admin/Logs\"> <i class=\"icon-eye-open\"></i> Loglar</a> </li>\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightWebsite && showTypeWebsite\"> <a routerLink=\"/Admin/Visitors\"> <i class=\"icon-plane\"></i> Ziyaretci</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightUsers && showTypeUsers\"> <a routerLink=\"/Admin/Users\"> <i class=\"icon-user\"></i> Kullanıcılar</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightTypes && showTypeTypes\"> <a routerLink=\"/Admin/Types\"> <i class=\"icon-pushpin\"></i> Tipler</a> </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13481,7 +13316,7 @@ module.exports = "<div id=\"header\">\r\n    <h1><a><img src=\"Content/admin/img
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar\">\r\n    <a href=\"javascript:;\" class=\"visible-phone\"><i class=\"icon icon-reorder\"></i> Menü</a>\r\n    <ul>\r\n        <li data-url=\"Index\" class=\"active\">\r\n            <a routerLink=\"/Admin/Index\"><i class=\"icon icon-home\"></i> <span>Ana Sayfa</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightCategory && showTypeCategory\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Kategoriler</span></a>\r\n            <ul>\r\n                <li data-url=\"Category\"><a routerLink=\"/Admin/Category\">Kategoriler</a></li>\r\n                <li data-url=\"CategoryT\"><a routerLink=\"/Admin/CategoryT\">Kategoriler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightContent && showTypeContent\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-edit\"></i> <span>İçerikler</span></a>\r\n            <ul>\r\n                <li data-url=\"Content\"><a routerLink=\"/Admin/Content\">İçerikler</a></li>\r\n                <li data-url=\"ContentT\"><a routerLink=\"/Admin/ContentT\">İçerikler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Pictures\" *ngIf=\"hasRightPictures && showTypePictures\">\r\n            <a routerLink=\"/Admin/Pictures\"><i class=\"icon icon-camera-retro\"></i> <span>Resimler</span></a>\r\n        </li>\r\n        <li data-url=\"Files\" *ngIf=\"hasRightFiles && showTypeFiles\">\r\n            <a routerLink=\"/Admin/Files\"><i class=\"icon icon-file\"></i> <span>Dosyalar</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightMeta && showTypeMeta\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-tags\"></i> <span>Meta</span></a>\r\n            <ul>\r\n                <li data-url=\"Meta\"><a routerLink=\"/Admin/Meta\">Meta</a></li>\r\n                <li data-url=\"MetaT\"><a routerLink=\"/Admin/MetaT\">Meta (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-link\"></i> <span>Bağlı Tipler</span></a>\r\n            <ul>\r\n                <li data-url=\"LinkTypes\"><a routerLink=\"/Admin/LinkTypes\">Bağlı Tipler</a></li>\r\n                <li data-url=\"Links\"><a routerLink=\"/Admin/Links\">Bağlantılar</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightTranslation && showTypeTranslation\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-globe\"></i> <span>Diller</span></a>\r\n            <ul>\r\n                <li data-url=\"Translation\"><a routerLink=\"/Admin/Translation\">Diller</a></li>\r\n                <li data-url=\"LangContent\"><a routerLink=\"/Admin/LangContent\">Dil İçerikleri</a></li>\r\n                <li data-url=\"LangContentT\"><a routerLink=\"/Admin/LangContentT\">Dil İçerikleri (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLogs && showTypeLogs\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-eye-open\"></i> <span>Loglar</span></a>\r\n            <ul>\r\n                <li data-url=\"Logs\"><a routerLink=\"/Admin/Logs\">Loglar</a></li>\r\n                <li data-url=\"LogTypes\"><a routerLink=\"/Admin/LogTypes\">Log Tipleri</a></li>\r\n                <li data-url=\"LogProcess\"><a routerLink=\"/Admin/LogProcess\">Log İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Visitors\" *ngIf=\"hasRightWebsite && showTypeWebsite\">\r\n            <a routerLink=\"/Admin/Visitors\"><i class=\"icon icon-plane\"></i> <span>Ziyaretçiler</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightUsers && showTypeUsers\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-user\"></i> <span>Kullanıcılar</span></a>\r\n            <ul>\r\n                <li data-url=\"Users\"><a routerLink=\"/Admin/Users\">Kullanıcılar</a></li>\r\n                <li data-url=\"UserGroups\"><a routerLink=\"/Admin/UserGroups\">Kullanıcı Grupları</a></li>\r\n                <li data-url=\"UserGroupTables\"><a routerLink=\"/Admin/UserGroupTables\">Kullanıcı Grup Tabloları</a></li>\r\n                <li data-url=\"UserGroupRights\"><a routerLink=\"/Admin/UserGroupRights\">Kullanıcı Grup Hakları</a></li>\r\n                <li data-url=\"UserGroupProcess\"><a routerLink=\"/Admin/UserGroupProcess\">Kullanıcı Grup İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Types\" *ngIf=\"hasRightTypes && showTypeTypes\">\r\n            <a routerLink=\"/Admin/Types\"><i class=\"icon icon-pushpin\"></i> <span>Tipler</span></a>\r\n        </li>\r\n    </ul>\r\n</div>"
+module.exports = "<div id=\"sidebar\">\r\n    <a href=\"javascript:;\" class=\"visible-phone\"><i class=\"icon icon-reorder\"></i> Menü</a>\r\n    <ul>\r\n        <li data-url=\"Index\" class=\"active\">\r\n            <a routerLink=\"/Admin/Index\"><i class=\"icon icon-home\"></i> <span>Ana Sayfa</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightCategory && showTypeCategory\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Kategoriler</span></a>\r\n            <ul>\r\n                <li data-url=\"Category\"><a routerLink=\"/Admin/Category\">Kategoriler</a></li>\r\n                <li data-url=\"CategoryT\"><a routerLink=\"/Admin/CategoryT\">Kategoriler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightContent && showTypeContent\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-edit\"></i> <span>İçerikler</span></a>\r\n            <ul>\r\n                <li data-url=\"Content\"><a routerLink=\"/Admin/Content\">İçerikler</a></li>\r\n                <li data-url=\"ContentT\"><a routerLink=\"/Admin/ContentT\">İçerikler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Pictures\" *ngIf=\"hasRightPictures && showTypePictures\">\r\n            <a routerLink=\"/Admin/Pictures\"><i class=\"icon icon-camera-retro\"></i> <span>Resimler</span></a>\r\n        </li>\r\n        <li data-url=\"Files\" *ngIf=\"hasRightFiles && showTypeFiles\">\r\n            <a routerLink=\"/Admin/Files\"><i class=\"icon icon-file\"></i> <span>Dosyalar</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightMeta && showTypeMeta\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-tags\"></i> <span>Meta</span></a>\r\n            <ul>\r\n                <li data-url=\"Meta\"><a routerLink=\"/Admin/Meta\">Meta</a></li>\r\n                <li data-url=\"MetaT\"><a routerLink=\"/Admin/MetaT\">Meta (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-link\"></i> <span>Bağlı Tipler</span></a>\r\n            <ul>\r\n                <li data-url=\"LinkTypes\"><a routerLink=\"/Admin/LinkTypes\">Bağlı Tipler</a></li>\r\n                <li data-url=\"Links\"><a routerLink=\"/Admin/Links\">Bağlantılar</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLogs && showTypeLogs\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-eye-open\"></i> <span>Loglar</span></a>\r\n            <ul>\r\n                <li data-url=\"Logs\"><a routerLink=\"/Admin/Logs\">Loglar</a></li>\r\n                <li data-url=\"LogTypes\"><a routerLink=\"/Admin/LogTypes\">Log Tipleri</a></li>\r\n                <li data-url=\"LogProcess\"><a routerLink=\"/Admin/LogProcess\">Log İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Visitors\" *ngIf=\"hasRightWebsite && showTypeWebsite\">\r\n            <a routerLink=\"/Admin/Visitors\"><i class=\"icon icon-plane\"></i> <span>Ziyaretçiler</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightUsers && showTypeUsers\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-user\"></i> <span>Kullanıcılar</span></a>\r\n            <ul>\r\n                <li data-url=\"Users\"><a routerLink=\"/Admin/Users\">Kullanıcılar</a></li>\r\n                <li data-url=\"UserGroups\"><a routerLink=\"/Admin/UserGroups\">Kullanıcı Grupları</a></li>\r\n                <li data-url=\"UserGroupTables\"><a routerLink=\"/Admin/UserGroupTables\">Kullanıcı Grup Tabloları</a></li>\r\n                <li data-url=\"UserGroupRights\"><a routerLink=\"/Admin/UserGroupRights\">Kullanıcı Grup Hakları</a></li>\r\n                <li data-url=\"UserGroupProcess\"><a routerLink=\"/Admin/UserGroupProcess\">Kullanıcı Grup İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Types\" *ngIf=\"hasRightTypes && showTypeTypes\">\r\n            <a routerLink=\"/Admin/Types\"><i class=\"icon icon-pushpin\"></i> <span>Tipler</span></a>\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
@@ -13591,7 +13426,7 @@ module.exports = "<section>\r\n    <div class=\"block no-padding\">\r\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"job-search-sec\">\r\n    <div class=\"job-search\">\r\n        <h3>The Easiest Way to Get Your New Job</h3>\r\n        <span>Find Jobs, Employment & Career Opportunities</span>\r\n        <form [formGroup]=\"searchForm\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-7 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <input type=\"text\" placeholder=\"Job title, keywords or company name\" name=\"Words\" formControlName=\"Words\" />\r\n                        <i class=\"la la-keyboard-o\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-4 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <select data-placeholder=\"City, province or region\" class=\"chosen-city\" id=\"slcCity\" name=\"City\" formControlName=\"City\">\r\n                            <option value=\"1\">New York </option>\r\n                            <option value=\"2\">Istanbul</option>\r\n                            <option value=\"3\">London</option>\r\n                            <option value=\"4\">Russia</option>\r\n                        </select>\r\n                        <i class=\"la la-map-marker\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-1 col-md-2 col-sm-12 col-xs-12\">\r\n                    <button type=\"submit\" (click)=\"onClick()\" [disabled]=\"!searchForm.valid\"><i class=\"la la-search\"></i></button>\r\n                </div>\r\n            </div>\r\n        </form>\r\n        <div class=\"or-browser\">\r\n            <span>Browse job offers by</span>\r\n            <a href=\"#\" title=\"\">Category</a>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"job-search-sec\">\r\n    <div class=\"job-search\">\r\n        <h3>The Easiest Way to Get Your New Job</h3>\r\n        <span>Find Jobs, Employment & Career Opportunities</span>\r\n        <form [formGroup]=\"searchForm\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-7 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <input type=\"text\" placeholder=\"Job title, keywords or company name\" name=\"Words\" formControlName=\"Words\" />\r\n                        <i class=\"la la-keyboard-o\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-4 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <select data-placeholder=\"City, province or region\" class=\"chosen-city\" id=\"slcCity\" name=\"City\" formControlName=\"City\">\r\n                            <option value=\"1\">New York </option>\r\n                            <option value=\"2\">Istanbul</option>\r\n                            <option value=\"3\">London</option>\r\n                            <option value=\"4\">Russia</option>\r\n                        </select>\r\n                        <i class=\"la la-map-marker\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-1 col-md-2 col-sm-12 col-xs-12\">\r\n                    <button type=\"submit\" (click)=\"onClick()\" [disabled]=\"!searchForm.valid\"><i class=\"la la-search\"></i></button>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13635,7 +13470,7 @@ module.exports = "<section>\r\n    <div class=\"block no-padding\">\r\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"modalAlert\" class=\"modalitem\">\r\n    <div class=\"modaldialog\">\r\n        <div class=\"modalcontent\">\r\n            <div class=\"modalbody\">\r\n                {{ alert }}\r\n            </div>\r\n            <div class=\"modalfooter\">\r\n                <button type=\"button\" (click)=\"onClick()\" class=\"btn btn-default\">{{ langs?.Ok }}</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div id=\"modalAlert\" class=\"modalitem\">\r\n    <div class=\"modaldialog\">\r\n        <div class=\"modalcontent\">\r\n            <div class=\"modalbody\">\r\n                {{ alert }}\r\n            </div>\r\n            <div class=\"modalfooter\">\r\n                <button type=\"button\" (click)=\"onClick()\" class=\"btn btn-default\">Tamam</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -13646,7 +13481,7 @@ module.exports = "<div id=\"modalAlert\" class=\"modalitem\">\r\n    <div class=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"modalConfirm\" class=\"modalitem\">\r\n    <div class=\"modaldialog\">\r\n        <div class=\"modalcontent\">\r\n            <div class=\"modalbody\">\r\n                {{ confirm }}\r\n            </div>\r\n            <div class=\"modalfooter\">\r\n                <button type=\"button\" (click)=\"onClick(true)\" class=\"btn btn-default\">{{ langs?.Ok }}</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div id=\"modalConfirm\" class=\"modalitem\">\r\n    <div class=\"modaldialog\">\r\n        <div class=\"modalcontent\">\r\n            <div class=\"modalbody\">\r\n                {{ confirm }}\r\n            </div>\r\n            <div class=\"modalfooter\">\r\n                <button type=\"button\" (click)=\"onClick(true)\" class=\"btn btn-default\">Tamam</button>\r\n                <button type=\"button\" (click)=\"onClick(false)\" class=\"btn btn-default\">İptal</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -13668,7 +13503,7 @@ module.exports = "<footer>\r\n    <div class=\"block\">\r\n        <div class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-respheader></hr-respheader>\r\n\r\n<header class=\"stick-top forsticky\">\r\n    <div class=\"menu-sec\">\r\n        <div class=\"container\">\r\n            <div class=\"logo\">\r\n                <a routerLink=\"/\" title=\"\">\r\n                    <img class=\"hidesticky\" src=\"/HumanResources/Content/img/logo.png\" alt=\"\" />\r\n                    <img class=\"showsticky\" src=\"/HumanResources/Content/img/logo2.png\" alt=\"\" />\r\n                </a>\r\n            </div><!-- Logo -->\r\n            <div class=\"btn-extars\">\r\n                <a href=\"#\" title=\"\" class=\"post-job-btn\"><i class=\"la la-plus\"></i>Post Jobs</a>\r\n                <ul class=\"account-btns\">\r\n                    <li class=\"signup-popup\"><a title=\"\"><i class=\"la la-key\"></i> Sign Up</a></li>\r\n                    <li class=\"signin-popup\"><a title=\"\"><i class=\"la la-external-link-square\"></i> Login</a></li>\r\n                </ul>\r\n            </div><!-- Btn Extras -->\r\n            <hr-menu></hr-menu>\r\n        </div>\r\n    </div>\r\n</header>"
+module.exports = "<hr-respheader></hr-respheader>\r\n\r\n<header class=\"stick-top forsticky\">\r\n    <div class=\"menu-sec\">\r\n        <div class=\"container\">\r\n            <div class=\"logo\">\r\n                <a routerLink=\"/\" title=\"\">\r\n                    <img class=\"hidesticky\" src=\"/HumanResources/Content/img/logo.png\" alt=\"\" />\r\n                    <img class=\"showsticky\" src=\"/HumanResources/Content/img/logo2.png\" alt=\"\" />\r\n                </a>\r\n            </div>\r\n            <div class=\"btn-extars\">\r\n                <a href=\"/HumanResources/Admin/Login\" target=\"_blank\" title=\"Panel Giriş\" class=\"post-job-btn\"><i class=\"la la-key\"></i>Panel Giriş</a>\r\n                <ul class=\"account-btns\">\r\n                    <li class=\"signup-popup\"><a title=\"\"><i class=\"la la-key\"></i> Sign Up</a></li>\r\n                    <li class=\"signin-popup\"><a title=\"\"><i class=\"la la-external-link-square\"></i> Login</a></li>\r\n                </ul>\r\n            </div>\r\n            <hr-menu></hr-menu>\r\n        </div>\r\n    </div>\r\n</header>"
 
 /***/ }),
 
@@ -13712,7 +13547,7 @@ module.exports = "<hr-modalalert alert=\"{{ alert }}\"></hr-modalalert>\r\n\r\n<
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"responsive-header\">\r\n    <div class=\"responsive-menubar\">\r\n        <div class=\"res-logo\"><a routerLink=\"/\" title=\"\"><img src=\"/HumanResources/Content/img/logo.png\" alt=\"\" /></a></div>\r\n        <div class=\"menu-resaction\">\r\n            <div class=\"res-openmenu\">\r\n                <img src=\"/HumanResources/Content/img/icon.png\" alt=\"\" /> Menu\r\n            </div>\r\n            <div class=\"res-closemenu\">\r\n                <img src=\"/HumanResources/Content/img/icon2.png\" alt=\"\" /> Close\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"responsive-opensec\">\r\n        <div class=\"btn-extars\">\r\n            <a href=\"#\" title=\"\" class=\"post-job-btn\"><i class=\"la la-plus\"></i>Post Jobs</a>\r\n            <ul class=\"account-btns\">\r\n                <li class=\"signup-popup\"><a title=\"\"><i class=\"la la-key\"></i> Sign Up</a></li>\r\n                <li class=\"signin-popup\"><a title=\"\"><i class=\"la la-external-link-square\"></i> Login</a></li>\r\n            </ul>\r\n        </div><!-- Btn Extras -->\r\n\r\n        <hr-respsearch></hr-respsearch>\r\n        <hr-respmenu></hr-respmenu>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"responsive-header\">\r\n    <div class=\"responsive-menubar\">\r\n        <div class=\"res-logo\"><a routerLink=\"/\" title=\"\"><img src=\"/HumanResources/Content/img/logo.png\" alt=\"\" /></a></div>\r\n        <div class=\"menu-resaction\">\r\n            <div class=\"res-openmenu\">\r\n                <img src=\"/HumanResources/Content/img/icon.png\" alt=\"\" /> Menu\r\n            </div>\r\n            <div class=\"res-closemenu\">\r\n                <img src=\"/HumanResources/Content/img/icon2.png\" alt=\"\" /> Close\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"responsive-opensec\">\r\n        <div class=\"btn-extars\">\r\n            <a href=\"/HumanResources/Admin/Login\" target=\"_blank\" title=\"Panel Giriş\" class=\"post-job-btn\"><i class=\"la la-key\"></i>Panel Giriş</a>\r\n            <ul class=\"account-btns\">\r\n                <li class=\"signup-popup\"><a title=\"\"><i class=\"la la-key\"></i> Sign Up</a></li>\r\n                <li class=\"signin-popup\"><a title=\"\"><i class=\"la la-external-link-square\"></i> Login</a></li>\r\n            </ul>\r\n        </div>\r\n\r\n        <hr-respsearch></hr-respsearch>\r\n        <hr-respmenu></hr-respmenu>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -14254,251 +14089,6 @@ AdminCategoryUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"](
 
 /***/ }),
 
-/***/ "./src/app/admin/views/general/categoryt/index.ts":
-/*!********************************************************!*\
-  !*** ./src/app/admin/views/general/categoryt/index.ts ***!
-  \********************************************************/
-/*! exports provided: AdminCategoryTIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoryTIndexComponent", function() { return AdminCategoryTIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-
-
-
-
-let AdminCategoryTIndexComponent = class AdminCategoryTIndexComponent {
-    constructor(service, sharedService) {
-        this.service = service;
-        this.sharedService = sharedService;
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.service.get("CategoryT", "Index").subscribe((resData) => {
-                                this.KategoriDilList = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminCategoryTIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
-];
-AdminCategoryTIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/categoryt/index.html")
-    })
-], AdminCategoryTIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/categoryt/insert.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/admin/views/general/categoryt/insert.ts ***!
-  \*********************************************************/
-/*! exports provided: AdminCategoryTInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoryTInsertComponent", function() { return AdminCategoryTInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-
-let AdminCategoryTInsertComponent = class AdminCategoryTInsertComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.linkID = params['linkID'];
-            this.service.get("CategoryT", "Insert", this.linkID).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].ConvertToCKEditor("Description", 1500);
-        this.ekleForm = this.formBuilder.group({
-            CatID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            CategoryName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
-            ShortText1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            ShortText2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-        });
-    }
-    ngAfterViewChecked() {
-        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.CatID = this.ekleForm.get("CatID").value;
-        this.data.TransID = this.ekleForm.get("TransID").value;
-        this.data.CategoryName = this.ekleForm.get("CategoryName").value;
-        this.data.ShortText1 = this.ekleForm.get("ShortText1").value;
-        this.data.ShortText2 = this.ekleForm.get("ShortText2").value;
-        this.data.Description = _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].CKValue("Description");
-        this.service.post("CategoryT", "Insert", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/CategoryT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminCategoryTInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] }
-];
-AdminCategoryTInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/categoryt/insert.html")
-    })
-], AdminCategoryTInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/categoryt/update.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/admin/views/general/categoryt/update.ts ***!
-  \*********************************************************/
-/*! exports provided: AdminCategoryTUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoryTUpdateComponent", function() { return AdminCategoryTUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-
-let AdminCategoryTUpdateComponent = class AdminCategoryTUpdateComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.id = params['id'];
-            this.service.get("CategoryT", "Update", this.id).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].ConvertToCKEditor("Description", 1500);
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            CatID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            CategoryName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
-            ShortText1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            ShortText2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-        });
-    }
-    ngAfterViewChecked() {
-        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.CatID = this.duzenleForm.get("CatID").value;
-        this.data.TransID = this.duzenleForm.get("TransID").value;
-        this.data.CategoryName = this.duzenleForm.get("CategoryName").value;
-        this.data.ShortText1 = this.duzenleForm.get("ShortText1").value;
-        this.data.ShortText2 = this.duzenleForm.get("ShortText2").value;
-        this.data.Description = _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].CKValue("Description");
-        this.service.post("CategoryT", "Update", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/CategoryT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminCategoryTUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] }
-];
-AdminCategoryTUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/categoryt/update.html")
-    })
-], AdminCategoryTUpdateComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/admin/views/general/content/index.ts":
 /*!******************************************************!*\
   !*** ./src/app/admin/views/general/content/index.ts ***!
@@ -14748,251 +14338,6 @@ AdminContentUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/content/update.html")
     })
 ], AdminContentUpdateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/contentt/index.ts":
-/*!*******************************************************!*\
-  !*** ./src/app/admin/views/general/contentt/index.ts ***!
-  \*******************************************************/
-/*! exports provided: AdminContentTIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminContentTIndexComponent", function() { return AdminContentTIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-
-
-
-
-let AdminContentTIndexComponent = class AdminContentTIndexComponent {
-    constructor(service, sharedService) {
-        this.service = service;
-        this.sharedService = sharedService;
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.service.get("ContentT", "Index").subscribe((resData) => {
-                                this.IcerikDilList = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminContentTIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
-];
-AdminContentTIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/contentt/index.html")
-    })
-], AdminContentTIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/contentt/insert.ts":
-/*!********************************************************!*\
-  !*** ./src/app/admin/views/general/contentt/insert.ts ***!
-  \********************************************************/
-/*! exports provided: AdminContentTInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminContentTInsertComponent", function() { return AdminContentTInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-
-let AdminContentTInsertComponent = class AdminContentTInsertComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.linkID = params['linkID'];
-            this.service.get("ContentT", "Insert", this.linkID).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].ConvertToCKEditor("Description", 1500);
-        this.ekleForm = this.formBuilder.group({
-            ContID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            ContentName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
-            ShortText1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            ShortText2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-        });
-    }
-    ngAfterViewChecked() {
-        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.ContID = this.ekleForm.get("ContID").value;
-        this.data.TransID = this.ekleForm.get("TransID").value;
-        this.data.ContentName = this.ekleForm.get("ContentName").value;
-        this.data.ShortText1 = this.ekleForm.get("ShortText1").value;
-        this.data.ShortText2 = this.ekleForm.get("ShortText2").value;
-        this.data.Description = _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].CKValue("Description");
-        this.service.post("ContentT", "Insert", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/ContentT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminContentTInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] }
-];
-AdminContentTInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/contentt/insert.html")
-    })
-], AdminContentTInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/contentt/update.ts":
-/*!********************************************************!*\
-  !*** ./src/app/admin/views/general/contentt/update.ts ***!
-  \********************************************************/
-/*! exports provided: AdminContentTUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminContentTUpdateComponent", function() { return AdminContentTUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-
-let AdminContentTUpdateComponent = class AdminContentTUpdateComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.id = params['id'];
-            this.service.get("ContentT", "Update", this.id).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].ConvertToCKEditor("Description", 1500);
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            ContID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
-            ContentName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
-            ShortText1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            ShortText2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-        });
-    }
-    ngAfterViewChecked() {
-        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.ContID = this.duzenleForm.get("ContID").value;
-        this.data.TransID = this.duzenleForm.get("TransID").value;
-        this.data.ContentName = this.duzenleForm.get("ContentName").value;
-        this.data.ShortText1 = this.duzenleForm.get("ShortText1").value;
-        this.data.ShortText2 = this.duzenleForm.get("ShortText2").value;
-        this.data.Description = _lib_methods__WEBPACK_IMPORTED_MODULE_4__["AdminLib"].CKValue("Description");
-        this.service.post("ContentT", "Update", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/ContentT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminContentTUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] }
-];
-AdminContentTUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/contentt/update.html")
-    })
-], AdminContentTUpdateComponent);
 
 
 
@@ -15253,512 +14598,6 @@ AdminFilesUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/files/update.html")
     })
 ], AdminFilesUpdateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/langcontent/index.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/admin/views/general/langcontent/index.ts ***!
-  \**********************************************************/
-/*! exports provided: AdminLangContentIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLangContentIndexComponent", function() { return AdminLangContentIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-let AdminLangContentIndexComponent = class AdminLangContentIndexComponent {
-    constructor(service, router) {
-        this.service = service;
-        this.router = router;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.FillData();
-    }
-    FillData() {
-        if (this.callTable == true) {
-            this.subscription = this.service.get("LangContent", "Index").subscribe((answer) => {
-                this.LangContentList = answer;
-                this.callTable = false;
-                setTimeout(() => {
-                    DataTable();
-                    $(document)
-                        .off("click", ".fg-button")
-                        .on("click", ".fg-button", () => {
-                        setTimeout(() => {
-                            this.FillData();
-                        }, 1);
-                    });
-                }, 1);
-            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-        }
-        setTimeout(() => {
-            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                $(".btn-group").remove();
-            }
-        }, 1);
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
-};
-AdminLangContentIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_4__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
-];
-AdminLangContentIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontent/index.html")
-    })
-], AdminLangContentIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/langcontent/insert.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/views/general/langcontent/insert.ts ***!
-  \***********************************************************/
-/*! exports provided: AdminLangContentInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLangContentInsertComponent", function() { return AdminLangContentInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-
-let AdminLangContentInsertComponent = class AdminLangContentInsertComponent {
-    constructor(service, formBuilder, router) {
-        this.service = service;
-        this.formBuilder = formBuilder;
-        this.router = router;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
-    }
-    ngOnInit() {
-        this.data = new Object();
-        this.insertForm = this.formBuilder.group({
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-            ShortCode: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-        });
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
-    onSubmit() {
-        this.data.Title = this.insertForm.get("Title").value;
-        this.data.Code = this.insertForm.get("Code").value;
-        this.data.ShortCode = this.insertForm.get("ShortCode").value;
-        this.service.post("LangContent", "Insert", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/LangContent']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLangContentInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
-];
-AdminLangContentInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontent/insert.html")
-    })
-], AdminLangContentInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/langcontent/update.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/views/general/langcontent/update.ts ***!
-  \***********************************************************/
-/*! exports provided: AdminLangContentUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLangContentUpdateComponent", function() { return AdminLangContentUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-
-let AdminLangContentUpdateComponent = class AdminLangContentUpdateComponent {
-    constructor(service, formBuilder, router, route) {
-        this.service = service;
-        this.formBuilder = formBuilder;
-        this.router = router;
-        this.route = route;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
-    }
-    ngOnInit() {
-        this.data = new Object();
-        this.callTable = true;
-        this.FillData();
-        this.updateForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(0)]),
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-            ShortCode: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-        });
-    }
-    FillData() {
-        if (this.callTable == true) {
-            this.route.params.subscribe((params) => {
-                this.id = params['id'];
-                this.subscription = this.service.get("LangContent", "Update", this.id).subscribe((answer) => {
-                    this.model = answer;
-                    this.callTable = false;
-                    setTimeout(() => {
-                        DataTable();
-                        $(document)
-                            .off("click", ".fg-button")
-                            .on("click", ".fg-button", () => {
-                            setTimeout(() => {
-                                this.FillData();
-                            }, 1);
-                        });
-                    }, 1);
-                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-            });
-        }
-        setTimeout(() => {
-            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                $(".btn-group").remove();
-            }
-        }, 1);
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
-    onSubmit() {
-        this.data.ID = this.updateForm.get("ID").value;
-        this.data.Title = this.updateForm.get("Title").value;
-        this.data.Code = this.updateForm.get("Code").value;
-        this.data.ShortCode = this.updateForm.get("ShortCode").value;
-        this.service.post("LangContent", "Update", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/LangContent']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLangContentUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
-];
-AdminLangContentUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontent/update.html")
-    })
-], AdminLangContentUpdateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/langcontentt/index.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/views/general/langcontentt/index.ts ***!
-  \***********************************************************/
-/*! exports provided: AdminLangContentTIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLangContentTIndexComponent", function() { return AdminLangContentTIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-let AdminLangContentTIndexComponent = class AdminLangContentTIndexComponent {
-    constructor(service, router) {
-        this.service = service;
-        this.router = router;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.FillData();
-    }
-    FillData() {
-        if (this.callTable == true) {
-            this.subscription = this.service.get("LangContentT", "Index").subscribe((answer) => {
-                this.LangContentTList = answer;
-                this.callTable = false;
-                setTimeout(() => {
-                    DataTable();
-                    $(document)
-                        .off("click", ".fg-button")
-                        .on("click", ".fg-button", () => {
-                        setTimeout(() => {
-                            this.FillData();
-                        }, 1);
-                    });
-                }, 1);
-            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-        }
-        setTimeout(() => {
-            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                $(".btn-group").remove();
-            }
-        }, 1);
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
-};
-AdminLangContentTIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_4__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
-];
-AdminLangContentTIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/index.html")
-    })
-], AdminLangContentTIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/langcontentt/insert.ts":
-/*!************************************************************!*\
-  !*** ./src/app/admin/views/general/langcontentt/insert.ts ***!
-  \************************************************************/
-/*! exports provided: AdminLangContentTInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLangContentTInsertComponent", function() { return AdminLangContentTInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-
-
-let AdminLangContentTInsertComponent = class AdminLangContentTInsertComponent {
-    constructor(service, formBuilder, router) {
-        this.service = service;
-        this.formBuilder = formBuilder;
-        this.router = router;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
-    }
-    ngOnInit() {
-        this.data = new Object();
-        this.subscription = this.service.get("LangContentT", "Insert").subscribe((answer) => {
-            this.model = answer;
-        }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-        _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].ConvertToCKEditor("Description", 1500);
-        _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].ConvertToCKEditor("Description2", 1500);
-        this.insertForm = this.formBuilder.group({
-            LangContentID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]),
-            ShortDescription: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            ShortDescription2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-        });
-    }
-    ngAfterViewChecked() {
-        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
-        $('#Description2').next("div.ck").find(".ck-content").attr("data-id", "Description2");
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
-    onSubmit() {
-        this.data.LangContentID = this.insertForm.get("LangContentID").value;
-        this.data.TransID = this.insertForm.get("TransID").value;
-        this.data.ShortDescription = this.insertForm.get("ShortDescription").value;
-        this.data.Description = _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].CKValue("Description");
-        this.data.ShortDescription2 = this.insertForm.get("ShortDescription2").value;
-        this.data.Description2 = _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].CKValue("Description2");
-        this.service.post("LangContentT", "Insert", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/LangContentT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLangContentTInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_6__["ModelService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-];
-AdminLangContentTInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/insert.html")
-    })
-], AdminLangContentTInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/langcontentt/update.ts":
-/*!************************************************************!*\
-  !*** ./src/app/admin/views/general/langcontentt/update.ts ***!
-  \************************************************************/
-/*! exports provided: AdminLangContentTUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLangContentTUpdateComponent", function() { return AdminLangContentTUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-
-
-
-
-
-
-
-let AdminLangContentTUpdateComponent = class AdminLangContentTUpdateComponent {
-    constructor(service, formBuilder, router, route) {
-        this.service = service;
-        this.formBuilder = formBuilder;
-        this.router = router;
-        this.route = route;
-        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
-    }
-    ngOnInit() {
-        this.data = new Object();
-        this.callTable = true;
-        this.FillData();
-        _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].ConvertToCKEditor("Description", 1500);
-        _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].ConvertToCKEditor("Description2", 1500);
-        this.updateForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]),
-            LangContentID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(0)]),
-            ShortDescription: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            ShortDescription2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-            Description2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
-        });
-    }
-    ngAfterViewChecked() {
-        $('#Description').next("div.ck").find(".ck-content").attr("data-id", "Description");
-        $('#Description2').next("div.ck").find(".ck-content").attr("data-id", "Description2");
-    }
-    FillData() {
-        if (this.callTable == true) {
-            this.route.params.subscribe((params) => {
-                this.id = params['id'];
-                this.subscription = this.service.get("LangContentT", "Update", this.id).subscribe((answer) => {
-                    this.model = answer;
-                    this.callTable = false;
-                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-            });
-        }
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
-    onSubmit() {
-        this.data.ID = this.updateForm.get("ID").value;
-        this.data.LangContentID = this.updateForm.get("LangContentID").value;
-        this.data.TransID = this.updateForm.get("TransID").value;
-        this.data.ShortDescription = this.updateForm.get("ShortDescription").value;
-        this.data.Description = _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].CKValue("Description");
-        this.data.ShortDescription2 = this.updateForm.get("ShortDescription2").value;
-        this.data.Description2 = _lib_methods__WEBPACK_IMPORTED_MODULE_5__["AdminLib"].CKValue("Description2");
-        this.service.post("LangContentT", "Update", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/LangContentT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLangContentTUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_6__["ModelService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
-];
-AdminLangContentTUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/update.html")
-    })
-], AdminLangContentTUpdateComponent);
 
 
 
@@ -17131,231 +15970,6 @@ AdminMetaUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/meta/update.html")
     })
 ], AdminMetaUpdateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/metat/index.ts":
-/*!****************************************************!*\
-  !*** ./src/app/admin/views/general/metat/index.ts ***!
-  \****************************************************/
-/*! exports provided: AdminMetaTIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMetaTIndexComponent", function() { return AdminMetaTIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-
-
-
-
-let AdminMetaTIndexComponent = class AdminMetaTIndexComponent {
-    constructor(service, sharedService) {
-        this.service = service;
-        this.sharedService = sharedService;
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.service.get("MetaT", "Index").subscribe((resData) => {
-                                this.MetaDilList = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminMetaTIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
-];
-AdminMetaTIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/metat/index.html")
-    })
-], AdminMetaTIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/metat/insert.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/admin/views/general/metat/insert.ts ***!
-  \*****************************************************/
-/*! exports provided: AdminMetaTInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMetaTInsertComponent", function() { return AdminMetaTInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-let AdminMetaTInsertComponent = class AdminMetaTInsertComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.linkID = params['linkID'];
-            this.service.get("MetaT", "Insert", this.linkID).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.ekleForm = this.formBuilder.group({
-            MetaID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            Name: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            Content: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1)]),
-        });
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.MetaID = this.ekleForm.get("MetaID").value;
-        this.data.TransID = this.ekleForm.get("TransID").value;
-        this.data.Name = this.ekleForm.get("Name").value;
-        this.data.Content = this.ekleForm.get("Content").value;
-        this.service.post("MetaT", "Insert", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/MetaT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminMetaTInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
-];
-AdminMetaTInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/metat/insert.html")
-    })
-], AdminMetaTInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/metat/update.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/admin/views/general/metat/update.ts ***!
-  \*****************************************************/
-/*! exports provided: AdminMetaTUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMetaTUpdateComponent", function() { return AdminMetaTUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-let AdminMetaTUpdateComponent = class AdminMetaTUpdateComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.id = params['id'];
-            this.service.get("MetaT", "Update", this.id).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            MetaID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            TransID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            Name: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            Content: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1)]),
-        });
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.MetaID = this.duzenleForm.get("MetaID").value;
-        this.data.TransID = this.duzenleForm.get("TransID").value;
-        this.data.Name = this.duzenleForm.get("Name").value;
-        this.data.Content = this.duzenleForm.get("Content").value;
-        this.service.post("MetaT", "Update", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/MetaT']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminMetaTUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
-];
-AdminMetaTUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/metat/update.html")
-    })
-], AdminMetaTUpdateComponent);
 
 
 
@@ -19390,9 +18004,6 @@ let AdminIndexComponent = class AdminIndexComponent {
         this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData) => {
             this.hasRightLinkTypes = resData;
         }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Translation", "s").subscribe((resData) => {
-            this.hasRightTranslation = resData;
-        }, resError => this.errorMsg = resError);
         this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
             this.hasRightLogs = resData;
         }, resError => this.errorMsg = resError);
@@ -19424,9 +18035,6 @@ let AdminIndexComponent = class AdminIndexComponent {
         }, resError => this.errorMsg = resError);
         this.sharedService.getShowType("LinkTypes").subscribe((resData) => {
             this.showTypeLinkTypes = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Translation").subscribe((resData) => {
-            this.showTypeTranslation = resData;
         }, resError => this.errorMsg = resError);
         this.sharedService.getShowType("Logs").subscribe((resData) => {
             this.showTypeLogs = resData;
@@ -19623,20 +18231,13 @@ let AdminHeaderComponent = class AdminHeaderComponent {
             source: [
                 'Ana Sayfa',
                 'Kategoriler',
-                'Kategoriler (Dil)',
                 'İçerikler',
-                'İçerikler (Dil)',
                 'Galeri',
-                'Galeri (Dil)',
                 'Resimler',
                 'Dosyalar',
                 'Meta',
-                'Meta (Dil)',
                 'Bağlı Tipler',
                 'Bağlantılar',
-                'Diller',
-                'Dil İçerik',
-                'Dil İçerik (Dil)',
                 'Loglar',
                 'Log Tipleri',
                 'Log İşlemleri',
@@ -19660,20 +18261,11 @@ let AdminHeaderComponent = class AdminHeaderComponent {
             case "Kategoriler":
                 this.router.navigate(['/Admin/Category']);
                 break;
-            case "Kategoriler (Dil)":
-                this.router.navigate(['/Admin/CategoryT']);
-                break;
             case "İçerikler":
                 this.router.navigate(['/Admin/Content']);
                 break;
-            case "İçerikler (Dil)":
-                this.router.navigate(['/Admin/ContentT']);
-                break;
             case "Galeri":
                 this.router.navigate(['/Admin/Gallery']);
-                break;
-            case "Galeri (Dil)":
-                this.router.navigate(['/Admin/GalleryT']);
                 break;
             case "Resimler":
                 this.router.navigate(['/Admin/Pictures']);
@@ -19684,23 +18276,11 @@ let AdminHeaderComponent = class AdminHeaderComponent {
             case "Meta":
                 this.router.navigate(['/Admin/Meta']);
                 break;
-            case "Meta (Dil)":
-                this.router.navigate(['/Admin/MetaT']);
-                break;
             case "Bağlı Tipler":
                 this.router.navigate(['/Admin/LinkTypes']);
                 break;
             case "Bağlantılar":
                 this.router.navigate(['/Admin/Links']);
-                break;
-            case "Diller":
-                this.router.navigate(['/Admin/Translation']);
-                break;
-            case "Dil İçerik":
-                this.router.navigate(['/Admin/LangContent']);
-                break;
-            case "Dil İçerik (Dil)":
-                this.router.navigate(['/Admin/LangContentT']);
                 break;
             case "Loglar":
                 this.router.navigate(['/Admin/Logs']);
@@ -19862,29 +18442,23 @@ let AdminLeftMenuComponent = class AdminLeftMenuComponent {
                                                     this.hasRightLinkTypes = resData;
                                                     this.sharedService.getShowType("LinkTypes").subscribe((resData) => {
                                                         this.showTypeLinkTypes = resData;
-                                                        this.sharedService.getHasRight("Translation", "s").subscribe((resData) => {
-                                                            this.hasRightTranslation = resData;
-                                                            this.sharedService.getShowType("Translation").subscribe((resData) => {
-                                                                this.showTypeTranslation = resData;
-                                                                this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
-                                                                    this.hasRightLogs = resData;
-                                                                    this.sharedService.getShowType("Logs").subscribe((resData) => {
-                                                                        this.showTypeLogs = resData;
-                                                                        this.sharedService.getHasRight("Users", "s").subscribe((resData) => {
-                                                                            this.hasRightUsers = resData;
-                                                                            this.sharedService.getShowType("Users").subscribe((resData) => {
-                                                                                this.showTypeUsers = resData;
-                                                                                this.sharedService.getHasRight("Types", "s").subscribe((resData) => {
-                                                                                    this.hasRightTypes = resData;
-                                                                                    this.sharedService.getShowType("Types").subscribe((resData) => {
-                                                                                        this.showTypeTypes = resData;
-                                                                                        this.sharedService.getHasRight("Website", "s").subscribe((resData) => {
-                                                                                            this.hasRightWebsite = resData;
-                                                                                            this.sharedService.getShowType("Website").subscribe((resData) => {
-                                                                                                this.showTypeWebsite = resData;
-                                                                                                this.DoIt();
-                                                                                            }, resError => this.errorMsg = resError);
-                                                                                        }, resError => this.errorMsg = resError);
+                                                        this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
+                                                            this.hasRightLogs = resData;
+                                                            this.sharedService.getShowType("Logs").subscribe((resData) => {
+                                                                this.showTypeLogs = resData;
+                                                                this.sharedService.getHasRight("Users", "s").subscribe((resData) => {
+                                                                    this.hasRightUsers = resData;
+                                                                    this.sharedService.getShowType("Users").subscribe((resData) => {
+                                                                        this.showTypeUsers = resData;
+                                                                        this.sharedService.getHasRight("Types", "s").subscribe((resData) => {
+                                                                            this.hasRightTypes = resData;
+                                                                            this.sharedService.getShowType("Types").subscribe((resData) => {
+                                                                                this.showTypeTypes = resData;
+                                                                                this.sharedService.getHasRight("Website", "s").subscribe((resData) => {
+                                                                                    this.hasRightWebsite = resData;
+                                                                                    this.sharedService.getShowType("Website").subscribe((resData) => {
+                                                                                        this.showTypeWebsite = resData;
+                                                                                        this.DoIt();
                                                                                     }, resError => this.errorMsg = resError);
                                                                                 }, resError => this.errorMsg = resError);
                                                                             }, resError => this.errorMsg = resError);
@@ -20186,69 +18760,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_category__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/views/general/category */ "./src/app/admin/views/general/category/index.ts");
 /* harmony import */ var _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/views/general/category/insert */ "./src/app/admin/views/general/category/insert.ts");
 /* harmony import */ var _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/views/general/category/update */ "./src/app/admin/views/general/category/update.ts");
-/* harmony import */ var _admin_views_general_categoryt__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/views/general/categoryt */ "./src/app/admin/views/general/categoryt/index.ts");
-/* harmony import */ var _admin_views_general_categoryt_insert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/views/general/categoryt/insert */ "./src/app/admin/views/general/categoryt/insert.ts");
-/* harmony import */ var _admin_views_general_categoryt_update__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/views/general/categoryt/update */ "./src/app/admin/views/general/categoryt/update.ts");
-/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
-/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
-/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
-/* harmony import */ var _admin_views_general_contentt__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/views/general/contentt */ "./src/app/admin/views/general/contentt/index.ts");
-/* harmony import */ var _admin_views_general_contentt_insert__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/views/general/contentt/insert */ "./src/app/admin/views/general/contentt/insert.ts");
-/* harmony import */ var _admin_views_general_contentt_update__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/contentt/update */ "./src/app/admin/views/general/contentt/update.ts");
-/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
-/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
-/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
-/* harmony import */ var _admin_views_general_langcontent__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/langcontent */ "./src/app/admin/views/general/langcontent/index.ts");
-/* harmony import */ var _admin_views_general_langcontent_insert__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/langcontent/insert */ "./src/app/admin/views/general/langcontent/insert.ts");
-/* harmony import */ var _admin_views_general_langcontent_update__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/langcontent/update */ "./src/app/admin/views/general/langcontent/update.ts");
-/* harmony import */ var _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/langcontentt */ "./src/app/admin/views/general/langcontentt/index.ts");
-/* harmony import */ var _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/langcontentt/insert */ "./src/app/admin/views/general/langcontentt/insert.ts");
-/* harmony import */ var _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/langcontentt/update */ "./src/app/admin/views/general/langcontentt/update.ts");
-/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
-/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
-/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
-/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
-/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
-/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
-/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
-/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
-/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
-/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
-/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
-/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
-/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
-/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
-/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
-/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
-/* harmony import */ var _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/metat */ "./src/app/admin/views/general/metat/index.ts");
-/* harmony import */ var _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/metat/insert */ "./src/app/admin/views/general/metat/insert.ts");
-/* harmony import */ var _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/metat/update */ "./src/app/admin/views/general/metat/update.ts");
-/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
-/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
-/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
-/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
-/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
-/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
-/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
-/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
-/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
-/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
-/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
-/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
-/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
-/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
-/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
-/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
-/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
-/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
-/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
+/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
+/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
+/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
+/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
+/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
+/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
+/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
+/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
+/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
+/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
+/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
+/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
+/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
+/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
+/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
+/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
+/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
+/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
+/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
+/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
+/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
+/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
+/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
+/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
+/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
+/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
+/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
+/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
+/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
+/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
+/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
+/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
+/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
+/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
+/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
+/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
+/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
+/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
+/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
+/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
+/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
 
 
 
@@ -20258,21 +18817,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Admin General
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -20345,99 +18889,75 @@ const routes = [
             { path: 'Admin/Category/Index', component: _admin_views_general_category__WEBPACK_IMPORTED_MODULE_8__["AdminCategoryIndexComponent"] },
             { path: 'Admin/Category/Insert', component: _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_9__["AdminCategoryInsertComponent"] },
             { path: 'Admin/Category/Update/:id', component: _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_10__["AdminCategoryUpdateComponent"] },
-            { path: 'Admin/CategoryT', component: _admin_views_general_categoryt__WEBPACK_IMPORTED_MODULE_11__["AdminCategoryTIndexComponent"] },
-            { path: 'Admin/CategoryT/Index', component: _admin_views_general_categoryt__WEBPACK_IMPORTED_MODULE_11__["AdminCategoryTIndexComponent"] },
-            { path: 'Admin/CategoryT/Insert', component: _admin_views_general_categoryt_insert__WEBPACK_IMPORTED_MODULE_12__["AdminCategoryTInsertComponent"] },
-            { path: 'Admin/CategoryT/Insert/:linkID', component: _admin_views_general_categoryt_insert__WEBPACK_IMPORTED_MODULE_12__["AdminCategoryTInsertComponent"] },
-            { path: 'Admin/CategoryT/Update/:id', component: _admin_views_general_categoryt_update__WEBPACK_IMPORTED_MODULE_13__["AdminCategoryTUpdateComponent"] },
-            { path: 'Admin/Content', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_14__["AdminContentIndexComponent"] },
-            { path: 'Admin/Content/Index', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_14__["AdminContentIndexComponent"] },
-            { path: 'Admin/Content/Insert', component: _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_15__["AdminContentInsertComponent"] },
-            { path: 'Admin/Content/Update/:id', component: _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_16__["AdminContentUpdateComponent"] },
-            { path: 'Admin/ContentT', component: _admin_views_general_contentt__WEBPACK_IMPORTED_MODULE_17__["AdminContentTIndexComponent"] },
-            { path: 'Admin/ContentT/Index', component: _admin_views_general_contentt__WEBPACK_IMPORTED_MODULE_17__["AdminContentTIndexComponent"] },
-            { path: 'Admin/ContentT/Insert', component: _admin_views_general_contentt_insert__WEBPACK_IMPORTED_MODULE_18__["AdminContentTInsertComponent"] },
-            { path: 'Admin/ContentT/Insert/:linkID', component: _admin_views_general_contentt_insert__WEBPACK_IMPORTED_MODULE_18__["AdminContentTInsertComponent"] },
-            { path: 'Admin/ContentT/Update/:id', component: _admin_views_general_contentt_update__WEBPACK_IMPORTED_MODULE_19__["AdminContentTUpdateComponent"] },
-            { path: 'Admin/Files', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_20__["AdminFilesIndexComponent"] },
-            { path: 'Admin/Files/Index', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_20__["AdminFilesIndexComponent"] },
-            { path: 'Admin/Files/Insert', component: _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_21__["AdminFilesInsertComponent"] },
-            { path: 'Admin/Files/Update/:id', component: _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_22__["AdminFilesUpdateComponent"] },
-            { path: 'Admin/LangContent', component: _admin_views_general_langcontent__WEBPACK_IMPORTED_MODULE_23__["AdminLangContentIndexComponent"] },
-            { path: 'Admin/LangContent/Index', component: _admin_views_general_langcontent__WEBPACK_IMPORTED_MODULE_23__["AdminLangContentIndexComponent"] },
-            { path: 'Admin/LangContent/Insert', component: _admin_views_general_langcontent_insert__WEBPACK_IMPORTED_MODULE_24__["AdminLangContentInsertComponent"] },
-            { path: 'Admin/LangContent/Update/:id', component: _admin_views_general_langcontent_update__WEBPACK_IMPORTED_MODULE_25__["AdminLangContentUpdateComponent"] },
-            { path: 'Admin/LangContentT', component: _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_26__["AdminLangContentTIndexComponent"] },
-            { path: 'Admin/LangContentT/Index', component: _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_26__["AdminLangContentTIndexComponent"] },
-            { path: 'Admin/LangContentT/Insert', component: _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_27__["AdminLangContentTInsertComponent"] },
-            { path: 'Admin/LangContentT/Insert/:linkid', component: _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_27__["AdminLangContentTInsertComponent"] },
-            { path: 'Admin/LangContentT/Update/:id', component: _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_28__["AdminLangContentTUpdateComponent"] },
-            { path: 'Admin/Links', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_29__["AdminLinksIndexComponent"] },
-            { path: 'Admin/Links/Index', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_29__["AdminLinksIndexComponent"] },
-            { path: 'Admin/Links/Insert', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_30__["AdminLinksInsertComponent"] },
-            { path: 'Admin/Links/Insert/:linkID', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_30__["AdminLinksInsertComponent"] },
-            { path: 'Admin/Links/Update/:id', component: _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_31__["AdminLinksUpdateComponent"] },
-            { path: 'Admin/LinkTypes', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_32__["AdminLinkTypesIndexComponent"] },
-            { path: 'Admin/LinkTypes/Index', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_32__["AdminLinkTypesIndexComponent"] },
-            { path: 'Admin/LinkTypes/Insert', component: _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_33__["AdminLinkTypesInsertComponent"] },
-            { path: 'Admin/LinkTypes/Update/:id', component: _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_34__["AdminLinkTypesUpdateComponent"] },
-            { path: 'Admin/LogProcess', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_35__["AdminLogProcessIndexComponent"] },
-            { path: 'Admin/LogProcess/Index', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_35__["AdminLogProcessIndexComponent"] },
-            { path: 'Admin/LogProcess/Insert', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_36__["AdminLogProcessInsertComponent"] },
-            { path: 'Admin/LogProcess/Insert/:linkID', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_36__["AdminLogProcessInsertComponent"] },
-            { path: 'Admin/LogProcess/Update/:id', component: _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_37__["AdminLogProcessUpdateComponent"] },
-            { path: 'Admin/Logs', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_38__["AdminLogsIndexComponent"] },
-            { path: 'Admin/Logs/Index', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_38__["AdminLogsIndexComponent"] },
-            { path: 'Admin/LogTypes', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_39__["AdminLogTypesIndexComponent"] },
-            { path: 'Admin/LogTypes/Index', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_39__["AdminLogTypesIndexComponent"] },
-            { path: 'Admin/LogTypes/Insert', component: _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_40__["AdminLogTypesInsertComponent"] },
-            { path: 'Admin/LogTypes/Update/:id', component: _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_41__["AdminLogTypesUpdateComponent"] },
-            { path: 'Admin/Meta', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_42__["AdminMetaIndexComponent"] },
-            { path: 'Admin/Meta/Index', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_42__["AdminMetaIndexComponent"] },
-            { path: 'Admin/Meta/Insert', component: _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_43__["AdminMetaInsertComponent"] },
-            { path: 'Admin/Meta/Update/:id', component: _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_44__["AdminMetaUpdateComponent"] },
-            { path: 'Admin/MetaT', component: _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_45__["AdminMetaTIndexComponent"] },
-            { path: 'Admin/MetaT/Index', component: _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_45__["AdminMetaTIndexComponent"] },
-            { path: 'Admin/MetaT/Insert', component: _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_46__["AdminMetaTInsertComponent"] },
-            { path: 'Admin/MetaT/Insert/:linkID', component: _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_46__["AdminMetaTInsertComponent"] },
-            { path: 'Admin/MetaT/Update/:id', component: _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_47__["AdminMetaTUpdateComponent"] },
-            { path: 'Admin/Pictures', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_48__["AdminPicturesIndexComponent"] },
-            { path: 'Admin/Pictures/Index', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_48__["AdminPicturesIndexComponent"] },
-            { path: 'Admin/Pictures/Insert', component: _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_49__["AdminPicturesInsertComponent"] },
-            { path: 'Admin/Pictures/Update/:id', component: _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_50__["AdminPicturesUpdateComponent"] },
-            { path: 'Admin/Translation', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_51__["AdminTranslationIndexComponent"] },
-            { path: 'Admin/Translation/Index', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_51__["AdminTranslationIndexComponent"] },
-            { path: 'Admin/Translation/Insert', component: _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_52__["AdminTranslationInsertComponent"] },
-            { path: 'Admin/Translation/Update/:id', component: _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_53__["AdminTranslationUpdateComponent"] },
-            { path: 'Admin/Types', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_54__["AdminTypesIndexComponent"] },
-            { path: 'Admin/Types/Index', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_54__["AdminTypesIndexComponent"] },
-            { path: 'Admin/Types/Insert', component: _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_55__["AdminTypesInsertComponent"] },
-            { path: 'Admin/Types/Update/:id', component: _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_56__["AdminTypesUpdateComponent"] },
-            { path: 'Admin/Users', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_69__["AdminUsersIndexComponent"] },
-            { path: 'Admin/Users/Index', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_69__["AdminUsersIndexComponent"] },
-            { path: 'Admin/Users/Insert', component: _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_70__["AdminUsersInsertComponent"] },
-            { path: 'Admin/Users/Update/:id', component: _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_71__["AdminUsersUpdateComponent"] },
-            { path: 'Admin/Users/ChangeGroup/:id', component: _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_72__["AdminUsersChangeGroupComponent"] },
-            { path: 'Admin/UserGroups', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupsIndexComponent"] },
-            { path: 'Admin/UserGroups/Index', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupsIndexComponent"] },
-            { path: 'Admin/UserGroups/Insert', component: _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_58__["AdminUserGroupsInsertComponent"] },
-            { path: 'Admin/UserGroups/Update/:id', component: _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_59__["AdminUserGroupsUpdateComponent"] },
-            { path: 'Admin/UserGroupRights', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupRightsIndexComponent"] },
-            { path: 'Admin/UserGroupRights/Index', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupRightsIndexComponent"] },
-            { path: 'Admin/UserGroupRights/Insert', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupRightsInsertComponent"] },
-            { path: 'Admin/UserGroupRights/Insert/:linkID', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupRightsInsertComponent"] },
-            { path: 'Admin/UserGroupRights/Update/:id', component: _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_62__["AdminUserGroupRightsUpdateComponent"] },
-            { path: 'Admin/UserGroupProcess', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_63__["AdminUserGroupProcessIndexComponent"] },
-            { path: 'Admin/UserGroupProcess/Index', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_63__["AdminUserGroupProcessIndexComponent"] },
-            { path: 'Admin/UserGroupProcess/Insert', component: _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_64__["AdminUserGroupProcessInsertComponent"] },
-            { path: 'Admin/UserGroupProcess/Update/:id', component: _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_65__["AdminUserGroupProcessUpdateComponent"] },
-            { path: 'Admin/UserGroupTables', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_66__["AdminUserGroupTablesIndexComponent"] },
-            { path: 'Admin/UserGroupTables/Index', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_66__["AdminUserGroupTablesIndexComponent"] },
-            { path: 'Admin/UserGroupTables/Insert', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_67__["AdminUserGroupTablesInsertComponent"] },
-            { path: 'Admin/UserGroupTables/Insert/:linkID', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_67__["AdminUserGroupTablesInsertComponent"] },
-            { path: 'Admin/UserGroupTables/Update/:id', component: _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_68__["AdminUserGroupTablesUpdateComponent"] },
-            { path: 'Admin/Visitors', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_73__["AdminVisitorsIndexComponent"] },
-            { path: 'Admin/Visitors/Index', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_73__["AdminVisitorsIndexComponent"] },
+            { path: 'Admin/Content', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_11__["AdminContentIndexComponent"] },
+            { path: 'Admin/Content/Index', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_11__["AdminContentIndexComponent"] },
+            { path: 'Admin/Content/Insert', component: _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_12__["AdminContentInsertComponent"] },
+            { path: 'Admin/Content/Update/:id', component: _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_13__["AdminContentUpdateComponent"] },
+            { path: 'Admin/Files', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_14__["AdminFilesIndexComponent"] },
+            { path: 'Admin/Files/Index', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_14__["AdminFilesIndexComponent"] },
+            { path: 'Admin/Files/Insert', component: _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_15__["AdminFilesInsertComponent"] },
+            { path: 'Admin/Files/Update/:id', component: _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_16__["AdminFilesUpdateComponent"] },
+            { path: 'Admin/Links', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_17__["AdminLinksIndexComponent"] },
+            { path: 'Admin/Links/Index', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_17__["AdminLinksIndexComponent"] },
+            { path: 'Admin/Links/Insert', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_18__["AdminLinksInsertComponent"] },
+            { path: 'Admin/Links/Insert/:linkID', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_18__["AdminLinksInsertComponent"] },
+            { path: 'Admin/Links/Update/:id', component: _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_19__["AdminLinksUpdateComponent"] },
+            { path: 'Admin/LinkTypes', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_20__["AdminLinkTypesIndexComponent"] },
+            { path: 'Admin/LinkTypes/Index', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_20__["AdminLinkTypesIndexComponent"] },
+            { path: 'Admin/LinkTypes/Insert', component: _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_21__["AdminLinkTypesInsertComponent"] },
+            { path: 'Admin/LinkTypes/Update/:id', component: _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_22__["AdminLinkTypesUpdateComponent"] },
+            { path: 'Admin/LogProcess', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_23__["AdminLogProcessIndexComponent"] },
+            { path: 'Admin/LogProcess/Index', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_23__["AdminLogProcessIndexComponent"] },
+            { path: 'Admin/LogProcess/Insert', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_24__["AdminLogProcessInsertComponent"] },
+            { path: 'Admin/LogProcess/Insert/:linkID', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_24__["AdminLogProcessInsertComponent"] },
+            { path: 'Admin/LogProcess/Update/:id', component: _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_25__["AdminLogProcessUpdateComponent"] },
+            { path: 'Admin/Logs', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_26__["AdminLogsIndexComponent"] },
+            { path: 'Admin/Logs/Index', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_26__["AdminLogsIndexComponent"] },
+            { path: 'Admin/LogTypes', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_27__["AdminLogTypesIndexComponent"] },
+            { path: 'Admin/LogTypes/Index', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_27__["AdminLogTypesIndexComponent"] },
+            { path: 'Admin/LogTypes/Insert', component: _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_28__["AdminLogTypesInsertComponent"] },
+            { path: 'Admin/LogTypes/Update/:id', component: _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_29__["AdminLogTypesUpdateComponent"] },
+            { path: 'Admin/Meta', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_30__["AdminMetaIndexComponent"] },
+            { path: 'Admin/Meta/Index', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_30__["AdminMetaIndexComponent"] },
+            { path: 'Admin/Meta/Insert', component: _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_31__["AdminMetaInsertComponent"] },
+            { path: 'Admin/Meta/Update/:id', component: _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_32__["AdminMetaUpdateComponent"] },
+            { path: 'Admin/Pictures', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_33__["AdminPicturesIndexComponent"] },
+            { path: 'Admin/Pictures/Index', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_33__["AdminPicturesIndexComponent"] },
+            { path: 'Admin/Pictures/Insert', component: _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_34__["AdminPicturesInsertComponent"] },
+            { path: 'Admin/Pictures/Update/:id', component: _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_35__["AdminPicturesUpdateComponent"] },
+            { path: 'Admin/Translation', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_36__["AdminTranslationIndexComponent"] },
+            { path: 'Admin/Translation/Index', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_36__["AdminTranslationIndexComponent"] },
+            { path: 'Admin/Translation/Insert', component: _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_37__["AdminTranslationInsertComponent"] },
+            { path: 'Admin/Translation/Update/:id', component: _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_38__["AdminTranslationUpdateComponent"] },
+            { path: 'Admin/Types', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_39__["AdminTypesIndexComponent"] },
+            { path: 'Admin/Types/Index', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_39__["AdminTypesIndexComponent"] },
+            { path: 'Admin/Types/Insert', component: _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_40__["AdminTypesInsertComponent"] },
+            { path: 'Admin/Types/Update/:id', component: _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_41__["AdminTypesUpdateComponent"] },
+            { path: 'Admin/Users', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_54__["AdminUsersIndexComponent"] },
+            { path: 'Admin/Users/Index', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_54__["AdminUsersIndexComponent"] },
+            { path: 'Admin/Users/Insert', component: _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_55__["AdminUsersInsertComponent"] },
+            { path: 'Admin/Users/Update/:id', component: _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_56__["AdminUsersUpdateComponent"] },
+            { path: 'Admin/Users/ChangeGroup/:id', component: _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_57__["AdminUsersChangeGroupComponent"] },
+            { path: 'Admin/UserGroups', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_42__["AdminUserGroupsIndexComponent"] },
+            { path: 'Admin/UserGroups/Index', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_42__["AdminUserGroupsIndexComponent"] },
+            { path: 'Admin/UserGroups/Insert', component: _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_43__["AdminUserGroupsInsertComponent"] },
+            { path: 'Admin/UserGroups/Update/:id', component: _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_44__["AdminUserGroupsUpdateComponent"] },
+            { path: 'Admin/UserGroupRights', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_45__["AdminUserGroupRightsIndexComponent"] },
+            { path: 'Admin/UserGroupRights/Index', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_45__["AdminUserGroupRightsIndexComponent"] },
+            { path: 'Admin/UserGroupRights/Insert', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_46__["AdminUserGroupRightsInsertComponent"] },
+            { path: 'Admin/UserGroupRights/Insert/:linkID', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_46__["AdminUserGroupRightsInsertComponent"] },
+            { path: 'Admin/UserGroupRights/Update/:id', component: _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_47__["AdminUserGroupRightsUpdateComponent"] },
+            { path: 'Admin/UserGroupProcess', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupProcessIndexComponent"] },
+            { path: 'Admin/UserGroupProcess/Index', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupProcessIndexComponent"] },
+            { path: 'Admin/UserGroupProcess/Insert', component: _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_49__["AdminUserGroupProcessInsertComponent"] },
+            { path: 'Admin/UserGroupProcess/Update/:id', component: _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_50__["AdminUserGroupProcessUpdateComponent"] },
+            { path: 'Admin/UserGroupTables', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupTablesIndexComponent"] },
+            { path: 'Admin/UserGroupTables/Index', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupTablesIndexComponent"] },
+            { path: 'Admin/UserGroupTables/Insert', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupTablesInsertComponent"] },
+            { path: 'Admin/UserGroupTables/Insert/:linkID', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupTablesInsertComponent"] },
+            { path: 'Admin/UserGroupTables/Update/:id', component: _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_53__["AdminUserGroupTablesUpdateComponent"] },
+            { path: 'Admin/Visitors', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_58__["AdminVisitorsIndexComponent"] },
+            { path: 'Admin/Visitors/Index', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_58__["AdminVisitorsIndexComponent"] },
         ]
     },
     { path: '**', redirectTo: '' }
@@ -20484,97 +19004,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_category__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/views/general/category */ "./src/app/admin/views/general/category/index.ts");
 /* harmony import */ var _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/views/general/category/insert */ "./src/app/admin/views/general/category/insert.ts");
 /* harmony import */ var _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/views/general/category/update */ "./src/app/admin/views/general/category/update.ts");
-/* harmony import */ var _admin_views_general_categoryt__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/categoryt */ "./src/app/admin/views/general/categoryt/index.ts");
-/* harmony import */ var _admin_views_general_categoryt_insert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/categoryt/insert */ "./src/app/admin/views/general/categoryt/insert.ts");
-/* harmony import */ var _admin_views_general_categoryt_update__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/categoryt/update */ "./src/app/admin/views/general/categoryt/update.ts");
-/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
-/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
-/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
-/* harmony import */ var _admin_views_general_contentt__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/contentt */ "./src/app/admin/views/general/contentt/index.ts");
-/* harmony import */ var _admin_views_general_contentt_insert__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/contentt/insert */ "./src/app/admin/views/general/contentt/insert.ts");
-/* harmony import */ var _admin_views_general_contentt_update__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/contentt/update */ "./src/app/admin/views/general/contentt/update.ts");
-/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
-/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
-/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
-/* harmony import */ var _admin_views_general_langcontent__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/langcontent */ "./src/app/admin/views/general/langcontent/index.ts");
-/* harmony import */ var _admin_views_general_langcontent_insert__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/langcontent/insert */ "./src/app/admin/views/general/langcontent/insert.ts");
-/* harmony import */ var _admin_views_general_langcontent_update__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/langcontent/update */ "./src/app/admin/views/general/langcontent/update.ts");
-/* harmony import */ var _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/langcontentt */ "./src/app/admin/views/general/langcontentt/index.ts");
-/* harmony import */ var _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/langcontentt/insert */ "./src/app/admin/views/general/langcontentt/insert.ts");
-/* harmony import */ var _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/langcontentt/update */ "./src/app/admin/views/general/langcontentt/update.ts");
-/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
-/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
-/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
-/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
-/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
-/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
-/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
-/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
-/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
-/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
-/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
-/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
-/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
-/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
-/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
-/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
-/* harmony import */ var _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/metat */ "./src/app/admin/views/general/metat/index.ts");
-/* harmony import */ var _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/metat/insert */ "./src/app/admin/views/general/metat/insert.ts");
-/* harmony import */ var _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/metat/update */ "./src/app/admin/views/general/metat/update.ts");
-/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
-/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
-/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
-/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
-/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
-/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
-/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
-/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
-/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
-/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
-/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
-/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
-/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
-/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
-/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
-/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
-/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
-/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
-/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
-/* harmony import */ var _admin_services_shared__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./admin/services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _admin_services_model__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./admin/services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./lib/methods */ "./src/app/lib/methods.ts");
-/* harmony import */ var _admin_lib_methods__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./admin/lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _views_shared_layout__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/shared/layout */ "./src/app/views/shared/layout.ts");
-/* harmony import */ var _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/shared/controls/header */ "./src/app/views/shared/controls/header.ts");
-/* harmony import */ var _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/shared/controls/menu */ "./src/app/views/shared/controls/menu.ts");
-/* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
-/* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
-/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
-/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
-/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
-/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
-/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
-/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
-/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
-/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
-/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
-/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
-/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
-/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
-/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
-/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
-/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
-/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
-/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
-/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
+/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
+/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
+/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
+/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
+/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
+/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
+/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
+/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
+/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
+/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
+/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
+/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
+/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
+/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
+/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
+/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
+/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
+/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
+/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
+/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
+/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
+/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
+/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
+/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
+/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
+/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
+/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
+/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
+/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
+/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
+/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
+/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
+/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
+/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
+/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
+/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
+/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
+/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
+/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
+/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
+/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
+/* harmony import */ var _admin_services_shared__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var _admin_services_model__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _admin_lib_methods__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/lib/methods */ "./src/app/admin/lib/methods.ts");
+/* harmony import */ var _views_shared_layout__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./views/shared/layout */ "./src/app/views/shared/layout.ts");
+/* harmony import */ var _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./views/shared/controls/header */ "./src/app/views/shared/controls/header.ts");
+/* harmony import */ var _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./views/shared/controls/menu */ "./src/app/views/shared/controls/menu.ts");
+/* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
+/* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
+/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
+/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
+/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
+/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
+/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
+/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
+/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
+/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
+/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
+/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
+/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
+/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
+/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
+/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
+/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
+/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
+/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
+/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
 
 
 
@@ -20593,21 +19098,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Admin General
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -20698,30 +19188,30 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         declarations: [
             _app__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
             //Layout
-            _views_shared_layout__WEBPACK_IMPORTED_MODULE_87__["LayoutComponent"],
-            _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_88__["HeaderComponent"],
-            _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_89__["MenuComponent"],
-            _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_90__["FooterComponent"],
-            _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_91__["ScriptsComponent"],
-            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_92__["ModalAlertComponent"],
-            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_93__["ModalConfirmComponent"],
-            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_94__["RespHeaderComponent"],
-            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_96__["RespSearchComponent"],
-            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_95__["RespMenuComponent"],
-            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_97__["PopupLoginComponent"],
-            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_98__["PopupSignupComponent"],
+            _views_shared_layout__WEBPACK_IMPORTED_MODULE_72__["LayoutComponent"],
+            _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_73__["HeaderComponent"],
+            _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_74__["MenuComponent"],
+            _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_75__["FooterComponent"],
+            _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_76__["ScriptsComponent"],
+            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_77__["ModalAlertComponent"],
+            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_78__["ModalConfirmComponent"],
+            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_79__["RespHeaderComponent"],
+            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_81__["RespSearchComponent"],
+            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_80__["RespMenuComponent"],
+            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_82__["PopupLoginComponent"],
+            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_83__["PopupSignupComponent"],
             //Home
-            _views_home__WEBPACK_IMPORTED_MODULE_99__["IndexComponent"],
-            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_100__["HomeTopComponent"],
-            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_101__["HomeSliderComponent"],
-            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_102__["HomeSearchComponent"],
-            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_103__["HomePopCatComponent"],
-            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_104__["HomeAccountComponent"],
-            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_105__["HomeJobsComponent"],
-            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_106__["HomeCandidatesComponent"],
-            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_107__["HomeCompaniesComponent"],
-            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_108__["HomeTipsComponent"],
-            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_109__["HomeQuestionComponent"],
+            _views_home__WEBPACK_IMPORTED_MODULE_84__["IndexComponent"],
+            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_85__["HomeTopComponent"],
+            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_86__["HomeSliderComponent"],
+            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_87__["HomeSearchComponent"],
+            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_88__["HomePopCatComponent"],
+            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_89__["HomeAccountComponent"],
+            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_90__["HomeJobsComponent"],
+            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_91__["HomeCandidatesComponent"],
+            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_92__["HomeCompaniesComponent"],
+            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_93__["HomeTipsComponent"],
+            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_94__["HomeQuestionComponent"],
             //Admin
             _admin_views_shared_layoutAdmin__WEBPACK_IMPORTED_MODULE_8__["AdminLayoutComponent"],
             _admin_views_home_login__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"],
@@ -20735,69 +19225,54 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_views_general_category__WEBPACK_IMPORTED_MODULE_16__["AdminCategoryIndexComponent"],
             _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_17__["AdminCategoryInsertComponent"],
             _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_18__["AdminCategoryUpdateComponent"],
-            _admin_views_general_categoryt__WEBPACK_IMPORTED_MODULE_19__["AdminCategoryTIndexComponent"],
-            _admin_views_general_categoryt_insert__WEBPACK_IMPORTED_MODULE_20__["AdminCategoryTInsertComponent"],
-            _admin_views_general_categoryt_update__WEBPACK_IMPORTED_MODULE_21__["AdminCategoryTUpdateComponent"],
-            _admin_views_general_content__WEBPACK_IMPORTED_MODULE_22__["AdminContentIndexComponent"],
-            _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_23__["AdminContentInsertComponent"],
-            _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_24__["AdminContentUpdateComponent"],
-            _admin_views_general_contentt__WEBPACK_IMPORTED_MODULE_25__["AdminContentTIndexComponent"],
-            _admin_views_general_contentt_insert__WEBPACK_IMPORTED_MODULE_26__["AdminContentTInsertComponent"],
-            _admin_views_general_contentt_update__WEBPACK_IMPORTED_MODULE_27__["AdminContentTUpdateComponent"],
-            _admin_views_general_files__WEBPACK_IMPORTED_MODULE_28__["AdminFilesIndexComponent"],
-            _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_29__["AdminFilesInsertComponent"],
-            _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_30__["AdminFilesUpdateComponent"],
-            _admin_views_general_langcontent__WEBPACK_IMPORTED_MODULE_31__["AdminLangContentIndexComponent"],
-            _admin_views_general_langcontent_insert__WEBPACK_IMPORTED_MODULE_32__["AdminLangContentInsertComponent"],
-            _admin_views_general_langcontent_update__WEBPACK_IMPORTED_MODULE_33__["AdminLangContentUpdateComponent"],
-            _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_34__["AdminLangContentTIndexComponent"],
-            _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_35__["AdminLangContentTInsertComponent"],
-            _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_36__["AdminLangContentTUpdateComponent"],
-            _admin_views_general_links__WEBPACK_IMPORTED_MODULE_37__["AdminLinksIndexComponent"],
-            _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_38__["AdminLinksInsertComponent"],
-            _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_39__["AdminLinksUpdateComponent"],
-            _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_40__["AdminLinkTypesIndexComponent"],
-            _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_41__["AdminLinkTypesInsertComponent"],
-            _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_42__["AdminLinkTypesUpdateComponent"],
-            _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_43__["AdminLogProcessIndexComponent"],
-            _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_44__["AdminLogProcessInsertComponent"],
-            _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_45__["AdminLogProcessUpdateComponent"],
-            _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_46__["AdminLogsIndexComponent"],
-            _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_47__["AdminLogTypesIndexComponent"],
-            _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_48__["AdminLogTypesInsertComponent"],
-            _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_49__["AdminLogTypesUpdateComponent"],
-            _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_50__["AdminMetaIndexComponent"],
-            _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_51__["AdminMetaInsertComponent"],
-            _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_52__["AdminMetaUpdateComponent"],
-            _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_53__["AdminMetaTIndexComponent"],
-            _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_54__["AdminMetaTInsertComponent"],
-            _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_55__["AdminMetaTUpdateComponent"],
-            _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_56__["AdminPicturesIndexComponent"],
-            _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_57__["AdminPicturesInsertComponent"],
-            _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_58__["AdminPicturesUpdateComponent"],
-            _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_59__["AdminTranslationIndexComponent"],
-            _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_60__["AdminTranslationInsertComponent"],
-            _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_61__["AdminTranslationUpdateComponent"],
-            _admin_views_general_types__WEBPACK_IMPORTED_MODULE_62__["AdminTypesIndexComponent"],
-            _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_63__["AdminTypesInsertComponent"],
-            _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_64__["AdminTypesUpdateComponent"],
-            _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_65__["AdminUserGroupsIndexComponent"],
-            _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_66__["AdminUserGroupsInsertComponent"],
-            _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_67__["AdminUserGroupsUpdateComponent"],
-            _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_68__["AdminUserGroupRightsIndexComponent"],
-            _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_69__["AdminUserGroupRightsInsertComponent"],
-            _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_70__["AdminUserGroupRightsUpdateComponent"],
-            _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_71__["AdminUserGroupProcessIndexComponent"],
-            _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_72__["AdminUserGroupProcessInsertComponent"],
-            _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_73__["AdminUserGroupProcessUpdateComponent"],
-            _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_74__["AdminUserGroupTablesIndexComponent"],
-            _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_75__["AdminUserGroupTablesInsertComponent"],
-            _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_76__["AdminUserGroupTablesUpdateComponent"],
-            _admin_views_general_users__WEBPACK_IMPORTED_MODULE_77__["AdminUsersIndexComponent"],
-            _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_78__["AdminUsersInsertComponent"],
-            _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_79__["AdminUsersUpdateComponent"],
-            _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_80__["AdminUsersChangeGroupComponent"],
-            _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_81__["AdminVisitorsIndexComponent"]
+            _admin_views_general_content__WEBPACK_IMPORTED_MODULE_19__["AdminContentIndexComponent"],
+            _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_20__["AdminContentInsertComponent"],
+            _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_21__["AdminContentUpdateComponent"],
+            _admin_views_general_files__WEBPACK_IMPORTED_MODULE_22__["AdminFilesIndexComponent"],
+            _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_23__["AdminFilesInsertComponent"],
+            _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_24__["AdminFilesUpdateComponent"],
+            _admin_views_general_links__WEBPACK_IMPORTED_MODULE_25__["AdminLinksIndexComponent"],
+            _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_26__["AdminLinksInsertComponent"],
+            _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_27__["AdminLinksUpdateComponent"],
+            _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_28__["AdminLinkTypesIndexComponent"],
+            _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_29__["AdminLinkTypesInsertComponent"],
+            _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_30__["AdminLinkTypesUpdateComponent"],
+            _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_31__["AdminLogProcessIndexComponent"],
+            _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_32__["AdminLogProcessInsertComponent"],
+            _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_33__["AdminLogProcessUpdateComponent"],
+            _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_34__["AdminLogsIndexComponent"],
+            _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_35__["AdminLogTypesIndexComponent"],
+            _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_36__["AdminLogTypesInsertComponent"],
+            _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_37__["AdminLogTypesUpdateComponent"],
+            _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_38__["AdminMetaIndexComponent"],
+            _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_39__["AdminMetaInsertComponent"],
+            _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_40__["AdminMetaUpdateComponent"],
+            _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_41__["AdminPicturesIndexComponent"],
+            _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_42__["AdminPicturesInsertComponent"],
+            _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_43__["AdminPicturesUpdateComponent"],
+            _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_44__["AdminTranslationIndexComponent"],
+            _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_45__["AdminTranslationInsertComponent"],
+            _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_46__["AdminTranslationUpdateComponent"],
+            _admin_views_general_types__WEBPACK_IMPORTED_MODULE_47__["AdminTypesIndexComponent"],
+            _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_48__["AdminTypesInsertComponent"],
+            _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_49__["AdminTypesUpdateComponent"],
+            _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_50__["AdminUserGroupsIndexComponent"],
+            _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupsInsertComponent"],
+            _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupsUpdateComponent"],
+            _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_53__["AdminUserGroupRightsIndexComponent"],
+            _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_54__["AdminUserGroupRightsInsertComponent"],
+            _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_55__["AdminUserGroupRightsUpdateComponent"],
+            _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_56__["AdminUserGroupProcessIndexComponent"],
+            _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupProcessInsertComponent"],
+            _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_58__["AdminUserGroupProcessUpdateComponent"],
+            _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_59__["AdminUserGroupTablesIndexComponent"],
+            _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupTablesInsertComponent"],
+            _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupTablesUpdateComponent"],
+            _admin_views_general_users__WEBPACK_IMPORTED_MODULE_62__["AdminUsersIndexComponent"],
+            _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_63__["AdminUsersInsertComponent"],
+            _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_64__["AdminUsersUpdateComponent"],
+            _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_65__["AdminUsersChangeGroupComponent"],
+            _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_66__["AdminVisitorsIndexComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -20807,11 +19282,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         //'/HumanResources/' -> '/' Bu �ekilde de�i�ecek
         providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["APP_BASE_HREF"], useValue: '/HumanResources/' },
-            _admin_services_shared__WEBPACK_IMPORTED_MODULE_82__["SharedService"],
-            _admin_services_model__WEBPACK_IMPORTED_MODULE_83__["ModelService"],
-            _services_site__WEBPACK_IMPORTED_MODULE_84__["SiteService"],
-            _lib_methods__WEBPACK_IMPORTED_MODULE_85__["Lib"],
-            _admin_lib_methods__WEBPACK_IMPORTED_MODULE_86__["AdminLib"]
+            _admin_services_shared__WEBPACK_IMPORTED_MODULE_67__["SharedService"],
+            _admin_services_model__WEBPACK_IMPORTED_MODULE_68__["ModelService"],
+            _services_site__WEBPACK_IMPORTED_MODULE_69__["SiteService"],
+            _lib_methods__WEBPACK_IMPORTED_MODULE_70__["Lib"],
+            _admin_lib_methods__WEBPACK_IMPORTED_MODULE_71__["AdminLib"]
         ],
         bootstrap: [_app__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
@@ -20868,12 +19343,6 @@ let Lib = class Lib {
     static RefreshRoute(router, changeUrl = "/", skipChangeLocation = true) {
         let currentUrl = router.url;
         router.navigate([changeUrl], { skipLocationChange: skipChangeLocation }).then(() => { router.navigate([currentUrl]); });
-    }
-    static SetLangItem(langItem, code = null, shortCode = null) {
-        langItem = new Object();
-        langItem.Code = code;
-        langItem.ShortCode = shortCode;
-        return langItem;
     }
     static ComboChange(id) {
         var select = $("#" + id);
@@ -20975,8 +19444,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -20985,25 +19452,6 @@ let HomeAccountComponent = class HomeAccountComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeAccountComponent.ctorParameters = () => [
@@ -21033,8 +19481,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21043,25 +19489,6 @@ let HomeCandidatesComponent = class HomeCandidatesComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeCandidatesComponent.ctorParameters = () => [
@@ -21091,8 +19518,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21101,25 +19526,6 @@ let HomeCompaniesComponent = class HomeCompaniesComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeCompaniesComponent.ctorParameters = () => [
@@ -21149,8 +19555,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21159,25 +19563,6 @@ let HomeJobsComponent = class HomeJobsComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeJobsComponent.ctorParameters = () => [
@@ -21207,8 +19592,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21217,25 +19600,6 @@ let HomePopCatComponent = class HomePopCatComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomePopCatComponent.ctorParameters = () => [
@@ -21265,8 +19629,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21275,25 +19637,6 @@ let HomeQuestionComponent = class HomeQuestionComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeQuestionComponent.ctorParameters = () => [
@@ -21336,7 +19679,6 @@ let HomeSearchComponent = class HomeSearchComponent {
         this.formBuilder = formBuilder;
     }
     ngOnInit() {
-        this.SetLangContents();
         this.searchForm = this.formBuilder.group({
             Words: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(255)]),
             City: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
@@ -21351,24 +19693,6 @@ let HomeSearchComponent = class HomeSearchComponent {
         this.data.City = $("#slcCity").children("option[selected='selected']").val();
         this.service.post("Search", "HomeSearch", this.data).subscribe((answer) => {
         }, resError => this.errorMsg = resError);
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeSearchComponent.ctorParameters = () => [
@@ -21436,8 +19760,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21446,25 +19768,6 @@ let HomeTipsComponent = class HomeTipsComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeTipsComponent.ctorParameters = () => [
@@ -21494,8 +19797,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21504,25 +19805,6 @@ let HomeTopComponent = class HomeTopComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeTopComponent.ctorParameters = () => [
@@ -21552,8 +19834,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21562,28 +19842,9 @@ let ModalAlertComponent = class ModalAlertComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
     }
     onClick() {
         $("#modalAlert").removeClass("show");
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "cmn_cnfrm_ok":
-                        this.langs.Ok = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "cmn_cnfrm_ok"));
     }
 };
 ModalAlertComponent.ctorParameters = () => [
@@ -21617,8 +19878,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21629,31 +19888,11 @@ let ModalConfirmComponent = class ModalConfirmComponent {
         this.router = router;
     }
     ngOnInit() {
-        this.SetLangContents();
     }
     onClick(result) {
         $("#modalConfirm").removeClass("show");
         if (result == true)
             this.router.navigate(['/']);
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "cmn_cnfrm_ok":
-                        this.langs.Ok = item.ShortDescription;
-                        this.langs.Cancel = item.ShortDescription2;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].SetLangItem(this.langItem, "cmn_cnfrm_ok"));
     }
 };
 ModalConfirmComponent.ctorParameters = () => [
@@ -21687,8 +19926,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21697,25 +19934,6 @@ let FooterComponent = class FooterComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "cmn_lst_auto":
-                        this.langs.latestautos = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "cmn_lst_auto"));
     }
 };
 FooterComponent.ctorParameters = () => [
@@ -21745,54 +19963,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
 let HeaderComponent = class HeaderComponent {
     constructor(service) {
         this.service = service;
-        this.paneladdress = "http://localhost/HumanResources/Admin";
-        this.flag = {};
     }
     ngOnInit() {
-        this.GetLangs();
-        this.SetLangContents();
-    }
-    //Translation
-    GetLangs() {
-        this.service.get("Site", "GetLangs").subscribe((resData) => {
-            this.LangList = resData;
-            this.service.get("Site", "SelectedLang").subscribe((resData) => {
-                this.flag = resData;
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-    OnLangSelect(id) {
-        this.service.get("Site", "SelectLang", id).subscribe((resData) => {
-            if (resData == true) {
-                window.location.reload();
-            }
-        }, resError => this.errorMsg = resError);
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HeaderComponent.ctorParameters = () => [
@@ -21822,8 +20000,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21832,25 +20008,6 @@ let MenuComponent = class MenuComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 MenuComponent.ctorParameters = () => [
@@ -21882,8 +20039,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21896,7 +20051,6 @@ let PopupLoginComponent = class PopupLoginComponent {
         this.router = router;
     }
     ngOnInit() {
-        this.SetLangContents();
         this.loginForm = this.formBuilder.group({
             Username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
             Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
@@ -21923,24 +20077,6 @@ let PopupLoginComponent = class PopupLoginComponent {
                 this.alert = "Giriş yapılamadı.";
             }
         }, resError => this.errorMsg = resError);
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_5__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 PopupLoginComponent.ctorParameters = () => [
@@ -21974,8 +20110,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -21988,7 +20122,6 @@ let PopupSignupComponent = class PopupSignupComponent {
         this.router = router;
     }
     ngOnInit() {
-        this.SetLangContents();
         this.signupForm = this.formBuilder.group({
             Username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
             Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
@@ -22020,24 +20153,6 @@ let PopupSignupComponent = class PopupSignupComponent {
             }
         }, resError => this.errorMsg = resError);
     }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_5__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
-    }
 };
 PopupSignupComponent.ctorParameters = () => [
     { type: _services_site__WEBPACK_IMPORTED_MODULE_4__["SiteService"] },
@@ -22068,54 +20183,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
 let RespHeaderComponent = class RespHeaderComponent {
     constructor(service) {
         this.service = service;
-        this.paneladdress = "http://localhost/HumanResources/Admin";
-        this.flag = {};
     }
     ngOnInit() {
-        this.GetLangs();
-        this.SetLangContents();
-    }
-    //Translation
-    GetLangs() {
-        this.service.get("Site", "GetLangs").subscribe((resData) => {
-            this.LangList = resData;
-            this.service.get("Site", "SelectedLang").subscribe((resData) => {
-                this.flag = resData;
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-    OnLangSelect(id) {
-        this.service.get("Site", "SelectLang", id).subscribe((resData) => {
-            if (resData == true) {
-                window.location.reload();
-            }
-        }, resError => this.errorMsg = resError);
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 RespHeaderComponent.ctorParameters = () => [
@@ -22145,8 +20220,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -22155,25 +20228,6 @@ let RespMenuComponent = class RespMenuComponent {
         this.service = service;
     }
     ngOnInit() {
-        this.SetLangContents();
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 RespMenuComponent.ctorParameters = () => [
@@ -22204,8 +20258,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
-
 
 
 
@@ -22216,7 +20268,6 @@ let RespSearchComponent = class RespSearchComponent {
         this.formBuilder = formBuilder;
     }
     ngOnInit() {
-        this.SetLangContents();
         this.searchForm = this.formBuilder.group({
             Words: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(255)]),
         });
@@ -22226,24 +20277,6 @@ let RespSearchComponent = class RespSearchComponent {
         this.data.Words = this.searchForm.get("Words").value;
         this.service.post("Search", "HomeSearch", this.data).subscribe((answer) => {
         }, resError => this.errorMsg = resError);
-    }
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
-            this.langs = new Object();
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "hdr_pnl":
-                        this.langs.panelLogin = item.ShortDescription;
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-    PushLangItems() {
-        this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 RespSearchComponent.ctorParameters = () => [
