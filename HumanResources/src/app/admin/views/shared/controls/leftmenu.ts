@@ -15,6 +15,7 @@ export class AdminLeftMenuComponent implements AfterViewInit {
     hasRightPictures: boolean;
     hasRightFiles: boolean;
     hasRightMeta: boolean;
+    hasRightLinkTypes: boolean;
     hasRightTranslation: boolean;
     hasRightLogs: boolean;
     hasRightUsers: boolean;
@@ -26,6 +27,7 @@ export class AdminLeftMenuComponent implements AfterViewInit {
     showTypePictures: boolean;
     showTypeFiles: boolean;
     showTypeMeta: boolean;
+    showTypeLinkTypes: boolean;
     showTypeTranslation: boolean;
     showTypeLogs: boolean;
     showTypeUsers: boolean;
@@ -118,27 +120,33 @@ export class AdminLeftMenuComponent implements AfterViewInit {
                                             this.hasRightMeta = resData;
                                             this.sharedService.getShowType("Meta").subscribe((resData: any) => {
                                                 this.showTypeMeta = resData;
-                                                this.sharedService.getHasRight("Translation", "s").subscribe((resData: any) => {
-                                                    this.hasRightTranslation = resData;
-                                                    this.sharedService.getShowType("Translation").subscribe((resData: any) => {
-                                                        this.showTypeTranslation = resData;
-                                                        this.sharedService.getHasRight("Logs", "s").subscribe((resData: any) => {
-                                                            this.hasRightLogs = resData;
-                                                            this.sharedService.getShowType("Logs").subscribe((resData: any) => {
-                                                                this.showTypeLogs = resData;
-                                                                this.sharedService.getHasRight("Users", "s").subscribe((resData: any) => {
-                                                                    this.hasRightUsers = resData;
-                                                                    this.sharedService.getShowType("Users").subscribe((resData: any) => {
-                                                                        this.showTypeUsers = resData;
-                                                                        this.sharedService.getHasRight("Types", "s").subscribe((resData: any) => {
-                                                                            this.hasRightTypes = resData;
-                                                                            this.sharedService.getShowType("Types").subscribe((resData: any) => {
-                                                                                this.showTypeTypes = resData;
-                                                                                this.sharedService.getHasRight("Website", "s").subscribe((resData: any) => {
-                                                                                    this.hasRightWebsite = resData;
-                                                                                    this.sharedService.getShowType("Website").subscribe((resData: any) => {
-                                                                                        this.showTypeWebsite = resData;
-                                                                                        this.DoIt();
+                                                this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData: any) => {
+                                                    this.hasRightLinkTypes = resData;
+                                                    this.sharedService.getShowType("LinkTypes").subscribe((resData: any) => {
+                                                        this.showTypeLinkTypes = resData;
+                                                        this.sharedService.getHasRight("Translation", "s").subscribe((resData: any) => {
+                                                            this.hasRightTranslation = resData;
+                                                            this.sharedService.getShowType("Translation").subscribe((resData: any) => {
+                                                                this.showTypeTranslation = resData;
+                                                                this.sharedService.getHasRight("Logs", "s").subscribe((resData: any) => {
+                                                                    this.hasRightLogs = resData;
+                                                                    this.sharedService.getShowType("Logs").subscribe((resData: any) => {
+                                                                        this.showTypeLogs = resData;
+                                                                        this.sharedService.getHasRight("Users", "s").subscribe((resData: any) => {
+                                                                            this.hasRightUsers = resData;
+                                                                            this.sharedService.getShowType("Users").subscribe((resData: any) => {
+                                                                                this.showTypeUsers = resData;
+                                                                                this.sharedService.getHasRight("Types", "s").subscribe((resData: any) => {
+                                                                                    this.hasRightTypes = resData;
+                                                                                    this.sharedService.getShowType("Types").subscribe((resData: any) => {
+                                                                                        this.showTypeTypes = resData;
+                                                                                        this.sharedService.getHasRight("Website", "s").subscribe((resData: any) => {
+                                                                                            this.hasRightWebsite = resData;
+                                                                                            this.sharedService.getShowType("Website").subscribe((resData: any) => {
+                                                                                                this.showTypeWebsite = resData;
+                                                                                                this.DoIt();
+                                                                                            }, resError => this.errorMsg = resError);
+                                                                                        }, resError => this.errorMsg = resError);
                                                                                     }, resError => this.errorMsg = resError);
                                                                                 }, resError => this.errorMsg = resError);
                                                                             }, resError => this.errorMsg = resError);

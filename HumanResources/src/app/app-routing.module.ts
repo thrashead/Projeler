@@ -37,6 +37,14 @@ import { AdminLangContentTIndexComponent } from './admin/views/general/langconte
 import { AdminLangContentTInsertComponent } from './admin/views/general/langcontentt/insert';
 import { AdminLangContentTUpdateComponent } from './admin/views/general/langcontentt/update';
 
+import { AdminLinksIndexComponent } from './admin/views/general/links';
+import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
+import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
+
+import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
+import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
+import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
+
 import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
 import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
 import { AdminLogProcessUpdateComponent } from './admin/views/general/logprocess/update';
@@ -147,6 +155,17 @@ const routes: Routes = [
             { path: 'Admin/LangContentT/Insert', component: AdminLangContentTInsertComponent },
             { path: 'Admin/LangContentT/Insert/:linkid', component: AdminLangContentTInsertComponent },
             { path: 'Admin/LangContentT/Update/:id', component: AdminLangContentTUpdateComponent },
+
+            { path: 'Admin/Links', component: AdminLinksIndexComponent },
+            { path: 'Admin/Links/Index', component: AdminLinksIndexComponent },
+            { path: 'Admin/Links/Insert', component: AdminLinksInsertComponent },
+            { path: 'Admin/Links/Insert/:linkID', component: AdminLinksInsertComponent },
+            { path: 'Admin/Links/Update/:id', component: AdminLinksUpdateComponent },
+
+            { path: 'Admin/LinkTypes', component: AdminLinkTypesIndexComponent },
+            { path: 'Admin/LinkTypes/Index', component: AdminLinkTypesIndexComponent },
+            { path: 'Admin/LinkTypes/Insert', component: AdminLinkTypesInsertComponent },
+            { path: 'Admin/LinkTypes/Update/:id', component: AdminLinkTypesUpdateComponent },
 
             { path: 'Admin/LogProcess', component: AdminLogProcessIndexComponent },
             { path: 'Admin/LogProcess/Index', component: AdminLogProcessIndexComponent },

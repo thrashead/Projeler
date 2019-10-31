@@ -12923,6 +12923,72 @@ module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/index.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/links/index.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlantılar</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-link\"></i></span>\r\n                        <h5>Bağlantılar</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Bağlı Nesne</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of BaglantiList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td>{{ item?.LinkedAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Links/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Links\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Links/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Bağlantı Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"LinkTypes\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/insert.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/links/insert.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlantı Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Bağlı Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkTypeID\" (change)=\"onChange($event)\" [ngModel]=\"model?.LinkTypeID\" formControlName=\"LinkTypeID\"><option *ngFor=\"let item of model?.LinkTypesList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkID\" class=\"selectLinkID\" [ngModel]=\"model?.LinkID\" formControlName=\"LinkID\"><option *ngFor=\"let item of model?.LinkedItemList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Links\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/update.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/links/update.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlantı Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"LinkTypeID\" [ngModel]=\"model?.LinkTypeID\" formControlName=\"LinkTypeID\" type=\"hidden\" />\r\n                    <input id=\"LinkedTypesAdi\" type=\"text\" disabled=\"disabled\" value=\"{{ model?.LinkedTypesAdi }}\" />\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkID\" [ngModel]=\"model?.LinkID\" formControlName=\"LinkID\"><option *ngFor=\"let item of model?.LinkedItemList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Links\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/index.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/linktypes/index.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlı Tipler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-link\"></i></span>\r\n                        <h5>Bağlı Tipler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Ana Tip</th>\r\n                                    <th>Ana Nesne</th>\r\n                                    <th class=\"hideColumn2\">Bağlanacak Tip</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of BagliTiplerList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td>{{ item?.MainTypeAdi }}</td>\r\n                                    <td>{{ item?.MainAdi }}</td>\r\n                                    <td class=\"hideColumn2\">{{ item?.LinkedTypeAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/LinkTypes/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"cpyLink\" *ngIf=\"copyShow\" data-toggle=\"modal\" href=\"#cpyData\" data-controller=\"LinkTypes\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"LinkTypes\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/LinkTypes/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Bağlı Tip Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"LinkTypes\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/insert.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/linktypes/insert.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlı Tip Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainTypeID\" class=\"mainType\" (change)=\"onChange($event)\" [ngModel]=\"model?.MainTypeID\" formControlName=\"MainTypeID\"><option *ngFor=\"let item of model?.MainTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainID\" class=\"selectMain\" [ngModel]=\"model?.MainID\" formControlName=\"MainID\"><option *ngFor=\"let item of model?.MainList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlanacak Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkedTypeID\" class=\"linkedType\" [ngModel]=\"model?.LinkedTypeID\" formControlName=\"LinkedTypeID\"><option *ngFor=\"let item of model?.LinkedTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkedTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/LinkTypes\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/update.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/linktypes/update.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlı Tip Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainTypeID\" class=\"mainType\" (change)=\"onChange($event)\" [ngModel]=\"model?.MainTypeID\" formControlName=\"MainTypeID\"><option *ngFor=\"let item of model?.MainTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainID\" class=\"selectMain\" [ngModel]=\"model?.MainID\" formControlName=\"MainID\"><option *ngFor=\"let item of model?.MainList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlanacak Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkedTypeID\" class=\"linkedType\" [ngModel]=\"model?.LinkedTypeID\" formControlName=\"LinkedTypeID\"><option *ngFor=\"let item of model?.LinkedTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkedTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/LinkTypes\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-link\"></i></span>\r\n                        <h5>Bağlı Nesneler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of model?.LinkList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.LinkedAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Links/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Links\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a [routerLink]=\"['/Admin/Links/Insert/' + model?.ID]\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Bağlantı Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"LinkTypes\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/logprocess/index.html":
 /*!*************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/views/general/logprocess/index.html ***!
@@ -13359,7 +13425,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Ana Sayfa</a></div>\r\n    </div>\r\n\r\n    <div class=\"container-fluid\">\r\n        <div class=\"quick-actions_homepage\">\r\n            <ul class=\"quick-actions\">\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightCategory && showTypeCategory\"> <a routerLink=\"/Admin/Category\"> <i class=\"icon-sitemap\"></i> Kategoriler</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightContent && showTypeContent\"> <a routerLink=\"/Admin/Content\"> <i class=\"icon-edit\"></i> İçerikler</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightPictures && showTypePictures\"> <a routerLink=\"/Admin/Pictures\"> <i class=\"icon-camera-retro\"></i> Resimler</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightFiles && showTypeFiles\"> <a routerLink=\"/Admin/Files\"> <i class=\"icon-file\"></i> Dosyalar</a> </li>\r\n                <li class=\"bg_ls\" *ngIf=\"hasRightMeta && showTypeMeta\"> <a routerLink=\"/Admin/Meta\"> <i class=\"icon-tags\"></i> Meta</a> </li>\r\n                <li class=\"bg_lr\" *ngIf=\"hasRightTranslation && showTypeTranslation\"> <a routerLink=\"/Admin/Translation\"> <i class=\"icon-globe\"></i> Diller</a> </li>\r\n                <li class=\"bg_lv\" *ngIf=\"hasRightLogs && showTypeLogs\"> <a routerLink=\"/Admin/Logs\"> <i class=\"icon-eye-open\"></i> Loglar</a> </li>\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightWebsite && showTypeWebsite\"> <a routerLink=\"/Admin/Visitors\"> <i class=\"icon-plane\"></i> Ziyaretci</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightUsers && showTypeUsers\"> <a routerLink=\"/Admin/Users\"> <i class=\"icon-user\"></i> Kullanıcılar</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightTypes && showTypeTypes\"> <a routerLink=\"/Admin/Types\"> <i class=\"icon-pushpin\"></i> Tipler</a> </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Ana Sayfa</a></div>\r\n    </div>\r\n\r\n    <div class=\"container-fluid\">\r\n        <div class=\"quick-actions_homepage\">\r\n            <ul class=\"quick-actions\">\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightCategory && showTypeCategory\"> <a routerLink=\"/Admin/Category\"> <i class=\"icon-sitemap\"></i> Kategoriler</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightContent && showTypeContent\"> <a routerLink=\"/Admin/Content\"> <i class=\"icon-edit\"></i> İçerikler</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightPictures && showTypePictures\"> <a routerLink=\"/Admin/Pictures\"> <i class=\"icon-camera-retro\"></i> Resimler</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightFiles && showTypeFiles\"> <a routerLink=\"/Admin/Files\"> <i class=\"icon-file\"></i> Dosyalar</a> </li>\r\n                <li class=\"bg_ls\" *ngIf=\"hasRightMeta && showTypeMeta\"> <a routerLink=\"/Admin/Meta\"> <i class=\"icon-tags\"></i> Meta</a> </li>\r\n                <li class=\"bg_lr\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\"> <a routerLink=\"/Admin/LinkTypes\"> <i class=\"icon-link\"></i> Bağlı Tipler</a> </li>\r\n                <li class=\"bg_lv\" *ngIf=\"hasRightTranslation && showTypeTranslation\"> <a routerLink=\"/Admin/Translation\"> <i class=\"icon-globe\"></i> Diller</a> </li>\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightLogs && showTypeLogs\"> <a routerLink=\"/Admin/Logs\"> <i class=\"icon-eye-open\"></i> Loglar</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightWebsite && showTypeWebsite\"> <a routerLink=\"/Admin/Visitors\"> <i class=\"icon-plane\"></i> Ziyaretci</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightUsers && showTypeUsers\"> <a routerLink=\"/Admin/Users\"> <i class=\"icon-user\"></i> Kullanıcılar</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightTypes && showTypeTypes\"> <a routerLink=\"/Admin/Types\"> <i class=\"icon-pushpin\"></i> Tipler</a> </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13414,7 +13480,7 @@ module.exports = "<div id=\"header\">\r\n    <h1><a><img src=\"Content/admin/img
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar\">\r\n    <a href=\"javascript:;\" class=\"visible-phone\"><i class=\"icon icon-reorder\"></i> Menü</a>\r\n    <ul>\r\n        <li data-url=\"Index\" class=\"active\">\r\n            <a routerLink=\"/Admin/Index\"><i class=\"icon icon-home\"></i> <span>Ana Sayfa</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightCategory && showTypeCategory\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Kategoriler</span></a>\r\n            <ul>\r\n                <li data-url=\"Category\"><a routerLink=\"/Admin/Category\">Kategoriler</a></li>\r\n                <li data-url=\"CategoryT\"><a routerLink=\"/Admin/CategoryT\">Kategoriler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightContent && showTypeContent\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-edit\"></i> <span>İçerikler</span></a>\r\n            <ul>\r\n                <li data-url=\"Content\"><a routerLink=\"/Admin/Content\">İçerikler</a></li>\r\n                <li data-url=\"ContentT\"><a routerLink=\"/Admin/ContentT\">İçerikler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Pictures\" *ngIf=\"hasRightPictures && showTypePictures\">\r\n            <a routerLink=\"/Admin/Pictures\"><i class=\"icon icon-camera-retro\"></i> <span>Resimler</span></a>\r\n        </li>\r\n        <li data-url=\"Files\" *ngIf=\"hasRightFiles && showTypeFiles\">\r\n            <a routerLink=\"/Admin/Files\"><i class=\"icon icon-file\"></i> <span>Dosyalar</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightMeta && showTypeMeta\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-tags\"></i> <span>Meta</span></a>\r\n            <ul>\r\n                <li data-url=\"Meta\"><a routerLink=\"/Admin/Meta\">Meta</a></li>\r\n                <li data-url=\"MetaT\"><a routerLink=\"/Admin/MetaT\">Meta (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightTranslation && showTypeTranslation\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-globe\"></i> <span>Diller</span></a>\r\n            <ul>\r\n                <li data-url=\"Translation\"><a routerLink=\"/Admin/Translation\">Diller</a></li>\r\n                <li data-url=\"LangContent\"><a routerLink=\"/Admin/LangContent\">Dil İçerikleri</a></li>\r\n                <li data-url=\"LangContentT\"><a routerLink=\"/Admin/LangContentT\">Dil İçerikleri (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLogs && showTypeLogs\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-eye-open\"></i> <span>Loglar</span></a>\r\n            <ul>\r\n                <li data-url=\"Logs\"><a routerLink=\"/Admin/Logs\">Loglar</a></li>\r\n                <li data-url=\"LogTypes\"><a routerLink=\"/Admin/LogTypes\">Log Tipleri</a></li>\r\n                <li data-url=\"LogProcess\"><a routerLink=\"/Admin/LogProcess\">Log İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Visitors\" *ngIf=\"hasRightWebsite && showTypeWebsite\">\r\n            <a routerLink=\"/Admin/Visitors\"><i class=\"icon icon-plane\"></i> <span>Ziyaretçiler</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightUsers && showTypeUsers\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-user\"></i> <span>Kullanıcılar</span></a>\r\n            <ul>\r\n                <li data-url=\"Users\"><a routerLink=\"/Admin/Users\">Kullanıcılar</a></li>\r\n                <li data-url=\"UserGroups\"><a routerLink=\"/Admin/UserGroups\">Kullanıcı Grupları</a></li>\r\n                <li data-url=\"UserGroupTables\"><a routerLink=\"/Admin/UserGroupTables\">Kullanıcı Grup Tabloları</a></li>\r\n                <li data-url=\"UserGroupRights\"><a routerLink=\"/Admin/UserGroupRights\">Kullanıcı Grup Hakları</a></li>\r\n                <li data-url=\"UserGroupProcess\"><a routerLink=\"/Admin/UserGroupProcess\">Kullanıcı Grup İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Types\" *ngIf=\"hasRightTypes && showTypeTypes\">\r\n            <a routerLink=\"/Admin/Types\"><i class=\"icon icon-pushpin\"></i> <span>Tipler</span></a>\r\n        </li>\r\n    </ul>\r\n</div>"
+module.exports = "<div id=\"sidebar\">\r\n    <a href=\"javascript:;\" class=\"visible-phone\"><i class=\"icon icon-reorder\"></i> Menü</a>\r\n    <ul>\r\n        <li data-url=\"Index\" class=\"active\">\r\n            <a routerLink=\"/Admin/Index\"><i class=\"icon icon-home\"></i> <span>Ana Sayfa</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightCategory && showTypeCategory\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Kategoriler</span></a>\r\n            <ul>\r\n                <li data-url=\"Category\"><a routerLink=\"/Admin/Category\">Kategoriler</a></li>\r\n                <li data-url=\"CategoryT\"><a routerLink=\"/Admin/CategoryT\">Kategoriler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightContent && showTypeContent\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-edit\"></i> <span>İçerikler</span></a>\r\n            <ul>\r\n                <li data-url=\"Content\"><a routerLink=\"/Admin/Content\">İçerikler</a></li>\r\n                <li data-url=\"ContentT\"><a routerLink=\"/Admin/ContentT\">İçerikler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Pictures\" *ngIf=\"hasRightPictures && showTypePictures\">\r\n            <a routerLink=\"/Admin/Pictures\"><i class=\"icon icon-camera-retro\"></i> <span>Resimler</span></a>\r\n        </li>\r\n        <li data-url=\"Files\" *ngIf=\"hasRightFiles && showTypeFiles\">\r\n            <a routerLink=\"/Admin/Files\"><i class=\"icon icon-file\"></i> <span>Dosyalar</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightMeta && showTypeMeta\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-tags\"></i> <span>Meta</span></a>\r\n            <ul>\r\n                <li data-url=\"Meta\"><a routerLink=\"/Admin/Meta\">Meta</a></li>\r\n                <li data-url=\"MetaT\"><a routerLink=\"/Admin/MetaT\">Meta (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-link\"></i> <span>Bağlı Tipler</span></a>\r\n            <ul>\r\n                <li data-url=\"LinkTypes\"><a routerLink=\"/Admin/LinkTypes\">Bağlı Tipler</a></li>\r\n                <li data-url=\"Links\"><a routerLink=\"/Admin/Links\">Bağlantılar</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightTranslation && showTypeTranslation\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-globe\"></i> <span>Diller</span></a>\r\n            <ul>\r\n                <li data-url=\"Translation\"><a routerLink=\"/Admin/Translation\">Diller</a></li>\r\n                <li data-url=\"LangContent\"><a routerLink=\"/Admin/LangContent\">Dil İçerikleri</a></li>\r\n                <li data-url=\"LangContentT\"><a routerLink=\"/Admin/LangContentT\">Dil İçerikleri (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLogs && showTypeLogs\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-eye-open\"></i> <span>Loglar</span></a>\r\n            <ul>\r\n                <li data-url=\"Logs\"><a routerLink=\"/Admin/Logs\">Loglar</a></li>\r\n                <li data-url=\"LogTypes\"><a routerLink=\"/Admin/LogTypes\">Log Tipleri</a></li>\r\n                <li data-url=\"LogProcess\"><a routerLink=\"/Admin/LogProcess\">Log İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Visitors\" *ngIf=\"hasRightWebsite && showTypeWebsite\">\r\n            <a routerLink=\"/Admin/Visitors\"><i class=\"icon icon-plane\"></i> <span>Ziyaretçiler</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightUsers && showTypeUsers\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-user\"></i> <span>Kullanıcılar</span></a>\r\n            <ul>\r\n                <li data-url=\"Users\"><a routerLink=\"/Admin/Users\">Kullanıcılar</a></li>\r\n                <li data-url=\"UserGroups\"><a routerLink=\"/Admin/UserGroups\">Kullanıcı Grupları</a></li>\r\n                <li data-url=\"UserGroupTables\"><a routerLink=\"/Admin/UserGroupTables\">Kullanıcı Grup Tabloları</a></li>\r\n                <li data-url=\"UserGroupRights\"><a routerLink=\"/Admin/UserGroupRights\">Kullanıcı Grup Hakları</a></li>\r\n                <li data-url=\"UserGroupProcess\"><a routerLink=\"/Admin/UserGroupProcess\">Kullanıcı Grup İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Types\" *ngIf=\"hasRightTypes && showTypeTypes\">\r\n            <a routerLink=\"/Admin/Types\"><i class=\"icon icon-pushpin\"></i> <span>Tipler</span></a>\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
@@ -15494,6 +15560,593 @@ AdminLangContentTUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/langcontentt/update.html")
     })
 ], AdminLangContentTUpdateComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/links/index.ts":
+/*!****************************************************!*\
+  !*** ./src/app/admin/views/general/links/index.ts ***!
+  \****************************************************/
+/*! exports provided: AdminLinksIndexComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinksIndexComponent", function() { return AdminLinksIndexComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
+
+
+
+
+let AdminLinksIndexComponent = class AdminLinksIndexComponent {
+    constructor(service, sharedService) {
+        this.service = service;
+        this.sharedService = sharedService;
+    }
+    ngOnInit() {
+        this.callTable = true;
+        this.UserRightsControl($("#hdnType").val());
+    }
+    UserRightsControl(Model) {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+            this.insertShow = iRight;
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+                this.updateShow = uRight;
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                    this.deleteShow = dRight;
+                    if (this.callTable == true) {
+                        this.service.get("Links", "Index").subscribe((resData) => {
+                            for (var i = 0; i < resData.length; i++) {
+                                switch (resData[i].LinkedTypeID) {
+                                    case 1:
+                                        resData[i].LinkedAdi = resData[i].LinkedCategoryAdi;
+                                        break;
+                                    case 2:
+                                        resData[i].LinkedAdi = resData[i].LinkedContentAdi;
+                                        break;
+                                    case 4:
+                                        resData[i].LinkedAdi = resData[i].LinkedGalleryAdi;
+                                        break;
+                                    case 5:
+                                        resData[i].LinkedAdi = resData[i].LinkedPicturesAdi;
+                                        break;
+                                    case 6:
+                                        resData[i].LinkedAdi = resData[i].LinkedFilesAdi;
+                                        break;
+                                    case 7:
+                                        resData[i].LinkedAdi = resData[i].LinkedMetaAdi;
+                                        break;
+                                }
+                            }
+                            this.BaglantiList = resData;
+                            this.callTable = false;
+                            DataTable();
+                            $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                setTimeout(() => {
+                                    this.UserRightsControl($("#hdnType").val());
+                                }, 1);
+                            });
+                        }, resError => this.errorMsg = resError);
+                    }
+                    setTimeout(() => {
+                        if ($(".dropdown-menu").first().find("a").length <= 0) {
+                            $(".btn-group").remove();
+                        }
+                    }, 1);
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminLinksIndexComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
+    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
+];
+AdminLinksIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/index.html")
+    })
+], AdminLinksIndexComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/links/insert.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/admin/views/general/links/insert.ts ***!
+  \*****************************************************/
+/*! exports provided: AdminLinksInsertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinksInsertComponent", function() { return AdminLinksInsertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+
+
+let AdminLinksInsertComponent = class AdminLinksInsertComponent {
+    constructor(service, route, router, formBuilder) {
+        this.service = service;
+        this.route = route;
+        this.router = router;
+        this.formBuilder = formBuilder;
+    }
+    ngOnInit() {
+        this.route.params.subscribe((params) => {
+            this.linkID = params['linkID'];
+            this.service.get("Links", "Insert", this.linkID).subscribe((resData) => {
+                this.model = resData;
+            }, resError => this.errorMsg = resError);
+        });
+        this.ekleForm = this.formBuilder.group({
+            LinkTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+            LinkID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)])
+        });
+    }
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.service.get("Links", "FillObject", null, null, target.value, null)
+            .subscribe((answer) => {
+            if (answer != null) {
+                $("select.selectLinkID").html("");
+                for (var i = 0; i < answer.length; i++) {
+                    $("select.selectLinkID").append("<option value='" + answer[i].Value + "'>" + answer[i].Text + "</option>");
+                }
+            }
+            else {
+                $(".alertMessage").text("Bağlı Nesne getirilemedi yada ilgili Bağlı Tip'e ait nesne henüz tanımlanmamış.");
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+    onSubmit() {
+        this.data = new Object();
+        this.data.LinkTypeID = this.ekleForm.get("LinkTypeID").value;
+        this.data.LinkID = this.ekleForm.get("LinkID").value;
+        this.service.post("Links", "Insert", this.data)
+            .subscribe((answer) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/Links']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminLinksInsertComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+];
+AdminLinksInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/insert.html")
+    })
+], AdminLinksInsertComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/links/update.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/admin/views/general/links/update.ts ***!
+  \*****************************************************/
+/*! exports provided: AdminLinksUpdateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinksUpdateComponent", function() { return AdminLinksUpdateComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+
+
+let AdminLinksUpdateComponent = class AdminLinksUpdateComponent {
+    constructor(service, route, router, formBuilder) {
+        this.service = service;
+        this.route = route;
+        this.router = router;
+        this.formBuilder = formBuilder;
+    }
+    ngOnInit() {
+        this.route.params.subscribe((params) => {
+            this.id = params['id'];
+            this.service.get("Links", "Update", this.id).subscribe((resData) => {
+                this.model = resData;
+            }, resError => this.errorMsg = resError);
+        });
+        this.duzenleForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+            LinkTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+            LinkID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)])
+        });
+    }
+    onSubmit() {
+        this.data = new Object();
+        this.data.ID = this.duzenleForm.get("ID").value;
+        this.data.LinkTypeID = this.duzenleForm.get("LinkTypeID").value;
+        this.data.LinkID = this.duzenleForm.get("LinkID").value;
+        this.service.post("Links", "Update", this.data)
+            .subscribe((answer) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/Links']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminLinksUpdateComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+];
+AdminLinksUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/update.html")
+    })
+], AdminLinksUpdateComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/linktypes/index.ts":
+/*!********************************************************!*\
+  !*** ./src/app/admin/views/general/linktypes/index.ts ***!
+  \********************************************************/
+/*! exports provided: AdminLinkTypesIndexComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinkTypesIndexComponent", function() { return AdminLinkTypesIndexComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+let AdminLinkTypesIndexComponent = class AdminLinkTypesIndexComponent {
+    constructor(service, sharedService, router) {
+        this.service = service;
+        this.sharedService = sharedService;
+        this.router = router;
+    }
+    ngOnInit() {
+        this.callTable = true;
+        this.UserRightsControl($("#hdnType").val());
+    }
+    UserRightsControl(Model) {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+            this.insertShow = iRight;
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+                this.updateShow = uRight;
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                    this.deleteShow = dRight;
+                    this.sharedService.getHasRight(Model, "c").subscribe((cRight) => {
+                        this.copyShow = cRight;
+                        if (this.callTable == true) {
+                            this.service.get("LinkTypes", "Index").subscribe((resData) => {
+                                for (var i = 0; i < resData.length; i++) {
+                                    switch (resData[i].MainTypeID) {
+                                        case 1:
+                                            resData[i].MainAdi = resData[i].MainCategoryAdi;
+                                            break;
+                                        case 2:
+                                            resData[i].MainAdi = resData[i].MainContentAdi;
+                                            break;
+                                        case 4:
+                                            resData[i].MainAdi = resData[i].MainGalleryAdi;
+                                            break;
+                                        case 5:
+                                            resData[i].MainAdi = resData[i].MainPicturesAdi;
+                                            break;
+                                        case 6:
+                                            resData[i].MainAdi = resData[i].MainFilesAdi;
+                                            break;
+                                        case 7:
+                                            resData[i].MainAdi = resData[i].MainMetaAdi;
+                                            break;
+                                    }
+                                }
+                                this.BagliTiplerList = resData;
+                                this.callTable = false;
+                                DataTable();
+                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                    setTimeout(() => {
+                                        this.UserRightsControl($("#hdnType").val());
+                                    }, 1);
+                                });
+                            }, resError => this.errorMsg = resError);
+                        }
+                        setTimeout(() => {
+                            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                                $(".btn-group").remove();
+                            }
+                        }, 1);
+                    }, resError => this.errorMsg = resError);
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminLinkTypesIndexComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
+    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+];
+AdminLinkTypesIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/index.html")
+    })
+], AdminLinkTypesIndexComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/linktypes/insert.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/admin/views/general/linktypes/insert.ts ***!
+  \*********************************************************/
+/*! exports provided: AdminLinkTypesInsertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinkTypesInsertComponent", function() { return AdminLinkTypesInsertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+
+
+let AdminLinkTypesInsertComponent = class AdminLinkTypesInsertComponent {
+    constructor(service, route, router, formBuilder) {
+        this.service = service;
+        this.route = route;
+        this.router = router;
+        this.formBuilder = formBuilder;
+    }
+    ngOnInit() {
+        this.route.params.subscribe(() => {
+            this.service.get("LinkTypes", "Insert").subscribe((resData) => {
+                this.model = resData;
+            }, resError => this.errorMsg = resError);
+        });
+        this.ekleForm = this.formBuilder.group({
+            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
+            MainTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+            MainID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+            LinkedTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+        });
+    }
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.service.get("LinkTypes", "FillTypes", null, null, null, target.value)
+            .subscribe((answer) => {
+            if (answer != null) {
+                $("select.selectMain").html("");
+                for (var i = 0; i < answer.length; i++) {
+                    $("select.selectMain").append("<option value='" + answer[i].Value + "'>" + answer[i].Text + "</option>");
+                }
+            }
+            else {
+                $(".alertMessage").text("Ana Nesne getirilemedi yada ilgili Ana Tip'e ait nesne henüz tanımlanmamış.");
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+    onSubmit() {
+        this.data = new Object();
+        this.data.Title = this.ekleForm.get("Title").value;
+        this.data.MainTypeID = this.ekleForm.get("MainTypeID").value;
+        this.data.MainID = this.ekleForm.get("MainID").value;
+        this.data.LinkedTypeID = this.ekleForm.get("LinkedTypeID").value;
+        this.service.post("LinkTypes", "Insert", this.data)
+            .subscribe((answer) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/LinkTypes']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminLinkTypesInsertComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+];
+AdminLinkTypesInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/insert.html")
+    })
+], AdminLinkTypesInsertComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/linktypes/update.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/admin/views/general/linktypes/update.ts ***!
+  \*********************************************************/
+/*! exports provided: AdminLinkTypesUpdateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinkTypesUpdateComponent", function() { return AdminLinkTypesUpdateComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+
+
+
+let AdminLinkTypesUpdateComponent = class AdminLinkTypesUpdateComponent {
+    constructor(service, sharedService, route, router, formBuilder) {
+        this.service = service;
+        this.sharedService = sharedService;
+        this.route = route;
+        this.router = router;
+        this.formBuilder = formBuilder;
+    }
+    ngOnInit() {
+        this.callTable = true;
+        this.UserRightsControl($("#hdnType").val());
+        this.duzenleForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
+            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(50)]),
+            MainTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
+            MainID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
+            LinkedTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
+        });
+    }
+    onChange(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        this.service.get("LinkTypes", null, null, null, target.value)
+            .subscribe((answer) => {
+            if (answer != null) {
+                $("select.selectMain").html("");
+                for (var i = 0; i < answer.length; i++) {
+                    $("select.selectMain").append("<option value='" + answer[i].Value + "'>" + answer[i].Text + "</option>");
+                }
+            }
+            else {
+                $(".alertMessage").text("Ana Nesne getirilemedi yada ilgili Ana Tip'e ait nesne henüz tanımlanmamış.");
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+    onSubmit() {
+        this.data = new Object();
+        this.data.ID = this.duzenleForm.get("ID").value;
+        this.data.Title = this.duzenleForm.get("Title").value;
+        this.data.MainTypeID = this.duzenleForm.get("MainTypeID").value;
+        this.data.MainID = this.duzenleForm.get("MainID").value;
+        this.data.LinkedTypeID = this.duzenleForm.get("LinkedTypeID").value;
+        this.service.post("LinkTypes", "Update", this.data)
+            .subscribe((answer) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/LinkTypes']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+    UserRightsControl(Model) {
+        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
+            this.insertShow = iRight;
+            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
+                this.updateShow = uRight;
+                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
+                    this.deleteShow = dRight;
+                    if (this.callTable == true) {
+                        this.route.params.subscribe((params) => {
+                            this.id = params['id'];
+                            this.service.get("LinkTypes", "Update", this.id).subscribe((resData) => {
+                                for (var i = 0; i < resData.LinkList.length; i++) {
+                                    switch (resData.LinkedTypeID) {
+                                        case 1:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedCategoryAdi;
+                                            break;
+                                        case 2:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedContentAdi;
+                                            break;
+                                        case 4:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedGalleryAdi;
+                                            break;
+                                        case 5:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPicturesAdi;
+                                            break;
+                                        case 6:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFilesAdi;
+                                            break;
+                                        case 7:
+                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi;
+                                            break;
+                                    }
+                                }
+                                this.model = resData;
+                                this.callTable = false;
+                                DataTable();
+                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                    setTimeout(() => {
+                                        this.UserRightsControl($("#hdnType").val());
+                                    }, 1);
+                                });
+                            }, resError => this.errorMsg = resError);
+                        });
+                    }
+                    setTimeout(() => {
+                        if ($(".dropdown-menu").first().find("a").length <= 0) {
+                            $(".btn-group").remove();
+                        }
+                    }, 1);
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminLinkTypesUpdateComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
+    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+];
+AdminLinkTypesUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/update.html")
+    })
+], AdminLinkTypesUpdateComponent);
 
 
 
@@ -18535,6 +19188,9 @@ let AdminIndexComponent = class AdminIndexComponent {
         this.sharedService.getHasRight("Meta", "s").subscribe((resData) => {
             this.hasRightMeta = resData;
         }, resError => this.errorMsg = resError);
+        this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData) => {
+            this.hasRightLinkTypes = resData;
+        }, resError => this.errorMsg = resError);
         this.sharedService.getHasRight("Translation", "s").subscribe((resData) => {
             this.hasRightTranslation = resData;
         }, resError => this.errorMsg = resError);
@@ -18566,6 +19222,9 @@ let AdminIndexComponent = class AdminIndexComponent {
         }, resError => this.errorMsg = resError);
         this.sharedService.getShowType("Meta").subscribe((resData) => {
             this.showTypeMeta = resData;
+        }, resError => this.errorMsg = resError);
+        this.sharedService.getShowType("LinkTypes").subscribe((resData) => {
+            this.showTypeLinkTypes = resData;
         }, resError => this.errorMsg = resError);
         this.sharedService.getShowType("Translation").subscribe((resData) => {
             this.showTypeTranslation = resData;
@@ -19000,27 +19659,33 @@ let AdminLeftMenuComponent = class AdminLeftMenuComponent {
                                             this.hasRightMeta = resData;
                                             this.sharedService.getShowType("Meta").subscribe((resData) => {
                                                 this.showTypeMeta = resData;
-                                                this.sharedService.getHasRight("Translation", "s").subscribe((resData) => {
-                                                    this.hasRightTranslation = resData;
-                                                    this.sharedService.getShowType("Translation").subscribe((resData) => {
-                                                        this.showTypeTranslation = resData;
-                                                        this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
-                                                            this.hasRightLogs = resData;
-                                                            this.sharedService.getShowType("Logs").subscribe((resData) => {
-                                                                this.showTypeLogs = resData;
-                                                                this.sharedService.getHasRight("Users", "s").subscribe((resData) => {
-                                                                    this.hasRightUsers = resData;
-                                                                    this.sharedService.getShowType("Users").subscribe((resData) => {
-                                                                        this.showTypeUsers = resData;
-                                                                        this.sharedService.getHasRight("Types", "s").subscribe((resData) => {
-                                                                            this.hasRightTypes = resData;
-                                                                            this.sharedService.getShowType("Types").subscribe((resData) => {
-                                                                                this.showTypeTypes = resData;
-                                                                                this.sharedService.getHasRight("Website", "s").subscribe((resData) => {
-                                                                                    this.hasRightWebsite = resData;
-                                                                                    this.sharedService.getShowType("Website").subscribe((resData) => {
-                                                                                        this.showTypeWebsite = resData;
-                                                                                        this.DoIt();
+                                                this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData) => {
+                                                    this.hasRightLinkTypes = resData;
+                                                    this.sharedService.getShowType("LinkTypes").subscribe((resData) => {
+                                                        this.showTypeLinkTypes = resData;
+                                                        this.sharedService.getHasRight("Translation", "s").subscribe((resData) => {
+                                                            this.hasRightTranslation = resData;
+                                                            this.sharedService.getShowType("Translation").subscribe((resData) => {
+                                                                this.showTypeTranslation = resData;
+                                                                this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
+                                                                    this.hasRightLogs = resData;
+                                                                    this.sharedService.getShowType("Logs").subscribe((resData) => {
+                                                                        this.showTypeLogs = resData;
+                                                                        this.sharedService.getHasRight("Users", "s").subscribe((resData) => {
+                                                                            this.hasRightUsers = resData;
+                                                                            this.sharedService.getShowType("Users").subscribe((resData) => {
+                                                                                this.showTypeUsers = resData;
+                                                                                this.sharedService.getHasRight("Types", "s").subscribe((resData) => {
+                                                                                    this.hasRightTypes = resData;
+                                                                                    this.sharedService.getShowType("Types").subscribe((resData) => {
+                                                                                        this.showTypeTypes = resData;
+                                                                                        this.sharedService.getHasRight("Website", "s").subscribe((resData) => {
+                                                                                            this.hasRightWebsite = resData;
+                                                                                            this.sharedService.getShowType("Website").subscribe((resData) => {
+                                                                                                this.showTypeWebsite = resData;
+                                                                                                this.DoIt();
+                                                                                            }, resError => this.errorMsg = resError);
+                                                                                        }, resError => this.errorMsg = resError);
                                                                                     }, resError => this.errorMsg = resError);
                                                                                 }, resError => this.errorMsg = resError);
                                                                             }, resError => this.errorMsg = resError);
@@ -19340,45 +20005,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/langcontentt */ "./src/app/admin/views/general/langcontentt/index.ts");
 /* harmony import */ var _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/langcontentt/insert */ "./src/app/admin/views/general/langcontentt/insert.ts");
 /* harmony import */ var _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/langcontentt/update */ "./src/app/admin/views/general/langcontentt/update.ts");
-/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
-/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
-/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
-/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
-/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
-/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
-/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
-/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
-/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
-/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
-/* harmony import */ var _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/metat */ "./src/app/admin/views/general/metat/index.ts");
-/* harmony import */ var _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/metat/insert */ "./src/app/admin/views/general/metat/insert.ts");
-/* harmony import */ var _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/metat/update */ "./src/app/admin/views/general/metat/update.ts");
-/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
-/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
-/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
-/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
-/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
-/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
-/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
-/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
-/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
-/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
-/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
-/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
-/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
-/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
-/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
-/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
-/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
-/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
-/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
+/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
+/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
+/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
+/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
+/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
+/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
+/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
+/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
+/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
+/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
+/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
+/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
+/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
+/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
+/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
+/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
+/* harmony import */ var _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/metat */ "./src/app/admin/views/general/metat/index.ts");
+/* harmony import */ var _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/metat/insert */ "./src/app/admin/views/general/metat/insert.ts");
+/* harmony import */ var _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/metat/update */ "./src/app/admin/views/general/metat/update.ts");
+/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
+/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
+/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
+/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
+/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
+/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
+/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
+/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
+/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
+/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
+/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
+/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
+/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
+/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
+/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
+/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
+/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
+/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
+/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
 
 
 
@@ -19388,6 +20059,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Admin General
+
+
+
+
+
+
 
 
 
@@ -19496,63 +20173,72 @@ const routes = [
             { path: 'Admin/LangContentT/Insert', component: _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_27__["AdminLangContentTInsertComponent"] },
             { path: 'Admin/LangContentT/Insert/:linkid', component: _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_27__["AdminLangContentTInsertComponent"] },
             { path: 'Admin/LangContentT/Update/:id', component: _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_28__["AdminLangContentTUpdateComponent"] },
-            { path: 'Admin/LogProcess', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_29__["AdminLogProcessIndexComponent"] },
-            { path: 'Admin/LogProcess/Index', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_29__["AdminLogProcessIndexComponent"] },
-            { path: 'Admin/LogProcess/Insert', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_30__["AdminLogProcessInsertComponent"] },
-            { path: 'Admin/LogProcess/Insert/:linkID', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_30__["AdminLogProcessInsertComponent"] },
-            { path: 'Admin/LogProcess/Update/:id', component: _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_31__["AdminLogProcessUpdateComponent"] },
-            { path: 'Admin/Logs', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_32__["AdminLogsIndexComponent"] },
-            { path: 'Admin/Logs/Index', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_32__["AdminLogsIndexComponent"] },
-            { path: 'Admin/LogTypes', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_33__["AdminLogTypesIndexComponent"] },
-            { path: 'Admin/LogTypes/Index', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_33__["AdminLogTypesIndexComponent"] },
-            { path: 'Admin/LogTypes/Insert', component: _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_34__["AdminLogTypesInsertComponent"] },
-            { path: 'Admin/LogTypes/Update/:id', component: _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_35__["AdminLogTypesUpdateComponent"] },
-            { path: 'Admin/Meta', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_36__["AdminMetaIndexComponent"] },
-            { path: 'Admin/Meta/Index', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_36__["AdminMetaIndexComponent"] },
-            { path: 'Admin/Meta/Insert', component: _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_37__["AdminMetaInsertComponent"] },
-            { path: 'Admin/Meta/Update/:id', component: _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_38__["AdminMetaUpdateComponent"] },
-            { path: 'Admin/MetaT', component: _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_39__["AdminMetaTIndexComponent"] },
-            { path: 'Admin/MetaT/Index', component: _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_39__["AdminMetaTIndexComponent"] },
-            { path: 'Admin/MetaT/Insert', component: _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_40__["AdminMetaTInsertComponent"] },
-            { path: 'Admin/MetaT/Insert/:linkID', component: _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_40__["AdminMetaTInsertComponent"] },
-            { path: 'Admin/MetaT/Update/:id', component: _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_41__["AdminMetaTUpdateComponent"] },
-            { path: 'Admin/Pictures', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_42__["AdminPicturesIndexComponent"] },
-            { path: 'Admin/Pictures/Index', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_42__["AdminPicturesIndexComponent"] },
-            { path: 'Admin/Pictures/Insert', component: _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_43__["AdminPicturesInsertComponent"] },
-            { path: 'Admin/Pictures/Update/:id', component: _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_44__["AdminPicturesUpdateComponent"] },
-            { path: 'Admin/Translation', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_45__["AdminTranslationIndexComponent"] },
-            { path: 'Admin/Translation/Index', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_45__["AdminTranslationIndexComponent"] },
-            { path: 'Admin/Translation/Insert', component: _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_46__["AdminTranslationInsertComponent"] },
-            { path: 'Admin/Translation/Update/:id', component: _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_47__["AdminTranslationUpdateComponent"] },
-            { path: 'Admin/Types', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_48__["AdminTypesIndexComponent"] },
-            { path: 'Admin/Types/Index', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_48__["AdminTypesIndexComponent"] },
-            { path: 'Admin/Types/Insert', component: _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_49__["AdminTypesInsertComponent"] },
-            { path: 'Admin/Types/Update/:id', component: _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_50__["AdminTypesUpdateComponent"] },
-            { path: 'Admin/Users', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_63__["AdminUsersIndexComponent"] },
-            { path: 'Admin/Users/Index', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_63__["AdminUsersIndexComponent"] },
-            { path: 'Admin/Users/Insert', component: _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_64__["AdminUsersInsertComponent"] },
-            { path: 'Admin/Users/Update/:id', component: _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_65__["AdminUsersUpdateComponent"] },
-            { path: 'Admin/Users/ChangeGroup/:id', component: _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_66__["AdminUsersChangeGroupComponent"] },
-            { path: 'Admin/UserGroups', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupsIndexComponent"] },
-            { path: 'Admin/UserGroups/Index', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupsIndexComponent"] },
-            { path: 'Admin/UserGroups/Insert', component: _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupsInsertComponent"] },
-            { path: 'Admin/UserGroups/Update/:id', component: _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_53__["AdminUserGroupsUpdateComponent"] },
-            { path: 'Admin/UserGroupRights', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_54__["AdminUserGroupRightsIndexComponent"] },
-            { path: 'Admin/UserGroupRights/Index', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_54__["AdminUserGroupRightsIndexComponent"] },
-            { path: 'Admin/UserGroupRights/Insert', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_55__["AdminUserGroupRightsInsertComponent"] },
-            { path: 'Admin/UserGroupRights/Insert/:linkID', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_55__["AdminUserGroupRightsInsertComponent"] },
-            { path: 'Admin/UserGroupRights/Update/:id', component: _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_56__["AdminUserGroupRightsUpdateComponent"] },
-            { path: 'Admin/UserGroupProcess', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupProcessIndexComponent"] },
-            { path: 'Admin/UserGroupProcess/Index', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupProcessIndexComponent"] },
-            { path: 'Admin/UserGroupProcess/Insert', component: _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_58__["AdminUserGroupProcessInsertComponent"] },
-            { path: 'Admin/UserGroupProcess/Update/:id', component: _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_59__["AdminUserGroupProcessUpdateComponent"] },
-            { path: 'Admin/UserGroupTables', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupTablesIndexComponent"] },
-            { path: 'Admin/UserGroupTables/Index', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupTablesIndexComponent"] },
-            { path: 'Admin/UserGroupTables/Insert', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupTablesInsertComponent"] },
-            { path: 'Admin/UserGroupTables/Insert/:linkID', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupTablesInsertComponent"] },
-            { path: 'Admin/UserGroupTables/Update/:id', component: _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_62__["AdminUserGroupTablesUpdateComponent"] },
-            { path: 'Admin/Visitors', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_67__["AdminVisitorsIndexComponent"] },
-            { path: 'Admin/Visitors/Index', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_67__["AdminVisitorsIndexComponent"] },
+            { path: 'Admin/Links', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_29__["AdminLinksIndexComponent"] },
+            { path: 'Admin/Links/Index', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_29__["AdminLinksIndexComponent"] },
+            { path: 'Admin/Links/Insert', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_30__["AdminLinksInsertComponent"] },
+            { path: 'Admin/Links/Insert/:linkID', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_30__["AdminLinksInsertComponent"] },
+            { path: 'Admin/Links/Update/:id', component: _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_31__["AdminLinksUpdateComponent"] },
+            { path: 'Admin/LinkTypes', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_32__["AdminLinkTypesIndexComponent"] },
+            { path: 'Admin/LinkTypes/Index', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_32__["AdminLinkTypesIndexComponent"] },
+            { path: 'Admin/LinkTypes/Insert', component: _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_33__["AdminLinkTypesInsertComponent"] },
+            { path: 'Admin/LinkTypes/Update/:id', component: _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_34__["AdminLinkTypesUpdateComponent"] },
+            { path: 'Admin/LogProcess', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_35__["AdminLogProcessIndexComponent"] },
+            { path: 'Admin/LogProcess/Index', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_35__["AdminLogProcessIndexComponent"] },
+            { path: 'Admin/LogProcess/Insert', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_36__["AdminLogProcessInsertComponent"] },
+            { path: 'Admin/LogProcess/Insert/:linkID', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_36__["AdminLogProcessInsertComponent"] },
+            { path: 'Admin/LogProcess/Update/:id', component: _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_37__["AdminLogProcessUpdateComponent"] },
+            { path: 'Admin/Logs', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_38__["AdminLogsIndexComponent"] },
+            { path: 'Admin/Logs/Index', component: _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_38__["AdminLogsIndexComponent"] },
+            { path: 'Admin/LogTypes', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_39__["AdminLogTypesIndexComponent"] },
+            { path: 'Admin/LogTypes/Index', component: _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_39__["AdminLogTypesIndexComponent"] },
+            { path: 'Admin/LogTypes/Insert', component: _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_40__["AdminLogTypesInsertComponent"] },
+            { path: 'Admin/LogTypes/Update/:id', component: _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_41__["AdminLogTypesUpdateComponent"] },
+            { path: 'Admin/Meta', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_42__["AdminMetaIndexComponent"] },
+            { path: 'Admin/Meta/Index', component: _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_42__["AdminMetaIndexComponent"] },
+            { path: 'Admin/Meta/Insert', component: _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_43__["AdminMetaInsertComponent"] },
+            { path: 'Admin/Meta/Update/:id', component: _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_44__["AdminMetaUpdateComponent"] },
+            { path: 'Admin/MetaT', component: _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_45__["AdminMetaTIndexComponent"] },
+            { path: 'Admin/MetaT/Index', component: _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_45__["AdminMetaTIndexComponent"] },
+            { path: 'Admin/MetaT/Insert', component: _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_46__["AdminMetaTInsertComponent"] },
+            { path: 'Admin/MetaT/Insert/:linkID', component: _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_46__["AdminMetaTInsertComponent"] },
+            { path: 'Admin/MetaT/Update/:id', component: _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_47__["AdminMetaTUpdateComponent"] },
+            { path: 'Admin/Pictures', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_48__["AdminPicturesIndexComponent"] },
+            { path: 'Admin/Pictures/Index', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_48__["AdminPicturesIndexComponent"] },
+            { path: 'Admin/Pictures/Insert', component: _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_49__["AdminPicturesInsertComponent"] },
+            { path: 'Admin/Pictures/Update/:id', component: _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_50__["AdminPicturesUpdateComponent"] },
+            { path: 'Admin/Translation', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_51__["AdminTranslationIndexComponent"] },
+            { path: 'Admin/Translation/Index', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_51__["AdminTranslationIndexComponent"] },
+            { path: 'Admin/Translation/Insert', component: _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_52__["AdminTranslationInsertComponent"] },
+            { path: 'Admin/Translation/Update/:id', component: _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_53__["AdminTranslationUpdateComponent"] },
+            { path: 'Admin/Types', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_54__["AdminTypesIndexComponent"] },
+            { path: 'Admin/Types/Index', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_54__["AdminTypesIndexComponent"] },
+            { path: 'Admin/Types/Insert', component: _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_55__["AdminTypesInsertComponent"] },
+            { path: 'Admin/Types/Update/:id', component: _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_56__["AdminTypesUpdateComponent"] },
+            { path: 'Admin/Users', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_69__["AdminUsersIndexComponent"] },
+            { path: 'Admin/Users/Index', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_69__["AdminUsersIndexComponent"] },
+            { path: 'Admin/Users/Insert', component: _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_70__["AdminUsersInsertComponent"] },
+            { path: 'Admin/Users/Update/:id', component: _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_71__["AdminUsersUpdateComponent"] },
+            { path: 'Admin/Users/ChangeGroup/:id', component: _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_72__["AdminUsersChangeGroupComponent"] },
+            { path: 'Admin/UserGroups', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupsIndexComponent"] },
+            { path: 'Admin/UserGroups/Index', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupsIndexComponent"] },
+            { path: 'Admin/UserGroups/Insert', component: _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_58__["AdminUserGroupsInsertComponent"] },
+            { path: 'Admin/UserGroups/Update/:id', component: _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_59__["AdminUserGroupsUpdateComponent"] },
+            { path: 'Admin/UserGroupRights', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupRightsIndexComponent"] },
+            { path: 'Admin/UserGroupRights/Index', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupRightsIndexComponent"] },
+            { path: 'Admin/UserGroupRights/Insert', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupRightsInsertComponent"] },
+            { path: 'Admin/UserGroupRights/Insert/:linkID', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupRightsInsertComponent"] },
+            { path: 'Admin/UserGroupRights/Update/:id', component: _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_62__["AdminUserGroupRightsUpdateComponent"] },
+            { path: 'Admin/UserGroupProcess', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_63__["AdminUserGroupProcessIndexComponent"] },
+            { path: 'Admin/UserGroupProcess/Index', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_63__["AdminUserGroupProcessIndexComponent"] },
+            { path: 'Admin/UserGroupProcess/Insert', component: _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_64__["AdminUserGroupProcessInsertComponent"] },
+            { path: 'Admin/UserGroupProcess/Update/:id', component: _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_65__["AdminUserGroupProcessUpdateComponent"] },
+            { path: 'Admin/UserGroupTables', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_66__["AdminUserGroupTablesIndexComponent"] },
+            { path: 'Admin/UserGroupTables/Index', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_66__["AdminUserGroupTablesIndexComponent"] },
+            { path: 'Admin/UserGroupTables/Insert', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_67__["AdminUserGroupTablesInsertComponent"] },
+            { path: 'Admin/UserGroupTables/Insert/:linkID', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_67__["AdminUserGroupTablesInsertComponent"] },
+            { path: 'Admin/UserGroupTables/Update/:id', component: _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_68__["AdminUserGroupTablesUpdateComponent"] },
+            { path: 'Admin/Visitors', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_73__["AdminVisitorsIndexComponent"] },
+            { path: 'Admin/Visitors/Index', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_73__["AdminVisitorsIndexComponent"] },
         ]
     },
     { path: '**', redirectTo: '' }
@@ -19622,50 +20308,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/langcontentt */ "./src/app/admin/views/general/langcontentt/index.ts");
 /* harmony import */ var _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/langcontentt/insert */ "./src/app/admin/views/general/langcontentt/insert.ts");
 /* harmony import */ var _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/langcontentt/update */ "./src/app/admin/views/general/langcontentt/update.ts");
-/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
-/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
-/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
-/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
-/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
-/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
-/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
-/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
-/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
-/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
-/* harmony import */ var _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/metat */ "./src/app/admin/views/general/metat/index.ts");
-/* harmony import */ var _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/metat/insert */ "./src/app/admin/views/general/metat/insert.ts");
-/* harmony import */ var _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/metat/update */ "./src/app/admin/views/general/metat/update.ts");
-/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
-/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
-/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
-/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
-/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
-/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
-/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
-/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
-/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
-/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
-/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
-/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
-/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
-/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
-/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
-/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
-/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
-/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
-/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
-/* harmony import */ var _admin_services_shared__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./admin/services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _admin_services_model__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./admin/services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./lib/methods */ "./src/app/lib/methods.ts");
-/* harmony import */ var _admin_lib_methods__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./admin/lib/methods */ "./src/app/admin/lib/methods.ts");
+/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
+/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
+/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
+/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
+/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
+/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
+/* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
+/* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
+/* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
+/* harmony import */ var _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/logs */ "./src/app/admin/views/general/logs/index.ts");
+/* harmony import */ var _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/logtypes */ "./src/app/admin/views/general/logtypes/index.ts");
+/* harmony import */ var _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/logtypes/insert */ "./src/app/admin/views/general/logtypes/insert.ts");
+/* harmony import */ var _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/logtypes/update */ "./src/app/admin/views/general/logtypes/update.ts");
+/* harmony import */ var _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/meta */ "./src/app/admin/views/general/meta/index.ts");
+/* harmony import */ var _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/meta/insert */ "./src/app/admin/views/general/meta/insert.ts");
+/* harmony import */ var _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/meta/update */ "./src/app/admin/views/general/meta/update.ts");
+/* harmony import */ var _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/metat */ "./src/app/admin/views/general/metat/index.ts");
+/* harmony import */ var _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/metat/insert */ "./src/app/admin/views/general/metat/insert.ts");
+/* harmony import */ var _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/metat/update */ "./src/app/admin/views/general/metat/update.ts");
+/* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
+/* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
+/* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
+/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
+/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
+/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
+/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
+/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
+/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
+/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
+/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
+/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
+/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
+/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
+/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
+/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
+/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
+/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
+/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
+/* harmony import */ var _admin_services_shared__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./admin/services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var _admin_services_model__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./admin/services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _admin_lib_methods__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./admin/lib/methods */ "./src/app/admin/lib/methods.ts");
 
 
 
@@ -19691,6 +20383,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Admin General
+
+
+
+
+
+
 
 
 
@@ -19800,45 +20498,51 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_views_general_langcontentt__WEBPACK_IMPORTED_MODULE_39__["AdminLangContentTIndexComponent"],
             _admin_views_general_langcontentt_insert__WEBPACK_IMPORTED_MODULE_40__["AdminLangContentTInsertComponent"],
             _admin_views_general_langcontentt_update__WEBPACK_IMPORTED_MODULE_41__["AdminLangContentTUpdateComponent"],
-            _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_42__["AdminLogProcessIndexComponent"],
-            _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_43__["AdminLogProcessInsertComponent"],
-            _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_44__["AdminLogProcessUpdateComponent"],
-            _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_45__["AdminLogsIndexComponent"],
-            _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_46__["AdminLogTypesIndexComponent"],
-            _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_47__["AdminLogTypesInsertComponent"],
-            _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_48__["AdminLogTypesUpdateComponent"],
-            _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_49__["AdminMetaIndexComponent"],
-            _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_50__["AdminMetaInsertComponent"],
-            _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_51__["AdminMetaUpdateComponent"],
-            _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_52__["AdminMetaTIndexComponent"],
-            _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_53__["AdminMetaTInsertComponent"],
-            _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_54__["AdminMetaTUpdateComponent"],
-            _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_55__["AdminPicturesIndexComponent"],
-            _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_56__["AdminPicturesInsertComponent"],
-            _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_57__["AdminPicturesUpdateComponent"],
-            _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_58__["AdminTranslationIndexComponent"],
-            _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_59__["AdminTranslationInsertComponent"],
-            _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_60__["AdminTranslationUpdateComponent"],
-            _admin_views_general_types__WEBPACK_IMPORTED_MODULE_61__["AdminTypesIndexComponent"],
-            _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_62__["AdminTypesInsertComponent"],
-            _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_63__["AdminTypesUpdateComponent"],
-            _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_64__["AdminUserGroupsIndexComponent"],
-            _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_65__["AdminUserGroupsInsertComponent"],
-            _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_66__["AdminUserGroupsUpdateComponent"],
-            _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_67__["AdminUserGroupRightsIndexComponent"],
-            _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_68__["AdminUserGroupRightsInsertComponent"],
-            _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_69__["AdminUserGroupRightsUpdateComponent"],
-            _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_70__["AdminUserGroupProcessIndexComponent"],
-            _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_71__["AdminUserGroupProcessInsertComponent"],
-            _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_72__["AdminUserGroupProcessUpdateComponent"],
-            _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_73__["AdminUserGroupTablesIndexComponent"],
-            _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_74__["AdminUserGroupTablesInsertComponent"],
-            _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_75__["AdminUserGroupTablesUpdateComponent"],
-            _admin_views_general_users__WEBPACK_IMPORTED_MODULE_76__["AdminUsersIndexComponent"],
-            _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_77__["AdminUsersInsertComponent"],
-            _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_78__["AdminUsersUpdateComponent"],
-            _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_79__["AdminUsersChangeGroupComponent"],
-            _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_80__["AdminVisitorsIndexComponent"]
+            _admin_views_general_links__WEBPACK_IMPORTED_MODULE_42__["AdminLinksIndexComponent"],
+            _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_43__["AdminLinksInsertComponent"],
+            _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_44__["AdminLinksUpdateComponent"],
+            _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_45__["AdminLinkTypesIndexComponent"],
+            _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_46__["AdminLinkTypesInsertComponent"],
+            _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_47__["AdminLinkTypesUpdateComponent"],
+            _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_48__["AdminLogProcessIndexComponent"],
+            _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_49__["AdminLogProcessInsertComponent"],
+            _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_50__["AdminLogProcessUpdateComponent"],
+            _admin_views_general_logs__WEBPACK_IMPORTED_MODULE_51__["AdminLogsIndexComponent"],
+            _admin_views_general_logtypes__WEBPACK_IMPORTED_MODULE_52__["AdminLogTypesIndexComponent"],
+            _admin_views_general_logtypes_insert__WEBPACK_IMPORTED_MODULE_53__["AdminLogTypesInsertComponent"],
+            _admin_views_general_logtypes_update__WEBPACK_IMPORTED_MODULE_54__["AdminLogTypesUpdateComponent"],
+            _admin_views_general_meta__WEBPACK_IMPORTED_MODULE_55__["AdminMetaIndexComponent"],
+            _admin_views_general_meta_insert__WEBPACK_IMPORTED_MODULE_56__["AdminMetaInsertComponent"],
+            _admin_views_general_meta_update__WEBPACK_IMPORTED_MODULE_57__["AdminMetaUpdateComponent"],
+            _admin_views_general_metat__WEBPACK_IMPORTED_MODULE_58__["AdminMetaTIndexComponent"],
+            _admin_views_general_metat_insert__WEBPACK_IMPORTED_MODULE_59__["AdminMetaTInsertComponent"],
+            _admin_views_general_metat_update__WEBPACK_IMPORTED_MODULE_60__["AdminMetaTUpdateComponent"],
+            _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_61__["AdminPicturesIndexComponent"],
+            _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_62__["AdminPicturesInsertComponent"],
+            _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_63__["AdminPicturesUpdateComponent"],
+            _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_64__["AdminTranslationIndexComponent"],
+            _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_65__["AdminTranslationInsertComponent"],
+            _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_66__["AdminTranslationUpdateComponent"],
+            _admin_views_general_types__WEBPACK_IMPORTED_MODULE_67__["AdminTypesIndexComponent"],
+            _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_68__["AdminTypesInsertComponent"],
+            _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_69__["AdminTypesUpdateComponent"],
+            _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_70__["AdminUserGroupsIndexComponent"],
+            _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_71__["AdminUserGroupsInsertComponent"],
+            _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_72__["AdminUserGroupsUpdateComponent"],
+            _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_73__["AdminUserGroupRightsIndexComponent"],
+            _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_74__["AdminUserGroupRightsInsertComponent"],
+            _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_75__["AdminUserGroupRightsUpdateComponent"],
+            _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_76__["AdminUserGroupProcessIndexComponent"],
+            _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_77__["AdminUserGroupProcessInsertComponent"],
+            _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_78__["AdminUserGroupProcessUpdateComponent"],
+            _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_79__["AdminUserGroupTablesIndexComponent"],
+            _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_80__["AdminUserGroupTablesInsertComponent"],
+            _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_81__["AdminUserGroupTablesUpdateComponent"],
+            _admin_views_general_users__WEBPACK_IMPORTED_MODULE_82__["AdminUsersIndexComponent"],
+            _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_83__["AdminUsersInsertComponent"],
+            _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_84__["AdminUsersUpdateComponent"],
+            _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_85__["AdminUsersChangeGroupComponent"],
+            _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_86__["AdminVisitorsIndexComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -19848,11 +20552,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         //'/HumanResources/' -> '/' Bu �ekilde de�i�ecek
         providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["APP_BASE_HREF"], useValue: '/HumanResources/' },
-            _admin_services_shared__WEBPACK_IMPORTED_MODULE_81__["SharedService"],
-            _admin_services_model__WEBPACK_IMPORTED_MODULE_82__["ModelService"],
-            _services_site__WEBPACK_IMPORTED_MODULE_83__["SiteService"],
-            _lib_methods__WEBPACK_IMPORTED_MODULE_84__["Lib"],
-            _admin_lib_methods__WEBPACK_IMPORTED_MODULE_85__["AdminLib"]
+            _admin_services_shared__WEBPACK_IMPORTED_MODULE_87__["SharedService"],
+            _admin_services_model__WEBPACK_IMPORTED_MODULE_88__["ModelService"],
+            _services_site__WEBPACK_IMPORTED_MODULE_89__["SiteService"],
+            _lib_methods__WEBPACK_IMPORTED_MODULE_90__["Lib"],
+            _admin_lib_methods__WEBPACK_IMPORTED_MODULE_91__["AdminLib"]
         ],
         bootstrap: [_app__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })

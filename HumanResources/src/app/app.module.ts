@@ -55,6 +55,14 @@ import { AdminLangContentTIndexComponent } from './admin/views/general/langconte
 import { AdminLangContentTInsertComponent } from './admin/views/general/langcontentt/insert';
 import { AdminLangContentTUpdateComponent } from './admin/views/general/langcontentt/update';
 
+import { AdminLinksIndexComponent } from './admin/views/general/links';
+import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
+import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
+
+import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
+import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
+import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
+
 import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
 import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
 import { AdminLogProcessUpdateComponent } from './admin/views/general/logprocess/update';
@@ -166,6 +174,14 @@ import { AdminLib } from './admin/lib/methods';
         AdminLangContentTIndexComponent,
         AdminLangContentTInsertComponent,
         AdminLangContentTUpdateComponent,
+
+        AdminLinksIndexComponent,
+        AdminLinksInsertComponent,
+        AdminLinksUpdateComponent,
+
+        AdminLinkTypesIndexComponent,
+        AdminLinkTypesInsertComponent,
+        AdminLinkTypesUpdateComponent,
 
         AdminLogProcessIndexComponent,
         AdminLogProcessInsertComponent,

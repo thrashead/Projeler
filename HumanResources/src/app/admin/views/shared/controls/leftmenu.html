@@ -31,6 +31,13 @@
                 <li data-url="MetaT"><a routerLink="/Admin/MetaT">Meta (Dil)</a></li>
             </ul>
         </li>
+        <li class="submenu" *ngIf="hasRightLinkTypes && showTypeLinkTypes">
+            <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
+            <ul>
+                <li data-url="LinkTypes"><a routerLink="/Admin/LinkTypes">Bağlı Tipler</a></li>
+                <li data-url="Links"><a routerLink="/Admin/Links">Bağlantılar</a></li>
+            </ul>
+        </li>
         <li class="submenu" *ngIf="hasRightTranslation && showTypeTranslation">
             <a href="javascript:;"><i class="icon icon-globe"></i> <span>Diller</span></a>
             <ul>
