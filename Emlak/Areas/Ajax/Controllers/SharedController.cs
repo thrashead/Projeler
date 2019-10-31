@@ -11,7 +11,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class SharedController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Kullanicilar curUser = AppTools.User;
+        readonly Kullanicilar curUser = AppTools.User;
 
         [HttpPost]
         public JsonResult Login([System.Web.Http.FromBody] Kullanicilar user)

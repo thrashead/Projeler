@@ -10,7 +10,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class LogTypesController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Kullanicilar curUser = AppTools.User;
+        readonly Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()

@@ -9,7 +9,7 @@ namespace Emlak.Areas.Ajax.Controllers
     public class VisitorCounterController : Controller
     {
         readonly EmlakEntities entity = new EmlakEntities();
-        Kullanicilar curUser = AppTools.User;
+        readonly Kullanicilar curUser = AppTools.User;
 
         [HttpGet]
         public JsonResult Index()
