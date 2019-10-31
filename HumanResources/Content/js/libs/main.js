@@ -12638,6 +12638,17 @@ module.exports = "/*------------------------------------------------------------
 
 /***/ }),
 
+/***/ "./Content/css/custom.css":
+/*!********************************!*\
+  !*** ./Content/css/custom.css ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {margin: 160px auto 0px auto;width: 95%;min-height: 96px;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsMkJBQTJCLENBQUMsVUFBVSxDQUFDLGdCQUFnQixDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQ2xJLHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDIiwiZmlsZSI6IkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubW9kYWxpdGVtIHtwb3NpdGlvbjpmaXhlZDt3aWR0aDoxMDAlO2hlaWdodDoxMDAlO3RvcDowcHg7bGVmdDowcHg7YmFja2dyb3VuZC1pbWFnZTp1cmwoL0h1bWFuUmVzb3VyY2VzL0NvbnRlbnQvaW1nL2FsZXJ0YmcucG5nKTt6LWluZGV4OiAxMDAwO2Rpc3BsYXk6bm9uZTt9XHJcbi5tb2RhbGl0ZW0uc2hvdyB7ZGlzcGxheTpibG9jazt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIHttYXJnaW46IDE2MHB4IGF1dG8gMHB4IGF1dG87d2lkdGg6IDk1JTttaW4taGVpZ2h0OiA5NnB4O2JhY2tncm91bmQtY29sb3I6ICNmZmY7Ym9yZGVyOiAzcHggc29saWQgIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtoZWlnaHQ6IGF1dG87fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGJvZHkge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGZvb3RlciB7bWFyZ2luOiAwcHggMHB4IDBweCAwcHg7ZmxvYXQ6IGxlZnQ7d2lkdGg6IDEwMCU7cGFkZGluZzogMTBweCAxMHB4IDEwcHggMTBweDtiYWNrZ3JvdW5kLWNvbG9yOiAjOUE4MkNFO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIgYnV0dG9uIHtmbG9hdDpub25lO2JhY2tncm91bmQtY29sb3I6ICM1NDJjYWI7fSJdfQ== */"
+
+/***/ }),
+
 /***/ "./Content/css/fonts/font-awesome/font-awesome.min.css":
 /*!*************************************************************!*\
   !*** ./Content/css/fonts/font-awesome/font-awesome.min.css ***!
@@ -13580,7 +13591,7 @@ module.exports = "<section>\r\n    <div class=\"block no-padding\">\r\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"job-search-sec\">\r\n    <div class=\"job-search\">\r\n        <h3>The Easiest Way to Get Your New Job</h3>\r\n        <span>Find Jobs, Employment & Career Opportunities</span>\r\n        <div>\r\n            <!--form-->\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-7 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <input type=\"text\" placeholder=\"Job title, keywords or company name\" />\r\n                        <i class=\"la la-keyboard-o\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-4 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <select data-placeholder=\"City, province or region\" class=\"chosen-city\">\r\n                            <option>New York </option>\r\n                            <option>Istanbul</option>\r\n                            <option>London</option>\r\n                            <option>Russia</option>\r\n                        </select>\r\n                        <i class=\"la la-map-marker\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-1 col-md-2 col-sm-12 col-xs-12\">\r\n                    <button type=\"submit\"><i class=\"la la-search\"></i></button>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"or-browser\">\r\n            <span>Browse job offers by</span>\r\n            <a href=\"#\" title=\"\">Category</a>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"job-search-sec\">\r\n    <div class=\"job-search\">\r\n        <h3>The Easiest Way to Get Your New Job</h3>\r\n        <span>Find Jobs, Employment & Career Opportunities</span>\r\n        <form [formGroup]=\"searchForm\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-7 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <input type=\"text\" placeholder=\"Job title, keywords or company name\" name=\"Words\" formControlName=\"Words\" />\r\n                        <i class=\"la la-keyboard-o\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-4 col-md-5 col-sm-12 col-xs-12\">\r\n                    <div class=\"job-field\">\r\n                        <select data-placeholder=\"City, province or region\" class=\"chosen-city\" id=\"slcCity\" name=\"City\" formControlName=\"City\">\r\n                            <option value=\"1\">New York </option>\r\n                            <option value=\"2\">Istanbul</option>\r\n                            <option value=\"3\">London</option>\r\n                            <option value=\"4\">Russia</option>\r\n                        </select>\r\n                        <i class=\"la la-map-marker\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-1 col-md-2 col-sm-12 col-xs-12\">\r\n                    <button type=\"submit\" (click)=\"onClick()\" [disabled]=\"!searchForm.valid\"><i class=\"la la-search\"></i></button>\r\n                </div>\r\n            </div>\r\n        </form>\r\n        <div class=\"or-browser\">\r\n            <span>Browse job offers by</span>\r\n            <a href=\"#\" title=\"\">Category</a>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13614,6 +13625,28 @@ module.exports = "<section>\r\n    <div class=\"block\">\r\n        <div data-ve
 /***/ (function(module, exports) {
 
 module.exports = "<section>\r\n    <div class=\"block no-padding\">\r\n        <div class=\"container fluid\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"main-featured-sec\">\r\n                        <hr-homeslider></hr-homeslider>\r\n                        <hr-homesearch></hr-homesearch>\r\n                        <div class=\"scroll-to\">\r\n                            <a href=\"#scroll-here\" title=\"\"><i class=\"la la-arrow-down\"></i></a>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/shared/common/modalalert.html":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/shared/common/modalalert.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"modalAlert\" class=\"modalitem\">\r\n    <div class=\"modaldialog\">\r\n        <div class=\"modalcontent\">\r\n            <div class=\"modalbody\">\r\n                {{ alert }}\r\n            </div>\r\n            <div class=\"modalfooter\">\r\n                <button type=\"button\" (click)=\"onClick()\" class=\"btn btn-default\">{{ langs?.Ok }}</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/shared/common/modalconfirm.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/shared/common/modalconfirm.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"modalConfirm\" class=\"modalitem\">\r\n    <div class=\"modaldialog\">\r\n        <div class=\"modalcontent\">\r\n            <div class=\"modalbody\">\r\n                {{ confirm }}\r\n            </div>\r\n            <div class=\"modalfooter\">\r\n                <button type=\"button\" (click)=\"onClick(true)\" class=\"btn btn-default\">{{ langs?.Ok }}</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -13657,7 +13690,7 @@ module.exports = "<nav>\r\n    <ul>\r\n        <li class=\"menu-item-has-childre
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"account-popup-area signin-popup-box\">\r\n    <div class=\"account-popup\">\r\n        <span class=\"close-popup\"><i class=\"la la-close\"></i></span>\r\n        <h3>User Login</h3>\r\n        <span>Click To Login With Demo User</span>\r\n        <div class=\"select-user\">\r\n            <span>Candidate</span>\r\n            <span>Employer</span>\r\n        </div>\r\n        <div>\r\n            <!--form-->\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Username\" />\r\n                <i class=\"la la-user\"></i>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"password\" placeholder=\"********\" />\r\n                <i class=\"la la-key\"></i>\r\n            </div>\r\n            <p class=\"remember-label\">\r\n                <input type=\"checkbox\" name=\"cb\" id=\"cb1\"><label for=\"cb1\">Remember me</label>\r\n            </p>\r\n            <a href=\"#\" title=\"\">Forgot Password?</a>\r\n            <button type=\"submit\">Login</button>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<hr-modalalert alert=\"{{ alert }}\"></hr-modalalert>\r\n\r\n<div class=\"account-popup-area signin-popup-box\">\r\n    <div class=\"account-popup\">\r\n        <span class=\"close-popup\"><i class=\"la la-close\"></i></span>\r\n        <h3>User Login</h3>\r\n        <span>Click To Login With Demo User</span>\r\n        <div class=\"select-user\">\r\n            <span>Candidate</span>\r\n            <span>Employer</span>\r\n        </div>\r\n        <form [formGroup]=\"loginForm\">\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Username\" name=\"Username\" formControlName=\"Username\" />\r\n                <i class=\"la la-user\"></i>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"password\" placeholder=\"********\" name=\"Password\" formControlName=\"Password\" />\r\n                <i class=\"la la-key\"></i>\r\n            </div>\r\n            <p class=\"remember-label\">\r\n                <input type=\"checkbox\" id=\"cb1\" name=\"Remember\" formControlName=\"Remember\"><label for=\"cb1\">Remember me</label>\r\n            </p>\r\n            <a href=\"#\" title=\"\">Forgot Password?</a>\r\n            <button type=\"submit\" (click)=\"onClick()\" [disabled]=\"!loginForm.valid\">Login</button>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13668,7 +13701,7 @@ module.exports = "<div class=\"account-popup-area signin-popup-box\">\r\n    <di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"account-popup-area signup-popup-box\">\r\n    <div class=\"account-popup\">\r\n        <span class=\"close-popup\"><i class=\"la la-close\"></i></span>\r\n        <h3>Sign Up</h3>\r\n        <div class=\"select-user\">\r\n            <span>Candidate</span>\r\n            <span>Employer</span>\r\n        </div>\r\n        <div>\r\n            <!--form-->\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Username\" />\r\n                <i class=\"la la-user\"></i>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"password\" placeholder=\"********\" />\r\n                <i class=\"la la-key\"></i>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Email\" />\r\n                <i class=\"la la-envelope-o\"></i>\r\n            </div>\r\n            <div class=\"dropdown-field\">\r\n                <select data-placeholder=\"Please Select Specialism\" class=\"chosen\">\r\n                    <option>Web Development</option>\r\n                    <option>Web Designing</option>\r\n                    <option>Art & Culture</option>\r\n                    <option>Reading & Writing</option>\r\n                </select>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Phone Number\" />\r\n                <i class=\"la la-phone\"></i>\r\n            </div>\r\n            <button type=\"submit\">Signup</button>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<hr-modalalert alert=\"{{ alert }}\"></hr-modalalert>\r\n\r\n<div class=\"account-popup-area signup-popup-box\">\r\n    <div class=\"account-popup\">\r\n        <span class=\"close-popup\"><i class=\"la la-close\"></i></span>\r\n        <h3>Sign Up</h3>\r\n        <div class=\"select-user\">\r\n            <span>Candidate</span>\r\n            <span>Employer</span>\r\n        </div>\r\n        <form [formGroup]=\"signupForm\">\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Username\" name=\"Username\" formControlName=\"Username\" />\r\n                <i class=\"la la-user\"></i>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"password\" placeholder=\"********\" name=\"Password\" formControlName=\"Password\" />\r\n                <i class=\"la la-key\"></i>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Email\" name=\"Email\" formControlName=\"Email\" />\r\n                <i class=\"la la-envelope-o\"></i>\r\n            </div>\r\n            <div class=\"dropdown-field\">\r\n                <select data-placeholder=\"Please Select Specialism\" class=\"chosen\" formControlName=\"Speciality\">\r\n                    <option selected=\"selected\" value=\"1\">Web Development</option>\r\n                    <option value=\"2\">Web Designing</option>\r\n                    <option value=\"3\">Art & Culture</option>\r\n                    <option value=\"4\">Reading & Writing</option>\r\n                </select>\r\n            </div>\r\n            <div class=\"cfield\">\r\n                <input type=\"text\" placeholder=\"Phone Number\" name=\"Phone\" formControlName=\"Phone\" />\r\n                <i class=\"la la-phone\"></i>\r\n            </div>\r\n            <button type=\"submit\" (click)=\"onClick()\" [disabled]=\"!signupForm.valid\">Signup</button>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13679,7 +13712,7 @@ module.exports = "<div class=\"account-popup-area signup-popup-box\">\r\n    <di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"responsive-header\">\r\n    <div class=\"responsive-menubar\">\r\n        <div class=\"res-logo\"><a routerLink=\"/\" title=\"\"><img src=\"/HumanResources/Content/img/resource/logo.png\" alt=\"\" /></a></div>\r\n        <div class=\"menu-resaction\">\r\n            <div class=\"res-openmenu\">\r\n                <img src=\"/HumanResources/Content/img/icon.png\" alt=\"\" /> Menu\r\n            </div>\r\n            <div class=\"res-closemenu\">\r\n                <img src=\"/HumanResources/Content/img/icon2.png\" alt=\"\" /> Close\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"responsive-opensec\">\r\n        <div class=\"btn-extars\">\r\n            <a href=\"#\" title=\"\" class=\"post-job-btn\"><i class=\"la la-plus\"></i>Post Jobs</a>\r\n            <ul class=\"account-btns\">\r\n                <li class=\"signup-popup\"><a title=\"\"><i class=\"la la-key\"></i> Sign Up</a></li>\r\n                <li class=\"signin-popup\"><a title=\"\"><i class=\"la la-external-link-square\"></i> Login</a></li>\r\n            </ul>\r\n        </div><!-- Btn Extras -->\r\n\r\n        <hr-respsearch></hr-respsearch>\r\n        <hr-respmenu></hr-respmenu>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"responsive-header\">\r\n    <div class=\"responsive-menubar\">\r\n        <div class=\"res-logo\"><a routerLink=\"/\" title=\"\"><img src=\"/HumanResources/Content/img/logo.png\" alt=\"\" /></a></div>\r\n        <div class=\"menu-resaction\">\r\n            <div class=\"res-openmenu\">\r\n                <img src=\"/HumanResources/Content/img/icon.png\" alt=\"\" /> Menu\r\n            </div>\r\n            <div class=\"res-closemenu\">\r\n                <img src=\"/HumanResources/Content/img/icon2.png\" alt=\"\" /> Close\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"responsive-opensec\">\r\n        <div class=\"btn-extars\">\r\n            <a href=\"#\" title=\"\" class=\"post-job-btn\"><i class=\"la la-plus\"></i>Post Jobs</a>\r\n            <ul class=\"account-btns\">\r\n                <li class=\"signup-popup\"><a title=\"\"><i class=\"la la-key\"></i> Sign Up</a></li>\r\n                <li class=\"signin-popup\"><a title=\"\"><i class=\"la la-external-link-square\"></i> Login</a></li>\r\n            </ul>\r\n        </div><!-- Btn Extras -->\r\n\r\n        <hr-respsearch></hr-respsearch>\r\n        <hr-respmenu></hr-respmenu>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13701,7 +13734,7 @@ module.exports = "<div class=\"responsivemenu\">\r\n    <ul>\r\n        <li clas
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"res-search\">\r\n    <!-- form -->\r\n    <input type=\"text\" placeholder=\"Job title, keywords or company name\" />\r\n    <button type=\"submit\"><i class=\"la la-search\"></i></button>\r\n</div>"
+module.exports = "<form [formGroup]=\"searchForm\" class=\"res-search\">\r\n    <input type=\"text\" placeholder=\"Job title, keywords or company name\" name=\"Words\" formControlName=\"Words\" />\r\n    <button type=\"submit\" (click)=\"onClick()\" [disabled]=\"!searchForm.valid\"><i class=\"la la-search\"></i></button>\r\n</form>"
 
 /***/ }),
 
@@ -20524,22 +20557,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/shared/controls/menu */ "./src/app/views/shared/controls/menu.ts");
 /* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
 /* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
-/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
-/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
-/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
-/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
-/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
-/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
-/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
-/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
-/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
-/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
-/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
-/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
-/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
-/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
-/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
-/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
+/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
+/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
+/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
+/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
+/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
+/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
+/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
+/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
+/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
+/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
+/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
+/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
+/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
+/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
+/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
+/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
+/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
+/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
 
 
 
@@ -20642,6 +20677,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 //Home
 
 
@@ -20666,23 +20703,25 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_89__["MenuComponent"],
             _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_90__["FooterComponent"],
             _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_91__["ScriptsComponent"],
-            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_92__["RespHeaderComponent"],
-            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_94__["RespSearchComponent"],
-            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_93__["RespMenuComponent"],
-            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_95__["PopupLoginComponent"],
-            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_96__["PopupSignupComponent"],
+            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_92__["ModalAlertComponent"],
+            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_93__["ModalConfirmComponent"],
+            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_94__["RespHeaderComponent"],
+            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_96__["RespSearchComponent"],
+            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_95__["RespMenuComponent"],
+            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_97__["PopupLoginComponent"],
+            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_98__["PopupSignupComponent"],
             //Home
-            _views_home__WEBPACK_IMPORTED_MODULE_97__["IndexComponent"],
-            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_98__["HomeTopComponent"],
-            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_99__["HomeSliderComponent"],
-            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_100__["HomeSearchComponent"],
-            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_101__["HomePopCatComponent"],
-            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_102__["HomeAccountComponent"],
-            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_103__["HomeJobsComponent"],
-            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_104__["HomeCandidatesComponent"],
-            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_105__["HomeCompaniesComponent"],
-            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_106__["HomeTipsComponent"],
-            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_107__["HomeQuestionComponent"],
+            _views_home__WEBPACK_IMPORTED_MODULE_99__["IndexComponent"],
+            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_100__["HomeTopComponent"],
+            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_101__["HomeSliderComponent"],
+            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_102__["HomeSearchComponent"],
+            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_103__["HomePopCatComponent"],
+            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_104__["HomeAccountComponent"],
+            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_105__["HomeJobsComponent"],
+            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_106__["HomeCandidatesComponent"],
+            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_107__["HomeCompaniesComponent"],
+            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_108__["HomeTipsComponent"],
+            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_109__["HomeQuestionComponent"],
             //Admin
             _admin_views_shared_layoutAdmin__WEBPACK_IMPORTED_MODULE_8__["AdminLayoutComponent"],
             _admin_views_home_login__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"],
@@ -20835,6 +20874,17 @@ let Lib = class Lib {
         langItem.Code = code;
         langItem.ShortCode = shortCode;
         return langItem;
+    }
+    static ComboChange(id) {
+        var select = $("#" + id);
+        var selectUL = $("#" + id).next(".chosen-container").find(".chosen-results");
+        select.next(".chosen-container").children("a.chosen-single").off("click").on("click", function () {
+            selectUL.children("li").off("click").on("click", function () {
+                var index = parseInt($(this).attr("data-option-array-index"));
+                select.children("option").removeAttr("selected");
+                select.children("option").eq(index).attr("selected", "selected");
+            });
+        });
     }
 };
 Lib = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -21272,18 +21322,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeSearchComponent", function() { return HomeSearchComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
+
 
 
 
 
 let HomeSearchComponent = class HomeSearchComponent {
-    constructor(service) {
+    constructor(service, formBuilder) {
         this.service = service;
+        this.formBuilder = formBuilder;
     }
     ngOnInit() {
         this.SetLangContents();
+        this.searchForm = this.formBuilder.group({
+            Words: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(255)]),
+            City: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+        });
+        setTimeout(() => {
+            _lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].ComboChange("slcCity");
+        }, 2500);
+    }
+    onClick() {
+        this.data = new Object();
+        this.data.Words = this.searchForm.get("Words").value;
+        this.data.City = $("#slcCity").children("option[selected='selected']").val();
+        this.service.post("Search", "HomeSearch", this.data).subscribe((answer) => {
+        }, resError => this.errorMsg = resError);
     }
     //LangContent
     SetLangContents() {
@@ -21301,11 +21368,12 @@ let HomeSearchComponent = class HomeSearchComponent {
     }
     PushLangItems() {
         this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
+        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 HomeSearchComponent.ctorParameters = () => [
-    { type: _services_site__WEBPACK_IMPORTED_MODULE_2__["SiteService"] }
+    { type: _services_site__WEBPACK_IMPORTED_MODULE_3__["SiteService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
 ];
 HomeSearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -21466,6 +21534,141 @@ HomeTopComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./top.html */ "./node_modules/raw-loader/index.js!./src/app/views/home/parts/top.html")
     })
 ], HomeTopComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/shared/common/modalalert.ts":
+/*!***************************************************!*\
+  !*** ./src/app/views/shared/common/modalalert.ts ***!
+  \***************************************************/
+/*! exports provided: ModalAlertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalAlertComponent", function() { return ModalAlertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
+
+
+
+
+let ModalAlertComponent = class ModalAlertComponent {
+    constructor(service) {
+        this.service = service;
+    }
+    ngOnInit() {
+        this.SetLangContents();
+    }
+    onClick() {
+        $("#modalAlert").removeClass("show");
+    }
+    //LangContent
+    SetLangContents() {
+        this.PushLangItems();
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
+            this.langs = new Object();
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_cnfrm_ok":
+                        this.langs.Ok = item.ShortDescription;
+                        break;
+                }
+            });
+        }, resError => this.errorMsg = resError);
+    }
+    PushLangItems() {
+        this.langItems = new Array();
+        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "cmn_cnfrm_ok"));
+    }
+};
+ModalAlertComponent.ctorParameters = () => [
+    { type: _services_site__WEBPACK_IMPORTED_MODULE_2__["SiteService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ModalAlertComponent.prototype, "alert", void 0);
+ModalAlertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-modalalert',
+        template: __webpack_require__(/*! raw-loader!./modalalert.html */ "./node_modules/raw-loader/index.js!./src/app/views/shared/common/modalalert.html")
+    })
+], ModalAlertComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/shared/common/modalconfirm.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/views/shared/common/modalconfirm.ts ***!
+  \*****************************************************/
+/*! exports provided: ModalConfirmComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalConfirmComponent", function() { return ModalConfirmComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/lib/methods.ts");
+
+
+
+
+
+let ModalConfirmComponent = class ModalConfirmComponent {
+    constructor(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    ngOnInit() {
+        this.SetLangContents();
+    }
+    onClick(result) {
+        $("#modalConfirm").removeClass("show");
+        if (result == true)
+            this.router.navigate(['/']);
+    }
+    //LangContent
+    SetLangContents() {
+        this.PushLangItems();
+        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData) => {
+            this.langs = new Object();
+            resData.forEach((item, i) => {
+                switch (item.Code) {
+                    case "cmn_cnfrm_ok":
+                        this.langs.Ok = item.ShortDescription;
+                        this.langs.Cancel = item.ShortDescription2;
+                        break;
+                }
+            });
+        }, resError => this.errorMsg = resError);
+    }
+    PushLangItems() {
+        this.langItems = new Array();
+        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].SetLangItem(this.langItem, "cmn_cnfrm_ok"));
+    }
+};
+ModalConfirmComponent.ctorParameters = () => [
+    { type: _services_site__WEBPACK_IMPORTED_MODULE_3__["SiteService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ModalConfirmComponent.prototype, "confirm", void 0);
+ModalConfirmComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-modalconfirm',
+        template: __webpack_require__(/*! raw-loader!./modalconfirm.html */ "./node_modules/raw-loader/index.js!./src/app/views/shared/common/modalconfirm.html")
+    })
+], ModalConfirmComponent);
 
 
 
@@ -21676,18 +21879,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopupLoginComponent", function() { return PopupLoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+
+
 
 
 
 
 let PopupLoginComponent = class PopupLoginComponent {
-    constructor(service) {
+    constructor(service, formBuilder, router) {
         this.service = service;
+        this.formBuilder = formBuilder;
+        this.router = router;
     }
     ngOnInit() {
         this.SetLangContents();
+        this.loginForm = this.formBuilder.group({
+            Username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
+            Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
+            Remember: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+        });
+    }
+    onClick() {
+        if (!$(".select-user span").hasClass("active")) {
+            $("#modalAlert").addClass("show");
+            this.alert = "Lütfen bir giriş türü seçiniz.";
+            return;
+        }
+        this.data = new Object();
+        this.data.Username = this.loginForm.get("Username").value;
+        this.data.Password = this.loginForm.get("Password").value;
+        this.data.Remember = this.loginForm.get("Remember").value;
+        let controller = $(".select-user span").eq(0).hasClass("active") ? "Candidate" : "Employer";
+        this.service.post(controller, "Login", this.data).subscribe((answer) => {
+            if (answer == true) {
+                this.router.navigate(['/' + controller + '/Home']);
+            }
+            else {
+                $("#modalAlert").addClass("show");
+                this.alert = "Giriş yapılamadı.";
+            }
+        }, resError => this.errorMsg = resError);
     }
     //LangContent
     SetLangContents() {
@@ -21705,11 +21940,13 @@ let PopupLoginComponent = class PopupLoginComponent {
     }
     PushLangItems() {
         this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
+        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_5__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 PopupLoginComponent.ctorParameters = () => [
-    { type: _services_site__WEBPACK_IMPORTED_MODULE_2__["SiteService"] }
+    { type: _services_site__WEBPACK_IMPORTED_MODULE_4__["SiteService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 PopupLoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -21734,18 +21971,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopupSignupComponent", function() { return PopupSignupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+
+
 
 
 
 
 let PopupSignupComponent = class PopupSignupComponent {
-    constructor(service) {
+    constructor(service, formBuilder, router) {
         this.service = service;
+        this.formBuilder = formBuilder;
+        this.router = router;
     }
     ngOnInit() {
         this.SetLangContents();
+        this.signupForm = this.formBuilder.group({
+            Username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
+            Password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25)]),
+            Speciality: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].min(1)]),
+            Email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
+            Phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(10), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(15)]),
+        });
+    }
+    onClick() {
+        if (!$(".select-user span").hasClass("active")) {
+            $("#modalAlert").addClass("show");
+            this.alert = "Lütfen bir giriş türü seçiniz.";
+            return;
+        }
+        this.data = new Object();
+        this.data.Username = this.signupForm.get("Username").value;
+        this.data.Password = this.signupForm.get("Password").value;
+        this.data.Speciality = this.signupForm.get("Phone").value;
+        this.data.Email = this.signupForm.get("Email").value;
+        this.data.Phone = this.signupForm.get("Phone").value;
+        let controller = $(".select-user span").eq(0).hasClass("active") ? "Candidate" : "Employer";
+        this.service.post(controller, "Signup", this.data).subscribe((answer) => {
+            if (answer == true) {
+                this.router.navigate(['/' + controller + '/Login']);
+            }
+            else {
+                $("#modalAlert").addClass("show");
+                this.alert = "Kayıt yapılamadı.";
+            }
+        }, resError => this.errorMsg = resError);
     }
     //LangContent
     SetLangContents() {
@@ -21763,11 +22036,13 @@ let PopupSignupComponent = class PopupSignupComponent {
     }
     PushLangItems() {
         this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
+        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_5__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 PopupSignupComponent.ctorParameters = () => [
-    { type: _services_site__WEBPACK_IMPORTED_MODULE_2__["SiteService"] }
+    { type: _services_site__WEBPACK_IMPORTED_MODULE_4__["SiteService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 PopupSignupComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -21927,18 +22202,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RespSearchComponent", function() { return RespSearchComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+
 
 
 
 
 let RespSearchComponent = class RespSearchComponent {
-    constructor(service) {
+    constructor(service, formBuilder) {
         this.service = service;
+        this.formBuilder = formBuilder;
     }
     ngOnInit() {
         this.SetLangContents();
+        this.searchForm = this.formBuilder.group({
+            Words: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(255)]),
+        });
+    }
+    onClick() {
+        this.data = new Object();
+        this.data.Words = this.searchForm.get("Words").value;
+        this.service.post("Search", "HomeSearch", this.data).subscribe((answer) => {
+        }, resError => this.errorMsg = resError);
     }
     //LangContent
     SetLangContents() {
@@ -21956,11 +22243,12 @@ let RespSearchComponent = class RespSearchComponent {
     }
     PushLangItems() {
         this.langItems = new Array();
-        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
+        this.langItems.push(_lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].SetLangItem(this.langItem, "hdr_pnl"));
     }
 };
 RespSearchComponent.ctorParameters = () => [
-    { type: _services_site__WEBPACK_IMPORTED_MODULE_2__["SiteService"] }
+    { type: _services_site__WEBPACK_IMPORTED_MODULE_3__["SiteService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
 ];
 RespSearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -22028,7 +22316,7 @@ ScriptsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         selector: 'hr-scripts',
         template: '',
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        styles: [__webpack_require__(/*! ../../../../../Content/css/style.css */ "./Content/css/style.css"), __webpack_require__(/*! ../../../../../Content/css/bootstrap-grid.css */ "./Content/css/bootstrap-grid.css"), __webpack_require__(/*! ../../../../../Content/css/icons.css */ "./Content/css/icons.css"), __webpack_require__(/*! ../../../../../Content/css/animate.min.css */ "./Content/css/animate.min.css"), __webpack_require__(/*! ../../../../../Content/css/style.css */ "./Content/css/style.css"), __webpack_require__(/*! ../../../../../Content/css/responsive.css */ "./Content/css/responsive.css"), __webpack_require__(/*! ../../../../../Content/css/chosen.css */ "./Content/css/chosen.css"), __webpack_require__(/*! ../../../../../Content/css/colors/colors.css */ "./Content/css/colors/colors.css"), __webpack_require__(/*! ../../../../../Content/css/bootstrap.css */ "./Content/css/bootstrap.css"), __webpack_require__(/*! ../../../../../Content/css/fonts/font-awesome/font-awesome.min.css */ "./Content/css/fonts/font-awesome/font-awesome.min.css")]
+        styles: [__webpack_require__(/*! ../../../../../Content/css/style.css */ "./Content/css/style.css"), __webpack_require__(/*! ../../../../../Content/css/bootstrap-grid.css */ "./Content/css/bootstrap-grid.css"), __webpack_require__(/*! ../../../../../Content/css/icons.css */ "./Content/css/icons.css"), __webpack_require__(/*! ../../../../../Content/css/animate.min.css */ "./Content/css/animate.min.css"), __webpack_require__(/*! ../../../../../Content/css/style.css */ "./Content/css/style.css"), __webpack_require__(/*! ../../../../../Content/css/responsive.css */ "./Content/css/responsive.css"), __webpack_require__(/*! ../../../../../Content/css/chosen.css */ "./Content/css/chosen.css"), __webpack_require__(/*! ../../../../../Content/css/colors/colors.css */ "./Content/css/colors/colors.css"), __webpack_require__(/*! ../../../../../Content/css/bootstrap.css */ "./Content/css/bootstrap.css"), __webpack_require__(/*! ../../../../../Content/css/fonts/font-awesome/font-awesome.min.css */ "./Content/css/fonts/font-awesome/font-awesome.min.css"), __webpack_require__(/*! ../../../../../Content/css/custom.css */ "./Content/css/custom.css")]
     })
 ], ScriptsComponent);
 

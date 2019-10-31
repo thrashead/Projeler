@@ -1,4 +1,6 @@
-﻿<div class="account-popup-area signup-popup-box">
+﻿<hr-modalalert alert="{{ alert }}"></hr-modalalert>
+
+<div class="account-popup-area signup-popup-box">
     <div class="account-popup">
         <span class="close-popup"><i class="la la-close"></i></span>
         <h3>Sign Up</h3>
@@ -6,33 +8,32 @@
             <span>Candidate</span>
             <span>Employer</span>
         </div>
-        <div>
-            <!--form-->
+        <form [formGroup]="signupForm">
             <div class="cfield">
-                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Username" name="Username" formControlName="Username" />
                 <i class="la la-user"></i>
             </div>
             <div class="cfield">
-                <input type="password" placeholder="********" />
+                <input type="password" placeholder="********" name="Password" formControlName="Password" />
                 <i class="la la-key"></i>
             </div>
             <div class="cfield">
-                <input type="text" placeholder="Email" />
+                <input type="text" placeholder="Email" name="Email" formControlName="Email" />
                 <i class="la la-envelope-o"></i>
             </div>
             <div class="dropdown-field">
-                <select data-placeholder="Please Select Specialism" class="chosen">
-                    <option>Web Development</option>
-                    <option>Web Designing</option>
-                    <option>Art & Culture</option>
-                    <option>Reading & Writing</option>
+                <select data-placeholder="Please Select Specialism" class="chosen" formControlName="Speciality">
+                    <option selected="selected" value="1">Web Development</option>
+                    <option value="2">Web Designing</option>
+                    <option value="3">Art & Culture</option>
+                    <option value="4">Reading & Writing</option>
                 </select>
             </div>
             <div class="cfield">
-                <input type="text" placeholder="Phone Number" />
+                <input type="text" placeholder="Phone Number" name="Phone" formControlName="Phone" />
                 <i class="la la-phone"></i>
             </div>
-            <button type="submit">Signup</button>
-        </div>
+            <button type="submit" (click)="onClick()" [disabled]="!signupForm.valid">Signup</button>
+        </form>
     </div>
 </div>

@@ -2,31 +2,30 @@
     <div class="job-search">
         <h3>The Easiest Way to Get Your New Job</h3>
         <span>Find Jobs, Employment & Career Opportunities</span>
-        <div>
-            <!--form-->
+        <form [formGroup]="searchForm">
             <div class="row">
                 <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
                     <div class="job-field">
-                        <input type="text" placeholder="Job title, keywords or company name" />
+                        <input type="text" placeholder="Job title, keywords or company name" name="Words" formControlName="Words" />
                         <i class="la la-keyboard-o"></i>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                     <div class="job-field">
-                        <select data-placeholder="City, province or region" class="chosen-city">
-                            <option>New York </option>
-                            <option>Istanbul</option>
-                            <option>London</option>
-                            <option>Russia</option>
+                        <select data-placeholder="City, province or region" class="chosen-city" id="slcCity" name="City" formControlName="City">
+                            <option value="1">New York </option>
+                            <option value="2">Istanbul</option>
+                            <option value="3">London</option>
+                            <option value="4">Russia</option>
                         </select>
                         <i class="la la-map-marker"></i>
                     </div>
                 </div>
                 <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
-                    <button type="submit"><i class="la la-search"></i></button>
+                    <button type="submit" (click)="onClick()" [disabled]="!searchForm.valid"><i class="la la-search"></i></button>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="or-browser">
             <span>Browse job offers by</span>
             <a href="#" title="">Category</a>

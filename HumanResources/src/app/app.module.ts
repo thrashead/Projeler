@@ -124,6 +124,8 @@ import { HeaderComponent } from './views/shared/controls/header';
 import { MenuComponent } from './views/shared/controls/menu';
 import { FooterComponent } from './views/shared/controls/footer';
 import { ScriptsComponent } from './views/shared/controls/scripts';
+import { ModalAlertComponent } from './views/shared/common/modalalert';
+import { ModalConfirmComponent } from './views/shared/common/modalconfirm';
 import { RespHeaderComponent } from './views/shared/controls/responsive/header';
 import { RespMenuComponent } from './views/shared/controls/responsive/menu';
 import { RespSearchComponent } from './views/shared/controls/responsive/search';
@@ -154,6 +156,8 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         MenuComponent,
         FooterComponent,
         ScriptsComponent,
+        ModalAlertComponent,
+        ModalConfirmComponent,
         RespHeaderComponent,
         RespSearchComponent,
         RespMenuComponent,

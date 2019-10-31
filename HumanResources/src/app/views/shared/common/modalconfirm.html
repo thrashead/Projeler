@@ -1,11 +1,11 @@
-﻿<div id="modalAlert" class="modalitem">
+﻿<div id="modalConfirm" class="modalitem">
     <div class="modaldialog">
         <div class="modalcontent">
             <div class="modalbody">
-                {{ alert }}
+                {{ confirm }}
             </div>
             <div class="modalfooter">
-                <button type="button" (click)="onClick()" class="btn btn-default">{{ langs?.Ok }}</button>
+                <button type="button" (click)="onClick(true)" class="btn btn-default">{{ langs?.Ok }}</button>
             </div>
         </div>
     </div>

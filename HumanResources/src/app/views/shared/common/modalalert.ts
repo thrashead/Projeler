@@ -4,11 +4,11 @@ import { Lib } from '../../../lib/methods';
 import { LangItem } from '../../../models/LangItem';
 
 @Component({
-    selector: 'rac-sharedmodalalert',
+    selector: 'hr-modalalert',
     templateUrl: './modalalert.html'
 })
 
-export class SharedModalAlertComponent {
+export class ModalAlertComponent {
     errorMsg: string;
     @Input() alert: string;
 

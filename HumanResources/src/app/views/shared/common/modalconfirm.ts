@@ -1,26 +1,30 @@
 ﻿import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { SiteService } from '../../../services/site';
 import { Lib } from '../../../lib/methods';
 import { LangItem } from '../../../models/LangItem';
 
 @Component({
-    selector: 'rac-sharedmodalalert',
-    templateUrl: './modalalert.html'
+    selector: 'hr-modalconfirm',
+    templateUrl: './modalconfirm.html'
 })
 
-export class SharedModalAlertComponent {
+export class ModalConfirmComponent {
     errorMsg: string;
-    @Input() alert: string;
+    @Input() confirm: string;
 
-    constructor(private service: SiteService) {
+    constructor(private service: SiteService, private router: Router) {
     }
 
     ngOnInit() {
         this.SetLangContents();
     }
 
-    onClick() {
-        $("#modalAlert").removeClass("show");
+    onClick(result) {
+        $("#modalConfirm").removeClass("show");
+
+        if (result == true)
+            this.router.navigate(['/']);
     }
 
     //LangContents
@@ -39,6 +43,7 @@ export class SharedModalAlertComponent {
                 switch (item.Code) {
                     case "cmn_cnfrm_ok":
                         this.langs.Ok = item.ShortDescription;
+                        this.langs.Cancel = item.ShortDescription2;
                         break;
                 }
             });

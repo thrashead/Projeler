@@ -38,7 +38,6 @@ export class SharedModalConfirmComponent {
 
         this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
             this.langs = new Object();
-            this.langs.content = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {

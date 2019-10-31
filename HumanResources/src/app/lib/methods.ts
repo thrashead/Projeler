@@ -18,4 +18,18 @@ export class Lib {
 
         return langItem;
     }
+
+    static ComboChange(id: string) {
+        var select = $("#" + id);
+        var selectUL = $("#" + id).next(".chosen-container").find(".chosen-results");
+
+
+        select.next(".chosen-container").children("a.chosen-single").off("click").on("click", function () {
+            selectUL.children("li").off("click").on("click", function () {
+                var index = parseInt($(this).attr("data-option-array-index"));
+                select.children("option").removeAttr("selected");
+                select.children("option").eq(index).attr("selected", "selected");
+            });
+        });
+    }
 }

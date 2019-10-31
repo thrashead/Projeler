@@ -1,5 +1,4 @@
-﻿<div class="res-search">
-    <!-- form -->
-    <input type="text" placeholder="Job title, keywords or company name" />
-    <button type="submit"><i class="la la-search"></i></button>
-</div>
+﻿<form [formGroup]="searchForm" class="res-search">
+    <input type="text" placeholder="Job title, keywords or company name" name="Words" formControlName="Words" />
+    <button type="submit" (click)="onClick()" [disabled]="!searchForm.valid"><i class="la la-search"></i></button>
+</form>

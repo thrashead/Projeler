@@ -25,6 +25,7 @@ import { Router, ActivationEnd, RouterEvent } from '@angular/router';
         '../../../../../Content/css/colors/colors.css',
         '../../../../../Content/css/bootstrap.css',
         '../../../../../Content/css/fonts/font-awesome/font-awesome.min.css',
+        '../../../../../Content/css/custom.css',
     ],
     encapsulation: ViewEncapsulation.None
 })
