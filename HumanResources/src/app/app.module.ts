@@ -7,15 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app';
 
-//Layout
-import { LayoutComponent } from './views/shared/layout';
-import { HeaderComponent } from './views/shared/controls/header';
-import { FooterComponent } from './views/shared/controls/footer';
-import { ScriptsComponent } from './views/shared/controls/scripts';
-
-//Home
-import { IndexComponent } from './views/home';
-
 //Admin
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminLoginComponent } from './admin/views/home/login';
@@ -116,11 +107,41 @@ import { AdminUsersChangeGroupComponent } from './admin/views/general/users/chan
 
 import { AdminVisitorsIndexComponent } from './admin/views/general/visitors';
 
+//Admin HumanResources
+
+
+
+//Services
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
 import { SiteService } from './services/site';
 import { Lib } from './lib/methods';
 import { AdminLib } from './admin/lib/methods';
+
+//Layout
+import { LayoutComponent } from './views/shared/layout';
+import { HeaderComponent } from './views/shared/controls/header';
+import { MenuComponent } from './views/shared/controls/menu';
+import { FooterComponent } from './views/shared/controls/footer';
+import { ScriptsComponent } from './views/shared/controls/scripts';
+import { RespHeaderComponent } from './views/shared/controls/responsive/header';
+import { RespMenuComponent } from './views/shared/controls/responsive/menu';
+import { RespSearchComponent } from './views/shared/controls/responsive/search';
+import { PopupLoginComponent } from './views/shared/controls/popup/login';
+import { PopupSignupComponent } from './views/shared/controls/popup/signup';
+
+//Home
+import { IndexComponent } from './views/home';
+import { HomeTopComponent } from './views/home/parts/top';
+import { HomeSliderComponent } from './views/home/parts/slider';
+import { HomeSearchComponent } from './views/home/parts/search';
+import { HomePopCatComponent } from './views/home/parts/popcat';
+import { HomeAccountComponent } from './views/home/parts/account';
+import { HomeJobsComponent } from './views/home/parts/jobs';
+import { HomeCandidatesComponent } from './views/home/parts/candidates';
+import { HomeCompaniesComponent } from './views/home/parts/companies';
+import { HomeTipsComponent } from './views/home/parts/tips';
+import { HomeQuestionComponent } from './views/home/parts/question';
 
 
 @NgModule({
@@ -130,11 +151,27 @@ import { AdminLib } from './admin/lib/methods';
         //Layout
         LayoutComponent,
         HeaderComponent,
+        MenuComponent,
         FooterComponent,
         ScriptsComponent,
+        RespHeaderComponent,
+        RespSearchComponent,
+        RespMenuComponent,
+        PopupLoginComponent,
+        PopupSignupComponent,
 
         //Home
         IndexComponent,
+        HomeTopComponent,
+        HomeSliderComponent,
+        HomeSearchComponent,
+        HomePopCatComponent,
+        HomeAccountComponent,
+        HomeJobsComponent,
+        HomeCandidatesComponent,
+        HomeCompaniesComponent,
+        HomeTipsComponent,
+        HomeQuestionComponent,
 
         //Admin
         AdminLayoutComponent,

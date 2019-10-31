@@ -1,13 +1,30 @@
 ﻿import { Component, ViewEncapsulation, AfterViewChecked } from '@angular/core';
 import { Router, ActivationEnd, RouterEvent } from '@angular/router';
-import '../../../../../Content/js/pathscript.js';
-import '../../../../../Content/js/script.js';
+//import '../../../../../Content/js/email-decode.min.js';
+//import '../../../../../Content/js/jquery.min.js';
+//import '../../../../../Content/js/modernizr.js';
+//import '../../../../../Content/js/pathscript.js';
+//import '../../../../../Content/js/script.js';
+//import '../../../../../Content/js/bootstrap.min.js';
+//import '../../../../../Content/js/wow.min.js';
+//import '../../../../../Content/js/slick.min.js';
+//import '../../../../../Content/js/parallax.js';
+//import '../../../../../Content/js/select-chosen.js';
 
 @Component({
     selector: 'hr-scripts',
     template: '',
     styleUrls: [
-        '../../../../../Content/css/style.css'
+        '../../../../../Content/css/style.css',
+        '../../../../../Content/css/bootstrap-grid.css',
+        '../../../../../Content/css/icons.css',
+        '../../../../../Content/css/animate.min.css',
+        '../../../../../Content/css/style.css',
+        '../../../../../Content/css/responsive.css',
+        '../../../../../Content/css/chosen.css',
+        '../../../../../Content/css/colors/colors.css',
+        '../../../../../Content/css/bootstrap.css',
+        '../../../../../Content/css/fonts/font-awesome/font-awesome.min.css',
     ],
     encapsulation: ViewEncapsulation.None
 })
@@ -17,7 +34,7 @@ export class ScriptsComponent implements AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        //$('#page-preloader').fadeOut("slow");
+        //$('.page-loading').fadeOut();
     }
 
     ngOnInit() {
@@ -28,58 +45,12 @@ export class ScriptsComponent implements AfterViewChecked {
                 this.LoadScripts();
 
                 //setTimeout(() => {
-                //    $('#page-preloader').fadeOut("slow");
+                //    $('.page-loading').fadeOut();
                 //}, 300);
             }
         });
     }
 
     LoadScripts() {
-    }
-
-    //MenuActive
-    MenuActive() {
-        $("#hdnUrl").val(location.href);
-
-        var MainPath = "http://localhost/HumanResources";
-        var Url = location.href;
-        var Urling = Object();
-
-        if (Url != undefined) {
-            var tempurl = Url.replace(MainPath + "/", "");
-            var extParams = tempurl.split('?')[1];
-
-            tempurl = tempurl.replace("?" + extParams, "");
-
-            Urling.path = tempurl;
-            Urling.controller = tempurl.split('/')[0];
-            Urling.action = tempurl.split('/')[1];
-            Urling.parameter = tempurl.split('/')[2];
-
-            if (extParams != undefined)
-                Urling.parameters = extParams.split('&');
-        }
-
-        $(".b-nav__list ul li a").removeClass("active");
-        $(".b-footer__content-nav ul li a").removeClass("active");
-
-        if (Urling.controller != "") {
-            if ($(".b-nav__list ul li a[data-url='" + Urling.controller + "']").length > 0) {
-                $(".b-nav__list ul li a[data-url='" + Urling.controller + "']").addClass("active");
-                $(".b-footer__content-nav ul li a[data-url='" + Urling.controller + "']").addClass("active");
-            }
-            else if ($(".b-nav__list ul li a[data-url='" + Urling.action + "']").length > 0) {
-                $(".b-nav__list ul li a[data-url='" + Urling.action + "']").addClass("active");
-                $(".b-footer__content-nav ul li a[data-url='" + Urling.action + "']").addClass("active");
-            }
-            else if ($(".b-nav__list ul li a[data-url2='" + Urling.action + "']").length > 0) {
-                $(".b-nav__list ul li a[data-url2='" + Urling.action + "']").addClass("active");
-                $(".b-footer__content-nav ul li a[data-url2='" + Urling.action + "']").addClass("active");
-            }
-        }
-        else {
-            $(".b-nav__list ul li a[data-url='Index']").addClass("active");
-            $(".b-footer__content-nav ul li a[data-url='Index']").addClass("active");
-        }
     }
 }
