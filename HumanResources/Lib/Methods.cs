@@ -70,17 +70,17 @@ namespace HumanResources
 
             if (Cacher.Cache["CurrentUserRights_" + user.ID.ToString()] == null)
             {
-                List<usp_UserGroupRightsByUserIDAndUrl_Result> userRights = entity.usp_UserGroupRightsByUserIDAndUrl().Where(a => a.UserID == user.ID).ToList();
+                List<usp_UserGroupRightsByUserIDAndUrl_Result> userRights = entity.usp_UserGroupRightsByUserIDAndUrl(user.ID, null, null).ToList();
 
                 Cacher.Cache.Insert("CurrentUserRights_" + user.ID.ToString(), userRights, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
             }
 
             result = Cacher.Cache["CurrentUserRights_" + user.ID.ToString()] as List<usp_UserGroupRightsByUserIDAndUrl_Result>;
 
-            if (url != null)
+            if (url.ToNull() != null)
                 result = result.Where(a => a.Url == url).ToList();
 
-            if (process != null)
+            if (process.ToNull() != null)
                 result = result.Where(a => a.ShortName == process).ToList();
 
             return result;
@@ -93,7 +93,7 @@ namespace HumanResources
 
             List<usp_UserGroupRightsByUserIDAndUrl_Result> list = user.UserRights(url, process);
 
-            bool result = list.Count > 0 ? list.FirstOrDefault().Allow : false;
+            bool result = list.Count > 0 ? true : false;
 
             return result;
         }
@@ -160,7 +160,7 @@ namespace HumanResources
     {
         public static bool? ShowType(this string url)
         {
-            List<usp_TypesSelect_Result> list = Lib.ShowTypes(url);
+            List<usp_TypesShowSelect_Result> list = Lib.ShowTypes().Where(a=> a.Url == url).ToList();
 
             bool result = list.Count > 0 ? list.FirstOrDefault().Show : false;
 
@@ -215,25 +215,20 @@ namespace HumanResources
 
     public class Lib
     {
-        public static List<usp_TypesSelect_Result> ShowTypes(string url = null)
+        public static List<usp_TypesShowSelect_Result> ShowTypes()
         {
             HumanResourcesEntities entity = new HumanResourcesEntities();
 
-            List<usp_TypesSelect_Result> result;
+            List<usp_TypesShowSelect_Result> result;
 
             if (Cacher.Cache["ShowTypes"] == null)
             {
-                List<usp_TypesSelect_Result> showTypes = entity.usp_TypesSelect(null).ToList();
+                List<usp_TypesShowSelect_Result> showTypes = entity.usp_TypesShowSelect(null).ToList();
 
                 Cacher.Cache.Insert("ShowTypes", showTypes, null, DateTime.Now.AddMinutes(15), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
             }
 
-            result = Cacher.Cache["ShowTypes"] as List<usp_TypesSelect_Result>;
-
-            if (url != null)
-            {
-                result = result.Where(a => a.TypeName == url).ToList();
-            }
+            result = Cacher.Cache["ShowTypes"] as List<usp_TypesShowSelect_Result>;
 
             return result;
         }

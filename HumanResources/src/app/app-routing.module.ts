@@ -8,10 +8,13 @@ import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminLoginComponent } from './admin/views/home/login';
 import { AdminIndexComponent } from './admin/views/home/index';
 
-//Admin General
 import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
+
+import { AdminCityIndexComponent } from './admin/views/general/city';
+import { AdminCityInsertComponent } from './admin/views/general/city/insert';
+import { AdminCityUpdateComponent } from './admin/views/general/city/update';
 
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
@@ -21,13 +24,9 @@ import { AdminFilesIndexComponent } from './admin/views/general/files';
 import { AdminFilesInsertComponent } from './admin/views/general/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/general/files/update';
 
-import { AdminLinksIndexComponent } from './admin/views/general/links';
-import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
-import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
-
-import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
-import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
-import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
+import { AdminGalleryIndexComponent } from './admin/views/general/gallery';
+import { AdminGalleryInsertComponent } from './admin/views/general/gallery/insert';
+import { AdminGalleryUpdateComponent } from './admin/views/general/gallery/update';
 
 import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
 import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
@@ -46,10 +45,6 @@ import { AdminMetaUpdateComponent } from './admin/views/general/meta/update';
 import { AdminPicturesIndexComponent } from './admin/views/general/pictures';
 import { AdminPicturesInsertComponent } from './admin/views/general/pictures/insert';
 import { AdminPicturesUpdateComponent } from './admin/views/general/pictures/update';
-
-import { AdminTranslationIndexComponent } from './admin/views/general/translation';
-import { AdminTranslationInsertComponent } from './admin/views/general/translation/insert';
-import { AdminTranslationUpdateComponent } from './admin/views/general/translation/update';
 
 import { AdminTypesIndexComponent } from './admin/views/general/types';
 import { AdminTypesInsertComponent } from './admin/views/general/types/insert';
@@ -103,6 +98,11 @@ const routes: Routes = [
             { path: 'Admin/Category/Insert', component: AdminCategoryInsertComponent },
             { path: 'Admin/Category/Update/:id', component: AdminCategoryUpdateComponent },
 
+            { path: 'Admin/City', component: AdminCityIndexComponent },
+            { path: 'Admin/City/Index', component: AdminCityIndexComponent },
+            { path: 'Admin/City/Insert', component: AdminCityInsertComponent },
+            { path: 'Admin/City/Update/:id', component: AdminCityUpdateComponent },
+
             { path: 'Admin/Content', component: AdminContentIndexComponent },
             { path: 'Admin/Content/Index', component: AdminContentIndexComponent },
             { path: 'Admin/Content/Insert', component: AdminContentInsertComponent },
@@ -113,16 +113,10 @@ const routes: Routes = [
             { path: 'Admin/Files/Insert', component: AdminFilesInsertComponent },
             { path: 'Admin/Files/Update/:id', component: AdminFilesUpdateComponent },
 
-            { path: 'Admin/Links', component: AdminLinksIndexComponent },
-            { path: 'Admin/Links/Index', component: AdminLinksIndexComponent },
-            { path: 'Admin/Links/Insert', component: AdminLinksInsertComponent },
-            { path: 'Admin/Links/Insert/:linkID', component: AdminLinksInsertComponent },
-            { path: 'Admin/Links/Update/:id', component: AdminLinksUpdateComponent },
-
-            { path: 'Admin/LinkTypes', component: AdminLinkTypesIndexComponent },
-            { path: 'Admin/LinkTypes/Index', component: AdminLinkTypesIndexComponent },
-            { path: 'Admin/LinkTypes/Insert', component: AdminLinkTypesInsertComponent },
-            { path: 'Admin/LinkTypes/Update/:id', component: AdminLinkTypesUpdateComponent },
+            { path: 'Admin/Gallery', component: AdminGalleryIndexComponent },
+            { path: 'Admin/Gallery/Index', component: AdminGalleryIndexComponent },
+            { path: 'Admin/Gallery/Insert', component: AdminGalleryInsertComponent },
+            { path: 'Admin/Gallery/Update/:id', component: AdminGalleryUpdateComponent },
 
             { path: 'Admin/LogProcess', component: AdminLogProcessIndexComponent },
             { path: 'Admin/LogProcess/Index', component: AdminLogProcessIndexComponent },
@@ -147,11 +141,6 @@ const routes: Routes = [
             { path: 'Admin/Pictures/Index', component: AdminPicturesIndexComponent },
             { path: 'Admin/Pictures/Insert', component: AdminPicturesInsertComponent },
             { path: 'Admin/Pictures/Update/:id', component: AdminPicturesUpdateComponent },
-
-            { path: 'Admin/Translation', component: AdminTranslationIndexComponent },
-            { path: 'Admin/Translation/Index', component: AdminTranslationIndexComponent },
-            { path: 'Admin/Translation/Insert', component: AdminTranslationInsertComponent },
-            { path: 'Admin/Translation/Update/:id', component: AdminTranslationUpdateComponent },
 
             { path: 'Admin/Types', component: AdminTypesIndexComponent },
             { path: 'Admin/Types/Index', component: AdminTypesIndexComponent },

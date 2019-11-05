@@ -10,27 +10,19 @@ import { Router, RouterEvent, ActivationEnd } from '@angular/router';
 export class AdminLeftMenuComponent implements AfterViewInit {
     errorMsg: string;
 
-    hasRightCategory: boolean;
-    hasRightContent: boolean;
-    hasRightPictures: boolean;
-    hasRightFiles: boolean;
-    hasRightMeta: boolean;
-    hasRightLinkTypes: boolean;
-    hasRightLogs: boolean;
-    hasRightUsers: boolean;
-    hasRightTypes: boolean;
-    hasRightWebsite: boolean;
+    hasRightGeneral: boolean = false;
+    hasRightLinkTypes: boolean = false;
+    hasRightLogs: boolean = false;
+    hasRightUsers: boolean = false;
+    hasRightTypes: boolean = false;
+    hasRightWebsite: boolean = false;
 
-    showTypeCategory: boolean;
-    showTypeContent: boolean;
-    showTypePictures: boolean;
-    showTypeFiles: boolean;
-    showTypeMeta: boolean;
-    showTypeLinkTypes: boolean;
-    showTypeLogs: boolean;
-    showTypeUsers: boolean;
-    showTypeTypes: boolean;
-    showTypeWebsite: boolean;
+    showTypeGeneral: boolean = false;
+    showTypeLinkTypes: boolean = false;
+    showTypeLogs: boolean = false;
+    showTypeUsers: boolean = false;
+    showTypeTypes: boolean = false;
+    showTypeWebsite: boolean = false;
 
     constructor(private sharedService: SharedService, private router: Router) {
     }
@@ -40,12 +32,12 @@ export class AdminLeftMenuComponent implements AfterViewInit {
 
         this.router.events.subscribe((event: RouterEvent) => {
             if (event instanceof ActivationEnd) {
-                this.DoIt();
+                this.LinkActivation();
             }
         });
     }
 
-    DoIt() {
+    LinkActivation() {
         $("#hdnUrl").val(location.href);
 
         var AdminPath = "http://localhost/HumanResources/Admin";
@@ -98,65 +90,54 @@ export class AdminLeftMenuComponent implements AfterViewInit {
     }
 
     HasRightShowTypeControl() {
-        this.sharedService.getHasRight("Category", "s").subscribe((resData: any) => {
-            this.hasRightCategory = resData;
-            this.sharedService.getShowType("Category").subscribe((resData: any) => {
-                this.showTypeCategory = resData;
-                this.sharedService.getHasRight("Content", "s").subscribe((resData: any) => {
-                    this.hasRightContent = resData;
-                    this.sharedService.getShowType("Content").subscribe((resData: any) => {
-                        this.showTypeContent = resData;
-                        this.sharedService.getHasRight("Pictures", "s").subscribe((resData: any) => {
-                            this.hasRightPictures = resData;
-                            this.sharedService.getShowType("Pictures").subscribe((resData: any) => {
-                                this.showTypePictures = resData;
-                                this.sharedService.getHasRight("Files", "s").subscribe((resData: any) => {
-                                    this.hasRightFiles = resData;
-                                    this.sharedService.getShowType("Files").subscribe((resData: any) => {
-                                        this.showTypeFiles = resData;
-                                        this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
-                                            this.hasRightMeta = resData;
-                                            this.sharedService.getShowType("Meta").subscribe((resData: any) => {
-                                                this.showTypeMeta = resData;
-                                                this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData: any) => {
-                                                    this.hasRightLinkTypes = resData;
-                                                    this.sharedService.getShowType("LinkTypes").subscribe((resData: any) => {
-                                                        this.showTypeLinkTypes = resData;
-                                                        this.sharedService.getHasRight("Logs", "s").subscribe((resData: any) => {
-                                                            this.hasRightLogs = resData;
-                                                            this.sharedService.getShowType("Logs").subscribe((resData: any) => {
-                                                                this.showTypeLogs = resData;
-                                                                this.sharedService.getHasRight("Users", "s").subscribe((resData: any) => {
-                                                                    this.hasRightUsers = resData;
-                                                                    this.sharedService.getShowType("Users").subscribe((resData: any) => {
-                                                                        this.showTypeUsers = resData;
-                                                                        this.sharedService.getHasRight("Types", "s").subscribe((resData: any) => {
-                                                                            this.hasRightTypes = resData;
-                                                                            this.sharedService.getShowType("Types").subscribe((resData: any) => {
-                                                                                this.showTypeTypes = resData;
-                                                                                this.sharedService.getHasRight("Website", "s").subscribe((resData: any) => {
-                                                                                    this.hasRightWebsite = resData;
-                                                                                    this.sharedService.getShowType("Website").subscribe((resData: any) => {
-                                                                                        this.showTypeWebsite = resData;
-                                                                                        this.DoIt();
-                                                                                    }, resError => this.errorMsg = resError);
-                                                                                }, resError => this.errorMsg = resError);
-                                                                            }, resError => this.errorMsg = resError);
-                                                                        }, resError => this.errorMsg = resError);
-                                                                    }, resError => this.errorMsg = resError);
-                                                                }, resError => this.errorMsg = resError);
-                                                            }, resError => this.errorMsg = resError);
-                                                        }, resError => this.errorMsg = resError);
-                                                    }, resError => this.errorMsg = resError);
-                                                }, resError => this.errorMsg = resError);
-                                            }, resError => this.errorMsg = resError);
-                                        }, resError => this.errorMsg = resError);
-                                    }, resError => this.errorMsg = resError);
-                                }, resError => this.errorMsg = resError);
-                            }, resError => this.errorMsg = resError);
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
+        this.sharedService.getCurrentUserRights().subscribe((userRights: any) => {
+            userRights.forEach((item, i) => {
+                switch (item.Url) {
+                    case "General":
+                        switch (item.ShortName) {
+                            case "s": this.hasRightGeneral = true; break;
+                        }
+                        break;
+                    case "LinkTypes":
+                        switch (item.ShortName) {
+                            case "s": this.hasRightLinkTypes = true; break;
+                        }
+                        break;
+                    case "Logs":
+                        switch (item.ShortName) {
+                            case "s": this.hasRightLogs = true; break;
+                        }
+                        break;
+                    case "Users":
+                        switch (item.ShortName) {
+                            case "s": this.hasRightUsers = true; break;
+                        }
+                        break;
+                    case "Types":
+                        switch (item.ShortName) {
+                            case "s": this.hasRightTypes = true; break;
+                        }
+                        break;
+                    case "Website":
+                        switch (item.ShortName) {
+                            case "s": this.hasRightWebsite = true; break;
+                        }
+                        break;
+                }
+            });
+
+            this.sharedService.getShowTypes().subscribe((typeShow: any) => {
+                typeShow.forEach((item, i) => {
+                    switch (item.Url) {
+                        case "General": this.showTypeGeneral = true; break;
+                        case "LinkTypes": this.showTypeLinkTypes = true; break;
+                        case "Logs": this.showTypeLogs = true; break;
+                        case "Users": this.showTypeUsers = true; break;
+                        case "Types": this.showTypeTypes = true; break;
+                        case "Website": this.showTypeWebsite = true; break;
+                    }
+                    this.LinkActivation();
+                });
             }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }

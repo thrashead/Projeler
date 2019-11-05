@@ -77,10 +77,10 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/Property/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="Property" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="rmvLink" href="#rmvData" data-toggle="modal" data-controller="Property" [attr.data-id]="item?.ID">Kaldır</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="Property" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/Property/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="Property" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="removeShow"><a class="rmvLink" href="#rmvData" data-toggle="modal" data-controller="Property" [attr.data-id]="item?.ID">Kaldır</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="Property" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/Property/Insert" class="btn btn-primary btn-add">Emlak Ekle</a>
         </div>
 
@@ -120,9 +120,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/PropertyCategoriesT/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyCategoriesT" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyCategoriesT" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/PropertyCategoriesT/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="PropertyCategoriesT" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="PropertyCategoriesT" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -134,9 +134,11 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/PropertyCategoriesT/Insert" class="btn btn-primary btn-add">Emlak Kategorisi (Dil) Ekle</a>
         </div>
+
+        <input id="hdnType" type="hidden" value="Website" />
     </div>
 </div>
 

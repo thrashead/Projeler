@@ -1,61 +1,94 @@
 ﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
+import { ModelService } from "../../../services/model";
+declare var DataTable;
 
 @Component({
-    templateUrl: './update.html'
+	templateUrl: './update.html'
 })
 
 export class AdminTypesUpdateComponent {
-    errorMsg: string;
-    id: string;
+	errorMsg: string;
+	id: string;
 
-    duzenleForm: FormGroup;
-    data: any;
+	updateForm: FormGroup;
+	data: any;
 
-    model: any;
+	model: any;
 
-    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
-    }
+	callTable: boolean;
 
-    ngOnInit() {
-        this.route.params.subscribe((params: Params) => {
-            this.id = params['id'];
-            this.service.get("Types", "Update", this.id).subscribe((resData: any) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
+	private subscription: Subscription = new Subscription();
 
-        this.duzenleForm = this.formBuilder.group({
-            ID: new FormControl(null, [Validators.required, Validators.min(1)]),
-            TypeName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
-            Url: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-            TableName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
-            Linkable: new FormControl(null),
-            Show: new FormControl(null),
-        });
-    }
+	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+	}
 
-    onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.TypeName = this.duzenleForm.get("TypeName").value;
-        this.data.Url = this.duzenleForm.get("Url").value;
-        this.data.TableName = this.duzenleForm.get("TableName").value;
-        this.data.Linkable = this.duzenleForm.get("Linkable").value;
-        this.data.Show = this.duzenleForm.get("Show").value;
+	ngOnInit() {
+		this.data = new Object();
 
-        this.service.post("Types", "Update", this.data)
-            .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.router.navigate(['/Admin/Types']);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
-                }
-            },
-                resError => this.errorMsg = resError);
-    }
+		this.callTable = true;
+		this.FillData();
+
+		this.updateForm = this.formBuilder.group({
+			ID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			TypeName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+			TableName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+			Show: new FormControl(null),
+		});
+	}
+
+	FillData() {
+		if (this.callTable == true) {
+			this.route.params.subscribe((params: Params) => {
+				this.id = params['id'];
+				this.subscription = this.service.get("Types", "Update", this.id).subscribe((answer: any) => {
+					this.model = answer;
+					this.callTable = false;
+
+					setTimeout(() => {
+						DataTable();
+
+						$(document)
+							.off("click", ".fg-button")
+							.on("click", ".fg-button", () => {
+								setTimeout(() => {
+									this.FillData();
+								}, 1);
+							});
+					}, 1);
+				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+			});
+		}
+
+		setTimeout(() => {
+			if ($(".dropdown-menu").first().find("a").length <= 0) {
+				$(".btn-group").remove();
+			}
+		}, 1);
+	}
+
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
+
+	onSubmit() {
+		this.data.ID = this.updateForm.get("ID").value;
+		this.data.TypeName = this.updateForm.get("TypeName").value;
+		this.data.TableName = this.updateForm.get("TableName").value;
+		this.data.Show = this.updateForm.get("Show").value;
+
+		this.service.post("Types", "Update", this.data)
+			.subscribe((answer: any) => {
+				if (answer.Mesaj == null) {
+					this.router.navigate(['/Admin/Types']);
+				}
+				else {
+					$(".alertMessage").text(answer.Mesaj);
+					$(".alert-error").fadeIn("slow");
+				}
+			},
+				resError => this.errorMsg = resError);
+	}
 }

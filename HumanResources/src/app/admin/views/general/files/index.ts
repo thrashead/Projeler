@@ -11,10 +11,10 @@ export class AdminFilesIndexComponent {
     errorMsg: string;
     DosyaList: any;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
-    removeShow: boolean;
+    insertShow: boolean = false;
+    updateShow: boolean = false;
+    deleteShow: boolean = false;
+    removeShow: boolean = false;
 
     callTable: boolean;
 
@@ -27,39 +27,36 @@ export class AdminFilesIndexComponent {
     }
 
     UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight: boolean) => {
-                        this.removeShow = rRight;
+        this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+            userRights.forEach((item, i) => {
+                switch (item.ShortName) {
+                    case "i": this.insertShow = true; break;
+                    case "u": this.updateShow = true; break;
+                    case "d": this.deleteShow = true; break;
+                    case "r": this.removeShow = true; break;
+                }
+            });
 
-                        if (this.callTable == true) {
-                            this.service.get("Files", "Index").subscribe((resData: any) => {
-                                this.DosyaList = resData;
-                                this.callTable = false;
+            if (this.callTable == true) {
+                this.service.get("Files", "Index").subscribe((resData: any) => {
+                    this.DosyaList = resData;
+                    this.callTable = false;
 
-                                DataTable();
+                    DataTable();
 
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
-
+                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                         setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
+                            this.UserRightsControl($("#hdnType").val());
                         }, 1);
-
-                    }, resError => this.errorMsg = resError);
+                    });
                 }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
+            }
+
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
         }, resError => this.errorMsg = resError);
     }
 }

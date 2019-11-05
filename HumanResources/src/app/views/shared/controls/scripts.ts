@@ -5,7 +5,7 @@ import { Router, ActivationEnd, RouterEvent } from '@angular/router';
 //import '../../../../../Content/js/modernizr.js';
 //import '../../../../../Content/js/pathscript.js';
 //import '../../../../../Content/js/script.js';
-//import '../../../../../Content/js/bootstrap.min.js';
+import '../../../../../Content/js/bootstrap.min.js';
 //import '../../../../../Content/js/wow.min.js';
 //import '../../../../../Content/js/slick.min.js';
 //import '../../../../../Content/js/parallax.js';

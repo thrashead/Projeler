@@ -17,7 +17,6 @@ namespace HumanResources.Data
         public string TypeName { get; set; }
         public string Url { get; set; }
         public string TableName { get; set; }
-        public bool Linkable { get; set; }
         public bool Show { get; set; }
     }
 }

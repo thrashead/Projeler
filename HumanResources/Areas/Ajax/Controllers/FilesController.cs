@@ -13,7 +13,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult Index()
         {
-            if (!curUser.HasRight("Files"))
+            if (!curUser.HasRight("General"))
                 return Json(null, JsonRequestBehavior.AllowGet);
 
             return Json(model.List(), JsonRequestBehavior.AllowGet);
@@ -22,7 +22,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpPost]
         public JsonResult Insert([System.Web.Http.FromBody] Files dosya)
         {
-            if (!curUser.HasRight("Files", "i"))
+            if (!curUser.HasRight("General", "i"))
                 return Json(null);
 
             bool result = model.Insert(dosya);
@@ -42,7 +42,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult Update(int id)
         {
-            if (!curUser.HasRight("Files", "u"))
+            if (!curUser.HasRight("General", "u"))
                 return Json(null, JsonRequestBehavior.AllowGet);
 
             return Json(model.Select(id), JsonRequestBehavior.AllowGet);
@@ -51,7 +51,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpPost]
         public JsonResult Update([System.Web.Http.FromBody] Files dosya)
         {
-            if (!curUser.HasRight("Files", "u"))
+            if (!curUser.HasRight("General", "u"))
                 return Json(null);
 
             if (dosya.HasFile == true)
@@ -83,7 +83,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult Delete(int id)
         {
-            if (!curUser.HasRight("Files", "d"))
+            if (!curUser.HasRight("General", "d"))
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             try
@@ -112,7 +112,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpGet]
         public JsonResult Remove(int id)
         {
-            if (!curUser.HasRight("Files", "r"))
+            if (!curUser.HasRight("General", "r"))
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             try
@@ -141,7 +141,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpPost]
         public JsonResult InsertUpload([System.Web.Http.FromBody] Files dosya)
         {
-            if (!curUser.HasRight("Files", "i"))
+            if (!curUser.HasRight("General", "i"))
                 return Json(null);
 
             Uploader file = Uploader.UploadFile(true);
@@ -163,7 +163,7 @@ namespace HumanResources.Areas.Ajax.Controllers
         [HttpPost]
         public JsonResult UpdateUpload([System.Web.Http.FromBody] Files dosya)
         {
-            if (!curUser.HasRight("Files", "u"))
+            if (!curUser.HasRight("General", "u"))
                 return Json(null);
 
             Uploader file = Uploader.UploadFile(true);

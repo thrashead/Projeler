@@ -82,15 +82,15 @@ namespace Emlak.Areas.Ajax.Controllers
         }
 
         [HttpGet]
-        public JsonResult CurrentUserRights()
+        public JsonResult CurrentUserRights(string url, string process)
         {
-            return Json(curUser.UserRights(null, null), JsonRequestBehavior.AllowGet);
+            return Json(curUser.UserRights(url, process), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public JsonResult ShowType(string url)
+        public JsonResult ShowTypes()
         {
-            return Json(Lib.ShowTypes(url), JsonRequestBehavior.AllowGet);
+            return Json(Lib.ShowTypes(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

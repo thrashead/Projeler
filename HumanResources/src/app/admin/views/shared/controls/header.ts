@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 export class AdminHeaderComponent {
     errorMsg: string;
-    website: string = "http://localhost/RentACar/";
+    website: string = "http://localhost/HumanResources/";
 
     kullanici: any;
 

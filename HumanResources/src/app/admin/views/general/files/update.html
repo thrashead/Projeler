@@ -36,7 +36,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
-                    <a class="btn btn-mini btn-info" href="/RentACar/Uploads/{{ model?.FileUrl }}" target="_blank">{{ model?.FileUrl }}</a><br /><br />
+                    <a class="btn btn-mini btn-info" href="/HumanResources/Uploads/{{ model?.FileUrl }}" target="_blank">{{ model?.FileUrl }}</a><br /><br />
                     <input id="FileUrl" [ngModel]="model?.FileUrl" formControlName="FileUrl" type="hidden" value="{{ model?.FileUrl }}" />
                     <input id="fileTemp" type="file" (change)="onFileSelect($event)" name="fileTemp" />
                     <br />

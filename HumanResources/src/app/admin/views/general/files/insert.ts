@@ -42,29 +42,31 @@ export class AdminFilesInsertComponent {
 
         this.service.post("Files", "InsertUpload", this.uploadData)
             .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.data = new Object();
-                    this.data.Title = this.ekleForm.get("Title").value;
-                    this.data.Description = this.ekleForm.get("Description").value;
-                    this.data.FileUrl = answer.FileUrl;
-                    this.data.Code = this.ekleForm.get("Code").value;
-                    this.data.Active = this.ekleForm.get("Active").value;
+                if (answer != null) {
+                    if (answer.Mesaj == null) {
+                        this.data = new Object();
+                        this.data.Title = this.ekleForm.get("Title").value;
+                        this.data.Description = this.ekleForm.get("Description").value;
+                        this.data.FileUrl = answer.FileUrl;
+                        this.data.Code = this.ekleForm.get("Code").value;
+                        this.data.Active = this.ekleForm.get("Active").value;
 
-                    this.service.post("Files", "Insert", this.data)
-                        .subscribe((answer2: any) => {
-                            if (answer2.Mesaj == null) {
-                                this.router.navigate(['/Admin/Files']);
-                            }
-                            else {
-                                $(".alertMessage").text(answer2.Mesaj);
-                                $(".alert-error").fadeIn("slow");
-                            }
-                        },
-                            resError => this.errorMsg = resError);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
+                        this.service.post("Files", "Insert", this.data)
+                            .subscribe((answer2: any) => {
+                                if (answer2.Mesaj == null) {
+                                    this.router.navigate(['/Admin/Files']);
+                                }
+                                else {
+                                    $(".alertMessage").text(answer2.Mesaj);
+                                    $(".alert-error").fadeIn("slow");
+                                }
+                            },
+                                resError => this.errorMsg = resError);
+                    }
+                    else {
+                        $(".alertMessage").text(answer.Mesaj);
+                        $(".alert-error").fadeIn("slow");
+                    }
                 }
             },
                 resError => this.errorMsg = resError);

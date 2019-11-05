@@ -15,9 +15,13 @@ namespace HumanResources.Data
     {
         public int ID { get; set; }
         public int ParentID { get; set; }
-        public string Title { get; set; }
-        public string Url { get; set; }
+        public string CategoryName { get; set; }
         public string Code { get; set; }
-        public bool Active { get; set; }
+        public string ShortDesc1 { get; set; }
+        public string Description1 { get; set; }
+        public string ShortDesc2 { get; set; }
+        public string Description2 { get; set; }
+        public string Url { get; set; }
+        public bool Show { get; set; }
     }
 }

@@ -1,8 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
-import { SharedService } from '../../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { ModelService } from "../../../services/model";
+import { SharedService } from '../../../services/shared';
+import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
@@ -19,9 +20,9 @@ export class AdminLinkTypesUpdateComponent {
     linkTypeTitle: string;
     model: any;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
+	insertShow: boolean = false;
+	updateShow: boolean = false;
+	deleteShow: boolean = false;
 
     callTable: boolean;
 
@@ -30,7 +31,7 @@ export class AdminLinkTypesUpdateComponent {
 
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnModel").val());
+        this.FillData($("#hdnModel").val());
 
         this.duzenleForm = this.formBuilder.group({
             ID: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -82,52 +83,48 @@ export class AdminLinkTypesUpdateComponent {
                 resError => this.errorMsg = resError);
     }
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
+    FillData(Model: any) {
+		this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+			this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+			this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+			this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
 
-                    if (this.callTable == true) {
-                        this.route.params.subscribe((params: Params) => {
-                            this.id = params['id'];
-                            this.service.get("LinkTypes", "Update", this.id).subscribe((resData: any) => {
-                                for (var i = 0; i < resData.LinkList.length; i++) {
-                                    switch (resData.LinkedTypeID) {
-                                        case 1: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedCategoryAdi; break;
-                                        case 2: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedContentAdi; break;
-                                        case 4: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedGalleryAdi; break;
-                                        case 5: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPictureAdi; break;
-                                        case 6: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFileAdi; break;
-                                        case 7: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi; break;
-                                        case 18: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPropertyAdi; break;
-                                    }
-                                }
-
-                                this.model = resData;
-                                this.callTable = false;
-
-                                DataTable();
-
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnModel").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        });
-                    }
-
-                    setTimeout(() => {
-                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                            $(".btn-group").remove();
+            if (this.callTable == true) {
+                this.route.params.subscribe((params: Params) => {
+                    this.id = params['id'];
+                    this.service.get("LinkTypes", "Update", this.id).subscribe((resData: any) => {
+                        for (var i = 0; i < resData.LinkList.length; i++) {
+                            switch (resData.LinkedTypeID) {
+                                case 1: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedCategoryAdi; break;
+                                case 2: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedContentAdi; break;
+                                case 4: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedGalleryAdi; break;
+                                case 5: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPictureAdi; break;
+                                case 6: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFileAdi; break;
+                                case 7: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi; break;
+                                case 18: resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPropertyAdi; break;
+                            }
                         }
-                    }, 1);
 
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
+                        this.model = resData;
+                        this.callTable = false;
+
+                        DataTable();
+
+                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                            setTimeout(() => {
+                                this.FillData($("#hdnModel").val());
+                            }, 1);
+                        });
+                    }, resError => this.errorMsg = resError);
+                });
+            }
+
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
+
         }, resError => this.errorMsg = resError);
     }
 }

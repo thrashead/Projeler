@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { ModelService } from "../../../services/model";
 
 @Component({
     templateUrl: './update.html'

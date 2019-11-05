@@ -14,9 +14,12 @@ namespace HumanResources.Data
     public partial class usp_ContentSelect_Result
     {
         public int ID { get; set; }
-        public string Title { get; set; }
-        public string Url { get; set; }
+        public string ContentName { get; set; }
         public string Code { get; set; }
-        public bool Active { get; set; }
+        public string ShortDesc1 { get; set; }
+        public string Description1 { get; set; }
+        public string ShortDesc2 { get; set; }
+        public string Description2 { get; set; }
+        public string Url { get; set; }
     }
 }

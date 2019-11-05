@@ -1,6 +1,7 @@
 ﻿import { Component } from "@angular/core";
 import { ModelService } from "../../../services/model";
 import { SharedService } from '../../../services/shared';
+import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
@@ -11,9 +12,9 @@ export class AdminUserGroupTablesIndexComponent {
     errorMsg: string;
     KullaniciGrupTabloList: any;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
+	insertShow: boolean = false;
+	updateShow: boolean = false;
+	deleteShow: boolean = false;
 
     callTable: boolean;
 
@@ -22,40 +23,36 @@ export class AdminUserGroupTablesIndexComponent {
 
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnModel").val());
+        this.FillData($("#hdnModel").val());
     }
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
+    FillData(Model: any) {
+		this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+			this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+			this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+			this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
 
-                    if (this.callTable == true) {
-                        this.service.get("UserGroupTables", "Index").subscribe((resData: any) => {
-                            this.KullaniciGrupTabloList = resData;
-                            this.callTable = false;
+            if (this.callTable == true) {
+                this.service.get("UserGroupTables", "Index").subscribe((resData: any) => {
+                    this.KullaniciGrupTabloList = resData;
+                    this.callTable = false;
 
-                            DataTable();
+                    DataTable();
 
-                            $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                setTimeout(() => {
-                                    this.UserRightsControl($("#hdnModel").val());
-                                }, 1);
-                            });
-                        }, resError => this.errorMsg = resError);
-                    }
-
-                    setTimeout(() => {
-                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                            $(".btn-group").remove();
-                        }
-                    }, 1);
-
+                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData($("#hdnModel").val());
+                        }, 1);
+                    });
                 }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
+            }
+
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
+
         }, resError => this.errorMsg = resError);
     }
 }

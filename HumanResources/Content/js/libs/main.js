@@ -12294,13 +12294,6 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
         ul.css({ 'display': 'block' });
     }
 
-    // === Tooltips === //
-    $('.tip').tooltip();
-    $('.tip-left').tooltip({ placement: 'left' });
-    $('.tip-right').tooltip({ placement: 'right' });
-    $('.tip-top').tooltip({ placement: 'top' });
-    $('.tip-bottom').tooltip({ placement: 'bottom' });
-
     // === Fixes the position of buttons group in content header and top user navigation === //
     function fix_position() {
         var uwidth = $('#user-nav > ul').width();
@@ -12364,77 +12357,6 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
 
 });
 
-
-
-/***/ }),
-
-/***/ "./Content/admin/js/matrix.popover.js":
-/*!********************************************!*\
-  !*** ./Content/admin/js/matrix.popover.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-$(function ()
-{ $("#example, #example2, #example3, #example4").popover();
-});
-
-
-!function( $ ) {
-"use strict"
-var Popover = function ( element, options ) {
-this.init('popover', element, options)
-}
-/* NOTE: POPOVER EXTENDS BOOTSTRAP-TOOLTIP.js
-========================================== */
-Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype, {
-constructor: Popover
-, setContent: function () {
-var $tip = this.tip()
-, title = this.getTitle()
-, content = this.getContent()
-$tip.find('.popover-title')[ $.type(title) == 'object' ? 'append' : 'html' ](title)
-$tip.find('.popover-content > *')[ $.type(content) == 'object' ? 'append' : 'html' ](content)
-$tip.removeClass('fade top bottom left right in')
-}
-, hasContent: function () {
-return this.getTitle() || this.getContent()
-}
-, getContent: function () {
-var content
-, $e = this.$element
-, o = this.options
-content = $e.attr('data-content')
-|| (typeof o.content == 'function' ? o.content.call($e[0]) : o.content)
-content = content.toString().replace(/(^\s*|\s*$)/, "")
-return content
-}
-, tip: function() {
-if (!this.$tip) {
-this.$tip = $(this.options.template)
-}
-return this.$tip
-}
-})
-/* POPOVER PLUGIN DEFINITION
-* ======================= */
-$.fn.popover = function ( option ) {
-return this.each(function () {
-var $this = $(this)
-, data = $this.data('popover')
-, options = typeof option == 'object' && option
-if (!data) $this.data('popover', (data = new Popover(this, options)))
-if (typeof option == 'string') data[option]()
-})
-}
-$.fn.popover.Constructor = Popover
-$.fn.popover.defaults = $.extend({} , $.fn.tooltip.defaults, {
-placement: 'right'
-, content: ''
-, template: '<div class="popover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
-})
-}( window.jQuery );
 
 
 /***/ }),
@@ -12693,6 +12615,23 @@ module.exports = "\n@import url('https://fonts.googleapis.com/css?family=Open+Sa
 
 /***/ }),
 
+/***/ "./Content/js/bootstrap.min.js":
+/*!*************************************!*\
+  !*** ./Content/js/bootstrap.min.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+  * Bootstrap v4.1.1 (https://getbootstrap.com/)
+  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+!function(t,e){ true?e(exports,__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")/*,require("popper.js")*/):undefined}(this,function(t,e,c){"use strict";function i(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function o(t,e,n){return e&&i(t.prototype,e),n&&i(t,n),t}function h(r){for(var t=1;t<arguments.length;t++){var s=null!=arguments[t]?arguments[t]:{},e=Object.keys(s);"function"==typeof Object.getOwnPropertySymbols&&(e=e.concat(Object.getOwnPropertySymbols(s).filter(function(t){return Object.getOwnPropertyDescriptor(s,t).enumerable}))),e.forEach(function(t){var e,n,i;e=r,i=s[n=t],n in e?Object.defineProperty(e,n,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[n]=i})}return r}e=e&&e.hasOwnProperty("default")?e.default:e,c=c&&c.hasOwnProperty("default")?c.default:c;var r,n,s,a,l,u,f,d,_,g,m,p,v,E,y,T,C,I,A,D,b,S,w,N,O,k,P,L,j,R,H,W,M,x,U,K,F,V,Q,B,Y,G,q,z,X,J,Z,$,tt,et,nt,it,rt,st,ot,at,lt,ht,ct,ut,ft,dt,_t,gt,mt,pt,vt,Et,yt,Tt,Ct,It,At,Dt,bt,St,wt,Nt,Ot,kt,Pt,Lt,jt,Rt,Ht,Wt,Mt,xt,Ut,Kt,Ft,Vt,Qt,Bt,Yt,Gt,qt,zt,Xt,Jt,Zt,$t,te,ee,ne,ie,re,se,oe,ae,le,he,ce,ue,fe,de,_e,ge,me,pe,ve,Ee,ye,Te,Ce,Ie,Ae,De,be,Se,we,Ne,Oe,ke,Pe,Le,je,Re,He,We,Me,xe,Ue,Ke,Fe,Ve,Qe,Be,Ye,Ge,qe,ze,Xe,Je,Ze,$e,tn,en,nn,rn,sn,on,an,ln,hn,cn,un,fn,dn,_n,gn,mn,pn,vn,En,yn,Tn,Cn=function(i){var e="transitionend";function t(t){var e=this,n=!1;return i(this).one(l.TRANSITION_END,function(){n=!0}),setTimeout(function(){n||l.triggerTransitionEnd(e)},t),this}var l={TRANSITION_END:"bsTransitionEnd",getUID:function(t){for(;t+=~~(1e6*Math.random()),document.getElementById(t););return t},getSelectorFromElement:function(t){var e=t.getAttribute("data-target");e&&"#"!==e||(e=t.getAttribute("href")||"");try{return 0<i(document).find(e).length?e:null}catch(t){return null}},getTransitionDurationFromElement:function(t){if(!t)return 0;var e=i(t).css("transition-duration");return parseFloat(e)?(e=e.split(",")[0],1e3*parseFloat(e)):0},reflow:function(t){return t.offsetHeight},triggerTransitionEnd:function(t){i(t).trigger(e)},supportsTransitionEnd:function(){return Boolean(e)},isElement:function(t){return(t[0]||t).nodeType},typeCheckConfig:function(t,e,n){for(var i in n)if(Object.prototype.hasOwnProperty.call(n,i)){var r=n[i],s=e[i],o=s&&l.isElement(s)?"element":(a=s,{}.toString.call(a).match(/\s([a-z]+)/i)[1].toLowerCase());if(!new RegExp(r).test(o))throw new Error(t.toUpperCase()+': Option "'+i+'" provided type "'+o+'" but expected type "'+r+'".')}var a}};return i.fn.emulateTransitionEnd=t,i.event.special[l.TRANSITION_END]={bindType:e,delegateType:e,handle:function(t){if(i(t.target).is(this))return t.handleObj.handler.apply(this,arguments)}},l}(e),In=(n="alert",a="."+(s="bs.alert"),l=(r=e).fn[n],u={CLOSE:"close"+a,CLOSED:"closed"+a,CLICK_DATA_API:"click"+a+".data-api"},f="alert",d="fade",_="show",g=function(){function i(t){this._element=t}var t=i.prototype;return t.close=function(t){var e=this._element;t&&(e=this._getRootElement(t)),this._triggerCloseEvent(e).isDefaultPrevented()||this._removeElement(e)},t.dispose=function(){r.removeData(this._element,s),this._element=null},t._getRootElement=function(t){var e=Cn.getSelectorFromElement(t),n=!1;return e&&(n=r(e)[0]),n||(n=r(t).closest("."+f)[0]),n},t._triggerCloseEvent=function(t){var e=r.Event(u.CLOSE);return r(t).trigger(e),e},t._removeElement=function(e){var n=this;if(r(e).removeClass(_),r(e).hasClass(d)){var t=Cn.getTransitionDurationFromElement(e);r(e).one(Cn.TRANSITION_END,function(t){return n._destroyElement(e,t)}).emulateTransitionEnd(t)}else this._destroyElement(e)},t._destroyElement=function(t){r(t).detach().trigger(u.CLOSED).remove()},i._jQueryInterface=function(n){return this.each(function(){var t=r(this),e=t.data(s);e||(e=new i(this),t.data(s,e)),"close"===n&&e[n](this)})},i._handleDismiss=function(e){return function(t){t&&t.preventDefault(),e.close(this)}},o(i,null,[{key:"VERSION",get:function(){return"4.1.1"}}]),i}(),r(document).on(u.CLICK_DATA_API,'[data-dismiss="alert"]',g._handleDismiss(new g)),r.fn[n]=g._jQueryInterface,r.fn[n].Constructor=g,r.fn[n].noConflict=function(){return r.fn[n]=l,g._jQueryInterface},g),An=(p="button",E="."+(v="bs.button"),y=".data-api",T=(m=e).fn[p],C="active",I="btn",D='[data-toggle^="button"]',b='[data-toggle="buttons"]',S="input",w=".active",N=".btn",O={CLICK_DATA_API:"click"+E+y,FOCUS_BLUR_DATA_API:(A="focus")+E+y+" blur"+E+y},k=function(){function n(t){this._element=t}var t=n.prototype;return t.toggle=function(){var t=!0,e=!0,n=m(this._element).closest(b)[0];if(n){var i=m(this._element).find(S)[0];if(i){if("radio"===i.type)if(i.checked&&m(this._element).hasClass(C))t=!1;else{var r=m(n).find(w)[0];r&&m(r).removeClass(C)}if(t){if(i.hasAttribute("disabled")||n.hasAttribute("disabled")||i.classList.contains("disabled")||n.classList.contains("disabled"))return;i.checked=!m(this._element).hasClass(C),m(i).trigger("change")}i.focus(),e=!1}}e&&this._element.setAttribute("aria-pressed",!m(this._element).hasClass(C)),t&&m(this._element).toggleClass(C)},t.dispose=function(){m.removeData(this._element,v),this._element=null},n._jQueryInterface=function(e){return this.each(function(){var t=m(this).data(v);t||(t=new n(this),m(this).data(v,t)),"toggle"===e&&t[e]()})},o(n,null,[{key:"VERSION",get:function(){return"4.1.1"}}]),n}(),m(document).on(O.CLICK_DATA_API,D,function(t){t.preventDefault();var e=t.target;m(e).hasClass(I)||(e=m(e).closest(N)),k._jQueryInterface.call(m(e),"toggle")}).on(O.FOCUS_BLUR_DATA_API,D,function(t){var e=m(t.target).closest(N)[0];m(e).toggleClass(A,/^focus(in)?$/.test(t.type))}),m.fn[p]=k._jQueryInterface,m.fn[p].Constructor=k,m.fn[p].noConflict=function(){return m.fn[p]=T,k._jQueryInterface},k),Dn=(L="carousel",R="."+(j="bs.carousel"),H=".data-api",W=(P=e).fn[L],M={interval:5e3,keyboard:!0,slide:!1,pause:"hover",wrap:!0},x={interval:"(number|boolean)",keyboard:"boolean",slide:"(boolean|string)",pause:"(string|boolean)",wrap:"boolean"},U="next",K="prev",F="left",V="right",Q={SLIDE:"slide"+R,SLID:"slid"+R,KEYDOWN:"keydown"+R,MOUSEENTER:"mouseenter"+R,MOUSELEAVE:"mouseleave"+R,TOUCHEND:"touchend"+R,LOAD_DATA_API:"load"+R+H,CLICK_DATA_API:"click"+R+H},B="carousel",Y="active",G="slide",q="carousel-item-right",z="carousel-item-left",X="carousel-item-next",J="carousel-item-prev",Z={ACTIVE:".active",ACTIVE_ITEM:".active.carousel-item",ITEM:".carousel-item",NEXT_PREV:".carousel-item-next, .carousel-item-prev",INDICATORS:".carousel-indicators",DATA_SLIDE:"[data-slide], [data-slide-to]",DATA_RIDE:'[data-ride="carousel"]'},$=function(){function s(t,e){this._items=null,this._interval=null,this._activeElement=null,this._isPaused=!1,this._isSliding=!1,this.touchTimeout=null,this._config=this._getConfig(e),this._element=P(t)[0],this._indicatorsElement=P(this._element).find(Z.INDICATORS)[0],this._addEventListeners()}var t=s.prototype;return t.next=function(){this._isSliding||this._slide(U)},t.nextWhenVisible=function(){!document.hidden&&P(this._element).is(":visible")&&"hidden"!==P(this._element).css("visibility")&&this.next()},t.prev=function(){this._isSliding||this._slide(K)},t.pause=function(t){t||(this._isPaused=!0),P(this._element).find(Z.NEXT_PREV)[0]&&(Cn.triggerTransitionEnd(this._element),this.cycle(!0)),clearInterval(this._interval),this._interval=null},t.cycle=function(t){t||(this._isPaused=!1),this._interval&&(clearInterval(this._interval),this._interval=null),this._config.interval&&!this._isPaused&&(this._interval=setInterval((document.visibilityState?this.nextWhenVisible:this.next).bind(this),this._config.interval))},t.to=function(t){var e=this;this._activeElement=P(this._element).find(Z.ACTIVE_ITEM)[0];var n=this._getItemIndex(this._activeElement);if(!(t>this._items.length-1||t<0))if(this._isSliding)P(this._element).one(Q.SLID,function(){return e.to(t)});else{if(n===t)return this.pause(),void this.cycle();var i=n<t?U:K;this._slide(i,this._items[t])}},t.dispose=function(){P(this._element).off(R),P.removeData(this._element,j),this._items=null,this._config=null,this._element=null,this._interval=null,this._isPaused=null,this._isSliding=null,this._activeElement=null,this._indicatorsElement=null},t._getConfig=function(t){return t=h({},M,t),Cn.typeCheckConfig(L,t,x),t},t._addEventListeners=function(){var e=this;this._config.keyboard&&P(this._element).on(Q.KEYDOWN,function(t){return e._keydown(t)}),"hover"===this._config.pause&&(P(this._element).on(Q.MOUSEENTER,function(t){return e.pause(t)}).on(Q.MOUSELEAVE,function(t){return e.cycle(t)}),"ontouchstart"in document.documentElement&&P(this._element).on(Q.TOUCHEND,function(){e.pause(),e.touchTimeout&&clearTimeout(e.touchTimeout),e.touchTimeout=setTimeout(function(t){return e.cycle(t)},500+e._config.interval)}))},t._keydown=function(t){if(!/input|textarea/i.test(t.target.tagName))switch(t.which){case 37:t.preventDefault(),this.prev();break;case 39:t.preventDefault(),this.next()}},t._getItemIndex=function(t){return this._items=P.makeArray(P(t).parent().find(Z.ITEM)),this._items.indexOf(t)},t._getItemByDirection=function(t,e){var n=t===U,i=t===K,r=this._getItemIndex(e),s=this._items.length-1;if((i&&0===r||n&&r===s)&&!this._config.wrap)return e;var o=(r+(t===K?-1:1))%this._items.length;return-1===o?this._items[this._items.length-1]:this._items[o]},t._triggerSlideEvent=function(t,e){var n=this._getItemIndex(t),i=this._getItemIndex(P(this._element).find(Z.ACTIVE_ITEM)[0]),r=P.Event(Q.SLIDE,{relatedTarget:t,direction:e,from:i,to:n});return P(this._element).trigger(r),r},t._setActiveIndicatorElement=function(t){if(this._indicatorsElement){P(this._indicatorsElement).find(Z.ACTIVE).removeClass(Y);var e=this._indicatorsElement.children[this._getItemIndex(t)];e&&P(e).addClass(Y)}},t._slide=function(t,e){var n,i,r,s=this,o=P(this._element).find(Z.ACTIVE_ITEM)[0],a=this._getItemIndex(o),l=e||o&&this._getItemByDirection(t,o),h=this._getItemIndex(l),c=Boolean(this._interval);if(t===U?(n=z,i=X,r=F):(n=q,i=J,r=V),l&&P(l).hasClass(Y))this._isSliding=!1;else if(!this._triggerSlideEvent(l,r).isDefaultPrevented()&&o&&l){this._isSliding=!0,c&&this.pause(),this._setActiveIndicatorElement(l);var u=P.Event(Q.SLID,{relatedTarget:l,direction:r,from:a,to:h});if(P(this._element).hasClass(G)){P(l).addClass(i),Cn.reflow(l),P(o).addClass(n),P(l).addClass(n);var f=Cn.getTransitionDurationFromElement(o);P(o).one(Cn.TRANSITION_END,function(){P(l).removeClass(n+" "+i).addClass(Y),P(o).removeClass(Y+" "+i+" "+n),s._isSliding=!1,setTimeout(function(){return P(s._element).trigger(u)},0)}).emulateTransitionEnd(f)}else P(o).removeClass(Y),P(l).addClass(Y),this._isSliding=!1,P(this._element).trigger(u);c&&this.cycle()}},s._jQueryInterface=function(i){return this.each(function(){var t=P(this).data(j),e=h({},M,P(this).data());"object"==typeof i&&(e=h({},e,i));var n="string"==typeof i?i:e.slide;if(t||(t=new s(this,e),P(this).data(j,t)),"number"==typeof i)t.to(i);else if("string"==typeof n){if("undefined"==typeof t[n])throw new TypeError('No method named "'+n+'"');t[n]()}else e.interval&&(t.pause(),t.cycle())})},s._dataApiClickHandler=function(t){var e=Cn.getSelectorFromElement(this);if(e){var n=P(e)[0];if(n&&P(n).hasClass(B)){var i=h({},P(n).data(),P(this).data()),r=this.getAttribute("data-slide-to");r&&(i.interval=!1),s._jQueryInterface.call(P(n),i),r&&P(n).data(j).to(r),t.preventDefault()}}},o(s,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return M}}]),s}(),P(document).on(Q.CLICK_DATA_API,Z.DATA_SLIDE,$._dataApiClickHandler),P(window).on(Q.LOAD_DATA_API,function(){P(Z.DATA_RIDE).each(function(){var t=P(this);$._jQueryInterface.call(t,t.data())})}),P.fn[L]=$._jQueryInterface,P.fn[L].Constructor=$,P.fn[L].noConflict=function(){return P.fn[L]=W,$._jQueryInterface},$),bn=(et="collapse",it="."+(nt="bs.collapse"),rt=(tt=e).fn[et],st={toggle:!0,parent:""},ot={toggle:"boolean",parent:"(string|element)"},at={SHOW:"show"+it,SHOWN:"shown"+it,HIDE:"hide"+it,HIDDEN:"hidden"+it,CLICK_DATA_API:"click"+it+".data-api"},lt="show",ht="collapse",ct="collapsing",ut="collapsed",ft="width",dt="height",_t={ACTIVES:".show, .collapsing",DATA_TOGGLE:'[data-toggle="collapse"]'},gt=function(){function a(t,e){this._isTransitioning=!1,this._element=t,this._config=this._getConfig(e),this._triggerArray=tt.makeArray(tt('[data-toggle="collapse"][href="#'+t.id+'"],[data-toggle="collapse"][data-target="#'+t.id+'"]'));for(var n=tt(_t.DATA_TOGGLE),i=0;i<n.length;i++){var r=n[i],s=Cn.getSelectorFromElement(r);null!==s&&0<tt(s).filter(t).length&&(this._selector=s,this._triggerArray.push(r))}this._parent=this._config.parent?this._getParent():null,this._config.parent||this._addAriaAndCollapsedClass(this._element,this._triggerArray),this._config.toggle&&this.toggle()}var t=a.prototype;return t.toggle=function(){tt(this._element).hasClass(lt)?this.hide():this.show()},t.show=function(){var t,e,n=this;if(!this._isTransitioning&&!tt(this._element).hasClass(lt)&&(this._parent&&0===(t=tt.makeArray(tt(this._parent).find(_t.ACTIVES).filter('[data-parent="'+this._config.parent+'"]'))).length&&(t=null),!(t&&(e=tt(t).not(this._selector).data(nt))&&e._isTransitioning))){var i=tt.Event(at.SHOW);if(tt(this._element).trigger(i),!i.isDefaultPrevented()){t&&(a._jQueryInterface.call(tt(t).not(this._selector),"hide"),e||tt(t).data(nt,null));var r=this._getDimension();tt(this._element).removeClass(ht).addClass(ct),(this._element.style[r]=0)<this._triggerArray.length&&tt(this._triggerArray).removeClass(ut).attr("aria-expanded",!0),this.setTransitioning(!0);var s="scroll"+(r[0].toUpperCase()+r.slice(1)),o=Cn.getTransitionDurationFromElement(this._element);tt(this._element).one(Cn.TRANSITION_END,function(){tt(n._element).removeClass(ct).addClass(ht).addClass(lt),n._element.style[r]="",n.setTransitioning(!1),tt(n._element).trigger(at.SHOWN)}).emulateTransitionEnd(o),this._element.style[r]=this._element[s]+"px"}}},t.hide=function(){var t=this;if(!this._isTransitioning&&tt(this._element).hasClass(lt)){var e=tt.Event(at.HIDE);if(tt(this._element).trigger(e),!e.isDefaultPrevented()){var n=this._getDimension();if(this._element.style[n]=this._element.getBoundingClientRect()[n]+"px",Cn.reflow(this._element),tt(this._element).addClass(ct).removeClass(ht).removeClass(lt),0<this._triggerArray.length)for(var i=0;i<this._triggerArray.length;i++){var r=this._triggerArray[i],s=Cn.getSelectorFromElement(r);if(null!==s)tt(s).hasClass(lt)||tt(r).addClass(ut).attr("aria-expanded",!1)}this.setTransitioning(!0);this._element.style[n]="";var o=Cn.getTransitionDurationFromElement(this._element);tt(this._element).one(Cn.TRANSITION_END,function(){t.setTransitioning(!1),tt(t._element).removeClass(ct).addClass(ht).trigger(at.HIDDEN)}).emulateTransitionEnd(o)}}},t.setTransitioning=function(t){this._isTransitioning=t},t.dispose=function(){tt.removeData(this._element,nt),this._config=null,this._parent=null,this._element=null,this._triggerArray=null,this._isTransitioning=null},t._getConfig=function(t){return(t=h({},st,t)).toggle=Boolean(t.toggle),Cn.typeCheckConfig(et,t,ot),t},t._getDimension=function(){return tt(this._element).hasClass(ft)?ft:dt},t._getParent=function(){var n=this,t=null;Cn.isElement(this._config.parent)?(t=this._config.parent,"undefined"!=typeof this._config.parent.jquery&&(t=this._config.parent[0])):t=tt(this._config.parent)[0];var e='[data-toggle="collapse"][data-parent="'+this._config.parent+'"]';return tt(t).find(e).each(function(t,e){n._addAriaAndCollapsedClass(a._getTargetFromElement(e),[e])}),t},t._addAriaAndCollapsedClass=function(t,e){if(t){var n=tt(t).hasClass(lt);0<e.length&&tt(e).toggleClass(ut,!n).attr("aria-expanded",n)}},a._getTargetFromElement=function(t){var e=Cn.getSelectorFromElement(t);return e?tt(e)[0]:null},a._jQueryInterface=function(i){return this.each(function(){var t=tt(this),e=t.data(nt),n=h({},st,t.data(),"object"==typeof i&&i?i:{});if(!e&&n.toggle&&/show|hide/.test(i)&&(n.toggle=!1),e||(e=new a(this,n),t.data(nt,e)),"string"==typeof i){if("undefined"==typeof e[i])throw new TypeError('No method named "'+i+'"');e[i]()}})},o(a,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return st}}]),a}(),tt(document).on(at.CLICK_DATA_API,_t.DATA_TOGGLE,function(t){"A"===t.currentTarget.tagName&&t.preventDefault();var n=tt(this),e=Cn.getSelectorFromElement(this);tt(e).each(function(){var t=tt(this),e=t.data(nt)?"toggle":n.data();gt._jQueryInterface.call(t,e)})}),tt.fn[et]=gt._jQueryInterface,tt.fn[et].Constructor=gt,tt.fn[et].noConflict=function(){return tt.fn[et]=rt,gt._jQueryInterface},gt),Sn=(pt="dropdown",Et="."+(vt="bs.dropdown"),yt=".data-api",Tt=(mt=e).fn[pt],Ct=new RegExp("38|40|27"),It={HIDE:"hide"+Et,HIDDEN:"hidden"+Et,SHOW:"show"+Et,SHOWN:"shown"+Et,CLICK:"click"+Et,CLICK_DATA_API:"click"+Et+yt,KEYDOWN_DATA_API:"keydown"+Et+yt,KEYUP_DATA_API:"keyup"+Et+yt},At="disabled",Dt="show",bt="dropup",St="dropright",wt="dropleft",Nt="dropdown-menu-right",Ot="position-static",kt='[data-toggle="dropdown"]',Pt=".dropdown form",Lt=".dropdown-menu",jt=".navbar-nav",Rt=".dropdown-menu .dropdown-item:not(.disabled):not(:disabled)",Ht="top-start",Wt="top-end",Mt="bottom-start",xt="bottom-end",Ut="right-start",Kt="left-start",Ft={offset:0,flip:!0,boundary:"scrollParent",reference:"toggle",display:"dynamic"},Vt={offset:"(number|string|function)",flip:"boolean",boundary:"(string|element)",reference:"(string|element)",display:"string"},Qt=function(){function l(t,e){this._element=t,this._popper=null,this._config=this._getConfig(e),this._menu=this._getMenuElement(),this._inNavbar=this._detectNavbar(),this._addEventListeners()}var t=l.prototype;return t.toggle=function(){if(!this._element.disabled&&!mt(this._element).hasClass(At)){var t=l._getParentFromElement(this._element),e=mt(this._menu).hasClass(Dt);if(l._clearMenus(),!e){var n={relatedTarget:this._element},i=mt.Event(It.SHOW,n);if(mt(t).trigger(i),!i.isDefaultPrevented()){if(!this._inNavbar){if("undefined"==typeof c)throw new TypeError("Bootstrap dropdown require Popper.js (https://popper.js.org)");var r=this._element;"parent"===this._config.reference?r=t:Cn.isElement(this._config.reference)&&(r=this._config.reference,"undefined"!=typeof this._config.reference.jquery&&(r=this._config.reference[0])),"scrollParent"!==this._config.boundary&&mt(t).addClass(Ot),this._popper=new c(r,this._menu,this._getPopperConfig())}"ontouchstart"in document.documentElement&&0===mt(t).closest(jt).length&&mt(document.body).children().on("mouseover",null,mt.noop),this._element.focus(),this._element.setAttribute("aria-expanded",!0),mt(this._menu).toggleClass(Dt),mt(t).toggleClass(Dt).trigger(mt.Event(It.SHOWN,n))}}}},t.dispose=function(){mt.removeData(this._element,vt),mt(this._element).off(Et),this._element=null,(this._menu=null)!==this._popper&&(this._popper.destroy(),this._popper=null)},t.update=function(){this._inNavbar=this._detectNavbar(),null!==this._popper&&this._popper.scheduleUpdate()},t._addEventListeners=function(){var e=this;mt(this._element).on(It.CLICK,function(t){t.preventDefault(),t.stopPropagation(),e.toggle()})},t._getConfig=function(t){return t=h({},this.constructor.Default,mt(this._element).data(),t),Cn.typeCheckConfig(pt,t,this.constructor.DefaultType),t},t._getMenuElement=function(){if(!this._menu){var t=l._getParentFromElement(this._element);this._menu=mt(t).find(Lt)[0]}return this._menu},t._getPlacement=function(){var t=mt(this._element).parent(),e=Mt;return t.hasClass(bt)?(e=Ht,mt(this._menu).hasClass(Nt)&&(e=Wt)):t.hasClass(St)?e=Ut:t.hasClass(wt)?e=Kt:mt(this._menu).hasClass(Nt)&&(e=xt),e},t._detectNavbar=function(){return 0<mt(this._element).closest(".navbar").length},t._getPopperConfig=function(){var e=this,t={};"function"==typeof this._config.offset?t.fn=function(t){return t.offsets=h({},t.offsets,e._config.offset(t.offsets)||{}),t}:t.offset=this._config.offset;var n={placement:this._getPlacement(),modifiers:{offset:t,flip:{enabled:this._config.flip},preventOverflow:{boundariesElement:this._config.boundary}}};return"static"===this._config.display&&(n.modifiers.applyStyle={enabled:!1}),n},l._jQueryInterface=function(e){return this.each(function(){var t=mt(this).data(vt);if(t||(t=new l(this,"object"==typeof e?e:null),mt(this).data(vt,t)),"string"==typeof e){if("undefined"==typeof t[e])throw new TypeError('No method named "'+e+'"');t[e]()}})},l._clearMenus=function(t){if(!t||3!==t.which&&("keyup"!==t.type||9===t.which))for(var e=mt.makeArray(mt(kt)),n=0;n<e.length;n++){var i=l._getParentFromElement(e[n]),r=mt(e[n]).data(vt),s={relatedTarget:e[n]};if(r){var o=r._menu;if(mt(i).hasClass(Dt)&&!(t&&("click"===t.type&&/input|textarea/i.test(t.target.tagName)||"keyup"===t.type&&9===t.which)&&mt.contains(i,t.target))){var a=mt.Event(It.HIDE,s);mt(i).trigger(a),a.isDefaultPrevented()||("ontouchstart"in document.documentElement&&mt(document.body).children().off("mouseover",null,mt.noop),e[n].setAttribute("aria-expanded","false"),mt(o).removeClass(Dt),mt(i).removeClass(Dt).trigger(mt.Event(It.HIDDEN,s)))}}}},l._getParentFromElement=function(t){var e,n=Cn.getSelectorFromElement(t);return n&&(e=mt(n)[0]),e||t.parentNode},l._dataApiKeydownHandler=function(t){if((/input|textarea/i.test(t.target.tagName)?!(32===t.which||27!==t.which&&(40!==t.which&&38!==t.which||mt(t.target).closest(Lt).length)):Ct.test(t.which))&&(t.preventDefault(),t.stopPropagation(),!this.disabled&&!mt(this).hasClass(At))){var e=l._getParentFromElement(this),n=mt(e).hasClass(Dt);if((n||27===t.which&&32===t.which)&&(!n||27!==t.which&&32!==t.which)){var i=mt(e).find(Rt).get();if(0!==i.length){var r=i.indexOf(t.target);38===t.which&&0<r&&r--,40===t.which&&r<i.length-1&&r++,r<0&&(r=0),i[r].focus()}}else{if(27===t.which){var s=mt(e).find(kt)[0];mt(s).trigger("focus")}mt(this).trigger("click")}}},o(l,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return Ft}},{key:"DefaultType",get:function(){return Vt}}]),l}(),mt(document).on(It.KEYDOWN_DATA_API,kt,Qt._dataApiKeydownHandler).on(It.KEYDOWN_DATA_API,Lt,Qt._dataApiKeydownHandler).on(It.CLICK_DATA_API+" "+It.KEYUP_DATA_API,Qt._clearMenus).on(It.CLICK_DATA_API,kt,function(t){t.preventDefault(),t.stopPropagation(),Qt._jQueryInterface.call(mt(this),"toggle")}).on(It.CLICK_DATA_API,Pt,function(t){t.stopPropagation()}),mt.fn[pt]=Qt._jQueryInterface,mt.fn[pt].Constructor=Qt,mt.fn[pt].noConflict=function(){return mt.fn[pt]=Tt,Qt._jQueryInterface},Qt),wn=(Yt="modal",qt="."+(Gt="bs.modal"),zt=(Bt=e).fn[Yt],Xt={backdrop:!0,keyboard:!0,focus:!0,show:!0},Jt={backdrop:"(boolean|string)",keyboard:"boolean",focus:"boolean",show:"boolean"},Zt={HIDE:"hide"+qt,HIDDEN:"hidden"+qt,SHOW:"show"+qt,SHOWN:"shown"+qt,FOCUSIN:"focusin"+qt,RESIZE:"resize"+qt,CLICK_DISMISS:"click.dismiss"+qt,KEYDOWN_DISMISS:"keydown.dismiss"+qt,MOUSEUP_DISMISS:"mouseup.dismiss"+qt,MOUSEDOWN_DISMISS:"mousedown.dismiss"+qt,CLICK_DATA_API:"click"+qt+".data-api"},$t="modal-scrollbar-measure",te="modal-backdrop",ee="modal-open",ne="fade",ie="show",re={DIALOG:".modal-dialog",DATA_TOGGLE:'[data-toggle="modal"]',DATA_DISMISS:'[data-dismiss="modal"]',FIXED_CONTENT:".fixed-top, .fixed-bottom, .is-fixed, .sticky-top",STICKY_CONTENT:".sticky-top",NAVBAR_TOGGLER:".navbar-toggler"},se=function(){function r(t,e){this._config=this._getConfig(e),this._element=t,this._dialog=Bt(t).find(re.DIALOG)[0],this._backdrop=null,this._isShown=!1,this._isBodyOverflowing=!1,this._ignoreBackdropClick=!1,this._scrollbarWidth=0}var t=r.prototype;return t.toggle=function(t){return this._isShown?this.hide():this.show(t)},t.show=function(t){var e=this;if(!this._isTransitioning&&!this._isShown){Bt(this._element).hasClass(ne)&&(this._isTransitioning=!0);var n=Bt.Event(Zt.SHOW,{relatedTarget:t});Bt(this._element).trigger(n),this._isShown||n.isDefaultPrevented()||(this._isShown=!0,this._checkScrollbar(),this._setScrollbar(),this._adjustDialog(),Bt(document.body).addClass(ee),this._setEscapeEvent(),this._setResizeEvent(),Bt(this._element).on(Zt.CLICK_DISMISS,re.DATA_DISMISS,function(t){return e.hide(t)}),Bt(this._dialog).on(Zt.MOUSEDOWN_DISMISS,function(){Bt(e._element).one(Zt.MOUSEUP_DISMISS,function(t){Bt(t.target).is(e._element)&&(e._ignoreBackdropClick=!0)})}),this._showBackdrop(function(){return e._showElement(t)}))}},t.hide=function(t){var e=this;if(t&&t.preventDefault(),!this._isTransitioning&&this._isShown){var n=Bt.Event(Zt.HIDE);if(Bt(this._element).trigger(n),this._isShown&&!n.isDefaultPrevented()){this._isShown=!1;var i=Bt(this._element).hasClass(ne);if(i&&(this._isTransitioning=!0),this._setEscapeEvent(),this._setResizeEvent(),Bt(document).off(Zt.FOCUSIN),Bt(this._element).removeClass(ie),Bt(this._element).off(Zt.CLICK_DISMISS),Bt(this._dialog).off(Zt.MOUSEDOWN_DISMISS),i){var r=Cn.getTransitionDurationFromElement(this._element);Bt(this._element).one(Cn.TRANSITION_END,function(t){return e._hideModal(t)}).emulateTransitionEnd(r)}else this._hideModal()}}},t.dispose=function(){Bt.removeData(this._element,Gt),Bt(window,document,this._element,this._backdrop).off(qt),this._config=null,this._element=null,this._dialog=null,this._backdrop=null,this._isShown=null,this._isBodyOverflowing=null,this._ignoreBackdropClick=null,this._scrollbarWidth=null},t.handleUpdate=function(){this._adjustDialog()},t._getConfig=function(t){return t=h({},Xt,t),Cn.typeCheckConfig(Yt,t,Jt),t},t._showElement=function(t){var e=this,n=Bt(this._element).hasClass(ne);this._element.parentNode&&this._element.parentNode.nodeType===Node.ELEMENT_NODE||document.body.appendChild(this._element),this._element.style.display="block",this._element.removeAttribute("aria-hidden"),this._element.scrollTop=0,n&&Cn.reflow(this._element),Bt(this._element).addClass(ie),this._config.focus&&this._enforceFocus();var i=Bt.Event(Zt.SHOWN,{relatedTarget:t}),r=function(){e._config.focus&&e._element.focus(),e._isTransitioning=!1,Bt(e._element).trigger(i)};if(n){var s=Cn.getTransitionDurationFromElement(this._element);Bt(this._dialog).one(Cn.TRANSITION_END,r).emulateTransitionEnd(s)}else r()},t._enforceFocus=function(){var e=this;Bt(document).off(Zt.FOCUSIN).on(Zt.FOCUSIN,function(t){document!==t.target&&e._element!==t.target&&0===Bt(e._element).has(t.target).length&&e._element.focus()})},t._setEscapeEvent=function(){var e=this;this._isShown&&this._config.keyboard?Bt(this._element).on(Zt.KEYDOWN_DISMISS,function(t){27===t.which&&(t.preventDefault(),e.hide())}):this._isShown||Bt(this._element).off(Zt.KEYDOWN_DISMISS)},t._setResizeEvent=function(){var e=this;this._isShown?Bt(window).on(Zt.RESIZE,function(t){return e.handleUpdate(t)}):Bt(window).off(Zt.RESIZE)},t._hideModal=function(){var t=this;this._element.style.display="none",this._element.setAttribute("aria-hidden",!0),this._isTransitioning=!1,this._showBackdrop(function(){Bt(document.body).removeClass(ee),t._resetAdjustments(),t._resetScrollbar(),Bt(t._element).trigger(Zt.HIDDEN)})},t._removeBackdrop=function(){this._backdrop&&(Bt(this._backdrop).remove(),this._backdrop=null)},t._showBackdrop=function(t){var e=this,n=Bt(this._element).hasClass(ne)?ne:"";if(this._isShown&&this._config.backdrop){if(this._backdrop=document.createElement("div"),this._backdrop.className=te,n&&Bt(this._backdrop).addClass(n),Bt(this._backdrop).appendTo(document.body),Bt(this._element).on(Zt.CLICK_DISMISS,function(t){e._ignoreBackdropClick?e._ignoreBackdropClick=!1:t.target===t.currentTarget&&("static"===e._config.backdrop?e._element.focus():e.hide())}),n&&Cn.reflow(this._backdrop),Bt(this._backdrop).addClass(ie),!t)return;if(!n)return void t();var i=Cn.getTransitionDurationFromElement(this._backdrop);Bt(this._backdrop).one(Cn.TRANSITION_END,t).emulateTransitionEnd(i)}else if(!this._isShown&&this._backdrop){Bt(this._backdrop).removeClass(ie);var r=function(){e._removeBackdrop(),t&&t()};if(Bt(this._element).hasClass(ne)){var s=Cn.getTransitionDurationFromElement(this._backdrop);Bt(this._backdrop).one(Cn.TRANSITION_END,r).emulateTransitionEnd(s)}else r()}else t&&t()},t._adjustDialog=function(){var t=this._element.scrollHeight>document.documentElement.clientHeight;!this._isBodyOverflowing&&t&&(this._element.style.paddingLeft=this._scrollbarWidth+"px"),this._isBodyOverflowing&&!t&&(this._element.style.paddingRight=this._scrollbarWidth+"px")},t._resetAdjustments=function(){this._element.style.paddingLeft="",this._element.style.paddingRight=""},t._checkScrollbar=function(){var t=document.body.getBoundingClientRect();this._isBodyOverflowing=t.left+t.right<window.innerWidth,this._scrollbarWidth=this._getScrollbarWidth()},t._setScrollbar=function(){var r=this;if(this._isBodyOverflowing){Bt(re.FIXED_CONTENT).each(function(t,e){var n=Bt(e)[0].style.paddingRight,i=Bt(e).css("padding-right");Bt(e).data("padding-right",n).css("padding-right",parseFloat(i)+r._scrollbarWidth+"px")}),Bt(re.STICKY_CONTENT).each(function(t,e){var n=Bt(e)[0].style.marginRight,i=Bt(e).css("margin-right");Bt(e).data("margin-right",n).css("margin-right",parseFloat(i)-r._scrollbarWidth+"px")}),Bt(re.NAVBAR_TOGGLER).each(function(t,e){var n=Bt(e)[0].style.marginRight,i=Bt(e).css("margin-right");Bt(e).data("margin-right",n).css("margin-right",parseFloat(i)+r._scrollbarWidth+"px")});var t=document.body.style.paddingRight,e=Bt(document.body).css("padding-right");Bt(document.body).data("padding-right",t).css("padding-right",parseFloat(e)+this._scrollbarWidth+"px")}},t._resetScrollbar=function(){Bt(re.FIXED_CONTENT).each(function(t,e){var n=Bt(e).data("padding-right");"undefined"!=typeof n&&Bt(e).css("padding-right",n).removeData("padding-right")}),Bt(re.STICKY_CONTENT+", "+re.NAVBAR_TOGGLER).each(function(t,e){var n=Bt(e).data("margin-right");"undefined"!=typeof n&&Bt(e).css("margin-right",n).removeData("margin-right")});var t=Bt(document.body).data("padding-right");"undefined"!=typeof t&&Bt(document.body).css("padding-right",t).removeData("padding-right")},t._getScrollbarWidth=function(){var t=document.createElement("div");t.className=$t,document.body.appendChild(t);var e=t.getBoundingClientRect().width-t.clientWidth;return document.body.removeChild(t),e},r._jQueryInterface=function(n,i){return this.each(function(){var t=Bt(this).data(Gt),e=h({},Xt,Bt(this).data(),"object"==typeof n&&n?n:{});if(t||(t=new r(this,e),Bt(this).data(Gt,t)),"string"==typeof n){if("undefined"==typeof t[n])throw new TypeError('No method named "'+n+'"');t[n](i)}else e.show&&t.show(i)})},o(r,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return Xt}}]),r}(),Bt(document).on(Zt.CLICK_DATA_API,re.DATA_TOGGLE,function(t){var e,n=this,i=Cn.getSelectorFromElement(this);i&&(e=Bt(i)[0]);var r=Bt(e).data(Gt)?"toggle":h({},Bt(e).data(),Bt(this).data());"A"!==this.tagName&&"AREA"!==this.tagName||t.preventDefault();var s=Bt(e).one(Zt.SHOW,function(t){t.isDefaultPrevented()||s.one(Zt.HIDDEN,function(){Bt(n).is(":visible")&&n.focus()})});se._jQueryInterface.call(Bt(e),r,this)}),Bt.fn[Yt]=se._jQueryInterface,Bt.fn[Yt].Constructor=se,Bt.fn[Yt].noConflict=function(){return Bt.fn[Yt]=zt,se._jQueryInterface},se),Nn=(ae="tooltip",he="."+(le="bs.tooltip"),ce=(oe=e).fn[ae],ue="bs-tooltip",fe=new RegExp("(^|\\s)"+ue+"\\S+","g"),ge={animation:!0,template:'<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',trigger:"hover focus",title:"",delay:0,html:!(_e={AUTO:"auto",TOP:"top",RIGHT:"right",BOTTOM:"bottom",LEFT:"left"}),selector:!(de={animation:"boolean",template:"string",title:"(string|element|function)",trigger:"string",delay:"(number|object)",html:"boolean",selector:"(string|boolean)",placement:"(string|function)",offset:"(number|string)",container:"(string|element|boolean)",fallbackPlacement:"(string|array)",boundary:"(string|element)"}),placement:"top",offset:0,container:!1,fallbackPlacement:"flip",boundary:"scrollParent"},pe="out",ve={HIDE:"hide"+he,HIDDEN:"hidden"+he,SHOW:(me="show")+he,SHOWN:"shown"+he,INSERTED:"inserted"+he,CLICK:"click"+he,FOCUSIN:"focusin"+he,FOCUSOUT:"focusout"+he,MOUSEENTER:"mouseenter"+he,MOUSELEAVE:"mouseleave"+he},Ee="fade",ye="show",Te=".tooltip-inner",Ce=".arrow",Ie="hover",Ae="focus",De="click",be="manual",Se=function(){function i(t,e){if("undefined"==typeof c)throw new TypeError("Bootstrap tooltips require Popper.js (https://popper.js.org)");this._isEnabled=!0,this._timeout=0,this._hoverState="",this._activeTrigger={},this._popper=null,this.element=t,this.config=this._getConfig(e),this.tip=null,this._setListeners()}var t=i.prototype;return t.enable=function(){this._isEnabled=!0},t.disable=function(){this._isEnabled=!1},t.toggleEnabled=function(){this._isEnabled=!this._isEnabled},t.toggle=function(t){if(this._isEnabled)if(t){var e=this.constructor.DATA_KEY,n=oe(t.currentTarget).data(e);n||(n=new this.constructor(t.currentTarget,this._getDelegateConfig()),oe(t.currentTarget).data(e,n)),n._activeTrigger.click=!n._activeTrigger.click,n._isWithActiveTrigger()?n._enter(null,n):n._leave(null,n)}else{if(oe(this.getTipElement()).hasClass(ye))return void this._leave(null,this);this._enter(null,this)}},t.dispose=function(){clearTimeout(this._timeout),oe.removeData(this.element,this.constructor.DATA_KEY),oe(this.element).off(this.constructor.EVENT_KEY),oe(this.element).closest(".modal").off("hide.bs.modal"),this.tip&&oe(this.tip).remove(),this._isEnabled=null,this._timeout=null,this._hoverState=null,(this._activeTrigger=null)!==this._popper&&this._popper.destroy(),this._popper=null,this.element=null,this.config=null,this.tip=null},t.show=function(){var e=this;if("none"===oe(this.element).css("display"))throw new Error("Please use show on visible elements");var t=oe.Event(this.constructor.Event.SHOW);if(this.isWithContent()&&this._isEnabled){oe(this.element).trigger(t);var n=oe.contains(this.element.ownerDocument.documentElement,this.element);if(t.isDefaultPrevented()||!n)return;var i=this.getTipElement(),r=Cn.getUID(this.constructor.NAME);i.setAttribute("id",r),this.element.setAttribute("aria-describedby",r),this.setContent(),this.config.animation&&oe(i).addClass(Ee);var s="function"==typeof this.config.placement?this.config.placement.call(this,i,this.element):this.config.placement,o=this._getAttachment(s);this.addAttachmentClass(o);var a=!1===this.config.container?document.body:oe(this.config.container);oe(i).data(this.constructor.DATA_KEY,this),oe.contains(this.element.ownerDocument.documentElement,this.tip)||oe(i).appendTo(a),oe(this.element).trigger(this.constructor.Event.INSERTED),this._popper=new c(this.element,i,{placement:o,modifiers:{offset:{offset:this.config.offset},flip:{behavior:this.config.fallbackPlacement},arrow:{element:Ce},preventOverflow:{boundariesElement:this.config.boundary}},onCreate:function(t){t.originalPlacement!==t.placement&&e._handlePopperPlacementChange(t)},onUpdate:function(t){e._handlePopperPlacementChange(t)}}),oe(i).addClass(ye),"ontouchstart"in document.documentElement&&oe(document.body).children().on("mouseover",null,oe.noop);var l=function(){e.config.animation&&e._fixTransition();var t=e._hoverState;e._hoverState=null,oe(e.element).trigger(e.constructor.Event.SHOWN),t===pe&&e._leave(null,e)};if(oe(this.tip).hasClass(Ee)){var h=Cn.getTransitionDurationFromElement(this.tip);oe(this.tip).one(Cn.TRANSITION_END,l).emulateTransitionEnd(h)}else l()}},t.hide=function(t){var e=this,n=this.getTipElement(),i=oe.Event(this.constructor.Event.HIDE),r=function(){e._hoverState!==me&&n.parentNode&&n.parentNode.removeChild(n),e._cleanTipClass(),e.element.removeAttribute("aria-describedby"),oe(e.element).trigger(e.constructor.Event.HIDDEN),null!==e._popper&&e._popper.destroy(),t&&t()};if(oe(this.element).trigger(i),!i.isDefaultPrevented()){if(oe(n).removeClass(ye),"ontouchstart"in document.documentElement&&oe(document.body).children().off("mouseover",null,oe.noop),this._activeTrigger[De]=!1,this._activeTrigger[Ae]=!1,this._activeTrigger[Ie]=!1,oe(this.tip).hasClass(Ee)){var s=Cn.getTransitionDurationFromElement(n);oe(n).one(Cn.TRANSITION_END,r).emulateTransitionEnd(s)}else r();this._hoverState=""}},t.update=function(){null!==this._popper&&this._popper.scheduleUpdate()},t.isWithContent=function(){return Boolean(this.getTitle())},t.addAttachmentClass=function(t){oe(this.getTipElement()).addClass(ue+"-"+t)},t.getTipElement=function(){return this.tip=this.tip||oe(this.config.template)[0],this.tip},t.setContent=function(){var t=oe(this.getTipElement());this.setElementContent(t.find(Te),this.getTitle()),t.removeClass(Ee+" "+ye)},t.setElementContent=function(t,e){var n=this.config.html;"object"==typeof e&&(e.nodeType||e.jquery)?n?oe(e).parent().is(t)||t.empty().append(e):t.text(oe(e).text()):t[n?"html":"text"](e)},t.getTitle=function(){var t=this.element.getAttribute("data-original-title");return t||(t="function"==typeof this.config.title?this.config.title.call(this.element):this.config.title),t},t._getAttachment=function(t){return _e[t.toUpperCase()]},t._setListeners=function(){var i=this;this.config.trigger.split(" ").forEach(function(t){if("click"===t)oe(i.element).on(i.constructor.Event.CLICK,i.config.selector,function(t){return i.toggle(t)});else if(t!==be){var e=t===Ie?i.constructor.Event.MOUSEENTER:i.constructor.Event.FOCUSIN,n=t===Ie?i.constructor.Event.MOUSELEAVE:i.constructor.Event.FOCUSOUT;oe(i.element).on(e,i.config.selector,function(t){return i._enter(t)}).on(n,i.config.selector,function(t){return i._leave(t)})}oe(i.element).closest(".modal").on("hide.bs.modal",function(){return i.hide()})}),this.config.selector?this.config=h({},this.config,{trigger:"manual",selector:""}):this._fixTitle()},t._fixTitle=function(){var t=typeof this.element.getAttribute("data-original-title");(this.element.getAttribute("title")||"string"!==t)&&(this.element.setAttribute("data-original-title",this.element.getAttribute("title")||""),this.element.setAttribute("title",""))},t._enter=function(t,e){var n=this.constructor.DATA_KEY;(e=e||oe(t.currentTarget).data(n))||(e=new this.constructor(t.currentTarget,this._getDelegateConfig()),oe(t.currentTarget).data(n,e)),t&&(e._activeTrigger["focusin"===t.type?Ae:Ie]=!0),oe(e.getTipElement()).hasClass(ye)||e._hoverState===me?e._hoverState=me:(clearTimeout(e._timeout),e._hoverState=me,e.config.delay&&e.config.delay.show?e._timeout=setTimeout(function(){e._hoverState===me&&e.show()},e.config.delay.show):e.show())},t._leave=function(t,e){var n=this.constructor.DATA_KEY;(e=e||oe(t.currentTarget).data(n))||(e=new this.constructor(t.currentTarget,this._getDelegateConfig()),oe(t.currentTarget).data(n,e)),t&&(e._activeTrigger["focusout"===t.type?Ae:Ie]=!1),e._isWithActiveTrigger()||(clearTimeout(e._timeout),e._hoverState=pe,e.config.delay&&e.config.delay.hide?e._timeout=setTimeout(function(){e._hoverState===pe&&e.hide()},e.config.delay.hide):e.hide())},t._isWithActiveTrigger=function(){for(var t in this._activeTrigger)if(this._activeTrigger[t])return!0;return!1},t._getConfig=function(t){return"number"==typeof(t=h({},this.constructor.Default,oe(this.element).data(),"object"==typeof t&&t?t:{})).delay&&(t.delay={show:t.delay,hide:t.delay}),"number"==typeof t.title&&(t.title=t.title.toString()),"number"==typeof t.content&&(t.content=t.content.toString()),Cn.typeCheckConfig(ae,t,this.constructor.DefaultType),t},t._getDelegateConfig=function(){var t={};if(this.config)for(var e in this.config)this.constructor.Default[e]!==this.config[e]&&(t[e]=this.config[e]);return t},t._cleanTipClass=function(){var t=oe(this.getTipElement()),e=t.attr("class").match(fe);null!==e&&0<e.length&&t.removeClass(e.join(""))},t._handlePopperPlacementChange=function(t){this._cleanTipClass(),this.addAttachmentClass(this._getAttachment(t.placement))},t._fixTransition=function(){var t=this.getTipElement(),e=this.config.animation;null===t.getAttribute("x-placement")&&(oe(t).removeClass(Ee),this.config.animation=!1,this.hide(),this.show(),this.config.animation=e)},i._jQueryInterface=function(n){return this.each(function(){var t=oe(this).data(le),e="object"==typeof n&&n;if((t||!/dispose|hide/.test(n))&&(t||(t=new i(this,e),oe(this).data(le,t)),"string"==typeof n)){if("undefined"==typeof t[n])throw new TypeError('No method named "'+n+'"');t[n]()}})},o(i,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return ge}},{key:"NAME",get:function(){return ae}},{key:"DATA_KEY",get:function(){return le}},{key:"Event",get:function(){return ve}},{key:"EVENT_KEY",get:function(){return he}},{key:"DefaultType",get:function(){return de}}]),i}(),oe.fn[ae]=Se._jQueryInterface,oe.fn[ae].Constructor=Se,oe.fn[ae].noConflict=function(){return oe.fn[ae]=ce,Se._jQueryInterface},Se),On=(Ne="popover",ke="."+(Oe="bs.popover"),Pe=(we=e).fn[Ne],Le="bs-popover",je=new RegExp("(^|\\s)"+Le+"\\S+","g"),Re=h({},Nn.Default,{placement:"right",trigger:"click",content:"",template:'<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'}),He=h({},Nn.DefaultType,{content:"(string|element|function)"}),We="fade",xe=".popover-header",Ue=".popover-body",Ke={HIDE:"hide"+ke,HIDDEN:"hidden"+ke,SHOW:(Me="show")+ke,SHOWN:"shown"+ke,INSERTED:"inserted"+ke,CLICK:"click"+ke,FOCUSIN:"focusin"+ke,FOCUSOUT:"focusout"+ke,MOUSEENTER:"mouseenter"+ke,MOUSELEAVE:"mouseleave"+ke},Fe=function(t){var e,n;function i(){return t.apply(this,arguments)||this}n=t,(e=i).prototype=Object.create(n.prototype),(e.prototype.constructor=e).__proto__=n;var r=i.prototype;return r.isWithContent=function(){return this.getTitle()||this._getContent()},r.addAttachmentClass=function(t){we(this.getTipElement()).addClass(Le+"-"+t)},r.getTipElement=function(){return this.tip=this.tip||we(this.config.template)[0],this.tip},r.setContent=function(){var t=we(this.getTipElement());this.setElementContent(t.find(xe),this.getTitle());var e=this._getContent();"function"==typeof e&&(e=e.call(this.element)),this.setElementContent(t.find(Ue),e),t.removeClass(We+" "+Me)},r._getContent=function(){return this.element.getAttribute("data-content")||this.config.content},r._cleanTipClass=function(){var t=we(this.getTipElement()),e=t.attr("class").match(je);null!==e&&0<e.length&&t.removeClass(e.join(""))},i._jQueryInterface=function(n){return this.each(function(){var t=we(this).data(Oe),e="object"==typeof n?n:null;if((t||!/destroy|hide/.test(n))&&(t||(t=new i(this,e),we(this).data(Oe,t)),"string"==typeof n)){if("undefined"==typeof t[n])throw new TypeError('No method named "'+n+'"');t[n]()}})},o(i,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return Re}},{key:"NAME",get:function(){return Ne}},{key:"DATA_KEY",get:function(){return Oe}},{key:"Event",get:function(){return Ke}},{key:"EVENT_KEY",get:function(){return ke}},{key:"DefaultType",get:function(){return He}}]),i}(Nn),we.fn[Ne]=Fe._jQueryInterface,we.fn[Ne].Constructor=Fe,we.fn[Ne].noConflict=function(){return we.fn[Ne]=Pe,Fe._jQueryInterface},Fe),kn=(Qe="scrollspy",Ye="."+(Be="bs.scrollspy"),Ge=(Ve=e).fn[Qe],qe={offset:10,method:"auto",target:""},ze={offset:"number",method:"string",target:"(string|element)"},Xe={ACTIVATE:"activate"+Ye,SCROLL:"scroll"+Ye,LOAD_DATA_API:"load"+Ye+".data-api"},Je="dropdown-item",Ze="active",$e={DATA_SPY:'[data-spy="scroll"]',ACTIVE:".active",NAV_LIST_GROUP:".nav, .list-group",NAV_LINKS:".nav-link",NAV_ITEMS:".nav-item",LIST_ITEMS:".list-group-item",DROPDOWN:".dropdown",DROPDOWN_ITEMS:".dropdown-item",DROPDOWN_TOGGLE:".dropdown-toggle"},tn="offset",en="position",nn=function(){function n(t,e){var n=this;this._element=t,this._scrollElement="BODY"===t.tagName?window:t,this._config=this._getConfig(e),this._selector=this._config.target+" "+$e.NAV_LINKS+","+this._config.target+" "+$e.LIST_ITEMS+","+this._config.target+" "+$e.DROPDOWN_ITEMS,this._offsets=[],this._targets=[],this._activeTarget=null,this._scrollHeight=0,Ve(this._scrollElement).on(Xe.SCROLL,function(t){return n._process(t)}),this.refresh(),this._process()}var t=n.prototype;return t.refresh=function(){var e=this,t=this._scrollElement===this._scrollElement.window?tn:en,r="auto"===this._config.method?t:this._config.method,s=r===en?this._getScrollTop():0;this._offsets=[],this._targets=[],this._scrollHeight=this._getScrollHeight(),Ve.makeArray(Ve(this._selector)).map(function(t){var e,n=Cn.getSelectorFromElement(t);if(n&&(e=Ve(n)[0]),e){var i=e.getBoundingClientRect();if(i.width||i.height)return[Ve(e)[r]().top+s,n]}return null}).filter(function(t){return t}).sort(function(t,e){return t[0]-e[0]}).forEach(function(t){e._offsets.push(t[0]),e._targets.push(t[1])})},t.dispose=function(){Ve.removeData(this._element,Be),Ve(this._scrollElement).off(Ye),this._element=null,this._scrollElement=null,this._config=null,this._selector=null,this._offsets=null,this._targets=null,this._activeTarget=null,this._scrollHeight=null},t._getConfig=function(t){if("string"!=typeof(t=h({},qe,"object"==typeof t&&t?t:{})).target){var e=Ve(t.target).attr("id");e||(e=Cn.getUID(Qe),Ve(t.target).attr("id",e)),t.target="#"+e}return Cn.typeCheckConfig(Qe,t,ze),t},t._getScrollTop=function(){return this._scrollElement===window?this._scrollElement.pageYOffset:this._scrollElement.scrollTop},t._getScrollHeight=function(){return this._scrollElement.scrollHeight||Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)},t._getOffsetHeight=function(){return this._scrollElement===window?window.innerHeight:this._scrollElement.getBoundingClientRect().height},t._process=function(){var t=this._getScrollTop()+this._config.offset,e=this._getScrollHeight(),n=this._config.offset+e-this._getOffsetHeight();if(this._scrollHeight!==e&&this.refresh(),n<=t){var i=this._targets[this._targets.length-1];this._activeTarget!==i&&this._activate(i)}else{if(this._activeTarget&&t<this._offsets[0]&&0<this._offsets[0])return this._activeTarget=null,void this._clear();for(var r=this._offsets.length;r--;){this._activeTarget!==this._targets[r]&&t>=this._offsets[r]&&("undefined"==typeof this._offsets[r+1]||t<this._offsets[r+1])&&this._activate(this._targets[r])}}},t._activate=function(e){this._activeTarget=e,this._clear();var t=this._selector.split(",");t=t.map(function(t){return t+'[data-target="'+e+'"],'+t+'[href="'+e+'"]'});var n=Ve(t.join(","));n.hasClass(Je)?(n.closest($e.DROPDOWN).find($e.DROPDOWN_TOGGLE).addClass(Ze),n.addClass(Ze)):(n.addClass(Ze),n.parents($e.NAV_LIST_GROUP).prev($e.NAV_LINKS+", "+$e.LIST_ITEMS).addClass(Ze),n.parents($e.NAV_LIST_GROUP).prev($e.NAV_ITEMS).children($e.NAV_LINKS).addClass(Ze)),Ve(this._scrollElement).trigger(Xe.ACTIVATE,{relatedTarget:e})},t._clear=function(){Ve(this._selector).filter($e.ACTIVE).removeClass(Ze)},n._jQueryInterface=function(e){return this.each(function(){var t=Ve(this).data(Be);if(t||(t=new n(this,"object"==typeof e&&e),Ve(this).data(Be,t)),"string"==typeof e){if("undefined"==typeof t[e])throw new TypeError('No method named "'+e+'"');t[e]()}})},o(n,null,[{key:"VERSION",get:function(){return"4.1.1"}},{key:"Default",get:function(){return qe}}]),n}(),Ve(window).on(Xe.LOAD_DATA_API,function(){for(var t=Ve.makeArray(Ve($e.DATA_SPY)),e=t.length;e--;){var n=Ve(t[e]);nn._jQueryInterface.call(n,n.data())}}),Ve.fn[Qe]=nn._jQueryInterface,Ve.fn[Qe].Constructor=nn,Ve.fn[Qe].noConflict=function(){return Ve.fn[Qe]=Ge,nn._jQueryInterface},nn),Pn=(on="."+(sn="bs.tab"),an=(rn=e).fn.tab,ln={HIDE:"hide"+on,HIDDEN:"hidden"+on,SHOW:"show"+on,SHOWN:"shown"+on,CLICK_DATA_API:"click"+on+".data-api"},hn="dropdown-menu",cn="active",un="disabled",fn="fade",dn="show",_n=".dropdown",gn=".nav, .list-group",mn=".active",pn="> li > .active",vn='[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',En=".dropdown-toggle",yn="> .dropdown-menu .active",Tn=function(){function i(t){this._element=t}var t=i.prototype;return t.show=function(){var n=this;if(!(this._element.parentNode&&this._element.parentNode.nodeType===Node.ELEMENT_NODE&&rn(this._element).hasClass(cn)||rn(this._element).hasClass(un))){var t,i,e=rn(this._element).closest(gn)[0],r=Cn.getSelectorFromElement(this._element);if(e){var s="UL"===e.nodeName?pn:mn;i=(i=rn.makeArray(rn(e).find(s)))[i.length-1]}var o=rn.Event(ln.HIDE,{relatedTarget:this._element}),a=rn.Event(ln.SHOW,{relatedTarget:i});if(i&&rn(i).trigger(o),rn(this._element).trigger(a),!a.isDefaultPrevented()&&!o.isDefaultPrevented()){r&&(t=rn(r)[0]),this._activate(this._element,e);var l=function(){var t=rn.Event(ln.HIDDEN,{relatedTarget:n._element}),e=rn.Event(ln.SHOWN,{relatedTarget:i});rn(i).trigger(t),rn(n._element).trigger(e)};t?this._activate(t,t.parentNode,l):l()}}},t.dispose=function(){rn.removeData(this._element,sn),this._element=null},t._activate=function(t,e,n){var i=this,r=("UL"===e.nodeName?rn(e).find(pn):rn(e).children(mn))[0],s=n&&r&&rn(r).hasClass(fn),o=function(){return i._transitionComplete(t,r,n)};if(r&&s){var a=Cn.getTransitionDurationFromElement(r);rn(r).one(Cn.TRANSITION_END,o).emulateTransitionEnd(a)}else o()},t._transitionComplete=function(t,e,n){if(e){rn(e).removeClass(dn+" "+cn);var i=rn(e.parentNode).find(yn)[0];i&&rn(i).removeClass(cn),"tab"===e.getAttribute("role")&&e.setAttribute("aria-selected",!1)}if(rn(t).addClass(cn),"tab"===t.getAttribute("role")&&t.setAttribute("aria-selected",!0),Cn.reflow(t),rn(t).addClass(dn),t.parentNode&&rn(t.parentNode).hasClass(hn)){var r=rn(t).closest(_n)[0];r&&rn(r).find(En).addClass(cn),t.setAttribute("aria-expanded",!0)}n&&n()},i._jQueryInterface=function(n){return this.each(function(){var t=rn(this),e=t.data(sn);if(e||(e=new i(this),t.data(sn,e)),"string"==typeof n){if("undefined"==typeof e[n])throw new TypeError('No method named "'+n+'"');e[n]()}})},o(i,null,[{key:"VERSION",get:function(){return"4.1.1"}}]),i}(),rn(document).on(ln.CLICK_DATA_API,vn,function(t){t.preventDefault(),Tn._jQueryInterface.call(rn(this),"show")}),rn.fn.tab=Tn._jQueryInterface,rn.fn.tab.Constructor=Tn,rn.fn.tab.noConflict=function(){return rn.fn.tab=an,Tn._jQueryInterface},Tn);!function(t){if("undefined"==typeof t)throw new TypeError("Bootstrap's JavaScript requires jQuery. jQuery must be included before Bootstrap's JavaScript.");var e=t.fn.jquery.split(" ")[0].split(".");if(e[0]<2&&e[1]<9||1===e[0]&&9===e[1]&&e[2]<1||4<=e[0])throw new Error("Bootstrap's JavaScript requires at least jQuery v1.9.1 but less than v4.0.0")}(e),t.Util=Cn,t.Alert=In,t.Button=An,t.Carousel=Dn,t.Collapse=bn,t.Dropdown=Sn,t.Modal=wn,t.Popover=On,t.Scrollspy=kn,t.Tab=Pn,t.Tooltip=Nn,Object.defineProperty(t,"__esModule",{value:!0})});
+//# sourceMappingURL=bootstrap.min.js.map
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/category/index.html":
 /*!***********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/views/general/category/index.html ***!
@@ -12700,7 +12639,7 @@ module.exports = "\n@import url('https://fonts.googleapis.com/css?family=Open+Sa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-sitemap\"></i> Kategoriler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-sitemap\"></i></span>\r\n                        <h5>Kategoriler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Kod</th>\r\n                                    <th>Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of KategoriList\">\r\n                                    <td>{{ item?.ID}}</td>\r\n                                    <td>{{ item?.Title}}</td>\r\n                                    <td>{{ item?.Code}}</td>\r\n                                    <td style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Category/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"cpyLink\" *ngIf=\"copyShow\" data-toggle=\"modal\" href=\"#cpyData\" data-controller=\"Category\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Category\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Category\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Category/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Kategori Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Category\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Kategori Tablosu</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>Kategori Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>Ana Kategori</th>\r\n\t\t\t\t\t\t\t\t\t<th>Kategori Adı</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of CategoryList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ParentID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.CategoryName }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\">{{ item?.Code }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/Category/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"Category\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"Category\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/Category/Insert\" class=\"btn btn-primary btn-add\">Kategori Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
 
 /***/ }),
 
@@ -12711,7 +12650,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-sitemap\"></i> Kategori Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Ana Kategori\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"ParentID\" [ngModel]=\"model?.ParentID\" formControlName=\"ParentID\"><option *ngFor=\"let item of model?.ParentCategories\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--ParentID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Category\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Kategori Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAna Kategori\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ParentID\" [ngModel]=\"model?.ParentID\" formControlName=\"ParentID\" type=\"number\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ParentID -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKategori Adı\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"CategoryName\" [ngModel]=\"model?.CategoryName\" formControlName=\"CategoryName\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- CategoryName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc1\" [ngModel]=\"model?.ShortDesc1\" formControlName=\"ShortDesc1\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description1\" [ngModel]=\"model?.Description1\" formControlName=\"Description1\"></textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc2\" [ngModel]=\"model?.ShortDesc2\" formControlName=\"ShortDesc2\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description2\" [ngModel]=\"model?.Description2\" formControlName=\"Description2\"></textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tGösterilsin mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Show -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Category\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12722,7 +12661,40 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-sitemap\"></i> Kategori Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n                <div class=\"editor-label\">\r\n                    Ana Kategori\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"ParentID\" [ngModel]=\"model?.ParentID\" formControlName=\"ParentID\"><option *ngFor=\"let item of model?.ParentCategories\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--ParentID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Category\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-sitemap\"></i></span>\r\n                        <h5>Bağlı Kategoriler (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Kısa Yazı 1</th>\r\n                                    <th class=\"hideColumn\">Kısa Yazı 2</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of model?.CategoryTList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.CategoryName }}</td>\r\n                                    <td>{{ item?.ShortText1 }}</td>\r\n                                    <td class=\"hideColumn\">{{ item?.ShortText2 }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/CategoryT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"CategoryT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"CategoryT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a [routerLink]=\"['/Admin/CategoryT/Insert/' + model?.ID]\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Kategori (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Category\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Kategori Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAna Kategori\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ParentID\" [ngModel]=\"model?.ParentID\" formControlName=\"ParentID\" type=\"number\" value=\"{{ model?.ParentID }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ParentID -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKategori Adı\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"CategoryName\" [ngModel]=\"model?.CategoryName\" formControlName=\"CategoryName\" type=\"text\" value=\"{{ model?.CategoryName }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- CategoryName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc1\" [ngModel]=\"model?.ShortDesc1\" formControlName=\"ShortDesc1\" type=\"text\" value=\"{{ model?.ShortDesc1 }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description1\" [ngModel]=\"model?.Description1\" formControlName=\"Description1\">{{ model?.Description1 }}</textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc2\" [ngModel]=\"model?.ShortDesc2\" formControlName=\"ShortDesc2\" type=\"text\" value=\"{{ model?.ShortDesc2 }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description2\" [ngModel]=\"model?.Description2\" formControlName=\"Description2\">{{ model?.Description2 }}</textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tGösterilsin mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Show\" />\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" *ngIf=\"!model?.Show\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Show -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Category\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/city/index.html":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/city/index.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Şehir Tablosu</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>Şehir Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>İsim</th>\r\n\t\t\t\t\t\t\t\t\t<th>Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Aktif mi?</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of CityList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Name }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Code }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\" style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/City/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"City\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"City\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/City/Insert\" class=\"btn btn-primary btn-add\">Şehir Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/city/insert.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/city/insert.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Şehir Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİsim\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Name\" [ngModel]=\"model?.Name\" formControlName=\"Name\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Name -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"number\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAktif mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Active -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tGösterilsin mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Show -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tSıra Numarası\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Order\" [ngModel]=\"model?.Order\" formControlName=\"Order\" type=\"number\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Order -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/City\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/city/update.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/city/update.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Şehir Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİsim\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Name\" [ngModel]=\"model?.Name\" formControlName=\"Name\" type=\"text\" value=\"{{ model?.Name }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Name -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"number\" value=\"{{ model?.Code }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAktif mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n\t\t\t\t\t<input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Active -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tGösterilsin mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Show\" />\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" *ngIf=\"!model?.Show\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Show -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tSıra Numarası\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Order\" [ngModel]=\"model?.Order\" formControlName=\"Order\" type=\"number\" value=\"{{ model?.Order }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Order -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/City\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12733,7 +12705,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-edit\"></i> İçerikler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-edit\"></i></span>\r\n                        <h5>İçerikler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Kod</th>\r\n                                    <th>Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of IcerikList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td>{{ item?.Code }}</td>\r\n                                    <td style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Content/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"cpyLink\" *ngIf=\"copyShow\" data-toggle=\"modal\" href=\"#cpyData\" data-controller=\"Content\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Content\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Content\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Content/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">İçerik Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Content\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> İçerik Tablosu</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>İçerik Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>İçerik Adı</th>\r\n\t\t\t\t\t\t\t\t\t<th>Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Kısa Açıklama 1</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of ContentList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ContentName }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Code }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\">{{ item?.ShortDesc1 }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/Content/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"Content\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"Content\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/Content/Insert\" class=\"btn btn-primary btn-add\">İçerik Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
 
 /***/ }),
 
@@ -12744,7 +12716,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-edit\"></i> İçerik Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Content\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> İçerik Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİçerik Adı\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ContentName\" [ngModel]=\"model?.ContentName\" formControlName=\"ContentName\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ContentName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc1\" [ngModel]=\"model?.ShortDesc1\" formControlName=\"ShortDesc1\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description1\" [ngModel]=\"model?.Description1\" formControlName=\"Description1\"></textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc2\" [ngModel]=\"model?.ShortDesc2\" formControlName=\"ShortDesc2\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description2\" [ngModel]=\"model?.Description2\" formControlName=\"Description2\"></textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Content\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12755,7 +12727,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-edit\"></i> İçerik Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Content\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-edit\"></i></span>\r\n                        <h5>Bağlı İçerikler (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Kısa Yazı 1</th>\r\n                                    <th class=\"hideColumn\">Kısa Yazı 2</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of model?.ContentTList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.ContentName }}</td>\r\n                                    <td>{{ item?.ShortText1 }}</td>\r\n                                    <td class=\"hideColumn\">{{ item?.ShortText2 }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/ContentT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"ContentT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"ContentT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a [routerLink]=\"['/Admin/ContentT/Insert/' + model?.ID]\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">İçerik (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Content\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> İçerik Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİçerik Adı\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ContentName\" [ngModel]=\"model?.ContentName\" formControlName=\"ContentName\" type=\"text\" value=\"{{ model?.ContentName }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ContentName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc1\" [ngModel]=\"model?.ShortDesc1\" formControlName=\"ShortDesc1\" type=\"text\" value=\"{{ model?.ShortDesc1 }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 1\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description1\" [ngModel]=\"model?.Description1\" formControlName=\"Description1\">{{ model?.Description1 }}</textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description1 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKısa Açıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"ShortDesc2\" [ngModel]=\"model?.ShortDesc2\" formControlName=\"ShortDesc2\" type=\"text\" value=\"{{ model?.ShortDesc2 }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- ShortDesc2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tAçıklama 2\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Description2\" [ngModel]=\"model?.Description2\" formControlName=\"Description2\">{{ model?.Description2 }}</textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Description2 -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Content\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12766,7 +12738,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-file\"></i> Dosyalar</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-file\"></i></span>\r\n                        <h5>Dosyalar</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Dosya</th>\r\n                                    <th>Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of DosyaList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td><a class=\"btn btn-mini btn-info\" href=\"/RentACar/Uploads/{{ item?.FileUrl }}\" target=\"_blank\">{{ item?.FileUrl }}</a></td>\r\n                                    <td style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Files/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Files\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Files\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Files/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Dosya Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Files\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-file\"></i> Dosyalar</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-file\"></i></span>\r\n                        <h5>Dosyalar</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Dosya</th>\r\n                                    <th>Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of DosyaList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td><a class=\"btn btn-mini btn-info\" href=\"/HumanResources/Uploads/{{ item?.FileUrl }}\" target=\"_blank\">{{ item?.FileUrl }}</a></td>\r\n                                    <td style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Files/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Files\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Files\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Files/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Dosya Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"General\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
 
 /***/ }),
 
@@ -12788,73 +12760,40 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-file\"></i> Dosya Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\" type=\"text\" value=\"{{ model?.Description }}\" />\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dosya\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <a class=\"btn btn-mini btn-info\" href=\"/RentACar/Uploads/{{ model?.FileUrl }}\" target=\"_blank\">{{ model?.FileUrl }}</a><br /><br />\r\n                    <input id=\"FileUrl\" [ngModel]=\"model?.FileUrl\" formControlName=\"FileUrl\" type=\"hidden\" value=\"{{ model?.FileUrl }}\" />\r\n                    <input id=\"fileTemp\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"fileTemp\" />\r\n                    <br />\r\n                    <!--FileUrl-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Files\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-file\"></i> Dosya Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\" type=\"text\" value=\"{{ model?.Description }}\" />\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dosya\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <a class=\"btn btn-mini btn-info\" href=\"/HumanResources/Uploads/{{ model?.FileUrl }}\" target=\"_blank\">{{ model?.FileUrl }}</a><br /><br />\r\n                    <input id=\"FileUrl\" [ngModel]=\"model?.FileUrl\" formControlName=\"FileUrl\" type=\"hidden\" value=\"{{ model?.FileUrl }}\" />\r\n                    <input id=\"fileTemp\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"fileTemp\" />\r\n                    <br />\r\n                    <!--FileUrl-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Files\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/index.html":
-/*!********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/links/index.html ***!
-  \********************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/gallery/index.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/gallery/index.html ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlantılar</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-link\"></i></span>\r\n                        <h5>Bağlantılar</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Bağlı Nesne</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of BaglantiList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td>{{ item?.LinkedAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Links/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Links\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Links/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Bağlantı Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"LinkTypes\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n\r\n"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Galeri Tablosu</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>Galeri Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>Başlık</th>\r\n\t\t\t\t\t\t\t\t\t<th>Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of GalleryList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Title }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Code }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/Gallery/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"Gallery\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"Gallery\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/Gallery/Insert\" class=\"btn btn-primary btn-add\">Galeri Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/insert.html":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/links/insert.html ***!
-  \*********************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/gallery/insert.html":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/gallery/insert.html ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlantı Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Bağlı Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkTypeID\" (change)=\"onChange($event)\" [ngModel]=\"model?.LinkTypeID\" formControlName=\"LinkTypeID\"><option *ngFor=\"let item of model?.LinkTypesList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkID\" class=\"selectLinkID\" [ngModel]=\"model?.LinkID\" formControlName=\"LinkID\"><option *ngFor=\"let item of model?.LinkedItemList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Links\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>\r\n\r\n"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Galeri Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tBaşlık\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Title -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Gallery\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/update.html":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/links/update.html ***!
-  \*********************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/gallery/update.html":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/views/general/gallery/update.html ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlantı Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"LinkTypeID\" [ngModel]=\"model?.LinkTypeID\" formControlName=\"LinkTypeID\" type=\"hidden\" />\r\n                    <input id=\"LinkedTypesAdi\" type=\"text\" disabled=\"disabled\" value=\"{{ model?.LinkedTypesAdi }}\" />\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlı Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkID\" [ngModel]=\"model?.LinkID\" formControlName=\"LinkID\"><option *ngFor=\"let item of model?.LinkedItemList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Links\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/index.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/linktypes/index.html ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlı Tipler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-link\"></i></span>\r\n                        <h5>Bağlı Tipler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Ana Tip</th>\r\n                                    <th>Ana Nesne</th>\r\n                                    <th class=\"hideColumn2\">Bağlanacak Tip</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of BagliTiplerList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td>{{ item?.MainTypeAdi }}</td>\r\n                                    <td>{{ item?.MainAdi }}</td>\r\n                                    <td class=\"hideColumn2\">{{ item?.LinkedTypeAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/LinkTypes/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"cpyLink\" *ngIf=\"copyShow\" data-toggle=\"modal\" href=\"#cpyData\" data-controller=\"LinkTypes\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"LinkTypes\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/LinkTypes/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Bağlı Tip Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"LinkTypes\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/insert.html":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/linktypes/insert.html ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlı Tip Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainTypeID\" class=\"mainType\" (change)=\"onChange($event)\" [ngModel]=\"model?.MainTypeID\" formControlName=\"MainTypeID\"><option *ngFor=\"let item of model?.MainTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainID\" class=\"selectMain\" [ngModel]=\"model?.MainID\" formControlName=\"MainID\"><option *ngFor=\"let item of model?.MainList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlanacak Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkedTypeID\" class=\"linkedType\" [ngModel]=\"model?.LinkedTypeID\" formControlName=\"LinkedTypeID\"><option *ngFor=\"let item of model?.LinkedTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkedTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/LinkTypes\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/update.html":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/linktypes/update.html ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-link\"></i> Bağlı Tip Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainTypeID\" class=\"mainType\" (change)=\"onChange($event)\" [ngModel]=\"model?.MainTypeID\" formControlName=\"MainTypeID\"><option *ngFor=\"let item of model?.MainTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Ana Nesne\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"MainID\" class=\"selectMain\" [ngModel]=\"model?.MainID\" formControlName=\"MainID\"><option *ngFor=\"let item of model?.MainList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--MainID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlanacak Tip\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <select id=\"LinkedTypeID\" class=\"linkedType\" [ngModel]=\"model?.LinkedTypeID\" formControlName=\"LinkedTypeID\"><option *ngFor=\"let item of model?.LinkedTypeList\" selected=\"{{ item?.Selected ? 'selected' : '' }}\" value=\"{{ item?.Value }}\">{{ item?.Text }}</option></select>\r\n                    <br />\r\n                    <!--LinkedTypeID-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/LinkTypes\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-link\"></i></span>\r\n                        <h5>Bağlı Nesneler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of model?.LinkList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.LinkedAdi }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Links/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Links\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a [routerLink]=\"['/Admin/Links/Insert/' + model?.ID]\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Bağlantı Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"LinkTypes\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Galeri Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tBaşlık\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Title -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Gallery\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12942,7 +12881,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Metalar</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-tags\"></i></span>\r\n                        <h5>Metalar</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Kod</th>\r\n                                    <th>Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of MetaList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td>{{ item?.Code }}</td>\r\n                                    <td style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Meta/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"cpyLink\" *ngIf=\"copyShow\" data-toggle=\"modal\" href=\"#cpyData\" data-controller=\"Meta\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Meta\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Meta\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Meta/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Meta Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Meta\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Meta Tablosu</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>Meta Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>İsim</th>\r\n\t\t\t\t\t\t\t\t\t<th>İçerik</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Kod</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of MetaList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Name }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.Content }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\">{{ item?.Code }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/Meta/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"Meta\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"Meta\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/Meta/Insert\" class=\"btn btn-primary btn-add\">Meta Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
 
 /***/ }),
 
@@ -12953,7 +12892,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Meta Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Meta\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Meta Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİsim\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Name\" [ngModel]=\"model?.Name\" formControlName=\"Name\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Name -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİçerik\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Content\" [ngModel]=\"model?.Content\" formControlName=\"Content\"></textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Content -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Meta\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12964,7 +12903,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-tags\"></i> Meta Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Meta\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-tags\"></i></span>\r\n                        <h5>Bağlı Metalar (Dil)</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of model?.MetaTList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Name }}</td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/MetaT/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"MetaT\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"MetaT\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a [routerLink]=\"['/Admin/MetaT/Insert/' + model?.ID]\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Meta (Dil) Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Meta\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Meta Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİsim\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Name\" [ngModel]=\"model?.Name\" formControlName=\"Name\" type=\"text\" value=\"{{ model?.Name }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Name -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tİçerik\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<textarea id=\"Content\" [ngModel]=\"model?.Content\" formControlName=\"Content\">{{ model?.Content }}</textarea>\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Content -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tKod\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Code -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Meta\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -12975,7 +12914,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-camera-retro\"></i> Resimler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-camera-retro\"></i></span>\r\n                        <h5>Resimler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Resim</th>\r\n                                    <th class=\"hideColumn\">Kod</th>\r\n                                    <th class=\"hideColumn2\">Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of ResimList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td style=\"text-align:center;\"><a href=\"/RentACar/Uploads/{{ item?.PictureUrl }}\" target=\"_blank\"><img src=\"/RentACar/Uploads/{{ item?.ThumbUrl }}\" style=\"height:40px; max-width:80px;\" /></a></td>\r\n                                    <td class=\"hideColumn\">{{ item?.Code }}</td>\r\n                                    <td class=\"hideColumn2\" style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Pictures/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Pictures\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Pictures\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Pictures/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Resim Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Pictures\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-camera-retro\"></i> Resimler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-camera-retro\"></i></span>\r\n                        <h5>Resimler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Başlık</th>\r\n                                    <th>Resim</th>\r\n                                    <th class=\"hideColumn\">Kod</th>\r\n                                    <th class=\"hideColumn2\">Aktif</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of ResimList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.Title }}</td>\r\n                                    <td style=\"text-align:center;\"><a href=\"/HumanResources/Uploads/{{ item?.PictureUrl }}\" target=\"_blank\"><img src=\"/HumanResources/Uploads/{{ item?.ThumbUrl }}\" style=\"height:40px; max-width:80px;\" /></a></td>\r\n                                    <td class=\"hideColumn\">{{ item?.Code }}</td>\r\n                                    <td class=\"hideColumn2\" style=\"text-align:center;\"><img *ngIf=\"item?.Active\" class=\"active\" /><img *ngIf=\"!item?.Active\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Pictures/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Pictures\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Pictures\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Pictures/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Resim Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Pictures\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
 
 /***/ }),
 
@@ -12997,40 +12936,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-camera-retro\"></i> Resim Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\" type=\"text\" value=\"{{ model?.Description }}\" />\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Resim\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <a href=\"/RentACar/Uploads/{{ model?.PictureUrl }}\" target=\"_blank\"><img [src]=\"['/RentACar/Uploads/' + model?.ThumbUrl]\" style=\"height:40px; max-width:80px;\" /></a><br /><br />\r\n                    <input id=\"ThumbUrl\" [ngModel]=\"model?.ThumbUrl\" formControlName=\"ThumbUrl\" type=\"hidden\" value=\"{{ model?.ThumbUrl }}\" />\r\n                    <input id=\"PictureUrl\" [ngModel]=\"model?.PictureUrl\" formControlName=\"PictureUrl\" type=\"hidden\" value=\"{{ model?.PictureUrl }}\" />\r\n                    <input id=\"picTemp\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"picTemp\" />\r\n                    <br />\r\n                    <!--PictureUrl-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Pictures\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/translation/index.html":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/translation/index.html ***!
-  \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-globe\"></i> Diller</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-globe\"></i></span>\r\n                        <h5>Diller</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Dil</th>\r\n                                    <th>Kısaltma</th>\r\n                                    <th>Bayrak</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of DilList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.TransName }}</td>\r\n                                    <td>{{ item?.ShortName }}</td>\r\n                                    <td style=\"text-align:center;\"><a href=\"/RentACar/Uploads/{{ item?.Flag }}\" target=\"_blank\"><img src=\"/RentACar/Uploads/{{ item.Flag }}\" style=\"height:20px; max-width:40px;\" /></a></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Translation/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"rmvLink\" *ngIf=\"removeShow\" data-toggle=\"modal\" href=\"#rmvData\" data-controller=\"Translation\" [attr.data-id]=\"item?.ID\">Kaldır</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Translation\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Translation/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Dil Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Translation\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/translation/insert.html":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/translation/insert.html ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-globe\"></i> Dil Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"TransName\" [ngModel]=\"model?.TransName\" formControlName=\"TransName\" type=\"text\" />\r\n                    <br />\r\n                    <!--TransName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısaltma\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortName\" [ngModel]=\"model?.ShortName\" formControlName=\"ShortName\" type=\"text\" />\r\n                    <br />\r\n                    <!--ShortName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bayrak\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Flag\" [ngModel]=\"model?.Flag\" formControlName=\"Flag\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"flagTemp\" />\r\n                    <br />\r\n                    <!--Flag-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Translation\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/translation/update.html":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/admin/views/general/translation/update.html ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-globe\"></i> Dil Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Dil\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"TransName\" [ngModel]=\"model?.TransName\" formControlName=\"TransName\" type=\"text\" value=\"{{ model?.TransName }}\" />\r\n                    <br />\r\n                    <!--TransName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kısaltma\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"ShortName\" [ngModel]=\"model?.ShortName\" formControlName=\"ShortName\" type=\"text\" value=\"{{ model?.ShortName }}\" />\r\n                    <br />\r\n                    <!--ShortName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bayrak\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <a href=\"/RentACar/Uploads/{{ model?.Flag }}\" target=\"_blank\"><img [src]=\"['/RentACar/Uploads/' + model?.Flag]\" style=\"height:40px; max-width:80px;\" /></a><br /><br />\r\n                    <input type=\"hidden\" id=\"Flag\" [ngModel]=\"model?.Flag\" formControlName=\"Flag\" value=\"{{ model?.Flag }}\" />\r\n                    <input id=\"flagTemp\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"flagTemp\" />\r\n                    <br />\r\n                    <!--Flag-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Translation\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-camera-retro\"></i> Resim Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Başlık\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Title\" [ngModel]=\"model?.Title\" formControlName=\"Title\" type=\"text\" value=\"{{ model?.Title }}\" />\r\n                    <br />\r\n                    <!--Title-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Açıklama\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Description\" [ngModel]=\"model?.Description\" formControlName=\"Description\" type=\"text\" value=\"{{ model?.Description }}\" />\r\n                    <br />\r\n                    <!--Description-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Resim\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <a href=\"/HumanResources/Uploads/{{ model?.PictureUrl }}\" target=\"_blank\"><img [src]=\"['/HumanResources/Uploads/' + model?.ThumbUrl]\" style=\"height:40px; max-width:80px;\" /></a><br /><br />\r\n                    <input id=\"ThumbUrl\" [ngModel]=\"model?.ThumbUrl\" formControlName=\"ThumbUrl\" type=\"hidden\" value=\"{{ model?.ThumbUrl }}\" />\r\n                    <input id=\"PictureUrl\" [ngModel]=\"model?.PictureUrl\" formControlName=\"PictureUrl\" type=\"hidden\" value=\"{{ model?.PictureUrl }}\" />\r\n                    <input id=\"picTemp\" type=\"file\" (change)=\"onFileSelect($event)\" name=\"picTemp\" />\r\n                    <br />\r\n                    <!--PictureUrl-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Kod\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Code\" [ngModel]=\"model?.Code\" formControlName=\"Code\" type=\"text\" value=\"{{ model?.Code }}\" />\r\n                    <br />\r\n                    <!--Code-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Aktif mi?\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Active\" />\r\n                    <input id=\"Active\" [ngModel]=\"model?.Active\" formControlName=\"Active\" type=\"checkbox\" *ngIf=\"!model?.Active\" />\r\n                    <br />\r\n                    <!--Active-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Pictures\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13041,7 +12947,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-pushpin\"></i> Tipler</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row-fluid\">\r\n            <div class=\"span12\">\r\n                <div class=\"widget-box\">\r\n                    <div class=\"widget-title\">\r\n                        <span class=\"icon\"><i class=\"icon-pushpin\"></i></span>\r\n                        <h5>Tipler</h5>\r\n                    </div>\r\n                    <div class=\"widget-content nopadding\">\r\n                        <table class=\"table table-bordered data-table\">\r\n                            <thead>\r\n                                <tr>\r\n                                    <th>ID</th>\r\n                                    <th>Tip İsmi</th>\r\n                                    <th class=\"hideColumn\">Bağlantı Linki</th>\r\n                                    <th class=\"hideColumn2\">Tablo İsmi</th>\r\n                                    <th>Bağlanabilirlik</th>\r\n                                    <th class=\"hideColumn\">Göster</th>\r\n                                    <th>İşlem</th>\r\n                                </tr>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of TiplerList\">\r\n                                    <td>{{ item?.ID }}</td>\r\n                                    <td>{{ item?.TypeName }}</td>\r\n                                    <td class=\"hideColumn\">{{ item?.Url }}</td>\r\n                                    <td class=\"hideColumn2\">{{ item?.TableName }}</td>\r\n                                    <td style=\"text-align:center;\"><img *ngIf=\"item?.Linkable\" class=\"active\" /><img *ngIf=\"!item?.Linkable\" class=\"passive\" /></td>\r\n                                    <td class=\"hideColumn\" style=\"text-align:center;\"><img *ngIf=\"item?.Show\" class=\"active\" /><img *ngIf=\"!item?.Show\" class=\"passive\" /></td>\r\n                                    <td style=\"text-align:center;\">\r\n                                        <div class=\"btn-group\" style=\"text-align:left;\">\r\n                                            <button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n                                            <ul class=\"dropdown-menu\">\r\n                                                <li><a class=\"updLink\" *ngIf=\"updateShow\" [routerLink]=\"['/Admin/Types/Update/' + item?.ID]\">Düzenle</a></li>\r\n                                                <li><a class=\"dltLink\" *ngIf=\"deleteShow\" data-toggle=\"modal\" href=\"#dltData\" data-controller=\"Types\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagelinks\">\r\n            <a routerLink=\"/Admin/Types/Insert\" class=\"btn btn-primary btn-add\" *ngIf=\"insertShow\">Tip Ekle</a>\r\n        </div>\r\n\r\n        <input id=\"hdnType\" type=\"hidden\" value=\"Types\" />\r\n    </div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Tip Tablosu</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>Tip Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>Tip İsmi</th>\r\n\t\t\t\t\t\t\t\t\t<th>Tablo Adı</th>\r\n\t\t\t\t\t\t\t\t\t<th class=\"hideColumn\">Gösterilsin mi?</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of TypesList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.TypeName }}</td>\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.TableName }}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"hideColumn\" style=\"text-align:center;\"><img *ngIf=\"item?.Show\" class=\"active\" /><img *ngIf=\"!item?.Show\" class=\"passive\" /></td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/Types/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"Types\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"Types\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/Types/Insert\" class=\"btn btn-primary btn-add\">Tip Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
 
 /***/ }),
 
@@ -13052,7 +12958,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-pushpin\"></i> Tip Ekle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"ekleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    Tip İsmi\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"TypeName\" [ngModel]=\"model?.TypeName\" formControlName=\"TypeName\" type=\"text\" />\r\n                    <!--TypeName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlantı Linki\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Url\" [ngModel]=\"model?.Url\" formControlName=\"Url\" type=\"text\" />\r\n                    <!--Url-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Tablo İsmi\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"TableName\" [ngModel]=\"model?.TableName\" formControlName=\"TableName\" type=\"text\" />\r\n                    <!--TableName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlanabilirlik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Linkable\" [ngModel]=\"model?.Linkable\" formControlName=\"Linkable\" type=\"checkbox\" />\r\n                    <!--Linkable-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Göster\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" />\r\n                    <!--Show-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!ekleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Types\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Tip Ekle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"insertForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tTip İsmi\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"TypeName\" [ngModel]=\"model?.TypeName\" formControlName=\"TypeName\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- TypeName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tTablo Adı\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"TableName\" [ngModel]=\"model?.TableName\" formControlName=\"TableName\" type=\"text\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- TableName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tGösterilsin mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Show -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!insertForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Types\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -13063,7 +12969,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-pushpin\"></i> Tip Düzenle</a></div>\r\n    </div>\r\n    <div class=\"container-fluid\">\r\n        <form [formGroup]=\"duzenleForm\" (ngSubmit)=\"onSubmit()\">\r\n            <fieldset>\r\n                <div class=\"editor-label\">\r\n                    <input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n                </div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Tip İsmi\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"TypeName\" [ngModel]=\"model?.TypeName\" formControlName=\"TypeName\" type=\"text\" value=\"{{ model?.TypeName }}\" />\r\n                    <!--TypeName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlantı Linki\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Url\" [ngModel]=\"model?.Url\" formControlName=\"Url\" type=\"text\" value=\"{{ model?.Url }}\" />\r\n                    <!--Url-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Tablo İsmi\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"TableName\" [ngModel]=\"model?.TableName\" formControlName=\"TableName\" type=\"text\" value=\"{{ model?.TableName }}\" />\r\n                    <!--TableName-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Bağlanabilirlik\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Linkable\" [ngModel]=\"model?.Linkable\" formControlName=\"Linkable\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Linkable\" />\r\n                    <input id=\"Linkable\" [ngModel]=\"model?.Linkable\" formControlName=\"Linkable\" type=\"checkbox\" *ngIf=\"!model?.Linkable\" />\r\n                    <!--Linkable-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <div class=\"editor-label\">\r\n                    Göster\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n                <div class=\"editor-field\">\r\n                    <input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Show\" />\r\n                    <input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" *ngIf=\"!model?.Show\" />\r\n                    <!--Show-->\r\n                </div>\r\n                <div class=\"clear\"></div>\r\n\r\n                <p>\r\n                    <div class=\"alert alert-error\">\r\n                        <strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n                    </div>\r\n\r\n                    <input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!duzenleForm.valid\" />\r\n                    <a routerLink=\"/Admin/Types\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n\t<div id=\"content-header\">\r\n\t\t<div id=\"breadcrumb\"> <a class=\"tip-bottom\"><i class=\"icon-home\"></i> Tip Düzenle</a></div>\r\n\t</div>\r\n\t<div class=\"container-fluid\">\r\n\t\t<form [formGroup]=\"updateForm\" (ngSubmit)=\"onSubmit()\">\r\n\t\t\t<fieldset>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\t<input id=\"ID\" [ngModel]=\"model?.ID\" formControlName=\"ID\" type=\"hidden\" value=\"{{ model?.ID }}\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tTip İsmi\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"TypeName\" [ngModel]=\"model?.TypeName\" formControlName=\"TypeName\" type=\"text\" value=\"{{ model?.TypeName }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- TypeName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tTablo Adı\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"TableName\" [ngModel]=\"model?.TableName\" formControlName=\"TableName\" type=\"text\" value=\"{{ model?.TableName }}\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- TableName -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<div class=\"editor-label\">\r\n\t\t\t\t\tGösterilsin mi?\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\t\t\t\t<div class=\"editor-field\">\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" checked=\"checked\" *ngIf=\"model?.Show\" />\r\n\t\t\t\t\t<input id=\"Show\" [ngModel]=\"model?.Show\" formControlName=\"Show\" type=\"checkbox\" *ngIf=\"!model?.Show\" />\r\n\t\t\t\t\t<br />\r\n\t\t\t\t\t<!-- Show -->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"clear\"></div>\r\n\r\n\t\t\t\t<p>\r\n\t\t\t\t\t<div class=\"alert alert-error\">\r\n\t\t\t\t\t\t<strong>Hata! </strong> <span class=\"alertMessage\">{{ model?.Mesaj }}</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<input type=\"submit\" value=\"Kaydet\" class=\"btn btn-success btn-save\" [disabled]=\"!updateForm.valid\" />\r\n\t\t\t\t\t<a routerLink=\"/Admin/Types\" class=\"btn btn-danger btn-cancel\">İptal</a>\r\n\t\t\t</fieldset>\r\n\t\t</form>\r\n\r\n\t\t<div class=\"row-fluid\">\r\n\t\t\t<div class=\"span12\">\r\n\t\t\t\t<div class=\"widget-box\">\r\n\t\t\t\t\t<div class=\"widget-title\">\r\n\t\t\t\t\t\t<span class=\"icon\"><i class=\"icon-home\"></i></span>\r\n\t\t\t\t\t\t<h5>Bağlı Kullanıcı Grubu Tablosu Tablosu</h5>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"widget-content nopadding\">\r\n\t\t\t\t\t\t<table class=\"table table-bordered data-table\">\r\n\t\t\t\t\t\t\t<thead>\r\n\t\t\t\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t\t\t\t<th>ID</th>\r\n\t\t\t\t\t\t\t\t\t<th>İşlem</th>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</thead>\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of model?.UserGroupTablesList\">\r\n\t\t\t\t\t\t\t\t\t<td>{{ item?.ID }}</td>\r\n\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\" style=\"text-align:left;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<button data-toggle=\"dropdown\" class=\"btn btn-mini btn-primary dropdown-toggle\">İşlem <span class=\"caret\"></span></button>\r\n\t\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown-menu\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"updLink\" [routerLink]=\"['/Admin/UserGroupTables/Update/' + item?.ID]\">Düzenle</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"cpyLink\" href=\"#cpyData\" data-toggle=\"modal\" data-controller=\"UserGroupTables\" [attr.data-id]=\"item?.ID\">Kopyala</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t\t<li><a class=\"dltLink\" href=\"#dltData\" data-toggle=\"modal\" data-controller=\"UserGroupTables\" [attr.data-id]=\"item?.ID\">Sil</a></li>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"pagelinks\">\r\n\t\t\t<a routerLink=\"/Admin/UserGroupTables/Insert\" class=\"btn btn-primary btn-add\">Kullanıcı Grubu Tablosu Ekle</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<admin-copydelete></admin-copydelete>\r\n"
 
 /***/ }),
 
@@ -13261,7 +13167,7 @@ module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Ana Sayfa</a></div>\r\n    </div>\r\n\r\n    <div class=\"container-fluid\">\r\n        <div class=\"quick-actions_homepage\">\r\n            <ul class=\"quick-actions\">\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightCategory && showTypeCategory\"> <a routerLink=\"/Admin/Category\"> <i class=\"icon-sitemap\"></i> Kategoriler</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightContent && showTypeContent\"> <a routerLink=\"/Admin/Content\"> <i class=\"icon-edit\"></i> İçerikler</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightPictures && showTypePictures\"> <a routerLink=\"/Admin/Pictures\"> <i class=\"icon-camera-retro\"></i> Resimler</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightFiles && showTypeFiles\"> <a routerLink=\"/Admin/Files\"> <i class=\"icon-file\"></i> Dosyalar</a> </li>\r\n                <li class=\"bg_ls\" *ngIf=\"hasRightMeta && showTypeMeta\"> <a routerLink=\"/Admin/Meta\"> <i class=\"icon-tags\"></i> Meta</a> </li>\r\n                <li class=\"bg_lr\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\"> <a routerLink=\"/Admin/LinkTypes\"> <i class=\"icon-link\"></i> Bağlı Tipler</a> </li>\r\n                <li class=\"bg_lv\" *ngIf=\"hasRightLogs && showTypeLogs\"> <a routerLink=\"/Admin/Logs\"> <i class=\"icon-eye-open\"></i> Loglar</a> </li>\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightWebsite && showTypeWebsite\"> <a routerLink=\"/Admin/Visitors\"> <i class=\"icon-plane\"></i> Ziyaretci</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightUsers && showTypeUsers\"> <a routerLink=\"/Admin/Users\"> <i class=\"icon-user\"></i> Kullanıcılar</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightTypes && showTypeTypes\"> <a routerLink=\"/Admin/Types\"> <i class=\"icon-pushpin\"></i> Tipler</a> </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"content\">\r\n    <div id=\"content-header\">\r\n        <div id=\"breadcrumb\"> <a href=\"javascript:;\" class=\"tip-bottom\"><i class=\"icon-home\"></i> Ana Sayfa</a></div>\r\n    </div>\r\n\r\n    <div class=\"container-fluid\">\r\n        <div class=\"quick-actions_homepage\">\r\n            <ul class=\"quick-actions\">\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightGeneral && showTypeGeneral\"> <a routerLink=\"/Admin/Category\"> <i class=\"icon-sitemap\"></i> Kategoriler</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightGeneral && showTypeGeneral\"> <a routerLink=\"/Admin/Content\"> <i class=\"icon-edit\"></i> İçerikler</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightGeneral && showTypeGeneral\"> <a routerLink=\"/Admin/Pictures\"> <i class=\"icon-camera-retro\"></i> Resimler</a> </li>\r\n                <li class=\"bg_lo\" *ngIf=\"hasRightGeneral && showTypeGeneral\"> <a routerLink=\"/Admin/Files\"> <i class=\"icon-file\"></i> Dosyalar</a> </li>\r\n                <li class=\"bg_ls\" *ngIf=\"hasRightGeneral && showTypeGeneral\"> <a routerLink=\"/Admin/Meta\"> <i class=\"icon-tags\"></i> Meta</a> </li>\r\n                <li class=\"bg_lr\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\"> <a routerLink=\"/Admin/LinkTypes\"> <i class=\"icon-link\"></i> Bağlı Tipler</a> </li>\r\n                <li class=\"bg_lv\" *ngIf=\"hasRightLogs && showTypeLogs\"> <a routerLink=\"/Admin/Logs\"> <i class=\"icon-eye-open\"></i> Loglar</a> </li>\r\n                <li class=\"bg_lg\" *ngIf=\"hasRightWebsite && showTypeWebsite\"> <a routerLink=\"/Admin/Visitors\"> <i class=\"icon-plane\"></i> Ziyaretci</a> </li>\r\n                <li class=\"bg_lb\" *ngIf=\"hasRightUsers && showTypeUsers\"> <a routerLink=\"/Admin/Users\"> <i class=\"icon-user\"></i> Kullanıcılar</a> </li>\r\n                <li class=\"bg_ly\" *ngIf=\"hasRightTypes && showTypeTypes\"> <a routerLink=\"/Admin/Types\"> <i class=\"icon-pushpin\"></i> Tipler</a> </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13316,7 +13222,7 @@ module.exports = "<div id=\"header\">\r\n    <h1><a><img src=\"Content/admin/img
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar\">\r\n    <a href=\"javascript:;\" class=\"visible-phone\"><i class=\"icon icon-reorder\"></i> Menü</a>\r\n    <ul>\r\n        <li data-url=\"Index\" class=\"active\">\r\n            <a routerLink=\"/Admin/Index\"><i class=\"icon icon-home\"></i> <span>Ana Sayfa</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightCategory && showTypeCategory\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Kategoriler</span></a>\r\n            <ul>\r\n                <li data-url=\"Category\"><a routerLink=\"/Admin/Category\">Kategoriler</a></li>\r\n                <li data-url=\"CategoryT\"><a routerLink=\"/Admin/CategoryT\">Kategoriler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightContent && showTypeContent\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-edit\"></i> <span>İçerikler</span></a>\r\n            <ul>\r\n                <li data-url=\"Content\"><a routerLink=\"/Admin/Content\">İçerikler</a></li>\r\n                <li data-url=\"ContentT\"><a routerLink=\"/Admin/ContentT\">İçerikler (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Pictures\" *ngIf=\"hasRightPictures && showTypePictures\">\r\n            <a routerLink=\"/Admin/Pictures\"><i class=\"icon icon-camera-retro\"></i> <span>Resimler</span></a>\r\n        </li>\r\n        <li data-url=\"Files\" *ngIf=\"hasRightFiles && showTypeFiles\">\r\n            <a routerLink=\"/Admin/Files\"><i class=\"icon icon-file\"></i> <span>Dosyalar</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightMeta && showTypeMeta\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-tags\"></i> <span>Meta</span></a>\r\n            <ul>\r\n                <li data-url=\"Meta\"><a routerLink=\"/Admin/Meta\">Meta</a></li>\r\n                <li data-url=\"MetaT\"><a routerLink=\"/Admin/MetaT\">Meta (Dil)</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-link\"></i> <span>Bağlı Tipler</span></a>\r\n            <ul>\r\n                <li data-url=\"LinkTypes\"><a routerLink=\"/Admin/LinkTypes\">Bağlı Tipler</a></li>\r\n                <li data-url=\"Links\"><a routerLink=\"/Admin/Links\">Bağlantılar</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLogs && showTypeLogs\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-eye-open\"></i> <span>Loglar</span></a>\r\n            <ul>\r\n                <li data-url=\"Logs\"><a routerLink=\"/Admin/Logs\">Loglar</a></li>\r\n                <li data-url=\"LogTypes\"><a routerLink=\"/Admin/LogTypes\">Log Tipleri</a></li>\r\n                <li data-url=\"LogProcess\"><a routerLink=\"/Admin/LogProcess\">Log İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Visitors\" *ngIf=\"hasRightWebsite && showTypeWebsite\">\r\n            <a routerLink=\"/Admin/Visitors\"><i class=\"icon icon-plane\"></i> <span>Ziyaretçiler</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightUsers && showTypeUsers\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-user\"></i> <span>Kullanıcılar</span></a>\r\n            <ul>\r\n                <li data-url=\"Users\"><a routerLink=\"/Admin/Users\">Kullanıcılar</a></li>\r\n                <li data-url=\"UserGroups\"><a routerLink=\"/Admin/UserGroups\">Kullanıcı Grupları</a></li>\r\n                <li data-url=\"UserGroupTables\"><a routerLink=\"/Admin/UserGroupTables\">Kullanıcı Grup Tabloları</a></li>\r\n                <li data-url=\"UserGroupRights\"><a routerLink=\"/Admin/UserGroupRights\">Kullanıcı Grup Hakları</a></li>\r\n                <li data-url=\"UserGroupProcess\"><a routerLink=\"/Admin/UserGroupProcess\">Kullanıcı Grup İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Types\" *ngIf=\"hasRightTypes && showTypeTypes\">\r\n            <a routerLink=\"/Admin/Types\"><i class=\"icon icon-pushpin\"></i> <span>Tipler</span></a>\r\n        </li>\r\n    </ul>\r\n</div>"
+module.exports = "<div id=\"sidebar\">\r\n    <a href=\"javascript:;\" class=\"visible-phone\"><i class=\"icon icon-reorder\"></i> Menü</a>\r\n    <ul>\r\n        <li data-url=\"Index\" class=\"active\">\r\n            <a routerLink=\"/Admin/Index\"><i class=\"icon icon-home\"></i> <span>Ana Sayfa</span></a>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightWebsite && showTypeWebsite\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Web Sitesi</span></a>\r\n            <ul>\r\n                <li data-url=\"Visitors\"><a routerLink=\"/Admin/Visitors\">Ziyaretçiler</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightGeneral && showTypeGeneral\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-sitemap\"></i> <span>Genel</span></a>\r\n            <ul>\r\n                <li data-url=\"Category\"><a routerLink=\"/Admin/Category\">Kategoriler</a></li>\r\n                <li data-url=\"Content\"><a routerLink=\"/Admin/Content\">İçerikler</a></li>\r\n                <li data-url=\"Pictures\"><a routerLink=\"/Admin/Pictures\">Resimler</a></li>\r\n                <li data-url=\"Files\"><a routerLink=\"/Admin/Files\">Dosyalar</a></li>\r\n                <li data-url=\"Meta\"><a routerLink=\"/Admin/Meta\">Meta</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLinkTypes && showTypeLinkTypes\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-link\"></i> <span>Bağlı Tipler</span></a>\r\n            <ul>\r\n                <li data-url=\"LinkTypes\"><a routerLink=\"/Admin/LinkTypes\">Bağlı Tipler</a></li>\r\n                <li data-url=\"Links\"><a routerLink=\"/Admin/Links\">Bağlantılar</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightLogs && showTypeLogs\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-eye-open\"></i> <span>Loglar</span></a>\r\n            <ul>\r\n                <li data-url=\"Logs\"><a routerLink=\"/Admin/Logs\">Loglar</a></li>\r\n                <li data-url=\"LogTypes\"><a routerLink=\"/Admin/LogTypes\">Log Tipleri</a></li>\r\n                <li data-url=\"LogProcess\"><a routerLink=\"/Admin/LogProcess\">Log İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"submenu\" *ngIf=\"hasRightUsers && showTypeUsers\">\r\n            <a href=\"javascript:;\"><i class=\"icon icon-user\"></i> <span>Kullanıcılar</span></a>\r\n            <ul>\r\n                <li data-url=\"Users\"><a routerLink=\"/Admin/Users\">Kullanıcılar</a></li>\r\n                <li data-url=\"UserGroups\"><a routerLink=\"/Admin/UserGroups\">Kullanıcı Grupları</a></li>\r\n                <li data-url=\"UserGroupTables\"><a routerLink=\"/Admin/UserGroupTables\">Kullanıcı Grup Tabloları</a></li>\r\n                <li data-url=\"UserGroupRights\"><a routerLink=\"/Admin/UserGroupRights\">Kullanıcı Grup Hakları</a></li>\r\n                <li data-url=\"UserGroupProcess\"><a routerLink=\"/Admin/UserGroupProcess\">Kullanıcı Grup İşlemleri</a></li>\r\n            </ul>\r\n        </li>\r\n        <li data-url=\"Types\" *ngIf=\"hasRightTypes && showTypeTypes\">\r\n            <a routerLink=\"/Admin/Types\"><i class=\"icon icon-pushpin\"></i> <span>Tipler</span></a>\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
@@ -13732,7 +13638,8 @@ let SharedService = class SharedService {
         this.linkLoginControl = "Ajax/Shared/LoginControl";
         this.linkCurrentUser = "Ajax/Shared/CurrentUser";
         this.linkHasRight = "Ajax/Shared/HasRight";
-        this.linkShowType = "Ajax/Shared/ShowType";
+        this.linkCurrentUserRights = "Ajax/Shared/CurrentUserRights";
+        this.linkShowType = "Ajax/Shared/ShowTypes";
     }
     postLogin(user) {
         return this.http.post(this.linkLogin, user);
@@ -13746,11 +13653,15 @@ let SharedService = class SharedService {
     getCurrentUser() {
         return this.http.get(this.linkCurrentUser);
     }
-    getHasRight(url, process) {
+    getCurrentUserRights(url = null, process = null) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("url", url).set("process", process);
+        return this.http.get(this.linkCurrentUserRights, { params: params });
+    }
+    getHasRight(url = null, process = null) {
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("url", url).set("process", process);
         return this.http.get(this.linkHasRight, { params: params });
     }
-    getShowType(url) {
+    getShowTypes(url = null) {
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("url", url);
         return this.http.get(this.linkShowType, { params: params });
     }
@@ -13790,7 +13701,8 @@ let SharedService = class SharedService {
         this.linkLoginControl = "Ajax/Shared/LoginControl";
         this.linkCurrentUser = "Ajax/Shared/CurrentUser";
         this.linkHasRight = "Ajax/Shared/HasRight";
-        this.linkShowType = "Ajax/Shared/ShowType";
+        this.linkCurrentUserRights = "Ajax/Shared/CurrentUserRights";
+        this.linkShowType = "Ajax/Shared/ShowTypes";
     }
     postLogin(user) {
         return this.http.post(this.linkLogin, user);
@@ -13804,11 +13716,15 @@ let SharedService = class SharedService {
     getCurrentUser() {
         return this.http.get(this.linkCurrentUser);
     }
-    getHasRight(url, process) {
+    getCurrentUserRights(url = null, process = null) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("url", url).set("process", process);
+        return this.http.get(this.linkCurrentUserRights, { params: params });
+    }
+    getHasRight(url = null, process = null) {
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("url", url).set("process", process);
         return this.http.get(this.linkHasRight, { params: params });
     }
-    getShowType(url) {
+    getShowTypes(url = null) {
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("url", url);
         return this.http.get(this.linkShowType, { params: params });
     }
@@ -13836,63 +13752,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoryIndexComponent", function() { return AdminCategoryIndexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
 let AdminCategoryIndexComponent = class AdminCategoryIndexComponent {
-    constructor(service, sharedService, router) {
+    constructor(service) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
     }
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData();
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight) => {
-                        this.copyShow = cRight;
-                        this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                            this.removeShow = rRight;
-                            if (this.callTable == true) {
-                                this.service.get("Category", "Index").subscribe((resData) => {
-                                    this.KategoriList = resData;
-                                    this.callTable = false;
-                                    DataTable();
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            }
-                            setTimeout(() => {
-                                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                    $(".btn-group").remove();
-                                }
-                            }, 1);
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
+    FillData() {
+        if (this.callTable == true) {
+            this.subscription = this.service.get("Category", "Index").subscribe((answer) => {
+                this.CategoryList = answer;
+                this.callTable = false;
+                setTimeout(() => {
+                    DataTable();
+                    $(document)
+                        .off("click", ".fg-button")
+                        .on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData();
+                        }, 1);
+                    });
+                }, 1);
+            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 };
 AdminCategoryIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] }
 ];
 AdminCategoryIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -13916,40 +13819,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoryInsertComponent", function() { return AdminCategoryInsertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
+
+
 
 
 
 
 
 let AdminCategoryInsertComponent = class AdminCategoryInsertComponent {
-    constructor(service, route, router, formBuilder) {
+    constructor(service, formBuilder, router) {
         this.service = service;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
-        this.route.params.subscribe(() => {
-            this.service.get("Category", "Insert").subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.ekleForm = this.formBuilder.group({
-            ParentID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(0)]),
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
+        this.data = new Object();
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description1");
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description2");
+        this.insertForm = this.formBuilder.group({
+            ParentID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            CategoryName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
+            ShortDesc1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            ShortDesc2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
         });
     }
+    ngAfterViewChecked() {
+        $("#Description1").next("div.ck").find(".ck-content").attr("data-id", "Description1");
+        $("#Description2").next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.ParentID = this.ekleForm.get("ParentID").value;
-        this.data.Title = this.ekleForm.get("Title").value;
-        this.data.Code = this.ekleForm.get("Code").value;
-        this.data.Active = this.ekleForm.get("Active").value;
+        this.data.ParentID = this.insertForm.get("ParentID").value;
+        this.data.CategoryName = this.insertForm.get("CategoryName").value;
+        this.data.Code = this.insertForm.get("Code").value;
+        this.data.ShortDesc1 = this.insertForm.get("ShortDesc1").value;
+        this.data.Description1 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description1");
+        this.data.ShortDesc2 = this.insertForm.get("ShortDesc2").value;
+        this.data.Description2 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description2");
+        this.data.Show = this.insertForm.get("Show").value;
         this.service.post("Category", "Insert", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -13963,10 +13882,9 @@ let AdminCategoryInsertComponent = class AdminCategoryInsertComponent {
     }
 };
 AdminCategoryInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 AdminCategoryInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -13990,10 +13908,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCategoryUpdateComponent", function() { return AdminCategoryUpdateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
+
 
 
 
@@ -14001,31 +13921,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AdminCategoryUpdateComponent = class AdminCategoryUpdateComponent {
-    constructor(service, sharedService, route, router, formBuilder) {
+    constructor(service, formBuilder, router, route) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.route = route;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
+        this.data = new Object();
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
-            ParentID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(0)]),
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
+        this.FillData();
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description");
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description");
+        this.updateForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            ParentID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            CategoryName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
+            ShortDesc1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            ShortDesc2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
         });
     }
+    ngAfterViewChecked() {
+        $("#Description1").next("div.ck").find(".ck-content").attr("data-id", "Description1");
+        $("#Description2").next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
+    FillData() {
+        if (this.callTable == true) {
+            this.route.params.subscribe((params) => {
+                this.id = params['id'];
+                this.subscription = this.service.get("Category", "Update", this.id).subscribe((answer) => {
+                    this.model = answer;
+                    this.callTable = false;
+                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+            });
+        }
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.ParentID = this.duzenleForm.get("ParentID").value;
-        this.data.Title = this.duzenleForm.get("Title").value;
-        this.data.Code = this.duzenleForm.get("Code").value;
-        this.data.Active = this.duzenleForm.get("Active").value;
+        this.data.ID = this.updateForm.get("ID").value;
+        this.data.ParentID = this.updateForm.get("ParentID").value;
+        this.data.CategoryName = this.updateForm.get("CategoryName").value;
+        this.data.Code = this.updateForm.get("Code").value;
+        this.data.ShortDesc1 = this.updateForm.get("ShortDesc1").value;
+        this.data.Description1 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description1");
+        this.data.ShortDesc2 = this.updateForm.get("ShortDesc2").value;
+        this.data.Description2 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description2");
+        this.data.Show = this.updateForm.get("Show").value;
         this.service.post("Category", "Update", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -14037,53 +13985,252 @@ let AdminCategoryUpdateComponent = class AdminCategoryUpdateComponent {
             }
         }, resError => this.errorMsg = resError);
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.route.params.subscribe((params) => {
-                                this.id = params['id'];
-                                this.service.get("Category", "Update", this.id).subscribe((resData) => {
-                                    this.model = resData;
-                                    this.callTable = false;
-                                    DataTable();
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            });
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
 };
 AdminCategoryUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
 AdminCategoryUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/category/update.html")
     })
 ], AdminCategoryUpdateComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/city/index.ts":
+/*!***************************************************!*\
+  !*** ./src/app/admin/views/general/city/index.ts ***!
+  \***************************************************/
+/*! exports provided: AdminCityIndexComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCityIndexComponent", function() { return AdminCityIndexComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+
+
+
+
+let AdminCityIndexComponent = class AdminCityIndexComponent {
+    constructor(service) {
+        this.service = service;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
+    }
+    ngOnInit() {
+        this.callTable = true;
+        this.FillData();
+    }
+    FillData() {
+        if (this.callTable == true) {
+            this.subscription = this.service.get("City", "Index").subscribe((answer) => {
+                this.CityList = answer;
+                this.callTable = false;
+                setTimeout(() => {
+                    DataTable();
+                    $(document)
+                        .off("click", ".fg-button")
+                        .on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData();
+                        }, 1);
+                    });
+                }, 1);
+            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+};
+AdminCityIndexComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] }
+];
+AdminCityIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/city/index.html")
+    })
+], AdminCityIndexComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/city/insert.ts":
+/*!****************************************************!*\
+  !*** ./src/app/admin/views/general/city/insert.ts ***!
+  \****************************************************/
+/*! exports provided: AdminCityInsertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCityInsertComponent", function() { return AdminCityInsertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+
+
+
+
+
+
+let AdminCityInsertComponent = class AdminCityInsertComponent {
+    constructor(service, formBuilder, router) {
+        this.service = service;
+        this.formBuilder = formBuilder;
+        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+    }
+    ngOnInit() {
+        this.data = new Object();
+        this.insertForm = this.formBuilder.group({
+            Name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(30)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            Order: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+        });
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+    onSubmit() {
+        this.data.Name = this.insertForm.get("Name").value;
+        this.data.Code = this.insertForm.get("Code").value;
+        this.data.Active = this.insertForm.get("Active").value;
+        this.data.Show = this.insertForm.get("Show").value;
+        this.data.Order = this.insertForm.get("Order").value;
+        this.service.post("City", "Insert", this.data)
+            .subscribe((answer) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/City']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminCityInsertComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AdminCityInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/city/insert.html")
+    })
+], AdminCityInsertComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/views/general/city/update.ts":
+/*!****************************************************!*\
+  !*** ./src/app/admin/views/general/city/update.ts ***!
+  \****************************************************/
+/*! exports provided: AdminCityUpdateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCityUpdateComponent", function() { return AdminCityUpdateComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+
+
+
+
+
+
+let AdminCityUpdateComponent = class AdminCityUpdateComponent {
+    constructor(service, formBuilder, router, route) {
+        this.service = service;
+        this.formBuilder = formBuilder;
+        this.router = router;
+        this.route = route;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+    }
+    ngOnInit() {
+        this.data = new Object();
+        this.callTable = true;
+        this.FillData();
+        this.updateForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            Name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(30)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            Order: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+        });
+    }
+    FillData() {
+        if (this.callTable == true) {
+            this.route.params.subscribe((params) => {
+                this.id = params['id'];
+                this.subscription = this.service.get("City", "Update", this.id).subscribe((answer) => {
+                    this.model = answer;
+                    this.callTable = false;
+                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+            });
+        }
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+    onSubmit() {
+        this.data.ID = this.updateForm.get("ID").value;
+        this.data.Name = this.updateForm.get("Name").value;
+        this.data.Code = this.updateForm.get("Code").value;
+        this.data.Active = this.updateForm.get("Active").value;
+        this.data.Show = this.updateForm.get("Show").value;
+        this.data.Order = this.updateForm.get("Order").value;
+        this.service.post("City", "Update", this.data)
+            .subscribe((answer) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/City']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
+    }
+};
+AdminCityUpdateComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+];
+AdminCityUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/city/update.html")
+    })
+], AdminCityUpdateComponent);
 
 
 
@@ -14101,63 +14248,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminContentIndexComponent", function() { return AdminContentIndexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
 let AdminContentIndexComponent = class AdminContentIndexComponent {
-    constructor(service, sharedService, router) {
+    constructor(service) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
     }
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData();
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight) => {
-                        this.copyShow = cRight;
-                        this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                            this.removeShow = rRight;
-                            if (this.callTable == true) {
-                                this.service.get("Content", "Index").subscribe((resData) => {
-                                    this.IcerikList = resData;
-                                    this.callTable = false;
-                                    DataTable();
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            }
-                            setTimeout(() => {
-                                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                    $(".btn-group").remove();
-                                }
-                            }, 1);
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
+    FillData() {
+        if (this.callTable == true) {
+            this.subscription = this.service.get("Content", "Index").subscribe((answer) => {
+                this.ContentList = answer;
+                this.callTable = false;
+                setTimeout(() => {
+                    DataTable();
+                    $(document)
+                        .off("click", ".fg-button")
+                        .on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData();
+                        }, 1);
+                    });
+                }, 1);
+            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 };
 AdminContentIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] }
 ];
 AdminContentIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -14181,32 +14315,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminContentInsertComponent", function() { return AdminContentInsertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
+
+
 
 
 
 
 
 let AdminContentInsertComponent = class AdminContentInsertComponent {
-    constructor(service, router, formBuilder) {
+    constructor(service, formBuilder, router) {
         this.service = service;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
-        this.ekleForm = this.formBuilder.group({
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
+        this.data = new Object();
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description1");
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description2");
+        this.insertForm = this.formBuilder.group({
+            ContentName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
+            ShortDesc1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            ShortDesc2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
         });
     }
+    ngAfterViewChecked() {
+        $("#Description1").next("div.ck").find(".ck-content").attr("data-id", "Description1");
+        $("#Description2").next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.Title = this.ekleForm.get("Title").value;
-        this.data.Code = this.ekleForm.get("Code").value;
-        this.data.Active = this.ekleForm.get("Active").value;
+        this.data.ContentName = this.insertForm.get("ContentName").value;
+        this.data.Code = this.insertForm.get("Code").value;
+        this.data.ShortDesc1 = this.insertForm.get("ShortDesc1").value;
+        this.data.Description1 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description1");
+        this.data.ShortDesc2 = this.insertForm.get("ShortDesc2").value;
+        this.data.Description2 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description2");
         this.service.post("Content", "Insert", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -14220,9 +14374,9 @@ let AdminContentInsertComponent = class AdminContentInsertComponent {
     }
 };
 AdminContentInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 AdminContentInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -14246,10 +14400,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminContentUpdateComponent", function() { return AdminContentUpdateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
+
 
 
 
@@ -14257,29 +14413,55 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AdminContentUpdateComponent = class AdminContentUpdateComponent {
-    constructor(service, sharedService, route, router, formBuilder) {
+    constructor(service, formBuilder, router, route) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.route = route;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
+        this.data = new Object();
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
+        this.FillData();
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description");
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description");
+        this.updateForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            ContentName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
+            ShortDesc1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description1: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
+            ShortDesc2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Description2: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
         });
     }
+    ngAfterViewChecked() {
+        $("#Description1").next("div.ck").find(".ck-content").attr("data-id", "Description1");
+        $("#Description2").next("div.ck").find(".ck-content").attr("data-id", "Description2");
+    }
+    FillData() {
+        if (this.callTable == true) {
+            this.route.params.subscribe((params) => {
+                this.id = params['id'];
+                this.subscription = this.service.get("Content", "Update", this.id).subscribe((answer) => {
+                    this.model = answer;
+                    this.callTable = false;
+                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+            });
+        }
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.Title = this.duzenleForm.get("Title").value;
-        this.data.Code = this.duzenleForm.get("Code").value;
-        this.data.Active = this.duzenleForm.get("Active").value;
+        this.data.ID = this.updateForm.get("ID").value;
+        this.data.ContentName = this.updateForm.get("ContentName").value;
+        this.data.Code = this.updateForm.get("Code").value;
+        this.data.ShortDesc1 = this.updateForm.get("ShortDesc1").value;
+        this.data.Description1 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description1");
+        this.data.ShortDesc2 = this.updateForm.get("ShortDesc2").value;
+        this.data.Description2 = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Description2");
         this.service.post("Content", "Update", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -14291,47 +14473,12 @@ let AdminContentUpdateComponent = class AdminContentUpdateComponent {
             }
         }, resError => this.errorMsg = resError);
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.route.params.subscribe((params) => {
-                                this.id = params['id'];
-                                this.service.get("Content", "Update", this.id).subscribe((resData) => {
-                                    this.model = resData;
-                                    this.callTable = false;
-                                    DataTable();
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            });
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
 };
 AdminContentUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
 AdminContentUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -14365,40 +14512,50 @@ let AdminFilesIndexComponent = class AdminFilesIndexComponent {
     constructor(service, sharedService) {
         this.service = service;
         this.sharedService = sharedService;
+        this.insertShow = false;
+        this.updateShow = false;
+        this.deleteShow = false;
+        this.removeShow = false;
     }
     ngOnInit() {
         this.callTable = true;
         this.UserRightsControl($("#hdnType").val());
     }
     UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.service.get("Files", "Index").subscribe((resData) => {
-                                this.DosyaList = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
+        this.sharedService.getCurrentUserRights(Model).subscribe((userRights) => {
+            userRights.forEach((item, i) => {
+                switch (item.ShortName) {
+                    case "i":
+                        this.insertShow = true;
+                        break;
+                    case "u":
+                        this.updateShow = true;
+                        break;
+                    case "d":
+                        this.deleteShow = true;
+                        break;
+                    case "r":
+                        this.removeShow = true;
+                        break;
+                }
+            });
+            if (this.callTable == true) {
+                this.service.get("Files", "Index").subscribe((resData) => {
+                    this.DosyaList = resData;
+                    this.callTable = false;
+                    DataTable();
+                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                         setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
+                            this.UserRightsControl($("#hdnType").val());
                         }, 1);
-                    }, resError => this.errorMsg = resError);
+                    });
                 }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
+            }
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
         }, resError => this.errorMsg = resError);
     }
 };
@@ -14461,27 +14618,29 @@ let AdminFilesInsertComponent = class AdminFilesInsertComponent {
         this.uploadData.append("file", this.newFile);
         this.service.post("Files", "InsertUpload", this.uploadData)
             .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.data = new Object();
-                this.data.Title = this.ekleForm.get("Title").value;
-                this.data.Description = this.ekleForm.get("Description").value;
-                this.data.FileUrl = answer.FileUrl;
-                this.data.Code = this.ekleForm.get("Code").value;
-                this.data.Active = this.ekleForm.get("Active").value;
-                this.service.post("Files", "Insert", this.data)
-                    .subscribe((answer2) => {
-                    if (answer2.Mesaj == null) {
-                        this.router.navigate(['/Admin/Files']);
-                    }
-                    else {
-                        $(".alertMessage").text(answer2.Mesaj);
-                        $(".alert-error").fadeIn("slow");
-                    }
-                }, resError => this.errorMsg = resError);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
+            if (answer != null) {
+                if (answer.Mesaj == null) {
+                    this.data = new Object();
+                    this.data.Title = this.ekleForm.get("Title").value;
+                    this.data.Description = this.ekleForm.get("Description").value;
+                    this.data.FileUrl = answer.FileUrl;
+                    this.data.Code = this.ekleForm.get("Code").value;
+                    this.data.Active = this.ekleForm.get("Active").value;
+                    this.service.post("Files", "Insert", this.data)
+                        .subscribe((answer2) => {
+                        if (answer2.Mesaj == null) {
+                            this.router.navigate(['/Admin/Files']);
+                        }
+                        else {
+                            $(".alertMessage").text(answer2.Mesaj);
+                            $(".alert-error").fadeIn("slow");
+                        }
+                    }, resError => this.errorMsg = resError);
+                }
+                else {
+                    $(".alertMessage").text(answer.Mesaj);
+                    $(".alert-error").fadeIn("slow");
+                }
             }
         }, resError => this.errorMsg = resError);
     }
@@ -14603,423 +14762,119 @@ AdminFilesUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/admin/views/general/links/index.ts":
-/*!****************************************************!*\
-  !*** ./src/app/admin/views/general/links/index.ts ***!
-  \****************************************************/
-/*! exports provided: AdminLinksIndexComponent */
+/***/ "./src/app/admin/views/general/gallery/index.ts":
+/*!******************************************************!*\
+  !*** ./src/app/admin/views/general/gallery/index.ts ***!
+  \******************************************************/
+/*! exports provided: AdminGalleryIndexComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinksIndexComponent", function() { return AdminLinksIndexComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGalleryIndexComponent", function() { return AdminGalleryIndexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
-let AdminLinksIndexComponent = class AdminLinksIndexComponent {
-    constructor(service, sharedService) {
+let AdminGalleryIndexComponent = class AdminGalleryIndexComponent {
+    constructor(service) {
         this.service = service;
-        this.sharedService = sharedService;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
     }
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData();
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    if (this.callTable == true) {
-                        this.service.get("Links", "Index").subscribe((resData) => {
-                            for (var i = 0; i < resData.length; i++) {
-                                switch (resData[i].LinkedTypeID) {
-                                    case 1:
-                                        resData[i].LinkedAdi = resData[i].LinkedCategoryAdi;
-                                        break;
-                                    case 2:
-                                        resData[i].LinkedAdi = resData[i].LinkedContentAdi;
-                                        break;
-                                    case 4:
-                                        resData[i].LinkedAdi = resData[i].LinkedGalleryAdi;
-                                        break;
-                                    case 5:
-                                        resData[i].LinkedAdi = resData[i].LinkedPicturesAdi;
-                                        break;
-                                    case 6:
-                                        resData[i].LinkedAdi = resData[i].LinkedFilesAdi;
-                                        break;
-                                    case 7:
-                                        resData[i].LinkedAdi = resData[i].LinkedMetaAdi;
-                                        break;
-                                }
-                            }
-                            this.BaglantiList = resData;
-                            this.callTable = false;
-                            DataTable();
-                            $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                setTimeout(() => {
-                                    this.UserRightsControl($("#hdnType").val());
-                                }, 1);
-                            });
-                        }, resError => this.errorMsg = resError);
-                    }
-                    setTimeout(() => {
-                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                            $(".btn-group").remove();
-                        }
-                    }, 1);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLinksIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
-];
-AdminLinksIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/index.html")
-    })
-], AdminLinksIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/links/insert.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/admin/views/general/links/insert.ts ***!
-  \*****************************************************/
-/*! exports provided: AdminLinksInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinksInsertComponent", function() { return AdminLinksInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-let AdminLinksInsertComponent = class AdminLinksInsertComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.linkID = params['linkID'];
-            this.service.get("Links", "Insert", this.linkID).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.ekleForm = this.formBuilder.group({
-            LinkTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            LinkID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)])
-        });
-    }
-    onChange(event) {
-        var target = event.target || event.srcElement || event.currentTarget;
-        this.service.get("Links", "FillObject", null, null, target.value, null)
-            .subscribe((answer) => {
-            if (answer != null) {
-                $("select.selectLinkID").html("");
-                for (var i = 0; i < answer.length; i++) {
-                    $("select.selectLinkID").append("<option value='" + answer[i].Value + "'>" + answer[i].Text + "</option>");
-                }
-            }
-            else {
-                $(".alertMessage").text("Bağlı Nesne getirilemedi yada ilgili Bağlı Tip'e ait nesne henüz tanımlanmamış.");
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.LinkTypeID = this.ekleForm.get("LinkTypeID").value;
-        this.data.LinkID = this.ekleForm.get("LinkID").value;
-        this.service.post("Links", "Insert", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/Links']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLinksInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
-];
-AdminLinksInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/insert.html")
-    })
-], AdminLinksInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/links/update.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/admin/views/general/links/update.ts ***!
-  \*****************************************************/
-/*! exports provided: AdminLinksUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinksUpdateComponent", function() { return AdminLinksUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-let AdminLinksUpdateComponent = class AdminLinksUpdateComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.id = params['id'];
-            this.service.get("Links", "Update", this.id).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            LinkTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            LinkID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)])
-        });
-    }
-    onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.LinkTypeID = this.duzenleForm.get("LinkTypeID").value;
-        this.data.LinkID = this.duzenleForm.get("LinkID").value;
-        this.service.post("Links", "Update", this.data)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/Links']);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminLinksUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
-];
-AdminLinksUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/links/update.html")
-    })
-], AdminLinksUpdateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/linktypes/index.ts":
-/*!********************************************************!*\
-  !*** ./src/app/admin/views/general/linktypes/index.ts ***!
-  \********************************************************/
-/*! exports provided: AdminLinkTypesIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinkTypesIndexComponent", function() { return AdminLinkTypesIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
-
-
-
-
-let AdminLinkTypesIndexComponent = class AdminLinkTypesIndexComponent {
-    constructor(service, sharedService, router) {
-        this.service = service;
-        this.sharedService = sharedService;
-        this.router = router;
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight) => {
-                        this.copyShow = cRight;
-                        if (this.callTable == true) {
-                            this.service.get("LinkTypes", "Index").subscribe((resData) => {
-                                for (var i = 0; i < resData.length; i++) {
-                                    switch (resData[i].MainTypeID) {
-                                        case 1:
-                                            resData[i].MainAdi = resData[i].MainCategoryAdi;
-                                            break;
-                                        case 2:
-                                            resData[i].MainAdi = resData[i].MainContentAdi;
-                                            break;
-                                        case 4:
-                                            resData[i].MainAdi = resData[i].MainGalleryAdi;
-                                            break;
-                                        case 5:
-                                            resData[i].MainAdi = resData[i].MainPicturesAdi;
-                                            break;
-                                        case 6:
-                                            resData[i].MainAdi = resData[i].MainFilesAdi;
-                                            break;
-                                        case 7:
-                                            resData[i].MainAdi = resData[i].MainMetaAdi;
-                                            break;
-                                    }
-                                }
-                                this.BagliTiplerList = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
+    FillData() {
+        if (this.callTable == true) {
+            this.subscription = this.service.get("Gallery", "Index").subscribe((answer) => {
+                this.GalleryList = answer;
+                this.callTable = false;
+                setTimeout(() => {
+                    DataTable();
+                    $(document)
+                        .off("click", ".fg-button")
+                        .on("click", ".fg-button", () => {
                         setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
+                            this.FillData();
                         }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
+                    });
+                }, 1);
+            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 };
-AdminLinkTypesIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+AdminGalleryIndexComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] }
 ];
-AdminLinkTypesIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+AdminGalleryIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/index.html")
+        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/gallery/index.html")
     })
-], AdminLinkTypesIndexComponent);
+], AdminGalleryIndexComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/admin/views/general/linktypes/insert.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/admin/views/general/linktypes/insert.ts ***!
-  \*********************************************************/
-/*! exports provided: AdminLinkTypesInsertComponent */
+/***/ "./src/app/admin/views/general/gallery/insert.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/admin/views/general/gallery/insert.ts ***!
+  \*******************************************************/
+/*! exports provided: AdminGalleryInsertComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinkTypesInsertComponent", function() { return AdminLinkTypesInsertComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGalleryInsertComponent", function() { return AdminGalleryInsertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
 
-let AdminLinkTypesInsertComponent = class AdminLinkTypesInsertComponent {
-    constructor(service, route, router, formBuilder) {
+
+let AdminGalleryInsertComponent = class AdminGalleryInsertComponent {
+    constructor(service, formBuilder, router) {
         this.service = service;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
-        this.route.params.subscribe(() => {
-            this.service.get("LinkTypes", "Insert").subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.ekleForm = this.formBuilder.group({
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            MainTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            MainID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            LinkedTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
+        this.data = new Object();
+        this.insertForm = this.formBuilder.group({
+            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
         });
     }
-    onChange(event) {
-        var target = event.target || event.srcElement || event.currentTarget;
-        this.service.get("LinkTypes", "FillTypes", null, null, null, target.value)
-            .subscribe((answer) => {
-            if (answer != null) {
-                $("select.selectMain").html("");
-                for (var i = 0; i < answer.length; i++) {
-                    $("select.selectMain").append("<option value='" + answer[i].Value + "'>" + answer[i].Text + "</option>");
-                }
-            }
-            else {
-                $(".alertMessage").text("Ana Nesne getirilemedi yada ilgili Ana Tip'e ait nesne henüz tanımlanmamış.");
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
     onSubmit() {
-        this.data = new Object();
-        this.data.Title = this.ekleForm.get("Title").value;
-        this.data.MainTypeID = this.ekleForm.get("MainTypeID").value;
-        this.data.MainID = this.ekleForm.get("MainID").value;
-        this.data.LinkedTypeID = this.ekleForm.get("LinkedTypeID").value;
-        this.service.post("LinkTypes", "Insert", this.data)
+        this.data.Title = this.insertForm.get("Title").value;
+        this.data.Code = this.insertForm.get("Code").value;
+        this.service.post("Gallery", "Insert", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/LinkTypes']);
+                this.router.navigate(['/Admin/Gallery']);
             }
             else {
                 $(".alertMessage").text(answer.Mesaj);
@@ -15028,90 +14883,83 @@ let AdminLinkTypesInsertComponent = class AdminLinkTypesInsertComponent {
         }, resError => this.errorMsg = resError);
     }
 };
-AdminLinkTypesInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+AdminGalleryInsertComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
-AdminLinkTypesInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+AdminGalleryInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/insert.html")
+        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/gallery/insert.html")
     })
-], AdminLinkTypesInsertComponent);
+], AdminGalleryInsertComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/admin/views/general/linktypes/update.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/admin/views/general/linktypes/update.ts ***!
-  \*********************************************************/
-/*! exports provided: AdminLinkTypesUpdateComponent */
+/***/ "./src/app/admin/views/general/gallery/update.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/admin/views/general/gallery/update.ts ***!
+  \*******************************************************/
+/*! exports provided: AdminGalleryUpdateComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLinkTypesUpdateComponent", function() { return AdminLinkTypesUpdateComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGalleryUpdateComponent", function() { return AdminGalleryUpdateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
 
 
-let AdminLinkTypesUpdateComponent = class AdminLinkTypesUpdateComponent {
-    constructor(service, sharedService, route, router, formBuilder) {
+let AdminGalleryUpdateComponent = class AdminGalleryUpdateComponent {
+    constructor(service, formBuilder, router, route) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.route = route;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
+        this.data = new Object();
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(50)]),
-            MainTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
-            MainID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
-            LinkedTypeID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
+        this.FillData();
+        this.updateForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(255)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
         });
     }
-    onChange(event) {
-        var target = event.target || event.srcElement || event.currentTarget;
-        this.service.get("LinkTypes", null, null, null, target.value)
-            .subscribe((answer) => {
-            if (answer != null) {
-                $("select.selectMain").html("");
-                for (var i = 0; i < answer.length; i++) {
-                    $("select.selectMain").append("<option value='" + answer[i].Value + "'>" + answer[i].Text + "</option>");
-                }
-            }
-            else {
-                $(".alertMessage").text("Ana Nesne getirilemedi yada ilgili Ana Tip'e ait nesne henüz tanımlanmamış.");
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
+    FillData() {
+        if (this.callTable == true) {
+            this.route.params.subscribe((params) => {
+                this.id = params['id'];
+                this.subscription = this.service.get("Gallery", "Update", this.id).subscribe((answer) => {
+                    this.model = answer;
+                    this.callTable = false;
+                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+            });
+        }
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
     onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.Title = this.duzenleForm.get("Title").value;
-        this.data.MainTypeID = this.duzenleForm.get("MainTypeID").value;
-        this.data.MainID = this.duzenleForm.get("MainID").value;
-        this.data.LinkedTypeID = this.duzenleForm.get("LinkedTypeID").value;
-        this.service.post("LinkTypes", "Update", this.data)
+        this.data.ID = this.updateForm.get("ID").value;
+        this.data.Title = this.updateForm.get("Title").value;
+        this.data.Code = this.updateForm.get("Code").value;
+        this.service.post("Gallery", "Update", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
-                this.router.navigate(['/Admin/LinkTypes']);
+                this.router.navigate(['/Admin/Gallery']);
             }
             else {
                 $(".alertMessage").text(answer.Mesaj);
@@ -15119,72 +14967,18 @@ let AdminLinkTypesUpdateComponent = class AdminLinkTypesUpdateComponent {
             }
         }, resError => this.errorMsg = resError);
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    if (this.callTable == true) {
-                        this.route.params.subscribe((params) => {
-                            this.id = params['id'];
-                            this.service.get("LinkTypes", "Update", this.id).subscribe((resData) => {
-                                for (var i = 0; i < resData.LinkList.length; i++) {
-                                    switch (resData.LinkedTypeID) {
-                                        case 1:
-                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedCategoryAdi;
-                                            break;
-                                        case 2:
-                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedContentAdi;
-                                            break;
-                                        case 4:
-                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedGalleryAdi;
-                                            break;
-                                        case 5:
-                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedPicturesAdi;
-                                            break;
-                                        case 6:
-                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedFilesAdi;
-                                            break;
-                                        case 7:
-                                            resData.LinkList[i].LinkedAdi = resData.LinkList[i].LinkedMetaAdi;
-                                            break;
-                                    }
-                                }
-                                this.model = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        });
-                    }
-                    setTimeout(() => {
-                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                            $(".btn-group").remove();
-                        }
-                    }, 1);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
 };
-AdminLinkTypesUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+AdminGalleryUpdateComponent.ctorParameters = () => [
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
-AdminLinkTypesUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+AdminGalleryUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/linktypes/update.html")
+        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/gallery/update.html")
     })
-], AdminLinkTypesUpdateComponent);
+], AdminGalleryUpdateComponent);
 
 
 
@@ -15733,63 +15527,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMetaIndexComponent", function() { return AdminMetaIndexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
 let AdminMetaIndexComponent = class AdminMetaIndexComponent {
-    constructor(service, sharedService, router) {
+    constructor(service) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
     }
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData();
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight) => {
-                        this.copyShow = cRight;
-                        this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                            this.removeShow = rRight;
-                            if (this.callTable == true) {
-                                this.service.get("Meta", "Index").subscribe((resData) => {
-                                    this.MetaList = resData;
-                                    this.callTable = false;
-                                    DataTable();
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            }
-                            setTimeout(() => {
-                                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                    $(".btn-group").remove();
-                                }
-                            }, 1);
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
+    FillData() {
+        if (this.callTable == true) {
+            this.subscription = this.service.get("Meta", "Index").subscribe((answer) => {
+                this.MetaList = answer;
+                this.callTable = false;
+                setTimeout(() => {
+                    DataTable();
+                    $(document)
+                        .off("click", ".fg-button")
+                        .on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData();
+                        }, 1);
+                    });
+                }, 1);
+            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 };
 AdminMetaIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] }
 ];
 AdminMetaIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -15813,32 +15594,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMetaInsertComponent", function() { return AdminMetaInsertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
+
+
 
 
 
 
 
 let AdminMetaInsertComponent = class AdminMetaInsertComponent {
-    constructor(service, router, formBuilder) {
+    constructor(service, formBuilder, router) {
         this.service = service;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
-        this.ekleForm = this.formBuilder.group({
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
+        this.data = new Object();
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Content");
+        this.insertForm = this.formBuilder.group({
+            Name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(50)]),
+            Content: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
         });
     }
+    ngAfterViewChecked() {
+        $("#Content").next("div.ck").find(".ck-content").attr("data-id", "Content");
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.Title = this.ekleForm.get("Title").value;
-        this.data.Code = this.ekleForm.get("Code").value;
-        this.data.Active = this.ekleForm.get("Active").value;
+        this.data.Name = this.insertForm.get("Name").value;
+        this.data.Content = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Content");
+        this.data.Code = this.insertForm.get("Code").value;
         this.service.post("Meta", "Insert", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -15852,9 +15645,9 @@ let AdminMetaInsertComponent = class AdminMetaInsertComponent {
     }
 };
 AdminMetaInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 AdminMetaInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -15878,10 +15671,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMetaUpdateComponent", function() { return AdminMetaUpdateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../lib/methods */ "./src/app/admin/lib/methods.ts");
+
 
 
 
@@ -15889,29 +15684,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AdminMetaUpdateComponent = class AdminMetaUpdateComponent {
-    constructor(service, sharedService, route, router, formBuilder) {
+    constructor(service, formBuilder, router, route) {
         this.service = service;
-        this.sharedService = sharedService;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.route = route;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
+        this.data = new Object();
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].min(1)]),
-            Title: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(255)]),
-            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null),
+        this.FillData();
+        _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].ConvertToCKEditor("Description");
+        this.updateForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            Name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(50)]),
+            Content: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1)]),
+            Code: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(15)]),
         });
     }
+    ngAfterViewChecked() {
+        $("#Content").next("div.ck").find(".ck-content").attr("data-id", "Content");
+    }
+    FillData() {
+        if (this.callTable == true) {
+            this.route.params.subscribe((params) => {
+                this.id = params['id'];
+                this.subscription = this.service.get("Meta", "Update", this.id).subscribe((answer) => {
+                    this.model = answer;
+                    this.callTable = false;
+                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+            });
+        }
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.Title = this.duzenleForm.get("Title").value;
-        this.data.Code = this.duzenleForm.get("Code").value;
-        this.data.Active = this.duzenleForm.get("Active").value;
+        this.data.ID = this.updateForm.get("ID").value;
+        this.data.Name = this.updateForm.get("Name").value;
+        this.data.Content = _lib_methods__WEBPACK_IMPORTED_MODULE_6__["AdminLib"].CKValue("Content");
+        this.data.Code = this.updateForm.get("Code").value;
         this.service.post("Meta", "Update", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -15923,47 +15736,12 @@ let AdminMetaUpdateComponent = class AdminMetaUpdateComponent {
             }
         }, resError => this.errorMsg = resError);
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.route.params.subscribe((params) => {
-                                this.id = params['id'];
-                                this.service.get("Meta", "Update", this.id).subscribe((resData) => {
-                                    this.model = resData;
-                                    this.callTable = false;
-                                    DataTable();
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            });
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
 };
 AdminMetaUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
 AdminMetaUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -16240,262 +16018,6 @@ AdminPicturesUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"](
 
 /***/ }),
 
-/***/ "./src/app/admin/views/general/translation/index.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/admin/views/general/translation/index.ts ***!
-  \**********************************************************/
-/*! exports provided: AdminTranslationIndexComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTranslationIndexComponent", function() { return AdminTranslationIndexComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
-
-
-
-
-let AdminTranslationIndexComponent = class AdminTranslationIndexComponent {
-    constructor(service, sharedService) {
-        this.service = service;
-        this.sharedService = sharedService;
-    }
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight) => {
-                        this.removeShow = rRight;
-                        if (this.callTable == true) {
-                            this.service.get("Translation", "Index").subscribe((resData) => {
-                                this.DilList = resData;
-                                this.callTable = false;
-                                DataTable();
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminTranslationIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
-];
-AdminTranslationIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/translation/index.html")
-    })
-], AdminTranslationIndexComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/translation/insert.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/views/general/translation/insert.ts ***!
-  \***********************************************************/
-/*! exports provided: AdminTranslationInsertComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTranslationInsertComponent", function() { return AdminTranslationInsertComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-let AdminTranslationInsertComponent = class AdminTranslationInsertComponent {
-    constructor(service, router, formBuilder) {
-        this.service = service;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.ekleForm = this.formBuilder.group({
-            TransName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(25)]),
-            ShortName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(5)]),
-            Flag: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1)]),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-        });
-    }
-    onFileSelect(event) {
-        if (event.target.files.length > 0) {
-            this.newFile = event.target.files[0];
-        }
-    }
-    onSubmit() {
-        this.uploadData = new FormData();
-        this.uploadData.append("file", this.newFile);
-        this.service.post("Translation", "InsertUpload", this.uploadData)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.data = new Object();
-                this.data.TransName = this.ekleForm.get("TransName").value;
-                this.data.ShortName = this.ekleForm.get("ShortName").value;
-                this.data.Flag = answer.Flag;
-                this.data.Active = this.ekleForm.get("Active").value;
-                this.service.post("Translation", "Insert", this.data)
-                    .subscribe((answer2) => {
-                    if (answer2.Mesaj == null) {
-                        this.router.navigate(['/Admin/Translation']);
-                    }
-                    else {
-                        $(".alertMessage").text(answer2.Mesaj);
-                        $(".alert-error").fadeIn("slow");
-                    }
-                }, resError => this.errorMsg = resError);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminTranslationInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
-];
-AdminTranslationInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./insert.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/translation/insert.html")
-    })
-], AdminTranslationInsertComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/views/general/translation/update.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/views/general/translation/update.ts ***!
-  \***********************************************************/
-/*! exports provided: AdminTranslationUpdateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTranslationUpdateComponent", function() { return AdminTranslationUpdateComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-let AdminTranslationUpdateComponent = class AdminTranslationUpdateComponent {
-    constructor(service, route, router, formBuilder) {
-        this.service = service;
-        this.route = route;
-        this.router = router;
-        this.formBuilder = formBuilder;
-    }
-    ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.id = params['id'];
-            this.service.get("Translation", "Update", this.id).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            TransName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(25)]),
-            ShortName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(5)]),
-            Flag: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1)]),
-            Active: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-        });
-    }
-    onFileSelect(event) {
-        if (event.target.files.length > 0) {
-            this.newFile = event.target.files[0];
-        }
-    }
-    onSubmit() {
-        this.uploadData = new FormData();
-        this.uploadData.append("file", this.newFile);
-        this.service.post("Translation", "UpdateUpload", this.uploadData)
-            .subscribe((answer) => {
-            if (answer.Mesaj == null) {
-                this.data = new Object();
-                this.data.ID = this.duzenleForm.get("ID").value;
-                this.data.TransName = this.duzenleForm.get("TransName").value;
-                this.data.ShortName = this.duzenleForm.get("ShortName").value;
-                this.data.OldFlag = this.duzenleForm.get("Flag").value;
-                this.data.HasFile = answer.HasFile;
-                if (answer.HasFile) {
-                    this.data.Flag = answer.Flag;
-                }
-                else {
-                    this.data.Flag = this.duzenleForm.get("Flag").value;
-                }
-                this.data.Active = this.duzenleForm.get("Active").value;
-                this.service.post("Translation", "Update", this.data)
-                    .subscribe((answer2) => {
-                    if (answer2.Mesaj == null) {
-                        this.router.navigate(['/Admin/Translation']);
-                    }
-                    else {
-                        $(".alertMessage").text(answer2.Mesaj);
-                        $(".alert-error").fadeIn("slow");
-                    }
-                }, resError => this.errorMsg = resError);
-            }
-            else {
-                $(".alertMessage").text(answer.Mesaj);
-                $(".alert-error").fadeIn("slow");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-};
-AdminTranslationUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
-];
-AdminTranslationUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: __webpack_require__(/*! raw-loader!./update.html */ "./node_modules/raw-loader/index.js!./src/app/admin/views/general/translation/update.html")
-    })
-], AdminTranslationUpdateComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/admin/views/general/types/index.ts":
 /*!****************************************************!*\
   !*** ./src/app/admin/views/general/types/index.ts ***!
@@ -16508,53 +16030,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTypesIndexComponent", function() { return AdminTypesIndexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
 
 
 
 
 let AdminTypesIndexComponent = class AdminTypesIndexComponent {
-    constructor(service, sharedService) {
+    constructor(service) {
         this.service = service;
-        this.sharedService = sharedService;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
     }
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData();
     }
-    UserRightsControl(Model) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight) => {
-                    this.deleteShow = dRight;
-                    if (this.callTable == true) {
-                        this.service.get("Types", "Index").subscribe((resData) => {
-                            this.TiplerList = resData;
-                            this.callTable = false;
-                            DataTable();
-                            $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                setTimeout(() => {
-                                    this.UserRightsControl($("#hdnType").val());
-                                }, 1);
-                            });
-                        }, resError => this.errorMsg = resError);
-                    }
-                    setTimeout(() => {
-                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                            $(".btn-group").remove();
-                        }
-                    }, 1);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
+    FillData() {
+        if (this.callTable == true) {
+            this.subscription = this.service.get("Types", "Index").subscribe((answer) => {
+                this.TypesList = answer;
+                this.callTable = false;
+                setTimeout(() => {
+                    DataTable();
+                    $(document)
+                        .off("click", ".fg-button")
+                        .on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData();
+                        }, 1);
+                    });
+                }, 1);
+            }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 };
 AdminTypesIndexComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _services_shared__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_3__["ModelService"] }
 ];
 AdminTypesIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -16578,36 +16097,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTypesInsertComponent", function() { return AdminTypesInsertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+
 
 
 
 
 
 let AdminTypesInsertComponent = class AdminTypesInsertComponent {
-    constructor(service, router, formBuilder) {
+    constructor(service, formBuilder, router) {
         this.service = service;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
-        this.ekleForm = this.formBuilder.group({
-            TypeName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            Url: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(100)]),
-            TableName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            Linkable: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
+        this.data = new Object();
+        this.insertForm = this.formBuilder.group({
+            TypeName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(50)]),
+            TableName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(50)]),
+            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
         });
     }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.TypeName = this.ekleForm.get("TypeName").value;
-        this.data.Url = this.ekleForm.get("Url").value;
-        this.data.TableName = this.ekleForm.get("TableName").value;
-        this.data.Linkable = this.ekleForm.get("Linkable").value;
-        this.data.Show = this.ekleForm.get("Show").value;
+        this.data.TypeName = this.insertForm.get("TypeName").value;
+        this.data.TableName = this.insertForm.get("TableName").value;
+        this.data.Show = this.insertForm.get("Show").value;
         this.service.post("Types", "Insert", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -16621,9 +16142,9 @@ let AdminTypesInsertComponent = class AdminTypesInsertComponent {
     }
 };
 AdminTypesInsertComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 AdminTypesInsertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -16647,45 +16168,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTypesUpdateComponent", function() { return AdminTypesUpdateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _services_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/model */ "./src/app/admin/services/model.ts");
+
 
 
 
 
 
 let AdminTypesUpdateComponent = class AdminTypesUpdateComponent {
-    constructor(service, route, router, formBuilder) {
+    constructor(service, formBuilder, router, route) {
         this.service = service;
-        this.route = route;
-        this.router = router;
         this.formBuilder = formBuilder;
+        this.router = router;
+        this.route = route;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
     }
     ngOnInit() {
-        this.route.params.subscribe((params) => {
-            this.id = params['id'];
-            this.service.get("Types", "Update", this.id).subscribe((resData) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
-        this.duzenleForm = this.formBuilder.group({
-            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].min(1)]),
-            TypeName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            Url: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(100)]),
-            TableName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(50)]),
-            Linkable: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
-            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](null),
+        this.data = new Object();
+        this.callTable = true;
+        this.FillData();
+        this.updateForm = this.formBuilder.group({
+            ID: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].min(1)]),
+            TypeName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(50)]),
+            TableName: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(50)]),
+            Show: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](null),
         });
     }
+    FillData() {
+        if (this.callTable == true) {
+            this.route.params.subscribe((params) => {
+                this.id = params['id'];
+                this.subscription = this.service.get("Types", "Update", this.id).subscribe((answer) => {
+                    this.model = answer;
+                    this.callTable = false;
+                    setTimeout(() => {
+                        DataTable();
+                        $(document)
+                            .off("click", ".fg-button")
+                            .on("click", ".fg-button", () => {
+                            setTimeout(() => {
+                                this.FillData();
+                            }, 1);
+                        });
+                    }, 1);
+                }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+            });
+        }
+        setTimeout(() => {
+            if ($(".dropdown-menu").first().find("a").length <= 0) {
+                $(".btn-group").remove();
+            }
+        }, 1);
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
     onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.TypeName = this.duzenleForm.get("TypeName").value;
-        this.data.Url = this.duzenleForm.get("Url").value;
-        this.data.TableName = this.duzenleForm.get("TableName").value;
-        this.data.Linkable = this.duzenleForm.get("Linkable").value;
-        this.data.Show = this.duzenleForm.get("Show").value;
+        this.data.ID = this.updateForm.get("ID").value;
+        this.data.TypeName = this.updateForm.get("TypeName").value;
+        this.data.TableName = this.updateForm.get("TableName").value;
+        this.data.Show = this.updateForm.get("Show").value;
         this.service.post("Types", "Update", this.data)
             .subscribe((answer) => {
             if (answer.Mesaj == null) {
@@ -16699,10 +16244,10 @@ let AdminTypesUpdateComponent = class AdminTypesUpdateComponent {
     }
 };
 AdminTypesUpdateComponent.ctorParameters = () => [
-    { type: _services_model__WEBPACK_IMPORTED_MODULE_2__["ModelService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] }
+    { type: _services_model__WEBPACK_IMPORTED_MODULE_5__["ModelService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
 AdminTypesUpdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -17980,73 +17525,94 @@ __webpack_require__.r(__webpack_exports__);
 let AdminIndexComponent = class AdminIndexComponent {
     constructor(sharedService) {
         this.sharedService = sharedService;
+        this.hasRightGeneral = false;
+        this.hasRightLinkTypes = false;
+        this.hasRightLogs = false;
+        this.hasRightUsers = false;
+        this.hasRightTypes = false;
+        this.hasRightWebsite = false;
+        this.showTypeGeneral = false;
+        this.showTypeLinkTypes = false;
+        this.showTypeLogs = false;
+        this.showTypeUsers = false;
+        this.showTypeTypes = false;
+        this.showTypeWebsite = false;
     }
     ngOnInit() {
-        this.hasRightControl();
-        this.showTypeControl();
+        this.HasRightShowTypeControl();
     }
-    hasRightControl() {
-        this.sharedService.getHasRight("Category", "s").subscribe((resData) => {
-            this.hasRightCategory = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Content", "s").subscribe((resData) => {
-            this.hasRightContent = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Pictures", "s").subscribe((resData) => {
-            this.hasRightPictures = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Files", "s").subscribe((resData) => {
-            this.hasRightFiles = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Meta", "s").subscribe((resData) => {
-            this.hasRightMeta = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData) => {
-            this.hasRightLinkTypes = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
-            this.hasRightLogs = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Users", "s").subscribe((resData) => {
-            this.hasRightUsers = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Types", "s").subscribe((resData) => {
-            this.hasRightTypes = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getHasRight("Website", "s").subscribe((resData) => {
-            this.hasRightWebsite = resData;
-        }, resError => this.errorMsg = resError);
-    }
-    showTypeControl() {
-        this.sharedService.getShowType("Category").subscribe((resData) => {
-            this.showTypeCategory = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Content").subscribe((resData) => {
-            this.showTypeContent = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Pictures").subscribe((resData) => {
-            this.showTypePictures = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Files").subscribe((resData) => {
-            this.showTypeFiles = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Meta").subscribe((resData) => {
-            this.showTypeMeta = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("LinkTypes").subscribe((resData) => {
-            this.showTypeLinkTypes = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Logs").subscribe((resData) => {
-            this.showTypeLogs = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Users").subscribe((resData) => {
-            this.showTypeUsers = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Types").subscribe((resData) => {
-            this.showTypeTypes = resData;
-        }, resError => this.errorMsg = resError);
-        this.sharedService.getShowType("Website").subscribe((resData) => {
-            this.showTypeWebsite = resData;
+    HasRightShowTypeControl() {
+        this.sharedService.getCurrentUserRights().subscribe((userRights) => {
+            userRights.forEach((item, i) => {
+                switch (item.Url) {
+                    case "General":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightGeneral = true;
+                                break;
+                        }
+                        break;
+                    case "LinkTypes":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightLinkTypes = true;
+                                break;
+                        }
+                        break;
+                    case "Logs":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightLogs = true;
+                                break;
+                        }
+                        break;
+                    case "Users":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightUsers = true;
+                                break;
+                        }
+                        break;
+                    case "Types":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightTypes = true;
+                                break;
+                        }
+                        break;
+                    case "Website":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightWebsite = true;
+                                break;
+                        }
+                        break;
+                }
+            });
+            this.sharedService.getShowTypes().subscribe((typeShow) => {
+                typeShow.forEach((item, i) => {
+                    switch (item.Url) {
+                        case "General":
+                            this.showTypeGeneral = true;
+                            break;
+                        case "LinkTypes":
+                            this.showTypeLinkTypes = true;
+                            break;
+                        case "Logs":
+                            this.showTypeLogs = true;
+                            break;
+                        case "Users":
+                            this.showTypeUsers = true;
+                            break;
+                        case "Types":
+                            this.showTypeTypes = true;
+                            break;
+                        case "Website":
+                            this.showTypeWebsite = true;
+                            break;
+                    }
+                });
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
 };
@@ -18219,7 +17785,7 @@ let AdminHeaderComponent = class AdminHeaderComponent {
     constructor(service, router) {
         this.service = service;
         this.router = router;
-        this.website = "http://localhost/RentACar/";
+        this.website = "http://localhost/HumanResources/";
     }
     ngOnInit() {
         this.service.getCurrentUser().subscribe((resData) => {
@@ -18367,16 +17933,28 @@ let AdminLeftMenuComponent = class AdminLeftMenuComponent {
     constructor(sharedService, router) {
         this.sharedService = sharedService;
         this.router = router;
+        this.hasRightGeneral = false;
+        this.hasRightLinkTypes = false;
+        this.hasRightLogs = false;
+        this.hasRightUsers = false;
+        this.hasRightTypes = false;
+        this.hasRightWebsite = false;
+        this.showTypeGeneral = false;
+        this.showTypeLinkTypes = false;
+        this.showTypeLogs = false;
+        this.showTypeUsers = false;
+        this.showTypeTypes = false;
+        this.showTypeWebsite = false;
     }
     ngAfterViewInit() {
         this.HasRightShowTypeControl();
         this.router.events.subscribe((event) => {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivationEnd"]) {
-                this.DoIt();
+                this.LinkActivation();
             }
         });
     }
-    DoIt() {
+    LinkActivation() {
         $("#hdnUrl").val(location.href);
         var AdminPath = "http://localhost/HumanResources/Admin";
         var Url = location.href;
@@ -18418,65 +17996,77 @@ let AdminLeftMenuComponent = class AdminLeftMenuComponent {
         }
     }
     HasRightShowTypeControl() {
-        this.sharedService.getHasRight("Category", "s").subscribe((resData) => {
-            this.hasRightCategory = resData;
-            this.sharedService.getShowType("Category").subscribe((resData) => {
-                this.showTypeCategory = resData;
-                this.sharedService.getHasRight("Content", "s").subscribe((resData) => {
-                    this.hasRightContent = resData;
-                    this.sharedService.getShowType("Content").subscribe((resData) => {
-                        this.showTypeContent = resData;
-                        this.sharedService.getHasRight("Pictures", "s").subscribe((resData) => {
-                            this.hasRightPictures = resData;
-                            this.sharedService.getShowType("Pictures").subscribe((resData) => {
-                                this.showTypePictures = resData;
-                                this.sharedService.getHasRight("Files", "s").subscribe((resData) => {
-                                    this.hasRightFiles = resData;
-                                    this.sharedService.getShowType("Files").subscribe((resData) => {
-                                        this.showTypeFiles = resData;
-                                        this.sharedService.getHasRight("Meta", "s").subscribe((resData) => {
-                                            this.hasRightMeta = resData;
-                                            this.sharedService.getShowType("Meta").subscribe((resData) => {
-                                                this.showTypeMeta = resData;
-                                                this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData) => {
-                                                    this.hasRightLinkTypes = resData;
-                                                    this.sharedService.getShowType("LinkTypes").subscribe((resData) => {
-                                                        this.showTypeLinkTypes = resData;
-                                                        this.sharedService.getHasRight("Logs", "s").subscribe((resData) => {
-                                                            this.hasRightLogs = resData;
-                                                            this.sharedService.getShowType("Logs").subscribe((resData) => {
-                                                                this.showTypeLogs = resData;
-                                                                this.sharedService.getHasRight("Users", "s").subscribe((resData) => {
-                                                                    this.hasRightUsers = resData;
-                                                                    this.sharedService.getShowType("Users").subscribe((resData) => {
-                                                                        this.showTypeUsers = resData;
-                                                                        this.sharedService.getHasRight("Types", "s").subscribe((resData) => {
-                                                                            this.hasRightTypes = resData;
-                                                                            this.sharedService.getShowType("Types").subscribe((resData) => {
-                                                                                this.showTypeTypes = resData;
-                                                                                this.sharedService.getHasRight("Website", "s").subscribe((resData) => {
-                                                                                    this.hasRightWebsite = resData;
-                                                                                    this.sharedService.getShowType("Website").subscribe((resData) => {
-                                                                                        this.showTypeWebsite = resData;
-                                                                                        this.DoIt();
-                                                                                    }, resError => this.errorMsg = resError);
-                                                                                }, resError => this.errorMsg = resError);
-                                                                            }, resError => this.errorMsg = resError);
-                                                                        }, resError => this.errorMsg = resError);
-                                                                    }, resError => this.errorMsg = resError);
-                                                                }, resError => this.errorMsg = resError);
-                                                            }, resError => this.errorMsg = resError);
-                                                        }, resError => this.errorMsg = resError);
-                                                    }, resError => this.errorMsg = resError);
-                                                }, resError => this.errorMsg = resError);
-                                            }, resError => this.errorMsg = resError);
-                                        }, resError => this.errorMsg = resError);
-                                    }, resError => this.errorMsg = resError);
-                                }, resError => this.errorMsg = resError);
-                            }, resError => this.errorMsg = resError);
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
+        this.sharedService.getCurrentUserRights().subscribe((userRights) => {
+            userRights.forEach((item, i) => {
+                switch (item.Url) {
+                    case "General":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightGeneral = true;
+                                break;
+                        }
+                        break;
+                    case "LinkTypes":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightLinkTypes = true;
+                                break;
+                        }
+                        break;
+                    case "Logs":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightLogs = true;
+                                break;
+                        }
+                        break;
+                    case "Users":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightUsers = true;
+                                break;
+                        }
+                        break;
+                    case "Types":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightTypes = true;
+                                break;
+                        }
+                        break;
+                    case "Website":
+                        switch (item.ShortName) {
+                            case "s":
+                                this.hasRightWebsite = true;
+                                break;
+                        }
+                        break;
+                }
+            });
+            this.sharedService.getShowTypes().subscribe((typeShow) => {
+                typeShow.forEach((item, i) => {
+                    switch (item.Url) {
+                        case "General":
+                            this.showTypeGeneral = true;
+                            break;
+                        case "LinkTypes":
+                            this.showTypeLinkTypes = true;
+                            break;
+                        case "Logs":
+                            this.showTypeLogs = true;
+                            break;
+                        case "Users":
+                            this.showTypeUsers = true;
+                            break;
+                        case "Types":
+                            this.showTypeTypes = true;
+                            break;
+                        case "Website":
+                            this.showTypeWebsite = true;
+                            break;
+                    }
+                    this.LinkActivation();
+                });
             }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
@@ -18516,17 +18106,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Content_admin_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Content_admin_js_matrix_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../../Content/admin/js/matrix.js */ "./Content/admin/js/matrix.js");
 /* harmony import */ var _Content_admin_js_matrix_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_matrix_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _Content_admin_js_matrix_popover_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../../Content/admin/js/matrix.popover.js */ "./Content/admin/js/matrix.popover.js");
-/* harmony import */ var _Content_admin_js_matrix_popover_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_matrix_popover_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _Content_admin_js_ckeditor_ckeditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../../Content/admin/js/ckeditor/ckeditor.js */ "./Content/admin/js/ckeditor/ckeditor.js");
-/* harmony import */ var _Content_admin_js_ckeditor_ckeditor_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_ckeditor_ckeditor_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _Content_admin_js_pathscript_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../Content/admin/js/pathscript.js */ "./Content/admin/js/pathscript.js");
-/* harmony import */ var _Content_admin_js_pathscript_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_pathscript_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _Content_admin_js_script_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../../Content/admin/js/script.js */ "./Content/admin/js/script.js");
-/* harmony import */ var _Content_admin_js_script_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_script_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_11__);
-
+/* harmony import */ var _Content_admin_js_ckeditor_ckeditor_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../../Content/admin/js/ckeditor/ckeditor.js */ "./Content/admin/js/ckeditor/ckeditor.js");
+/* harmony import */ var _Content_admin_js_ckeditor_ckeditor_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_ckeditor_ckeditor_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Content_admin_js_pathscript_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../../Content/admin/js/pathscript.js */ "./Content/admin/js/pathscript.js");
+/* harmony import */ var _Content_admin_js_pathscript_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_pathscript_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _Content_admin_js_script_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../Content/admin/js/script.js */ "./Content/admin/js/script.js");
+/* harmony import */ var _Content_admin_js_script_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_Content_admin_js_script_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -18545,54 +18132,54 @@ let AdminScriptsComponent = class AdminScriptsComponent {
         this.zone = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]({});
     }
     ngOnInit() {
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("keyup", ".dataTables_filter label input[type='text']")
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("keyup", ".dataTables_filter label input[type='text']")
             .on("keyup", ".dataTables_filter label input[type='text']", function () {
-            if (jquery__WEBPACK_IMPORTED_MODULE_11__(".dropdown-menu").first().find("a").length <= 0) {
-                jquery__WEBPACK_IMPORTED_MODULE_11__(".btn-group").remove();
+            if (jquery__WEBPACK_IMPORTED_MODULE_10__(".dropdown-menu").first().find("a").length <= 0) {
+                jquery__WEBPACK_IMPORTED_MODULE_10__(".btn-group").remove();
             }
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.dltLink")
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.dltLink")
             .on("click", "a.dltLink", function () {
-            jquery__WEBPACK_IMPORTED_MODULE_11__(this).addClass("active-dlt");
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.dlt-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-id"));
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.dlt-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-controller"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__(this).addClass("active-dlt");
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.dlt-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-id"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.dlt-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-controller"));
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.rmvLink")
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.rmvLink")
             .on("click", "a.rmvLink", function () {
-            jquery__WEBPACK_IMPORTED_MODULE_11__(this).addClass("active-rmv");
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.rmv-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-id"));
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.rmv-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-controller"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__(this).addClass("active-rmv");
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.rmv-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-id"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.rmv-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-controller"));
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.cpyLink")
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.cpyLink")
             .on("click", "a.cpyLink", function () {
-            jquery__WEBPACK_IMPORTED_MODULE_11__(this).addClass("active-cpy");
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.cpy-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-id"));
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.cpy-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-controller"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__(this).addClass("active-cpy");
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.cpy-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-id"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.cpy-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-controller"));
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.clrLink")
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.clrLink")
             .on("click", "a.clrLink", function () {
-            jquery__WEBPACK_IMPORTED_MODULE_11__(this).addClass("active-clr");
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.clr-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-id"));
-            jquery__WEBPACK_IMPORTED_MODULE_11__("a.clr-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_11__(this).attr("data-controller"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__(this).addClass("active-clr");
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.clr-yes").attr("data-id", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-id"));
+            jquery__WEBPACK_IMPORTED_MODULE_10__("a.clr-yes").attr("data-controller", jquery__WEBPACK_IMPORTED_MODULE_10__(this).attr("data-controller"));
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
-            let id = jquery__WEBPACK_IMPORTED_MODULE_11__("a.dlt-yes").attr("data-id");
-            let controller = jquery__WEBPACK_IMPORTED_MODULE_11__("a.dlt-yes").attr("data-controller");
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
+            let id = jquery__WEBPACK_IMPORTED_MODULE_10__("a.dlt-yes").attr("data-id");
+            let controller = jquery__WEBPACK_IMPORTED_MODULE_10__("a.dlt-yes").attr("data-controller");
             this.onDelete(controller, "Delete", id);
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.rmv-yes").on("click", "a.rmv-yes", () => {
-            let id = jquery__WEBPACK_IMPORTED_MODULE_11__("a.rmv-yes").attr("data-id");
-            let controller = jquery__WEBPACK_IMPORTED_MODULE_11__("a.rmv-yes").attr("data-controller");
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.rmv-yes").on("click", "a.rmv-yes", () => {
+            let id = jquery__WEBPACK_IMPORTED_MODULE_10__("a.rmv-yes").attr("data-id");
+            let controller = jquery__WEBPACK_IMPORTED_MODULE_10__("a.rmv-yes").attr("data-controller");
             this.onRemove(controller, "Remove", id);
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.cpy-yes").on("click", "a.cpy-yes", () => {
-            let id = jquery__WEBPACK_IMPORTED_MODULE_11__("a.cpy-yes").attr("data-id");
-            let controller = jquery__WEBPACK_IMPORTED_MODULE_11__("a.cpy-yes").attr("data-controller");
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.cpy-yes").on("click", "a.cpy-yes", () => {
+            let id = jquery__WEBPACK_IMPORTED_MODULE_10__("a.cpy-yes").attr("data-id");
+            let controller = jquery__WEBPACK_IMPORTED_MODULE_10__("a.cpy-yes").attr("data-controller");
             this.onCopy(controller, "Copy", id);
         });
-        jquery__WEBPACK_IMPORTED_MODULE_11__(document).off("click", "a.clr-yes").on("click", "a.clr-yes", () => {
-            let id = jquery__WEBPACK_IMPORTED_MODULE_11__("a.clr-yes").attr("data-id");
-            let controller = jquery__WEBPACK_IMPORTED_MODULE_11__("a.clr-yes").attr("data-controller");
+        jquery__WEBPACK_IMPORTED_MODULE_10__(document).off("click", "a.clr-yes").on("click", "a.clr-yes", () => {
+            let id = jquery__WEBPACK_IMPORTED_MODULE_10__("a.clr-yes").attr("data-id");
+            let controller = jquery__WEBPACK_IMPORTED_MODULE_10__("a.clr-yes").attr("data-controller");
             this.onCopy(controller, "Clear", id);
         });
     }
@@ -18657,34 +18244,34 @@ AdminScriptsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 window.ShowAlert = ShowAlert;
 window.DataTable = DataTable;
 function ShowAlert(type) {
-    jquery__WEBPACK_IMPORTED_MODULE_11__("#tdAlertMessage li.tdAlert" + type).fadeIn("slow", function () {
+    jquery__WEBPACK_IMPORTED_MODULE_10__("#tdAlertMessage li.tdAlert" + type).fadeIn("slow", function () {
         switch (type) {
             case "Delete":
-                jquery__WEBPACK_IMPORTED_MODULE_11__("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    jquery__WEBPACK_IMPORTED_MODULE_11__(this).remove();
+                jquery__WEBPACK_IMPORTED_MODULE_10__("a.dltLink.active-dlt").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
+                    jquery__WEBPACK_IMPORTED_MODULE_10__(this).remove();
                 });
                 break;
             case "Remove":
-                jquery__WEBPACK_IMPORTED_MODULE_11__("a.rmvLink.active-rmv").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
-                    jquery__WEBPACK_IMPORTED_MODULE_11__(this).remove();
+                jquery__WEBPACK_IMPORTED_MODULE_10__("a.rmvLink.active-rmv").parent("li").parent("ul").parent("div").parent("td").parent("tr").fadeOut("slow", function () {
+                    jquery__WEBPACK_IMPORTED_MODULE_10__(this).remove();
                 });
                 break;
         }
     });
     setInterval(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_11__("#tdAlertMessage li.tdAlert" + type).fadeOut("slow");
+        jquery__WEBPACK_IMPORTED_MODULE_10__("#tdAlertMessage li.tdAlert" + type).fadeOut("slow");
     }, 2000);
 }
 ;
 function DataTable() {
     setTimeout(() => {
-        jquery__WEBPACK_IMPORTED_MODULE_11__(".data-table").dataTable({
+        jquery__WEBPACK_IMPORTED_MODULE_10__(".data-table").dataTable({
             "bJQueryUI": true,
             "sPaginationType": "full_numbers",
             "sDom": '<""l>t<"F"fp>'
         });
-        if (jquery__WEBPACK_IMPORTED_MODULE_11__(".dropdown-menu").first().find("a").length <= 0) {
-            jquery__WEBPACK_IMPORTED_MODULE_11__(".btn-group").remove();
+        if (jquery__WEBPACK_IMPORTED_MODULE_10__(".dropdown-menu").first().find("a").length <= 0) {
+            jquery__WEBPACK_IMPORTED_MODULE_10__(".btn-group").remove();
         }
     }, 1);
 }
@@ -18760,18 +18347,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_category__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/views/general/category */ "./src/app/admin/views/general/category/index.ts");
 /* harmony import */ var _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/views/general/category/insert */ "./src/app/admin/views/general/category/insert.ts");
 /* harmony import */ var _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/views/general/category/update */ "./src/app/admin/views/general/category/update.ts");
-/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
-/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
-/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
-/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
-/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
-/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
-/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
-/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
-/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
-/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
-/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
-/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
+/* harmony import */ var _admin_views_general_city__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/views/general/city */ "./src/app/admin/views/general/city/index.ts");
+/* harmony import */ var _admin_views_general_city_insert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/views/general/city/insert */ "./src/app/admin/views/general/city/insert.ts");
+/* harmony import */ var _admin_views_general_city_update__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/views/general/city/update */ "./src/app/admin/views/general/city/update.ts");
+/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
+/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
+/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
+/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
+/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
+/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
+/* harmony import */ var _admin_views_general_gallery__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/gallery */ "./src/app/admin/views/general/gallery/index.ts");
+/* harmony import */ var _admin_views_general_gallery_insert__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/gallery/insert */ "./src/app/admin/views/general/gallery/insert.ts");
+/* harmony import */ var _admin_views_general_gallery_update__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/gallery/update */ "./src/app/admin/views/general/gallery/update.ts");
 /* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
 /* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
 /* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
@@ -18785,38 +18372,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
 /* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
 /* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
-/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
-/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
-/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
-/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
-/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
-/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
-/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
-/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
-/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
-/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
-/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
-/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
-/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
-/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
-/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
-/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
+/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
+/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
+/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
+/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
+/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
+/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
+/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
+/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
+/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
+/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
+/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
+/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
+/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
 
 
 
 
 
-
-
-
-//Admin General
 
 
 
@@ -18889,23 +18469,22 @@ const routes = [
             { path: 'Admin/Category/Index', component: _admin_views_general_category__WEBPACK_IMPORTED_MODULE_8__["AdminCategoryIndexComponent"] },
             { path: 'Admin/Category/Insert', component: _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_9__["AdminCategoryInsertComponent"] },
             { path: 'Admin/Category/Update/:id', component: _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_10__["AdminCategoryUpdateComponent"] },
-            { path: 'Admin/Content', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_11__["AdminContentIndexComponent"] },
-            { path: 'Admin/Content/Index', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_11__["AdminContentIndexComponent"] },
-            { path: 'Admin/Content/Insert', component: _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_12__["AdminContentInsertComponent"] },
-            { path: 'Admin/Content/Update/:id', component: _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_13__["AdminContentUpdateComponent"] },
-            { path: 'Admin/Files', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_14__["AdminFilesIndexComponent"] },
-            { path: 'Admin/Files/Index', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_14__["AdminFilesIndexComponent"] },
-            { path: 'Admin/Files/Insert', component: _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_15__["AdminFilesInsertComponent"] },
-            { path: 'Admin/Files/Update/:id', component: _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_16__["AdminFilesUpdateComponent"] },
-            { path: 'Admin/Links', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_17__["AdminLinksIndexComponent"] },
-            { path: 'Admin/Links/Index', component: _admin_views_general_links__WEBPACK_IMPORTED_MODULE_17__["AdminLinksIndexComponent"] },
-            { path: 'Admin/Links/Insert', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_18__["AdminLinksInsertComponent"] },
-            { path: 'Admin/Links/Insert/:linkID', component: _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_18__["AdminLinksInsertComponent"] },
-            { path: 'Admin/Links/Update/:id', component: _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_19__["AdminLinksUpdateComponent"] },
-            { path: 'Admin/LinkTypes', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_20__["AdminLinkTypesIndexComponent"] },
-            { path: 'Admin/LinkTypes/Index', component: _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_20__["AdminLinkTypesIndexComponent"] },
-            { path: 'Admin/LinkTypes/Insert', component: _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_21__["AdminLinkTypesInsertComponent"] },
-            { path: 'Admin/LinkTypes/Update/:id', component: _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_22__["AdminLinkTypesUpdateComponent"] },
+            { path: 'Admin/City', component: _admin_views_general_city__WEBPACK_IMPORTED_MODULE_11__["AdminCityIndexComponent"] },
+            { path: 'Admin/City/Index', component: _admin_views_general_city__WEBPACK_IMPORTED_MODULE_11__["AdminCityIndexComponent"] },
+            { path: 'Admin/City/Insert', component: _admin_views_general_city_insert__WEBPACK_IMPORTED_MODULE_12__["AdminCityInsertComponent"] },
+            { path: 'Admin/City/Update/:id', component: _admin_views_general_city_update__WEBPACK_IMPORTED_MODULE_13__["AdminCityUpdateComponent"] },
+            { path: 'Admin/Content', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_14__["AdminContentIndexComponent"] },
+            { path: 'Admin/Content/Index', component: _admin_views_general_content__WEBPACK_IMPORTED_MODULE_14__["AdminContentIndexComponent"] },
+            { path: 'Admin/Content/Insert', component: _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_15__["AdminContentInsertComponent"] },
+            { path: 'Admin/Content/Update/:id', component: _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_16__["AdminContentUpdateComponent"] },
+            { path: 'Admin/Files', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_17__["AdminFilesIndexComponent"] },
+            { path: 'Admin/Files/Index', component: _admin_views_general_files__WEBPACK_IMPORTED_MODULE_17__["AdminFilesIndexComponent"] },
+            { path: 'Admin/Files/Insert', component: _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_18__["AdminFilesInsertComponent"] },
+            { path: 'Admin/Files/Update/:id', component: _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_19__["AdminFilesUpdateComponent"] },
+            { path: 'Admin/Gallery', component: _admin_views_general_gallery__WEBPACK_IMPORTED_MODULE_20__["AdminGalleryIndexComponent"] },
+            { path: 'Admin/Gallery/Index', component: _admin_views_general_gallery__WEBPACK_IMPORTED_MODULE_20__["AdminGalleryIndexComponent"] },
+            { path: 'Admin/Gallery/Insert', component: _admin_views_general_gallery_insert__WEBPACK_IMPORTED_MODULE_21__["AdminGalleryInsertComponent"] },
+            { path: 'Admin/Gallery/Update/:id', component: _admin_views_general_gallery_update__WEBPACK_IMPORTED_MODULE_22__["AdminGalleryUpdateComponent"] },
             { path: 'Admin/LogProcess', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_23__["AdminLogProcessIndexComponent"] },
             { path: 'Admin/LogProcess/Index', component: _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_23__["AdminLogProcessIndexComponent"] },
             { path: 'Admin/LogProcess/Insert', component: _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_24__["AdminLogProcessInsertComponent"] },
@@ -18925,39 +18504,35 @@ const routes = [
             { path: 'Admin/Pictures/Index', component: _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_33__["AdminPicturesIndexComponent"] },
             { path: 'Admin/Pictures/Insert', component: _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_34__["AdminPicturesInsertComponent"] },
             { path: 'Admin/Pictures/Update/:id', component: _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_35__["AdminPicturesUpdateComponent"] },
-            { path: 'Admin/Translation', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_36__["AdminTranslationIndexComponent"] },
-            { path: 'Admin/Translation/Index', component: _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_36__["AdminTranslationIndexComponent"] },
-            { path: 'Admin/Translation/Insert', component: _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_37__["AdminTranslationInsertComponent"] },
-            { path: 'Admin/Translation/Update/:id', component: _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_38__["AdminTranslationUpdateComponent"] },
-            { path: 'Admin/Types', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_39__["AdminTypesIndexComponent"] },
-            { path: 'Admin/Types/Index', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_39__["AdminTypesIndexComponent"] },
-            { path: 'Admin/Types/Insert', component: _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_40__["AdminTypesInsertComponent"] },
-            { path: 'Admin/Types/Update/:id', component: _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_41__["AdminTypesUpdateComponent"] },
-            { path: 'Admin/Users', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_54__["AdminUsersIndexComponent"] },
-            { path: 'Admin/Users/Index', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_54__["AdminUsersIndexComponent"] },
-            { path: 'Admin/Users/Insert', component: _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_55__["AdminUsersInsertComponent"] },
-            { path: 'Admin/Users/Update/:id', component: _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_56__["AdminUsersUpdateComponent"] },
-            { path: 'Admin/Users/ChangeGroup/:id', component: _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_57__["AdminUsersChangeGroupComponent"] },
-            { path: 'Admin/UserGroups', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_42__["AdminUserGroupsIndexComponent"] },
-            { path: 'Admin/UserGroups/Index', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_42__["AdminUserGroupsIndexComponent"] },
-            { path: 'Admin/UserGroups/Insert', component: _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_43__["AdminUserGroupsInsertComponent"] },
-            { path: 'Admin/UserGroups/Update/:id', component: _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_44__["AdminUserGroupsUpdateComponent"] },
-            { path: 'Admin/UserGroupRights', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_45__["AdminUserGroupRightsIndexComponent"] },
-            { path: 'Admin/UserGroupRights/Index', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_45__["AdminUserGroupRightsIndexComponent"] },
-            { path: 'Admin/UserGroupRights/Insert', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_46__["AdminUserGroupRightsInsertComponent"] },
-            { path: 'Admin/UserGroupRights/Insert/:linkID', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_46__["AdminUserGroupRightsInsertComponent"] },
-            { path: 'Admin/UserGroupRights/Update/:id', component: _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_47__["AdminUserGroupRightsUpdateComponent"] },
-            { path: 'Admin/UserGroupProcess', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupProcessIndexComponent"] },
-            { path: 'Admin/UserGroupProcess/Index', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupProcessIndexComponent"] },
-            { path: 'Admin/UserGroupProcess/Insert', component: _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_49__["AdminUserGroupProcessInsertComponent"] },
-            { path: 'Admin/UserGroupProcess/Update/:id', component: _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_50__["AdminUserGroupProcessUpdateComponent"] },
-            { path: 'Admin/UserGroupTables', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupTablesIndexComponent"] },
-            { path: 'Admin/UserGroupTables/Index', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupTablesIndexComponent"] },
-            { path: 'Admin/UserGroupTables/Insert', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupTablesInsertComponent"] },
-            { path: 'Admin/UserGroupTables/Insert/:linkID', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupTablesInsertComponent"] },
-            { path: 'Admin/UserGroupTables/Update/:id', component: _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_53__["AdminUserGroupTablesUpdateComponent"] },
-            { path: 'Admin/Visitors', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_58__["AdminVisitorsIndexComponent"] },
-            { path: 'Admin/Visitors/Index', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_58__["AdminVisitorsIndexComponent"] },
+            { path: 'Admin/Types', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_36__["AdminTypesIndexComponent"] },
+            { path: 'Admin/Types/Index', component: _admin_views_general_types__WEBPACK_IMPORTED_MODULE_36__["AdminTypesIndexComponent"] },
+            { path: 'Admin/Types/Insert', component: _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_37__["AdminTypesInsertComponent"] },
+            { path: 'Admin/Types/Update/:id', component: _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_38__["AdminTypesUpdateComponent"] },
+            { path: 'Admin/Users', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_51__["AdminUsersIndexComponent"] },
+            { path: 'Admin/Users/Index', component: _admin_views_general_users__WEBPACK_IMPORTED_MODULE_51__["AdminUsersIndexComponent"] },
+            { path: 'Admin/Users/Insert', component: _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_52__["AdminUsersInsertComponent"] },
+            { path: 'Admin/Users/Update/:id', component: _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_53__["AdminUsersUpdateComponent"] },
+            { path: 'Admin/Users/ChangeGroup/:id', component: _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_54__["AdminUsersChangeGroupComponent"] },
+            { path: 'Admin/UserGroups', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_39__["AdminUserGroupsIndexComponent"] },
+            { path: 'Admin/UserGroups/Index', component: _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_39__["AdminUserGroupsIndexComponent"] },
+            { path: 'Admin/UserGroups/Insert', component: _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_40__["AdminUserGroupsInsertComponent"] },
+            { path: 'Admin/UserGroups/Update/:id', component: _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_41__["AdminUserGroupsUpdateComponent"] },
+            { path: 'Admin/UserGroupRights', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_42__["AdminUserGroupRightsIndexComponent"] },
+            { path: 'Admin/UserGroupRights/Index', component: _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_42__["AdminUserGroupRightsIndexComponent"] },
+            { path: 'Admin/UserGroupRights/Insert', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_43__["AdminUserGroupRightsInsertComponent"] },
+            { path: 'Admin/UserGroupRights/Insert/:linkID', component: _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_43__["AdminUserGroupRightsInsertComponent"] },
+            { path: 'Admin/UserGroupRights/Update/:id', component: _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_44__["AdminUserGroupRightsUpdateComponent"] },
+            { path: 'Admin/UserGroupProcess', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_45__["AdminUserGroupProcessIndexComponent"] },
+            { path: 'Admin/UserGroupProcess/Index', component: _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_45__["AdminUserGroupProcessIndexComponent"] },
+            { path: 'Admin/UserGroupProcess/Insert', component: _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_46__["AdminUserGroupProcessInsertComponent"] },
+            { path: 'Admin/UserGroupProcess/Update/:id', component: _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_47__["AdminUserGroupProcessUpdateComponent"] },
+            { path: 'Admin/UserGroupTables', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupTablesIndexComponent"] },
+            { path: 'Admin/UserGroupTables/Index', component: _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupTablesIndexComponent"] },
+            { path: 'Admin/UserGroupTables/Insert', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_49__["AdminUserGroupTablesInsertComponent"] },
+            { path: 'Admin/UserGroupTables/Insert/:linkID', component: _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_49__["AdminUserGroupTablesInsertComponent"] },
+            { path: 'Admin/UserGroupTables/Update/:id', component: _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_50__["AdminUserGroupTablesUpdateComponent"] },
+            { path: 'Admin/Visitors', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_55__["AdminVisitorsIndexComponent"] },
+            { path: 'Admin/Visitors/Index', component: _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_55__["AdminVisitorsIndexComponent"] },
         ]
     },
     { path: '**', redirectTo: '' }
@@ -19004,18 +18579,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_category__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/views/general/category */ "./src/app/admin/views/general/category/index.ts");
 /* harmony import */ var _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/views/general/category/insert */ "./src/app/admin/views/general/category/insert.ts");
 /* harmony import */ var _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/views/general/category/update */ "./src/app/admin/views/general/category/update.ts");
-/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
-/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
-/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
-/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
-/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
-/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
-/* harmony import */ var _admin_views_general_links__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/links */ "./src/app/admin/views/general/links/index.ts");
-/* harmony import */ var _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/links/insert */ "./src/app/admin/views/general/links/insert.ts");
-/* harmony import */ var _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/links/update */ "./src/app/admin/views/general/links/update.ts");
-/* harmony import */ var _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/linktypes */ "./src/app/admin/views/general/linktypes/index.ts");
-/* harmony import */ var _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/linktypes/insert */ "./src/app/admin/views/general/linktypes/insert.ts");
-/* harmony import */ var _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/linktypes/update */ "./src/app/admin/views/general/linktypes/update.ts");
+/* harmony import */ var _admin_views_general_city__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/views/general/city */ "./src/app/admin/views/general/city/index.ts");
+/* harmony import */ var _admin_views_general_city_insert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/views/general/city/insert */ "./src/app/admin/views/general/city/insert.ts");
+/* harmony import */ var _admin_views_general_city_update__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/views/general/city/update */ "./src/app/admin/views/general/city/update.ts");
+/* harmony import */ var _admin_views_general_content__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/views/general/content */ "./src/app/admin/views/general/content/index.ts");
+/* harmony import */ var _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/views/general/content/insert */ "./src/app/admin/views/general/content/insert.ts");
+/* harmony import */ var _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/views/general/content/update */ "./src/app/admin/views/general/content/update.ts");
+/* harmony import */ var _admin_views_general_files__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/views/general/files */ "./src/app/admin/views/general/files/index.ts");
+/* harmony import */ var _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/views/general/files/insert */ "./src/app/admin/views/general/files/insert.ts");
+/* harmony import */ var _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/views/general/files/update */ "./src/app/admin/views/general/files/update.ts");
+/* harmony import */ var _admin_views_general_gallery__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/views/general/gallery */ "./src/app/admin/views/general/gallery/index.ts");
+/* harmony import */ var _admin_views_general_gallery_insert__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/views/general/gallery/insert */ "./src/app/admin/views/general/gallery/insert.ts");
+/* harmony import */ var _admin_views_general_gallery_update__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/views/general/gallery/update */ "./src/app/admin/views/general/gallery/update.ts");
 /* harmony import */ var _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/views/general/logprocess */ "./src/app/admin/views/general/logprocess/index.ts");
 /* harmony import */ var _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/views/general/logprocess/insert */ "./src/app/admin/views/general/logprocess/insert.ts");
 /* harmony import */ var _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/views/general/logprocess/update */ "./src/app/admin/views/general/logprocess/update.ts");
@@ -19029,57 +18604,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./admin/views/general/pictures */ "./src/app/admin/views/general/pictures/index.ts");
 /* harmony import */ var _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./admin/views/general/pictures/insert */ "./src/app/admin/views/general/pictures/insert.ts");
 /* harmony import */ var _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./admin/views/general/pictures/update */ "./src/app/admin/views/general/pictures/update.ts");
-/* harmony import */ var _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/translation */ "./src/app/admin/views/general/translation/index.ts");
-/* harmony import */ var _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/translation/insert */ "./src/app/admin/views/general/translation/insert.ts");
-/* harmony import */ var _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/translation/update */ "./src/app/admin/views/general/translation/update.ts");
-/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
-/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
-/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
-/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
-/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
-/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
-/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
-/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
-/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
-/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
-/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
-/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
-/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
-/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
-/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
-/* harmony import */ var _admin_services_shared__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./admin/services/shared */ "./src/app/admin/services/shared.ts");
-/* harmony import */ var _admin_services_model__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/services/model */ "./src/app/admin/services/model.ts");
-/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./services/site */ "./src/app/services/site.ts");
-/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./lib/methods */ "./src/app/lib/methods.ts");
-/* harmony import */ var _admin_lib_methods__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./admin/lib/methods */ "./src/app/admin/lib/methods.ts");
-/* harmony import */ var _views_shared_layout__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./views/shared/layout */ "./src/app/views/shared/layout.ts");
-/* harmony import */ var _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./views/shared/controls/header */ "./src/app/views/shared/controls/header.ts");
-/* harmony import */ var _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./views/shared/controls/menu */ "./src/app/views/shared/controls/menu.ts");
-/* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
-/* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
-/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
-/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
-/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
-/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
-/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
-/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
-/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
-/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
-/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
-/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
-/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
-/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
-/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
-/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
-/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
-/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
-/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
-/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
+/* harmony import */ var _admin_views_general_types__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./admin/views/general/types */ "./src/app/admin/views/general/types/index.ts");
+/* harmony import */ var _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./admin/views/general/types/insert */ "./src/app/admin/views/general/types/insert.ts");
+/* harmony import */ var _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./admin/views/general/types/update */ "./src/app/admin/views/general/types/update.ts");
+/* harmony import */ var _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./admin/views/general/usergroups */ "./src/app/admin/views/general/usergroups/index.ts");
+/* harmony import */ var _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./admin/views/general/usergroups/insert */ "./src/app/admin/views/general/usergroups/insert.ts");
+/* harmony import */ var _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./admin/views/general/usergroups/update */ "./src/app/admin/views/general/usergroups/update.ts");
+/* harmony import */ var _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./admin/views/general/usergrouprights */ "./src/app/admin/views/general/usergrouprights/index.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/insert */ "./src/app/admin/views/general/usergrouprights/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./admin/views/general/usergrouprights/update */ "./src/app/admin/views/general/usergrouprights/update.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess */ "./src/app/admin/views/general/usergroupprocess/index.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/insert */ "./src/app/admin/views/general/usergroupprocess/insert.ts");
+/* harmony import */ var _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./admin/views/general/usergroupprocess/update */ "./src/app/admin/views/general/usergroupprocess/update.ts");
+/* harmony import */ var _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./admin/views/general/usergrouptables */ "./src/app/admin/views/general/usergrouptables/index.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/insert */ "./src/app/admin/views/general/usergrouptables/insert.ts");
+/* harmony import */ var _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./admin/views/general/usergrouptables/update */ "./src/app/admin/views/general/usergrouptables/update.ts");
+/* harmony import */ var _admin_views_general_users__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./admin/views/general/users */ "./src/app/admin/views/general/users/index.ts");
+/* harmony import */ var _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./admin/views/general/users/insert */ "./src/app/admin/views/general/users/insert.ts");
+/* harmony import */ var _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./admin/views/general/users/update */ "./src/app/admin/views/general/users/update.ts");
+/* harmony import */ var _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./admin/views/general/users/changegroup */ "./src/app/admin/views/general/users/changegroup.ts");
+/* harmony import */ var _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./admin/views/general/visitors */ "./src/app/admin/views/general/visitors/index.ts");
+/* harmony import */ var _admin_services_shared__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./admin/services/shared */ "./src/app/admin/services/shared.ts");
+/* harmony import */ var _admin_services_model__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./admin/services/model */ "./src/app/admin/services/model.ts");
+/* harmony import */ var _services_site__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./services/site */ "./src/app/services/site.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./lib/methods */ "./src/app/lib/methods.ts");
+/* harmony import */ var _admin_lib_methods__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./admin/lib/methods */ "./src/app/admin/lib/methods.ts");
+/* harmony import */ var _views_shared_layout__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./views/shared/layout */ "./src/app/views/shared/layout.ts");
+/* harmony import */ var _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./views/shared/controls/header */ "./src/app/views/shared/controls/header.ts");
+/* harmony import */ var _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./views/shared/controls/menu */ "./src/app/views/shared/controls/menu.ts");
+/* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
+/* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
+/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
+/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
+/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
+/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
+/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
+/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
+/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
+/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
+/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
+/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
+/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
+/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
+/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
+/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
+/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
+/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
+/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
+/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
 
 
 
@@ -19098,9 +18670,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Admin General
-
-
-
 
 
 
@@ -19188,30 +18757,30 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         declarations: [
             _app__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
             //Layout
-            _views_shared_layout__WEBPACK_IMPORTED_MODULE_72__["LayoutComponent"],
-            _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_73__["HeaderComponent"],
-            _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_74__["MenuComponent"],
-            _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_75__["FooterComponent"],
-            _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_76__["ScriptsComponent"],
-            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_77__["ModalAlertComponent"],
-            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_78__["ModalConfirmComponent"],
-            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_79__["RespHeaderComponent"],
-            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_81__["RespSearchComponent"],
-            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_80__["RespMenuComponent"],
-            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_82__["PopupLoginComponent"],
-            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_83__["PopupSignupComponent"],
+            _views_shared_layout__WEBPACK_IMPORTED_MODULE_69__["LayoutComponent"],
+            _views_shared_controls_header__WEBPACK_IMPORTED_MODULE_70__["HeaderComponent"],
+            _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_71__["MenuComponent"],
+            _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_72__["FooterComponent"],
+            _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_73__["ScriptsComponent"],
+            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_74__["ModalAlertComponent"],
+            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_75__["ModalConfirmComponent"],
+            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_76__["RespHeaderComponent"],
+            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_78__["RespSearchComponent"],
+            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_77__["RespMenuComponent"],
+            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_79__["PopupLoginComponent"],
+            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_80__["PopupSignupComponent"],
             //Home
-            _views_home__WEBPACK_IMPORTED_MODULE_84__["IndexComponent"],
-            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_85__["HomeTopComponent"],
-            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_86__["HomeSliderComponent"],
-            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_87__["HomeSearchComponent"],
-            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_88__["HomePopCatComponent"],
-            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_89__["HomeAccountComponent"],
-            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_90__["HomeJobsComponent"],
-            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_91__["HomeCandidatesComponent"],
-            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_92__["HomeCompaniesComponent"],
-            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_93__["HomeTipsComponent"],
-            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_94__["HomeQuestionComponent"],
+            _views_home__WEBPACK_IMPORTED_MODULE_81__["IndexComponent"],
+            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_82__["HomeTopComponent"],
+            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_83__["HomeSliderComponent"],
+            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_84__["HomeSearchComponent"],
+            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_85__["HomePopCatComponent"],
+            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_86__["HomeAccountComponent"],
+            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_87__["HomeJobsComponent"],
+            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_88__["HomeCandidatesComponent"],
+            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_89__["HomeCompaniesComponent"],
+            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_90__["HomeTipsComponent"],
+            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_91__["HomeQuestionComponent"],
             //Admin
             _admin_views_shared_layoutAdmin__WEBPACK_IMPORTED_MODULE_8__["AdminLayoutComponent"],
             _admin_views_home_login__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"],
@@ -19225,18 +18794,18 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_views_general_category__WEBPACK_IMPORTED_MODULE_16__["AdminCategoryIndexComponent"],
             _admin_views_general_category_insert__WEBPACK_IMPORTED_MODULE_17__["AdminCategoryInsertComponent"],
             _admin_views_general_category_update__WEBPACK_IMPORTED_MODULE_18__["AdminCategoryUpdateComponent"],
-            _admin_views_general_content__WEBPACK_IMPORTED_MODULE_19__["AdminContentIndexComponent"],
-            _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_20__["AdminContentInsertComponent"],
-            _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_21__["AdminContentUpdateComponent"],
-            _admin_views_general_files__WEBPACK_IMPORTED_MODULE_22__["AdminFilesIndexComponent"],
-            _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_23__["AdminFilesInsertComponent"],
-            _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_24__["AdminFilesUpdateComponent"],
-            _admin_views_general_links__WEBPACK_IMPORTED_MODULE_25__["AdminLinksIndexComponent"],
-            _admin_views_general_links_insert__WEBPACK_IMPORTED_MODULE_26__["AdminLinksInsertComponent"],
-            _admin_views_general_links_update__WEBPACK_IMPORTED_MODULE_27__["AdminLinksUpdateComponent"],
-            _admin_views_general_linktypes__WEBPACK_IMPORTED_MODULE_28__["AdminLinkTypesIndexComponent"],
-            _admin_views_general_linktypes_insert__WEBPACK_IMPORTED_MODULE_29__["AdminLinkTypesInsertComponent"],
-            _admin_views_general_linktypes_update__WEBPACK_IMPORTED_MODULE_30__["AdminLinkTypesUpdateComponent"],
+            _admin_views_general_city__WEBPACK_IMPORTED_MODULE_19__["AdminCityIndexComponent"],
+            _admin_views_general_city_insert__WEBPACK_IMPORTED_MODULE_20__["AdminCityInsertComponent"],
+            _admin_views_general_city_update__WEBPACK_IMPORTED_MODULE_21__["AdminCityUpdateComponent"],
+            _admin_views_general_content__WEBPACK_IMPORTED_MODULE_22__["AdminContentIndexComponent"],
+            _admin_views_general_content_insert__WEBPACK_IMPORTED_MODULE_23__["AdminContentInsertComponent"],
+            _admin_views_general_content_update__WEBPACK_IMPORTED_MODULE_24__["AdminContentUpdateComponent"],
+            _admin_views_general_files__WEBPACK_IMPORTED_MODULE_25__["AdminFilesIndexComponent"],
+            _admin_views_general_files_insert__WEBPACK_IMPORTED_MODULE_26__["AdminFilesInsertComponent"],
+            _admin_views_general_files_update__WEBPACK_IMPORTED_MODULE_27__["AdminFilesUpdateComponent"],
+            _admin_views_general_gallery__WEBPACK_IMPORTED_MODULE_28__["AdminGalleryIndexComponent"],
+            _admin_views_general_gallery_insert__WEBPACK_IMPORTED_MODULE_29__["AdminGalleryInsertComponent"],
+            _admin_views_general_gallery_update__WEBPACK_IMPORTED_MODULE_30__["AdminGalleryUpdateComponent"],
             _admin_views_general_logprocess__WEBPACK_IMPORTED_MODULE_31__["AdminLogProcessIndexComponent"],
             _admin_views_general_logprocess_insert__WEBPACK_IMPORTED_MODULE_32__["AdminLogProcessInsertComponent"],
             _admin_views_general_logprocess_update__WEBPACK_IMPORTED_MODULE_33__["AdminLogProcessUpdateComponent"],
@@ -19250,29 +18819,26 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_views_general_pictures__WEBPACK_IMPORTED_MODULE_41__["AdminPicturesIndexComponent"],
             _admin_views_general_pictures_insert__WEBPACK_IMPORTED_MODULE_42__["AdminPicturesInsertComponent"],
             _admin_views_general_pictures_update__WEBPACK_IMPORTED_MODULE_43__["AdminPicturesUpdateComponent"],
-            _admin_views_general_translation__WEBPACK_IMPORTED_MODULE_44__["AdminTranslationIndexComponent"],
-            _admin_views_general_translation_insert__WEBPACK_IMPORTED_MODULE_45__["AdminTranslationInsertComponent"],
-            _admin_views_general_translation_update__WEBPACK_IMPORTED_MODULE_46__["AdminTranslationUpdateComponent"],
-            _admin_views_general_types__WEBPACK_IMPORTED_MODULE_47__["AdminTypesIndexComponent"],
-            _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_48__["AdminTypesInsertComponent"],
-            _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_49__["AdminTypesUpdateComponent"],
-            _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_50__["AdminUserGroupsIndexComponent"],
-            _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupsInsertComponent"],
-            _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupsUpdateComponent"],
-            _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_53__["AdminUserGroupRightsIndexComponent"],
-            _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_54__["AdminUserGroupRightsInsertComponent"],
-            _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_55__["AdminUserGroupRightsUpdateComponent"],
-            _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_56__["AdminUserGroupProcessIndexComponent"],
-            _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupProcessInsertComponent"],
-            _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_58__["AdminUserGroupProcessUpdateComponent"],
-            _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_59__["AdminUserGroupTablesIndexComponent"],
-            _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_60__["AdminUserGroupTablesInsertComponent"],
-            _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_61__["AdminUserGroupTablesUpdateComponent"],
-            _admin_views_general_users__WEBPACK_IMPORTED_MODULE_62__["AdminUsersIndexComponent"],
-            _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_63__["AdminUsersInsertComponent"],
-            _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_64__["AdminUsersUpdateComponent"],
-            _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_65__["AdminUsersChangeGroupComponent"],
-            _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_66__["AdminVisitorsIndexComponent"]
+            _admin_views_general_types__WEBPACK_IMPORTED_MODULE_44__["AdminTypesIndexComponent"],
+            _admin_views_general_types_insert__WEBPACK_IMPORTED_MODULE_45__["AdminTypesInsertComponent"],
+            _admin_views_general_types_update__WEBPACK_IMPORTED_MODULE_46__["AdminTypesUpdateComponent"],
+            _admin_views_general_usergroups__WEBPACK_IMPORTED_MODULE_47__["AdminUserGroupsIndexComponent"],
+            _admin_views_general_usergroups_insert__WEBPACK_IMPORTED_MODULE_48__["AdminUserGroupsInsertComponent"],
+            _admin_views_general_usergroups_update__WEBPACK_IMPORTED_MODULE_49__["AdminUserGroupsUpdateComponent"],
+            _admin_views_general_usergrouprights__WEBPACK_IMPORTED_MODULE_50__["AdminUserGroupRightsIndexComponent"],
+            _admin_views_general_usergrouprights_insert__WEBPACK_IMPORTED_MODULE_51__["AdminUserGroupRightsInsertComponent"],
+            _admin_views_general_usergrouprights_update__WEBPACK_IMPORTED_MODULE_52__["AdminUserGroupRightsUpdateComponent"],
+            _admin_views_general_usergroupprocess__WEBPACK_IMPORTED_MODULE_53__["AdminUserGroupProcessIndexComponent"],
+            _admin_views_general_usergroupprocess_insert__WEBPACK_IMPORTED_MODULE_54__["AdminUserGroupProcessInsertComponent"],
+            _admin_views_general_usergroupprocess_update__WEBPACK_IMPORTED_MODULE_55__["AdminUserGroupProcessUpdateComponent"],
+            _admin_views_general_usergrouptables__WEBPACK_IMPORTED_MODULE_56__["AdminUserGroupTablesIndexComponent"],
+            _admin_views_general_usergrouptables_insert__WEBPACK_IMPORTED_MODULE_57__["AdminUserGroupTablesInsertComponent"],
+            _admin_views_general_usergrouptables_update__WEBPACK_IMPORTED_MODULE_58__["AdminUserGroupTablesUpdateComponent"],
+            _admin_views_general_users__WEBPACK_IMPORTED_MODULE_59__["AdminUsersIndexComponent"],
+            _admin_views_general_users_insert__WEBPACK_IMPORTED_MODULE_60__["AdminUsersInsertComponent"],
+            _admin_views_general_users_update__WEBPACK_IMPORTED_MODULE_61__["AdminUsersUpdateComponent"],
+            _admin_views_general_users_changegroup__WEBPACK_IMPORTED_MODULE_62__["AdminUsersChangeGroupComponent"],
+            _admin_views_general_visitors__WEBPACK_IMPORTED_MODULE_63__["AdminVisitorsIndexComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -19282,11 +18848,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         //'/HumanResources/' -> '/' Bu �ekilde de�i�ecek
         providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["APP_BASE_HREF"], useValue: '/HumanResources/' },
-            _admin_services_shared__WEBPACK_IMPORTED_MODULE_67__["SharedService"],
-            _admin_services_model__WEBPACK_IMPORTED_MODULE_68__["ModelService"],
-            _services_site__WEBPACK_IMPORTED_MODULE_69__["SiteService"],
-            _lib_methods__WEBPACK_IMPORTED_MODULE_70__["Lib"],
-            _admin_lib_methods__WEBPACK_IMPORTED_MODULE_71__["AdminLib"]
+            _admin_services_shared__WEBPACK_IMPORTED_MODULE_64__["SharedService"],
+            _admin_services_model__WEBPACK_IMPORTED_MODULE_65__["ModelService"],
+            _services_site__WEBPACK_IMPORTED_MODULE_66__["SiteService"],
+            _lib_methods__WEBPACK_IMPORTED_MODULE_67__["Lib"],
+            _admin_lib_methods__WEBPACK_IMPORTED_MODULE_68__["AdminLib"]
         ],
         bootstrap: [_app__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
@@ -20307,6 +19873,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _Content_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../Content/js/bootstrap.min.js */ "./Content/js/bootstrap.min.js");
+/* harmony import */ var _Content_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Content_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -20315,7 +19883,7 @@ __webpack_require__.r(__webpack_exports__);
 //import '../../../../../Content/js/modernizr.js';
 //import '../../../../../Content/js/pathscript.js';
 //import '../../../../../Content/js/script.js';
-//import '../../../../../Content/js/bootstrap.min.js';
+
 //import '../../../../../Content/js/wow.min.js';
 //import '../../../../../Content/js/slick.min.js';
 //import '../../../../../Content/js/parallax.js';

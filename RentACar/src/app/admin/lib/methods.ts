@@ -79,4 +79,81 @@ export class AdminLib {
         else
             return false;
     }
+
+    static UserRight(userRights: any, model: string, shortname: string = "s"): boolean {
+        let returnItem: boolean = false;
+
+        userRights.forEach((item, i) => {
+            if (item.Url == model) {
+                if (item.ShortName == shortname) {
+                    returnItem = true;
+                }
+            }
+        });
+
+        return returnItem;
+    }
+
+    static ShowType(showTypes: any, model: string): boolean {
+        let returnItem: boolean = false;
+
+        showTypes.forEach((item, i) => {
+            if (item.Url == model) {
+                returnItem = true;
+            }
+        });
+        return returnItem;
+    }
+
+    static LinkActivation() {
+        setTimeout(function () {
+            $("#hdnUrl").val(location.href);
+
+            var AdminPath = "http://localhost/RentACar/Admin";
+            var Url = location.href;
+            var Urling = Object();
+
+            if (Url != undefined) {
+                var tempurl = Url.replace(AdminPath + "/", "");
+                var extParams = tempurl.split('?')[1];
+
+                tempurl = tempurl.replace("?" + extParams, "");
+
+                Urling.path = tempurl;
+                Urling.controller = tempurl.split('/')[0];
+                Urling.action = tempurl.split('/')[1];
+                Urling.parameter = tempurl.split('/')[2];
+
+                if (extParams != undefined)
+                    Urling.parameters = extParams.split('&');
+            }
+
+            if (Urling.controller != undefined) {
+                var activeLi = $("#sidebar li[data-url='" + Urling.controller + "']");
+                var passiveSubmenuLi = $("#sidebar li.submenu");
+                var submenuLi = activeLi.parent("ul").parent("li");
+
+                $("#sidebar li").removeClass("active");
+                $("#sidebar li").removeClass("open");
+
+                activeLi.addClass("active");
+
+                if (submenuLi.hasClass("submenu")) {
+                    if ($("body").width() > 970 || $("body").width() <= 480) {
+                        submenuLi.addClass("open");
+                    }
+                    submenuLi.addClass("active");
+                }
+
+                passiveSubmenuLi.each(function () {
+                    if (!$(this).hasClass("open")) {
+                        $(this).children("ul").slideUp();
+                    }
+                    else {
+                        $(this).children("ul").slideDown();
+                    }
+                });
+            }
+        }, 100);
+    }
 }

@@ -1,5 +1,6 @@
 ﻿import { Component } from "@angular/core";
 import { SharedService } from '../../services/shared';
+import { AdminLib } from '../../lib/methods';
 
 @Component({
     templateUrl: './index.html'
@@ -8,158 +9,70 @@ import { SharedService } from '../../services/shared';
 export class AdminIndexComponent {
     errorMsg: string;
 
-    hasRightWebsite: boolean;
-    showTypeWebsite: boolean;
-
-    hasRightKategori: boolean;
-    showTypeKategori: boolean;
-
-    hasRightIcerik: boolean;
-    showTypeIcerik: boolean;
-
-    hasRightGaleri: boolean;
-    showTypeGaleri: boolean;
-
-    hasRightResim: boolean;
-    showTypeResim: boolean;
-
-    hasRightDosya: boolean;
-    showTypeDosya: boolean;
-
-    hasRightMeta: boolean;
-    showTypeMeta: boolean;
-
-    hasRightBagliTipler: boolean;
-    showTypeBagliTipler: boolean;
-
-    hasRightDil: boolean;
-    showTypeDil: boolean;
-
-    hasRightLoglar: boolean;
-    showTypeLoglar: boolean;
-
-    hasRightZiyaretci: boolean;
-    showTypeZiyaretci: boolean;
-
-    hasRightKullanicilar: boolean;
-    showTypeKullanicilar: boolean;
-
-    hasRightTipler: boolean;
-    showTypeTipler: boolean;
-
     constructor(private sharedService: SharedService) {
     }
 
     ngOnInit() {
-        this.hasRightControl();
-        this.showTypeControl();
+        this.HasRightShowTypeControl();
     }
 
-    hasRightControl() {
-        this.sharedService.getHasRight("Website", "s").subscribe((resData: any) => {
-            this.hasRightWebsite = resData;
-        }, resError => this.errorMsg = resError);
+    hasRightCategory: boolean = false;
+    hasRightContent: boolean = false;
+    hasRightGallery: boolean = false;
+    hasRightPicture: boolean = false;
+    hasRightFile: boolean = false;
+    hasRightMeta: boolean = false;
+    hasRightLinkTypes: boolean = false;
+    hasRightTranslation: boolean = false;
+    hasRightLogs: boolean = false;
+    hasRightWebsite: boolean = false;
+    hasRightUsers: boolean = false;
+    hasRightTypes: boolean = false;
 
-        this.sharedService.getHasRight("Category", "s").subscribe((resData: any) => {
-            this.hasRightKategori = resData;
-        }, resError => this.errorMsg = resError);
+    showTypeCategory: boolean = false;
+    showTypeContent: boolean = false;
+    showTypeGallery: boolean = false;
+    showTypePicture: boolean = false;
+    showTypeFile: boolean = false;
+    showTypeMeta: boolean = false;
+    showTypeLinkTypes: boolean = false;
+    showTypeTranslation: boolean = false;
+    showTypeLogs: boolean = false;
+    showTypeWebsite: boolean = false;
+    showTypeUsers: boolean = false;
+    showTypeTypes: boolean = false;
 
-        this.sharedService.getHasRight("Content", "s").subscribe((resData: any) => {
-            this.hasRightIcerik = resData;
-        }, resError => this.errorMsg = resError);
+    HasRightShowTypeControl() {
+        this.sharedService.getCurrentUserRights().subscribe((userRights: any) => {
+            userRights.forEach((item, i) => {
+                this.hasRightCategory = AdminLib.UserRight(userRights, "Category");
+                this.hasRightContent = AdminLib.UserRight(userRights, "Content");
+                this.hasRightGallery = AdminLib.UserRight(userRights, "Gallery");
+                this.hasRightPicture = AdminLib.UserRight(userRights, "Picture");
+                this.hasRightFile = AdminLib.UserRight(userRights, "File");
+                this.hasRightMeta = AdminLib.UserRight(userRights, "Meta");
+                this.hasRightLinkTypes = AdminLib.UserRight(userRights, "LinkTypes");
+                this.hasRightTranslation = AdminLib.UserRight(userRights, "Translation");
+                this.hasRightLogs = AdminLib.UserRight(userRights, "Logs");
+                this.hasRightUsers = AdminLib.UserRight(userRights, "Users");
+                this.hasRightTypes = AdminLib.UserRight(userRights, "Types");
+                this.hasRightWebsite = AdminLib.UserRight(userRights, "Website");
+            });
 
-        this.sharedService.getHasRight("Gallery", "s").subscribe((resData: any) => {
-            this.hasRightGaleri = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("Picture", "s").subscribe((resData: any) => {
-            this.hasRightResim = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("File", "s").subscribe((resData: any) => {
-            this.hasRightDosya = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("Meta", "s").subscribe((resData: any) => {
-            this.hasRightMeta = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("LinkTypes", "s").subscribe((resData: any) => {
-            this.hasRightBagliTipler = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("Translation", "s").subscribe((resData: any) => {
-            this.hasRightDil = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("Logs", "s").subscribe((resData: any) => {
-            this.hasRightLoglar = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("VisitorCounter", "s").subscribe((resData: any) => {
-            this.hasRightZiyaretci = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("Users", "s").subscribe((resData: any) => {
-            this.hasRightKullanicilar = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getHasRight("Types", "s").subscribe((resData: any) => {
-            this.hasRightTipler = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    showTypeControl() {
-        this.sharedService.getShowType("RealEstates").subscribe((resData: any) => {
-            this.showTypeWebsite = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Category").subscribe((resData: any) => {
-            this.showTypeKategori = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Content").subscribe((resData: any) => {
-            this.showTypeIcerik = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Gallery").subscribe((resData: any) => {
-            this.showTypeGaleri = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Picture").subscribe((resData: any) => {
-            this.showTypeResim = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("File").subscribe((resData: any) => {
-            this.showTypeDosya = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Meta").subscribe((resData: any) => {
-            this.showTypeMeta = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("LinkTypes").subscribe((resData: any) => {
-            this.showTypeBagliTipler = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Translation").subscribe((resData: any) => {
-            this.showTypeDil = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Logs").subscribe((resData: any) => {
-            this.showTypeLoglar = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("VisitorCounter").subscribe((resData: any) => {
-            this.showTypeZiyaretci = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Users").subscribe((resData: any) => {
-            this.showTypeKullanicilar = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.sharedService.getShowType("Types").subscribe((resData: any) => {
-            this.showTypeTipler = resData;
+            this.sharedService.getShowTypes().subscribe((showTypes: any) => {
+                this.showTypeCategory = AdminLib.ShowType(showTypes, "Category");
+                this.showTypeContent = AdminLib.ShowType(showTypes, "Content");
+                this.showTypeGallery = AdminLib.ShowType(showTypes, "Gallery");
+                this.showTypePicture = AdminLib.ShowType(showTypes, "Picture");
+                this.showTypeFile = AdminLib.ShowType(showTypes, "File");
+                this.showTypeMeta = AdminLib.ShowType(showTypes, "Meta");
+                this.showTypeLinkTypes = AdminLib.ShowType(showTypes, "LinkTypes");
+                this.showTypeTranslation = AdminLib.ShowType(showTypes, "Translation");
+                this.showTypeLogs = AdminLib.ShowType(showTypes, "Logs");
+                this.showTypeUsers = AdminLib.ShowType(showTypes, "Users");
+                this.showTypeTypes = AdminLib.ShowType(showTypes, "Types");
+                this.showTypeWebsite = AdminLib.ShowType(showTypes, "Website");
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
 }

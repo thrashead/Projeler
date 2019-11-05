@@ -26,7 +26,7 @@
                                 <tr *ngFor="let item of ResimList">
                                     <td>{{ item?.ID }}</td>
                                     <td>{{ item?.Title }}</td>
-                                    <td style="text-align:center;"><a href="/RentACar/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/RentACar/Uploads/{{ item?.ThumbUrl }}" style="height:40px; max-width:80px;" /></a></td>
+                                    <td style="text-align:center;"><a href="/HumanResources/Uploads/{{ item?.PictureUrl }}" target="_blank"><img src="/HumanResources/Uploads/{{ item?.ThumbUrl }}" style="height:40px; max-width:80px;" /></a></td>
                                     <td class="hideColumn">{{ item?.Code }}</td>
                                     <td class="hideColumn2" style="text-align:center;"><img *ngIf="item?.Active" class="active" /><img *ngIf="!item?.Active" class="passive" /></td>
                                     <td style="text-align:center;">

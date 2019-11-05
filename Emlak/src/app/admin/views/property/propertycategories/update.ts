@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
+import { SharedService } from '../../../services/shared';
+import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
@@ -20,16 +22,22 @@ export class AdminPropertyCategoriesUpdateComponent {
 
 	callTable: boolean;
 
+	insertShow: boolean = false;
+	updateShow: boolean = false;
+	deleteShow: boolean = false;
+	copyShow: boolean = false;
+	removeShow: boolean = false;
+
 	private subscription: Subscription = new Subscription();
 
-	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+	constructor(private service: ModelService, private sharedService: SharedService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
 	}
 
 	ngOnInit() {
 		this.data = new Object();
 
 		this.callTable = true;
-		this.FillData();
+		this.FillData($("#hdnType").val());
 
 		this.updateForm = this.formBuilder.group({
 			ID: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -39,34 +47,42 @@ export class AdminPropertyCategoriesUpdateComponent {
 		});
 	}
 
-	FillData() {
-		if (this.callTable == true) {
-			this.route.params.subscribe((params: Params) => {
-				this.id = params['id'];
-				this.subscription = this.service.get("PropertyCategories", "Update", this.id).subscribe((answer: any) => {
-					this.model = answer;
-					this.callTable = false;
+	FillData(Model: any) {
+		this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+			this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+			this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+			this.copyShow = AdminLib.UserRight(userRights, Model, "c");
+			this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
+			this.removeShow = AdminLib.UserRight(userRights, Model, "r");
 
-					setTimeout(() => {
-						DataTable();
+		    if (this.callTable == true) {
+			    this.route.params.subscribe((params: Params) => {
+				    this.id = params['id'];
+				    this.subscription = this.service.get("PropertyCategories", "Update", this.id).subscribe((answer: any) => {
+					    this.model = answer;
+					    this.callTable = false;
 
-						$(document)
-							.off("click", ".fg-button")
-							.on("click", ".fg-button", () => {
-								setTimeout(() => {
-									this.FillData();
-								}, 1);
-							});
-					}, 1);
-				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-			});
-		}
+					    setTimeout(() => {
+						    DataTable();
 
-		setTimeout(() => {
-			if ($(".dropdown-menu").first().find("a").length <= 0) {
-				$(".btn-group").remove();
-			}
-		}, 1);
+						    $(document)
+							    .off("click", ".fg-button")
+							    .on("click", ".fg-button", () => {
+								    setTimeout(() => {
+		                                this.FillData($("#hdnType").val());
+								    }, 1);
+							    });
+					    }, 1);
+				    }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+			    });
+		    }
+
+		    setTimeout(() => {
+			    if ($(".dropdown-menu").first().find("a").length <= 0) {
+				    $(".btn-group").remove();
+			    }
+		    }, 1);
+		}, resError => this.errorMsg = resError);
 	}
 
 	ngOnDestroy(): void {

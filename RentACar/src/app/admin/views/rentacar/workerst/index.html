@@ -2,53 +2,55 @@
 	<div id="content-header">
 		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-cogs"></i> Çalışanlar (Dil)</a></div>
 	</div>
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-cogs"></i></span>
-						<h5>Çalışanlar (Dil)</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Bağlı Çalışan</th>
-									<th>Bağlı Dil</th>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-cogs"></i></span>
+                        <h5>Çalışanlar (Dil)</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Bağlı Çalışan</th>
+                                    <th>Bağlı Dil</th>
                                     <th class="hideColumn">Pozisyon</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of WorkersTList">
-									<td>{{ item?.ID }}</td>
-									<td>{{ item?.WorkersAdi }}</td>
-									<td>{{ item?.TranslationAdi }}</td>
-									<td class="hideColumn">{{ item?.Position }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/WorkersT/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="WorkersT" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="WorkersT" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of WorkersTList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.WorkersAdi }}</td>
+                                    <td>{{ item?.TranslationAdi }}</td>
+                                    <td class="hideColumn">{{ item?.Position }}</td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/WorkersT/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="WorkersT" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="WorkersT" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="pagelinks">
-			<a routerLink="/Admin/WorkersT/Insert" class="btn btn-primary btn-add">Çalışan (Dil) Ekle</a>
-		</div>
-	</div>
+        <div class="pagelinks" *ngIf="insertShow">
+            <a routerLink="/Admin/WorkersT/Insert" class="btn btn-primary btn-add">Çalışan (Dil) Ekle</a>
+        </div>
+
+        <input id="hdnType" type="hidden" value="Website" />
+    </div>
 </div>
 
 <admin-copydelete></admin-copydelete>

@@ -25,7 +25,7 @@
                                 <tr *ngFor="let item of DosyaList">
                                     <td>{{ item?.ID }}</td>
                                     <td>{{ item?.Title }}</td>
-                                    <td><a class="btn btn-mini btn-info" href="/RentACar/Uploads/{{ item?.FileUrl }}" target="_blank">{{ item?.FileUrl }}</a></td>
+                                    <td><a class="btn btn-mini btn-info" href="/HumanResources/Uploads/{{ item?.FileUrl }}" target="_blank">{{ item?.FileUrl }}</a></td>
                                     <td style="text-align:center;"><img *ngIf="item?.Active" class="active" /><img *ngIf="!item?.Active" class="passive" /></td>
                                     <td style="text-align:center;">
                                         <div class="btn-group" style="text-align:left;">
@@ -49,7 +49,7 @@
             <a routerLink="/Admin/Files/Insert" class="btn btn-primary btn-add" *ngIf="insertShow">Dosya Ekle</a>
         </div>
 
-        <input id="hdnType" type="hidden" value="Files" />
+        <input id="hdnType" type="hidden" value="General" />
     </div>
 </div>
 

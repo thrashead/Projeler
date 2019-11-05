@@ -72,74 +72,40 @@ export class AdminScriptsComponent {
         $(document).off("click", "a.dlt-yes").on("click", "a.dlt-yes", () => {
             let id: string = $("a.dlt-yes").attr("data-id");
             let controller: string = $("a.dlt-yes").attr("data-controller");
-            this.onDelete(controller, "Delete", id);
+            this.onAction(controller, "Delete", id);
         });
 
         $(document).off("click", "a.rmv-yes").on("click", "a.rmv-yes", () => {
             let id: string = $("a.rmv-yes").attr("data-id");
             let controller: string = $("a.rmv-yes").attr("data-controller");
-            this.onRemove(controller, "Remove", id);
+            this.onAction(controller, "Remove", id);
         });
 
         $(document).off("click", "a.cpy-yes").on("click", "a.cpy-yes", () => {
             let id: string = $("a.cpy-yes").attr("data-id");
             let controller: string = $("a.cpy-yes").attr("data-controller");
-            this.onCopy(controller, "Copy", id);
+            this.onAction(controller, "Copy", id);
         });
 
         $(document).off("click", "a.clr-yes").on("click", "a.clr-yes", () => {
             let id: string = $("a.clr-yes").attr("data-id");
             let controller: string = $("a.clr-yes").attr("data-controller");
-            this.onCopy(controller, "Clear", id);
+            this.onAction(controller, "Clear", id);
         });
     }
 
-    onDelete(controller: any, action: string, id: string) {
-        this.service.get(controller, action, id).subscribe((answer: boolean) => {
-            if (answer) {
-                ShowAlert("Delete");
-            }
-            else {
-                ShowAlert("DeleteNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    onRemove(controller: any, action: string, id: string) {
+    onAction(controller: any, action: string, id: string) {
         this.service.get(controller, action, id).subscribe((answer: boolean) => {
             if (answer == true) {
-                ShowAlert("Remove");
+                ShowAlert(action);
+
+                if (action == "Copy" || action == "Clear") {
+                    let currentUrl = this.router.url;
+                    this.zone.run(() => this.router.navigate(['/Admin'], { skipLocationChange: true }).then(() => { this.router.navigate([currentUrl]) }));
+                }
             }
             else {
-                ShowAlert("RemoveNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    onCopy(controller: any, action: string, id: string) {
-        this.service.get(controller, action, id).subscribe((answer: boolean) => {
-            if (answer == true) {
-                ShowAlert("Copy");
-
-                let currentUrl = this.router.url;
-                this.zone.run(() => this.router.navigate(['/Admin'], { skipLocationChange: true }).then(() => { this.router.navigate([currentUrl]) }));
-            }
-            else {
-                ShowAlert("CopyNot");
-            }
-        }, resError => this.errorMsg = resError);
-    }
-
-    onClear(controller: any, action: string, id: string) {
-        this.service.get(controller, action, id).subscribe((answer: boolean) => {
-            if (answer == true) {
-                ShowAlert("Clear");
-
-                let currentUrl = this.router.url;
-                this.zone.run(() => this.router.navigate(['/Admin'], { skipLocationChange: true }).then(() => this.router.navigate([currentUrl])));
-            }
-            else {
-                ShowAlert("ClearNot");
+                ShowAlert(action + "Not");
             }
         }, resError => this.errorMsg = resError);
     }

@@ -1,132 +1,143 @@
 ﻿import { Component } from "@angular/core";
 import { Subscription } from "rxjs";
-import { ModelService } from "../../../services/model";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { ModelService } from "../../../services/model";
+import { SharedService } from '../../../services/shared';
 import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
-	templateUrl: './update.html'
+    templateUrl: './update.html'
 })
 
 export class AdminCarsUpdateComponent {
-	errorMsg: string;
-	id: string;
+    errorMsg: string;
+    id: string;
 
-	updateForm: FormGroup;
-	data: any;
+    updateForm: FormGroup;
 
-	model: any;
+    data: any;
+    model: any;
+    uploadData: any;
 
-	callTable: boolean;
+    imagePictureUrl: any;
+    namePictureUrl: string;
 
-	uploadData: any;
-	imagePictureUrl: any;
-	namePictureUrl: string;
+    callTable: boolean;
 
-	private subscription: Subscription = new Subscription();
+    insertShow: boolean = false;
+    updateShow: boolean = false;
+    deleteShow: boolean = false;
+    copyShow: boolean = false;
 
-	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
-	}
+    private subscription: Subscription = new Subscription();
 
-	ngOnInit() {
-		this.data = new Object();
+    constructor(private service: ModelService, private sharedService: SharedService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+    }
 
-		this.callTable = true;
-		this.FillData();
+    ngOnInit() {
+        this.data = new Object();
 
-		this.updateForm = this.formBuilder.group({
-			ID: new FormControl(null, [Validators.required, Validators.min(1)]),
-			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
-			Code: new FormControl(null, [Validators.maxLength(25)]),
-			PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
+        this.callTable = true;
+        this.FillData($("#hdnType").val());
+
+        this.updateForm = this.formBuilder.group({
+            ID: new FormControl(null, [Validators.required, Validators.min(1)]),
+            Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
+            Code: new FormControl(null, [Validators.maxLength(25)]),
+            PictureUrl: new FormControl(null, [Validators.maxLength(255)]),
             Show: new FormControl(null),
         });
-	}
+    }
 
-	FillData() {
-		if (this.callTable == true) {
-			this.route.params.subscribe((params: Params) => {
-				this.id = params['id'];
-				this.subscription = this.service.get("Cars", "Update", this.id).subscribe((answer: any) => {
-					this.model = answer;
-					this.callTable = false;
+    FillData(Model: any) {
+        this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+            this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+            this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+            this.copyShow = AdminLib.UserRight(userRights, Model, "c");
+            this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
 
-					setTimeout(() => {
-						DataTable();
+            if (this.callTable == true) {
+                this.route.params.subscribe((params: Params) => {
+                    this.id = params['id'];
+                    this.subscription = this.service.get("Cars", "Update", this.id).subscribe((answer: any) => {
+                        this.model = answer;
+                        this.callTable = false;
 
-						$(document)
-							.off("click", ".fg-button")
-							.on("click", ".fg-button", () => {
-								setTimeout(() => {
-									this.FillData();
-								}, 1);
-							});
-					}, 1);
-				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-			});
-		}
+                        setTimeout(() => {
+                            DataTable();
 
-		setTimeout(() => {
-			if ($(".dropdown-menu").first().find("a").length <= 0) {
-				$(".btn-group").remove();
-			}
-		}, 1);
-	}
+                            $(document)
+                                .off("click", ".fg-button")
+                                .on("click", ".fg-button", () => {
+                                    setTimeout(() => {
+                                        this.FillData($("#hdnType").val());
+                                    }, 1);
+                                });
+                        }, 1);
+                    }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+                });
+            }
 
-	onPictureUrlFileSelect(event) {
-		if (event.target.files.length > 0) {
-			this.namePictureUrl = AdminLib.UploadFileName(event.target.files[0].name);
-			this.data.PictureUrl = this.namePictureUrl;
-			this.data.HasFile = true;
-			this.imagePictureUrl = event.target.files[0];
-		}
-	}
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
+        }, resError => this.errorMsg = resError);
+    }
 
-	ngOnDestroy(): void {
-		this.subscription.unsubscribe();
-	}
+    onPictureUrlFileSelect(event) {
+        if (event.target.files.length > 0) {
+            this.namePictureUrl = AdminLib.UploadFileName(event.target.files[0].name);
+            this.data.PictureUrl = this.namePictureUrl;
+            this.data.HasFile = true;
+            this.imagePictureUrl = event.target.files[0];
+        }
+    }
 
-	onSubmit() {
-		this.uploadData = new FormData();
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
 
-		if (this.data.HasFile)
-			this.uploadData.append("file", this.imagePictureUrl, this.namePictureUrl);
+    onSubmit() {
+        this.uploadData = new FormData();
 
-		this.subscription = this.service.post("Cars", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
-			if (answerUpload.Mesaj == null)
-			{
-				this.data.ID = this.updateForm.get("ID").value;
-				this.data.Title = this.updateForm.get("Title").value;
-				this.data.Code = this.updateForm.get("Code").value;
+        if (this.data.HasFile)
+            this.uploadData.append("file", this.imagePictureUrl, this.namePictureUrl);
+
+        this.subscription = this.service.post("Cars", "UpdateUpload", this.uploadData).subscribe((answerUpload: any) => {
+            if (answerUpload.Mesaj == null) {
+                this.data.ID = this.updateForm.get("ID").value;
+                this.data.Title = this.updateForm.get("Title").value;
+                this.data.Code = this.updateForm.get("Code").value;
                 this.data.Show = this.updateForm.get("Show").value;
 
-				if (this.data.HasFile) {
-					this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
-				}
-				else {
-					this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
-				}
+                if (this.data.HasFile) {
+                    this.data.OldPictureUrl = this.updateForm.get("PictureUrl").value;
+                }
+                else {
+                    this.data.PictureUrl = this.updateForm.get("PictureUrl").value;
+                }
 
 
-				this.service.post("Cars", "Update", this.data)
-					.subscribe((answer: any) => {
-						if (answer.Mesaj == null) {
-							this.router.navigate(['/Admin/Cars']);
-						}
-						else {
-							$(".alertMessage").text(answer.Mesaj);
-							$(".alert-error").fadeIn("slow");
-						}
-					},
-						resError => this.errorMsg = resError);
-			}
-			else
-			{
-				$(".alertMessage").text(answerUpload.Mesaj);
-				$(".alert-error").fadeIn("slow");
-			}
-		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-	}
+                this.service.post("Cars", "Update", this.data)
+                    .subscribe((answer: any) => {
+                        if (answer.Mesaj == null) {
+                            this.router.navigate(['/Admin/Cars']);
+                        }
+                        else {
+                            $(".alertMessage").text(answer.Mesaj);
+                            $(".alert-error").fadeIn("slow");
+                        }
+                    },
+                        resError => this.errorMsg = resError);
+            }
+            else {
+                $(".alertMessage").text(answerUpload.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+    }
 }

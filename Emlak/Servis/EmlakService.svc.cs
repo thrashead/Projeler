@@ -116,7 +116,7 @@ namespace Emlak.Servis
         {
             List<PropertyData> ilanlar = new List<PropertyData>();
 
-            List<sp_PropertyForListSelect_Result> dataList = new List<sp_PropertyForListSelect_Result>();
+            List<sp_PropertyForListSelect_Result> dataList;
 
             if (!String.IsNullOrEmpty(kategori))
             {

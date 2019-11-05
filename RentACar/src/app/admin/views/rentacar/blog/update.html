@@ -110,9 +110,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/BlogT/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogT" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogT" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/BlogT/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogT" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogT" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/BlogT/Insert/' + model?.ID" class="btn btn-primary btn-add">Blog Yazısı (Dil) Ekle</a>
         </div>
 
@@ -154,9 +154,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/BlogComments/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogComments" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogComments" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/BlogComments/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogComments" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogComments" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -168,7 +168,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/BlogComments/Insert/' + model?.ID" class="btn btn-primary btn-add">Blog Yorumu Ekle</a>
         </div>
 
@@ -198,9 +198,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/BlogPictures/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogPictures" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogPictures" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/BlogPictures/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="BlogPictures" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="BlogPictures" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -212,9 +212,11 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/BlogPictures/Insert/' + model?.ID" class="btn btn-primary btn-add">Blog Resmi Ekle</a>
         </div>
+
+        <input id="hdnType" type="hidden" value="Website" />
     </div>
 </div>
 

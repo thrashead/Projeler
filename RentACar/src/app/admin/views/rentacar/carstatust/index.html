@@ -2,53 +2,55 @@
 	<div id="content-header">
 		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-dashboard"></i> Araç Durumları (Dil)</a></div>
 	</div>
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Araç Durumları (Dil)</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Bağlı Araç Durumu</th>
-									<th>Bağlı Dil</th>
-									<th class="hideColumn">İsim</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of CarStatusTList">
-									<td>{{ item?.ID }}</td>
-									<td>{{ item?.CarStatusAdi }}</td>
-									<td>{{ item?.TranslationAdi }}</td>
-									<td class="hideColumn">{{ item?.Name }}</td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarStatusT/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarStatusT" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarStatusT" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-dashboard"></i></span>
+                        <h5>Araç Durumları (Dil)</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Bağlı Araç Durumu</th>
+                                    <th>Bağlı Dil</th>
+                                    <th class="hideColumn">İsim</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of CarStatusTList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.CarStatusAdi }}</td>
+                                    <td>{{ item?.TranslationAdi }}</td>
+                                    <td class="hideColumn">{{ item?.Name }}</td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarStatusT/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarStatusT" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarStatusT" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="pagelinks">
-			<a routerLink="/Admin/CarStatusT/Insert" class="btn btn-primary btn-add">Araç Durumu (Dil) Ekle</a>
-		</div>
-	</div>
+        <div class="pagelinks" *ngIf="insertShow">
+            <a routerLink="/Admin/CarStatusT/Insert" class="btn btn-primary btn-add">Araç Durumu (Dil) Ekle</a>
+        </div>
+
+        <input id="hdnType" type="hidden" value="Website" />
+    </div>
 </div>
 
 <admin-copydelete></admin-copydelete>

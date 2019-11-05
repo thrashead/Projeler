@@ -2,6 +2,7 @@
 import { ModelService } from "../../../services/model";
 import { SharedService } from '../../../services/shared';
 import { Router } from '@angular/router';
+import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminLogsIndexComponent {
     errorMsg: string;
     LoglarList: any;
 
-    deleteShow: boolean;
+    deleteShow: boolean = false;
 
     callTable: boolean;
 
@@ -21,12 +22,12 @@ export class AdminLogsIndexComponent {
 
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData($("#hdnType").val());
     }
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-            this.deleteShow = dRight;
+    FillData(Model: any) {
+        this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+            this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
 
             if (this.callTable == true) {
                 this.service.get("Logs", "Index").subscribe((resData: any) => {
@@ -37,7 +38,7 @@ export class AdminLogsIndexComponent {
 
                     $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
                         setTimeout(() => {
-                            this.UserRightsControl($("#hdnType").val());
+                            this.FillData($("#hdnType").val());
                         }, 1);
                     });
                 }, resError => this.errorMsg = resError);

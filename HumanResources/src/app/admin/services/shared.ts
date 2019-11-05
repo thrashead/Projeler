@@ -8,7 +8,8 @@ export class SharedService {
     private linkLoginControl: string = "Ajax/Shared/LoginControl";
     private linkCurrentUser: string = "Ajax/Shared/CurrentUser";
     private linkHasRight: string = "Ajax/Shared/HasRight";
-    private linkShowType: string = "Ajax/Shared/ShowType";
+    private linkCurrentUserRights: string = "Ajax/Shared/CurrentUserRights";
+    private linkShowType: string = "Ajax/Shared/ShowTypes";
 
     constructor(private http: HttpClient) {
     }
@@ -29,12 +30,17 @@ export class SharedService {
         return this.http.get(this.linkCurrentUser);
     }
 
-    getHasRight(url: any, process: string) {
+    getCurrentUserRights(url: string = null, process: string = null) {
+        let params = new HttpParams().set("url", url).set("process", process);
+        return this.http.get(this.linkCurrentUserRights, { params: params });
+    }
+
+    getHasRight(url: string = null, process: string = null) {
         let params = new HttpParams().set("url", url).set("process", process);
         return this.http.get(this.linkHasRight, { params: params });
     }
 
-    getShowType(url: string) {
+    getShowTypes(url: string = null) {
         let params = new HttpParams().set("url", url);
         return this.http.get(this.linkShowType, { params: params });
     }

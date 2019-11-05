@@ -2,6 +2,7 @@
 import { ModelService } from "../../../services/model";
 import { SharedService } from '../../../services/shared';
 import { Router } from '@angular/router';
+import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
@@ -12,11 +13,11 @@ export class AdminMetaIndexComponent {
     errorMsg: string;
     MetaList: any;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
-    copyShow: boolean;
-    removeShow: boolean;
+    insertShow: boolean = false;
+    updateShow: boolean = false;
+    deleteShow: boolean = false;
+    copyShow: boolean = false;
+    removeShow: boolean = false;
 
     callTable: boolean;
 
@@ -25,46 +26,38 @@ export class AdminMetaIndexComponent {
 
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData($("#hdnType").val());
     }
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight: boolean) => {
-                        this.copyShow = cRight;
-                        this.sharedService.getHasRight(Model, "r").subscribe((rRight: boolean) => {
-                            this.removeShow = rRight;
+    FillData(Model: any) {
+        this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+            this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+            this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+            this.copyShow = AdminLib.UserRight(userRights, Model, "c");
+            this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
+            this.removeShow = AdminLib.UserRight(userRights, Model, "r");
 
-                            if (this.callTable == true) {
-                                this.service.get("Meta", "Index").subscribe((resData: any) => {
-                                    this.MetaList = resData;
-                                    this.callTable = false;
+            if (this.callTable == true) {
+                this.service.get("Meta", "Index").subscribe((resData: any) => {
+                    this.MetaList = resData;
+                    this.callTable = false;
 
-                                    DataTable();
+                    DataTable();
 
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            }
-
-                            setTimeout(() => {
-                                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                    $(".btn-group").remove();
-                                }
-                            }, 1);
-
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
+                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                        setTimeout(() => {
+                            this.FillData($("#hdnType").val());
+                        }, 1);
+                    });
                 }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
+            }
+
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
+
         }, resError => this.errorMsg = resError);
     }
 }

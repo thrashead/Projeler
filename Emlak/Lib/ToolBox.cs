@@ -244,7 +244,7 @@ namespace Lib
             {
                 EmlakEntities entity = new EmlakEntities();
 
-                int? sayac = entity.sp_VisitorCounterCheck(HttpContext.Current.Request.UserHostAddress, DateTime.Now.ToShortDateString()).FirstOrDefault();
+                int sayac = entity.sp_VisitorCounterCheck(HttpContext.Current.Request.UserHostAddress, DateTime.Now.ToShortDateString());
 
                 return sayac.ToString();
             }

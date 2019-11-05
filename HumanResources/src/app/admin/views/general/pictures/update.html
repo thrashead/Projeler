@@ -36,7 +36,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="editor-field">
-                    <a href="/RentACar/Uploads/{{ model?.PictureUrl }}" target="_blank"><img [src]="['/RentACar/Uploads/' + model?.ThumbUrl]" style="height:40px; max-width:80px;" /></a><br /><br />
+                    <a href="/HumanResources/Uploads/{{ model?.PictureUrl }}" target="_blank"><img [src]="['/HumanResources/Uploads/' + model?.ThumbUrl]" style="height:40px; max-width:80px;" /></a><br /><br />
                     <input id="ThumbUrl" [ngModel]="model?.ThumbUrl" formControlName="ThumbUrl" type="hidden" value="{{ model?.ThumbUrl }}" />
                     <input id="PictureUrl" [ngModel]="model?.PictureUrl" formControlName="PictureUrl" type="hidden" value="{{ model?.PictureUrl }}" />
                     <input id="picTemp" type="file" (change)="onFileSelect($event)" name="picTemp" />

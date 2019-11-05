@@ -22,6 +22,10 @@ import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
+import { AdminCityIndexComponent } from './admin/views/general/city';
+import { AdminCityInsertComponent } from './admin/views/general/city/insert';
+import { AdminCityUpdateComponent } from './admin/views/general/city/update';
+
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
 import { AdminContentUpdateComponent } from './admin/views/general/content/update';
@@ -30,13 +34,9 @@ import { AdminFilesIndexComponent } from './admin/views/general/files';
 import { AdminFilesInsertComponent } from './admin/views/general/files/insert';
 import { AdminFilesUpdateComponent } from './admin/views/general/files/update';
 
-import { AdminLinksIndexComponent } from './admin/views/general/links';
-import { AdminLinksInsertComponent } from './admin/views/general/links/insert';
-import { AdminLinksUpdateComponent } from './admin/views/general/links/update';
-
-import { AdminLinkTypesIndexComponent } from './admin/views/general/linktypes';
-import { AdminLinkTypesInsertComponent } from './admin/views/general/linktypes/insert';
-import { AdminLinkTypesUpdateComponent } from './admin/views/general/linktypes/update';
+import { AdminGalleryIndexComponent } from './admin/views/general/gallery';
+import { AdminGalleryInsertComponent } from './admin/views/general/gallery/insert';
+import { AdminGalleryUpdateComponent } from './admin/views/general/gallery/update';
 
 import { AdminLogProcessIndexComponent } from './admin/views/general/logprocess';
 import { AdminLogProcessInsertComponent } from './admin/views/general/logprocess/insert';
@@ -55,10 +55,6 @@ import { AdminMetaUpdateComponent } from './admin/views/general/meta/update';
 import { AdminPicturesIndexComponent } from './admin/views/general/pictures';
 import { AdminPicturesInsertComponent } from './admin/views/general/pictures/insert';
 import { AdminPicturesUpdateComponent } from './admin/views/general/pictures/update';
-
-import { AdminTranslationIndexComponent } from './admin/views/general/translation';
-import { AdminTranslationInsertComponent } from './admin/views/general/translation/insert';
-import { AdminTranslationUpdateComponent } from './admin/views/general/translation/update';
 
 import { AdminTypesIndexComponent } from './admin/views/general/types';
 import { AdminTypesInsertComponent } from './admin/views/general/types/insert';
@@ -172,6 +168,10 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         AdminCategoryInsertComponent,
         AdminCategoryUpdateComponent,
 
+        AdminCityIndexComponent,
+        AdminCityInsertComponent,
+        AdminCityUpdateComponent,
+
         AdminContentIndexComponent,
         AdminContentInsertComponent,
         AdminContentUpdateComponent,
@@ -180,13 +180,9 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         AdminFilesInsertComponent,
         AdminFilesUpdateComponent,
 
-        AdminLinksIndexComponent,
-        AdminLinksInsertComponent,
-        AdminLinksUpdateComponent,
-
-        AdminLinkTypesIndexComponent,
-        AdminLinkTypesInsertComponent,
-        AdminLinkTypesUpdateComponent,
+        AdminGalleryIndexComponent,
+        AdminGalleryInsertComponent,
+        AdminGalleryUpdateComponent,
 
         AdminLogProcessIndexComponent,
         AdminLogProcessInsertComponent,
@@ -205,10 +201,6 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         AdminPicturesIndexComponent,
         AdminPicturesInsertComponent,
         AdminPicturesUpdateComponent,
-
-        AdminTranslationIndexComponent,
-        AdminTranslationInsertComponent,
-        AdminTranslationUpdateComponent,
 
         AdminTypesIndexComponent,
         AdminTypesInsertComponent,

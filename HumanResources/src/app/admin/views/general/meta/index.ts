@@ -1,70 +1,56 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { ModelService } from "../../../services/model";
-import { SharedService } from '../../../services/shared';
-import { Router } from '@angular/router';
 declare var DataTable;
 
 @Component({
-    templateUrl: './index.html'
+	templateUrl: './index.html'
 })
 
-export class AdminMetaIndexComponent {
-    errorMsg: string;
-    MetaList: any;
+export class AdminMetaIndexComponent implements OnInit, OnDestroy {
+	errorMsg: string;
+	MetaList: any;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
-    copyShow: boolean;
-    removeShow: boolean;
+	callTable: boolean;
 
-    callTable: boolean;
+	private subscription: Subscription = new Subscription();
 
-    constructor(private service: ModelService, private sharedService: SharedService, private router: Router) {
-    }
+	constructor(private service: ModelService) {
+	}
 
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
+	ngOnInit() {
+		this.callTable = true;
+		this.FillData();
+	}
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "c").subscribe((cRight: boolean) => {
-                        this.copyShow = cRight;
-                        this.sharedService.getHasRight(Model, "r").subscribe((rRight: boolean) => {
-                            this.removeShow = rRight;
+	FillData() {
+		if (this.callTable == true) {
+			this.subscription = this.service.get("Meta", "Index").subscribe((answer: any) => {
+				this.MetaList = answer;
+				this.callTable = false;
 
-                            if (this.callTable == true) {
-                                this.service.get("Meta", "Index").subscribe((resData: any) => {
-                                    this.MetaList = resData;
-                                    this.callTable = false;
+				setTimeout(() => {
+					DataTable();
 
-                                    DataTable();
+					$(document)
+						.off("click", ".fg-button")
+						.on("click", ".fg-button", () => {
+							setTimeout(() => {
+								this.FillData();
+							}, 1);
+						});
+				}, 1);
+			}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+		}
 
-                                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                        setTimeout(() => {
-                                            this.UserRightsControl($("#hdnType").val());
-                                        }, 1);
-                                    });
-                                }, resError => this.errorMsg = resError);
-                            }
+		setTimeout(() => {
+			if ($(".dropdown-menu").first().find("a").length <= 0) {
+				$(".btn-group").remove();
+			}
+		}, 1);
+	}
 
-                            setTimeout(() => {
-                                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                    $(".btn-group").remove();
-                                }
-                            }, 1);
-
-                        }, resError => this.errorMsg = resError);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
 }

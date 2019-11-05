@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import '../../../../../../Content/admin/js/jquery.dataTables.min.js';
 import '../../../../../../Content/admin/js/bootstrap.min.js';
 import '../../../../../../Content/admin/js/matrix.js';
-import '../../../../../../Content/admin/js/matrix.popover.js';
 import '../../../../../../Content/admin/js/ckeditor/ckeditor.js';
 import '../../../../../../Content/admin/js/pathscript.js';
 import '../../../../../../Content/admin/js/script.js';

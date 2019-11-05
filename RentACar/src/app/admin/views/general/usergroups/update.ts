@@ -1,8 +1,9 @@
 ﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
-import { SharedService } from '../../../services/shared';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { ModelService } from "../../../services/model";
+import { SharedService } from '../../../services/shared';
+import { AdminLib } from '../../../lib/methods';
 declare var DataTable;
 
 @Component({
@@ -19,10 +20,10 @@ export class AdminUserGroupsUpdateComponent {
 
     model: any;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
-    removeShow: boolean;
+    insertShow: boolean = false;
+    updateShow: boolean = false;
+    deleteShow: boolean = false;
+    removeShow: boolean = false;
 
     callTable: boolean;
 
@@ -31,7 +32,7 @@ export class AdminUserGroupsUpdateComponent {
 
     ngOnInit() {
         this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+        this.FillData($("#hdnType").val());
 
         this.duzenleForm = this.formBuilder.group({
             ID: new FormControl(null, [Validators.required, Validators.minLength(1)]),
@@ -61,47 +62,41 @@ export class AdminUserGroupsUpdateComponent {
                 resError => this.errorMsg = resError);
     }
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight: boolean) => {
-                        this.removeShow = rRight;
+    FillData(Model: any) {
+        this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+            this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+            this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+            this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
+            this.removeShow = AdminLib.UserRight(userRights, Model, "r");
 
-                        if (this.callTable == true) {
-                            this.sharedService.getCurrentUser().subscribe((resDataUser: any) => {
-                                this.CurrentUserID = resDataUser.ID;
+            if (this.callTable == true) {
+                this.sharedService.getCurrentUser().subscribe((resDataUser: any) => {
+                    this.CurrentUserID = resDataUser.ID;
 
-                                this.route.params.subscribe((params: Params) => {
-                                    this.id = params['id'];
-                                    this.service.get("UserGroups", "Update", this.id).subscribe((resData: any) => {
-                                        this.model = resData;
-                                        this.callTable = false;
+                    this.route.params.subscribe((params: Params) => {
+                        this.id = params['id'];
+                        this.service.get("UserGroups", "Update", this.id).subscribe((resData: any) => {
+                            this.model = resData;
+                            this.callTable = false;
 
-                                        DataTable();
+                            DataTable();
 
-                                        $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                            setTimeout(() => {
-                                                this.UserRightsControl($("#hdnType").val());
-                                            }, 1);
-                                        });
-                                    }, resError => this.errorMsg = resError);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
-
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-
-                    }, resError => this.errorMsg = resError);
+                            $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
+                                setTimeout(() => {
+                                    this.FillData($("#hdnType").val());
+                                }, 1);
+                            });
+                        }, resError => this.errorMsg = resError);
+                    });
                 }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
+            }
+
+            setTimeout(() => {
+                if ($(".dropdown-menu").first().find("a").length <= 0) {
+                    $(".btn-group").remove();
+                }
+            }, 1);
+
         }, resError => this.errorMsg = resError);
     }
 }

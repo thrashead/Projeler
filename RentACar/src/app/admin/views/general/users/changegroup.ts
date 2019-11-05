@@ -38,16 +38,14 @@ export class AdminUsersChangeGroupComponent {
         this.data.ID = this.grupDegistirForm.get("ID").value;
         this.data.GroupID = this.grupDegistirForm.get("GroupID").value;
 
-        this.service.post("Users", "ChangeGroup", this.data)
-            .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.router.navigate(['/Admin/Users']);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
-                }
-            },
-                resError => this.errorMsg = resError);
+        this.service.post("Users", "ChangeGroup", this.data).subscribe((answer: any) => {
+            if (answer.Mesaj == null) {
+                this.router.navigate(['/Admin/Users']);
+            }
+            else {
+                $(".alertMessage").text(answer.Mesaj);
+                $(".alert-error").fadeIn("slow");
+            }
+        }, resError => this.errorMsg = resError);
     }
 }

@@ -4,31 +4,20 @@
         <li data-url="Index" class="active">
             <a routerLink="/Admin/Index"><i class="icon icon-home"></i> <span>Ana Sayfa</span></a>
         </li>
-        <li class="submenu" *ngIf="hasRightCategory && showTypeCategory">
-            <a href="javascript:;"><i class="icon icon-sitemap"></i> <span>Kategoriler</span></a>
+        <li class="submenu" *ngIf="hasRightWebsite && showTypeWebsite">
+            <a href="javascript:;"><i class="icon icon-sitemap"></i> <span>Web Sitesi</span></a>
+            <ul>
+                <li data-url="Visitors"><a routerLink="/Admin/Visitors">Ziyaretçiler</a></li>
+            </ul>
+        </li>
+        <li class="submenu" *ngIf="hasRightGeneral && showTypeGeneral">
+            <a href="javascript:;"><i class="icon icon-sitemap"></i> <span>Genel</span></a>
             <ul>
                 <li data-url="Category"><a routerLink="/Admin/Category">Kategoriler</a></li>
-                <li data-url="CategoryT"><a routerLink="/Admin/CategoryT">Kategoriler (Dil)</a></li>
-            </ul>
-        </li>
-        <li class="submenu" *ngIf="hasRightContent && showTypeContent">
-            <a href="javascript:;"><i class="icon icon-edit"></i> <span>İçerikler</span></a>
-            <ul>
                 <li data-url="Content"><a routerLink="/Admin/Content">İçerikler</a></li>
-                <li data-url="ContentT"><a routerLink="/Admin/ContentT">İçerikler (Dil)</a></li>
-            </ul>
-        </li>
-        <li data-url="Pictures" *ngIf="hasRightPictures && showTypePictures">
-            <a routerLink="/Admin/Pictures"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
-        </li>
-        <li data-url="Files" *ngIf="hasRightFiles && showTypeFiles">
-            <a routerLink="/Admin/Files"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
-        </li>
-        <li class="submenu" *ngIf="hasRightMeta && showTypeMeta">
-            <a href="javascript:;"><i class="icon icon-tags"></i> <span>Meta</span></a>
-            <ul>
+                <li data-url="Pictures"><a routerLink="/Admin/Pictures">Resimler</a></li>
+                <li data-url="Files"><a routerLink="/Admin/Files">Dosyalar</a></li>
                 <li data-url="Meta"><a routerLink="/Admin/Meta">Meta</a></li>
-                <li data-url="MetaT"><a routerLink="/Admin/MetaT">Meta (Dil)</a></li>
             </ul>
         </li>
         <li class="submenu" *ngIf="hasRightLinkTypes && showTypeLinkTypes">
@@ -45,9 +34,6 @@
                 <li data-url="LogTypes"><a routerLink="/Admin/LogTypes">Log Tipleri</a></li>
                 <li data-url="LogProcess"><a routerLink="/Admin/LogProcess">Log İşlemleri</a></li>
             </ul>
-        </li>
-        <li data-url="Visitors" *ngIf="hasRightWebsite && showTypeWebsite">
-            <a routerLink="/Admin/Visitors"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
         </li>
         <li class="submenu" *ngIf="hasRightUsers && showTypeUsers">
             <a href="javascript:;"><i class="icon icon-user"></i> <span>Kullanıcılar</span></a>

@@ -2,53 +2,55 @@
 	<div id="content-header">
 		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-dashboard"></i> Araç Detay (Özellik)</a></div>
 	</div>
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="widget-box">
-					<div class="widget-title">
-						<span class="icon"><i class="icon-dashboard"></i></span>
-						<h5>Araç Detay (Özellik)</h5>
-					</div>
-					<div class="widget-content nopadding">
-						<table class="table table-bordered data-table">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Bağlı Araç</th>
-									<th>ABS</th>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-dashboard"></i></span>
+                        <h5>Araç Detay (Özellik)</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Bağlı Araç</th>
+                                    <th>ABS</th>
                                     <th class="hideColumn">Hava Yastığı</th>
-									<th>İşlem</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of CarDetailsFeaturesList">
-									<td>{{ item?.ID }}</td>
-									<td>{{ item?.CarsAdi }}</td>
-									<td style="text-align:center;"><img *ngIf="item?.ABS" class="active" /><img *ngIf="!item?.ABS" class="passive" /></td>
-									<td class="hideColumn" style="text-align:center;"><img *ngIf="item?.Airbag" class="active" /><img *ngIf="!item?.Airbag" class="passive" /></td>
-									<td style="text-align:center;">
-										<div class="btn-group" style="text-align:left;">
-											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-											<ul class="dropdown-menu">
-												<li><a class="updLink" [routerLink]="['/Admin/CarDetailsFeatures/Update/' + item?.ID]">Düzenle</a></li>
-												<li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Kopyala</a></li>
-												<li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Sil</a></li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of CarDetailsFeaturesList">
+                                    <td>{{ item?.ID }}</td>
+                                    <td>{{ item?.CarsAdi }}</td>
+                                    <td style="text-align:center;"><img *ngIf="item?.ABS" class="active" /><img *ngIf="!item?.ABS" class="passive" /></td>
+                                    <td class="hideColumn" style="text-align:center;"><img *ngIf="item?.Airbag" class="active" /><img *ngIf="!item?.Airbag" class="passive" /></td>
+                                    <td style="text-align:center;">
+                                        <div class="btn-group" style="text-align:left;">
+                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarDetailsFeatures/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Sil</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="pagelinks">
-			<a routerLink="/Admin/CarDetailsFeatures/Insert" class="btn btn-primary btn-add">Araç Detay (Özellik) Ekle</a>
-		</div>
-	</div>
+        <div class="pagelinks" *ngIf="insertShow">
+            <a routerLink="/Admin/CarDetailsFeatures/Insert" class="btn btn-primary btn-add">Araç Detay (Özellik) Ekle</a>
+        </div>
+
+        <input id="hdnType" type="hidden" value="Website" />
+    </div>
 </div>
 
 <admin-copydelete></admin-copydelete>

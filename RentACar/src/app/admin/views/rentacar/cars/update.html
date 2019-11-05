@@ -91,9 +91,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarReservation/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarReservation/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarReservation" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/CarReservation/Insert" class="btn btn-primary btn-add">Rezervasyon Ekle</a>
         </div>
 
@@ -135,9 +135,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/TestForm/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="TestForm" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="TestForm" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/TestForm/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="TestForm" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="TestForm" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -149,7 +149,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/TestForm/Insert" class="btn btn-primary btn-add">Test Formu Ekle</a>
         </div>
 
@@ -179,9 +179,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarPictures/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarPictures" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarPictures" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarPictures/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarPictures" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarPictures" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -193,7 +193,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/CarPictures/Insert" class="btn btn-primary btn-add">Araç Resmi Ekle</a>
         </div>
 
@@ -221,9 +221,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarDetailsMechanical/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsMechanical" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsMechanical" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarDetailsMechanical/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsMechanical" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsMechanical" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -235,7 +235,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/CarDetailsMechanical/Insert" class="btn btn-primary btn-add">Araç Detay (Mekanik) Ekle</a>
         </div>
 
@@ -265,9 +265,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarDetailsFeatures/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarDetailsFeatures/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDetailsFeatures" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -279,7 +279,7 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/CarDetailsFeatures/Insert" class="btn btn-primary btn-add">Araç Detay (Özellik) Ekle</a>
         </div>
 
@@ -309,9 +309,9 @@
                                         <div class="btn-group" style="text-align:left;">
                                             <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a class="updLink" [routerLink]="['/Admin/CarDesc/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDesc" [attr.data-id]="item?.ID">Kopyala</a></li>
-                                                <li><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDesc" [attr.data-id]="item?.ID">Sil</a></li>
+                                                <li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/CarDesc/Update/' + item?.ID]">Düzenle</a></li>
+                                                <li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="CarDesc" [attr.data-id]="item?.ID">Kopyala</a></li>
+                                                <li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="CarDesc" [attr.data-id]="item?.ID">Sil</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -323,9 +323,11 @@
             </div>
         </div>
 
-        <div class="pagelinks">
+        <div class="pagelinks" *ngIf="insertShow">
             <a routerLink="/Admin/CarDesc/Insert" class="btn btn-primary btn-add">Araç Metni Ekle</a>
         </div>
+
+        <input id="hdnType" type="hidden" value="Website" />
     </div>
 </div>
 

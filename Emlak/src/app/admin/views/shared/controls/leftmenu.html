@@ -28,31 +28,38 @@
                 <li data-url="WarmTypeT"><a routerLink="/Admin/WarmTypeT">Isınma Tipleri (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightKategori && showTypeKategori">
+        <li class="submenu" *ngIf="hasRightCategory && showTypeCategory">
             <a href="javascript:;"><i class="icon icon-sitemap"></i> <span>Kategoriler</span></a>
             <ul>
                 <li data-url="Category"><a routerLink="/Admin/Category">Kategoriler</a></li>
                 <li data-url="CategoryT"><a routerLink="/Admin/CategoryT">Kategoriler (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightIcerik && showTypeIcerik">
+        <li class="submenu" *ngIf="hasRightContent && showTypeContent">
             <a href="javascript:;"><i class="icon icon-edit"></i> <span>İçerikler</span></a>
             <ul>
                 <li data-url="Content"><a routerLink="/Admin/Content">İçerikler</a></li>
                 <li data-url="ContentT"><a routerLink="/Admin/ContentT">İçerikler (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightGaleri && showTypeGaleri">
+        <li class="submenu" *ngIf="hasRightGallery && showTypeGallery">
             <a href="javascript:;"><i class="icon icon-picture"></i> <span>Galeri</span></a>
             <ul>
                 <li data-url="Gallery"><a routerLink="/Admin/Gallery">Galeri</a></li>
                 <li data-url="GalleryT"><a routerLink="/Admin/GalleryT">Galeri (Dil)</a></li>
             </ul>
         </li>
-        <li data-url="Picture" *ngIf="hasRightResim && showTypeResim">
+        <li data-url="Picture" *ngIf="hasRightPicture && showTypePicture">
             <a routerLink="/Admin/Picture"><i class="icon icon-camera-retro"></i> <span>Resimler</span></a>
         </li>
-        <li data-url="File" *ngIf="hasRightDosya && showTypeDosya">
+        <li class="submenu" *ngIf="hasRightLinkTypes && showTypeLinkTypes">
+            <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
+            <ul>
+                <li data-url="LinkTypes"><a routerLink="/Admin/LinkTypes">Bağlı Tipler</a></li>
+                <li data-url="Links"><a routerLink="/Admin/Links">Bağlantılar</a></li>
+            </ul>
+        </li>
+        <li data-url="File" *ngIf="hasRightFile && showTypeFile">
             <a routerLink="/Admin/File"><i class="icon icon-file"></i> <span>Dosyalar</span></a>
         </li>
         <li class="submenu" *ngIf="hasRightMeta && showTypeMeta">
@@ -62,14 +69,7 @@
                 <li data-url="MetaT"><a routerLink="/Admin/MetaT">Meta (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightBagliTipler && showTypeBagliTipler">
-            <a href="javascript:;"><i class="icon icon-link"></i> <span>Bağlı Tipler</span></a>
-            <ul>
-                <li data-url="LinkTypes"><a routerLink="/Admin/LinkTypes">Bağlı Tipler</a></li>
-                <li data-url="Links"><a routerLink="/Admin/Links">Bağlantılar</a></li>
-            </ul>
-        </li>
-        <li class="submenu" *ngIf="hasRightDil && hasRightDil">
+        <li class="submenu" *ngIf="hasRightTranslation && hasRightTranslation">
             <a href="javascript:;"><i class="icon icon-globe"></i> <span>Diller</span></a>
             <ul>
                 <li data-url="Translation"><a routerLink="/Admin/Translation">Diller</a></li>
@@ -77,7 +77,7 @@
                 <li data-url="LangContentT"><a routerLink="/Admin/LangContentT">Dil İçerik (Dil)</a></li>
             </ul>
         </li>
-        <li class="submenu" *ngIf="hasRightLoglar && showTypeLoglar">
+        <li class="submenu" *ngIf="hasRightLogs && showTypeLogs">
             <a href="javascript:;"><i class="icon icon-eye-open"></i> <span>Loglar</span></a>
             <ul>
                 <li data-url="Logs"><a routerLink="/Admin/Logs">Loglar</a></li>
@@ -85,10 +85,10 @@
                 <li data-url="LogProcess"><a routerLink="/Admin/LogProcess">Log İşlemleri</a></li>
             </ul>
         </li>
-        <li data-url="VisitorCounter" *ngIf="hasRightZiyaretci && showTypeZiyaretci">
+        <li data-url="VisitorCounter" *ngIf="hasRightWebsite && showTypeWebsite">
             <a routerLink="/Admin/VisitorCounter"><i class="icon icon-plane"></i> <span>Ziyaretçiler</span></a>
         </li>
-        <li class="submenu" *ngIf="hasRightKullanicilar && showTypeKullanicilar">
+        <li class="submenu" *ngIf="hasRightUsers && showTypeUsers">
             <a href="javascript:;"><i class="icon icon-user"></i> <span>Kullanıcılar</span></a>
             <ul>
                 <li data-url="Users"><a routerLink="/Admin/Users">Kullanıcılar</a></li>
@@ -98,7 +98,7 @@
                 <li data-url="UserGroupProcess"><a routerLink="/Admin/UserGroupProcess">Kullanıcı Grup İşlemleri</a></li>
             </ul>
         </li>
-        <li data-url="Types" *ngIf="hasRightTipler && showTypeTipler">
+        <li data-url="Types" *ngIf="hasRightTypes && showTypeTypes">
             <a routerLink="/Admin/Types"><i class="icon icon-pushpin"></i> <span>Tipler</span></a>
         </li>
     </ul>

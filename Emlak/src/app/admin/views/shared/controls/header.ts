@@ -47,9 +47,9 @@ export class AdminHeaderComponent {
                 'Galeri',
                 'Galeri (Dil)',
                 'Resimler',
-                'Dosyalar',
-                'Meta',
-                'Meta (Dil)',
+                //'Dosyalar',
+                //'Meta',
+                //'Meta (Dil)',
                 'Bağlı Tipler',
                 'Bağlantılar',
                 'Diller',
@@ -140,15 +140,15 @@ export class AdminHeaderComponent {
             case "Resimler":
                 this.router.navigate(['/Admin/Picture']);
                 break;
-            case "Dosyalar":
-                this.router.navigate(['/Admin/File']);
-                break;
-            case "Meta":
-                this.router.navigate(['/Admin/Meta']);
-                break;
-            case "Meta (Dil)":
-                this.router.navigate(['/Admin/MetaT']);
-                break;
+            //case "Dosyalar":
+            //    this.router.navigate(['/Admin/File']);
+            //    break;
+            //case "Meta":
+            //    this.router.navigate(['/Admin/Meta']);
+            //    break;
+            //case "Meta (Dil)":
+            //    this.router.navigate(['/Admin/MetaT']);
+            //    break;
             case "Bağlı Tipler":
                 this.router.navigate(['/Admin/LinkTypes']);
                 break;
