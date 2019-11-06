@@ -62,7 +62,7 @@ export class ScriptsComponent implements AfterViewChecked {
         this.JTab();
         this.JMore();
         this.Slider();
-        this.BXSlider();
+        //this.BXSlider();
         this.MenuActive();
         this.ScrollTop();
         this.EqualHeight();
@@ -250,56 +250,6 @@ export class ScriptsComponent implements AfterViewChecked {
             $('.b-search__main-type-svg').parent("div").removeAttr("data-selected");
             $(this).parent("div").attr("data-selected", "true");
         });
-    }
-
-    //BX-Slider
-    BXSlider() {
-        setTimeout(() => {
-            var bxClone = $('.bx-clone').length;
-
-            if (bxClone <= 0) {
-                $(".enable-bx-slider").each(function (i) {
-                    var $bx = $(this);
-                    var pagerCustomData = $bx.data('pager-custom');
-                    var modeData = $bx.data('mode');
-                    var pagerSlideData = $bx.data('pager-slide');
-                    var modePagerData = $bx.data('mode-pager');
-                    var pagerQtyData = $bx.data('pager-qty');
-                    var realSlider = $bx.bxSlider({
-                        pagerCustom: pagerCustomData,
-                        mode: modeData,
-                    });
-
-                    if (pagerSlideData) {
-                        var realThumbSlider = $(pagerCustomData).bxSlider({
-                            mode: modePagerData,
-                            minSlides: pagerQtyData,
-                            maxSlides: pagerQtyData,
-                            moveSlides: 1,
-                            slideMargin: 20,
-                            pager: false,
-                            infiniteLoop: false,
-                            hideControlOnEnd: true,
-                            nextText: '<span class="fa fa-angle-down"></span>',
-                            prevText: '<span class="fa fa-angle-up"></span>'
-                        });
-
-                        linkRealSliders(realSlider, realThumbSlider, pagerCustomData);
-                        if ($(pagerCustomData + " a").length <= pagerQtyData) {
-                            $(pagerCustomData + " .bx-next").hide();
-                        }
-                    }
-                });
-            }
-
-            function linkRealSliders(bigS, thumbS, sliderId) {
-                $(sliderId).off("click").on("click", "a", function (event) {
-                    event.preventDefault();
-                    var newIndex = $(this).data("slide-index");
-                    bigS.goToSlide(newIndex);
-                });
-            }
-        }, 2500);
     }
 
     //MenuActive
