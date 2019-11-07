@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
 import { Lib } from '../../../lib/methods';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'rac-blogitems',
@@ -40,6 +41,8 @@ export class BlogItemsComponent {
                 this.blogList = Array.from({ length }).map((x, j) => ({
                     Blogs: resData.filter((y, i) => i >= 5 * j && i < 5 * (j + 1))
                 }));
+
+                ScriptsComponent.OwlCarousel();
             }, resError => this.errorMsg = resError);
         }
         else {
@@ -52,6 +55,8 @@ export class BlogItemsComponent {
                 this.blogList = Array.from({ length }).map((x, j) => ({
                     Blogs: resData.filter((y, i) => i >= 5 * j && i < 5 * (j + 1))
                 }));
+
+                ScriptsComponent.OwlCarousel();
             }, resError => this.errorMsg = resError);
         }
     }

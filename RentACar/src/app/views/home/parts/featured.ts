@@ -2,6 +2,7 @@
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
 import { Lib } from '../../../lib/methods';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'rac-homefeatured',
@@ -25,6 +26,8 @@ export class HomeFeaturedComponent {
     GetShowroom() {
         this.service.get("Site", "GetShowroom", 8).subscribe((resData: any) => {
             this.carList = resData;
+
+            ScriptsComponent.OwlCarousel();
         }, resError => this.errorMsg = resError);
     }
 

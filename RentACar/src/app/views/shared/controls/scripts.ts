@@ -3,12 +3,9 @@ import { Router, ActivationEnd, RouterEvent } from '@angular/router';
 import '../../../../../Content/js/owl-carousel/owl.carousel.min.js';
 import '../../../../../Content/js/bxslider/jquery.bxslider.min.js';
 import '../../../../../Content/js/jquery.ui-slider.js';
-//import '../../../../../node_modules/wowjs/dist/wow.js';
 
 import '../../../../../Content/js/pathscript.js';
-import '../../../../../Content/js/script.js';
-
-//import { WOW } from "../../../../../node_modules/wowjs/dist/wow";
+import '../../../../../Content/js/script.js'; 
 
 @Component({
     selector: 'rac-scripts',
@@ -56,28 +53,12 @@ export class ScriptsComponent implements AfterViewChecked {
 
     LoadScripts() {
         this.PageLoader();
-        //this.Wow();
-        this.Carousel();
-        this.OwlCarousel();
         this.JTab();
         this.JMore();
         this.Slider();
-        //this.BXSlider();
         this.MenuActive();
         this.ScrollTop();
         this.EqualHeight();
-    }
-
-    //Carousel
-    Carousel() {
-        $(".carousel").carousel();
-
-        $(".carousel-control.left").off("click").on("click", function () {
-            $(".carousel").carousel("prev");
-        });
-        $(".carousel-control.right").off("click").on("click", function () {
-            $(".carousel").carousel("next");
-        });
     }
 
     //J-Tab
@@ -172,46 +153,6 @@ export class ScriptsComponent implements AfterViewChecked {
         window.scrollTo(0, 0);
     }
 
-    //Wow
-    //Wow() {
-    //    var scrollingAnimations = $('body').data("scrolling-animations");
-    //    if (scrollingAnimations) {
-    //        new WOW().init();
-    //    }
-    //}
-
-    //OwlCarousel
-    OwlCarousel() {
-        setTimeout(() => {
-            $(".enable-owl-carousel").each(function (i) {
-                var $owl = $(this);
-                var itemsData = $owl.data('items');
-                var autoPlayData = $owl.data('auto-play');
-                var navigationData = $owl.data('navigation');
-                var stopOnHoverData = $owl.data('stop-on-hover');
-                var itemsDesktopData = $owl.data('items-desktop');
-                var itemsDesktopSmallData = $owl.data('items-desktop-small');
-                var itemsTabletData = $owl.data('items-tablet');
-                var itemsTabletSmallData = $owl.data('items-tablet-small');
-                $owl.owlCarousel({
-                    items: itemsData,
-                    pagination: false,
-                    navigation: navigationData,
-                    autoPlay: autoPlayData,
-                    stopOnHover: stopOnHoverData,
-                    navigationText: ["", ""],
-                    itemsCustom: [
-                        [0, 1],
-                        [500, itemsTabletSmallData],
-                        [710, itemsTabletData],
-                        [992, itemsDesktopSmallData],
-                        [1199, itemsDesktopData]
-                    ],
-                });
-            });
-        }, 2500);
-    }
-
     //Slider
     Slider() {
         var slider = $('.slider').length;
@@ -250,6 +191,107 @@ export class ScriptsComponent implements AfterViewChecked {
             $('.b-search__main-type-svg').parent("div").removeAttr("data-selected");
             $(this).parent("div").attr("data-selected", "true");
         });
+    }
+
+    //OwlCarousel
+    static OwlCarousel() {
+        setTimeout(() => {
+            $(".enable-owl-carousel").each(function (i) {
+                var $owl = $(this);
+                var itemsData = $owl.data('items');
+                var autoPlayData = $owl.data('auto-play');
+                var navigationData = $owl.data('navigation');
+                var stopOnHoverData = $owl.data('stop-on-hover');
+                var itemsDesktopData = $owl.data('items-desktop');
+                var itemsDesktopSmallData = $owl.data('items-desktop-small');
+                var itemsTabletData = $owl.data('items-tablet');
+                var itemsTabletSmallData = $owl.data('items-tablet-small');
+                $owl.owlCarousel({
+                    items: itemsData,
+                    pagination: false,
+                    navigation: navigationData,
+                    autoPlay: autoPlayData,
+                    stopOnHover: stopOnHoverData,
+                    navigationText: ["", ""],
+                    itemsCustom: [
+                        [0, 1],
+                        [500, itemsTabletSmallData],
+                        [710, itemsTabletData],
+                        [992, itemsDesktopSmallData],
+                        [1199, itemsDesktopData]
+                    ],
+                });
+            });
+        }, 1000);
+    }
+
+    //Carousel
+    static Carousel() {
+        $(".carousel").carousel();
+
+        $(".carousel-control.left").off("click").on("click", function () {
+            $(".carousel").carousel("prev");
+        });
+        $(".carousel-control.right").off("click").on("click", function () {
+            $(".carousel").carousel("next");
+        });
+    }
+
+    //BXSlider
+    static BXSlider() {
+        setTimeout(() => {
+            var bxClone = $('.bx-clone').length;
+
+            if (bxClone <= 0) {
+                $(".enable-bx-slider").each(function (i) {
+                    var $bx = $(this);
+                    var pagerCustomData = $bx.data('pager-custom');
+                    var modeData = $bx.data('mode');
+                    var pagerSlideData = $bx.data('pager-slide');
+                    var modePagerData = $bx.data('mode-pager');
+                    var pagerQtyData = $bx.data('pager-qty');
+                    var realSlider = $bx.bxSlider({
+                        pagerCustom: pagerCustomData,
+                        mode: modeData,
+                    });
+
+                    if (pagerSlideData) {
+                        var realThumbSlider = $(pagerCustomData).bxSlider({
+                            mode: modePagerData,
+                            minSlides: pagerQtyData,
+                            maxSlides: pagerQtyData,
+                            moveSlides: 1,
+                            slideMargin: 20,
+                            pager: false,
+                            infiniteLoop: false,
+                            hideControlOnEnd: true,
+                            nextText: '<span class="fa fa-angle-down"></span>',
+                            prevText: '<span class="fa fa-angle-up"></span>'
+                        });
+
+                        linkRealSliders(realSlider, realThumbSlider, pagerCustomData);
+                        if ($(pagerCustomData + " a").length <= pagerQtyData) {
+                            $(pagerCustomData + " .bx-next").hide();
+                        }
+                    }
+                });
+            }
+
+            function linkRealSliders(bigS, thumbS, sliderId) {
+                $(sliderId).off("click").on("click", "a", function (event) {
+                    event.preventDefault();
+                    var newIndex = $(this).data("slide-index");
+                    bigS.goToSlide(newIndex);
+                });
+            }
+        }, 500);
+    }
+    static RemoveBXSlider() {
+        $(".bx-viewport").removeClass("bx-viewport");
+        $(".bx-wrapper").removeClass("bx-wrapper");
+
+        $(".bx-clone").remove();
+        $(".bx-controls").remove();
     }
 
     //MenuActive

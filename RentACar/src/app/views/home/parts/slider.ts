@@ -2,6 +2,7 @@
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
 import { Lib } from '../../../lib/methods';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'rac-homeslider',
@@ -25,6 +26,8 @@ export class HomeSliderComponent {
     GetSlider() {
         this.service.get("Site", "SliderByCode", "mainslider", null).subscribe((resData: any) => {
             this.Slider = resData;
+
+            ScriptsComponent.Carousel();
         }, resError => this.errorMsg = resError);
     }
 

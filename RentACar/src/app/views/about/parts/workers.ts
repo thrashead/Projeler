@@ -2,6 +2,7 @@
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
 import { Lib } from '../../../lib/methods';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'rac-aboutworkers',
@@ -19,6 +20,15 @@ export class AboutWorkersComponent {
     ngOnInit() {
         this.SetLangContents();
         this.GetWorkers();
+    }
+
+    //Workers
+    GetWorkers() {
+        this.service.get("Site", "GetWorkers").subscribe((resData: any) => {
+            this.workerList = resData;
+
+            ScriptsComponent.OwlCarousel();
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -45,12 +55,5 @@ export class AboutWorkersComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "about_workers"));
-    }
-
-    //Workers
-    GetWorkers() {
-        this.service.get("Site", "GetWorkers").subscribe((resData: any) => {
-            this.workerList = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

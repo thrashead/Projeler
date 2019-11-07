@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'rac-homeworkers',
@@ -25,6 +26,8 @@ export class HomeWorkersComponent {
     GetWorkers() {
         this.service.get("Site", "GetWorkers").subscribe((resData: any) => {
             this.workerList = resData;
+
+            ScriptsComponent.OwlCarousel();
         }, resError => this.errorMsg = resError);
     }
 

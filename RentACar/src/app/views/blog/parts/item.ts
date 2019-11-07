@@ -1,16 +1,17 @@
-﻿import { Component, EventEmitter, Output, AfterViewInit } from '@angular/core';
+﻿import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
 import { Lib } from '../../../lib/methods';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'rac-blogitem',
     templateUrl: './item.html'
 })
 
-export class BlogItemComponent implements AfterViewInit {
+export class BlogItemComponent {
     url: string;
     errorMsg: string;
 
@@ -26,7 +27,10 @@ export class BlogItemComponent implements AfterViewInit {
     commentList: any;
     pictureList: any;
 
-    constructor(private service: SiteService, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+        this.router.routeReuseStrategy.shouldReuseRoute = function () {
+            return false;
+        };
     }
 
     ngOnInit() {
@@ -42,20 +46,7 @@ export class BlogItemComponent implements AfterViewInit {
             this.GetBlogPost(this.url);
         });
 
-        this.RemoveBXSlider();
         this.SetLangContents();
-    }
-
-    ngAfterViewInit() {
-        $("a.b-detail__main-info-images-small-one").eq(0).click();
-    }
-
-    RemoveBXSlider() {
-        $(".bx-viewport").removeClass("bx-viewport");
-        $(".bx-wrapper").removeClass("bx-wrapper");
-
-        $(".bx-clone").remove();
-        $(".bx-controls").remove();
     }
 
     onClick() {
@@ -97,62 +88,13 @@ export class BlogItemComponent implements AfterViewInit {
             this.service.get("Site", "GetBlogPictures", resData.ID).subscribe((resData: any) => {
                 this.pictureList = resData;
 
-                this.BXSlider();
+                ScriptsComponent.BXSlider();
             }, resError => this.errorMsg = resError);
 
             this.service.get("Site", "GetBlogComments", resData.ID).subscribe((resData: any) => {
                 this.commentList = resData;
             }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
-    }
-
-    BXSlider() {
-        setTimeout(() => {
-            var bxClone = $('.bx-clone').length;
-
-            if (bxClone <= 0) {
-                $(".enable-bx-slider").each(function (i) {
-                    var $bx = $(this);
-                    var pagerCustomData = $bx.data('pager-custom');
-                    var modeData = $bx.data('mode');
-                    var pagerSlideData = $bx.data('pager-slide');
-                    var modePagerData = $bx.data('mode-pager');
-                    var pagerQtyData = $bx.data('pager-qty');
-                    var realSlider = $bx.bxSlider({
-                        pagerCustom: pagerCustomData,
-                        mode: modeData,
-                    });
-
-                    if (pagerSlideData) {
-                        var realThumbSlider = $(pagerCustomData).bxSlider({
-                            mode: modePagerData,
-                            minSlides: pagerQtyData,
-                            maxSlides: pagerQtyData,
-                            moveSlides: 1,
-                            slideMargin: 20,
-                            pager: false,
-                            infiniteLoop: false,
-                            hideControlOnEnd: true,
-                            nextText: '<span class="fa fa-angle-down"></span>',
-                            prevText: '<span class="fa fa-angle-up"></span>'
-                        });
-
-                        linkRealSliders(realSlider, realThumbSlider, pagerCustomData);
-                        if ($(pagerCustomData + " a").length <= pagerQtyData) {
-                            $(pagerCustomData + " .bx-next").hide();
-                        }
-                    }
-                });
-            }
-
-            function linkRealSliders(bigS, thumbS, sliderId) {
-                $(sliderId).off("click").on("click", "a", function (event) {
-                    event.preventDefault();
-                    var newIndex = $(this).data("slide-index");
-                    bigS.goToSlide(newIndex);
-                });
-            }
-        }, 500);
     }
 
     //LangContents

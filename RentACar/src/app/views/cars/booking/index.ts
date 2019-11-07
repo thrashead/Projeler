@@ -1,7 +1,7 @@
 ﻿import { Component, Output } from "@angular/core";
-import { SiteService } from '../../../services/site';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { SiteService } from '../../../services/site';
 import { Lib } from '../../../lib/methods';
 import { ComboBox } from '../../../lib/combobox';
 import { LangItem } from '../../../models/LangItem';
@@ -32,7 +32,7 @@ export class CarsBookComponent {
     discount: any;
 
 
-    constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
+    constructor(private service: SiteService, private router: Router, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
