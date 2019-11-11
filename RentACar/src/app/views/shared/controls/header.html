@@ -28,11 +28,11 @@
                 <div class="b-topBar__lang">
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle='dropdown'>{{ langs?.lang }}</a>
-                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><img src="/Uploads/{{ flag?.Flag }}" /> {{ flag?.ShortName }}<span class="fa fa-caret-down"></span></a>
+                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><img src="/RentACar/Uploads/{{ flag?.Flag }}" /> {{ flag?.ShortName }}<span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu h-lang">
                             <li *ngFor="let item of LangList">
                                 <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="javascript:;" (click)="OnLangSelect(item?.ID)">
-                                    <img src="/Uploads/{{ item?.Flag }}" /> {{ item?.ShortName }}
+                                    <img src="/RentACar/Uploads/{{ item?.Flag }}" /> {{ item?.ShortName }}
                                 </a>
                             </li>
                         </ul>

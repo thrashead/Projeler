@@ -1,14 +1,14 @@
 ﻿<!--b-world-->
-<section class="b-world" [style.backgroundImage]="'url(/Uploads/' + worldbanner + ')'">
+<section class="b-world" [style.backgroundImage]="'url(/RentACar/Uploads/' + worldbanner + ')'">
     <div class="container">
-        <h6 class="wow zoomInLeft" data-wow-delay="0.3s/RentACar/Uploads/w-offset="100">{{ langs?.world.ShortDescription }}</h6><br />
+        <h6 class="wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.world.ShortDescription }}</h6><br />
         <h2 class="s-title wow zoomInRight" data-wow-delay="0.3s" data-wow-offset="100">{{ langs?.world.Description }}</h2>
         <div class="row">
             <div class="col-sm-4 col-xs-12" *ngFor="let item of worldList">
                 <div class="b-world__item wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-                    <img class="img-responsive" src="/Uploads/thumb_{{ item?.PictureUrl }}" />
+                    <img class="img-responsive" src="/RentACar/Uploads/thumb_{{ item?.PictureUrl }}" />
                     <div class="b-world__item-val">
-                        <span class="b-world__item-va/RentACar/Uploads/{{ item?.CategoryTitle }}</span>
+                        <span class="b-world__item-val-title">{{ item?.CategoryTitle }}</span>
                     </div>
                     <h2>{{ item?.Title }}</h2>
                     <p>
