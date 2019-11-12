@@ -11,7 +11,7 @@ namespace HumanResources.Areas.Ajax.Controllers
     public class SharedController : Controller
     {
         readonly HumanResourcesEntities entity = new HumanResourcesEntities();
-        Users curUser = AppTools.User;
+        readonly Users curUser = AppTools.User;
 
         [HttpPost]
         public JsonResult Login([System.Web.Http.FromBody] Users user)
