@@ -37,8 +37,6 @@ export class CarsBookComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.FillCombo();
-        this.GetDiscounts();
 
         this.bookForm = this.formBuilder.group({
             StartDate: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(10)]),
@@ -130,6 +128,98 @@ export class CarsBookComponent {
         }, resError => this.errorMsg = resError);
     }
 
+    //ComboBox
+    FillCombo() {
+        ComboBox.FillYear("slcYearMin");
+        ComboBox.FillYear("slcYearMax");
+        ComboBox.FillNumber("slcGearCount", 1, 8);
+        ComboBox.FillNumber("slcCylinders", 2, 12, 2);
+        ComboBox.FillNumber("slcSeats");
+        ComboBox.FillNumber("slcDoors", 1, 8);
+
+        this.ComboCarMakes(false, null, true);
+    }
+
+    //CarMakes
+    ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarMakes = resData;
+
+            this.ComboCarStatus(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarStatus
+    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarStatus = resData;
+
+            this.ComboBodyTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //BodyTypes
+    ComboBodyTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboBodyTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.BodyTypes = resData;
+
+            this.ComboFuelTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //FuelTypes
+    ComboFuelTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboFuelTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.FuelTypes = resData;
+
+            this.ComboDriveTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //DriveTypes
+    ComboDriveTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboDriveTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.DriveTypes = resData;
+
+            this.ComboGearTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //GearTypes
+    ComboGearTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboGearTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.GearTypes = resData;
+
+            this.ComboEngineTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //EngineTypes
+    ComboEngineTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboEngineTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.EngineTypes = resData;
+
+            this.GetDiscounts();
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeCode(makeCode: string = null, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarModels = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
+    //ComboColors
+    ComboColors(exterior: boolean = true, addEmpty: boolean = false, emptyText: string = "-", emptyValue: string = "all") {
+        this.service.get("Site", "ComboColors", exterior, addEmpty, emptyText, emptyValue).subscribe((resData: any) => {
+            if (exterior)
+                this.ExtColors = resData;
+            else
+                this.IntColors = resData;
+        }, resError => this.errorMsg = resError);
+    }
+
     //GetDiscounts
     GetDiscounts() {
         this.service.get("Site", "GetNoLangContentByCode", "discount").subscribe((resData: any) => {
@@ -142,93 +232,11 @@ export class CarsBookComponent {
                     case "year": this.discount.Year = item.ShortDescription; break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-    }
 
-    //ComboBox
-    FillCombo() {
-        this.ComboCarMakes(false, null, true);
-        this.ComboCarModelsByMakeCode("all", false, null, true);
-        this.ComboCarStatus(false, null, true);
-        this.ComboBodyTypes(false, null, true);
-        this.ComboFuelTypes(false, null, true);
-        this.ComboDriveTypes(false, null, true);
-        this.ComboGearTypes(false, null, true);
-        this.ComboEngineTypes(false, null, true);
-        this.ComboColors(true, true);
-        this.ComboColors(false, true);
+            this.ComboCarModelsByMakeCode("all", false, null, true);
 
-        ComboBox.FillYear("slcYearMin");
-        ComboBox.FillYear("slcYearMax");
-        ComboBox.FillNumber("slcGearCount", 1, 8);
-        ComboBox.FillNumber("slcCylinders", 2, 12, 2);
-        ComboBox.FillNumber("slcSeats");
-        ComboBox.FillNumber("slcDoors", 1, 8);
-    }
-
-    //CarMakes
-    ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarMakes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarModelsByMakeCode
-    ComboCarModelsByMakeCode(makeCode: string = null, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarModels = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //CarStatus
-    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarStatus = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //BodyTypes
-    ComboBodyTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboBodyTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.BodyTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //FuelTypes
-    ComboFuelTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboFuelTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.FuelTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //DriveTypes
-    ComboDriveTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboDriveTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.DriveTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //GearTypes
-    ComboGearTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboGearTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.GearTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //EngineTypes
-    ComboEngineTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboEngineTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.EngineTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //ComboColors
-    ComboColors(exterior: boolean = true, addEmpty: boolean = false, emptyText: string = "-", emptyValue: string = "all") {
-        this.service.get("Site", "ComboColors", exterior, addEmpty, emptyText, emptyValue).subscribe((resData: any) => {
-            if (exterior)
-                this.ExtColors = resData;
-            else
-                this.IntColors = resData;
+            this.ComboColors(true, true);
+            this.ComboColors(false, true);
         }, resError => this.errorMsg = resError);
     }
 
@@ -333,6 +341,8 @@ export class CarsBookComponent {
                     case "src_max": this.langs.search.max = item.ShortDescription2; break;
                 }
             });
+
+            this.FillCombo();
         }, resError => this.errorMsg = resError);
     }
 

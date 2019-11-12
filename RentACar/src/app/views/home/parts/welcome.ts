@@ -20,8 +20,22 @@ export class HomeWelcomeComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetContent();
-        this.GetPicture();
+    }
+
+    //Content
+    GetContent() {
+        this.service.get("Site", "GetContentByCode", "home_welcome", 1).subscribe((resData: any) => {
+            this.welcome = resData;
+
+            this.GetPicture();
+        }, resError => this.errorMsg = resError);
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "home_welcome", 1).subscribe((resData: any) => {
+            this.welcomebanner = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -44,6 +58,8 @@ export class HomeWelcomeComponent {
                     case "home_wlcm_support": this.langs.support = item.ShortDescription; break;
                 }
             });
+
+            this.GetContent();
         }, resError => this.errorMsg = resError);
     }
 
@@ -54,19 +70,5 @@ export class HomeWelcomeComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_wlcm_trade"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_wlcm_guide"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_wlcm_support"));
-    }
-
-    //Content
-    GetContent() {
-        this.service.get("Site", "GetContentByCode", "home_welcome", 1).subscribe((resData: any) => {
-            this.welcome = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "home_welcome", 1).subscribe((resData: any) => {
-            this.welcomebanner = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

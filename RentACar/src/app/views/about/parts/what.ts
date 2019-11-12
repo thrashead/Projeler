@@ -23,7 +23,19 @@ export class AboutWhatComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "about_what_price", 1).subscribe((resData: any) => {
+            this.picwhatprice = resData;
+            this.service.get("Site", "GetPicturesByCode", "about_what_fleet", 1).subscribe((resData: any) => {
+                this.picwhatfleet = resData;
+                this.service.get("Site", "GetPicturesByCode", "about_what_safety", 1).subscribe((resData: any) => {
+                    this.picwhatsafety = resData;
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContent
@@ -47,21 +59,8 @@ export class AboutWhatComponent {
                         break;
                 }
             });
-        }, resError => this.errorMsg = resError);
-    }
 
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "about_what_price", 1).subscribe((resData: any) => {
-            this.picwhatprice = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetPicturesByCode", "about_what_fleet", 1).subscribe((resData: any) => {
-            this.picwhatfleet = resData;
-        }, resError => this.errorMsg = resError);
-
-        this.service.get("Site", "GetPicturesByCode", "about_what_safety", 1).subscribe((resData: any) => {
-            this.picwhatsafety = resData;
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 }

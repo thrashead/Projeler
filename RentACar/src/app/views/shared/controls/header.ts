@@ -20,7 +20,6 @@ export class HeaderComponent {
     }
 
     ngOnInit() {
-        this.GetLangs();
         this.SetLangContents();
     }
 
@@ -82,6 +81,8 @@ export class HeaderComponent {
                         break;
                 }
             });
+
+            this.GetLangs();
         }, resError => this.errorMsg = resError);
     }
 

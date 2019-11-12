@@ -20,7 +20,13 @@ export class BlogCategoriesComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetBlogContent();
+    }
+
+    //BlogContent
+    GetBlogContent() {
+        this.service.get("Site", "GetBlogCategories").subscribe((resData: any) => {
+            this.categoryList = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -40,6 +46,8 @@ export class BlogCategoriesComponent {
                     case "cmn_ktgr": this.langs.categories = item.ShortDescription; break;
                 }
             });
+
+            this.GetBlogContent();
         }, resError => this.errorMsg = resError);
     }
 
@@ -47,12 +55,5 @@ export class BlogCategoriesComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_ktgr"));
-    }
-
-    //BlogContent
-    GetBlogContent() {
-        this.service.get("Site", "GetBlogCategories").subscribe((resData: any) => {
-            this.categoryList = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

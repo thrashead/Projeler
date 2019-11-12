@@ -18,7 +18,6 @@ export class CarsDetailBrandsComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetCarMakes();
     }
 
     GetCarMakes() {
@@ -43,6 +42,8 @@ export class CarsDetailBrandsComponent {
                     case "car_makes_brands": this.langs.brands = item.ShortDescription; break;
                 }
             });
+
+            this.GetCarMakes();
         }, resError => this.errorMsg = resError);
     }
 

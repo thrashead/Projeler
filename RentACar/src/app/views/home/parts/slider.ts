@@ -19,7 +19,6 @@ export class HomeSliderComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetSlider();
     }
 
     //Slider
@@ -50,6 +49,8 @@ export class HomeSliderComponent {
                 }
             });
         }, resError => this.errorMsg = resError);
+
+        this.GetSlider();
     }
 
     PushLangItems() {

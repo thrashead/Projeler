@@ -20,7 +20,13 @@ export class CarsDetailHeaderComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "banner_cars", 1).subscribe((resData: any) => {
+            this.banner = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -40,6 +46,8 @@ export class CarsDetailHeaderComponent {
                     case "car_dtl_head": this.langs.header = item; break;
                 }
             });
+
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 
@@ -47,12 +55,5 @@ export class CarsDetailHeaderComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_dtl_head"));
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "banner_cars", 1).subscribe((resData: any) => {
-            this.banner = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

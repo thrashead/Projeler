@@ -31,16 +31,11 @@ export class CarsDetailItemComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.FillDetails();
     }
 
     FillDetails() {
         let carUrl = this.router.url.split('/')[this.router.url.split('/').length - 1];
-
         this.GetCarDetail(carUrl);
-        this.GetCarGallery(carUrl);
-        this.GetCarDescriptions(carUrl);
-        this.GetCarDetailsFeatures(carUrl);
     }
 
     //CarDetail
@@ -53,6 +48,8 @@ export class CarsDetailItemComponent {
 
             this.titleEvnt.emit(this.car.Title);
             this.urlEvnt.emit(this.car.Url);
+
+            this.GetCarGallery(carUrl);
         }, resError => this.errorMsg = resError);
     }
 
@@ -62,6 +59,8 @@ export class CarsDetailItemComponent {
             this.gallery = resData;
 
             ScriptsComponent.BXSlider();
+
+            this.GetCarDescriptions(carUrl);
         }, resError => this.errorMsg = resError);
     }
 
@@ -69,6 +68,8 @@ export class CarsDetailItemComponent {
     GetCarDescriptions(carUrl: string) {
         this.service.get("Site", "GetCarDescriptionsByUrl", carUrl).subscribe((resData: any) => {
             this.descriptions = resData;
+
+            this.GetCarDetailsFeatures(carUrl);
         }, resError => this.errorMsg = resError);
     }
 
@@ -149,6 +150,8 @@ export class CarsDetailItemComponent {
                     case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
+
+            this.FillDetails();
         }, resError => this.errorMsg = resError);
     }
 

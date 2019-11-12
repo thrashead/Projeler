@@ -19,8 +19,6 @@ export class HomeAutoComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetMakeList();
-        this.GetCarListByMakeCode();
     }
 
     onClick($event: any, code: string) {
@@ -35,6 +33,8 @@ export class HomeAutoComponent {
     GetMakeList() {
         this.service.get("Site", "GetMakeList").subscribe((resData: any) => {
             this.makeList = resData;
+
+            this.GetCarListByMakeCode();
         }, resError => this.errorMsg = resError);
     }
 
@@ -83,6 +83,8 @@ export class HomeAutoComponent {
                     case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
+
+            this.GetMakeList();
         }, resError => this.errorMsg = resError);
     }
 

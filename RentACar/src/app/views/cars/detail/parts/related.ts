@@ -19,7 +19,6 @@ export class CarsDetailRelatedComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetSimilarCarsByUrl();
     }
 
     //GetSimilarCarsByUrl
@@ -51,6 +50,8 @@ export class CarsDetailRelatedComponent {
                     case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
+
+            this.GetSimilarCarsByUrl();
         }, resError => this.errorMsg = resError);
     }
 

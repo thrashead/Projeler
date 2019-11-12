@@ -30,7 +30,6 @@ export class BlogItemsComponent {
         });
 
         this.SetLangContents();
-        this.GetBlogPosts();
     }
 
     //BlogPosts
@@ -81,6 +80,8 @@ export class BlogItemsComponent {
                     case "blog_src_title": this.url == "Arama-Sonuclari" ? this.catTitle = item.ShortDescription : ""; break;
                 }
             });
+
+            this.GetBlogPosts();
         }, resError => this.errorMsg = resError);
     }
 

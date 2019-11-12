@@ -18,7 +18,13 @@ export class BlogPopularComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetBlogContent();
+    }
+
+    //BlogContent
+    GetBlogContent() {
+        this.service.get("Site", "GetPopularBlogPosts", 2).subscribe((resData: any) => {
+            this.popularList = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -38,6 +44,8 @@ export class BlogPopularComponent {
                     case "blog_pop": this.langs.popular = item.ShortDescription; break;
                 }
             });
+
+            this.GetBlogContent();
         }, resError => this.errorMsg = resError);
     }
 
@@ -45,12 +53,5 @@ export class BlogPopularComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "blog_pop"));
-    }
-
-    //BlogContent
-    GetBlogContent() {
-        this.service.get("Site", "GetPopularBlogPosts", 2).subscribe((resData: any) => {
-            this.popularList = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

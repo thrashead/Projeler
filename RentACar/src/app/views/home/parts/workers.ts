@@ -19,7 +19,6 @@ export class HomeWorkersComponent {
 
     ngOnInit() {
         this.GetWorkers();
-        this.GetPicture();
     }
 
     //Workers
@@ -28,6 +27,8 @@ export class HomeWorkersComponent {
             this.workerList = resData;
 
             ScriptsComponent.OwlCarousel();
+
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 

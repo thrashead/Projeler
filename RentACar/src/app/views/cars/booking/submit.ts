@@ -27,7 +27,6 @@ export class CarsBookSubmitComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetCarDetailByUrl();
 
         this.bookForm = this.formBuilder.group({
             Name: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
@@ -157,6 +156,8 @@ export class CarsBookSubmitComponent {
                         }
                 }
             });
+
+            this.GetCarDetailByUrl();
         }, resError => this.errorMsg = resError);
     }
 

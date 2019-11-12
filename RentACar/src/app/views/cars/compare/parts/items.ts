@@ -19,7 +19,6 @@ export class CarsCompareItemsComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetCarCompareList();
     }
 
     //CarCompareList
@@ -129,6 +128,8 @@ export class CarsCompareItemsComponent {
                         }
                 }
             });
+
+            this.GetCarCompareList();
         }, resError => this.errorMsg = resError);
     }
 

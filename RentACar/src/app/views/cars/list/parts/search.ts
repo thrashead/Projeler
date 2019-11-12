@@ -40,12 +40,6 @@ export class CarsListSearchComponent implements OnDestroy {
 
         this.SetLangContents();
 
-        this.ComboCarMakes(false, null, true);
-        this.ComboCarModelsByMakeCode("all", false, null, true);
-        this.ComboCarStatus(false, null, true);
-        this.ComboBodyTypes(false, null, true);
-        this.ComboFuelTypes(false, null, true);
-
         this.searchForm = this.formBuilder.group({
             MakeCode: new FormControl(null),
             ModelCode: new FormControl(null),
@@ -114,17 +108,43 @@ export class CarsListSearchComponent implements OnDestroy {
         }, resError => this.errorMsg = resError);
     }
 
-    //ClearSearchFilters
-    ClearSearchFilters() {
-        this.service.get("Site", "ClearSearchFilters", this.url).subscribe((resData: any) => {
-            this.searchFilter.emit(resData);
-        }, resError => this.errorMsg = resError);
+    FillCombo() {
+        this.ComboCarMakes(false, null, true);
     }
 
     //CarMakes
     ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
         this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarMakes = resData;
+
+            this.ComboCarStatus(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarStatus
+    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarStatus = resData;
+
+            this.ComboBodyTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //BodyTypes
+    ComboBodyTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboBodyTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.BodyTypes = resData;
+
+            this.ComboFuelTypes(false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //FuelTypes
+    ComboFuelTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboFuelTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.FuelTypes = resData;
+
+            this.ComboCarModelsByMakeCode("all", false, null, true);
         }, resError => this.errorMsg = resError);
     }
 
@@ -135,24 +155,10 @@ export class CarsListSearchComponent implements OnDestroy {
         }, resError => this.errorMsg = resError);
     }
 
-    //CarStatus
-    ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarStatus = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //BodyTypes
-    ComboBodyTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboBodyTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.BodyTypes = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //FuelTypes
-    ComboFuelTypes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboFuelTypes", withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.FuelTypes = resData;
+    //ClearSearchFilters
+    ClearSearchFilters() {
+        this.service.get("Site", "ClearSearchFilters", this.url).subscribe((resData: any) => {
+            this.searchFilter.emit(resData);
         }, resError => this.errorMsg = resError);
     }
 
@@ -181,6 +187,8 @@ export class CarsListSearchComponent implements OnDestroy {
                     case "src_fltr_rmv": this.langs.clearFilter = item.ShortDescription; break;
                 }
             });
+
+            this.FillCombo();
         }, resError => this.errorMsg = resError);
     }
 

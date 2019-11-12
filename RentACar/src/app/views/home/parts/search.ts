@@ -28,7 +28,6 @@ export class HomeSearchComponent implements AfterViewChecked {
 
     ngOnInit() {
         this.SetLangContents();
-        this.FillCombo();
 
         this.searchForm = this.formBuilder.group({
             MakeCode: new FormControl(null),
@@ -79,7 +78,7 @@ export class HomeSearchComponent implements AfterViewChecked {
         minPrice = minPrice == 0 ? null : minPrice;
         maxPrice = maxPrice == 100000 ? null : maxPrice;
 
-        this.searchFilters.BodyTypeCode =  bodyType.length > 0 ? bodyType.parent("div").attr("data-type") : null;
+        this.searchFilters.BodyTypeCode = bodyType.length > 0 ? bodyType.parent("div").attr("data-type") : null;
         this.searchFilters.MakeCode = this.searchForm.get("MakeCode").value;
         this.searchFilters.ModelCode = this.searchForm.get("ModelCode").value;
         this.searchFilters.CarStatusCode = this.searchForm.get("CarStatusCode").value;
@@ -115,26 +114,18 @@ export class HomeSearchComponent implements AfterViewChecked {
 
     //ComboBox
     FillCombo() {
-        this.ComboCarMakes(false, null, true);
-        this.ComboCarModelsByMakeCode("all", false, null, true);
-        this.ComboCarStatus(false, null, true);
-        this.IconBodyTypes();
-
         ComboBox.FillYear("slcYearMin");
         ComboBox.FillYear("slcYearMax");
+
+        this.ComboCarMakes(false, null, true);
     }
 
     //CarMakes
     ComboCarMakes(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
         this.service.get("Site", "ComboCarMakes", withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarMakes = resData;
-        }, resError => this.errorMsg = resError);
-    }
 
-    //CarModelsByMakeCode
-    ComboCarModelsByMakeCode(makeCode: string, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
-        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
-            this.CarModels = resData;
+            this.ComboCarStatus(false, null, true);
         }, resError => this.errorMsg = resError);
     }
 
@@ -142,6 +133,8 @@ export class HomeSearchComponent implements AfterViewChecked {
     ComboCarStatus(withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
         this.service.get("Site", "ComboCarStatus", withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarStatus = resData;
+
+            this.IconBodyTypes();
         }, resError => this.errorMsg = resError);
     }
 
@@ -149,6 +142,15 @@ export class HomeSearchComponent implements AfterViewChecked {
     IconBodyTypes() {
         this.service.get("Site", "IconBodyTypes").subscribe((resData: any) => {
             this.BodyTypes = resData;
+
+            this.ComboCarModelsByMakeCode("all", false, null, true);
+        }, resError => this.errorMsg = resError);
+    }
+
+    //CarModelsByMakeCode
+    ComboCarModelsByMakeCode(makeCode: string, withID: boolean = true, selectedID: string = null, addEmpty: boolean = false) {
+        this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
+            this.CarModels = resData;
         }, resError => this.errorMsg = resError);
     }
 
@@ -178,6 +180,8 @@ export class HomeSearchComponent implements AfterViewChecked {
                     case "src_dtlsrc": this.langs.detailSearch = item.ShortDescription2; break;
                 }
             });
+
+            this.FillCombo();
         }, resError => this.errorMsg = resError);
     }
 

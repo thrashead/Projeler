@@ -19,7 +19,6 @@ export class HomeFeaturedComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetShowroom();
     }
 
     //GetShowroom
@@ -28,6 +27,7 @@ export class HomeFeaturedComponent {
             this.carList = resData;
 
             ScriptsComponent.OwlCarousel();
+
         }, resError => this.errorMsg = resError);
     }
 
@@ -48,6 +48,8 @@ export class HomeFeaturedComponent {
                     case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
                 }
             });
+
+            this.GetShowroom();
         }, resError => this.errorMsg = resError);
     }
 

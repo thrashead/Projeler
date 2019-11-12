@@ -40,12 +40,6 @@ export class BlogItemComponent {
             Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(255)])
         });
 
-        this.route.params.subscribe(params => {
-            this.url = params['url'];
-
-            this.GetBlogPost(this.url);
-        });
-
         this.SetLangContents();
     }
 
@@ -131,6 +125,12 @@ export class BlogItemComponent {
                         }
                         break;
                 }
+            });
+
+            this.route.params.subscribe(params => {
+                this.url = params['url'];
+
+                this.GetBlogPost(this.url);
             });
         }, resError => this.errorMsg = resError);
     }

@@ -18,7 +18,13 @@ export class SharedBookNowComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "car_book_banner", 1).subscribe((resData: any) => {
+            this.banner = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -38,6 +44,8 @@ export class SharedBookNowComponent {
                     case "cmn_booknow": this.langs.booknow = item; break;
                 }
             });
+
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 
@@ -45,12 +53,5 @@ export class SharedBookNowComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_booknow"));
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "car_book_banner", 1).subscribe((resData: any) => {
-            this.banner = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

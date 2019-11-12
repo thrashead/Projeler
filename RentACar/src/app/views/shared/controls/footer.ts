@@ -19,14 +19,14 @@ export class FooterComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetLastCars();
-        this.GetNoLangContent();
     }
 
     //GetLastCars
     GetLastCars() {
         this.service.get("Site", "GetLastCars", 3).subscribe((resData: any) => {
             this.carList = resData;
+
+            this.GetNoLangContent();
         }, resError => this.errorMsg = resError);
     }
 
@@ -86,6 +86,7 @@ export class FooterComponent {
                 }
             });
 
+            this.GetLastCars();
         }, resError => this.errorMsg = resError);
     }
 

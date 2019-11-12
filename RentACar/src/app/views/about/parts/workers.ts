@@ -19,7 +19,6 @@ export class AboutWorkersComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetWorkers();
     }
 
     //Workers
@@ -48,6 +47,8 @@ export class AboutWorkersComponent {
                     case "about_workers": this.langs.workers = item; break;
                 }
             });
+
+            this.GetWorkers();
         }, resError => this.errorMsg = resError);
     }
 

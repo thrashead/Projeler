@@ -20,7 +20,13 @@ export class BlogHeaderComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "banner_blog", 1).subscribe((resData: any) => {
+            this.banner = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -40,6 +46,8 @@ export class BlogHeaderComponent {
                     case "blog_head": this.langs.header = item; break;
                 }
             });
+
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 
@@ -47,12 +55,5 @@ export class BlogHeaderComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "blog_head"));
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "banner_blog", 1).subscribe((resData: any) => {
-            this.banner = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

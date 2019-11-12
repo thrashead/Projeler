@@ -21,7 +21,13 @@ export class AboutBestComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "about_best", 1).subscribe((resData: any) => {
+            this.picbest = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -42,6 +48,8 @@ export class AboutBestComponent {
                     case "about_best": this.langs.best = item; break;
                 }
             });
+
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 
@@ -50,12 +58,5 @@ export class AboutBestComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_go_list"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "about_best"));
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "about_best", 1).subscribe((resData: any) => {
-            this.picbest = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

@@ -18,7 +18,13 @@ export class CarsListHeaderComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "banner_cars", 1).subscribe((resData: any) => {
+            this.banner = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -42,6 +48,8 @@ export class CarsListHeaderComponent {
             setTimeout(() => {
                 $("#carListCount").html($("#carListCount").html().replace("##", "<span id=\"spnCarCount\"></span>"));
             }, 1000);
+
+            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 
@@ -49,12 +57,5 @@ export class CarsListHeaderComponent {
         this.langItems = new Array<LangItem>();
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_head"));
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "banner_cars", 1).subscribe((resData: any) => {
-            this.banner = resData;
-        }, resError => this.errorMsg = resError);
     }
 }

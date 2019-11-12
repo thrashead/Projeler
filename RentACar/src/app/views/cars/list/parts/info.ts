@@ -23,7 +23,6 @@ export class CarsListInfoComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetCarLastVisitedList();
     }
 
     onChange(event) {
@@ -79,6 +78,8 @@ export class CarsListInfoComponent {
                     case "order": this.langs.orderList.push(item); break;
                 }
             });
+
+            this.GetCarLastVisitedList();
         }, resError => this.errorMsg = resError);
     }
 

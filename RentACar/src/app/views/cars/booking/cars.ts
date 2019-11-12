@@ -23,7 +23,6 @@ export class CarsBookCarsComponent {
     }
 
     ngOnInit() {
-        this.GetSearchFilters();
         this.SetLangContents();
     }
 
@@ -186,6 +185,8 @@ export class CarsBookCarsComponent {
                         break;
                 }
             });
+
+            this.GetSearchFilters();
         }, resError => this.errorMsg = resError);
     }
 

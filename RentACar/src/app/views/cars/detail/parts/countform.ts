@@ -25,7 +25,6 @@ export class CarsDetailCountFormComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetDiscounts();
 
         this.calcForm = this.formBuilder.group({
             Time: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -90,6 +89,8 @@ export class CarsDetailCountFormComponent {
                         break;
                 }
             });
+
+            this.GetDiscounts();
         }, resError => this.errorMsg = resError);
     }
 

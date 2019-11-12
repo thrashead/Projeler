@@ -20,8 +20,22 @@ export class HomeWorldComponent {
 
     ngOnInit() {
         this.SetLangContents();
-        this.GetPicture();
-        this.GetBlog();
+    }
+
+    //GetBlog
+    GetBlog() {
+        this.service.get("Site", "GetBlogPostsByCode", "home_world", 3).subscribe((resData: any) => {
+            this.worldList = resData;
+
+            this.GetPicture();
+        }, resError => this.errorMsg = resError);
+    }
+
+    //Picture
+    GetPicture() {
+        this.service.get("Site", "GetPicturesByCode", "home_world", 1).subscribe((resData: any) => {
+            this.worldbanner = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //LangContents
@@ -42,6 +56,8 @@ export class HomeWorldComponent {
                     case "cmn_readmore": this.langs.readmore = item.ShortDescription; break;
                 }
             });
+
+            this.GetBlog();
         }, resError => this.errorMsg = resError);
     }
 
@@ -50,19 +66,5 @@ export class HomeWorldComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "home_world"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_readmore"));
-    }
-
-    //Picture
-    GetPicture() {
-        this.service.get("Site", "GetPicturesByCode", "home_world", 1).subscribe((resData: any) => {
-            this.worldbanner = resData;
-        }, resError => this.errorMsg = resError);
-    }
-
-    //GetBlog
-    GetBlog() {
-        this.service.get("Site", "GetBlogPostsByCode", "home_world", 3).subscribe((resData: any) => {
-            this.worldList = resData;
-        }, resError => this.errorMsg = resError);
     }
 }
