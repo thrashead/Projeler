@@ -1,8 +1,6 @@
-﻿import { Component, Output, EventEmitter } from '@angular/core';
+﻿import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SiteService } from '../../../../services/site';
-import { Lib } from '../../../../lib/methods';
-import { LangItem } from '../../../../models/LangItem';
 import { ScriptsComponent } from '../../../shared/controls/scripts';
 
 @Component({
@@ -23,6 +21,10 @@ export class CarsDetailItemComponent {
     @Output() titleEvnt = new EventEmitter<string>();
     @Output() urlEvnt = new EventEmitter<string>();
 
+    @Input() langs: any;
+    @Input() countformLangs: any;
+    @Input() testformLangs: any;
+
     constructor(private service: SiteService, private router: Router) {
         this.router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
@@ -30,7 +32,7 @@ export class CarsDetailItemComponent {
     }
 
     ngOnInit() {
-        this.SetLangContents();
+        this.FillDetails();
     }
 
     FillDetails() {
@@ -104,88 +106,5 @@ export class CarsDetailItemComponent {
                 $(".b-detail__main-info-extra").remove();
             }
         }, resError => this.errorMsg = resError);
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "car_list_kdv": this.langs.kdv = item.ShortDescription2; break;
-                    case "car_dtl_info": this.langs.infos = item.ShortDescription; break;
-                    case "car_dtl_otherfeats": this.langs.otherfeats = item.ShortDescription; break;
-                    case "src_status": this.langs.status = item.ShortDescription; break;
-                    case "src_km": this.langs.mileage = item.ShortDescription2; break;
-                    case "src_gear": this.langs.gear = item.ShortDescription2; break;
-                    case "src_drivetype": this.langs.drivetype = item.ShortDescription2; break;
-                    case "src_seats": this.langs.seats = item.ShortDescription2; break;
-                    case "src_cityfuel": this.langs.cityfuel = item.ShortDescription2; break;
-                    case "src_highfuel": this.langs.highfuel = item.ShortDescription2; break;
-                    case "src_make": this.langs.make = item.ShortDescription; break;
-                    case "src_model": this.langs.model = item.ShortDescription; break;
-                    case "src_bodytype": this.langs.bodytype = item.ShortDescription; break;
-                    case "src_fueltype": this.langs.fueltype = item.ShortDescription; break;
-                    case "src_year": this.langs.year = item.ShortDescription2; break;
-                    case "src_drivetrain": this.langs.drivetrain = item.ShortDescription2; break;
-                    case "src_engine": this.langs.engine = item.ShortDescription2; break;
-                    case "src_enginecapacity": this.langs.enginecapacity = item.ShortDescription2; break;
-                    case "src_horsepower": this.langs.horsepower = item.ShortDescription2; break;
-                    case "src_cylinders": this.langs.cylinders = item.ShortDescription2; break;
-                    case "src_wheelbase": this.langs.wheelbase = item.ShortDescription2; break;
-                    case "src_tires": this.langs.tires = item.ShortDescription2; break;
-                    case "src_fuelcapacity": this.langs.fuelcapacity = item.ShortDescription2; break;
-                    case "src_trimstyle": this.langs.trimstyle = item.ShortDescription2; break;
-                    case "src_doors": this.langs.doors = item.ShortDescription2; break;
-                    case "src_cargocapacity": this.langs.cargocapacity = item.ShortDescription2; break;
-                    case "src_extcolor": this.langs.extcolor = item.ShortDescription2; break;
-                    case "src_intcolor": this.langs.intcolor = item.ShortDescription2; break;
-                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
-                }
-            });
-
-            this.FillDetails();
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_kdv"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_dtl_info"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_dtl_otherfeats"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_status"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_km"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_gear"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_drivetype"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_seats"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_cityfuel"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_highfuel"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_bodytype"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_fueltype"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_year"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_drivetrain"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_engine"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_enginecapacity"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_horsepower"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_cylinders"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_wheelbase"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_tires"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_fuelcapacity"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_trimstyle"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_doors"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_cargocapacity"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_extcolor"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_intcolor"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

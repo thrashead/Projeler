@@ -1,7 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
-import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homeauto',
@@ -14,11 +12,13 @@ export class HomeAutoComponent {
     makeList: any;
     carList: any;
 
+    @Input() langs: any;
+
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.SetLangContents();
+        this.GetMakeList();
     }
 
     onClick($event: any, code: string) {
@@ -61,39 +61,5 @@ export class HomeAutoComponent {
 
         $("#tabAutoBest .tab").hide();
         $("#tabAutoBest .tab[data-model='" + model + "']").fadeIn("slow");
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "home_auto": this.langs.auto = item; break;
-                    case "car_list_make": this.langs.allmakes = item.ShortDescription; break;
-                    case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
-                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
-                }
-            });
-
-            this.GetMakeList();
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "home_auto"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list_make"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

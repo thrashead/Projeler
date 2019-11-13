@@ -274,9 +274,8 @@
                             </div>
                         </div>
 
-                        <rac-cardetailtestform carID="{{ carID }}"></rac-cardetailtestform>
-                        <rac-cardetailcountform carPrice="{{ carPrice }}"></rac-cardetailcountform>
-
+                        <rac-cardetailtestform [langs]="testformLangs" carID="{{ carID }}"></rac-cardetailtestform>
+                        <rac-cardetailcountform [langs]="countformLangs" carPrice="{{ carPrice }}"></rac-cardetailcountform>
                     </aside>
                 </div>
             </div>

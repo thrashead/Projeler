@@ -74,7 +74,6 @@ import { CarsDetailHeaderComponent } from './views/cars/detail/parts/header';
 import { CarsDetailBreadCumbsComponent } from './views/cars/detail/parts/breadcumbs';
 import { CarsDetailTestFormComponent } from './views/cars/detail/parts/testform';
 import { CarsDetailCountFormComponent } from './views/cars/detail/parts/countform';
-import { CarsDetailInfoComponent } from './views/cars/detail/parts/info';
 import { CarsDetailItemComponent } from './views/cars/detail/parts/item';
 import { CarsDetailRelatedComponent } from './views/cars/detail/parts/related';
 import { CarsDetailBrandsComponent } from './views/cars/detail/parts/brands';
@@ -413,7 +412,6 @@ import { AdminLib } from './admin/lib/methods';
         CarsDetailBreadCumbsComponent,
         CarsDetailTestFormComponent,
         CarsDetailCountFormComponent,
-        CarsDetailInfoComponent,
         CarsDetailItemComponent,
         CarsDetailRelatedComponent,
         CarsDetailBrandsComponent,

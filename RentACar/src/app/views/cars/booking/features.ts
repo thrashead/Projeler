@@ -142,7 +142,10 @@ export class CarsBookFeaturesComponent {
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
+
     langs: any;
+    headerLangs: any;
+    breadcumbsLangs: any;
 
     //LangContent
     SetLangContents() {
@@ -152,6 +155,9 @@ export class CarsBookFeaturesComponent {
             this.langs = new Object();
             this.langs.content = new Object();
             this.langs.feats = new Object();
+            this.headerLangs = new Object();
+            this.breadcumbsLangs = new Object();
+            this.breadcumbsLangs.menu = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {
@@ -225,6 +231,21 @@ export class CarsBookFeaturesComponent {
                             case "engineimm": this.langs.feats.EngineImmobiliser = item.ShortDescription2; break;
                             case "heatdoormir": this.langs.feats.HeatedDoorMirrors = item.ShortDescription2; break;
                         }
+
+                    //Header
+                    case "car_book_head": this.headerLangs.header = item; break;
+
+                    //BreadCumbs
+                    case "menu":
+                        switch (item.ShortCode) {
+                            case "home": this.breadcumbsLangs.menu.home = item.ShortDescription2; break;
+                        }
+                        break;
+                    case "extra_menu":
+                        switch (item.ShortCode) {
+                            case "book": this.breadcumbsLangs.menu.book = item.ShortDescription2; break;
+                        }
+                        break;
                 }
             });
         }, resError => this.errorMsg = resError);
@@ -235,5 +256,12 @@ export class CarsBookFeaturesComponent {
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "car_book"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "src_feats"));
+
+        //Header
+        this.langItems.push(Lib.SetLangItem(this.langItem, "car_book_head"));
+
+        //BreadCumbs
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu", "home"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "extra_menu", "book"));
     }
 }

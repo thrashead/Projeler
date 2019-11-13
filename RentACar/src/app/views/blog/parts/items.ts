@@ -63,7 +63,13 @@ export class BlogItemsComponent {
     //LangContents
     langItems: Array<LangItem>;
     langItem: LangItem;
+
     langs: any;
+    headerLangs: any;
+    breadcumbsLangs: any;
+    popularLangs: any;
+    categoriesLangs: any;
+    searchLangs: any;
 
     //LangContent
     SetLangContents() {
@@ -71,6 +77,12 @@ export class BlogItemsComponent {
 
         this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
             this.langs = new Object();
+            this.headerLangs = new Object();
+            this.breadcumbsLangs = new Object();
+            this.breadcumbsLangs.menu = new Object();
+            this.popularLangs = new Object();
+            this.categoriesLangs = new Object();
+            this.searchLangs = new Object();
 
             resData.forEach((item, i) => {
                 switch (item.Code) {
@@ -78,6 +90,26 @@ export class BlogItemsComponent {
                     case "cmn_share": this.langs.share = item.ShortDescription; break;
                     case "cmn_comment": this.langs.comment = item.ShortDescription; break;
                     case "blog_src_title": this.url == "Arama-Sonuclari" ? this.catTitle = item.ShortDescription : ""; break;
+
+                    //Header
+                    case "blog_head": this.headerLangs.header = item; break;
+
+                    //BreadCumbs
+                    case "menu":
+                        switch (item.ShortCode) {
+                            case "home": this.breadcumbsLangs.menu.home = item.ShortDescription2; break;
+                            case "blog": this.breadcumbsLangs.menu.blog = item.ShortDescription2; break;
+                        }
+                        break;
+
+                    //Popular
+                    case "blog_pop": this.popularLangs.popular = item.ShortDescription; break;
+
+                    //Categories
+                    case "cmn_ktgr": this.categoriesLangs.categories = item.ShortDescription; break;
+
+                    //Search
+                    case "src_src": this.searchLangs.search = item.ShortDescription2; break;
                 }
             });
 
@@ -92,5 +124,21 @@ export class BlogItemsComponent {
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_share"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comment"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "blog_src_title"));
+
+        //Header
+        this.langItems.push(Lib.SetLangItem(this.langItem, "blog_head"));
+
+        //BreadCumbs
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu", "home"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "menu", "blog"));
+
+        //Popular
+        this.langItems.push(Lib.SetLangItem(this.langItem, "blog_pop"));
+
+        //Categories
+        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_ktgr"));
+
+        //Search
+        this.langItems.push(Lib.SetLangItem(this.langItem, "src_src"));
     }
 }

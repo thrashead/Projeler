@@ -1,9 +1,7 @@
-﻿import { Component, EventEmitter, Output } from '@angular/core';
+﻿import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
-import { Lib } from '../../../lib/methods';
 import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
@@ -27,6 +25,13 @@ export class BlogItemComponent {
     commentList: any;
     pictureList: any;
 
+    @Input() langs: any;
+    @Input() popularLangs: any;
+    @Input() categoriesLangs: any;
+    @Input() searchLangs: any;
+    @Input() callusLangs: any;
+    @Input() booknowLangs: any;
+
     constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
         this.router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
@@ -40,7 +45,11 @@ export class BlogItemComponent {
             Message: new FormControl(null, [Validators.required, Validators.minLength(25), Validators.maxLength(255)])
         });
 
-        this.SetLangContents();
+        this.route.params.subscribe(params => {
+            this.url = params['url'];
+
+            this.GetBlogPost(this.url);
+        });
     }
 
     onClick() {
@@ -89,64 +98,5 @@ export class BlogItemComponent {
                 this.commentList = resData;
             }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-            this.langs.contact = new Object();
-            this.langs.review = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "cmn_share": this.langs.share = item.ShortDescription; break;
-                    case "cmn_tags": this.langs.tags = item.ShortDescription; break;
-                    case "cmn_author": this.langs.author = item.ShortDescription; break;
-                    case "cmn_simtitles": this.langs.simtitles = item.ShortDescription; break;
-                    case "cmn_comments": this.langs.comments = item.ShortDescription; break;
-                    case "cmn_comment": this.langs.comment = item.ShortDescription2; break;
-                    case "cmn_sendcmnt": this.langs.sendcomment = item.ShortDescription; break;
-                    case "cmn_error_onemsg": this.langs.review.Error = item.ShortDescription; break;
-                    case "book_rvw_alert": this.langs.review.alert = item.ShortDescription; break;
-                    case "cntct_form":
-                        switch (item.ShortCode) {
-                            case "name": this.langs.contact.name = item.ShortDescription2; break;
-                            case "mail": this.langs.contact.mail = item.ShortDescription2; break;
-                            case "msg": this.langs.contact.message = item.ShortDescription2; break;
-                            case "sbmt": this.langs.contact.send = item.ShortDescription2; break;
-                        }
-                        break;
-                }
-            });
-
-            this.route.params.subscribe(params => {
-                this.url = params['url'];
-
-                this.GetBlogPost(this.url);
-            });
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_share"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_tags"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_author"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_simtitles"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comments"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_comment"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_sendcmnt"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_error_onemsg"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "book_rvw_alert"));
     }
 }

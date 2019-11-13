@@ -1,7 +1,5 @@
 ﻿import { Component, Input, Output } from '@angular/core';
 import { SiteService } from '../../../../services/site';
-import { LangItem } from '../../../../models/LangItem';
-import { Lib } from '../../../../lib/methods';
 
 @Component({
     selector: 'rac-carlistitems',
@@ -18,12 +16,13 @@ export class CarsListItemsComponent {
 
     firstCheck: boolean;
 
+    @Input() langs: any;
+
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
         this.firstCheck = true;
-        this.SetLangContents();
     }
 
     onChange($event) {
@@ -67,45 +66,5 @@ export class CarsListItemsComponent {
                 this.carCompareList = resData;
             }, resError => this.errorMsg = resError);
         }
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "cmn_detail": this.langs.detail = item.ShortDescription; break;
-                    case "cmn_rgstryr": this.langs.registered = item.ShortDescription2; break;
-                    case "car_comp_three": this.langs.threecar = item.ShortDescription; break;
-                    case "cmn_price_opt": this.langs.DayPrice = item.ShortDescription; break;
-                    case "car_list":
-                        switch (item.ShortCode) {
-                            case "null":
-                                this.langs.null = item.ShortDescription;
-                                break;
-                        }
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_detail"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_rgstryr"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_comp_three"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "car_list", "null"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_price_opt"));
     }
 }

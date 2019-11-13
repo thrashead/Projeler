@@ -1,11 +1,9 @@
-﻿import { Component, AfterViewChecked } from '@angular/core';
+﻿import { Component, AfterViewChecked, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
 import { SearchFilters } from '../../../models/searchfilters';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Lib } from '../../../lib/methods';
 import { ComboBox } from '../../../lib/combobox';
-import { LangItem } from '../../../models/LangItem';
 
 @Component({
     selector: 'rac-homesearch',
@@ -23,11 +21,13 @@ export class HomeSearchComponent implements AfterViewChecked {
     CarStatus: any;
     BodyTypes: any;
 
+    @Input() langs: any;
+
     constructor(private service: SiteService, private formBuilder: FormBuilder, private router: Router) {
     }
 
     ngOnInit() {
-        this.SetLangContents();
+        this.FillCombo();
 
         this.searchForm = this.formBuilder.group({
             MakeCode: new FormControl(null),
@@ -152,51 +152,5 @@ export class HomeSearchComponent implements AfterViewChecked {
         this.service.get("Site", "ComboCarModelsByMakeCode", makeCode, withID, selectedID, addEmpty).subscribe((resData: any) => {
             this.CarModels = resData;
         }, resError => this.errorMsg = resError);
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "mnsrc_whcvhcl": this.langs.whichVehicle = item.ShortDescription; break;
-                    case "src_bodytype": this.langs.bodyTypeText = item.ShortDescription; break;
-                    case "src_make": this.langs.makeText = item.ShortDescription; break;
-                    case "src_model": this.langs.modelText = item.ShortDescription; break;
-                    case "src_status": this.langs.carStatusText = item.ShortDescription; break;
-                    case "src_minyear": this.langs.minYearText = item.ShortDescription; break;
-                    case "src_maxyear": this.langs.maxYearText = item.ShortDescription; break;
-                    case "src_prcrng": this.langs.priceRangeText = item.ShortDescription; break;
-                    case "src_src": this.langs.search = item.ShortDescription2; break;
-                    case "src_dtlsrc": this.langs.detailSearch = item.ShortDescription2; break;
-                }
-            });
-
-            this.FillCombo();
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "mnsrc_whcvhcl"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_bodytype"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_status"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_minyear"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_maxyear"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_prcrng"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_src"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_dtlsrc"));
     }
 }

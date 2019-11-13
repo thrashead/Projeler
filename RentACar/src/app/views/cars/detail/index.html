@@ -1,5 +1,7 @@
-﻿<rac-cardetailheader [title]="title"></rac-cardetailheader>
-<rac-cardetailbreadcumbs [title]="title" [url]="url"></rac-cardetailbreadcumbs>
-<rac-cardetailitem (titleEvnt)="title=$event" (urlEvnt)="url=$event"></rac-cardetailitem>
-<rac-cardetailrelated></rac-cardetailrelated>
-<rac-cardetailbrands></rac-cardetailbrands>
+﻿<rac-cardetailheader [langs]="headerLangs" [title]="title"></rac-cardetailheader>
+<rac-cardetailbreadcumbs [langs]="breadcumbsLangs" [title]="title" [url]="url"></rac-cardetailbreadcumbs>
+<rac-cardetailitem [langs]="itemLangs"
+                   [countformLangs]="countformLangs"
+                   [testformLangs]="testformLangs" (titleEvnt)="title=$event" (urlEvnt)="url=$event"></rac-cardetailitem>
+<rac-cardetailrelated [langs]="relatedLangs"></rac-cardetailrelated>
+<rac-cardetailbrands [langs]="brandsLangs"></rac-cardetailbrands>

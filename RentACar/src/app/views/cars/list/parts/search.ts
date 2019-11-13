@@ -1,9 +1,7 @@
-﻿import { Component, OnDestroy, Output, EventEmitter } from '@angular/core';
+﻿import { Component, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { SiteService } from '../../../../services/site';
-import { Lib } from '../../../../lib/methods';
-import { LangItem } from '../../../../models/LangItem';
 import { SearchFilters } from '../../../../models/searchfilters';
 
 @Component({
@@ -27,6 +25,9 @@ export class CarsListSearchComponent implements OnDestroy {
     BodyTypes: any;
     FuelTypes: any;
 
+    @Input() langs: any;
+    @Input() booknowLangs: any;
+
     constructor(private service: SiteService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
     }
 
@@ -38,7 +39,7 @@ export class CarsListSearchComponent implements OnDestroy {
             this.SetSearchFilters();
         });
 
-        this.SetLangContents();
+        this.FillCombo();
 
         this.searchForm = this.formBuilder.group({
             MakeCode: new FormControl(null),
@@ -160,49 +161,5 @@ export class CarsListSearchComponent implements OnDestroy {
         this.service.get("Site", "ClearSearchFilters", this.url).subscribe((resData: any) => {
             this.searchFilter.emit(resData);
         }, resError => this.errorMsg = resError);
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "src_fltr_ttl": this.langs.searchTitle = item.ShortDescription; break;
-                    case "src_make": this.langs.makeText = item.ShortDescription2; break;
-                    case "src_model": this.langs.modelText = item.ShortDescription2; break;
-                    case "src_status": this.langs.carStatusText = item.ShortDescription2; break;
-                    case "src_bodytype": this.langs.bodyTypeText = item.ShortDescription2; break;
-                    case "src_fueltype": this.langs.fuelTypeText = item.ShortDescription2; break;
-                    case "src_prcrng": this.langs.priceRangeText = item.ShortDescription2; break;
-                    case "src_src": this.langs.search = item.ShortDescription2; break;
-                    case "src_fltr_rmv": this.langs.clearFilter = item.ShortDescription; break;
-                }
-            });
-
-            this.FillCombo();
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_fltr_ttl"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_make"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_model"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_status"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_bodytype"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_fueltype"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_prcrng"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_src"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "src_fltr_rmv"));
     }
 }

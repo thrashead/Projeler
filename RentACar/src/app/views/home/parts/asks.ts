@@ -1,7 +1,4 @@
-﻿import { Component } from '@angular/core';
-import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
-import { Lib } from '../../../lib/methods';
+﻿import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'rac-homeasks',
@@ -9,48 +6,8 @@ import { Lib } from '../../../lib/methods';
 })
 
 export class HomeAsksComponent {
-    errorMsg: string;
-
-    constructor(private service: SiteService) {
-    }
+    @Input() langs: any;
 
     ngOnInit() {
-        this.SetLangContents();
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "home_asks_search": this.langs.search = item; break;
-                    case "home_asks_compare": this.langs.compare = item; break;
-                    case "cmn_callus": this.langs.callus = item.ShortDescription; break;
-                    case "cntct_form":
-                        switch (item.ShortCode) {
-                            case "phone": this.langs.phone = item.Description; break;
-                        }
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "home_asks_search"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "home_asks_compare"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_callus"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "phone"));
     }
 }

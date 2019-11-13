@@ -1,3 +1,9 @@
-﻿<rac-blogheader [title]="title"></rac-blogheader>
-<rac-blogbreadcumbsdetail [title]="title" [url]="url"></rac-blogbreadcumbsdetail>
-<rac-blogitem (titleEvnt)="title=$event" (urlEvnt)="url=$event"></rac-blogitem>
+﻿<rac-blogheader [langs]="headerLangs" [title]="title"></rac-blogheader>
+<rac-blogbreadcumbsdetail [langs]="breadcumbsLangs" [title]="title" [url]="url"></rac-blogbreadcumbsdetail>
+<rac-blogitem [langs]="itemLangs" 
+              [popularLangs]="popularLangs" 
+              [categoriesLangs]="categoriesLangs" 
+              [searchLangs]="searchLangs" 
+              [callusLangs]="callusLangs" 
+              [booknowLangs]="booknowLangs" 
+              (titleEvnt)="title=$event" (urlEvnt)="url=$event"></rac-blogitem>

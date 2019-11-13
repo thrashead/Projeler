@@ -1,5 +1,5 @@
-﻿<rac-blogheader title="{{ catTitle }}"></rac-blogheader>
-<rac-blogbreadcumbs title="{{ catTitle }}" url="{{ url }}"></rac-blogbreadcumbs>
+﻿<rac-blogheader [langs]="headerLangs" title="{{ catTitle }}"></rac-blogheader>
+<rac-blogbreadcumbs [langs]="breadcumbsLangs" title="{{ catTitle }}" url="{{ url }}"></rac-blogbreadcumbs>
 
 <!--b-blog-->
 <div class="b-blog s-shadow">
@@ -7,9 +7,9 @@
         <div class="row">
             <div class="col-md-3 col-xs-12">
                 <aside class="b-blog__aside">
-                    <rac-blogsearch></rac-blogsearch>
-                    <rac-blogcategories url="{{ url }}"></rac-blogcategories>
-                    <rac-blogpopular></rac-blogpopular>
+                    <rac-blogsearch [langs]="searchLangs"></rac-blogsearch>
+                    <rac-blogcategories [langs]="categoriesLangs" url="{{ url }}"></rac-blogcategories>
+                    <rac-blogpopular [langs]="popularLangs"></rac-blogpopular>
                 </aside>
             </div>
             <div class="col-md-9 col-xs-12">

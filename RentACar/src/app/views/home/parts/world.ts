@@ -1,7 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../models/LangItem';
-import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'rac-homeworld',
@@ -15,11 +13,13 @@ export class HomeWorldComponent {
 
     worldList: any;
 
+    @Input() langs: any;
+
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.SetLangContents();
+        this.GetBlog();
     }
 
     //GetBlog
@@ -36,35 +36,5 @@ export class HomeWorldComponent {
         this.service.get("Site", "GetPicturesByCode", "home_world", 1).subscribe((resData: any) => {
             this.worldbanner = resData;
         }, resError => this.errorMsg = resError);
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "home_world": this.langs.world = item; break;
-                    case "cmn_readmore": this.langs.readmore = item.ShortDescription; break;
-                }
-            });
-
-            this.GetBlog();
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "home_world"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cmn_readmore"));
     }
 }

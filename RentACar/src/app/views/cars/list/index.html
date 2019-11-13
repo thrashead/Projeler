@@ -1,14 +1,11 @@
-﻿<!--Bu string veri için-->
-<!--<rac-carlistheader carCount="{ carCount }"></rac-carlistheader>-->
-<rac-carlistheader></rac-carlistheader>
-<rac-carlistbreadcumbs></rac-carlistbreadcumbs>
-<rac-carlistinfo (orderChange)="GetCarList()"></rac-carlistinfo>
+﻿<rac-carlistheader [langs]="headerLangs"></rac-carlistheader>
+<rac-carlistbreadcumbs [langs]="breadcumbsLangs"></rac-carlistbreadcumbs>
+<rac-carlistinfo [langs]="infoLangs" (orderChange)="GetCarList()"></rac-carlistinfo>
 <section class="b-items s-shadow">
     <div class="container">
         <div class="row">
-            <!--Bu her türlü veri için-->
-            <rac-carlistitems [carList]="carList"></rac-carlistitems>
-            <rac-carlistsearch (searchFilter)="GetCarList()"></rac-carlistsearch>
+            <rac-carlistitems [langs]="itemsLangs" [carList]="carList"></rac-carlistitems>
+            <rac-carlistsearch [langs]="searchLangs" [booknowLangs]="booknowLangs" (searchFilter)="GetCarList()"></rac-carlistsearch>
         </div>
     </div>
 </section>

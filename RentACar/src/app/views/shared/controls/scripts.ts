@@ -194,7 +194,7 @@ export class ScriptsComponent implements AfterViewChecked {
     }
 
     //OwlCarousel
-    static OwlCarousel() {
+    static OwlCarousel(time: number = 2000) {
         setTimeout(() => {
             $(".enable-owl-carousel").each(function (i) {
                 var $owl = $(this);
@@ -222,7 +222,7 @@ export class ScriptsComponent implements AfterViewChecked {
                     ],
                 });
             });
-        }, 1000);
+        }, time);
     }
 
     //Carousel
@@ -238,7 +238,7 @@ export class ScriptsComponent implements AfterViewChecked {
     }
 
     //BXSlider
-    static BXSlider() {
+    static BXSlider(time: number = 1000) {
         setTimeout(() => {
             var bxClone = $('.bx-clone').length;
 
@@ -284,7 +284,7 @@ export class ScriptsComponent implements AfterViewChecked {
                     bigS.goToSlide(newIndex);
                 });
             }
-        }, 500);
+        }, time);
     }
     static RemoveBXSlider() {
         $(".bx-viewport").removeClass("bx-viewport");

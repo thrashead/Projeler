@@ -1,4 +1,4 @@
-﻿import { Component, Output } from '@angular/core';
+﻿import { Component, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SiteService } from '../../../services/site';
 import { LangItem } from '../../../models/LangItem';
@@ -16,12 +16,12 @@ export class HomeNewsletterComponent {
     newsForm: FormGroup;
     data: any;
 
+    @Input() langs: any;
+
     constructor(private service: SiteService, private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
-        this.SetLangContents();
-
         this.newsForm = this.formBuilder.group({
             Name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
             Mail: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
@@ -76,39 +76,5 @@ export class HomeNewsletterComponent {
                 }, resError => this.errorMsg = resError);
             }
         }, resError => this.errorMsg = resError);
-    }
-
-    //LangContents
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-    langs: any;
-
-    //LangContent
-    SetLangContents() {
-        this.PushLangItems();
-
-        this.service.post("Site", "SetLangContents", this.langItems).subscribe((resData: any) => {
-            this.langs = new Object();
-
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "home_newsletter": this.langs.newsletter = item; break;
-                    case "cntct_form":
-                        switch (item.ShortCode) {
-                            case "name": this.langs.name = item.ShortDescription2; break;
-                            case "mail": this.langs.mail = item.ShortDescription2; break;
-                        }
-                        break;
-                }
-            });
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "home_newsletter"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "name"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cntct_form", "mail"));
     }
 }

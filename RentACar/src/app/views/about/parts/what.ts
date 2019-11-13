@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { SiteService } from '../../../services/site';
 
 @Component({
@@ -13,16 +13,13 @@ export class AboutWhatComponent {
     picwhatfleet: string;
     picwhatsafety: string;
 
-    whathead: any;
-    whatprice: any;
-    whatfleet: any;
-    whatsafety: any;
+    @Input() langs: any;
 
     constructor(private service: SiteService) {
     }
 
     ngOnInit() {
-        this.SetLangContents();
+        this.GetPicture();
     }
 
     //Picture
@@ -35,32 +32,6 @@ export class AboutWhatComponent {
                     this.picwhatsafety = resData;
                 }, resError => this.errorMsg = resError);
             }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
-
-    //LangContent
-    SetLangContents() {
-        this.service.get("Site", "GetLangContentByCode", "about_what").subscribe((resData: any) => {
-            this.whathead = new Object();
-
-            resData.forEach((item, index) => {
-                switch (item.ShortCode) {
-                    case "head":
-                        this.whathead = item;
-                        break;
-                    case "price":
-                        this.whatprice = item;
-                        break;
-                    case "fleet":
-                        this.whatfleet = item;
-                        break;
-                    case "safety":
-                        this.whatsafety = item;
-                        break;
-                }
-            });
-
-            this.GetPicture();
         }, resError => this.errorMsg = resError);
     }
 }
