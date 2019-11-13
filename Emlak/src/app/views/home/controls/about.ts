@@ -21,12 +21,12 @@ export class AboutComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "Sayac")
-            .subscribe(resData => this.sayac = resData.toString(),
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "IcerikGetir", "Hakkimizda").subscribe((resData: any) => {
+            this.about = resData;
 
-        this.service.get("Site", "IcerikGetir", "Hakkimizda")
-            .subscribe(resData => this.about = resData,
-                resError => this.errorMsg = resError);
+            this.service.get("Site", "Sayac").subscribe((resData: any) => {
+                this.sayac = resData.toString();
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
     }
 }

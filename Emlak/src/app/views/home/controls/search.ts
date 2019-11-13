@@ -25,9 +25,8 @@ export class SearchComponent {
     }
 
     ngOnInit() {
-        this.KodlaGetir();
-        this.ComboDoldur();
         this.FormOlustur();
+        this.KodlaGetir();
 
         var $SearchToggle = $('.search-form .search-toggle');
         $SearchToggle.hide();
@@ -79,22 +78,22 @@ export class SearchComponent {
     ComboDoldur() {
         this.service.get("Site", "Sehirler").subscribe((resData: any) => {
             this.sehirList = resData;
-        }, resError => this.errorMsg = resError);
 
-        this.service.get("Site", "Kategoriler", 0).subscribe((resData: any) => {
-            this.kategoriList = resData;
-        }, resError => this.errorMsg = resError);
+            this.service.get("Site", "Kategoriler", 0).subscribe((resData: any) => {
+                this.kategoriList = resData;
 
-        this.service.get("Site", "Durumlar").subscribe((resData: any) => {
-            this.durumList = resData;
-        }, resError => this.errorMsg = resError);
+                this.service.get("Site", "Durumlar").subscribe((resData: any) => {
+                    this.durumList = resData;
 
-        this.service.get("Site", "YakitTipleri").subscribe((resData: any) => {
-            this.yakitList = resData;
-        }, resError => this.errorMsg = resError);
+                    this.service.get("Site", "YakitTipleri").subscribe((resData: any) => {
+                        this.yakitList = resData;
 
-        this.service.get("Site", "IsinmaTipleri").subscribe((resData: any) => {
-            this.isinmaList = resData;
+                        this.service.get("Site", "IsinmaTipleri").subscribe((resData: any) => {
+                            this.isinmaList = resData;
+                        }, resError => this.errorMsg = resError);
+                    }, resError => this.errorMsg = resError);
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
         }, resError => this.errorMsg = resError);
     }
 
@@ -426,6 +425,8 @@ export class SearchComponent {
                     case "klim": this.klimaText = item.Value; break;
                 }
             });
+
+            this.ComboDoldur();
         }, resError => this.errorMsg = resError);
     }
 

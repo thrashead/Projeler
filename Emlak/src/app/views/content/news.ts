@@ -16,21 +16,22 @@ export class ContentNewsComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "Haberler")
-            .subscribe((resData: any) => {
-                const length = Math.ceil(resData.length / 8);
-
-                this.haberler = Array.from({ length }).map((x, j) => ({
-                    Items: resData.filter((y, i) => i >= 8 * j && i < 8 * (j + 1))
-                }));
-
-                setTimeout(() => {
-                    $(".owl-carousel").css("opacity", "1");
-                    $(".owl-carousel").css("display", "block");
-                }, 300);
-            }, resError => this.errorMsg = resError);
-
         this.KodlaGetir();
+    }
+
+    Haberler() {
+        this.service.get("Site", "Haberler").subscribe((resData: any) => {
+            const length = Math.ceil(resData.length / 8);
+
+            this.haberler = Array.from({ length }).map((x, j) => ({
+                Items: resData.filter((y, i) => i >= 8 * j && i < 8 * (j + 1))
+            }));
+
+            setTimeout(() => {
+                $(".owl-carousel").css("opacity", "1");
+                $(".owl-carousel").css("display", "block");
+            }, 300);
+        }, resError => this.errorMsg = resError);
     }
 
     //KodlaGetir
@@ -56,6 +57,8 @@ export class ContentNewsComponent {
                     case "serc": this.araText = item.Value; break;
                 }
             });
+
+            this.Haberler();
         }, resError => this.errorMsg = resError);
     }
 

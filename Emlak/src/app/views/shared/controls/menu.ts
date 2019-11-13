@@ -29,12 +29,12 @@ export class HeaderMenuComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "KategoriMenu")
-            .subscribe(resData => this.kategoriMenu = resData,
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "KategoriMenu").subscribe((resData: any) => {
+            this.kategoriMenu = resData;
 
-        this.service.get("Site", "Sayfalar")
-            .subscribe(resData => this.sayfalar = resData,
-                resError => this.errorMsg = resError);
+            this.service.get("Site", "Sayfalar").subscribe((resData: any) => {
+                this.sayfalar = resData;
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
     }
 }

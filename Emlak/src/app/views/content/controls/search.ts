@@ -31,14 +31,13 @@ export class ContentSearchComponent {
     onSubmit() {
         this.Kelime = this.searchForm.get("Kelime").value;
 
-        this.service.get("Site", "AramaSonuc", this.Kelime, "kod")
-            .subscribe((answer: any) => {
-                if (answer != "") {
-                    this.router.navigate(['/Emlak/Detay', answer.Url]);
-                }
-                else {
-                    this.router.navigate(['/Emlak/Listele', this.Kelime]);
-                }
-            }, resError => this.errorMsg = resError);
+        this.service.get("Site", "AramaSonuc", this.Kelime, "kod").subscribe((answer: any) => {
+            if (answer != "") {
+                this.router.navigate(['/Emlak/Detay', answer.Url]);
+            }
+            else {
+                this.router.navigate(['/Emlak/Listele', this.Kelime]);
+            }
+        }, resError => this.errorMsg = resError);
     }
 }

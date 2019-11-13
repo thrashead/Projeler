@@ -28,20 +28,18 @@ export class HeaderComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site","GetLangs")
-            .subscribe(resData => this.diller = resData,
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "GetLangs").subscribe((resData: any) => {
+            this.diller = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     onClick(lang: string) {
         if (lang != undefined) {
-            this.service.get("Site", "ChangeLang", lang)
-                .subscribe((resData: any) => {
-                    if (resData == true) {
-                        window.location.reload();
-                    }
-                },
-                    resError => this.errorMsg = resError);
+            this.service.get("Site", "ChangeLang", lang).subscribe((resData: any) => {
+                if (resData == true) {
+                    window.location.reload();
+                }
+            }, resError => this.errorMsg = resError);
         }
     }
 }

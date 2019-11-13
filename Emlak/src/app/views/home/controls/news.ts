@@ -18,18 +18,17 @@ export class NewsComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "Haberler")
-            .subscribe((resData: any) => {
-                const length = Math.ceil(resData.length / 3);
+        this.service.get("Site", "Haberler").subscribe((resData: any) => {
+            const length = Math.ceil(resData.length / 3);
 
-                this.haberler = Array.from({ length }).map((x, j) => ({
-                    Items: resData.filter((y, i) => i >= 3 * j && i < 3 * (j + 1))
-                }));
+            this.haberler = Array.from({ length }).map((x, j) => ({
+                Items: resData.filter((y, i) => i >= 3 * j && i < 3 * (j + 1))
+            }));
 
-                setTimeout(() => {
-                    $(".owl-carousel").css("opacity", "1");
-                    $(".owl-carousel").css("display", "block");
-                }, 300);
-            }, resError => this.errorMsg = resError);
+            setTimeout(() => {
+                $(".owl-carousel").css("opacity", "1");
+                $(".owl-carousel").css("display", "block");
+            }, 300);
+        }, resError => this.errorMsg = resError);
     }
 }

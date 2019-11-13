@@ -17,8 +17,8 @@ export class ReOfDayComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "GununIlani")
-            .subscribe(resData => this.emlak = resData,
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "GununIlani").subscribe((resData: any) => {
+            this.emlak = resData;
+        }, resError => this.errorMsg = resError);
     }
 }

@@ -17,8 +17,8 @@ export class ContentReListComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "VitrinIlanlar", 5)
-            .subscribe(resData => this.ilanlar = resData,
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "VitrinIlanlar", 5).subscribe((resData: any) => {
+            this.ilanlar = resData;
+        }, resError => this.errorMsg = resError);
     }
 }

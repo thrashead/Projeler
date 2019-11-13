@@ -17,13 +17,13 @@ export class ContentContactComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "IcerikGetir", "Iletisim")
-            .subscribe((resData: any) => {
-                this.iletisim = resData;
-            },
-                resError => this.errorMsg = resError);
-
         this.KodlaGetir();
+    }
+
+    IcerikGetir() {
+        this.service.get("Site", "IcerikGetir", "Iletisim").subscribe((resData: any) => {
+            this.iletisim = resData;
+        }, resError => this.errorMsg = resError);
     }
 
     //KodlaGetir
@@ -45,6 +45,8 @@ export class ContentContactComponent {
                     case "serc": this.araText = item.Value; break;
                 }
             });
+
+            this.IcerikGetir();
         }, resError => this.errorMsg = resError);
     }
 

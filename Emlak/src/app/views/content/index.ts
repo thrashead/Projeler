@@ -18,17 +18,17 @@ export class ContentIndexComponent {
     }
 
     ngOnInit() {
+        this.KodlaGetir();
+    }
+
+    IcerikGetir() {
         this.route.params.subscribe((params: Params) => {
             this.link = params['link'];
 
-            this.service.get("Site", "IcerikGetir", this.link)
-            .subscribe((resData: any) => {
-                    this.icerik = resData;
-                },
-                    resError => this.errorMsg = resError);
+            this.service.get("Site", "IcerikGetir", this.link).subscribe((resData: any) => {
+                this.icerik = resData;
+            }, resError => this.errorMsg = resError);
         });
-
-        this.KodlaGetir();
     }
 
     //KodlaGetir
@@ -50,6 +50,8 @@ export class ContentIndexComponent {
                     case "serc": this.araText = item.Value; break;
                 }
             });
+
+            this.IcerikGetir();
         }, resError => this.errorMsg = resError);
     }
 

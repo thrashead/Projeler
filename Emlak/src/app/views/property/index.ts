@@ -22,19 +22,7 @@ export class PropertyIndexComponent {
     }
 
     ngOnInit() {
-        this.route.params.subscribe((params: Params) => {
-            this.link = params['link'] == undefined ? "tumu" : params['link'];
-
-            this.reData = new Object();
-            this.reData.OrderBy = "";
-            this.reData.Word = this.link;
-            this.reData.Page = 1;
-            this.reData.Detail = params['detail'];
-
-            this.Listele(this.reData);
-
-            this.KodlaGetir();
-        });
+        this.KodlaGetir();
     }
 
     Listele(data: any) {
@@ -153,6 +141,18 @@ export class PropertyIndexComponent {
                     case "page": this.pageText = item.Value; break;
                     case "nopr": this.noprText = item.Value; break;
                 }
+            });
+
+            this.route.params.subscribe((params: Params) => {
+                this.link = params['link'] == undefined ? "tumu" : params['link'];
+
+                this.reData = new Object();
+                this.reData.OrderBy = "";
+                this.reData.Word = this.link;
+                this.reData.Page = 1;
+                this.reData.Detail = params['detail'];
+
+                this.Listele(this.reData);
             });
         }, resError => this.errorMsg = resError);
     }

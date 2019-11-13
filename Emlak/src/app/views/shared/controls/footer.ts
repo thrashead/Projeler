@@ -29,20 +29,20 @@ export class FooterComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "VitrinIlanlar", 3)
-        .subscribe(resData => this.ilanlar = resData,
-            resError => this.errorMsg = resError);
+        this.service.get("Site", "VitrinIlanlar", 3).subscribe((resData: any) => {
+            this.ilanlar = resData;
 
-        this.service.get("Site", "Haberler")
-            .subscribe(resData => this.haberler = resData,
-                resError => this.errorMsg = resError);
+            this.service.get("Site", "Haberler").subscribe((resData: any) => {
+                this.haberler = resData;
 
-        this.service.get("Site", "IcerikGetir", "Yasal-Uyari")
-            .subscribe(resData => this.yasalUyari = resData,
-                resError => this.errorMsg = resError);
+                this.service.get("Site", "IcerikGetir", "Yasal-Uyari").subscribe((resData: any) => {
+                    this.yasalUyari = resData;
 
-        this.service.get("Site", "IcerikGetir", "Iletisim")
-            .subscribe(resData => this.iletisim = resData,
-                resError => this.errorMsg = resError);
+                    this.service.get("Site", "IcerikGetir", "Iletisim").subscribe((resData: any) => {
+                        this.iletisim = resData;
+                    }, resError => this.errorMsg = resError);
+                }, resError => this.errorMsg = resError);
+            }, resError => this.errorMsg = resError);
+        }, resError => this.errorMsg = resError);
     }
 }

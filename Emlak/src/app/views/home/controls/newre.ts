@@ -17,8 +17,8 @@ export class NewReComponent {
     }
 
     ngOnInit() {
-        this.service.get("Site", "YeniIlanlar", 4)
-            .subscribe(resData => this.ilanlar = resData,
-                resError => this.errorMsg = resError);
+        this.service.get("Site", "YeniIlanlar", 4).subscribe((resData: any) => {
+            this.ilanlar = resData;
+        }, resError => this.errorMsg = resError);
     }
 }
