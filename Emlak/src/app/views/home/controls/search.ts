@@ -1,9 +1,7 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { SiteService } from '../../../services/site';
-import { LangItem } from '../../../model/LangItem';
-import { Lib } from '../../../lib/methods';
 
 @Component({
     selector: 'emlak-search',
@@ -21,12 +19,14 @@ export class SearchComponent {
     yakitList: any;
     isinmaList: any;
 
+    @Input() lang: any;
+
     constructor(private service: SiteService, private _router: Router, private _formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
         this.FormOlustur();
-        this.KodlaGetir();
+        this.ComboDoldur();
 
         var $SearchToggle = $('.search-form .search-toggle');
         $SearchToggle.hide();
@@ -302,190 +302,5 @@ export class SearchComponent {
         maxPrice = maxPrice == 100000 ? null : maxPrice;
 
         return maxPrice;
-    }
-
-    //KodlaGetir
-    langItems: Array<LangItem>;
-    langItem: LangItem;
-
-    dstcText: string;
-    sctmText: string;
-    scfsText: string;
-    scfrText: string;
-    ctgyText: string;
-    sctgText: string;
-    sallText: string;
-    arlkText: string;
-    ttleText: string;
-    cityText: string;
-    ilceText: string;
-    semtText: string;
-    prcdText: string;
-    dsbtText: string;
-    fiyatText: string;
-    odasayisiText: string;
-    salonSayisiText: string;
-    alanText: string;
-    katSayisiText: string;
-    bulunduguKatText: string;
-    durumText: string;
-    isinmaTipiText: string;
-    yakitTipiText: string;
-    binaYasiText: string;
-    arkaCepheText: string;
-    otobanText: string;
-    guvenlikText: string;
-    denizeYakinText: string;
-    denizeSifirText: string;
-    kapiciText: string;
-    oyunParkiText: string;
-    yanginMerdiveniText: string;
-    balkonText: string;
-    jakuziText: string;
-    onCepheText: string;
-    manzaraText: string;
-    topluUlasimText: string;
-    hidroforText: string;
-    metroText: string;
-    jeneratorText: string;
-    pVCDogramaText: string;
-    yuzmeHavuzuText: string;
-    celikKapiText: string;
-    kabloTVUyduText: string;
-    caddeyeYakinText: string;
-    merkezdeText: string;
-    asansorText: string;
-    mantolamaText: string;
-    bahceText: string;
-    otoparkText: string;
-    siteIciText: string;
-    alarmText: string;
-    goruntuluDiafon: string;
-    klimaText: string;
-
-    KodlaGetir() {
-        this.PushLangItems();
-
-        this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
-            resData.forEach((item, i) => {
-                switch (item.Code) {
-                    case "dstc": this.dstcText = item.Value; break;
-                    case "sctm": this.sctmText = item.Value; break;
-                    case "scfs": this.scfsText = item.Value; break;
-                    case "scfr": this.scfrText = item.Value; break;
-                    case "ctgy": this.ctgyText = item.Value; break;
-                    case "sctg": this.sctgText = item.Value; break;
-                    case "sall": this.sallText = item.Value; break;
-                    case "arlk": this.arlkText = item.Value; break;
-                    case "ttle": this.ttleText = item.Value; break;
-                    case "city": this.cityText = item.Value; break;
-                    case "ilce": this.ilceText = item.Value; break;
-                    case "semt": this.semtText = item.Value; break;
-                    case "prcd": this.prcdText = item.Value; break;
-                    case "dsbt": this.dsbtText = item.Value; break;
-                    case "bage": this.binaYasiText = item.Value; break;
-                    case "wtyp": this.isinmaTipiText = item.Value; break;
-                    case "drmc": this.salonSayisiText = item.Value; break;
-                    case "ftyp": this.yakitTipiText = item.Value; break;
-                    case "pric": this.fiyatText = item.Value; break;
-                    case "area": this.alanText = item.Value; break;
-                    case "flrn": this.bulunduguKatText = item.Value; break;
-                    case "flrc": this.katSayisiText = item.Value; break;
-                    case "romc": this.odasayisiText = item.Value; break;
-                    case "stts": this.durumText = item.Value; break;
-                    case "arkc": this.arkaCepheText = item.Value; break;
-                    case "otoy": this.otobanText = item.Value; break;
-                    case "guve": this.guvenlikText = item.Value; break;
-                    case "deny": this.denizeYakinText = item.Value; break;
-                    case "dens": this.denizeSifirText = item.Value; break;
-                    case "kapi": this.kapiciText = item.Value; break;
-                    case "oyup": this.oyunParkiText = item.Value; break;
-                    case "yanm": this.yanginMerdiveniText = item.Value; break;
-                    case "balk": this.balkonText = item.Value; break;
-                    case "jaku": this.jakuziText = item.Value; break;
-                    case "once": this.onCepheText = item.Value; break;
-                    case "manz": this.manzaraText = item.Value; break;
-                    case "touy": this.topluUlasimText = item.Value; break;
-                    case "hidr": this.hidroforText = item.Value; break;
-                    case "metr": this.metroText = item.Value; break;
-                    case "jene": this.jeneratorText = item.Value; break;
-                    case "pvcd": this.pVCDogramaText = item.Value; break;
-                    case "yuzh": this.yuzmeHavuzuText = item.Value; break;
-                    case "celk": this.celikKapiText = item.Value; break;
-                    case "katu": this.kabloTVUyduText = item.Value; break;
-                    case "cady": this.caddeyeYakinText = item.Value; break;
-                    case "merk": this.merkezdeText = item.Value; break;
-                    case "asan": this.asansorText = item.Value; break;
-                    case "mant": this.mantolamaText = item.Value; break;
-                    case "bahc": this.bahceText = item.Value; break;
-                    case "otop": this.otoparkText = item.Value; break;
-                    case "siti": this.siteIciText = item.Value; break;
-                    case "alar": this.alarmText = item.Value; break;
-                    case "gord": this.goruntuluDiafon = item.Value; break;
-                    case "klim": this.klimaText = item.Value; break;
-                }
-            });
-
-            this.ComboDoldur();
-        }, resError => this.errorMsg = resError);
-    }
-
-    PushLangItems() {
-        this.langItems = new Array<LangItem>();
-
-        this.langItems.push(Lib.SetLangItem(this.langItem, "dstc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "sctm"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "scfs"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "scfr"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "ctgy"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "sctg"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "sall"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "arlk"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "ttle"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "city"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "ilce"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "semt"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "prcd"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "dsbt"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "bage"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "wtyp"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "drmc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "ftyp"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "pric"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "area"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "flrn"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "flrc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "romc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "stts"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "arkc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "otoy"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "guve"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "deny"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "dens"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "kapi"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "oyup"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "yanm"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "balk"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "jaku"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "once"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "manz"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "touy"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "hidr"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "metr"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "jene"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "pvcd"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "yuzh"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "celk"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "katu"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "cady"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "merk"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "asan"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "mant"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "bahc"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "otop"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "siti"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "alar"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "gord"));
-        this.langItems.push(Lib.SetLangItem(this.langItem, "klim"));
     }
 }

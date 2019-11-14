@@ -64,6 +64,8 @@ export class PropertyDetailComponent {
     langItems: Array<LangItem>;
     langItem: LangItem;
 
+    lang: any;
+
     ilanlarText: string;
 
     sehirText: string;
@@ -125,32 +127,88 @@ export class PropertyDetailComponent {
         this.PushLangItems();
 
         this.service.post("Site", "GetLangItems", this.langItems).subscribe((resData: any) => {
+            this.lang = new Object();
+
             resData.forEach((item, i) => {
                 switch (item.Code) {
+                    //Search
+                    case "sdet": this.lang.sdetText = item.Value; break;
+                    case "dstc": this.lang.dstcText = item.Value; break;
+                    case "sctm": this.lang.sctmText = item.Value; break;
+                    case "scfs": this.lang.scfsText = item.Value; break;
+                    case "scfr": this.lang.scfrText = item.Value; break;
+                    case "ctgy": this.lang.ctgyText = item.Value; break;
+                    case "sctg": this.lang.sctgText = item.Value; break;
+                    case "sall": this.lang.sallText = item.Value; break;
+                    case "arlk": this.lang.arlkText = item.Value; break;
+                    case "ttle": this.lang.ttleText = item.Value; break;
+                    case "prcd": this.lang.prcdText = item.Value; break;
+                    case "dsbt": this.lang.dsbtText = item.Value; break;
+
                     case "ilan": this.ilanlarText = item.Value; break;
                     case "desc": this.descText = item.Value; break;
                     case "adnf": this.adnfText = item.Value; break;
                     case "feat": this.featText = item.Value; break;
-                    case "city": this.sehirText = item.Value; break;
-                    case "ilce": this.ilceText = item.Value; break;
-                    case "semt": this.semtText = item.Value; break;
+                    case "city":
+                        this.sehirText = item.Value;
+                        this.lang.cityText = item.Value;
+                        break;
+                    case "ilce":
+                        this.ilceText = item.Value;
+                        this.lang.ilceText = item.Value;
+                        break;
+                    case "semt":
+                        this.semtText = item.Value;
+                        this.lang.semtText = item.Value;
+                        break;
                     case "dtys": this.satilikText = item.Value; break;
                     case "dtyk": this.kiralikText = item.Value; break;
                     case "code": this.kodText = item.Value; break;
                     case "ownr": this.sahipText = item.Value; break;
-                    case "pric": this.fiyatText = item.Value; break;
-                    case "romc": this.odasayisiText = item.Value; break;
-                    case "drmc": this.salonSayisiText = item.Value; break;
-                    case "area": this.alanText = item.Value; break;
-                    case "flrc": this.katSayisiText = item.Value; break;
-                    case "flrn": this.bulunduguKatText = item.Value; break;
-                    case "stts": this.durumText = item.Value; break;
-                    case "wtyp": this.isinmaTipiText = item.Value; break;
-                    case "ftyp": this.yakitTipiText = item.Value; break;
-                    case "bage": this.binaYasiText = item.Value; break;
+                    case "pric":
+                        this.fiyatText = item.Value;
+                        this.lang.fiyatText = item.Value;
+                        break;
+                    case "romc":
+                        this.odasayisiText = item.Value;
+                        this.lang.odasayisiText = item.Value;
+                        break;
+                    case "drmc":
+                        this.salonSayisiText = item.Value;
+                        this.lang.salonSayisiText = item.Value;
+                        break;
+                    case "area":
+                        this.alanText = item.Value;
+                        this.lang.alanText = item.Value;
+                        break;
+                    case "flrc":
+                        this.katSayisiText = item.Value;
+                        this.lang.katSayisiText = item.Value;
+                        break;
+                    case "flrn":
+                        this.bulunduguKatText = item.Value;
+                        this.lang.bulunduguKatText = item.Value;
+                        break;
+                    case "stts":
+                        this.durumText = item.Value;
+                        this.lang.durumText = item.Value;
+                        break;
+                    case "wtyp":
+                        this.isinmaTipiText = item.Value;
+                        this.lang.isinmaTipiText = item.Value;
+                        break;
+                    case "ftyp":
+                        this.yakitTipiText = item.Value;
+                        this.lang.yakitTipiText = item.Value;
+                        break;
+                    case "bage":
+                        this.binaYasiText = item.Value;
+                        this.lang.binaYasiText = item.Value;
+                        break;
 
                     case "arkc":
                         this.arkaCepheText = item.Value;
+                        this.lang.arkaCepheText = item.Value;
 
                         if (this.emlak.ArkaCephe == true) {
                             this.features.push(this.arkaCepheText);
@@ -159,6 +217,7 @@ export class PropertyDetailComponent {
 
                     case "otoy":
                         this.otobanText = item.Value;
+                        this.lang.otobanText = item.Value;
 
                         if (this.emlak.Otoban == true) {
                             this.features.push(this.otobanText);
@@ -167,6 +226,7 @@ export class PropertyDetailComponent {
 
                     case "guve":
                         this.guvenlikText = item.Value;
+                        this.lang.guvenlikText = item.Value;
 
                         if (this.emlak.Guvenlik == true) {
                             this.features.push(this.guvenlikText);
@@ -175,6 +235,7 @@ export class PropertyDetailComponent {
 
                     case "deny":
                         this.denizeYakinText = item.Value;
+                        this.lang.denizeYakinText = item.Value;
 
                         if (this.emlak.DenizeYakin == true) {
                             this.features.push(this.denizeYakinText);
@@ -183,6 +244,7 @@ export class PropertyDetailComponent {
 
                     case "dens":
                         this.denizeSifirText = item.Value;
+                        this.lang.denizeSifirText = item.Value;
 
                         if (this.emlak.DenizeSifir == true) {
                             this.features.push(this.denizeSifirText);
@@ -191,6 +253,7 @@ export class PropertyDetailComponent {
 
                     case "kapi":
                         this.kapiciText = item.Value;
+                        this.lang.kapiciText = item.Value;
 
                         if (this.emlak.Kapici == true) {
                             this.features.push(this.kapiciText);
@@ -199,6 +262,7 @@ export class PropertyDetailComponent {
 
                     case "oyup":
                         this.oyunParkiText = item.Value;
+                        this.lang.oyunParkiText = item.Value;
 
                         if (this.emlak.OyunParki == true) {
                             this.features.push(this.oyunParkiText);
@@ -207,6 +271,7 @@ export class PropertyDetailComponent {
 
                     case "yanm":
                         this.yanginMerdiveniText = item.Value;
+                        this.lang.yanginMerdiveniText = item.Value;
 
                         if (this.emlak.YanginMerdiveni == true) {
                             this.features.push(this.yanginMerdiveniText);
@@ -215,6 +280,7 @@ export class PropertyDetailComponent {
 
                     case "balk":
                         this.balkonText = item.Value;
+                        this.lang.balkonText = item.Value;
 
                         if (this.emlak.Balkon == true) {
                             this.features.push(this.balkonText);
@@ -223,6 +289,7 @@ export class PropertyDetailComponent {
 
                     case "jaku":
                         this.jakuziText = item.Value;
+                        this.lang.jakuziText = item.Value;
 
                         if (this.emlak.Jakuzi == true) {
                             this.features.push(this.jakuziText);
@@ -231,6 +298,7 @@ export class PropertyDetailComponent {
 
                     case "once":
                         this.onCepheText = item.Value;
+                        this.lang.onCepheText = item.Value;
 
                         if (this.emlak.OnCephe == true) {
                             this.features.push(this.onCepheText);
@@ -239,6 +307,7 @@ export class PropertyDetailComponent {
 
                     case "manz":
                         this.manzaraText = item.Value;
+                        this.lang.manzaraText = item.Value;
 
                         if (this.emlak.Manzara == true) {
                             this.features.push(this.manzaraText);
@@ -247,6 +316,7 @@ export class PropertyDetailComponent {
 
                     case "touy":
                         this.topluUlasimText = item.Value;
+                        this.lang.topluUlasimText = item.Value;
 
                         if (this.emlak.TopluUlasim == true) {
                             this.features.push(this.topluUlasimText);
@@ -255,6 +325,7 @@ export class PropertyDetailComponent {
 
                     case "hidr":
                         this.hidroforText = item.Value;
+                        this.lang.hidroforText = item.Value;
 
                         if (this.emlak.Hidrofor == true) {
                             this.features.push(this.hidroforText);
@@ -263,6 +334,7 @@ export class PropertyDetailComponent {
 
                     case "metr":
                         this.metroText = item.Value;
+                        this.lang.metroText = item.Value;
 
                         if (this.emlak.Metro == true) {
                             this.features.push(this.metroText);
@@ -271,6 +343,7 @@ export class PropertyDetailComponent {
 
                     case "jene":
                         this.jeneratorText = item.Value;
+                        this.lang.jeneratorText = item.Value;
 
                         if (this.emlak.Jenerator == true) {
                             this.features.push(this.jeneratorText);
@@ -279,6 +352,7 @@ export class PropertyDetailComponent {
 
                     case "pvcd":
                         this.pVCDogramaText = item.Value;
+                        this.lang.pVCDogramaText = item.Value;
 
                         if (this.emlak.PVCDograma == true) {
                             this.features.push(this.pVCDogramaText);
@@ -287,6 +361,7 @@ export class PropertyDetailComponent {
 
                     case "yuzh":
                         this.yuzmeHavuzuText = item.Value;
+                        this.lang.yuzmeHavuzuText = item.Value;
 
                         if (this.emlak.YuzmeHavuzu == true) {
                             this.features.push(this.yuzmeHavuzuText);
@@ -295,6 +370,7 @@ export class PropertyDetailComponent {
 
                     case "celk":
                         this.celikKapiText = item.Value;
+                        this.lang.celikKapiText = item.Value;
 
                         if (this.emlak.CelikKapi == true) {
                             this.features.push(this.celikKapiText);
@@ -303,6 +379,7 @@ export class PropertyDetailComponent {
 
                     case "katu":
                         this.kabloTVUyduText = item.Value;
+                        this.lang.kabloTVUyduText = item.Value;
 
                         if (this.emlak.KabloTVUydu == true) {
                             this.features.push(this.kabloTVUyduText);
@@ -311,6 +388,7 @@ export class PropertyDetailComponent {
 
                     case "cady":
                         this.caddeyeYakinText = item.Value;
+                        this.lang.caddeyeYakinText = item.Value;
 
                         if (this.emlak.CaddeyeYakin == true) {
                             this.features.push(this.caddeyeYakinText);
@@ -319,6 +397,7 @@ export class PropertyDetailComponent {
 
                     case "merk":
                         this.merkezdeText = item.Value;
+                        this.lang.merkezdeText = item.Value;
 
                         if (this.emlak.Merkezde == true) {
                             this.features.push(this.merkezdeText);
@@ -327,6 +406,7 @@ export class PropertyDetailComponent {
 
                     case "asan":
                         this.asansorText = item.Value;
+                        this.lang.asansorText = item.Value;
 
                         if (this.emlak.Asansor == true) {
                             this.features.push(this.asansorText);
@@ -335,6 +415,7 @@ export class PropertyDetailComponent {
 
                     case "mant":
                         this.mantolamaText = item.Value;
+                        this.lang.mantolamaText = item.Value;
 
                         if (this.emlak.Mantolama == true) {
                             this.features.push(this.mantolamaText);
@@ -343,6 +424,7 @@ export class PropertyDetailComponent {
 
                     case "bahc":
                         this.bahceText = item.Value;
+                        this.lang.bahceText = item.Value;
 
                         if (this.emlak.Bahce == true) {
                             this.features.push(this.bahceText);
@@ -351,6 +433,7 @@ export class PropertyDetailComponent {
 
                     case "otop":
                         this.otoparkText = item.Value;
+                        this.lang.otoparkText = item.Value;
 
                         if (this.emlak.Otopark == true) {
                             this.features.push(this.otoparkText);
@@ -359,6 +442,7 @@ export class PropertyDetailComponent {
 
                     case "siti":
                         this.siteIciText = item.Value;
+                        this.lang.siteIciText = item.Value;
 
                         if (this.emlak.SiteIci == true) {
                             this.features.push(this.siteIciText);
@@ -367,6 +451,7 @@ export class PropertyDetailComponent {
 
                     case "alar":
                         this.alarmText = item.Value;
+                        this.lang.alarmText = item.Value;
 
                         if (this.emlak.Alarm == true) {
                             this.features.push(this.alarmText);
@@ -375,6 +460,7 @@ export class PropertyDetailComponent {
 
                     case "gord":
                         this.goruntuluDiafon = item.Value;
+                        this.lang.goruntuluDiafon = item.Value;
 
                         if (this.emlak.GoruntuluDiafon == true) {
                             this.features.push(this.goruntuluDiafon);
@@ -383,6 +469,7 @@ export class PropertyDetailComponent {
 
                     case "klim":
                         this.klimaText = item.Value;
+                        this.lang.klimaText = item.Value;
 
                         if (this.emlak.Klima == true) {
                             this.features.push(this.klimaText);
@@ -395,6 +482,20 @@ export class PropertyDetailComponent {
 
     PushLangItems() {
         this.langItems = new Array<LangItem>();
+
+        //Search
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sdet"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dstc"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sctm"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "scfs"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "scfr"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ctgy"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sctg"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "sall"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "arlk"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "ttle"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "city"));
+        this.langItems.push(Lib.SetLangItem(this.langItem, "dsbt"));
 
         this.langItems.push(Lib.SetLangItem(this.langItem, "ilan"));
         this.langItems.push(Lib.SetLangItem(this.langItem, "news"));

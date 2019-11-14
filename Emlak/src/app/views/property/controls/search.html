@@ -1,14 +1,14 @@
 ﻿
 <div class="panel panel-default sidebar-menu wow fadeInRight animated">
     <div class="panel-heading">
-        <h3 class="panel-title">{{ sdetText }}</h3>
+        <h3 class="panel-title">{{ lang?.sdetText }}</h3>
     </div>
     <div class="panel-body search-widget">
         <form [formGroup]="searchForm" class="form-inline">
             <fieldset>
                 <div class="row">
                     <div class="col-xs-12">
-                        <input type="text" id="txtBaslik" formControlName="baslik" class="form-control" placeholder="{{ ttleText }}" />
+                        <input type="text" id="txtBaslik" formControlName="baslik" class="form-control" placeholder="{{ lang?.ttleText }}" />
                     </div>
                 </div>
             </fieldset>
@@ -16,13 +16,13 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-4">
-                        <label><input name="satilik" id="rbTumu" type="radio" class="form-control" formControlName="satilik" checked="checked" value="{{ sctmText }}" /> <b>{{ sctmText }}</b></label>
+                        <label><input name="satilik" id="rbTumu" type="radio" class="form-control" formControlName="satilik" checked="checked" value="{{ lang?.sctmText }}" /> <b>{{ lang?.sctmText }}</b></label>
                     </div>
                     <div class="col-xs-4">
-                        <label><input name="satilik" id="rbSatilik" type="radio" class="form-control" formControlName="satilik" value="{{ scfsText }}" /> <b>{{ scfsText }}</b></label>
+                        <label><input name="satilik" id="rbSatilik" type="radio" class="form-control" formControlName="satilik" value="{{ lang?.scfsText }}" /> <b>{{ lang?.scfsText }}</b></label>
                     </div>
                     <div class="col-xs-4">
-                        <label><input name="satilik" id="rbKiralik" type="radio" class="form-control" formControlName="satilik" value="{{ scfrText }}" /> <b>{{ scfrText }}</b></label>
+                        <label><input name="satilik" id="rbKiralik" type="radio" class="form-control" formControlName="satilik" value="{{ lang?.scfrText }}" /> <b>{{ lang?.scfrText }}</b></label>
                     </div>
                 </div>
             </fieldset>
@@ -30,16 +30,16 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-6">
-                        <b>{{ ctgyText }} :</b>
+                        <b>{{ lang?.ctgyText }} :</b>
                         <select id="drpKategori" class="form-control" formControlName="kategori">
-                            <option value="0">{{ sctmText }}</option>
+                            <option value="0">{{ lang?.sctmText }}</option>
                             <option *ngFor="let item of kategoriList" value="{{ item?.ID }}">{{ item?.CategoryName }}</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
-                        <b>{{ durumText }} :</b>
+                        <b>{{ lang?.durumText }} :</b>
                         <select id="drpDurum" class="form-control" formControlName="durum">
-                            <option value="0">{{ sctmText }}</option>
+                            <option value="0">{{ lang?.sctmText }}</option>
                             <option *ngFor="let item of durumList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
@@ -49,18 +49,18 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-4">
-                        <b>{{ cityText }} :</b>
+                        <b>{{ lang?.cityText }} :</b>
                         <select id="drpSehir" class="form-control" formControlName="sehir">
-                            <option value="0">{{ sctmText }}</option>
+                            <option value="0">{{ lang?.sctmText }}</option>
                             <option *ngFor="let item of sehirList" value="{{ item?.ID }}">{{ item?.Title }}</option>
                         </select>
                     </div>
                     <div class="col-xs-4">
-                        <b>{{ ilceText }} :</b>
+                        <b>{{ lang?.ilceText }} :</b>
                         <input type="text" id="txtIlce" class="form-control" formControlName="ilce" />
                     </div>
                     <div class="col-xs-4">
-                        <b>{{ semtText }} :</b>
+                        <b>{{ lang?.semtText }} :</b>
                         <input type="text" id="txtSemt" class="form-control" formControlName="semt" />
                     </div>
                 </div>
@@ -69,16 +69,16 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-6">
-                        <b>{{ yakitTipiText }} :</b>
+                        <b>{{ lang?.yakitTipiText }} :</b>
                         <select id="drpYakit" class="form-control" formControlName="yakit">
-                            <option value="0">{{ sallText }}</option>
+                            <option value="0">{{ lang?.sallText }}</option>
                             <option *ngFor="let item of yakitList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
                     <div class="col-xs-6">
-                        <b>{{ isinmaTipiText }} :</b>
+                        <b>{{ lang?.isinmaTipiText }} :</b>
                         <select id="drpIsinma" class="form-control" formControlName="isinma">
-                            <option value="0">{{ sallText }}</option>
+                            <option value="0">{{ lang?.sallText }}</option>
                             <option *ngFor="let item of isinmaList" value="{{ item?.ID }}">{{ item?.Name }}</option>
                         </select>
                     </div>
@@ -88,7 +88,7 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-12">
-                        <b for="fiyat1">{{ fiyatText }} <i>({{ arlkText }})</i></b>
+                        <b for="fiyat1">{{ lang?.fiyatText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="fiyat" data-min="0" data-max="1000000" data-step="5000"></div>
                         <input type="hidden" id="fiyat1" class="j-min" formControlName="fiyat1" />
                         <input type="hidden" id="fiyat2" class="j-max" formControlName="fiyat2" />
@@ -99,14 +99,14 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-6">
-                        <b for="roomCount1">{{ odasayisiText }} <i>({{ arlkText }})</i></b>
+                        <b for="roomCount1">{{ lang?.odasayisiText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="roomCount" data-min="0" data-max="10" data-step="1"></div>
                         <input type="hidden" id="roomCount1" class="j-min" formControlName="roomCount1" />
                         <input type="hidden" id="roomCount2" class="j-max" formControlName="roomCount2" />
                     </div>
 
                     <div class="col-xs-6">
-                        <b for="salon1">{{ salonSayisiText }} <i>({{ arlkText }})</i></b>
+                        <b for="salon1">{{ lang?.salonSayisiText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="salon" data-min="0" data-max="10" data-step="1"></div>
                         <input type="hidden" id="salon1" class="j-min" formControlName="salon1" />
                         <input type="hidden" id="salon2" class="j-max" formControlName="salon2" />
@@ -117,14 +117,14 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-6">
-                        <b for="alan1">{{ alanText }} <i>({{ arlkText }})</i></b>
+                        <b for="alan1">{{ lang?.alanText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="alan" data-min="0" data-max="2000" data-step="100"></div>
                         <input type="hidden" id="alan1" class="j-min" formControlName="alan1" />
                         <input type="hidden" id="alan2" class="j-max" formControlName="alan2" />
                     </div>
 
                     <div class="col-xs-6">
-                        <b for="binaYas1">{{ binaYasiText }} <i>({{ arlkText }})</i></b>
+                        <b for="binaYas1">{{ lang?.binaYasiText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="binaYas" data-min="0" data-max="100" data-step="5"></div>
                         <input type="hidden" id="binaYas1" class="j-min" formControlName="binaYas1" />
                         <input type="hidden" id="binaYas2" class="j-max" formControlName="binaYas2" />
@@ -135,14 +135,14 @@
             <fieldset class="padding-5">
                 <div class="row">
                     <div class="col-xs-6">
-                        <b for="katSayi1">{{ katSayisiText }} <i>({{ arlkText }})</i></b>
+                        <b for="katSayi1">{{ lang?.katSayisiText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="katSayi" data-min="0" data-max="40" data-step="1"></div>
                         <input type="hidden" id="katSayi1" class="j-min" formControlName="katSayi1" />
                         <input type="hidden" id="katSayi2" class="j-max" formControlName="katSayi2" />
                     </div>
 
                     <div class="col-xs-6">
-                        <b for="bulunduguKat1">{{ bulunduguKatText }} <i>({{ arlkText }})</i></b>
+                        <b for="bulunduguKat1">{{ lang?.bulunduguKatText }} <i>({{ lang?.arlkText }})</i></b>
                         <div class="tdslider" id="bulunduguKat" data-min="0" data-max="40" data-step="1"></div>
                         <input type="hidden" id="bulunduguKat1" class="j-min" formControlName="bulunduguKat1" />
                         <input type="hidden" id="bulunduguKat2" class="j-max" formControlName="bulunduguKat2" />
@@ -155,7 +155,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="caddeyeYakin" formControlName="caddeyeYakin" /> <b>{{ caddeyeYakinText }}</b>
+                                <input type="checkbox" id="caddeyeYakin" formControlName="caddeyeYakin" /> <b>{{ lang?.caddeyeYakinText }}</b>
                             </label>
                         </div>
                     </div>
@@ -163,27 +163,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="merkezde" formControlName="merkezde" /> <b>{{ merkezdeText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="asansor" formControlName="asansor" /> <b>{{ asansorText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="mantolama" formControlName="mantolama" /> <b>{{ mantolamaText }}</b>
+                                <input type="checkbox" id="merkezde" formControlName="merkezde" /> <b>{{ lang?.merkezdeText }}</b>
                             </label>
                         </div>
                     </div>
@@ -195,7 +175,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="bahce" formControlName="bahce" /> <b>{{ bahceText }}</b>
+                                <input type="checkbox" id="asansor" formControlName="asansor" /> <b>{{ lang?.asansorText }}</b>
                             </label>
                         </div>
                     </div>
@@ -203,27 +183,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="otopark" formControlName="otopark" /> <b>{{ otoparkText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="siteIci" formControlName="siteIci" /> <b>{{ siteIciText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="alarm" formControlName="alarm" /> <b>{{ alarmText }}</b>
+                                <input type="checkbox" id="mantolama" formControlName="mantolama" /> <b>{{ lang?.mantolamaText }}</b>
                             </label>
                         </div>
                     </div>
@@ -235,7 +195,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="goruntuluDiafon" formControlName="goruntuluDiafon" /> <b>{{ goruntuluDiafon }}</b>
+                                <input type="checkbox" id="bahce" formControlName="bahce" /> <b>{{ lang?.bahceText }}</b>
                             </label>
                         </div>
                     </div>
@@ -243,27 +203,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="klima" formControlName="klima" /> <b>{{ klimaText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="onCephe" formControlName="onCephe" /> <b>{{ onCepheText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="manzarali" formControlName="manzarali" /> <b>{{ manzaraText }}</b>
+                                <input type="checkbox" id="otopark" formControlName="otopark" /> <b>{{ lang?.otoparkText }}</b>
                             </label>
                         </div>
                     </div>
@@ -275,7 +215,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="topluUlasim" formControlName="topluUlasim" /> <b>{{ topluUlasimText }}</b>
+                                <input type="checkbox" id="siteIci" formControlName="siteIci" /> <b>{{ lang?.siteIciText }}</b>
                             </label>
                         </div>
                     </div>
@@ -283,27 +223,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="hidrofor" formControlName="hidrofor" /> <b>{{ hidroforText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="metro" formControlName="metro" /> <b>{{ metroText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="jenerator" formControlName="jenerator" /> <b>{{ jeneratorText }}</b>
+                                <input type="checkbox" id="alarm" formControlName="alarm" /> <b>{{ lang?.alarmText }}</b>
                             </label>
                         </div>
                     </div>
@@ -315,7 +235,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="pVCDograma" formControlName="pVCDograma" /> <b>{{ pVCDogramaText }}</b>
+                                <input type="checkbox" id="goruntuluDiafon" formControlName="goruntuluDiafon" /> <b>{{ lang?.goruntuluDiafon }}</b>
                             </label>
                         </div>
                     </div>
@@ -323,27 +243,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="yuzmeHavuzu" formControlName="yuzmeHavuzu" /> <b>{{ yuzmeHavuzuText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="celikKapi" formControlName="celikKapi" /> <b>{{ celikKapiText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="kabloTVUydu" formControlName="kabloTVUydu" /> <b>{{ kabloTVUyduText }}</b>
+                                <input type="checkbox" id="klima" formControlName="klima" /> <b>{{ lang?.klimaText }}</b>
                             </label>
                         </div>
                     </div>
@@ -355,7 +255,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="arkaCephe" formControlName="arkaCephe" /> <b>{{ arkaCepheText }}</b>
+                                <input type="checkbox" id="onCephe" formControlName="onCephe" /> <b>{{ lang?.onCepheText }}</b>
                             </label>
                         </div>
                     </div>
@@ -363,27 +263,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="denizeYakin" formControlName="denizeYakin" /> <b>{{ denizeYakinText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="otoban" formControlName="otoban" /> <b>{{ otobanText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="guvenlik" formControlName="guvenlik" /> <b>{{ guvenlikText }}</b>
+                                <input type="checkbox" id="manzarali" formControlName="manzarali" /> <b>{{ lang?.manzaraText }}</b>
                             </label>
                         </div>
                     </div>
@@ -395,7 +275,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="denizeSifir" formControlName="denizeSifir" /> <b>{{ denizeSifirText }}</b>
+                                <input type="checkbox" id="topluUlasim" formControlName="topluUlasim" /> <b>{{ lang?.topluUlasimText }}</b>
                             </label>
                         </div>
                     </div>
@@ -403,27 +283,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="kapici" formControlName="kapici" /> <b>{{ kapiciText }}</b>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="padding-5">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="oyunParki" formControlName="oyunParki" /> <b>{{ oyunParkiText }}</b>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="yanginMerdiveni" formControlName="yanginMerdiveni" /> <b>{{ yanginMerdiveniText }}</b>
+                                <input type="checkbox" id="hidrofor" formControlName="hidrofor" /> <b>{{ lang?.hidroforText }}</b>
                             </label>
                         </div>
                     </div>
@@ -435,7 +295,7 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="balkon" formControlName="balkon" /> <b>{{ balkonText }}</b>
+                                <input type="checkbox" id="metro" formControlName="metro" /> <b>{{ lang?.metroText }}</b>
                             </label>
                         </div>
                     </div>
@@ -443,7 +303,147 @@
                     <div class="col-xs-6">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="jakuzi" formControlName="jakuzi" /> <b>{{ jakuziText }}</b>
+                                <input type="checkbox" id="jenerator" formControlName="jenerator" /> <b>{{ lang?.jeneratorText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="pVCDograma" formControlName="pVCDograma" /> <b>{{ lang?.pVCDogramaText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="yuzmeHavuzu" formControlName="yuzmeHavuzu" /> <b>{{ lang?.yuzmeHavuzuText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="celikKapi" formControlName="celikKapi" /> <b>{{ lang?.celikKapiText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="kabloTVUydu" formControlName="kabloTVUydu" /> <b>{{ lang?.kabloTVUyduText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="arkaCephe" formControlName="arkaCephe" /> <b>{{ lang?.arkaCepheText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="denizeYakin" formControlName="denizeYakin" /> <b>{{ lang?.denizeYakinText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="otoban" formControlName="otoban" /> <b>{{ lang?.otobanText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="guvenlik" formControlName="guvenlik" /> <b>{{ lang?.guvenlikText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="denizeSifir" formControlName="denizeSifir" /> <b>{{ lang?.denizeSifirText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="kapici" formControlName="kapici" /> <b>{{ lang?.kapiciText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="oyunParki" formControlName="oyunParki" /> <b>{{ lang?.oyunParkiText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="yanginMerdiveni" formControlName="yanginMerdiveni" /> <b>{{ lang?.yanginMerdiveniText }}</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="padding-5">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="balkon" formControlName="balkon" /> <b>{{ lang?.balkonText }}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="jakuzi" formControlName="jakuzi" /> <b>{{ lang?.jakuziText }}</b>
                             </label>
                         </div>
                     </div>

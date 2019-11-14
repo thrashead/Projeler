@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 import { SiteService } from '../../../services/site';
 
 @Component({
@@ -10,6 +10,8 @@ export class SliderComponent {
     slider: any;
 
     errorMsg: string;
+
+    @Input() lang: any;
 
     constructor(private service: SiteService) {
     }
