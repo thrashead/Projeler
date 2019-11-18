@@ -2,6 +2,7 @@
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SiteService } from '../../../services/site';
 import { Lib } from '../../../lib/methods';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'hr-homesearch',
@@ -23,6 +24,8 @@ export class HomeSearchComponent {
             Words: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
             City: new FormControl(null),
         });
+
+        ScriptsComponent.Select(".chosen-city");
 
         setTimeout(() => {
             Lib.ComboChange("slcCity");

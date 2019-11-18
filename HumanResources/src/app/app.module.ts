@@ -100,6 +100,7 @@ import { HeaderComponent } from './views/shared/controls/header';
 import { MenuComponent } from './views/shared/controls/menu';
 import { FooterComponent } from './views/shared/controls/footer';
 import { ScriptsComponent } from './views/shared/controls/scripts';
+import { BannerComponent } from './views/shared/controls/banner';
 import { ModalAlertComponent } from './views/shared/common/modalalert';
 import { ModalConfirmComponent } from './views/shared/common/modalconfirm';
 import { RespHeaderComponent } from './views/shared/controls/responsive/header';
@@ -123,10 +124,18 @@ import { HomeQuestionComponent } from './views/home/parts/question';
 
 //Blog
 import { BlogIndexComponent } from './views/blog';
+import { BlogListComponent } from './views/blog/parts/list';
+import { BlogSearchComponent } from './views/blog/parts/search';
+import { BlogCategoriesComponent } from './views/blog/parts/categories';
+import { BlogRecentComponent } from './views/blog/parts/recent';
 import { BlogDetailComponent } from './views/blog/detail';
 
 //Ýçerik
 import { ContentIndexComponent } from './views/content';
+import { ContactComponent } from './views/content/contact';
+import { AboutComponent } from './views/content/about';
+import { RegisterComponent } from './views/content/register';
+import { PricingComponent } from './views/content/pricing';
 
 //Ýlan
 import { JobIndexComponent } from './views/job';
@@ -174,6 +183,7 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
         MenuComponent,
         FooterComponent,
         ScriptsComponent,
+        BannerComponent,
         ModalAlertComponent,
         ModalConfirmComponent,
         RespHeaderComponent,
@@ -197,10 +207,18 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
 
         //Blog
         BlogIndexComponent,
+        BlogListComponent,
+        BlogSearchComponent,
+        BlogCategoriesComponent,
+        BlogRecentComponent,
         BlogDetailComponent,
 
         //Ýçerik
         ContentIndexComponent,
+        ContactComponent,
+        AboutComponent,
+        RegisterComponent,
+        PricingComponent,
 
         //Ýlan
         JobIndexComponent,

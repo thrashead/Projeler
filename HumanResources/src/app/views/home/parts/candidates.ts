@@ -1,5 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { SiteService } from '../../../services/site';
+import { ScriptsComponent } from '../../shared/controls/scripts';
 
 @Component({
     selector: 'hr-homecandidates',
@@ -13,5 +14,6 @@ export class HomeCandidatesComponent {
     }
 
     ngOnInit() {
+        ScriptsComponent.Slick('#reviews-carousel');
     }
 }

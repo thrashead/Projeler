@@ -81,6 +81,10 @@ import { BlogDetailComponent } from './views/blog/detail';
 
 //Ýçerik
 import { ContentIndexComponent } from './views/content';
+import { ContactComponent } from './views/content/contact';
+import { AboutComponent } from './views/content/about';
+import { RegisterComponent } from './views/content/register';
+import { PricingComponent } from './views/content/pricing';
 
 //Ýlan
 import { JobIndexComponent } from './views/job';
@@ -127,46 +131,55 @@ const routes: Routes = [
         children: [
             { path: '', component: IndexComponent, pathMatch: 'full' },
             { path: 'Index', component: IndexComponent },
+
             { path: 'Blog', component: BlogIndexComponent },
             { path: 'Blog/Liste', component: BlogIndexComponent },
             { path: 'Blog/Liste/:url', component: BlogIndexComponent },
             { path: 'Blog/Detay/:url', component: BlogDetailComponent },
+
             { path: 'Icerik/:url', component: ContentIndexComponent },
+            { path: 'Hakkimizda', component: AboutComponent },
+            { path: 'Iletisim', component: ContactComponent },
+            { path: 'Kayit', component: RegisterComponent },
+            { path: 'Paketler', component: PricingComponent },
+
             { path: 'Ilan', component: JobIndexComponent },
             { path: 'Ilan/Liste', component: JobIndexComponent },
             { path: 'Ilan/Liste/:url', component: JobIndexComponent },
             { path: 'Ilan/Detay/:url', component: JobDetailComponent },
-            { path: 'Firma', component: EmployerIndexComponent },
-            { path: 'Firma/Liste', component: EmployerIndexComponent },
-            { path: 'Firma/Panel/:url', component: EmployerDashboardComponent },
-            { path: 'Firma/Detay/:url', component: EmployerDetailComponent },
-            { path: 'Firma/Giris', component: EmployerLoginComponent },
-            { path: 'Firma/Profil', component: EmployerProfileComponent },
-            { path: 'Firma/Profil/SifreDegistir', component: EmployerChangePasswordComponent },
-            { path: 'Firma/Ýlan/Liste', component: EmployerJobListComponent },
-            { path: 'Firma/Ýlan/Ekle', component: EmployerJobAddComponent },
-            { path: 'Firma/Ýlan/Duzenle/:url', component: EmployerJobEditComponent },
-            { path: 'Firma/Ýlan/Basvuru/:url', component: EmployerJobApplyComponent },
-            { path: 'Firma/Ýlan/Alarm', component: EmployerJobAlertComponent },
-            { path: 'Firma/Paket/Liste', component: EmployerPackageComponent },
-            { path: 'Firma/Paket/Odemeler', component: EmployerTransactionsComponent },
+
             { path: 'Calisan', component: CandidateIndexComponent },
             { path: 'Calisan/Liste', component: CandidateIndexComponent },
-            { path: 'Calisan/Panel/:url', component: CandidateDashboardComponent },
             { path: 'Calisan/Detay/:url', component: CandidateDetailComponent },
             { path: 'Calisan/Giris', component: CandidateLoginComponent },
+            { path: 'Calisan/Panel', component: CandidateDashboardComponent },
             { path: 'Calisan/Profil', component: CandidateProfileComponent },
             { path: 'Calisan/Profil/SifreDegistir', component: CandidateChangePasswordComponent },
             { path: 'Calisan/Ozgecmis', component: CandidateResumeComponent },
             { path: 'Calisan/Ozgecmis/Liste', component: CandidateResumeComponent },
+            { path: 'Calisan/Ozgecmis/Detay/:url', component: CandidateResumeDetailComponent },
             { path: 'Calisan/Ozgecmis/Ekle', component: CandidateResumeAddComponent },
             { path: 'Calisan/Ozgecmis/Duzenle/:url', component: CandidateResumeEditComponent },
-            { path: 'Calisan/Ozgecmis/Detay/:url', component: CandidateResumeDetailComponent },
             { path: 'Calisan/Ozgecmis/Onyazi', component: CandidateResumeCoverLetterComponent },
-            { path: 'Calisan/Ýlan/Liste', component: CandidateJobListComponent },
-            { path: 'Calisan/Ýlan/Basvuru/:url', component: CandidateJobApplyComponent },
-            { path: 'Calisan/Ýlan/Alarm', component: CandidateJobAlertComponent },
-            { path: 'Calisan/Ýlan/Favori', component: CandidateJobFavoritesComponent },
+            { path: 'Calisan/Ilan/Liste', component: CandidateJobListComponent },
+            { path: 'Calisan/Ilan/Basvuru/:url', component: CandidateJobApplyComponent },
+            { path: 'Calisan/Ilan/Alarm', component: CandidateJobAlertComponent },
+            { path: 'Calisan/Ilan/Favori', component: CandidateJobFavoritesComponent },
+
+            { path: 'Firma', component: EmployerIndexComponent },
+            { path: 'Firma/Liste', component: EmployerIndexComponent },
+            { path: 'Firma/Detay/:url', component: EmployerDetailComponent },
+            { path: 'Firma/Giris', component: EmployerLoginComponent },
+            { path: 'Firma/Panel', component: EmployerDashboardComponent },
+            { path: 'Firma/Profil', component: EmployerProfileComponent },
+            { path: 'Firma/Profil/SifreDegistir', component: EmployerChangePasswordComponent },
+            { path: 'Firma/Ilan/Liste', component: EmployerJobListComponent },
+            { path: 'Firma/Ilan/Ekle', component: EmployerJobAddComponent },
+            { path: 'Firma/Ilan/Duzenle/:url', component: EmployerJobEditComponent },
+            { path: 'Firma/Ilan/Basvuru/:url', component: EmployerJobApplyComponent },
+            { path: 'Firma/Ilan/Alarm', component: EmployerJobAlertComponent },
+            { path: 'Firma/Paket/Liste', component: EmployerPackageComponent },
+            { path: 'Firma/Paket/Odemeler', component: EmployerTransactionsComponent },
         ]
     },
 

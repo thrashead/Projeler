@@ -4,6 +4,8 @@ declare global {
     interface JQuery {
         dataTable(obj: any): JQuery;
         typeahead(obj: any): JQuery;
+        slick(obj: any): JQuery;
+        chosen(obj: any): JQuery;
     }
 }
 

@@ -7,6 +7,8 @@
 .modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}
 
 .main-slider-sec::before {background:none;}
+.inner-header::before {background:none;}
+.inner-header::after {background:none;}
 .forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}
 .forsticky.sticky {opacity: 1;}
