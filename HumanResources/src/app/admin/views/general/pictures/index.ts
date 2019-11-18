@@ -1,64 +1,73 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 import { SharedService } from '../../../services/shared';
+import { AdminLib } from '../../../lib/lib';
 declare var DataTable;
 
 @Component({
-    templateUrl: './index.html'
+	templateUrl: './index.html'
 })
 
-export class AdminPicturesIndexComponent {
-    errorMsg: string;
-    ResimList: any;
+export class AdminPicturesIndexComponent implements OnInit, OnDestroy {
+	errorMsg: string;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
-    removeShow: boolean;
+	callTable: boolean;
 
-    callTable: boolean;
+	insertShow: boolean = false;
+	updateShow: boolean = false;
+	deleteShow: boolean = false;
+	copyShow: boolean = false;
+	removeShow: boolean = false;
 
-    constructor(private service: ModelService, private sharedService: SharedService) {
-    }
+	private subscription: Subscription = new Subscription();
 
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
+	PicturesList: any;
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
-                    this.sharedService.getHasRight(Model, "r").subscribe((rRight: boolean) => {
-                        this.removeShow = rRight;
+	constructor(private service: ModelService, private sharedService: SharedService) {
+	}
 
-                        if (this.callTable == true) {
-                            this.service.get("Pictures", "Index").subscribe((resData: any) => {
-                                this.ResimList = resData;
-                                this.callTable = false;
+	ngOnInit() {
+		this.callTable = true;
+		this.FillData($("#hdnType").val());
+	}
 
-                                DataTable();
+	FillData(Model: any) {
+		this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+			this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+			this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+			this.copyShow = AdminLib.UserRight(userRights, Model, "c");
+			this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
+			this.removeShow = AdminLib.UserRight(userRights, Model, "r");
 
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        }
+			if (this.callTable == true) {
+				this.subscription = this.service.get("Pictures", "Index").subscribe((resData: any) => {
+					this.PicturesList = resData;
+					this.callTable = false;
+	
+					setTimeout(() => {
+						DataTable();
+	
+						$(document)
+							.off("click", ".fg-button")
+							.on("click", ".fg-button", () => {
+								setTimeout(() => {
+									this.FillData($("#hdnType").val());
+								}, 1);
+							});
+					}, 1);
+				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+			}
+	
+			setTimeout(() => {
+				if ($(".dropdown-menu").first().find("a").length <= 0) {
+					$(".btn-group").remove();
+				}
+			}, 1);
+		}, resError => this.errorMsg = resError);
+	}
 
-                        setTimeout(() => {
-                            if ($(".dropdown-menu").first().find("a").length <= 0) {
-                                $(".btn-group").remove();
-                            }
-                        }, 1);
-                    }, resError => this.errorMsg = resError);
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
 }

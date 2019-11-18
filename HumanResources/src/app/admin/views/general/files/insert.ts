@@ -1,74 +1,91 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
+import { AdminLib } from '../../../lib/lib';
 
 @Component({
-    templateUrl: './insert.html'
+	templateUrl: './insert.html'
 })
 
-export class AdminFilesInsertComponent {
-    errorMsg: string;
-    newFile: string;
+export class AdminFilesInsertComponent implements AfterViewChecked {
+	errorMsg: string;
 
-    ekleForm: FormGroup;
-    data: any;
-    uploadData: any;
+	insertForm: FormGroup;
 
-    model: any;
+	data: any;
+	model: any;
 
-    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
-    }
+	uploadData: any;
+	fileFileUrl : any;
+	nameFileUrl: string;
 
-    ngOnInit() {
-        this.ekleForm = this.formBuilder.group({
-            Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
-            Description: new FormControl(null),
-            FileUrl: new FormControl(null, [Validators.required, Validators.minLength(1)]),
-            Code: new FormControl(null),
-            Active: new FormControl(null),
-        });
-    }
+	private subscription: Subscription = new Subscription();
 
-    onFileSelect(event) {
-        if (event.target.files.length > 0) {
-            this.newFile = event.target.files[0];
-        }
-    }
+	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router) {
+	}
 
-    onSubmit() {
-        this.uploadData = new FormData();
-        this.uploadData.append("file", this.newFile);
+	ngOnInit() {
+		this.data = new Object();
 
-        this.service.post("Files", "InsertUpload", this.uploadData)
-            .subscribe((answer: any) => {
-                if (answer != null) {
-                    if (answer.Mesaj == null) {
-                        this.data = new Object();
-                        this.data.Title = this.ekleForm.get("Title").value;
-                        this.data.Description = this.ekleForm.get("Description").value;
-                        this.data.FileUrl = answer.FileUrl;
-                        this.data.Code = this.ekleForm.get("Code").value;
-                        this.data.Active = this.ekleForm.get("Active").value;
+		AdminLib.ConvertToCKEditor("Description");
 
-                        this.service.post("Files", "Insert", this.data)
-                            .subscribe((answer2: any) => {
-                                if (answer2.Mesaj == null) {
-                                    this.router.navigate(['/Admin/Files']);
-                                }
-                                else {
-                                    $(".alertMessage").text(answer2.Mesaj);
-                                    $(".alert-error").fadeIn("slow");
-                                }
-                            },
-                                resError => this.errorMsg = resError);
-                    }
-                    else {
-                        $(".alertMessage").text(answer.Mesaj);
-                        $(".alert-error").fadeIn("slow");
-                    }
-                }
-            },
-                resError => this.errorMsg = resError);
-    }
+		this.insertForm = this.formBuilder.group({
+			Title: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+			Description: new FormControl(null),
+			FileUrl: new FormControl(null),
+			Code: new FormControl(null, [Validators.maxLength(10)]),
+			Active: new FormControl(null),
+		});
+	}
+
+	ngAfterViewChecked() {
+		$("#Description").next("div.ck").find(".ck-content").attr("data-id", "Description");
+	}
+
+	onFileUrlFileSelect(event) {
+		if (event.target.files.length > 0) {
+			this.nameFileUrl = AdminLib.UploadFileName(event.target.files[0].name);
+			this.data.FileUrl = this.nameFileUrl;
+			this.data.FileUrlHasFile = true;
+			this.fileFileUrl = event.target.files[0];
+		}
+	}
+
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
+
+	onSubmit() {
+		this.uploadData = new FormData();
+
+		if (this.data.FileUrlHasFile)
+			this.uploadData.append("file", this.fileFileUrl, this.nameFileUrl);
+
+		this.subscription = this.service.post("Files", "InsertUpload", this.uploadData).subscribe((answerUpload: any) => {
+			if (answerUpload.Mesaj == null)
+			{
+				this.data.Title = this.insertForm.get("Title").value;
+				this.data.Description = AdminLib.CKValue("Description");
+				this.data.Code = this.insertForm.get("Code").value;
+				this.data.Active = this.insertForm.get("Active").value;
+
+				this.service.post("Files", "Insert", this.data).subscribe((answer: any) => {
+					if (answer.Mesaj == null) {
+						this.router.navigate(['/Admin/Files']);
+					}
+					else {
+						$(".alertMessage").text(answer.Mesaj);
+						$(".alert-error").fadeIn("slow");
+					}
+				}, resError => this.errorMsg = resError);
+			}
+			else
+			{
+				$(".alertMessage").text(answerUpload.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+	}
 }

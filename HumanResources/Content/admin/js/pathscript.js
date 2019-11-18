@@ -10,6 +10,7 @@ var AdminStylePath = null;
 var AdminImagePath = null;
 var AdminAjaxPath = null;
 
+var SystemUser = "admin";
 var UploadPath = null;
 
 var Lang = null;
@@ -18,36 +19,37 @@ var Url = null;
 var Urling = new Object();
 
 $(document).ready(function () {
-    MainPath = "http://localhost/HumanResources";
-    ScriptPath = MainPath + "/Content/js";
-    StylePath = MainPath + "/Content/css";
-    ImagePath = MainPath + "/Content/img";
-    AjaxPath = MainPath + "/Ajax";
+	MainPath = "http://localhost/HumanResources";
+	ScriptPath = MainPath + "/Content/js";
+	StylePath = MainPath + "/Content/css";
+	ImagePath = MainPath + "/Content/img";
+	AjaxPath = MainPath + "/Ajax";
 
-    AdminPath = "http://localhost/HumanResources/Admin";
-    AdminScriptPath = MainPath + "/Content/admin/js";
-    AdminStylePath = MainPath + "/Content/admin/css";
-    AdminImagePath = MainPath + "/Content/admin/img";
-    AdminAjaxPath = MainPath + "/Ajax/Ajax";
+	AdminPath = "http://localhost/HumanResources/Admin";
+	AdminScriptPath = MainPath + "/Content/admin/js";
+	AdminStylePath = MainPath + "/Content/admin/css";
+	AdminImagePath = MainPath + "/Content/admin/img";
+	AdminAjaxPath = MainPath + "/Ajax/Ajax";
 
-    UploadPath = MainPath + "/Uploads";
+	UploadPath = MainPath + "/Uploads";
 
-    Lang = $("#hdnLang").val();
-    Url = $("#hdnUrl").val();
-    UserID = $("#hdnUserID").val();
+	Lang = $("#hdnLang").val();
+	Url = $("#hdnUrl").val();
+	UserID = $("#hdnUserID").val();
 
-    if (Url != undefined) {
-        var tempurl = Url.replace(AdminPath + "/", "");
-        var extParams = tempurl.split('?')[1];
+	if (Url != undefined) {
+		var tempurl = Url.replace(AdminPath + "/", "");
+		var extParams = tempurl.split('?')[1];
 
-        tempurl = tempurl.replace("?" + extParams, "");
+		tempurl = tempurl.replace("?" + extParams, "");
+		tempurl = tempurl.replace(AdminPath, "");
 
-        Urling.path = tempurl;
-        Urling.controller = tempurl.split('/')[0];
-        Urling.action = tempurl.split('/')[1];
-        Urling.parameter = tempurl.split('/')[2];
+		Urling.path = tempurl;
+		Urling.controller = tempurl.split('/')[0];
+		Urling.action = tempurl.split('/')[1];
+		Urling.parameter = tempurl.split('/')[2];
 
-        if (extParams != undefined)
-            Urling.parameters = extParams.split('&');
-    }
+		if (extParams != undefined)
+			Urling.parameters = extParams.split('&');
+	}
 });

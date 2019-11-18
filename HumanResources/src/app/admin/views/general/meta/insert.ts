@@ -1,9 +1,9 @@
-﻿import { Component, AfterViewChecked } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import { Subscription } from "rxjs";
-import { ModelService } from "../../../services/model";
-import { AdminLib } from '../../../lib/methods';
+﻿import { Component, AfterViewChecked } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
+import { AdminLib } from '../../../lib/lib';
 
 @Component({
 	templateUrl: './insert.html'
@@ -13,8 +13,8 @@ export class AdminMetaInsertComponent implements AfterViewChecked {
 	errorMsg: string;
 
 	insertForm: FormGroup;
-	data: any;
 
+	data: any;
 	model: any;
 
 	private subscription: Subscription = new Subscription();
@@ -47,16 +47,14 @@ export class AdminMetaInsertComponent implements AfterViewChecked {
 		this.data.Content = AdminLib.CKValue("Content");
 		this.data.Code = this.insertForm.get("Code").value;
 
-		this.service.post("Meta", "Insert", this.data)
-			.subscribe((answer: any) => {
-				if (answer.Mesaj == null) {
-					this.router.navigate(['/Admin/Meta']);
-				}
-				else {
-					$(".alertMessage").text(answer.Mesaj);
-					$(".alert-error").fadeIn("slow");
-				}
-			},
-				resError => this.errorMsg = resError);
+		this.service.post("Meta", "Insert", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/Meta']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
 	}
 }

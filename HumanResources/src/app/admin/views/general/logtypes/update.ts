@@ -1,98 +1,104 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 import { SharedService } from '../../../services/shared';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { AdminLib } from '../../../lib/lib';
 declare var DataTable;
 
 @Component({
-    templateUrl: './update.html'
+	templateUrl: './update.html'
 })
 
 export class AdminLogTypesUpdateComponent {
-    errorMsg: string;
-    id: string;
+	errorMsg: string;
+	id: string;
 
-    duzenleForm: FormGroup;
-    data: any;
+	callTable: boolean;
 
-    model: any;
+	updateForm: FormGroup;
 
-    insertShow: boolean;
-    updateShow: boolean;
-    deleteShow: boolean;
+	insertShow: boolean = false;
+	updateShow: boolean = false;
+	deleteShow: boolean = false;
+	copyShow: boolean = false;
 
-    callTable: boolean;
+	data: any;
+	model: any;
 
-    constructor(private service: ModelService, private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
-    }
+	private subscription: Subscription = new Subscription();
 
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
+	constructor(private service: ModelService, private sharedService: SharedService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
+	}
 
-        this.duzenleForm = this.formBuilder.group({
-            ID: new FormControl(null, [Validators.required, Validators.min(1)]),
-            Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
-            ShortName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
-            Description: new FormControl(null),
-        });
-    }
+	ngOnInit() {
+		this.data = new Object();
 
-    onSubmit() {
-        this.data = new Object();
-        this.data.ID = this.duzenleForm.get("ID").value;
-        this.data.Name = this.duzenleForm.get("Name").value;
-        this.data.ShortName = this.duzenleForm.get("ShortName").value;
-        this.data.Description = this.duzenleForm.get("Description").value;
+		this.callTable = true;
+		this.FillData($("#hdnType").val());
 
-        this.service.post("LogTypes", "Update", this.data)
-            .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.router.navigate(['/Admin/LogTypes']);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
-                }
-            },
-                resError => this.errorMsg = resError);
-    }
+		this.updateForm = this.formBuilder.group({
+			ID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+			ShortName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
+		});
+	}
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getHasRight(Model, "i").subscribe((iRight: boolean) => {
-            this.insertShow = iRight;
-            this.sharedService.getHasRight(Model, "u").subscribe((uRight: boolean) => {
-                this.updateShow = uRight;
-                this.sharedService.getHasRight(Model, "d").subscribe((dRight: boolean) => {
-                    this.deleteShow = dRight;
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
 
-                    if (this.callTable == true) {
-                        this.route.params.subscribe((params: Params) => {
-                            this.id = params['id'];
-                            this.service.get("LogTypes", "Update", this.id).subscribe((resData: any) => {
-                                this.model = resData;
-                                this.callTable = false;
+	onSubmit() {
+		this.data.ID = this.updateForm.get("ID").value;
+		this.data.Name = this.updateForm.get("Name").value;
+		this.data.ShortName = this.updateForm.get("ShortName").value;
 
-                                DataTable();
+		this.service.post("LogTypes", "Update", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/LogTypes']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
+	}
 
-                                $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                                    setTimeout(() => {
-                                        this.UserRightsControl($("#hdnType").val());
-                                    }, 1);
-                                });
-                            }, resError => this.errorMsg = resError);
-                        });
-                    }
+	FillData(Model: any) {
+		this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+			this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+			this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+			this.copyShow = AdminLib.UserRight(userRights, Model, "c");
+			this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
 
-                    setTimeout(() => {
-                        if ($(".dropdown-menu").first().find("a").length <= 0) {
-                            $(".btn-group").remove();
-                        }
-                    }, 1);
+				if (this.callTable == true) {
+					this.route.params.subscribe((params: Params) => {
+						this.id = params['id'];
+						this.subscription = this.service.get("LogTypes", "Update", this.id).subscribe((resData: any) => {
+							this.model = resData;
+							this.callTable = false;
 
-                }, resError => this.errorMsg = resError);
-            }, resError => this.errorMsg = resError);
-        }, resError => this.errorMsg = resError);
-    }
+							setTimeout(() => {
+								DataTable();
+
+								$(document)
+									.off("click", ".fg-button")
+									.on("click", ".fg-button", () => {
+										setTimeout(() => {
+											this.FillData($("#hdnType").val());
+										}, 1);
+									});
+							}, 1);
+						}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+					});
+				}
+
+				setTimeout(() => {
+					if ($(".dropdown-menu").first().find("a").length <= 0) {
+						$(".btn-group").remove();
+					}
+				}, 1);
+		}, resError => this.errorMsg = resError);
+	}
 }

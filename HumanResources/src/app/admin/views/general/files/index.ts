@@ -1,62 +1,73 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 import { SharedService } from '../../../services/shared';
+import { AdminLib } from '../../../lib/lib';
 declare var DataTable;
 
 @Component({
-    templateUrl: './index.html'
+	templateUrl: './index.html'
 })
 
-export class AdminFilesIndexComponent {
-    errorMsg: string;
-    DosyaList: any;
+export class AdminFilesIndexComponent implements OnInit, OnDestroy {
+	errorMsg: string;
 
-    insertShow: boolean = false;
-    updateShow: boolean = false;
-    deleteShow: boolean = false;
-    removeShow: boolean = false;
+	callTable: boolean;
 
-    callTable: boolean;
+	insertShow: boolean = false;
+	updateShow: boolean = false;
+	deleteShow: boolean = false;
+	copyShow: boolean = false;
+	removeShow: boolean = false;
 
-    constructor(private service: ModelService, private sharedService: SharedService) {
-    }
+	private subscription: Subscription = new Subscription();
 
-    ngOnInit() {
-        this.callTable = true;
-        this.UserRightsControl($("#hdnType").val());
-    }
+	FilesList: any;
 
-    UserRightsControl(Model: any) {
-        this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
-            userRights.forEach((item, i) => {
-                switch (item.ShortName) {
-                    case "i": this.insertShow = true; break;
-                    case "u": this.updateShow = true; break;
-                    case "d": this.deleteShow = true; break;
-                    case "r": this.removeShow = true; break;
-                }
-            });
+	constructor(private service: ModelService, private sharedService: SharedService) {
+	}
 
-            if (this.callTable == true) {
-                this.service.get("Files", "Index").subscribe((resData: any) => {
-                    this.DosyaList = resData;
-                    this.callTable = false;
+	ngOnInit() {
+		this.callTable = true;
+		this.FillData($("#hdnType").val());
+	}
 
-                    DataTable();
+	FillData(Model: any) {
+		this.sharedService.getCurrentUserRights(Model).subscribe((userRights: any) => {
+			this.insertShow = AdminLib.UserRight(userRights, Model, "i");
+			this.updateShow = AdminLib.UserRight(userRights, Model, "u");
+			this.copyShow = AdminLib.UserRight(userRights, Model, "c");
+			this.deleteShow = AdminLib.UserRight(userRights, Model, "d");
+			this.removeShow = AdminLib.UserRight(userRights, Model, "r");
 
-                    $(document).off("click", ".fg-button").on("click", ".fg-button", () => {
-                        setTimeout(() => {
-                            this.UserRightsControl($("#hdnType").val());
-                        }, 1);
-                    });
-                }, resError => this.errorMsg = resError);
-            }
+			if (this.callTable == true) {
+				this.subscription = this.service.get("Files", "Index").subscribe((resData: any) => {
+					this.FilesList = resData;
+					this.callTable = false;
+	
+					setTimeout(() => {
+						DataTable();
+	
+						$(document)
+							.off("click", ".fg-button")
+							.on("click", ".fg-button", () => {
+								setTimeout(() => {
+									this.FillData($("#hdnType").val());
+								}, 1);
+							});
+					}, 1);
+				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+			}
+	
+			setTimeout(() => {
+				if ($(".dropdown-menu").first().find("a").length <= 0) {
+					$(".btn-group").remove();
+				}
+			}, 1);
+		}, resError => this.errorMsg = resError);
+	}
 
-            setTimeout(() => {
-                if ($(".dropdown-menu").first().find("a").length <= 0) {
-                    $(".btn-group").remove();
-                }
-            }, 1);
-        }, resError => this.errorMsg = resError);
-    }
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
 }

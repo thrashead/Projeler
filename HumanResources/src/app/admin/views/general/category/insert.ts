@@ -1,9 +1,9 @@
-﻿import { Component, AfterViewChecked } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import { Subscription } from "rxjs";
-import { ModelService } from "../../../services/model";
-import { AdminLib } from '../../../lib/methods';
+﻿import { Component, AfterViewChecked } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
+import { AdminLib } from '../../../lib/lib';
 
 @Component({
 	templateUrl: './insert.html'
@@ -13,8 +13,8 @@ export class AdminCategoryInsertComponent implements AfterViewChecked {
 	errorMsg: string;
 
 	insertForm: FormGroup;
-	data: any;
 
+	data: any;
 	model: any;
 
 	private subscription: Subscription = new Subscription();
@@ -25,11 +25,15 @@ export class AdminCategoryInsertComponent implements AfterViewChecked {
 	ngOnInit() {
 		this.data = new Object();
 
+		this.subscription = this.service.get("Category", "Insert").subscribe((answer: any) => {
+			this.model = answer;
+		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+
 		AdminLib.ConvertToCKEditor("Description1");
 		AdminLib.ConvertToCKEditor("Description2");
 
 		this.insertForm = this.formBuilder.group({
-			ParentID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			ParentID: new FormControl(null, [Validators.required, Validators.min(0)]),
 			CategoryName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
 			Code: new FormControl(null, [Validators.maxLength(15)]),
 			ShortDesc1: new FormControl(null, [Validators.maxLength(255)]),
@@ -59,16 +63,14 @@ export class AdminCategoryInsertComponent implements AfterViewChecked {
 		this.data.Description2 = AdminLib.CKValue("Description2");
 		this.data.Show = this.insertForm.get("Show").value;
 
-		this.service.post("Category", "Insert", this.data)
-			.subscribe((answer: any) => {
-				if (answer.Mesaj == null) {
-					this.router.navigate(['/Admin/Category']);
-				}
-				else {
-					$(".alertMessage").text(answer.Mesaj);
-					$(".alert-error").fadeIn("slow");
-				}
-			},
-				resError => this.errorMsg = resError);
+		this.service.post("Category", "Insert", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/Category']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
 	}
 }

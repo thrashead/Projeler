@@ -1,56 +1,57 @@
 ﻿<div id="content">
-    <div id="content-header">
-        <div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-file"></i> Dosyalar</a></div>
-    </div>
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon"><i class="icon-file"></i></span>
-                        <h5>Dosyalar</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Başlık</th>
-                                    <th>Dosya</th>
-                                    <th>Aktif</th>
-                                    <th>İşlem</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of DosyaList">
-                                    <td>{{ item?.ID }}</td>
-                                    <td>{{ item?.Title }}</td>
-                                    <td><a class="btn btn-mini btn-info" href="/HumanResources/Uploads/{{ item?.FileUrl }}" target="_blank">{{ item?.FileUrl }}</a></td>
-                                    <td style="text-align:center;"><img *ngIf="item?.Active" class="active" /><img *ngIf="!item?.Active" class="passive" /></td>
-                                    <td style="text-align:center;">
-                                        <div class="btn-group" style="text-align:left;">
-                                            <button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="updLink" *ngIf="updateShow" [routerLink]="['/Admin/Files/Update/' + item?.ID]">Düzenle</a></li>
-                                                <li><a class="rmvLink" *ngIf="removeShow" data-toggle="modal" href="#rmvData" data-controller="Files" [attr.data-id]="item?.ID">Kaldır</a></li>
-                                                <li><a class="dltLink" *ngIf="deleteShow" data-toggle="modal" href="#dltData" data-controller="Files" [attr.data-id]="item?.ID">Sil</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div id="content-header">
+		<div id="breadcrumb"> <a href="javascript:;" class="tip-bottom"><i class="icon-file"></i> Dosya Tablosu</a></div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"><i class="icon-file"></i></span>
+						<h5>Dosya Tablosu</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Başlık</th>
+									<th>Açıklama</th>
+									<th class="hideColumn">Dosya</th>
+									<th>İşlem</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of FilesList">
+									<td>{{ item?.ID }}</td>
+									<td>{{ item?.Title }}</td>
+									<td>{{ item?.Description }}</td>
+									<td class="hideColumn"><a class="btn btn-mini btn-info" href="/HumanResources/Uploads/{{ item?.FileUrl }}" target="_blank">{{ item?.FileUrl }}</a></td>
+									<td style="text-align:center;">
+										<div class="btn-group" style="text-align:left;">
+											<button data-toggle="dropdown" class="btn btn-mini btn-primary dropdown-toggle">İşlem <span class="caret"></span></button>
+											<ul class="dropdown-menu">
+												<li *ngIf="updateShow"><a class="updLink" [routerLink]="['/Admin/Files/Update/' + item?.ID]">Düzenle</a></li>
+												<li *ngIf="copyShow"><a class="cpyLink" href="#cpyData" data-toggle="modal" data-controller="Files" [attr.data-id]="item?.ID">Kopyala</a></li>
+												<li *ngIf="removeShow"><a class="rmvLink" href="#rmvData" data-toggle="modal" data-controller="Files" [attr.data-id]="item?.ID">Kaldır</a></li>
+												<li *ngIf="deleteShow"><a class="dltLink" href="#dltData" data-toggle="modal" data-controller="Files" [attr.data-id]="item?.ID">Sil</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <div class="pagelinks">
-            <a routerLink="/Admin/Files/Insert" class="btn btn-primary btn-add" *ngIf="insertShow">Dosya Ekle</a>
-        </div>
+		<div class="pagelinks" *ngIf="insertShow">
+			<a routerLink="/Admin/Files/Insert" class="btn btn-primary btn-add">Dosya Ekle</a>
+		</div>
 
-        <input id="hdnType" type="hidden" value="General" />
-    </div>
+		<input id="hdnType" type="hidden" value="Files" />
+	</div>
 </div>
 
 <admin-copydelete></admin-copydelete>

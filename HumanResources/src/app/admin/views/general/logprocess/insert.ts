@@ -1,57 +1,59 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+﻿import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 
 @Component({
-    templateUrl: './insert.html'
+	templateUrl: './insert.html'
 })
 
 export class AdminLogProcessInsertComponent {
-    errorMsg: string;
-    linkID: string;
+	errorMsg: string;
 
-    ekleForm: FormGroup;
-    data: any;
+	insertForm: FormGroup;
 
-    model: any;
+	data: any;
+	model: any;
 
-    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
-    }
+	private subscription: Subscription = new Subscription();
 
-    ngOnInit() {
-        this.route.params.subscribe((params: Params) => {
-            this.linkID = params['linkID'];
-            this.service.get("LogProcess", "Insert", this.linkID).subscribe((resData: any) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
+	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router) {
+	}
 
-        this.ekleForm = this.formBuilder.group({
-            LogTypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
-            Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
-            ShortName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
-            Description: new FormControl(null),
-        });
-    }
+	ngOnInit() {
+		this.data = new Object();
 
-    onSubmit() {
-        this.data = new Object();
-        this.data.LogTypeID = this.ekleForm.get("LogTypeID").value;
-        this.data.Name = this.ekleForm.get("Name").value;
-        this.data.ShortName = this.ekleForm.get("ShortName").value;
-        this.data.Description = this.ekleForm.get("Description").value;
+		this.subscription = this.service.get("LogProcess", "Insert").subscribe((answer: any) => {
+			this.model = answer;
+		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 
-        this.service.post("LogProcess", "Insert", this.data)
-            .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.router.navigate(['/Admin/LogProcess']);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
-                }
-            },
-                resError => this.errorMsg = resError);
-    }
+		this.insertForm = this.formBuilder.group({
+			LogTypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+			ShortName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
+			Description: new FormControl(null, [Validators.maxLength(255)]),
+		});
+	}
+
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
+
+	onSubmit() {
+		this.data.LogTypeID = this.insertForm.get("LogTypeID").value;
+		this.data.Name = this.insertForm.get("Name").value;
+		this.data.ShortName = this.insertForm.get("ShortName").value;
+		this.data.Description = this.insertForm.get("Description").value;
+
+		this.service.post("LogProcess", "Insert", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/LogProcess']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
+	}
 }

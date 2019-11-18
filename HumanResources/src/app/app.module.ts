@@ -22,9 +22,9 @@ import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminCityIndexComponent } from './admin/views/general/city';
-import { AdminCityInsertComponent } from './admin/views/general/city/insert';
-import { AdminCityUpdateComponent } from './admin/views/general/city/update';
+import { AdminCityIndexComponent } from './admin/views/humanresources/city';
+import { AdminCityInsertComponent } from './admin/views/humanresources/city/insert';
+import { AdminCityUpdateComponent } from './admin/views/humanresources/city/update';
 
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
@@ -81,7 +81,7 @@ import { AdminUsersInsertComponent } from './admin/views/general/users/insert';
 import { AdminUsersUpdateComponent } from './admin/views/general/users/update';
 import { AdminUsersChangeGroupComponent } from './admin/views/general/users/changegroup';
 
-import { AdminVisitorsIndexComponent } from './admin/views/general/visitors';
+import { AdminVisitorsIndexComponent } from './admin/views/humanresources/visitors';
 
 //Admin HumanResources
 
@@ -92,7 +92,7 @@ import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
 import { SiteService } from './services/site';
 import { Lib } from './lib/methods';
-import { AdminLib } from './admin/lib/methods';
+import { AdminLib } from './admin/lib/lib';
 
 //Layout
 import { LayoutComponent } from './views/shared/layout';
@@ -121,6 +121,48 @@ import { HomeCompaniesComponent } from './views/home/parts/companies';
 import { HomeTipsComponent } from './views/home/parts/tips';
 import { HomeQuestionComponent } from './views/home/parts/question';
 
+//Blog
+import { BlogIndexComponent } from './views/blog';
+import { BlogDetailComponent } from './views/blog/detail';
+
+//Ýçerik
+import { ContentIndexComponent } from './views/content';
+
+//Ýlan
+import { JobIndexComponent } from './views/job';
+import { JobDetailComponent } from './views/job/detail';
+
+//Çalýþan
+import { CandidateIndexComponent } from './views/candidate';
+import { CandidateDashboardComponent } from './views/candidate/dashboard';
+import { CandidateDetailComponent } from './views/candidate/detail';
+import { CandidateLoginComponent } from './views/candidate/login';
+import { CandidateProfileComponent } from './views/candidate/profile';
+import { CandidateChangePasswordComponent } from './views/candidate/profile/changepassword';
+import { CandidateResumeComponent } from './views/candidate/resume';
+import { CandidateResumeAddComponent } from './views/candidate/resume/add';
+import { CandidateResumeEditComponent } from './views/candidate/resume/edit';
+import { CandidateResumeDetailComponent } from './views/candidate/resume/detail';
+import { CandidateResumeCoverLetterComponent } from './views/candidate/resume/coverletter';
+import { CandidateJobListComponent } from './views/candidate/job/list';
+import { CandidateJobApplyComponent } from './views/candidate/job/apply';
+import { CandidateJobFavoritesComponent } from './views/candidate/job/favorites';
+import { CandidateJobAlertComponent } from './views/candidate/job/alert';
+
+//Firma
+import { EmployerIndexComponent } from './views/employer';
+import { EmployerDashboardComponent } from './views/employer/dashboard';
+import { EmployerDetailComponent } from './views/employer/detail';
+import { EmployerLoginComponent } from './views/employer/login';
+import { EmployerProfileComponent } from './views/employer/profile';
+import { EmployerChangePasswordComponent } from './views/employer/profile/changepassword';
+import { EmployerJobListComponent } from './views/employer/job/list';
+import { EmployerJobAddComponent } from './views/employer/job/add';
+import { EmployerJobEditComponent } from './views/employer/job/edit';
+import { EmployerJobApplyComponent } from './views/employer/job/apply';
+import { EmployerJobAlertComponent } from './views/employer/job/alert';
+import { EmployerPackageComponent } from './views/employer/package';
+import { EmployerTransactionsComponent } from './views/employer/package/transactions';
 
 @NgModule({
     declarations: [
@@ -152,6 +194,49 @@ import { HomeQuestionComponent } from './views/home/parts/question';
         HomeCompaniesComponent,
         HomeTipsComponent,
         HomeQuestionComponent,
+
+        //Blog
+        BlogIndexComponent,
+        BlogDetailComponent,
+
+        //Ýçerik
+        ContentIndexComponent,
+
+        //Ýlan
+        JobIndexComponent,
+        JobDetailComponent,
+
+        //Çalýþan
+        CandidateIndexComponent,
+        CandidateDashboardComponent,
+        CandidateDetailComponent,
+        CandidateLoginComponent,
+        CandidateProfileComponent,
+        CandidateChangePasswordComponent,
+        CandidateResumeComponent,
+        CandidateResumeAddComponent,
+        CandidateResumeEditComponent,
+        CandidateResumeDetailComponent,
+        CandidateResumeCoverLetterComponent,
+        CandidateJobListComponent,
+        CandidateJobApplyComponent,
+        CandidateJobFavoritesComponent,
+        CandidateJobAlertComponent,
+
+        //Firma
+        EmployerIndexComponent,
+        EmployerDashboardComponent,
+        EmployerDetailComponent,
+        EmployerProfileComponent,
+        EmployerChangePasswordComponent,
+        EmployerLoginComponent,
+        EmployerJobListComponent,
+        EmployerJobAddComponent,
+        EmployerJobEditComponent,
+        EmployerJobApplyComponent,
+        EmployerJobAlertComponent,
+        EmployerPackageComponent,
+        EmployerTransactionsComponent,
 
         //Admin
         AdminLayoutComponent,

@@ -1,8 +1,8 @@
-﻿import { Component } from "@angular/core";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
-import { Subscription } from "rxjs";
-import { ModelService } from "../../../services/model";
+﻿import { Component } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 
 @Component({
 	templateUrl: './update.html'
@@ -12,12 +12,12 @@ export class AdminGalleryUpdateComponent {
 	errorMsg: string;
 	id: string;
 
-	updateForm: FormGroup;
-	data: any;
-
-	model: any;
-
 	callTable: boolean;
+
+	updateForm: FormGroup;
+
+	data: any;
+	model: any;
 
 	private subscription: Subscription = new Subscription();
 
@@ -37,18 +37,6 @@ export class AdminGalleryUpdateComponent {
 		});
 	}
 
-	FillData() {
-		if (this.callTable == true) {
-			this.route.params.subscribe((params: Params) => {
-				this.id = params['id'];
-				this.subscription = this.service.get("Gallery", "Update", this.id).subscribe((answer: any) => {
-					this.model = answer;
-					this.callTable = false;
-				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
-			});
-		}
-	}
-
 	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
 	}
@@ -58,16 +46,26 @@ export class AdminGalleryUpdateComponent {
 		this.data.Title = this.updateForm.get("Title").value;
 		this.data.Code = this.updateForm.get("Code").value;
 
-		this.service.post("Gallery", "Update", this.data)
-			.subscribe((answer: any) => {
-				if (answer.Mesaj == null) {
-					this.router.navigate(['/Admin/Gallery']);
-				}
-				else {
-					$(".alertMessage").text(answer.Mesaj);
-					$(".alert-error").fadeIn("slow");
-				}
-			},
-				resError => this.errorMsg = resError);
+		this.service.post("Gallery", "Update", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/Gallery']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
+	}
+
+	FillData() {
+		if (this.callTable == true) {
+			this.route.params.subscribe((params: Params) => {
+				this.id = params['id'];
+				this.subscription = this.service.get("Gallery", "Update", this.id).subscribe((resData: any) => {
+					this.model = resData;
+					this.callTable = false;
+				}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
+			});
+		}
 	}
 }

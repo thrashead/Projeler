@@ -1,47 +1,53 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
+﻿import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 
 @Component({
-    templateUrl: './insert.html'
+	templateUrl: './insert.html'
 })
 
 export class AdminUserGroupsInsertComponent {
-    errorMsg: string;
+	errorMsg: string;
 
-    ekleForm: FormGroup;
-    data: any;
+	insertForm: FormGroup;
 
-    model: any;
+	data: any;
+	model: any;
 
-    constructor(private service: ModelService, private router: Router, private formBuilder: FormBuilder) {
-    }
+	private subscription: Subscription = new Subscription();
 
-    ngOnInit() {
-        this.ekleForm = this.formBuilder.group({
-            Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(25)]),
-            ShortName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
-            Description: new FormControl(null),
-        });
-    }
+	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router) {
+	}
 
-    onSubmit() {
-        this.data = new Object();
-        this.data.Name = this.ekleForm.get("Name").value;
-        this.data.ShortName = this.ekleForm.get("ShortName").value;
-        this.data.Description = this.ekleForm.get("Description").value;
+	ngOnInit() {
+		this.data = new Object();
 
-        this.service.post("UserGroups", "Insert", this.data)
-            .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.router.navigate(['/Admin/UserGroups']);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
-                }
-            },
-                resError => this.errorMsg = resError);
-    }
+		this.insertForm = this.formBuilder.group({
+			Name: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+			ShortName: new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
+			Description: new FormControl(null, [Validators.maxLength(255)]),
+		});
+	}
+
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
+
+	onSubmit() {
+		this.data.Name = this.insertForm.get("Name").value;
+		this.data.ShortName = this.insertForm.get("ShortName").value;
+		this.data.Description = this.insertForm.get("Description").value;
+
+		this.service.post("UserGroups", "Insert", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/UserGroups']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
+	}
 }

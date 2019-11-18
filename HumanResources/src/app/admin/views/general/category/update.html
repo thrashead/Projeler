@@ -1,6 +1,6 @@
 ﻿<div id="content">
 	<div id="content-header">
-		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-home"></i> Kategori Düzenle</a></div>
+		<div id="breadcrumb"> <a class="tip-bottom"><i class="icon-sitemap"></i> Kategori Düzenle</a></div>
 	</div>
 	<div class="container-fluid">
 		<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
@@ -13,7 +13,7 @@
 				</div>
 				<div class="clear"></div>
 				<div class="editor-field">
-					<input id="ParentID" [ngModel]="model?.ParentID" formControlName="ParentID" type="number" value="{{ model?.ParentID }}" />
+					<select id="ParentID" [ngModel]="model?.ParentID" formControlName="ParentID"><option *ngFor="let item of model?.ParentCategories" selected="{{ item?.Selected ? 'selected' : '' }}" value="{{ item?.Value }}">{{ item?.Text }}</option></select>
 					<br />
 					<!-- ParentID -->
 				</div>
@@ -106,5 +106,7 @@
 					<a routerLink="/Admin/Category" class="btn btn-danger btn-cancel">İptal</a>
 			</fieldset>
 		</form>
+
+		<input id="hdnType" type="hidden" value="Category" />
 	</div>
 </div>

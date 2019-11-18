@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LayoutComponent } from './views/shared/layout';
-import { IndexComponent } from './views/home/index';
-
+//Admin
 import { AdminLayoutComponent } from './admin/views/shared/layoutAdmin';
 import { AdminLoginComponent } from './admin/views/home/login';
 import { AdminIndexComponent } from './admin/views/home/index';
@@ -12,9 +10,9 @@ import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminCityIndexComponent } from './admin/views/general/city';
-import { AdminCityInsertComponent } from './admin/views/general/city/insert';
-import { AdminCityUpdateComponent } from './admin/views/general/city/update';
+import { AdminCityIndexComponent } from './admin/views/humanresources/city';
+import { AdminCityInsertComponent } from './admin/views/humanresources/city/insert';
+import { AdminCityUpdateComponent } from './admin/views/humanresources/city/update';
 
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
@@ -71,7 +69,54 @@ import { AdminUsersInsertComponent } from './admin/views/general/users/insert';
 import { AdminUsersUpdateComponent } from './admin/views/general/users/update';
 import { AdminUsersChangeGroupComponent } from './admin/views/general/users/changegroup';
 
-import { AdminVisitorsIndexComponent } from './admin/views/general/visitors';
+import { AdminVisitorsIndexComponent } from './admin/views/humanresources/visitors';
+
+//Home
+import { LayoutComponent } from './views/shared/layout';
+import { IndexComponent } from './views/home/index';
+
+//Blog
+import { BlogIndexComponent } from './views/blog';
+import { BlogDetailComponent } from './views/blog/detail';
+
+//Ýçerik
+import { ContentIndexComponent } from './views/content';
+
+//Ýlan
+import { JobIndexComponent } from './views/job';
+import { JobDetailComponent } from './views/job/detail';
+
+//Çalýþan
+import { CandidateIndexComponent } from './views/candidate';
+import { CandidateDashboardComponent } from './views/candidate/dashboard';
+import { CandidateDetailComponent } from './views/candidate/detail';
+import { CandidateLoginComponent } from './views/candidate/login';
+import { CandidateProfileComponent } from './views/candidate/profile';
+import { CandidateChangePasswordComponent } from './views/candidate/profile/changepassword';
+import { CandidateResumeComponent } from './views/candidate/resume';
+import { CandidateResumeAddComponent } from './views/candidate/resume/add';
+import { CandidateResumeEditComponent } from './views/candidate/resume/edit';
+import { CandidateResumeDetailComponent } from './views/candidate/resume/detail';
+import { CandidateResumeCoverLetterComponent } from './views/candidate/resume/coverletter';
+import { CandidateJobListComponent } from './views/candidate/job/list';
+import { CandidateJobApplyComponent } from './views/candidate/job/apply';
+import { CandidateJobFavoritesComponent } from './views/candidate/job/favorites';
+import { CandidateJobAlertComponent } from './views/candidate/job/alert';
+
+//Firma
+import { EmployerIndexComponent } from './views/employer';
+import { EmployerDashboardComponent } from './views/employer/dashboard';
+import { EmployerDetailComponent } from './views/employer/detail';
+import { EmployerLoginComponent } from './views/employer/login';
+import { EmployerProfileComponent } from './views/employer/profile';
+import { EmployerChangePasswordComponent } from './views/employer/profile/changepassword';
+import { EmployerJobListComponent } from './views/employer/job/list';
+import { EmployerJobAddComponent } from './views/employer/job/add';
+import { EmployerJobEditComponent } from './views/employer/job/edit';
+import { EmployerJobApplyComponent } from './views/employer/job/apply';
+import { EmployerJobAlertComponent } from './views/employer/job/alert';
+import { EmployerPackageComponent } from './views/employer/package';
+import { EmployerTransactionsComponent } from './views/employer/package/transactions';
 
 const routes: Routes = [
     { path: 'Admin/Login', component: AdminLoginComponent },
@@ -82,6 +127,46 @@ const routes: Routes = [
         children: [
             { path: '', component: IndexComponent, pathMatch: 'full' },
             { path: 'Index', component: IndexComponent },
+            { path: 'Blog', component: BlogIndexComponent },
+            { path: 'Blog/Liste', component: BlogIndexComponent },
+            { path: 'Blog/Liste/:url', component: BlogIndexComponent },
+            { path: 'Blog/Detay/:url', component: BlogDetailComponent },
+            { path: 'Icerik/:url', component: ContentIndexComponent },
+            { path: 'Ilan', component: JobIndexComponent },
+            { path: 'Ilan/Liste', component: JobIndexComponent },
+            { path: 'Ilan/Liste/:url', component: JobIndexComponent },
+            { path: 'Ilan/Detay/:url', component: JobDetailComponent },
+            { path: 'Firma', component: EmployerIndexComponent },
+            { path: 'Firma/Liste', component: EmployerIndexComponent },
+            { path: 'Firma/Panel/:url', component: EmployerDashboardComponent },
+            { path: 'Firma/Detay/:url', component: EmployerDetailComponent },
+            { path: 'Firma/Giris', component: EmployerLoginComponent },
+            { path: 'Firma/Profil', component: EmployerProfileComponent },
+            { path: 'Firma/Profil/SifreDegistir', component: EmployerChangePasswordComponent },
+            { path: 'Firma/Ýlan/Liste', component: EmployerJobListComponent },
+            { path: 'Firma/Ýlan/Ekle', component: EmployerJobAddComponent },
+            { path: 'Firma/Ýlan/Duzenle/:url', component: EmployerJobEditComponent },
+            { path: 'Firma/Ýlan/Basvuru/:url', component: EmployerJobApplyComponent },
+            { path: 'Firma/Ýlan/Alarm', component: EmployerJobAlertComponent },
+            { path: 'Firma/Paket/Liste', component: EmployerPackageComponent },
+            { path: 'Firma/Paket/Odemeler', component: EmployerTransactionsComponent },
+            { path: 'Calisan', component: CandidateIndexComponent },
+            { path: 'Calisan/Liste', component: CandidateIndexComponent },
+            { path: 'Calisan/Panel/:url', component: CandidateDashboardComponent },
+            { path: 'Calisan/Detay/:url', component: CandidateDetailComponent },
+            { path: 'Calisan/Giris', component: CandidateLoginComponent },
+            { path: 'Calisan/Profil', component: CandidateProfileComponent },
+            { path: 'Calisan/Profil/SifreDegistir', component: CandidateChangePasswordComponent },
+            { path: 'Calisan/Ozgecmis', component: CandidateResumeComponent },
+            { path: 'Calisan/Ozgecmis/Liste', component: CandidateResumeComponent },
+            { path: 'Calisan/Ozgecmis/Ekle', component: CandidateResumeAddComponent },
+            { path: 'Calisan/Ozgecmis/Duzenle/:url', component: CandidateResumeEditComponent },
+            { path: 'Calisan/Ozgecmis/Detay/:url', component: CandidateResumeDetailComponent },
+            { path: 'Calisan/Ozgecmis/Onyazi', component: CandidateResumeCoverLetterComponent },
+            { path: 'Calisan/Ýlan/Liste', component: CandidateJobListComponent },
+            { path: 'Calisan/Ýlan/Basvuru/:url', component: CandidateJobApplyComponent },
+            { path: 'Calisan/Ýlan/Alarm', component: CandidateJobAlertComponent },
+            { path: 'Calisan/Ýlan/Favori', component: CandidateJobFavoritesComponent },
         ]
     },
 

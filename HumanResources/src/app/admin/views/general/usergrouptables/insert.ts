@@ -1,53 +1,55 @@
-﻿import { Component } from "@angular/core";
-import { ModelService } from "../../../services/model";
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+﻿import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ModelService } from '../../../services/model';
 
 @Component({
-    templateUrl: './insert.html'
+	templateUrl: './insert.html'
 })
 
 export class AdminUserGroupTablesInsertComponent {
-    errorMsg: string;
-    linkID: string;
+	errorMsg: string;
 
-    ekleForm: FormGroup;
-    data: any;
+	insertForm: FormGroup;
 
-    model: any;
+	data: any;
+	model: any;
 
-    constructor(private service: ModelService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
-    }
+	private subscription: Subscription = new Subscription();
 
-    ngOnInit() {
-        this.route.params.subscribe((params: Params) => {
-            this.linkID = params['linkID'];
-            this.service.get("UserGroupTables", "Insert", this.linkID).subscribe((resData: any) => {
-                this.model = resData;
-            }, resError => this.errorMsg = resError);
-        });
+	constructor(private service: ModelService, private formBuilder: FormBuilder, private router: Router) {
+	}
 
-        this.ekleForm = this.formBuilder.group({
-            TypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
-            UserGroupID: new FormControl(null, [Validators.required, Validators.min(1)]),
-        });
-    }
+	ngOnInit() {
+		this.data = new Object();
 
-    onSubmit() {
-        this.data = new Object();
-        this.data.TypeID = this.ekleForm.get("TypeID").value;
-        this.data.UserGroupID = this.ekleForm.get("UserGroupID").value;
+		this.subscription = this.service.get("UserGroupTables", "Insert").subscribe((answer: any) => {
+			this.model = answer;
+		}, resError => this.errorMsg = resError, () => { this.subscription.unsubscribe(); });
 
-        this.service.post("UserGroupTables", "Insert", this.data)
-            .subscribe((answer: any) => {
-                if (answer.Mesaj == null) {
-                    this.router.navigate(['/Admin/UserGroupTables']);
-                }
-                else {
-                    $(".alertMessage").text(answer.Mesaj);
-                    $(".alert-error").fadeIn("slow");
-                }
-            },
-                resError => this.errorMsg = resError);
-    }
+		this.insertForm = this.formBuilder.group({
+			TypeID: new FormControl(null, [Validators.required, Validators.min(1)]),
+			UserGroupID: new FormControl(null, [Validators.required, Validators.min(1)]),
+		});
+	}
+
+	ngOnDestroy(): void {
+		this.subscription.unsubscribe();
+	}
+
+	onSubmit() {
+		this.data.TypeID = this.insertForm.get("TypeID").value;
+		this.data.UserGroupID = this.insertForm.get("UserGroupID").value;
+
+		this.service.post("UserGroupTables", "Insert", this.data).subscribe((answer: any) => {
+			if (answer.Mesaj == null) {
+				this.router.navigate(['/Admin/UserGroupTables']);
+			}
+			else {
+				$(".alertMessage").text(answer.Mesaj);
+				$(".alert-error").fadeIn("slow");
+			}
+		}, resError => this.errorMsg = resError);
+	}
 }

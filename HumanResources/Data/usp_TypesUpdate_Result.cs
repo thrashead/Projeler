@@ -17,6 +17,6 @@ namespace HumanResources.Data
         public string TypeName { get; set; }
         public string Url { get; set; }
         public string TableName { get; set; }
-        public Nullable<bool> Show { get; set; }
+        public bool Show { get; set; }
     }
 }
