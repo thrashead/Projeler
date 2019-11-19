@@ -12528,7 +12528,7 @@ module.exports = "/*------------------------------------------------------------
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {display:-webkit-box;display:flex;margin: 160px auto 0px auto;width: 95%;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}\r\n.main-slider-sec::before {background:none;}\r\n.inner-header::before {background:none;}\r\n.inner-header::after {background:none;}\r\n.forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);\r\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}\r\n.forsticky.sticky {opacity: 1;}\r\n.menu-sec {margin-bottom:30px;}\r\n.job-search > span {color:#fff;}\r\n.post-job-btn {float: right;margin-left: 20px;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsbUJBQVksQ0FBWixZQUFZLENBQUMsMkJBQTJCLENBQUMsVUFBVSxDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQzlILHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDLGlCQUFpQixDQUFDO0FBRWxILDBCQUEwQixlQUFlLENBQUM7QUFDMUMsdUJBQXVCLGVBQWUsQ0FBQztBQUN2QyxzQkFBc0IsZUFBZSxDQUFDO0FBQ3RDLFlBQVksNEJBQTRCLENBQUMscUdBQXFHO1lBQ2xJLG1IQUFtSCxDQUFDLGFBQWEsQ0FBQztBQUM5SSxtQkFBbUIsVUFBVSxDQUFDO0FBQzlCLFdBQVcsa0JBQWtCLENBQUM7QUFDOUIsb0JBQW9CLFVBQVUsQ0FBQztBQUMvQixlQUFlLFlBQVksQ0FBQyxpQkFBaUIsQ0FBQyIsImZpbGUiOiJDb250ZW50L2Nzcy9jdXN0b20uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vZGFsaXRlbSB7cG9zaXRpb246Zml4ZWQ7d2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTt0b3A6MHB4O2xlZnQ6MHB4O2JhY2tncm91bmQtaW1hZ2U6dXJsKC9IdW1hblJlc291cmNlcy9Db250ZW50L2ltZy9hbGVydGJnLnBuZyk7ei1pbmRleDogMTAwMDtkaXNwbGF5Om5vbmU7fVxyXG4ubW9kYWxpdGVtLnNob3cge2Rpc3BsYXk6YmxvY2s7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyB7ZGlzcGxheTpmbGV4O21hcmdpbjogMTYwcHggYXV0byAwcHggYXV0bzt3aWR0aDogOTUlO2JhY2tncm91bmQtY29sb3I6ICNmZmY7Ym9yZGVyOiAzcHggc29saWQgIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtoZWlnaHQ6IGF1dG87fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGJvZHkge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGZvb3RlciB7bWFyZ2luOiAwcHggMHB4IDBweCAwcHg7ZmxvYXQ6IGxlZnQ7d2lkdGg6IDEwMCU7cGFkZGluZzogMTBweCAxMHB4IDEwcHggMTBweDtiYWNrZ3JvdW5kLWNvbG9yOiAjOUE4MkNFO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIgYnV0dG9uIHtmbG9hdDpub25lO2JhY2tncm91bmQtY29sb3I6ICM1NDJjYWI7bWFyZ2luLXJpZ2h0OiA1cHg7fVxyXG5cclxuLm1haW4tc2xpZGVyLXNlYzo6YmVmb3JlIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uaW5uZXItaGVhZGVyOjpiZWZvcmUge2JhY2tncm91bmQ6bm9uZTt9XHJcbi5pbm5lci1oZWFkZXI6OmFmdGVyIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uZm9yc3RpY2t5IHtiYWNrZ3JvdW5kOiByZ2IoMTM5LDE0NSwyMjEpO2JhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgcmdiYSgxMzksMTQ1LDIyMSwxKSAwJSxyZ2JhKDE2LDI1LDkzLDEpIDcxJSxyZ2JhKDE2LDI1LDkzLDEpIDEwMCUpO1xyXG4gICAgICAgICAgICBmaWx0ZXI6IHByb2dpZDpEWEltYWdlVHJhbnNmb3JtLk1pY3Jvc29mdC5ncmFkaWVudCggc3RhcnRDb2xvcnN0cj0nIzhiOTFkZCcsIGVuZENvbG9yc3RyPScjMTAxOTVkJyxHcmFkaWVudFR5cGU9MSApO29wYWNpdHk6IDAuODU7fVxyXG4uZm9yc3RpY2t5LnN0aWNreSB7b3BhY2l0eTogMTt9XHJcbi5tZW51LXNlYyB7bWFyZ2luLWJvdHRvbTozMHB4O31cclxuLmpvYi1zZWFyY2ggPiBzcGFuIHtjb2xvcjojZmZmO31cclxuLnBvc3Qtam9iLWJ0biB7ZmxvYXQ6IHJpZ2h0O21hcmdpbi1sZWZ0OiAyMHB4O30iXX0= */"
+module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {display:-webkit-box;display:flex;margin: 160px auto 0px auto;width: 95%;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}\r\n.main-slider-sec::before {background:none;}\r\n.inner-header::before {background:none;}\r\n.inner-header::after {background:none;}\r\n.forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);\r\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}\r\n.forsticky.sticky {opacity: 1;}\r\n.menu-sec {margin-bottom:30px;}\r\n.job-search > span {color:#fff;}\r\n.post-job-btn {float: right;margin-left: 20px;}\r\n.simple-checkbox.scrollbar {overflow-y:scroll;}\r\n.job-head-wide .apply-alternative span {width: 100%;text-align: center;cursor: pointer;}\r\n.job-head-wide .apply-alternative span i.la {float:none;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsbUJBQVksQ0FBWixZQUFZLENBQUMsMkJBQTJCLENBQUMsVUFBVSxDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQzlILHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDLGlCQUFpQixDQUFDO0FBRWxILDBCQUEwQixlQUFlLENBQUM7QUFDMUMsdUJBQXVCLGVBQWUsQ0FBQztBQUN2QyxzQkFBc0IsZUFBZSxDQUFDO0FBQ3RDLFlBQVksNEJBQTRCLENBQUMscUdBQXFHO1lBQ2xJLG1IQUFtSCxDQUFDLGFBQWEsQ0FBQztBQUM5SSxtQkFBbUIsVUFBVSxDQUFDO0FBQzlCLFdBQVcsa0JBQWtCLENBQUM7QUFDOUIsb0JBQW9CLFVBQVUsQ0FBQztBQUMvQixlQUFlLFlBQVksQ0FBQyxpQkFBaUIsQ0FBQztBQUM5Qyw0QkFBNEIsaUJBQWlCLENBQUM7QUFDOUMsd0NBQXdDLFdBQVcsQ0FBQyxrQkFBa0IsQ0FBQyxlQUFlLENBQUM7QUFDdkYsNkNBQTZDLFVBQVUsQ0FBQyIsImZpbGUiOiJDb250ZW50L2Nzcy9jdXN0b20uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vZGFsaXRlbSB7cG9zaXRpb246Zml4ZWQ7d2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTt0b3A6MHB4O2xlZnQ6MHB4O2JhY2tncm91bmQtaW1hZ2U6dXJsKC9IdW1hblJlc291cmNlcy9Db250ZW50L2ltZy9hbGVydGJnLnBuZyk7ei1pbmRleDogMTAwMDtkaXNwbGF5Om5vbmU7fVxyXG4ubW9kYWxpdGVtLnNob3cge2Rpc3BsYXk6YmxvY2s7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyB7ZGlzcGxheTpmbGV4O21hcmdpbjogMTYwcHggYXV0byAwcHggYXV0bzt3aWR0aDogOTUlO2JhY2tncm91bmQtY29sb3I6ICNmZmY7Ym9yZGVyOiAzcHggc29saWQgIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtoZWlnaHQ6IGF1dG87fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGJvZHkge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGZvb3RlciB7bWFyZ2luOiAwcHggMHB4IDBweCAwcHg7ZmxvYXQ6IGxlZnQ7d2lkdGg6IDEwMCU7cGFkZGluZzogMTBweCAxMHB4IDEwcHggMTBweDtiYWNrZ3JvdW5kLWNvbG9yOiAjOUE4MkNFO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIgYnV0dG9uIHtmbG9hdDpub25lO2JhY2tncm91bmQtY29sb3I6ICM1NDJjYWI7bWFyZ2luLXJpZ2h0OiA1cHg7fVxyXG5cclxuLm1haW4tc2xpZGVyLXNlYzo6YmVmb3JlIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uaW5uZXItaGVhZGVyOjpiZWZvcmUge2JhY2tncm91bmQ6bm9uZTt9XHJcbi5pbm5lci1oZWFkZXI6OmFmdGVyIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uZm9yc3RpY2t5IHtiYWNrZ3JvdW5kOiByZ2IoMTM5LDE0NSwyMjEpO2JhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgcmdiYSgxMzksMTQ1LDIyMSwxKSAwJSxyZ2JhKDE2LDI1LDkzLDEpIDcxJSxyZ2JhKDE2LDI1LDkzLDEpIDEwMCUpO1xyXG4gICAgICAgICAgICBmaWx0ZXI6IHByb2dpZDpEWEltYWdlVHJhbnNmb3JtLk1pY3Jvc29mdC5ncmFkaWVudCggc3RhcnRDb2xvcnN0cj0nIzhiOTFkZCcsIGVuZENvbG9yc3RyPScjMTAxOTVkJyxHcmFkaWVudFR5cGU9MSApO29wYWNpdHk6IDAuODU7fVxyXG4uZm9yc3RpY2t5LnN0aWNreSB7b3BhY2l0eTogMTt9XHJcbi5tZW51LXNlYyB7bWFyZ2luLWJvdHRvbTozMHB4O31cclxuLmpvYi1zZWFyY2ggPiBzcGFuIHtjb2xvcjojZmZmO31cclxuLnBvc3Qtam9iLWJ0biB7ZmxvYXQ6IHJpZ2h0O21hcmdpbi1sZWZ0OiAyMHB4O31cclxuLnNpbXBsZS1jaGVja2JveC5zY3JvbGxiYXIge292ZXJmbG93LXk6c2Nyb2xsO31cclxuLmpvYi1oZWFkLXdpZGUgLmFwcGx5LWFsdGVybmF0aXZlIHNwYW4ge3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtjdXJzb3I6IHBvaW50ZXI7fVxyXG4uam9iLWhlYWQtd2lkZSAuYXBwbHktYWx0ZXJuYXRpdmUgc3BhbiBpLmxhIHtmbG9hdDpub25lO31cclxuIl19 */"
 
 /***/ }),
 
@@ -13216,7 +13216,7 @@ module.exports = "<router-outlet></router-outlet>\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-banner [title]=\"'Blog Detay'\"></hr-banner>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-9 column\">\r\n                    <div class=\"blog-single\">\r\n                        <div class=\"bs-thumb\">\r\n                            <img src=\"/HumanResources/Content/img/resource/bs1.jpg\" alt=\"\" />\r\n                        </div>\r\n                        <h2>11 Tips to Help You Get New Clients Through Cold Calling</h2>\r\n                        <p>\r\n                            Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect\r\n                            additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some\r\n                            froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much.\r\n                        </p>\r\n                        <p>\r\n                            Repeatedly dreamed alas opossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept\r\n                            compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary\r\n                            oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much\r\n                            that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.\r\n                        </p>\r\n                        <h3>About Business Network</h3>\r\n                        <p>\r\n                            Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect\r\n                            additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some\r\n                            froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much.\r\n                        </p>\r\n                        <blockquote>\r\n                            <p>\r\n                                <i>“</i><span>\r\n                                    You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that\r\n                                    youth reports this exciting news to his friends that<i>”</i>\r\n                                </span>\r\n                            </p><strong>Ali TUFAN</strong>\r\n                        </blockquote>\r\n                        <p>\r\n                            Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect\r\n                            additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some\r\n                            froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much\r\n                        </p>\r\n                        <div class=\"tags-share\">\r\n                            <div class=\"tags_widget\">\r\n                                <span>Tags</span>\r\n                                <a href=\"#\" title=\"\">Adwords</a>\r\n                                <a href=\"#\" title=\"\">Sales</a>\r\n                                <a href=\"#\" title=\"\">Travel</a>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"post-navigation \">\r\n                            <div class=\"post-hist prev\">\r\n                                <a href=\"#\" title=\"\"><i class=\"la la-arrow-left\"></i><span class=\"post-histext\">Prev Post<i>Hey Job Seeker, It’s Time</i></span></a>\r\n                            </div>\r\n                            <div class=\"post-hist next\">\r\n                                <a href=\"#\" title=\"\"><span class=\"post-histext\">Next Post<i>11 Tips to Help You Get New</i></span><i class=\"la la-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <aside class=\"col-lg-3 column\">\r\n                    <div class=\"widget\">\r\n                        <hr-blogsearch></hr-blogsearch>\r\n                    </div>\r\n                    <div class=\"widget\">\r\n                        <hr-blogrecent></hr-blogrecent>\r\n                    </div>\r\n                    <div class=\"widget\">\r\n                        <hr-blogrecent></hr-blogrecent>\r\n                    </div>\r\n                </aside>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+module.exports = "<hr-banner [title]=\"'Blog Detay'\"></hr-banner>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-9 column\">\r\n                    <div class=\"blog-single\">\r\n                        <div class=\"bs-thumb\">\r\n                            <img src=\"/HumanResources/Content/img/resource/bs1.jpg\" alt=\"\" />\r\n                        </div>\r\n                        <h2>11 Tips to Help You Get New Clients Through Cold Calling</h2>\r\n                        <p>\r\n                            Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect\r\n                            additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some\r\n                            froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much.\r\n                        </p>\r\n                        <p>\r\n                            Repeatedly dreamed alas opossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept\r\n                            compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary\r\n                            oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much\r\n                            that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.\r\n                        </p>\r\n                        <h3>About Business Network</h3>\r\n                        <p>\r\n                            Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect\r\n                            additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some\r\n                            froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much.\r\n                        </p>\r\n                        <blockquote>\r\n                            <p>\r\n                                <i>“</i><span>\r\n                                    You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that\r\n                                    youth reports this exciting news to his friends that<i>”</i>\r\n                                </span>\r\n                            </p><strong>Ali TUFAN</strong>\r\n                        </blockquote>\r\n                        <p>\r\n                            Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect\r\n                            additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some\r\n                            froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much\r\n                        </p>\r\n                        <div class=\"tags-share\">\r\n                            <div class=\"tags_widget\">\r\n                                <span>Tags</span>\r\n                                <a href=\"#\" title=\"\">Adwords</a>\r\n                                <a href=\"#\" title=\"\">Sales</a>\r\n                                <a href=\"#\" title=\"\">Travel</a>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"post-navigation \">\r\n                            <div class=\"post-hist prev\">\r\n                                <a href=\"#\" title=\"\"><i class=\"la la-arrow-left\"></i><span class=\"post-histext\">Prev Post<i>Hey Job Seeker, It’s Time</i></span></a>\r\n                            </div>\r\n                            <div class=\"post-hist next\">\r\n                                <a href=\"#\" title=\"\"><span class=\"post-histext\">Next Post<i>11 Tips to Help You Get New</i></span><i class=\"la la-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <aside class=\"col-lg-3 column\">\r\n                    <hr-blogleft></hr-blogleft>\r\n\r\n                </aside>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13227,7 +13227,7 @@ module.exports = "<hr-banner [title]=\"'Blog Detay'\"></hr-banner>\r\n\r\n<secti
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-banner [title]=\"'Blog Listesi'\"></hr-banner>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-9 column\">\r\n                    <hr-bloglist></hr-bloglist>\r\n                </div>\r\n                <aside class=\"col-lg-3 column\">\r\n                    <div class=\"widget\">\r\n                        <hr-blogsearch></hr-blogsearch>\r\n                    </div>\r\n                    <div class=\"widget\">\r\n                        <hr-blogcategories></hr-blogcategories>\r\n                    </div>\r\n                    <div class=\"widget\">\r\n                        <hr-blogrecent></hr-blogrecent>\r\n                    </div>\r\n                </aside>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+module.exports = "<hr-banner [title]=\"'Blog Listesi'\"></hr-banner>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-9 column\">\r\n                    <div class=\"bloglist-sec\">\r\n                        <div class=\"blogpost style2\">\r\n                            <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl1.jpg\" alt=\"\" /></a> </div>\r\n                            <div class=\"blog-postdetail\">\r\n                                <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n                                <h3><a href=\"#\" title=\"\">11 Tips to Help You Get New Clients Through Cold Calling</a></h3>\r\n                                <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n                                <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div><!-- Blog Post -->\r\n                        <div class=\"blogpost style2\">\r\n                            <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl2.jpg\" alt=\"\" /></a> </div>\r\n                            <div class=\"blog-postdetail\">\r\n                                <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n                                <h3><a href=\"#\" title=\"\">Do you have a job that the average person doesn’t even know exists?</a></h3>\r\n                                <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n                                <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div><!-- Blog Post -->\r\n                        <div class=\"blogpost style2\">\r\n                            <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl3.jpg\" alt=\"\" /></a> </div>\r\n                            <div class=\"blog-postdetail\">\r\n                                <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n                                <h3><a href=\"#\" title=\"\">DigitalOcean launches first Canadian data centre in Toronto</a></h3>\r\n                                <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n                                <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div><!-- Blog Post -->\r\n                        <div class=\"blogpost style2\">\r\n                            <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl4.jpg\" alt=\"\" /></a> </div>\r\n                            <div class=\"blog-postdetail\">\r\n                                <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n                                <h3><a href=\"#\" title=\"\">Canada’s six biggest banks earned a combined $9.2 billion in Q3</a></h3>\r\n                                <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n                                <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div><!-- Blog Post -->\r\n                        <div class=\"blogpost style2\">\r\n                            <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl5.jpg\" alt=\"\" /></a> </div>\r\n                            <div class=\"blog-postdetail\">\r\n                                <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n                                <h3><a href=\"#\" title=\"\">Using Banner Stands To Increase Trade Show  Traffic</a></h3>\r\n                                <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n                                <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n                            </div>\r\n                        </div><!-- Blog Post -->\r\n                        <hr-bloglistpager></hr-bloglistpager>\r\n\r\n                    </div>\r\n                </div>\r\n                <aside class=\"col-lg-3 column\">\r\n                    <hr-blogleft></hr-blogleft>\r\n\r\n                </aside>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13242,14 +13242,25 @@ module.exports = "<h3>Categories</h3>\r\n<div class=\"sidebar-links\">\r\n    <a
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/views/blog/parts/list.html":
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/blog/parts/left.html":
 /*!**********************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/views/blog/parts/list.html ***!
+  !*** ./node_modules/raw-loader!./src/app/views/blog/parts/left.html ***!
   \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bloglist-sec\">\r\n    <div class=\"blogpost style2\">\r\n        <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl1.jpg\" alt=\"\" /></a> </div>\r\n        <div class=\"blog-postdetail\">\r\n            <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n            <h3><a href=\"#\" title=\"\">11 Tips to Help You Get New Clients Through Cold Calling</a></h3>\r\n            <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n            <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n        </div>\r\n    </div><!-- Blog Post -->\r\n    <div class=\"blogpost style2\">\r\n        <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl2.jpg\" alt=\"\" /></a> </div>\r\n        <div class=\"blog-postdetail\">\r\n            <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n            <h3><a href=\"#\" title=\"\">Do you have a job that the average person doesn’t even know exists?</a></h3>\r\n            <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n            <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n        </div>\r\n    </div><!-- Blog Post -->\r\n    <div class=\"blogpost style2\">\r\n        <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl3.jpg\" alt=\"\" /></a> </div>\r\n        <div class=\"blog-postdetail\">\r\n            <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n            <h3><a href=\"#\" title=\"\">DigitalOcean launches first Canadian data centre in Toronto</a></h3>\r\n            <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n            <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n        </div>\r\n    </div><!-- Blog Post -->\r\n    <div class=\"blogpost style2\">\r\n        <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl4.jpg\" alt=\"\" /></a> </div>\r\n        <div class=\"blog-postdetail\">\r\n            <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n            <h3><a href=\"#\" title=\"\">Canada’s six biggest banks earned a combined $9.2 billion in Q3</a></h3>\r\n            <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n            <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n        </div>\r\n    </div><!-- Blog Post -->\r\n    <div class=\"blogpost style2\">\r\n        <div class=\"blog-posthumb\"> <a href=\"#\" title=\"\"><img src=\"/HumanResources/Content/img/resource/bl5.jpg\" alt=\"\" /></a> </div>\r\n        <div class=\"blog-postdetail\">\r\n            <ul class=\"post-metas\"><li><a href=\"#\" title=\"\"><i class=\"la la-calendar-o\"></i>November 23, 2017</a></li><li><a class=\"metascomment\" href=\"#\" title=\"\"><i class=\"la la-comments\"></i>4 comments</a></li></ul>\r\n            <h3><a href=\"#\" title=\"\">Using Banner Stands To Increase Trade Show  Traffic</a></h3>\r\n            <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugos on Wall Street. Managed a small team buying and selling pogo sticks for farmers. Spent several years licensing licorice with banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.</p>\r\n            <a class=\"bbutton\" href=\"#\" title=\"\">Read More <i class=\"la la-long-arrow-right\"></i></a>\r\n        </div>\r\n    </div><!-- Blog Post -->\r\n    <div class=\"pagination\">\r\n        <ul>\r\n            <li class=\"prev\"><a href=\"#\"><i class=\"la la-long-arrow-left\"></i> Prev</a></li>\r\n            <li><a href=\"#\">1</a></li>\r\n            <li class=\"active\"><a href=\"#\">2</a></li>\r\n            <li><a href=\"#\">3</a></li>\r\n            <li><span class=\"delimeter\">...</span></li>\r\n            <li><a href=\"#\">14</a></li>\r\n            <li class=\"next\"><a href=\"#\">Next <i class=\"la la-long-arrow-right\"></i></a></li>\r\n        </ul>\r\n    </div><!-- Pagination -->\r\n</div>"
+module.exports = "<div class=\"widget\">\r\n    <hr-blogsearch></hr-blogsearch>\r\n</div>\r\n<div class=\"widget\">\r\n    <hr-blogcategories></hr-blogcategories>\r\n</div>\r\n<div class=\"widget\">\r\n    <hr-blogrecent></hr-blogrecent>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/blog/parts/list/pager.html":
+/*!****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/blog/parts/list/pager.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"pagination\">\r\n    <ul>\r\n        <li class=\"prev\"><a href=\"#\"><i class=\"la la-long-arrow-left\"></i> Prev</a></li>\r\n        <li><a href=\"#\">1</a></li>\r\n        <li class=\"active\"><a href=\"#\">2</a></li>\r\n        <li><a href=\"#\">3</a></li>\r\n        <li><span class=\"delimeter\">...</span></li>\r\n        <li><a href=\"#\">14</a></li>\r\n        <li class=\"next\"><a href=\"#\">Next <i class=\"la la-long-arrow-right\"></i></a></li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
@@ -13293,7 +13304,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13315,7 +13326,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13326,7 +13337,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13337,7 +13348,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13348,7 +13359,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13359,7 +13370,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13370,7 +13381,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13381,7 +13392,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13502,7 +13513,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13524,7 +13535,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13535,7 +13546,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13546,7 +13557,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13557,7 +13568,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13568,7 +13579,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13579,7 +13590,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13590,7 +13601,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13601,7 +13612,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13612,7 +13623,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13623,7 +13634,7 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -13755,7 +13766,7 @@ module.exports = "<section>\r\n    <div class=\"block no-padding\">\r\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r\n<hr-homeaccount></hr-homeaccount>\r\n<hr-homejobs></hr-homejobs>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-homecompanies></hr-homecompanies>\r\n<hr-hometips></hr-hometips>\r\n<hr-homequestion></hr-homequestion>\r\n"
+module.exports = "<hr-banner [title]=\"'İlan Detay Sayfası'\"></hr-banner>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12 column\">\r\n                    <div class=\"job-single-sec style3\">\r\n                        <div class=\"job-head-wide\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-lg-8\">\r\n                                    <div class=\"job-single-head3\">\r\n                                        <div class=\"job-thumb\"> <img src=\"/HumanResources/Content/img/resource/sdf.png\" alt=\"\" /><span>12 Open Position</span> </div>\r\n                                        <div class=\"job-single-info3\">\r\n                                            <h3>Tera Planner</h3>\r\n                                            <span><i class=\"la la-map-marker\"></i>Sacramento, California</span><span class=\"job-is ft\">Full time</span>\r\n                                            <ul class=\"tags-jobs\">\r\n                                                <li><i class=\"la la-file-text\"></i> Applications 1</li>\r\n                                                <li><i class=\"la la-calendar-o\"></i> Post Date: July 29, 2017</li>\r\n                                                <li><i class=\"la la-eye\"></i> Views 5683</li>\r\n                                            </ul>\r\n                                        </div>\r\n                                    </div><!-- Job Head -->\r\n                                </div>\r\n                                <div class=\"col-lg-4\">\r\n                                    <a class=\"apply-thisjob\" href=\"#\" title=\"\"><i class=\"la la-paper-plane\"></i>Apply for job</a>\r\n                                    <div class=\"apply-alternative\">\r\n                                        <span><i class=\"la la-heart-o\"></i> Add to Favorites</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"job-wide-devider\">\r\n                            <div class=\"row\">\r\n                                <div class=\"col-lg-8 column\">\r\n                                    <div class=\"job-details\">\r\n                                        <h3>Job Description</h3>\r\n                                        <p>Company is a 2016 Iowa City-born start-up that develops consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>\r\n                                        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien</p>\r\n                                        <h3>Required Knowledge, Skills, and Abilities</h3>\r\n                                        <ul>\r\n                                            <li>Ability to write code – HTML & CSS (SCSS flavor of SASS preferred when writing CSS)</li>\r\n                                            <li>Proficient in Photoshop, Illustrator, bonus points for familiarity with Sketch (Sketch is our preferred concepting)</li>\r\n                                            <li>Cross-browser and platform testing as standard practice</li>\r\n                                            <li>Experience using Invision a plus</li>\r\n                                            <li>Experience in video production a plus or, at a minimum, a willingness to learn</li>\r\n                                        </ul>\r\n                                        <h3>Education + Experience</h3>\r\n                                        <ul>\r\n                                            <li>Advanced degree or equivalent experience in graphic and web design</li>\r\n                                            <li>3 or more years of professional design experience</li>\r\n                                            <li>Direct response email experience</li>\r\n                                            <li>Ecommerce website design experience</li>\r\n                                            <li>Familiarity with mobile and web apps preferred</li>\r\n                                            <li>Excellent communication skills, most notably a demonstrated ability to solicit and address creative and design feedback</li>\r\n                                            <li>Must be able to work under pressure and meet deadlines while maintaining a positive attitude and providing exemplary customer service</li>\r\n                                            <li>Ability to work independently and to carry out assignments to completion within parameters of instructions given, prescribed routines, and standard accepted practices</li>\r\n                                        </ul>\r\n                                    </div>\r\n                                    <hr-jobdetailextra></hr-jobdetailextra>\r\n\r\n                                    <hr-jobdetailrecent></hr-jobdetailrecent>\r\n\r\n                                </div>\r\n                                <div class=\"col-lg-4 column\">\r\n                                    <hr-jobdetailoverview></hr-jobdetailoverview>\r\n\r\n                                    <hr-jobdetailcontact></hr-jobdetailcontact>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13766,7 +13777,95 @@ module.exports = "<hr-hometop></hr-hometop>\r\n<hr-homepopcat></hr-homepopcat>\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-joblisttop></hr-joblisttop>\r\n\r\n<section>\r\n    <div class=\"block remove-top\">\r\n        <div class=\"container\">\r\n            <div class=\"row no-gape\">\r\n                <aside class=\"col-lg-3 column\">\r\n                    <hr-joblistleft></hr-joblistleft>\r\n\r\n                </aside>\r\n                <div class=\"col-lg-9 column\">\r\n                    <hr-joblistcontrols></hr-joblistcontrols>\r\n\r\n                    <div class=\"job-list-modern\">\r\n                        <div class=\"job-listings-sec no-border\">\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l1.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Web Designer / Developer</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is ft\">Full time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l2.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">C Developer (Senior) C .Net</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is pt \">Part time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l3.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Regional Sales Manager South</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is ft \">Full time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l4.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Marketing Dairector</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is ft \">Full time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l5.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Application Developer</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is pt \">Part time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l6.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Social Media and Public</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is fl \">Freelance</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l2.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">C Developer (Senior) C .Net</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is pt \">Part time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l3.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Regional Sales Manager South</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is ft \">Full time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l4.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Marketing Dairector</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is ft \">Full time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                            <div class=\"job-listing wtabs\">\r\n                                <div class=\"job-title-sec\">\r\n                                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l5.png\" alt=\"\" /> </div>\r\n                                    <h3><a href=\"#\" title=\"\">Application Developer</a></h3>\r\n                                    <span>Massimo Artemisis</span>\r\n                                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                                </div>\r\n                                <div class=\"job-style-bx\">\r\n                                    <span class=\"job-is pt \">Part time</span>\r\n                                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                                    <i>5 months ago</i>\r\n                                </div>\r\n                            </div><!-- Job -->\r\n                        </div>\r\n                        <hr-joblistpager></hr-joblistpager>\r\n\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/contact.html":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/detail/contact.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"quick-form-job\">\r\n    <h3>Contact</h3>\r\n    <div>\r\n        <!--form-->\r\n        <input type=\"text\" placeholder=\"Enter your Name *\" />\r\n        <input type=\"text\" placeholder=\"Email Address*\" />\r\n        <input type=\"text\" placeholder=\"Phone Number\" />\r\n        <textarea placeholder=\"Message should have more than 50 characters\"></textarea>\r\n        <button class=\"submit\">Send Email</button>\r\n        <span>You accepts our <a href=\"#\" title=\"\">Terms and Conditions</a></span>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/extra.html":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/detail/extra.html ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"extra-job-info\">\r\n    <span><i class=\"la la-clock-o\"></i><strong>35</strong> Days</span>\r\n    <span><i class=\"la la-file-text\"></i><strong>300-500</strong> Application</span>\r\n    <span><i class=\"la la-search-plus\"></i><strong>35697</strong> Displayed</span>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/overview.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/detail/overview.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"job-overview\">\r\n    <h3>Job Overview</h3>\r\n    <ul>\r\n        <li><i class=\"la la-money\"></i><h3>Offerd Salary</h3><span>£15,000 - £20,000</span></li>\r\n        <li><i class=\"la la-mars-double\"></i><h3>Gender</h3><span>Female</span></li>\r\n        <li><i class=\"la la-thumb-tack\"></i><h3>Career Level</h3><span>Executive</span></li>\r\n        <li><i class=\"la la-puzzle-piece\"></i><h3>Industry</h3><span>Management</span></li>\r\n        <li><i class=\"la la-shield\"></i><h3>Experience</h3><span>2 Years</span></li>\r\n        <li><i class=\"la la-line-chart \"></i><h3>Qualification</h3><span>Bachelor Degree</span></li>\r\n    </ul>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/recent.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/detail/recent.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"recent-jobs\">\r\n    <h3>Recent Jobs</h3>\r\n    <div class=\"job-list-modern\">\r\n        <div class=\"job-listings-sec no-border\">\r\n            <div class=\"job-listing wtabs\">\r\n                <div class=\"job-title-sec\">\r\n                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l1.png\" alt=\"\" /> </div>\r\n                    <h3><a href=\"#\" title=\"\">Web Designer / Developer</a></h3>\r\n                    <span>Massimo Artemisis</span>\r\n                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                </div>\r\n                <div class=\"job-style-bx\">\r\n                    <span class=\"job-is ft\">Full time</span>\r\n                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                    <i>5 months ago</i>\r\n                </div>\r\n            </div>\r\n            <div class=\"job-listing wtabs\">\r\n                <div class=\"job-title-sec\">\r\n                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l2.png\" alt=\"\" /> </div>\r\n                    <h3><a href=\"#\" title=\"\">C Developer (Senior) C .Net</a></h3>\r\n                    <span>Massimo Artemisis</span>\r\n                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                </div>\r\n                <div class=\"job-style-bx\">\r\n                    <span class=\"job-is pt \">Part time</span>\r\n                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                    <i>5 months ago</i>\r\n                </div>\r\n            </div><!-- Job -->\r\n            <div class=\"job-listing wtabs\">\r\n                <div class=\"job-title-sec\">\r\n                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l3.png\" alt=\"\" /> </div>\r\n                    <h3><a href=\"#\" title=\"\">Regional Sales Manager South</a></h3>\r\n                    <span>Massimo Artemisis</span>\r\n                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                </div>\r\n                <div class=\"job-style-bx\">\r\n                    <span class=\"job-is ft \">Full time</span>\r\n                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                    <i>5 months ago</i>\r\n                </div>\r\n            </div><!-- Job -->\r\n            <div class=\"job-listing wtabs\">\r\n                <div class=\"job-title-sec\">\r\n                    <div class=\"c-logo\"> <img src=\"/HumanResources/Content/img/resource/l4.png\" alt=\"\" /> </div>\r\n                    <h3><a href=\"#\" title=\"\">Marketing Dairector</a></h3>\r\n                    <span>Massimo Artemisis</span>\r\n                    <div class=\"job-lctn\"><i class=\"la la-map-marker\"></i>Sacramento, California</div>\r\n                </div>\r\n                <div class=\"job-style-bx\">\r\n                    <span class=\"job-is ft \">Full time</span>\r\n                    <span class=\"fav-job\"><i class=\"la la-heart-o\"></i></span>\r\n                    <i>5 months ago</i>\r\n                </div>\r\n            </div><!-- Job -->\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/controls.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/list/controls.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modrn-joblist np\">\r\n    <div class=\"filterbar\">\r\n        <span class=\"emlthis\"><a href=\"https://grandetest.com/cdn-cgi/l/email-protection#482d30292538242d662b2725\" title=\"\"><i class=\"la la-envelope-o\"></i> Email me Jobs Like These</a></span>\r\n        <div class=\"sortby-sec\">\r\n            <span>Sort by</span>\r\n            <select id=\"slcSort\" data-placeholder=\"Most Recent\" class=\"chosen\">\r\n                <option>Most Recent</option>\r\n                <option>Most Recent</option>\r\n                <option>Most Recent</option>\r\n                <option>Most Recent</option>\r\n            </select>\r\n            <select id=\"slcPager\" data-placeholder=\"20 Per Page\" class=\"chosen\">\r\n                <option>30 Per Page</option>\r\n                <option>40 Per Page</option>\r\n                <option>50 Per Page</option>\r\n                <option>60 Per Page</option>\r\n            </select>\r\n        </div>\r\n        <h5>98 Jobs & Vacancies</h5>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/left.html":
+/*!**************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/list/left.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"widget border\">\r\n    <h3 class=\"sb-title open\">Date Posted</h3>\r\n    <div class=\"posted_widget\">\r\n        <input type=\"radio\" name=\"choose\" id=\"232\"><label for=\"232\">Last Hour</label><br />\r\n        <input type=\"radio\" name=\"choose\" id=\"wwqe\"><label for=\"wwqe\">Last 24 hours</label><br />\r\n        <input type=\"radio\" name=\"choose\" id=\"erewr\"><label for=\"erewr\">Last 7 days</label><br />\r\n        <input type=\"radio\" name=\"choose\" id=\"qwe\"><label for=\"qwe\">Last 14 days</label><br />\r\n        <input type=\"radio\" name=\"choose\" id=\"wqe\"><label for=\"wqe\">Last 30 days</label><br />\r\n        <input type=\"radio\" name=\"choose\" id=\"qweqw\"><label class=\"nm\" for=\"qweqw\">All</label><br />\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title open\">Job Type</h3>\r\n    <div class=\"type_widget\">\r\n        <p class=\"flchek\"><input type=\"checkbox\" name=\"choosetype\" id=\"33r\"><label for=\"33r\">Freelance (9)</label></p>\r\n        <p class=\"ftchek\"><input type=\"checkbox\" name=\"choosetype\" id=\"dsf\"><label for=\"dsf\">Full Time (8)</label></p>\r\n        <p class=\"ischek\"><input type=\"checkbox\" name=\"choosetype\" id=\"sdd\"><label for=\"sdd\">Internship (8)</label></p>\r\n        <p class=\"ptchek\"><input type=\"checkbox\" name=\"choosetype\" id=\"sadd\"><label for=\"sadd\">Part Time (5)</label></p>\r\n        <p class=\"tpchek\"><input type=\"checkbox\" name=\"choosetype\" id=\"assa\"><label for=\"assa\">Temporary (5)</label></p>\r\n        <p class=\"vtchek\"><input type=\"checkbox\" name=\"choosetype\" id=\"ghgf\"><label for=\"ghgf\">Volunteer (8)</label></p>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title open\">Specialism</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"field_w_search\">\r\n            <input type=\"text\" placeholder=\"Search Spaecialisms\" />\r\n        </div><!-- Search Widget -->\r\n        <div class=\"simple-checkbox scrollbar\">\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"as\"><label for=\"as\">Accountancy (2)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"asd\"><label for=\"asd\">Banking (2)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"errwe\"><label for=\"errwe\">Charity & Voluntary (3)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"fdg\"><label for=\"fdg\">Digital & Creative (4)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"sc\"><label for=\"sc\">Estate Agency (3)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"aw\"><label for=\"aw\">Graduate (2)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"ui\"><label for=\"ui\">IT Contractor (7)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"saas\"><label for=\"saas\">Charity & Voluntary (3)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"rrrt\"><label for=\"rrrt\">Digital & Creative (4)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"eweew\"><label for=\"eweew\">Estate Agency (3)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"bnbn\"><label for=\"bnbn\">Graduate (2)</label></p>\r\n            <p><input type=\"checkbox\" name=\"spealism\" id=\"ffd\"><label for=\"ffd\">IT Contractor (7)</label></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title closed\">Offerd Salary</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"simple-checkbox\">\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"1\"><label for=\"1\">10k - 20k</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"2\"><label for=\"2\">20k - 30k</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"3\"><label for=\"3\">30k - 40k</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"4\"><label for=\"4\">40k - 50k</label></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title closed\">Career Level</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"simple-checkbox\">\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"5\"><label for=\"5\">Intermediate</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"6\"><label for=\"6\">Normal</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"7\"><label for=\"7\">Special</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"8\"><label for=\"8\">Experienced</label></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title closed\">Experince</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"simple-checkbox\">\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"9\"><label for=\"9\">1Year to 2Year</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"10\"><label for=\"10\">2Year to 3Year</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"11\"><label for=\"11\">3Year to 4Year</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"12\"><label for=\"12\">4Year to 5Year</label></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title closed\">Gender</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"simple-checkbox\">\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"13\"><label for=\"13\">Male</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"14\"><label for=\"14\">Female</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"15\"><label for=\"15\">Others</label></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title closed\">Industry</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"simple-checkbox\">\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"16\"><label for=\"16\">Meezan Job</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"17\"><label for=\"17\">Speicalize Jobs</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"18\"><label for=\"18\">Business Jobs</label></p>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"widget border\">\r\n    <h3 class=\"sb-title closed\">Qualification</h3>\r\n    <div class=\"specialism_widget\">\r\n        <div class=\"simple-checkbox\">\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"19\"><label for=\"19\">Matriculation</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"20\"><label for=\"20\">Intermidiate</label></p>\r\n            <p><input type=\"checkbox\" name=\"smplechk\" id=\"21\"><label for=\"21\">Gradute</label></p>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/pager.html":
+/*!***************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/list/pager.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"pagination\">\r\n    <ul>\r\n        <li class=\"prev\"><a href=\"#\"><i class=\"la la-long-arrow-left\"></i> Prev</a></li>\r\n        <li><a href=\"#\">1</a></li>\r\n        <li class=\"active\"><a href=\"#\">2</a></li>\r\n        <li><a href=\"#\">3</a></li>\r\n        <li><span class=\"delimeter\">...</span></li>\r\n        <li><a href=\"#\">14</a></li>\r\n        <li class=\"next\"><a href=\"#\">Next <i class=\"la la-long-arrow-right\"></i></a></li>\r\n    </ul>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/top.html":
+/*!*************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/job/parts/list/top.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"overlape\">\r\n    <div class=\"block no-padding\">\r\n        <hr-bannerpicture></hr-bannerpicture>\r\n\r\n        <div class=\"container fluid\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"inner-header wform\">\r\n                        <hr-homesearch></hr-homesearch>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13799,7 +13898,18 @@ module.exports = "<div id=\"modalConfirm\" class=\"modalitem\">\r\n    <div clas
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"overlape\">\r\n    <div class=\"block no-padding\">\r\n        <div data-velocity=\"-.1\" style=\"background: url(/HumanResources/Content/img/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;opacity: 0.6;\" \r\n             class=\"parallax scrolly-invisible no-parallax\"></div>\r\n        <div class=\"container fluid\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"inner-header\">\r\n                        <h3>{{ title }}</h3>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+module.exports = "<section class=\"overlape\">\r\n    <div class=\"block no-padding\">\r\n        <hr-bannerpicture></hr-bannerpicture>\r\n\r\n        <div class=\"container fluid\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"inner-header\">\r\n                        <h3>{{ title }}</h3>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/bannerpicture.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/shared/controls/bannerpicture.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div data-velocity=\"-.1\" style=\"background: url(/HumanResources/Content/img/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;opacity: 0.6;\"\r\n     class=\"parallax scrolly-invisible no-parallax\"></div>"
 
 /***/ }),
 
@@ -19636,65 +19746,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
 /* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
 /* harmony import */ var _views_shared_controls_banner__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./views/shared/controls/banner */ "./src/app/views/shared/controls/banner.ts");
-/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
-/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
-/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
-/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
-/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
-/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
-/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
-/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
-/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
-/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
-/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
-/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
-/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
-/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
-/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
-/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
-/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
-/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
-/* harmony import */ var _views_blog__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/blog */ "./src/app/views/blog/index.ts");
-/* harmony import */ var _views_blog_parts_list__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/blog/parts/list */ "./src/app/views/blog/parts/list.ts");
-/* harmony import */ var _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/blog/parts/search */ "./src/app/views/blog/parts/search.ts");
-/* harmony import */ var _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/blog/parts/categories */ "./src/app/views/blog/parts/categories.ts");
-/* harmony import */ var _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/blog/parts/recent */ "./src/app/views/blog/parts/recent.ts");
-/* harmony import */ var _views_blog_detail__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/blog/detail */ "./src/app/views/blog/detail.ts");
-/* harmony import */ var _views_content__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/content */ "./src/app/views/content/index.ts");
-/* harmony import */ var _views_content_contact__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/content/contact */ "./src/app/views/content/contact.ts");
-/* harmony import */ var _views_content_about__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/content/about */ "./src/app/views/content/about.ts");
-/* harmony import */ var _views_content_register__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/content/register */ "./src/app/views/content/register.ts");
-/* harmony import */ var _views_content_pricing__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./views/content/pricing */ "./src/app/views/content/pricing.ts");
-/* harmony import */ var _views_job__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/job */ "./src/app/views/job/index.ts");
-/* harmony import */ var _views_job_detail__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/job/detail */ "./src/app/views/job/detail.ts");
-/* harmony import */ var _views_candidate__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/candidate */ "./src/app/views/candidate/index.ts");
-/* harmony import */ var _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/candidate/dashboard */ "./src/app/views/candidate/dashboard.ts");
-/* harmony import */ var _views_candidate_detail__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./views/candidate/detail */ "./src/app/views/candidate/detail.ts");
-/* harmony import */ var _views_candidate_login__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./views/candidate/login */ "./src/app/views/candidate/login.ts");
-/* harmony import */ var _views_candidate_profile__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./views/candidate/profile */ "./src/app/views/candidate/profile/index.ts");
-/* harmony import */ var _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./views/candidate/profile/changepassword */ "./src/app/views/candidate/profile/changepassword.ts");
-/* harmony import */ var _views_candidate_resume__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./views/candidate/resume */ "./src/app/views/candidate/resume/index.ts");
-/* harmony import */ var _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./views/candidate/resume/add */ "./src/app/views/candidate/resume/add.ts");
-/* harmony import */ var _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./views/candidate/resume/edit */ "./src/app/views/candidate/resume/edit.ts");
-/* harmony import */ var _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./views/candidate/resume/detail */ "./src/app/views/candidate/resume/detail.ts");
-/* harmony import */ var _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./views/candidate/resume/coverletter */ "./src/app/views/candidate/resume/coverletter.ts");
-/* harmony import */ var _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./views/candidate/job/list */ "./src/app/views/candidate/job/list.ts");
-/* harmony import */ var _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./views/candidate/job/apply */ "./src/app/views/candidate/job/apply.ts");
-/* harmony import */ var _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./views/candidate/job/favorites */ "./src/app/views/candidate/job/favorites.ts");
-/* harmony import */ var _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./views/candidate/job/alert */ "./src/app/views/candidate/job/alert.ts");
-/* harmony import */ var _views_employer__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./views/employer */ "./src/app/views/employer/index.ts");
-/* harmony import */ var _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./views/employer/dashboard */ "./src/app/views/employer/dashboard.ts");
-/* harmony import */ var _views_employer_detail__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./views/employer/detail */ "./src/app/views/employer/detail.ts");
-/* harmony import */ var _views_employer_login__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./views/employer/login */ "./src/app/views/employer/login.ts");
-/* harmony import */ var _views_employer_profile__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./views/employer/profile */ "./src/app/views/employer/profile/index.ts");
-/* harmony import */ var _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./views/employer/profile/changepassword */ "./src/app/views/employer/profile/changepassword.ts");
-/* harmony import */ var _views_employer_job_list__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./views/employer/job/list */ "./src/app/views/employer/job/list.ts");
-/* harmony import */ var _views_employer_job_add__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./views/employer/job/add */ "./src/app/views/employer/job/add.ts");
-/* harmony import */ var _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./views/employer/job/edit */ "./src/app/views/employer/job/edit.ts");
-/* harmony import */ var _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./views/employer/job/apply */ "./src/app/views/employer/job/apply.ts");
-/* harmony import */ var _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./views/employer/job/alert */ "./src/app/views/employer/job/alert.ts");
-/* harmony import */ var _views_employer_package__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./views/employer/package */ "./src/app/views/employer/package/index.ts");
-/* harmony import */ var _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./views/employer/package/transactions */ "./src/app/views/employer/package/transactions.ts");
+/* harmony import */ var _views_shared_controls_bannerpicture__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/controls/bannerpicture */ "./src/app/views/shared/controls/bannerpicture.ts");
+/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
+/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
+/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
+/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
+/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
+/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
+/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
+/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
+/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
+/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
+/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
+/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
+/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
+/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
+/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
+/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
+/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
+/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
+/* harmony import */ var _views_blog__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/blog */ "./src/app/views/blog/index.ts");
+/* harmony import */ var _views_blog_parts_list_pager__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/blog/parts/list/pager */ "./src/app/views/blog/parts/list/pager.ts");
+/* harmony import */ var _views_blog_parts_left__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/blog/parts/left */ "./src/app/views/blog/parts/left.ts");
+/* harmony import */ var _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/blog/parts/search */ "./src/app/views/blog/parts/search.ts");
+/* harmony import */ var _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/blog/parts/categories */ "./src/app/views/blog/parts/categories.ts");
+/* harmony import */ var _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/blog/parts/recent */ "./src/app/views/blog/parts/recent.ts");
+/* harmony import */ var _views_blog_detail__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/blog/detail */ "./src/app/views/blog/detail.ts");
+/* harmony import */ var _views_content__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/content */ "./src/app/views/content/index.ts");
+/* harmony import */ var _views_content_contact__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/content/contact */ "./src/app/views/content/contact.ts");
+/* harmony import */ var _views_content_about__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./views/content/about */ "./src/app/views/content/about.ts");
+/* harmony import */ var _views_content_register__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/content/register */ "./src/app/views/content/register.ts");
+/* harmony import */ var _views_content_pricing__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/content/pricing */ "./src/app/views/content/pricing.ts");
+/* harmony import */ var _views_job__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/job */ "./src/app/views/job/index.ts");
+/* harmony import */ var _views_job_parts_list_top__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/job/parts/list/top */ "./src/app/views/job/parts/list/top.ts");
+/* harmony import */ var _views_job_parts_list_left__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./views/job/parts/list/left */ "./src/app/views/job/parts/list/left.ts");
+/* harmony import */ var _views_job_parts_list_controls__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./views/job/parts/list/controls */ "./src/app/views/job/parts/list/controls.ts");
+/* harmony import */ var _views_job_parts_list_pager__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./views/job/parts/list/pager */ "./src/app/views/job/parts/list/pager.ts");
+/* harmony import */ var _views_job_detail__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./views/job/detail */ "./src/app/views/job/detail.ts");
+/* harmony import */ var _views_job_parts_detail_recent__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./views/job/parts/detail/recent */ "./src/app/views/job/parts/detail/recent.ts");
+/* harmony import */ var _views_job_parts_detail_overview__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./views/job/parts/detail/overview */ "./src/app/views/job/parts/detail/overview.ts");
+/* harmony import */ var _views_job_parts_detail_contact__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./views/job/parts/detail/contact */ "./src/app/views/job/parts/detail/contact.ts");
+/* harmony import */ var _views_job_parts_detail_extra__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./views/job/parts/detail/extra */ "./src/app/views/job/parts/detail/extra.ts");
+/* harmony import */ var _views_candidate__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./views/candidate */ "./src/app/views/candidate/index.ts");
+/* harmony import */ var _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./views/candidate/dashboard */ "./src/app/views/candidate/dashboard.ts");
+/* harmony import */ var _views_candidate_detail__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./views/candidate/detail */ "./src/app/views/candidate/detail.ts");
+/* harmony import */ var _views_candidate_login__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./views/candidate/login */ "./src/app/views/candidate/login.ts");
+/* harmony import */ var _views_candidate_profile__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./views/candidate/profile */ "./src/app/views/candidate/profile/index.ts");
+/* harmony import */ var _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./views/candidate/profile/changepassword */ "./src/app/views/candidate/profile/changepassword.ts");
+/* harmony import */ var _views_candidate_resume__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./views/candidate/resume */ "./src/app/views/candidate/resume/index.ts");
+/* harmony import */ var _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./views/candidate/resume/add */ "./src/app/views/candidate/resume/add.ts");
+/* harmony import */ var _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./views/candidate/resume/edit */ "./src/app/views/candidate/resume/edit.ts");
+/* harmony import */ var _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./views/candidate/resume/detail */ "./src/app/views/candidate/resume/detail.ts");
+/* harmony import */ var _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./views/candidate/resume/coverletter */ "./src/app/views/candidate/resume/coverletter.ts");
+/* harmony import */ var _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./views/candidate/job/list */ "./src/app/views/candidate/job/list.ts");
+/* harmony import */ var _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./views/candidate/job/apply */ "./src/app/views/candidate/job/apply.ts");
+/* harmony import */ var _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./views/candidate/job/favorites */ "./src/app/views/candidate/job/favorites.ts");
+/* harmony import */ var _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./views/candidate/job/alert */ "./src/app/views/candidate/job/alert.ts");
+/* harmony import */ var _views_employer__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./views/employer */ "./src/app/views/employer/index.ts");
+/* harmony import */ var _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./views/employer/dashboard */ "./src/app/views/employer/dashboard.ts");
+/* harmony import */ var _views_employer_detail__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./views/employer/detail */ "./src/app/views/employer/detail.ts");
+/* harmony import */ var _views_employer_login__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./views/employer/login */ "./src/app/views/employer/login.ts");
+/* harmony import */ var _views_employer_profile__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./views/employer/profile */ "./src/app/views/employer/profile/index.ts");
+/* harmony import */ var _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ./views/employer/profile/changepassword */ "./src/app/views/employer/profile/changepassword.ts");
+/* harmony import */ var _views_employer_job_list__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./views/employer/job/list */ "./src/app/views/employer/job/list.ts");
+/* harmony import */ var _views_employer_job_add__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./views/employer/job/add */ "./src/app/views/employer/job/add.ts");
+/* harmony import */ var _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./views/employer/job/edit */ "./src/app/views/employer/job/edit.ts");
+/* harmony import */ var _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./views/employer/job/apply */ "./src/app/views/employer/job/apply.ts");
+/* harmony import */ var _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./views/employer/job/alert */ "./src/app/views/employer/job/alert.ts");
+/* harmony import */ var _views_employer_package__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./views/employer/package */ "./src/app/views/employer/package/index.ts");
+/* harmony import */ var _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./views/employer/package/transactions */ "./src/app/views/employer/package/transactions.ts");
 
 
 
@@ -19782,6 +19902,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 //Home
 
 
@@ -19801,6 +19922,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 //��erik
 
 
@@ -19808,6 +19930,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //�lan
+
+
+
+
+
+
+
+
 
 
 //�al��an
@@ -19853,71 +19983,81 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_72__["FooterComponent"],
             _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_73__["ScriptsComponent"],
             _views_shared_controls_banner__WEBPACK_IMPORTED_MODULE_74__["BannerComponent"],
-            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_75__["ModalAlertComponent"],
-            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_76__["ModalConfirmComponent"],
-            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_77__["RespHeaderComponent"],
-            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_79__["RespSearchComponent"],
-            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_78__["RespMenuComponent"],
-            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_80__["PopupLoginComponent"],
-            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_81__["PopupSignupComponent"],
+            _views_shared_controls_bannerpicture__WEBPACK_IMPORTED_MODULE_75__["BannerPictureComponent"],
+            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_76__["ModalAlertComponent"],
+            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_77__["ModalConfirmComponent"],
+            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_78__["RespHeaderComponent"],
+            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_80__["RespSearchComponent"],
+            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_79__["RespMenuComponent"],
+            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_81__["PopupLoginComponent"],
+            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_82__["PopupSignupComponent"],
             //Home
-            _views_home__WEBPACK_IMPORTED_MODULE_82__["IndexComponent"],
-            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_83__["HomeTopComponent"],
-            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_84__["HomeSliderComponent"],
-            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_85__["HomeSearchComponent"],
-            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_86__["HomePopCatComponent"],
-            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_87__["HomeAccountComponent"],
-            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_88__["HomeJobsComponent"],
-            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_89__["HomeCandidatesComponent"],
-            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_90__["HomeCompaniesComponent"],
-            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_91__["HomeTipsComponent"],
-            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_92__["HomeQuestionComponent"],
+            _views_home__WEBPACK_IMPORTED_MODULE_83__["IndexComponent"],
+            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_84__["HomeTopComponent"],
+            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_85__["HomeSliderComponent"],
+            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_86__["HomeSearchComponent"],
+            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_87__["HomePopCatComponent"],
+            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_88__["HomeAccountComponent"],
+            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_89__["HomeJobsComponent"],
+            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_90__["HomeCandidatesComponent"],
+            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_91__["HomeCompaniesComponent"],
+            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_92__["HomeTipsComponent"],
+            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_93__["HomeQuestionComponent"],
             //Blog
-            _views_blog__WEBPACK_IMPORTED_MODULE_93__["BlogIndexComponent"],
-            _views_blog_parts_list__WEBPACK_IMPORTED_MODULE_94__["BlogListComponent"],
-            _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_95__["BlogSearchComponent"],
-            _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_96__["BlogCategoriesComponent"],
-            _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_97__["BlogRecentComponent"],
-            _views_blog_detail__WEBPACK_IMPORTED_MODULE_98__["BlogDetailComponent"],
+            _views_blog__WEBPACK_IMPORTED_MODULE_94__["BlogIndexComponent"],
+            _views_blog_parts_list_pager__WEBPACK_IMPORTED_MODULE_95__["BlogListPagerComponent"],
+            _views_blog_parts_left__WEBPACK_IMPORTED_MODULE_96__["BlogLeftComponent"],
+            _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_97__["BlogSearchComponent"],
+            _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_98__["BlogCategoriesComponent"],
+            _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_99__["BlogRecentComponent"],
+            _views_blog_detail__WEBPACK_IMPORTED_MODULE_100__["BlogDetailComponent"],
             //��erik
-            _views_content__WEBPACK_IMPORTED_MODULE_99__["ContentIndexComponent"],
-            _views_content_contact__WEBPACK_IMPORTED_MODULE_100__["ContactComponent"],
-            _views_content_about__WEBPACK_IMPORTED_MODULE_101__["AboutComponent"],
-            _views_content_register__WEBPACK_IMPORTED_MODULE_102__["RegisterComponent"],
-            _views_content_pricing__WEBPACK_IMPORTED_MODULE_103__["PricingComponent"],
+            _views_content__WEBPACK_IMPORTED_MODULE_101__["ContentIndexComponent"],
+            _views_content_contact__WEBPACK_IMPORTED_MODULE_102__["ContactComponent"],
+            _views_content_about__WEBPACK_IMPORTED_MODULE_103__["AboutComponent"],
+            _views_content_register__WEBPACK_IMPORTED_MODULE_104__["RegisterComponent"],
+            _views_content_pricing__WEBPACK_IMPORTED_MODULE_105__["PricingComponent"],
             //�lan
-            _views_job__WEBPACK_IMPORTED_MODULE_104__["JobIndexComponent"],
-            _views_job_detail__WEBPACK_IMPORTED_MODULE_105__["JobDetailComponent"],
+            _views_job__WEBPACK_IMPORTED_MODULE_106__["JobIndexComponent"],
+            _views_job_parts_list_top__WEBPACK_IMPORTED_MODULE_107__["JobListTopComponent"],
+            _views_job_parts_list_left__WEBPACK_IMPORTED_MODULE_108__["JobListLeftComponent"],
+            _views_job_parts_list_controls__WEBPACK_IMPORTED_MODULE_109__["JobListControlsComponent"],
+            _views_job_parts_list_pager__WEBPACK_IMPORTED_MODULE_110__["JobListPagerComponent"],
+            _views_job_detail__WEBPACK_IMPORTED_MODULE_111__["JobDetailComponent"],
+            _views_job_parts_detail_recent__WEBPACK_IMPORTED_MODULE_112__["JobDetailRecentComponent"],
+            _views_job_parts_detail_overview__WEBPACK_IMPORTED_MODULE_113__["JobDetailOverviewComponent"],
+            _views_job_parts_detail_contact__WEBPACK_IMPORTED_MODULE_114__["JobDetailContactComponent"],
+            _views_job_parts_detail_extra__WEBPACK_IMPORTED_MODULE_115__["JobDetailExtraComponent"],
             //�al��an
-            _views_candidate__WEBPACK_IMPORTED_MODULE_106__["CandidateIndexComponent"],
-            _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_107__["CandidateDashboardComponent"],
-            _views_candidate_detail__WEBPACK_IMPORTED_MODULE_108__["CandidateDetailComponent"],
-            _views_candidate_login__WEBPACK_IMPORTED_MODULE_109__["CandidateLoginComponent"],
-            _views_candidate_profile__WEBPACK_IMPORTED_MODULE_110__["CandidateProfileComponent"],
-            _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_111__["CandidateChangePasswordComponent"],
-            _views_candidate_resume__WEBPACK_IMPORTED_MODULE_112__["CandidateResumeComponent"],
-            _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_113__["CandidateResumeAddComponent"],
-            _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_114__["CandidateResumeEditComponent"],
-            _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_115__["CandidateResumeDetailComponent"],
-            _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_116__["CandidateResumeCoverLetterComponent"],
-            _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_117__["CandidateJobListComponent"],
-            _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_118__["CandidateJobApplyComponent"],
-            _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_119__["CandidateJobFavoritesComponent"],
-            _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_120__["CandidateJobAlertComponent"],
+            _views_candidate__WEBPACK_IMPORTED_MODULE_116__["CandidateIndexComponent"],
+            _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_117__["CandidateDashboardComponent"],
+            _views_candidate_detail__WEBPACK_IMPORTED_MODULE_118__["CandidateDetailComponent"],
+            _views_candidate_login__WEBPACK_IMPORTED_MODULE_119__["CandidateLoginComponent"],
+            _views_candidate_profile__WEBPACK_IMPORTED_MODULE_120__["CandidateProfileComponent"],
+            _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_121__["CandidateChangePasswordComponent"],
+            _views_candidate_resume__WEBPACK_IMPORTED_MODULE_122__["CandidateResumeComponent"],
+            _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_123__["CandidateResumeAddComponent"],
+            _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_124__["CandidateResumeEditComponent"],
+            _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_125__["CandidateResumeDetailComponent"],
+            _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_126__["CandidateResumeCoverLetterComponent"],
+            _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_127__["CandidateJobListComponent"],
+            _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_128__["CandidateJobApplyComponent"],
+            _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_129__["CandidateJobFavoritesComponent"],
+            _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_130__["CandidateJobAlertComponent"],
             //Firma
-            _views_employer__WEBPACK_IMPORTED_MODULE_121__["EmployerIndexComponent"],
-            _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_122__["EmployerDashboardComponent"],
-            _views_employer_detail__WEBPACK_IMPORTED_MODULE_123__["EmployerDetailComponent"],
-            _views_employer_profile__WEBPACK_IMPORTED_MODULE_125__["EmployerProfileComponent"],
-            _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_126__["EmployerChangePasswordComponent"],
-            _views_employer_login__WEBPACK_IMPORTED_MODULE_124__["EmployerLoginComponent"],
-            _views_employer_job_list__WEBPACK_IMPORTED_MODULE_127__["EmployerJobListComponent"],
-            _views_employer_job_add__WEBPACK_IMPORTED_MODULE_128__["EmployerJobAddComponent"],
-            _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_129__["EmployerJobEditComponent"],
-            _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_130__["EmployerJobApplyComponent"],
-            _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_131__["EmployerJobAlertComponent"],
-            _views_employer_package__WEBPACK_IMPORTED_MODULE_132__["EmployerPackageComponent"],
-            _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_133__["EmployerTransactionsComponent"],
+            _views_employer__WEBPACK_IMPORTED_MODULE_131__["EmployerIndexComponent"],
+            _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_132__["EmployerDashboardComponent"],
+            _views_employer_detail__WEBPACK_IMPORTED_MODULE_133__["EmployerDetailComponent"],
+            _views_employer_profile__WEBPACK_IMPORTED_MODULE_135__["EmployerProfileComponent"],
+            _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_136__["EmployerChangePasswordComponent"],
+            _views_employer_login__WEBPACK_IMPORTED_MODULE_134__["EmployerLoginComponent"],
+            _views_employer_job_list__WEBPACK_IMPORTED_MODULE_137__["EmployerJobListComponent"],
+            _views_employer_job_add__WEBPACK_IMPORTED_MODULE_138__["EmployerJobAddComponent"],
+            _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_139__["EmployerJobEditComponent"],
+            _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_140__["EmployerJobApplyComponent"],
+            _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_141__["EmployerJobAlertComponent"],
+            _views_employer_package__WEBPACK_IMPORTED_MODULE_142__["EmployerPackageComponent"],
+            _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_143__["EmployerTransactionsComponent"],
             //Admin
             _admin_views_shared_layoutAdmin__WEBPACK_IMPORTED_MODULE_8__["AdminLayoutComponent"],
             _admin_views_home_login__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"],
@@ -20191,30 +20331,59 @@ BlogCategoriesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/views/blog/parts/list.ts":
+/***/ "./src/app/views/blog/parts/left.ts":
 /*!******************************************!*\
-  !*** ./src/app/views/blog/parts/list.ts ***!
+  !*** ./src/app/views/blog/parts/left.ts ***!
   \******************************************/
-/*! exports provided: BlogListComponent */
+/*! exports provided: BlogLeftComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlogListComponent", function() { return BlogListComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlogLeftComponent", function() { return BlogLeftComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let BlogListComponent = class BlogListComponent {
+let BlogLeftComponent = class BlogLeftComponent {
     ngOnInit() {
     }
 };
-BlogListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+BlogLeftComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'hr-bloglist',
-        template: __webpack_require__(/*! raw-loader!./list.html */ "./node_modules/raw-loader/index.js!./src/app/views/blog/parts/list.html")
+        selector: 'hr-blogleft',
+        template: __webpack_require__(/*! raw-loader!./left.html */ "./node_modules/raw-loader/index.js!./src/app/views/blog/parts/left.html")
     })
-], BlogListComponent);
+], BlogLeftComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/blog/parts/list/pager.ts":
+/*!************************************************!*\
+  !*** ./src/app/views/blog/parts/list/pager.ts ***!
+  \************************************************/
+/*! exports provided: BlogListPagerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlogListPagerComponent", function() { return BlogListPagerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let BlogListPagerComponent = class BlogListPagerComponent {
+    ngOnInit() {
+    }
+};
+BlogListPagerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-bloglistpager',
+        template: __webpack_require__(/*! raw-loader!./pager.html */ "./node_modules/raw-loader/index.js!./src/app/views/blog/parts/list/pager.html")
+    })
+], BlogListPagerComponent);
 
 
 
@@ -21685,6 +21854,247 @@ JobIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/views/job/parts/detail/contact.ts":
+/*!***************************************************!*\
+  !*** ./src/app/views/job/parts/detail/contact.ts ***!
+  \***************************************************/
+/*! exports provided: JobDetailContactComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobDetailContactComponent", function() { return JobDetailContactComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobDetailContactComponent = class JobDetailContactComponent {
+    ngOnInit() {
+    }
+};
+JobDetailContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-jobdetailcontact',
+        template: __webpack_require__(/*! raw-loader!./contact.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/contact.html")
+    })
+], JobDetailContactComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/detail/extra.ts":
+/*!*************************************************!*\
+  !*** ./src/app/views/job/parts/detail/extra.ts ***!
+  \*************************************************/
+/*! exports provided: JobDetailExtraComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobDetailExtraComponent", function() { return JobDetailExtraComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobDetailExtraComponent = class JobDetailExtraComponent {
+    ngOnInit() {
+    }
+};
+JobDetailExtraComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-jobdetailextra',
+        template: __webpack_require__(/*! raw-loader!./extra.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/extra.html")
+    })
+], JobDetailExtraComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/detail/overview.ts":
+/*!****************************************************!*\
+  !*** ./src/app/views/job/parts/detail/overview.ts ***!
+  \****************************************************/
+/*! exports provided: JobDetailOverviewComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobDetailOverviewComponent", function() { return JobDetailOverviewComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobDetailOverviewComponent = class JobDetailOverviewComponent {
+    ngOnInit() {
+    }
+};
+JobDetailOverviewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-jobdetailoverview',
+        template: __webpack_require__(/*! raw-loader!./overview.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/overview.html")
+    })
+], JobDetailOverviewComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/detail/recent.ts":
+/*!**************************************************!*\
+  !*** ./src/app/views/job/parts/detail/recent.ts ***!
+  \**************************************************/
+/*! exports provided: JobDetailRecentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobDetailRecentComponent", function() { return JobDetailRecentComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobDetailRecentComponent = class JobDetailRecentComponent {
+    ngOnInit() {
+    }
+};
+JobDetailRecentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-jobdetailrecent',
+        template: __webpack_require__(/*! raw-loader!./recent.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/detail/recent.html")
+    })
+], JobDetailRecentComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/list/controls.ts":
+/*!**************************************************!*\
+  !*** ./src/app/views/job/parts/list/controls.ts ***!
+  \**************************************************/
+/*! exports provided: JobListControlsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobListControlsComponent", function() { return JobListControlsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _shared_controls_scripts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../lib/methods */ "./src/app/lib/methods.ts");
+
+
+
+
+let JobListControlsComponent = class JobListControlsComponent {
+    ngOnInit() {
+        _shared_controls_scripts__WEBPACK_IMPORTED_MODULE_2__["ScriptsComponent"].Select(".chosen");
+        setTimeout(() => {
+            _lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].ComboChange("slcSort");
+            _lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].ComboChange("slcPager");
+        }, 2500);
+    }
+};
+JobListControlsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-joblistcontrols',
+        template: __webpack_require__(/*! raw-loader!./controls.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/controls.html")
+    })
+], JobListControlsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/list/left.ts":
+/*!**********************************************!*\
+  !*** ./src/app/views/job/parts/list/left.ts ***!
+  \**********************************************/
+/*! exports provided: JobListLeftComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobListLeftComponent", function() { return JobListLeftComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobListLeftComponent = class JobListLeftComponent {
+    ngOnInit() {
+    }
+};
+JobListLeftComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-joblistleft',
+        template: __webpack_require__(/*! raw-loader!./left.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/left.html")
+    })
+], JobListLeftComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/list/pager.ts":
+/*!***********************************************!*\
+  !*** ./src/app/views/job/parts/list/pager.ts ***!
+  \***********************************************/
+/*! exports provided: JobListPagerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobListPagerComponent", function() { return JobListPagerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobListPagerComponent = class JobListPagerComponent {
+    ngOnInit() {
+    }
+};
+JobListPagerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-joblistpager',
+        template: __webpack_require__(/*! raw-loader!./pager.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/pager.html")
+    })
+], JobListPagerComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/job/parts/list/top.ts":
+/*!*********************************************!*\
+  !*** ./src/app/views/job/parts/list/top.ts ***!
+  \*********************************************/
+/*! exports provided: JobListTopComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JobListTopComponent", function() { return JobListTopComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let JobListTopComponent = class JobListTopComponent {
+    ngOnInit() {
+    }
+};
+JobListTopComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-joblisttop',
+        template: __webpack_require__(/*! raw-loader!./top.html */ "./node_modules/raw-loader/index.js!./src/app/views/job/parts/list/top.html")
+    })
+], JobListTopComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/views/shared/common/modalalert.ts":
 /*!***************************************************!*\
   !*** ./src/app/views/shared/common/modalalert.ts ***!
@@ -21804,6 +22214,35 @@ BannerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./banner.html */ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/banner.html")
     })
 ], BannerComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/shared/controls/bannerpicture.ts":
+/*!********************************************************!*\
+  !*** ./src/app/views/shared/controls/bannerpicture.ts ***!
+  \********************************************************/
+/*! exports provided: BannerPictureComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BannerPictureComponent", function() { return BannerPictureComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let BannerPictureComponent = class BannerPictureComponent {
+    ngOnInit() {
+    }
+};
+BannerPictureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-bannerpicture',
+        template: __webpack_require__(/*! raw-loader!./bannerpicture.html */ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/bannerpicture.html")
+    })
+], BannerPictureComponent);
 
 
 

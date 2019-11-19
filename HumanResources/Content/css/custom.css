@@ -15,3 +15,6 @@
 .menu-sec {margin-bottom:30px;}
 .job-search > span {color:#fff;}
 .post-job-btn {float: right;margin-left: 20px;}
+.simple-checkbox.scrollbar {overflow-y:scroll;}
+.job-head-wide .apply-alternative span {width: 100%;text-align: center;cursor: pointer;}
+.job-head-wide .apply-alternative span i.la {float:none;}

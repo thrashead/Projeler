@@ -101,6 +101,7 @@ import { MenuComponent } from './views/shared/controls/menu';
 import { FooterComponent } from './views/shared/controls/footer';
 import { ScriptsComponent } from './views/shared/controls/scripts';
 import { BannerComponent } from './views/shared/controls/banner';
+import { BannerPictureComponent } from './views/shared/controls/bannerpicture';
 import { ModalAlertComponent } from './views/shared/common/modalalert';
 import { ModalConfirmComponent } from './views/shared/common/modalconfirm';
 import { RespHeaderComponent } from './views/shared/controls/responsive/header';
@@ -124,7 +125,8 @@ import { HomeQuestionComponent } from './views/home/parts/question';
 
 //Blog
 import { BlogIndexComponent } from './views/blog';
-import { BlogListComponent } from './views/blog/parts/list';
+import { BlogListPagerComponent } from './views/blog/parts/list/pager';
+import { BlogLeftComponent } from './views/blog/parts/left';
 import { BlogSearchComponent } from './views/blog/parts/search';
 import { BlogCategoriesComponent } from './views/blog/parts/categories';
 import { BlogRecentComponent } from './views/blog/parts/recent';
@@ -139,7 +141,15 @@ import { PricingComponent } from './views/content/pricing';
 
 //Ýlan
 import { JobIndexComponent } from './views/job';
+import { JobListTopComponent } from './views/job/parts/list/top';
+import { JobListLeftComponent } from './views/job/parts/list/left';
+import { JobListControlsComponent } from './views/job/parts/list/controls';
+import { JobListPagerComponent } from './views/job/parts/list/pager';
 import { JobDetailComponent } from './views/job/detail';
+import { JobDetailRecentComponent } from './views/job/parts/detail/recent';
+import { JobDetailOverviewComponent } from './views/job/parts/detail/overview';
+import { JobDetailContactComponent } from './views/job/parts/detail/contact';
+import { JobDetailExtraComponent } from './views/job/parts/detail/extra';
 
 //Çalýþan
 import { CandidateIndexComponent } from './views/candidate';
@@ -184,6 +194,7 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
         FooterComponent,
         ScriptsComponent,
         BannerComponent,
+        BannerPictureComponent,
         ModalAlertComponent,
         ModalConfirmComponent,
         RespHeaderComponent,
@@ -207,7 +218,8 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
 
         //Blog
         BlogIndexComponent,
-        BlogListComponent,
+        BlogListPagerComponent,
+        BlogLeftComponent,
         BlogSearchComponent,
         BlogCategoriesComponent,
         BlogRecentComponent,
@@ -222,7 +234,15 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
 
         //Ýlan
         JobIndexComponent,
+        JobListTopComponent,
+        JobListLeftComponent,
+        JobListControlsComponent,
+        JobListPagerComponent,
         JobDetailComponent,
+        JobDetailRecentComponent,
+        JobDetailOverviewComponent,
+        JobDetailContactComponent,
+        JobDetailExtraComponent,
 
         //Çalýþan
         CandidateIndexComponent,
