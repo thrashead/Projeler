@@ -10,17 +10,18 @@ export class Lib {
         router.navigate([changeUrl], { skipLocationChange: skipChangeLocation }).then(() => { router.navigate([currentUrl]) });
     }
 
-    static ComboChange(id: string) {
-        var select = $("#" + id);
-        var selectUL = $("#" + id).next(".chosen-container").find(".chosen-results");
+    static ComboChange(classid: string, time: number = 2500) {
+        setTimeout(() => {
+            var select = $(classid);
+            var selectUL = $(classid).next(".chosen-container").find(".chosen-results");
 
-
-        select.next(".chosen-container").children("a.chosen-single").off("click").on("click", function () {
-            selectUL.children("li").off("click").on("click", function () {
-                var index = parseInt($(this).attr("data-option-array-index"));
-                select.children("option").removeAttr("selected");
-                select.children("option").eq(index).attr("selected", "selected");
+            select.next(".chosen-container").children("a.chosen-single").off("click").on("click", function () {
+                selectUL.children("li").off("click").on("click", function () {
+                    var index = parseInt($(this).attr("data-option-array-index"));
+                    select.children("option").removeAttr("selected");
+                    select.children("option").eq(index).attr("selected", "selected");
+                });
             });
-        });
+        }, time);
     }
 }

@@ -18,3 +18,8 @@
 .simple-checkbox.scrollbar {overflow-y:scroll;}
 .job-head-wide .apply-alternative span {width: 100%;text-align: center;cursor: pointer;}
 .job-head-wide .apply-alternative span i.la {float:none;}
+.bcbanner {margin-top: 100px;}
+
+@media (max-width:1200px) {
+.bcbanner {margin-top: 0px;}
+}

@@ -1,0 +1,21 @@
+﻿<section>
+    <div class="block no-padding gray bcbanner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2">
+                        <div class="inner-title2">
+                            <h3>{{ title }}</h3>
+                            <span>{{ message }}</span>
+                        </div>
+                        <div class="page-breacrumbs">
+                            <ul class="breadcrumbs">
+                                <li *ngFor="let item of links"><a routerLink="{{ item?.Link }}" title="{{ item?.Title }}">{{ item?.Title }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

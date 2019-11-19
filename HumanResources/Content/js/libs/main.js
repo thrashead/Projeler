@@ -12528,7 +12528,7 @@ module.exports = "/*------------------------------------------------------------
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {display:-webkit-box;display:flex;margin: 160px auto 0px auto;width: 95%;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}\r\n.main-slider-sec::before {background:none;}\r\n.inner-header::before {background:none;}\r\n.inner-header::after {background:none;}\r\n.forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);\r\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}\r\n.forsticky.sticky {opacity: 1;}\r\n.menu-sec {margin-bottom:30px;}\r\n.job-search > span {color:#fff;}\r\n.post-job-btn {float: right;margin-left: 20px;}\r\n.simple-checkbox.scrollbar {overflow-y:scroll;}\r\n.job-head-wide .apply-alternative span {width: 100%;text-align: center;cursor: pointer;}\r\n.job-head-wide .apply-alternative span i.la {float:none;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsbUJBQVksQ0FBWixZQUFZLENBQUMsMkJBQTJCLENBQUMsVUFBVSxDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQzlILHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDLGlCQUFpQixDQUFDO0FBRWxILDBCQUEwQixlQUFlLENBQUM7QUFDMUMsdUJBQXVCLGVBQWUsQ0FBQztBQUN2QyxzQkFBc0IsZUFBZSxDQUFDO0FBQ3RDLFlBQVksNEJBQTRCLENBQUMscUdBQXFHO1lBQ2xJLG1IQUFtSCxDQUFDLGFBQWEsQ0FBQztBQUM5SSxtQkFBbUIsVUFBVSxDQUFDO0FBQzlCLFdBQVcsa0JBQWtCLENBQUM7QUFDOUIsb0JBQW9CLFVBQVUsQ0FBQztBQUMvQixlQUFlLFlBQVksQ0FBQyxpQkFBaUIsQ0FBQztBQUM5Qyw0QkFBNEIsaUJBQWlCLENBQUM7QUFDOUMsd0NBQXdDLFdBQVcsQ0FBQyxrQkFBa0IsQ0FBQyxlQUFlLENBQUM7QUFDdkYsNkNBQTZDLFVBQVUsQ0FBQyIsImZpbGUiOiJDb250ZW50L2Nzcy9jdXN0b20uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vZGFsaXRlbSB7cG9zaXRpb246Zml4ZWQ7d2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTt0b3A6MHB4O2xlZnQ6MHB4O2JhY2tncm91bmQtaW1hZ2U6dXJsKC9IdW1hblJlc291cmNlcy9Db250ZW50L2ltZy9hbGVydGJnLnBuZyk7ei1pbmRleDogMTAwMDtkaXNwbGF5Om5vbmU7fVxyXG4ubW9kYWxpdGVtLnNob3cge2Rpc3BsYXk6YmxvY2s7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyB7ZGlzcGxheTpmbGV4O21hcmdpbjogMTYwcHggYXV0byAwcHggYXV0bzt3aWR0aDogOTUlO2JhY2tncm91bmQtY29sb3I6ICNmZmY7Ym9yZGVyOiAzcHggc29saWQgIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtoZWlnaHQ6IGF1dG87fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGJvZHkge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IC5tb2RhbGZvb3RlciB7bWFyZ2luOiAwcHggMHB4IDBweCAwcHg7ZmxvYXQ6IGxlZnQ7d2lkdGg6IDEwMCU7cGFkZGluZzogMTBweCAxMHB4IDEwcHggMTBweDtiYWNrZ3JvdW5kLWNvbG9yOiAjOUE4MkNFO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIgYnV0dG9uIHtmbG9hdDpub25lO2JhY2tncm91bmQtY29sb3I6ICM1NDJjYWI7bWFyZ2luLXJpZ2h0OiA1cHg7fVxyXG5cclxuLm1haW4tc2xpZGVyLXNlYzo6YmVmb3JlIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uaW5uZXItaGVhZGVyOjpiZWZvcmUge2JhY2tncm91bmQ6bm9uZTt9XHJcbi5pbm5lci1oZWFkZXI6OmFmdGVyIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uZm9yc3RpY2t5IHtiYWNrZ3JvdW5kOiByZ2IoMTM5LDE0NSwyMjEpO2JhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgcmdiYSgxMzksMTQ1LDIyMSwxKSAwJSxyZ2JhKDE2LDI1LDkzLDEpIDcxJSxyZ2JhKDE2LDI1LDkzLDEpIDEwMCUpO1xyXG4gICAgICAgICAgICBmaWx0ZXI6IHByb2dpZDpEWEltYWdlVHJhbnNmb3JtLk1pY3Jvc29mdC5ncmFkaWVudCggc3RhcnRDb2xvcnN0cj0nIzhiOTFkZCcsIGVuZENvbG9yc3RyPScjMTAxOTVkJyxHcmFkaWVudFR5cGU9MSApO29wYWNpdHk6IDAuODU7fVxyXG4uZm9yc3RpY2t5LnN0aWNreSB7b3BhY2l0eTogMTt9XHJcbi5tZW51LXNlYyB7bWFyZ2luLWJvdHRvbTozMHB4O31cclxuLmpvYi1zZWFyY2ggPiBzcGFuIHtjb2xvcjojZmZmO31cclxuLnBvc3Qtam9iLWJ0biB7ZmxvYXQ6IHJpZ2h0O21hcmdpbi1sZWZ0OiAyMHB4O31cclxuLnNpbXBsZS1jaGVja2JveC5zY3JvbGxiYXIge292ZXJmbG93LXk6c2Nyb2xsO31cclxuLmpvYi1oZWFkLXdpZGUgLmFwcGx5LWFsdGVybmF0aXZlIHNwYW4ge3dpZHRoOiAxMDAlO3RleHQtYWxpZ246IGNlbnRlcjtjdXJzb3I6IHBvaW50ZXI7fVxyXG4uam9iLWhlYWQtd2lkZSAuYXBwbHktYWx0ZXJuYXRpdmUgc3BhbiBpLmxhIHtmbG9hdDpub25lO31cclxuIl19 */"
+module.exports = ".modalitem {position:fixed;width:100%;height:100%;top:0px;left:0px;background-image:url(/HumanResources/Content/img/alertbg.png);z-index: 1000;display:none;}\r\n.modalitem.show {display:block;}\r\n.modalitem .modaldialog {display:-webkit-box;display:flex;margin: 160px auto 0px auto;width: 95%;background-color: #fff;border: 3px solid #9A82CE;}\r\n.modalitem .modaldialog .modalcontent {margin: 0px 0px 0px 0px;float: left;width: 100%;text-align: center;height: auto;}\r\n.modalitem .modaldialog .modalcontent .modalbody {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;}\r\n.modalitem .modaldialog .modalcontent .modalfooter {margin: 0px 0px 0px 0px;float: left;width: 100%;padding: 10px 10px 10px 10px;background-color: #9A82CE;}\r\n.modalitem .modaldialog .modalcontent .modalfooter button {float:none;background-color: #542cab;margin-right: 5px;}\r\n.main-slider-sec::before {background:none;}\r\n.inner-header::before {background:none;}\r\n.inner-header::after {background:none;}\r\n.forsticky {background: rgb(139,145,221);background: linear-gradient(45deg, rgba(139,145,221,1) 0%,rgba(16,25,93,1) 71%,rgba(16,25,93,1) 100%);\r\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d',GradientType=1 );opacity: 0.85;}\r\n.forsticky.sticky {opacity: 1;}\r\n.menu-sec {margin-bottom:30px;}\r\n.job-search > span {color:#fff;}\r\n.post-job-btn {float: right;margin-left: 20px;}\r\n.simple-checkbox.scrollbar {overflow-y:scroll;}\r\n.job-head-wide .apply-alternative span {width: 100%;text-align: center;cursor: pointer;}\r\n.job-head-wide .apply-alternative span i.la {float:none;}\r\n.bcbanner {margin-top: 100px;}\r\n@media (max-width:1200px) {\r\n.bcbanner {margin-top: 0px;}\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRlbnQvY3NzL2N1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxjQUFjLENBQUMsVUFBVSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLDZEQUE2RCxDQUFDLGFBQWEsQ0FBQyxZQUFZLENBQUM7QUFDNUosaUJBQWlCLGFBQWEsQ0FBQztBQUMvQix5QkFBeUIsbUJBQVksQ0FBWixZQUFZLENBQUMsMkJBQTJCLENBQUMsVUFBVSxDQUFDLHNCQUFzQixDQUFDLHlCQUF5QixDQUFDO0FBQzlILHVDQUF1Qyx1QkFBdUIsQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQUFDLFlBQVksQ0FBQztBQUN2SCxrREFBa0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQztBQUMvSCxvREFBb0QsdUJBQXVCLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyw0QkFBNEIsQ0FBQyx5QkFBeUIsQ0FBQztBQUMzSiwyREFBMkQsVUFBVSxDQUFDLHlCQUF5QixDQUFDLGlCQUFpQixDQUFDO0FBRWxILDBCQUEwQixlQUFlLENBQUM7QUFDMUMsdUJBQXVCLGVBQWUsQ0FBQztBQUN2QyxzQkFBc0IsZUFBZSxDQUFDO0FBQ3RDLFlBQVksNEJBQTRCLENBQUMscUdBQXFHO1lBQ2xJLG1IQUFtSCxDQUFDLGFBQWEsQ0FBQztBQUM5SSxtQkFBbUIsVUFBVSxDQUFDO0FBQzlCLFdBQVcsa0JBQWtCLENBQUM7QUFDOUIsb0JBQW9CLFVBQVUsQ0FBQztBQUMvQixlQUFlLFlBQVksQ0FBQyxpQkFBaUIsQ0FBQztBQUM5Qyw0QkFBNEIsaUJBQWlCLENBQUM7QUFDOUMsd0NBQXdDLFdBQVcsQ0FBQyxrQkFBa0IsQ0FBQyxlQUFlLENBQUM7QUFDdkYsNkNBQTZDLFVBQVUsQ0FBQztBQUN4RCxXQUFXLGlCQUFpQixDQUFDO0FBRTdCO0FBQ0EsV0FBVyxlQUFlLENBQUM7QUFDM0IiLCJmaWxlIjoiQ29udGVudC9jc3MvY3VzdG9tLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tb2RhbGl0ZW0ge3Bvc2l0aW9uOmZpeGVkO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7dG9wOjBweDtsZWZ0OjBweDtiYWNrZ3JvdW5kLWltYWdlOnVybCgvSHVtYW5SZXNvdXJjZXMvQ29udGVudC9pbWcvYWxlcnRiZy5wbmcpO3otaW5kZXg6IDEwMDA7ZGlzcGxheTpub25lO31cclxuLm1vZGFsaXRlbS5zaG93IHtkaXNwbGF5OmJsb2NrO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cge2Rpc3BsYXk6ZmxleDttYXJnaW46IDE2MHB4IGF1dG8gMHB4IGF1dG87d2lkdGg6IDk1JTtiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO2JvcmRlcjogM3B4IHNvbGlkICM5QTgyQ0U7fVxyXG4ubW9kYWxpdGVtIC5tb2RhbGRpYWxvZyAubW9kYWxjb250ZW50IHttYXJnaW46IDBweCAwcHggMHB4IDBweDtmbG9hdDogbGVmdDt3aWR0aDogMTAwJTt0ZXh0LWFsaWduOiBjZW50ZXI7aGVpZ2h0OiBhdXRvO31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxib2R5IHttYXJnaW46IDBweCAwcHggMHB4IDBweDtmbG9hdDogbGVmdDt3aWR0aDogMTAwJTtwYWRkaW5nOiAxMHB4IDEwcHggMTBweCAxMHB4O31cclxuLm1vZGFsaXRlbSAubW9kYWxkaWFsb2cgLm1vZGFsY29udGVudCAubW9kYWxmb290ZXIge21hcmdpbjogMHB4IDBweCAwcHggMHB4O2Zsb2F0OiBsZWZ0O3dpZHRoOiAxMDAlO3BhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7YmFja2dyb3VuZC1jb2xvcjogIzlBODJDRTt9XHJcbi5tb2RhbGl0ZW0gLm1vZGFsZGlhbG9nIC5tb2RhbGNvbnRlbnQgLm1vZGFsZm9vdGVyIGJ1dHRvbiB7ZmxvYXQ6bm9uZTtiYWNrZ3JvdW5kLWNvbG9yOiAjNTQyY2FiO21hcmdpbi1yaWdodDogNXB4O31cclxuXHJcbi5tYWluLXNsaWRlci1zZWM6OmJlZm9yZSB7YmFja2dyb3VuZDpub25lO31cclxuLmlubmVyLWhlYWRlcjo6YmVmb3JlIHtiYWNrZ3JvdW5kOm5vbmU7fVxyXG4uaW5uZXItaGVhZGVyOjphZnRlciB7YmFja2dyb3VuZDpub25lO31cclxuLmZvcnN0aWNreSB7YmFja2dyb3VuZDogcmdiKDEzOSwxNDUsMjIxKTtiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoNDVkZWcsIHJnYmEoMTM5LDE0NSwyMjEsMSkgMCUscmdiYSgxNiwyNSw5MywxKSA3MSUscmdiYSgxNiwyNSw5MywxKSAxMDAlKTtcclxuICAgICAgICAgICAgZmlsdGVyOiBwcm9naWQ6RFhJbWFnZVRyYW5zZm9ybS5NaWNyb3NvZnQuZ3JhZGllbnQoIHN0YXJ0Q29sb3JzdHI9JyM4YjkxZGQnLCBlbmRDb2xvcnN0cj0nIzEwMTk1ZCcsR3JhZGllbnRUeXBlPTEgKTtvcGFjaXR5OiAwLjg1O31cclxuLmZvcnN0aWNreS5zdGlja3kge29wYWNpdHk6IDE7fVxyXG4ubWVudS1zZWMge21hcmdpbi1ib3R0b206MzBweDt9XHJcbi5qb2Itc2VhcmNoID4gc3BhbiB7Y29sb3I6I2ZmZjt9XHJcbi5wb3N0LWpvYi1idG4ge2Zsb2F0OiByaWdodDttYXJnaW4tbGVmdDogMjBweDt9XHJcbi5zaW1wbGUtY2hlY2tib3guc2Nyb2xsYmFyIHtvdmVyZmxvdy15OnNjcm9sbDt9XHJcbi5qb2ItaGVhZC13aWRlIC5hcHBseS1hbHRlcm5hdGl2ZSBzcGFuIHt3aWR0aDogMTAwJTt0ZXh0LWFsaWduOiBjZW50ZXI7Y3Vyc29yOiBwb2ludGVyO31cclxuLmpvYi1oZWFkLXdpZGUgLmFwcGx5LWFsdGVybmF0aXZlIHNwYW4gaS5sYSB7ZmxvYXQ6bm9uZTt9XHJcbi5iY2Jhbm5lciB7bWFyZ2luLXRvcDogMTAwcHg7fVxyXG5cclxuQG1lZGlhIChtYXgtd2lkdGg6MTIwMHB4KSB7XHJcbi5iY2Jhbm5lciB7bWFyZ2luLXRvcDogMHB4O31cclxufSJdfQ== */"
 
 /***/ }),
 
@@ -13370,7 +13370,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"'Giriş'\" [message]=\"'İş Arayan Girişi'\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block remove-bottom\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"account-popup-area signin-popup-box static\">\r\n                        <div class=\"account-popup\">\r\n                            <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>\r\n                            <div>\r\n                                <!--form-->\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"text\" placeholder=\"Username\" />\r\n                                    <i class=\"la la-user\"></i>\r\n                                </div>\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"password\" placeholder=\"********\" />\r\n                                    <i class=\"la la-key\"></i>\r\n                                </div>\r\n                                <p class=\"remember-label\">\r\n                                    <input type=\"checkbox\" name=\"cb\" id=\"cb1\"><label for=\"cb1\">Remember me</label>\r\n                                </p>\r\n                                <a href=\"#\" title=\"\">Forgot Password?</a>\r\n                                <button type=\"submit\">Login</button>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13447,7 +13447,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"'Hakkımızda'\" [message]=\"'Aradığınız İş, Aradığınız Çalışan Burada'\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"about-us\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-12\">\r\n                                <h3>About Job Hunt</h3>\r\n                            </div>\r\n                            <div class=\"col-lg-7\">\r\n                                <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much. </p>\r\n                                <p>Repeatedly dreamed alas opossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.</p>\r\n                            </div>\r\n                            <div class=\"col-lg-5\">\r\n                                <img src=\"/HumanResources/Content/img/resource/bsd1.jpg\" alt=\"\" />\r\n                            </div>\r\n                            <div class=\"col-lg-12\">\r\n                                <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much. </p>\r\n                                <p>Repeatedly dreamed alas opossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n<hr-aboutservices></hr-aboutservices>\r\n<hr-homecandidates></hr-homecandidates>\r\n<hr-aboutcounts></hr-aboutcounts>\r\n<hr-hometips></hr-hometips>\r\n<hr-homecompanies></hr-homecompanies>"
 
 /***/ }),
 
@@ -13458,7 +13458,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"'İletişim'\" [message]=\"'Bize ulaşmak için aşağıdaki formu kullanabilirsiniz.'\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-6 column\">\r\n                    <hr-contactform></hr-contactform>\r\n\r\n                </div>\r\n                <div class=\"col-lg-6 column\">\r\n                    <div class=\"contact-textinfo style2\">\r\n                        <h3>JobHunt Office</h3>\r\n                        <ul>\r\n                            <li><i class=\"la la-map-marker\"></i><span>Jobify Inc. 555 Madison Avenue, Suite F-2 Manhattan, New York 10282 </span></li>\r\n                            <li><i class=\"la la-phone\"></i><span>Call Us : 0934 343 343</span></li>\r\n                            <li><i class=\"la la-fax\"></i><span>Fax : 0934 343 343</span></li>\r\n                            <li><i class=\"la la-envelope-o\"></i><span>Email : <a href=\"https://grandetest.com/cdn-cgi/l/email-protection\" class=\"__cf_email__\" data-cfemail=\"e38a8d858ca3898c818b968d97cd808c8e\">[email&#160;protected]</a></span></li>\r\n                        </ul>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13469,7 +13469,40 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"title\" [message]=\"message\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"about-us\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-12\">\r\n                                <h3>İçerik Sayfası</h3>\r\n                            </div>\r\n                            <div class=\"col-lg-7\">\r\n                                <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much. </p>\r\n                                <p>Repeatedly dreamed alas opossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.</p>\r\n                            </div>\r\n                            <div class=\"col-lg-5\">\r\n                                <img src=\"/HumanResources/Content/img/resource/bsd1.jpg\" alt=\"\" />\r\n                            </div>\r\n                            <div class=\"col-lg-12\">\r\n                                <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy penguin insect additionally wow absolutely crud meretriciously hastily dalmatian a glowered inset one echidna cassowary some parrot and much as goodness some froze the sullen much connected bat wonderfully on instantaneously eel valiantly petted this along across highhandedly much. </p>\r\n                                <p>Repeatedly dreamed alas opossum but dramatically despite expeditiously that jeepers loosely yikes that as or eel underneath kept and slept compactly far purred sure abidingly up above fitting to strident wiped set waywardly far the and pangolin horse approving paid chuckled cassowary oh above a much opposite far much hypnotically more therefore wasp less that hey apart well like while superbly orca and far hence one.Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement irresistibly fussy.</p>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/content/parts/about/counts.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/content/parts/about/counts.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"stats-sec style2\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-3  col-md-3 col-sm-6 col-xs-6\">\r\n                                <div class=\"stats\">\r\n                                    <span>18</span>\r\n                                    <h5>Jobs Posted</h5>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-3  col-md-3 col-sm-6 col-xs-6\">\r\n                                <div class=\"stats\">\r\n                                    <span>38</span>\r\n                                    <h5>Jobs Filled</h5>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-3  col-md-3 col-sm-6 col-xs-6\">\r\n                                <div class=\"stats\">\r\n                                    <span>67</span>\r\n                                    <h5>Companies</h5>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-3  col-md-3 col-sm-6 col-xs-6\">\r\n                                <div class=\"stats\">\r\n                                    <span>92</span>\r\n                                    <h5>Members</h5>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/content/parts/about/services.html":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/content/parts/about/services.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<section>\r\n    <div class=\"block remove-top\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"our-services\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-12\"><h2>Our Service</h2></div>\r\n                            <div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">\r\n                                <div class=\"service\">\r\n                                    <i class=\"la la-clock-o\"></i><div class=\"service-info\"><h3>Advertise A Job</h3><p>Duis a tristique lacus. Donec vehicula ante id lorem venenatis posuere. Morbi in lectus.</p></div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">\r\n                                <div class=\"service\">\r\n                                    <i class=\"la la-search\"></i><div class=\"service-info\"><h3>CV Search</h3><p>Duis a tristique lacus. Donec vehicula ante id lorem venenatis posuere. Morbi in lectus.</p></div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">\r\n                                <div class=\"service\">\r\n                                    <i class=\"la la-user\"></i><div class=\"service-info\"><h3>Recruiter Profiles</h3><p>Duis a tristique lacus. Donec vehicula ante id lorem venenatis posuere. Morbi in lectus.</p></div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">\r\n                                <div class=\"service\">\r\n                                    <i class=\"la la-codepen\"></i><div class=\"service-info\"><h3>Temp Search</h3><p>Duis a tristique lacus. Donec vehicula ante id lorem venenatis posuere. Morbi in lectus.</p></div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">\r\n                                <div class=\"service\">\r\n                                    <i class=\"la la-tv\"></i><div class=\"service-info\"><h3>Display Jobs</h3><p>Duis a tristique lacus. Donec vehicula ante id lorem venenatis posuere. Morbi in lectus.</p></div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">\r\n                                <div class=\"service\">\r\n                                    <i class=\"la la-diamond\"></i><div class=\"service-info\"><h3>For Agencies</h3><p>Duis a tristique lacus. Donec vehicula ante id lorem venenatis posuere. Morbi in lectus.</p></div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/content/parts/contact/form.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/content/parts/contact/form.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"contact-form\">\r\n    <h3>Keep In Touch</h3>\r\n    <div>\r\n        <!--form-->\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12\">\r\n                <span class=\"pf-title\">Full Name</span>\r\n                <div class=\"pf-field\">\r\n                    <input type=\"text\" placeholder=\"ALi TUFAN\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-12\">\r\n                <span class=\"pf-title\">Email</span>\r\n                <div class=\"pf-field\">\r\n                    <input type=\"text\" placeholder=\"ALi TUFAN\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-12\">\r\n                <span class=\"pf-title\">Subject</span>\r\n                <div class=\"pf-field\">\r\n                    <input type=\"text\" placeholder=\"ALi TUFAN\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-12\">\r\n                <span class=\"pf-title\">Message</span>\r\n                <div class=\"pf-field\">\r\n                    <textarea></textarea>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-12\">\r\n                <button type=\"submit\">Send</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13480,7 +13513,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"'Paketler'\" [message]=\"'İş ilanı vermek için bütçenize en uygun paketi seçin.'\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"heading\">\r\n                        <h2>Buy Our Plans And Packeges</h2>\r\n                        <span>One of our jobs has some kind of flexibility option - such as telecommuting, a part-time schedule or a flexible or flextime schedule.</span>\r\n                    </div><!-- Heading -->\r\n                    <div class=\"plans-sec\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-4\">\r\n                                <div class=\"pricetable\">\r\n                                    <div class=\"pricetable-head\">\r\n                                        <h3>Basic Jobs</h3>\r\n                                        <h2><i>$</i>10</h2>\r\n                                        <span>15 Days</span>\r\n                                    </div><!-- Price Table -->\r\n                                    <ul>\r\n                                        <li>1 job posting</li>\r\n                                        <li>0 featured job</li>\r\n                                        <li>Job displayed for 20 days</li>\r\n                                        <li>Premium Support 24/7</li>\r\n                                    </ul>\r\n                                    <a href=\"#\" title=\"\">BUY NOW</a>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4\">\r\n                                <div class=\"pricetable active\">\r\n                                    <div class=\"pricetable-head\">\r\n                                        <h3>Standard Jobs</h3>\r\n                                        <h2><i>$</i>45</h2>\r\n                                        <span>20 Days</span>\r\n                                    </div><!-- Price Table -->\r\n                                    <ul>\r\n                                        <li>11 job posting</li>\r\n                                        <li>12 featured job</li>\r\n                                        <li>Job displayed for 30 days</li>\r\n                                        <li>Premium Support 24/7</li>\r\n                                    </ul>\r\n                                    <a href=\"#\" title=\"\">BUY NOW</a>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-lg-4\">\r\n                                <div class=\"pricetable\">\r\n                                    <div class=\"pricetable-head\">\r\n                                        <h3>Golden Jobs</h3>\r\n                                        <h2><i>$</i>80</h2>\r\n                                        <span>2 Month</span>\r\n                                    </div><!-- Price Table -->\r\n                                    <ul>\r\n                                        <li>44 job posting</li>\r\n                                        <li>56 featured job</li>\r\n                                        <li>Job displayed for 80 days</li>\r\n                                        <li>Premium Support 24/7</li>\r\n                                    </ul>\r\n                                    <a href=\"#\" title=\"\">BUY NOW</a>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13491,7 +13524,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"'Kayıt Ol'\" [message]=\"'İş Arayan veya İş Veren olarak kayıt yapabilirsiniz.'\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block remove-bottom\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"account-popup-area signup-popup-box static\">\r\n                        <div class=\"account-popup\">\r\n                            <h3>Sign Up</h3>\r\n                            <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>\r\n                            <div class=\"select-user\">\r\n                                <span>Candidate</span>\r\n                                <span>Employer</span>\r\n                            </div>\r\n                            <div>\r\n                                <!--form-->\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"text\" placeholder=\"Username\" />\r\n                                    <i class=\"la la-user\"></i>\r\n                                </div>\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"password\" placeholder=\"********\" />\r\n                                    <i class=\"la la-key\"></i>\r\n                                </div>\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"text\" placeholder=\"Email\" />\r\n                                    <i class=\"la la-envelope-o\"></i>\r\n                                </div>\r\n                                <div class=\"dropdown-field\">\r\n                                    <select id=\"slcSpecial\" data-placeholder=\"Please Select Specialism\" class=\"chosen\">\r\n                                        <option>Web Development</option>\r\n                                        <option>Web Designing</option>\r\n                                        <option>Art & Culture</option>\r\n                                        <option>Reading & Writing</option>\r\n                                    </select>\r\n                                </div>\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"text\" placeholder=\"Phone Number\" />\r\n                                    <i class=\"la la-phone\"></i>\r\n                                </div>\r\n                                <button type=\"submit\">Signup</button>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13590,7 +13623,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<hr-breadcrumbs [links]=\"links\" [title]=\"'Giriş'\" [message]=\"'İş Veren Girişi'\"></hr-breadcrumbs>\r\n\r\n<section>\r\n    <div class=\"block remove-bottom\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"account-popup-area signin-popup-box static\">\r\n                        <div class=\"account-popup\">\r\n                            <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>\r\n                            <div>\r\n                                <!--form-->\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"text\" placeholder=\"Username\" />\r\n                                    <i class=\"la la-user\"></i>\r\n                                </div>\r\n                                <div class=\"cfield\">\r\n                                    <input type=\"password\" placeholder=\"********\" />\r\n                                    <i class=\"la la-key\"></i>\r\n                                </div>\r\n                                <p class=\"remember-label\">\r\n                                    <input type=\"checkbox\" name=\"cb\" id=\"cb1\"><label for=\"cb1\">Remember me</label>\r\n                                </p>\r\n                                <a href=\"#\" title=\"\">Forgot Password?</a>\r\n                                <button type=\"submit\">Login</button>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -13913,6 +13946,17 @@ module.exports = "<div data-velocity=\"-.1\" style=\"background: url(/HumanResou
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/breadcrumbs.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/views/shared/controls/breadcrumbs.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<section>\r\n    <div class=\"block no-padding gray bcbanner\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"inner2\">\r\n                        <div class=\"inner-title2\">\r\n                            <h3>{{ title }}</h3>\r\n                            <span>{{ message }}</span>\r\n                        </div>\r\n                        <div class=\"page-breacrumbs\">\r\n                            <ul class=\"breadcrumbs\">\r\n                                <li *ngFor=\"let item of links\"><a routerLink=\"{{ item?.Link }}\" title=\"{{ item?.Title }}\">{{ item?.Title }}</a></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/footer.html":
 /*!*****************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/views/shared/controls/footer.html ***!
@@ -13942,7 +13986,7 @@ module.exports = "<hr-respheader></hr-respheader>\r\n\r\n<header class=\"stick-t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\r\n    <ul>\r\n        <li>\r\n            <a routerLink=\"/\">Home</a>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Employers</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Firma/Liste\">Employer List 2</a></li>\r\n                <li><a routerLink=\"/Firma/Detay/url\">Employer Single 1</a></li>\r\n                <li><a routerLink=\"/Firma/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Employer Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/Firma/Panel\">Employer Dashboard</a></li>\r\n                        <li><a routerLink=\"/Firma/Profil\">Employer Profile</a></li>\r\n                        <li><a routerLink=\"/Firma/Profil/SifreDegistir\">Employer Change Password</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Liste\">Employer Job Manager</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Ekle\">Employer Post New</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Duzenle/url\">Employer Post edit</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Basvuru/url\">Employer Başvuru</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Alarm\">Employer Job Alert</a></li>\r\n                        <li><a routerLink=\"/Firma/Paket/Liste\">Employer Packages</a></li>\r\n                        <li><a routerLink=\"/Firma/Paket/Odemeler\">Employer Transaction</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Candidates</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Calisan/Liste\">Candidates List 3</a></li>\r\n                <li><a routerLink=\"/Calisan/Detay/url\">Candidates Single 2</a></li>\r\n                <li><a routerLink=\"/Calisan/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Candidates Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/Calisan/Panel\">Candidates Dashboard</a></li>\r\n                        <li><a routerLink=\"/Calisan/Profil\">Candidates Profile</a></li>\r\n                        <li><a routerLink=\"/Calisan/Profil/SifreDegistir\">Change Password</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Liste\">Candidates Resumes</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Detay/url\">Candidates Resume</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Ekle\">Candidates Resume new</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Duzenle/url\">Candidates Resume edit</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Onyazi\">CV Cover Letter</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ilan/Basvuru/url\">Candidates Applied Jobs</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ilan/Alarm\">Candidates Job Alert</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ilan/Favori\">Candidates Shortlist</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Blog</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Blog/Liste\">Blog List 2</a></li>\r\n                <li><a routerLink=\"/Blog/Detay/url\">Blog Single</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Job</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Ilan/Liste\">Job List Classic</a></li>\r\n                <li><a routerLink=\"/Ilan/Detay/url\">Job Single 3</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Pages</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Hakkimizda\">About Us</a></li>\r\n                <li><a routerLink=\"/Iletisim\">Contact Us 2</a></li>\r\n                <li><a routerLink=\"/Kayit\">Register</a></li>\r\n                <li><a routerLink=\"/Paketler\">Pricing Plans</a></li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n</nav>"
+module.exports = "<nav>\r\n    <ul>\r\n        <li>\r\n            <a routerLink=\"/\">Home</a>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Employers</a>\r\n            <ul>\r\n                <li><a routerLink=\"/IsVeren/Liste\">Employer List 2</a></li>\r\n                <li><a routerLink=\"/IsVeren/Detay/url\">Employer Single 1</a></li>\r\n                <li><a routerLink=\"/IsVeren/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Employer Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/IsVeren/Panel\">Employer Dashboard</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Profil\">Employer Profile</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Profil/SifreDegistir\">Employer Change Password</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Liste\">Employer Job Manager</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Ekle\">Employer Post New</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Duzenle/url\">Employer Post edit</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Basvuru/url\">Employer Başvuru</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Alarm\">Employer Job Alert</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Paket/Liste\">Employer Packages</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Paket/Odemeler\">Employer Transaction</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Candidates</a>\r\n            <ul>\r\n                <li><a routerLink=\"/IsArayan/Liste\">Candidates List 3</a></li>\r\n                <li><a routerLink=\"/IsArayan/Detay/url\">Candidates Single 2</a></li>\r\n                <li><a routerLink=\"/IsArayan/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Candidates Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/IsArayan/Panel\">Candidates Dashboard</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Profil\">Candidates Profile</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Profil/SifreDegistir\">Change Password</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Liste\">Candidates Resumes</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Detay/url\">Candidates Resume</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Ekle\">Candidates Resume new</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Duzenle/url\">Candidates Resume edit</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Onyazi\">CV Cover Letter</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ilan/Basvuru/url\">Candidates Applied Jobs</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ilan/Alarm\">Candidates Job Alert</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ilan/Favori\">Candidates Shortlist</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Blog</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Blog/Liste\">Blog List 2</a></li>\r\n                <li><a routerLink=\"/Blog/Detay/url\">Blog Single</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Job</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Ilan/Liste\">Job List Classic</a></li>\r\n                <li><a routerLink=\"/Ilan/Detay/url\">Job Single 3</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Pages</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Hakkimizda\">About Us</a></li>\r\n                <li><a routerLink=\"/Iletisim\">Contact Us 2</a></li>\r\n                <li><a routerLink=\"/Kayit\">Register</a></li>\r\n                <li><a routerLink=\"/Paketler\">Pricing Plans</a></li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n</nav>"
 
 /***/ }),
 
@@ -13986,7 +14030,7 @@ module.exports = "<div class=\"responsive-header\">\r\n    <div class=\"responsi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"responsivemenu\">\r\n    <ul>\r\n        <li>\r\n            <a routerLink=\"/\">Home</a>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Employers</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Firma/Liste\">Employer List 2</a></li>\r\n                <li><a routerLink=\"/Firma/Detay/url\">Employer Single 1</a></li>\r\n                <li><a routerLink=\"/Firma/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Employer Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/Firma/Panel\">Employer Dashboard</a></li>\r\n                        <li><a routerLink=\"/Firma/Profil\">Employer Profile</a></li>\r\n                        <li><a routerLink=\"/Firma/Profil/SifreDegistir\">Employer Change Password</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Liste\">Employer Job Manager</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Ekle\">Employer Post New</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Duzenle/url\">Employer Post edit</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Basvuru/url\">Employer Başvuru</a></li>\r\n                        <li><a routerLink=\"/Firma/Ilan/Alarm\">Employer Job Alert</a></li>\r\n                        <li><a routerLink=\"/Firma/Paket/Liste\">Employer Packages</a></li>\r\n                        <li><a routerLink=\"/Firma/Paket/Odemeler\">Employer Transaction</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Candidates</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Calisan/Liste\">Candidates List 3</a></li>\r\n                <li><a routerLink=\"/Calisan/Detay/url\">Candidates Single 2</a></li>\r\n                <li><a routerLink=\"/Calisan/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Candidates Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/Calisan/Panel\">Candidates Dashboard</a></li>\r\n                        <li><a routerLink=\"/Calisan/Profil\">Candidates Profile</a></li>\r\n                        <li><a routerLink=\"/Calisan/Profil/SifreDegistir\">Change Password</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Liste\">Candidates Resumes</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Detay/url\">Candidates Resume</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Ekle\">Candidates Resume new</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Duzenle/url\">Candidates Resume edit</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ozgecmis/Onyazi\">CV Cover Letter</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ilan/Basvuru/url\">Candidates Applied Jobs</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ilan/Alarm\">Candidates Job Alert</a></li>\r\n                        <li><a routerLink=\"/Calisan/Ilan/Favori\">Candidates Shortlist</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Blog</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Blog/Liste\">Blog List 2</a></li>\r\n                <li><a routerLink=\"/Blog/Detay/url\">Blog Single</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Job</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Ilan/Liste\">Job List Classic</a></li>\r\n                <li><a routerLink=\"/Ilan/Detay/url\">Job Single 3</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Pages</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Hakkimizda\">About Us</a></li>\r\n                <li><a routerLink=\"/Iletisim\">Contact Us 2</a></li>\r\n                <li><a routerLink=\"/Kayit\">Register</a></li>\r\n                <li><a routerLink=\"/Paketler\">Pricing Plans</a></li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n</div>"
+module.exports = "<div class=\"responsivemenu\">\r\n    <ul>\r\n        <li>\r\n            <a routerLink=\"/\">Home</a>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Employers</a>\r\n            <ul>\r\n                <li><a routerLink=\"/IsVeren/Liste\">Employer List 2</a></li>\r\n                <li><a routerLink=\"/IsVeren/Detay/url\">Employer Single 1</a></li>\r\n                <li><a routerLink=\"/IsVeren/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Employer Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/IsVeren/Panel\">Employer Dashboard</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Profil\">Employer Profile</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Profil/SifreDegistir\">Employer Change Password</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Liste\">Employer Job Manager</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Ekle\">Employer Post New</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Duzenle/url\">Employer Post edit</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Basvuru/url\">Employer Başvuru</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Ilan/Alarm\">Employer Job Alert</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Paket/Liste\">Employer Packages</a></li>\r\n                        <li><a routerLink=\"/IsVeren/Paket/Odemeler\">Employer Transaction</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Candidates</a>\r\n            <ul>\r\n                <li><a routerLink=\"/IsArayan/Liste\">Candidates List 3</a></li>\r\n                <li><a routerLink=\"/IsArayan/Detay/url\">Candidates Single 2</a></li>\r\n                <li><a routerLink=\"/IsArayan/Giris\">Login</a></li>\r\n                <li class=\"menu-item-has-children\">\r\n                    <a href=\"javascript:;\">Candidates Dashboard</a>\r\n                    <ul>\r\n                        <li><a routerLink=\"/IsArayan/Panel\">Candidates Dashboard</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Profil\">Candidates Profile</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Profil/SifreDegistir\">Change Password</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Liste\">Candidates Resumes</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Detay/url\">Candidates Resume</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Ekle\">Candidates Resume new</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Duzenle/url\">Candidates Resume edit</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ozgecmis/Onyazi\">CV Cover Letter</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ilan/Basvuru/url\">Candidates Applied Jobs</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ilan/Alarm\">Candidates Job Alert</a></li>\r\n                        <li><a routerLink=\"/IsArayan/Ilan/Favori\">Candidates Shortlist</a></li>\r\n                    </ul>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Blog</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Blog/Liste\">Blog List 2</a></li>\r\n                <li><a routerLink=\"/Blog/Detay/url\">Blog Single</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Job</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Ilan/Liste\">Job List Classic</a></li>\r\n                <li><a routerLink=\"/Ilan/Detay/url\">Job Single 3</a></li>\r\n            </ul>\r\n        </li>\r\n        <li class=\"menu-item-has-children\">\r\n            <a href=\"javascript:;\">Pages</a>\r\n            <ul>\r\n                <li><a routerLink=\"/Hakkimizda\">About Us</a></li>\r\n                <li><a routerLink=\"/Iletisim\">Contact Us 2</a></li>\r\n                <li><a routerLink=\"/Kayit\">Register</a></li>\r\n                <li><a routerLink=\"/Paketler\">Pricing Plans</a></li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
@@ -19536,37 +19580,37 @@ const routes = [
             { path: 'Ilan/Liste', component: _views_job__WEBPACK_IMPORTED_MODULE_63__["JobIndexComponent"] },
             { path: 'Ilan/Liste/:url', component: _views_job__WEBPACK_IMPORTED_MODULE_63__["JobIndexComponent"] },
             { path: 'Ilan/Detay/:url', component: _views_job_detail__WEBPACK_IMPORTED_MODULE_64__["JobDetailComponent"] },
-            { path: 'Calisan', component: _views_candidate__WEBPACK_IMPORTED_MODULE_65__["CandidateIndexComponent"] },
-            { path: 'Calisan/Liste', component: _views_candidate__WEBPACK_IMPORTED_MODULE_65__["CandidateIndexComponent"] },
-            { path: 'Calisan/Detay/:url', component: _views_candidate_detail__WEBPACK_IMPORTED_MODULE_67__["CandidateDetailComponent"] },
-            { path: 'Calisan/Giris', component: _views_candidate_login__WEBPACK_IMPORTED_MODULE_68__["CandidateLoginComponent"] },
-            { path: 'Calisan/Panel', component: _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_66__["CandidateDashboardComponent"] },
-            { path: 'Calisan/Profil', component: _views_candidate_profile__WEBPACK_IMPORTED_MODULE_69__["CandidateProfileComponent"] },
-            { path: 'Calisan/Profil/SifreDegistir', component: _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_70__["CandidateChangePasswordComponent"] },
-            { path: 'Calisan/Ozgecmis', component: _views_candidate_resume__WEBPACK_IMPORTED_MODULE_71__["CandidateResumeComponent"] },
-            { path: 'Calisan/Ozgecmis/Liste', component: _views_candidate_resume__WEBPACK_IMPORTED_MODULE_71__["CandidateResumeComponent"] },
-            { path: 'Calisan/Ozgecmis/Detay/:url', component: _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_74__["CandidateResumeDetailComponent"] },
-            { path: 'Calisan/Ozgecmis/Ekle', component: _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_72__["CandidateResumeAddComponent"] },
-            { path: 'Calisan/Ozgecmis/Duzenle/:url', component: _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_73__["CandidateResumeEditComponent"] },
-            { path: 'Calisan/Ozgecmis/Onyazi', component: _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_75__["CandidateResumeCoverLetterComponent"] },
-            { path: 'Calisan/Ilan/Liste', component: _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_76__["CandidateJobListComponent"] },
-            { path: 'Calisan/Ilan/Basvuru/:url', component: _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_77__["CandidateJobApplyComponent"] },
-            { path: 'Calisan/Ilan/Alarm', component: _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_79__["CandidateJobAlertComponent"] },
-            { path: 'Calisan/Ilan/Favori', component: _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_78__["CandidateJobFavoritesComponent"] },
-            { path: 'Firma', component: _views_employer__WEBPACK_IMPORTED_MODULE_80__["EmployerIndexComponent"] },
-            { path: 'Firma/Liste', component: _views_employer__WEBPACK_IMPORTED_MODULE_80__["EmployerIndexComponent"] },
-            { path: 'Firma/Detay/:url', component: _views_employer_detail__WEBPACK_IMPORTED_MODULE_82__["EmployerDetailComponent"] },
-            { path: 'Firma/Giris', component: _views_employer_login__WEBPACK_IMPORTED_MODULE_83__["EmployerLoginComponent"] },
-            { path: 'Firma/Panel', component: _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_81__["EmployerDashboardComponent"] },
-            { path: 'Firma/Profil', component: _views_employer_profile__WEBPACK_IMPORTED_MODULE_84__["EmployerProfileComponent"] },
-            { path: 'Firma/Profil/SifreDegistir', component: _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_85__["EmployerChangePasswordComponent"] },
-            { path: 'Firma/Ilan/Liste', component: _views_employer_job_list__WEBPACK_IMPORTED_MODULE_86__["EmployerJobListComponent"] },
-            { path: 'Firma/Ilan/Ekle', component: _views_employer_job_add__WEBPACK_IMPORTED_MODULE_87__["EmployerJobAddComponent"] },
-            { path: 'Firma/Ilan/Duzenle/:url', component: _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_88__["EmployerJobEditComponent"] },
-            { path: 'Firma/Ilan/Basvuru/:url', component: _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_89__["EmployerJobApplyComponent"] },
-            { path: 'Firma/Ilan/Alarm', component: _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_90__["EmployerJobAlertComponent"] },
-            { path: 'Firma/Paket/Liste', component: _views_employer_package__WEBPACK_IMPORTED_MODULE_91__["EmployerPackageComponent"] },
-            { path: 'Firma/Paket/Odemeler', component: _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_92__["EmployerTransactionsComponent"] },
+            { path: 'IsArayan', component: _views_candidate__WEBPACK_IMPORTED_MODULE_65__["CandidateIndexComponent"] },
+            { path: 'IsArayan/Liste', component: _views_candidate__WEBPACK_IMPORTED_MODULE_65__["CandidateIndexComponent"] },
+            { path: 'IsArayan/Detay/:url', component: _views_candidate_detail__WEBPACK_IMPORTED_MODULE_67__["CandidateDetailComponent"] },
+            { path: 'IsArayan/Giris', component: _views_candidate_login__WEBPACK_IMPORTED_MODULE_68__["CandidateLoginComponent"] },
+            { path: 'IsArayan/Panel', component: _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_66__["CandidateDashboardComponent"] },
+            { path: 'IsArayan/Profil', component: _views_candidate_profile__WEBPACK_IMPORTED_MODULE_69__["CandidateProfileComponent"] },
+            { path: 'IsArayan/Profil/SifreDegistir', component: _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_70__["CandidateChangePasswordComponent"] },
+            { path: 'IsArayan/Ozgecmis', component: _views_candidate_resume__WEBPACK_IMPORTED_MODULE_71__["CandidateResumeComponent"] },
+            { path: 'IsArayan/Ozgecmis/Liste', component: _views_candidate_resume__WEBPACK_IMPORTED_MODULE_71__["CandidateResumeComponent"] },
+            { path: 'IsArayan/Ozgecmis/Detay/:url', component: _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_74__["CandidateResumeDetailComponent"] },
+            { path: 'IsArayan/Ozgecmis/Ekle', component: _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_72__["CandidateResumeAddComponent"] },
+            { path: 'IsArayan/Ozgecmis/Duzenle/:url', component: _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_73__["CandidateResumeEditComponent"] },
+            { path: 'IsArayan/Ozgecmis/Onyazi', component: _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_75__["CandidateResumeCoverLetterComponent"] },
+            { path: 'IsArayan/Ilan/Liste', component: _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_76__["CandidateJobListComponent"] },
+            { path: 'IsArayan/Ilan/Basvuru/:url', component: _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_77__["CandidateJobApplyComponent"] },
+            { path: 'IsArayan/Ilan/Alarm', component: _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_79__["CandidateJobAlertComponent"] },
+            { path: 'IsArayan/Ilan/Favori', component: _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_78__["CandidateJobFavoritesComponent"] },
+            { path: 'IsVeren', component: _views_employer__WEBPACK_IMPORTED_MODULE_80__["EmployerIndexComponent"] },
+            { path: 'IsVeren/Liste', component: _views_employer__WEBPACK_IMPORTED_MODULE_80__["EmployerIndexComponent"] },
+            { path: 'IsVeren/Detay/:url', component: _views_employer_detail__WEBPACK_IMPORTED_MODULE_82__["EmployerDetailComponent"] },
+            { path: 'IsVeren/Giris', component: _views_employer_login__WEBPACK_IMPORTED_MODULE_83__["EmployerLoginComponent"] },
+            { path: 'IsVeren/Panel', component: _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_81__["EmployerDashboardComponent"] },
+            { path: 'IsVeren/Profil', component: _views_employer_profile__WEBPACK_IMPORTED_MODULE_84__["EmployerProfileComponent"] },
+            { path: 'IsVeren/Profil/SifreDegistir', component: _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_85__["EmployerChangePasswordComponent"] },
+            { path: 'IsVeren/Ilan/Liste', component: _views_employer_job_list__WEBPACK_IMPORTED_MODULE_86__["EmployerJobListComponent"] },
+            { path: 'IsVeren/Ilan/Ekle', component: _views_employer_job_add__WEBPACK_IMPORTED_MODULE_87__["EmployerJobAddComponent"] },
+            { path: 'IsVeren/Ilan/Duzenle/:url', component: _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_88__["EmployerJobEditComponent"] },
+            { path: 'IsVeren/Ilan/Basvuru/:url', component: _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_89__["EmployerJobApplyComponent"] },
+            { path: 'IsVeren/Ilan/Alarm', component: _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_90__["EmployerJobAlertComponent"] },
+            { path: 'IsVeren/Paket/Liste', component: _views_employer_package__WEBPACK_IMPORTED_MODULE_91__["EmployerPackageComponent"] },
+            { path: 'IsVeren/Paket/Odemeler', component: _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_92__["EmployerTransactionsComponent"] },
         ]
     },
     {
@@ -19745,76 +19789,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./views/shared/controls/menu */ "./src/app/views/shared/controls/menu.ts");
 /* harmony import */ var _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./views/shared/controls/footer */ "./src/app/views/shared/controls/footer.ts");
 /* harmony import */ var _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./views/shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
-/* harmony import */ var _views_shared_controls_banner__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./views/shared/controls/banner */ "./src/app/views/shared/controls/banner.ts");
-/* harmony import */ var _views_shared_controls_bannerpicture__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/controls/bannerpicture */ "./src/app/views/shared/controls/bannerpicture.ts");
-/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
-/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
-/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
-/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
-/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
-/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
-/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
-/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
-/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
-/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
-/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
-/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
-/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
-/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
-/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
-/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
-/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
-/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
-/* harmony import */ var _views_blog__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/blog */ "./src/app/views/blog/index.ts");
-/* harmony import */ var _views_blog_parts_list_pager__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/blog/parts/list/pager */ "./src/app/views/blog/parts/list/pager.ts");
-/* harmony import */ var _views_blog_parts_left__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/blog/parts/left */ "./src/app/views/blog/parts/left.ts");
-/* harmony import */ var _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/blog/parts/search */ "./src/app/views/blog/parts/search.ts");
-/* harmony import */ var _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/blog/parts/categories */ "./src/app/views/blog/parts/categories.ts");
-/* harmony import */ var _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/blog/parts/recent */ "./src/app/views/blog/parts/recent.ts");
-/* harmony import */ var _views_blog_detail__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/blog/detail */ "./src/app/views/blog/detail.ts");
-/* harmony import */ var _views_content__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/content */ "./src/app/views/content/index.ts");
-/* harmony import */ var _views_content_contact__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/content/contact */ "./src/app/views/content/contact.ts");
+/* harmony import */ var _views_shared_controls_breadcrumbs__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./views/shared/controls/breadcrumbs */ "./src/app/views/shared/controls/breadcrumbs.ts");
+/* harmony import */ var _views_shared_controls_banner__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./views/shared/controls/banner */ "./src/app/views/shared/controls/banner.ts");
+/* harmony import */ var _views_shared_controls_bannerpicture__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./views/shared/controls/bannerpicture */ "./src/app/views/shared/controls/bannerpicture.ts");
+/* harmony import */ var _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./views/shared/common/modalalert */ "./src/app/views/shared/common/modalalert.ts");
+/* harmony import */ var _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./views/shared/common/modalconfirm */ "./src/app/views/shared/common/modalconfirm.ts");
+/* harmony import */ var _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./views/shared/controls/responsive/header */ "./src/app/views/shared/controls/responsive/header.ts");
+/* harmony import */ var _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./views/shared/controls/responsive/menu */ "./src/app/views/shared/controls/responsive/menu.ts");
+/* harmony import */ var _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./views/shared/controls/responsive/search */ "./src/app/views/shared/controls/responsive/search.ts");
+/* harmony import */ var _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./views/shared/controls/popup/login */ "./src/app/views/shared/controls/popup/login.ts");
+/* harmony import */ var _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./views/shared/controls/popup/signup */ "./src/app/views/shared/controls/popup/signup.ts");
+/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./views/home */ "./src/app/views/home/index.ts");
+/* harmony import */ var _views_home_parts_top__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./views/home/parts/top */ "./src/app/views/home/parts/top.ts");
+/* harmony import */ var _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./views/home/parts/slider */ "./src/app/views/home/parts/slider.ts");
+/* harmony import */ var _views_home_parts_search__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./views/home/parts/search */ "./src/app/views/home/parts/search.ts");
+/* harmony import */ var _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./views/home/parts/popcat */ "./src/app/views/home/parts/popcat.ts");
+/* harmony import */ var _views_home_parts_account__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./views/home/parts/account */ "./src/app/views/home/parts/account.ts");
+/* harmony import */ var _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./views/home/parts/jobs */ "./src/app/views/home/parts/jobs.ts");
+/* harmony import */ var _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./views/home/parts/candidates */ "./src/app/views/home/parts/candidates.ts");
+/* harmony import */ var _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./views/home/parts/companies */ "./src/app/views/home/parts/companies.ts");
+/* harmony import */ var _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./views/home/parts/tips */ "./src/app/views/home/parts/tips.ts");
+/* harmony import */ var _views_home_parts_question__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./views/home/parts/question */ "./src/app/views/home/parts/question.ts");
+/* harmony import */ var _views_blog__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./views/blog */ "./src/app/views/blog/index.ts");
+/* harmony import */ var _views_blog_parts_list_pager__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./views/blog/parts/list/pager */ "./src/app/views/blog/parts/list/pager.ts");
+/* harmony import */ var _views_blog_parts_left__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./views/blog/parts/left */ "./src/app/views/blog/parts/left.ts");
+/* harmony import */ var _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./views/blog/parts/search */ "./src/app/views/blog/parts/search.ts");
+/* harmony import */ var _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./views/blog/parts/categories */ "./src/app/views/blog/parts/categories.ts");
+/* harmony import */ var _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./views/blog/parts/recent */ "./src/app/views/blog/parts/recent.ts");
+/* harmony import */ var _views_blog_detail__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./views/blog/detail */ "./src/app/views/blog/detail.ts");
+/* harmony import */ var _views_content__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./views/content */ "./src/app/views/content/index.ts");
 /* harmony import */ var _views_content_about__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./views/content/about */ "./src/app/views/content/about.ts");
-/* harmony import */ var _views_content_register__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/content/register */ "./src/app/views/content/register.ts");
-/* harmony import */ var _views_content_pricing__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/content/pricing */ "./src/app/views/content/pricing.ts");
-/* harmony import */ var _views_job__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/job */ "./src/app/views/job/index.ts");
-/* harmony import */ var _views_job_parts_list_top__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/job/parts/list/top */ "./src/app/views/job/parts/list/top.ts");
-/* harmony import */ var _views_job_parts_list_left__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./views/job/parts/list/left */ "./src/app/views/job/parts/list/left.ts");
-/* harmony import */ var _views_job_parts_list_controls__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./views/job/parts/list/controls */ "./src/app/views/job/parts/list/controls.ts");
-/* harmony import */ var _views_job_parts_list_pager__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./views/job/parts/list/pager */ "./src/app/views/job/parts/list/pager.ts");
-/* harmony import */ var _views_job_detail__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./views/job/detail */ "./src/app/views/job/detail.ts");
-/* harmony import */ var _views_job_parts_detail_recent__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./views/job/parts/detail/recent */ "./src/app/views/job/parts/detail/recent.ts");
-/* harmony import */ var _views_job_parts_detail_overview__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./views/job/parts/detail/overview */ "./src/app/views/job/parts/detail/overview.ts");
-/* harmony import */ var _views_job_parts_detail_contact__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./views/job/parts/detail/contact */ "./src/app/views/job/parts/detail/contact.ts");
-/* harmony import */ var _views_job_parts_detail_extra__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./views/job/parts/detail/extra */ "./src/app/views/job/parts/detail/extra.ts");
-/* harmony import */ var _views_candidate__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./views/candidate */ "./src/app/views/candidate/index.ts");
-/* harmony import */ var _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./views/candidate/dashboard */ "./src/app/views/candidate/dashboard.ts");
-/* harmony import */ var _views_candidate_detail__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./views/candidate/detail */ "./src/app/views/candidate/detail.ts");
-/* harmony import */ var _views_candidate_login__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./views/candidate/login */ "./src/app/views/candidate/login.ts");
-/* harmony import */ var _views_candidate_profile__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./views/candidate/profile */ "./src/app/views/candidate/profile/index.ts");
-/* harmony import */ var _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./views/candidate/profile/changepassword */ "./src/app/views/candidate/profile/changepassword.ts");
-/* harmony import */ var _views_candidate_resume__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./views/candidate/resume */ "./src/app/views/candidate/resume/index.ts");
-/* harmony import */ var _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./views/candidate/resume/add */ "./src/app/views/candidate/resume/add.ts");
-/* harmony import */ var _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./views/candidate/resume/edit */ "./src/app/views/candidate/resume/edit.ts");
-/* harmony import */ var _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./views/candidate/resume/detail */ "./src/app/views/candidate/resume/detail.ts");
-/* harmony import */ var _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./views/candidate/resume/coverletter */ "./src/app/views/candidate/resume/coverletter.ts");
-/* harmony import */ var _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./views/candidate/job/list */ "./src/app/views/candidate/job/list.ts");
-/* harmony import */ var _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./views/candidate/job/apply */ "./src/app/views/candidate/job/apply.ts");
-/* harmony import */ var _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./views/candidate/job/favorites */ "./src/app/views/candidate/job/favorites.ts");
-/* harmony import */ var _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./views/candidate/job/alert */ "./src/app/views/candidate/job/alert.ts");
-/* harmony import */ var _views_employer__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./views/employer */ "./src/app/views/employer/index.ts");
-/* harmony import */ var _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./views/employer/dashboard */ "./src/app/views/employer/dashboard.ts");
-/* harmony import */ var _views_employer_detail__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./views/employer/detail */ "./src/app/views/employer/detail.ts");
-/* harmony import */ var _views_employer_login__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./views/employer/login */ "./src/app/views/employer/login.ts");
-/* harmony import */ var _views_employer_profile__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./views/employer/profile */ "./src/app/views/employer/profile/index.ts");
-/* harmony import */ var _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ./views/employer/profile/changepassword */ "./src/app/views/employer/profile/changepassword.ts");
-/* harmony import */ var _views_employer_job_list__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./views/employer/job/list */ "./src/app/views/employer/job/list.ts");
-/* harmony import */ var _views_employer_job_add__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./views/employer/job/add */ "./src/app/views/employer/job/add.ts");
-/* harmony import */ var _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./views/employer/job/edit */ "./src/app/views/employer/job/edit.ts");
-/* harmony import */ var _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./views/employer/job/apply */ "./src/app/views/employer/job/apply.ts");
-/* harmony import */ var _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./views/employer/job/alert */ "./src/app/views/employer/job/alert.ts");
-/* harmony import */ var _views_employer_package__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./views/employer/package */ "./src/app/views/employer/package/index.ts");
-/* harmony import */ var _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./views/employer/package/transactions */ "./src/app/views/employer/package/transactions.ts");
+/* harmony import */ var _views_content_parts_about_counts__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./views/content/parts/about/counts */ "./src/app/views/content/parts/about/counts.ts");
+/* harmony import */ var _views_content_parts_about_services__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./views/content/parts/about/services */ "./src/app/views/content/parts/about/services.ts");
+/* harmony import */ var _views_content_contact__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./views/content/contact */ "./src/app/views/content/contact.ts");
+/* harmony import */ var _views_content_parts_contact_form__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./views/content/parts/contact/form */ "./src/app/views/content/parts/contact/form.ts");
+/* harmony import */ var _views_content_register__WEBPACK_IMPORTED_MODULE_108__ = __webpack_require__(/*! ./views/content/register */ "./src/app/views/content/register.ts");
+/* harmony import */ var _views_content_pricing__WEBPACK_IMPORTED_MODULE_109__ = __webpack_require__(/*! ./views/content/pricing */ "./src/app/views/content/pricing.ts");
+/* harmony import */ var _views_job__WEBPACK_IMPORTED_MODULE_110__ = __webpack_require__(/*! ./views/job */ "./src/app/views/job/index.ts");
+/* harmony import */ var _views_job_parts_list_top__WEBPACK_IMPORTED_MODULE_111__ = __webpack_require__(/*! ./views/job/parts/list/top */ "./src/app/views/job/parts/list/top.ts");
+/* harmony import */ var _views_job_parts_list_left__WEBPACK_IMPORTED_MODULE_112__ = __webpack_require__(/*! ./views/job/parts/list/left */ "./src/app/views/job/parts/list/left.ts");
+/* harmony import */ var _views_job_parts_list_controls__WEBPACK_IMPORTED_MODULE_113__ = __webpack_require__(/*! ./views/job/parts/list/controls */ "./src/app/views/job/parts/list/controls.ts");
+/* harmony import */ var _views_job_parts_list_pager__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./views/job/parts/list/pager */ "./src/app/views/job/parts/list/pager.ts");
+/* harmony import */ var _views_job_detail__WEBPACK_IMPORTED_MODULE_115__ = __webpack_require__(/*! ./views/job/detail */ "./src/app/views/job/detail.ts");
+/* harmony import */ var _views_job_parts_detail_recent__WEBPACK_IMPORTED_MODULE_116__ = __webpack_require__(/*! ./views/job/parts/detail/recent */ "./src/app/views/job/parts/detail/recent.ts");
+/* harmony import */ var _views_job_parts_detail_overview__WEBPACK_IMPORTED_MODULE_117__ = __webpack_require__(/*! ./views/job/parts/detail/overview */ "./src/app/views/job/parts/detail/overview.ts");
+/* harmony import */ var _views_job_parts_detail_contact__WEBPACK_IMPORTED_MODULE_118__ = __webpack_require__(/*! ./views/job/parts/detail/contact */ "./src/app/views/job/parts/detail/contact.ts");
+/* harmony import */ var _views_job_parts_detail_extra__WEBPACK_IMPORTED_MODULE_119__ = __webpack_require__(/*! ./views/job/parts/detail/extra */ "./src/app/views/job/parts/detail/extra.ts");
+/* harmony import */ var _views_candidate__WEBPACK_IMPORTED_MODULE_120__ = __webpack_require__(/*! ./views/candidate */ "./src/app/views/candidate/index.ts");
+/* harmony import */ var _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_121__ = __webpack_require__(/*! ./views/candidate/dashboard */ "./src/app/views/candidate/dashboard.ts");
+/* harmony import */ var _views_candidate_detail__WEBPACK_IMPORTED_MODULE_122__ = __webpack_require__(/*! ./views/candidate/detail */ "./src/app/views/candidate/detail.ts");
+/* harmony import */ var _views_candidate_login__WEBPACK_IMPORTED_MODULE_123__ = __webpack_require__(/*! ./views/candidate/login */ "./src/app/views/candidate/login.ts");
+/* harmony import */ var _views_candidate_profile__WEBPACK_IMPORTED_MODULE_124__ = __webpack_require__(/*! ./views/candidate/profile */ "./src/app/views/candidate/profile/index.ts");
+/* harmony import */ var _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_125__ = __webpack_require__(/*! ./views/candidate/profile/changepassword */ "./src/app/views/candidate/profile/changepassword.ts");
+/* harmony import */ var _views_candidate_resume__WEBPACK_IMPORTED_MODULE_126__ = __webpack_require__(/*! ./views/candidate/resume */ "./src/app/views/candidate/resume/index.ts");
+/* harmony import */ var _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_127__ = __webpack_require__(/*! ./views/candidate/resume/add */ "./src/app/views/candidate/resume/add.ts");
+/* harmony import */ var _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_128__ = __webpack_require__(/*! ./views/candidate/resume/edit */ "./src/app/views/candidate/resume/edit.ts");
+/* harmony import */ var _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_129__ = __webpack_require__(/*! ./views/candidate/resume/detail */ "./src/app/views/candidate/resume/detail.ts");
+/* harmony import */ var _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_130__ = __webpack_require__(/*! ./views/candidate/resume/coverletter */ "./src/app/views/candidate/resume/coverletter.ts");
+/* harmony import */ var _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_131__ = __webpack_require__(/*! ./views/candidate/job/list */ "./src/app/views/candidate/job/list.ts");
+/* harmony import */ var _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_132__ = __webpack_require__(/*! ./views/candidate/job/apply */ "./src/app/views/candidate/job/apply.ts");
+/* harmony import */ var _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_133__ = __webpack_require__(/*! ./views/candidate/job/favorites */ "./src/app/views/candidate/job/favorites.ts");
+/* harmony import */ var _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_134__ = __webpack_require__(/*! ./views/candidate/job/alert */ "./src/app/views/candidate/job/alert.ts");
+/* harmony import */ var _views_employer__WEBPACK_IMPORTED_MODULE_135__ = __webpack_require__(/*! ./views/employer */ "./src/app/views/employer/index.ts");
+/* harmony import */ var _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_136__ = __webpack_require__(/*! ./views/employer/dashboard */ "./src/app/views/employer/dashboard.ts");
+/* harmony import */ var _views_employer_detail__WEBPACK_IMPORTED_MODULE_137__ = __webpack_require__(/*! ./views/employer/detail */ "./src/app/views/employer/detail.ts");
+/* harmony import */ var _views_employer_login__WEBPACK_IMPORTED_MODULE_138__ = __webpack_require__(/*! ./views/employer/login */ "./src/app/views/employer/login.ts");
+/* harmony import */ var _views_employer_profile__WEBPACK_IMPORTED_MODULE_139__ = __webpack_require__(/*! ./views/employer/profile */ "./src/app/views/employer/profile/index.ts");
+/* harmony import */ var _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_140__ = __webpack_require__(/*! ./views/employer/profile/changepassword */ "./src/app/views/employer/profile/changepassword.ts");
+/* harmony import */ var _views_employer_job_list__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(/*! ./views/employer/job/list */ "./src/app/views/employer/job/list.ts");
+/* harmony import */ var _views_employer_job_add__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(/*! ./views/employer/job/add */ "./src/app/views/employer/job/add.ts");
+/* harmony import */ var _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(/*! ./views/employer/job/edit */ "./src/app/views/employer/job/edit.ts");
+/* harmony import */ var _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(/*! ./views/employer/job/apply */ "./src/app/views/employer/job/apply.ts");
+/* harmony import */ var _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_145__ = __webpack_require__(/*! ./views/employer/job/alert */ "./src/app/views/employer/job/alert.ts");
+/* harmony import */ var _views_employer_package__WEBPACK_IMPORTED_MODULE_146__ = __webpack_require__(/*! ./views/employer/package */ "./src/app/views/employer/package/index.ts");
+/* harmony import */ var _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_147__ = __webpack_require__(/*! ./views/employer/package/transactions */ "./src/app/views/employer/package/transactions.ts");
 
 
 
@@ -19903,6 +19951,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 //Home
 
 
@@ -19924,6 +19973,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //��erik
+
+
+
 
 
 
@@ -19982,82 +20034,86 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _views_shared_controls_menu__WEBPACK_IMPORTED_MODULE_71__["MenuComponent"],
             _views_shared_controls_footer__WEBPACK_IMPORTED_MODULE_72__["FooterComponent"],
             _views_shared_controls_scripts__WEBPACK_IMPORTED_MODULE_73__["ScriptsComponent"],
-            _views_shared_controls_banner__WEBPACK_IMPORTED_MODULE_74__["BannerComponent"],
-            _views_shared_controls_bannerpicture__WEBPACK_IMPORTED_MODULE_75__["BannerPictureComponent"],
-            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_76__["ModalAlertComponent"],
-            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_77__["ModalConfirmComponent"],
-            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_78__["RespHeaderComponent"],
-            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_80__["RespSearchComponent"],
-            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_79__["RespMenuComponent"],
-            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_81__["PopupLoginComponent"],
-            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_82__["PopupSignupComponent"],
+            _views_shared_controls_breadcrumbs__WEBPACK_IMPORTED_MODULE_74__["BreadCrumbsComponent"],
+            _views_shared_controls_banner__WEBPACK_IMPORTED_MODULE_75__["BannerComponent"],
+            _views_shared_controls_bannerpicture__WEBPACK_IMPORTED_MODULE_76__["BannerPictureComponent"],
+            _views_shared_common_modalalert__WEBPACK_IMPORTED_MODULE_77__["ModalAlertComponent"],
+            _views_shared_common_modalconfirm__WEBPACK_IMPORTED_MODULE_78__["ModalConfirmComponent"],
+            _views_shared_controls_responsive_header__WEBPACK_IMPORTED_MODULE_79__["RespHeaderComponent"],
+            _views_shared_controls_responsive_search__WEBPACK_IMPORTED_MODULE_81__["RespSearchComponent"],
+            _views_shared_controls_responsive_menu__WEBPACK_IMPORTED_MODULE_80__["RespMenuComponent"],
+            _views_shared_controls_popup_login__WEBPACK_IMPORTED_MODULE_82__["PopupLoginComponent"],
+            _views_shared_controls_popup_signup__WEBPACK_IMPORTED_MODULE_83__["PopupSignupComponent"],
             //Home
-            _views_home__WEBPACK_IMPORTED_MODULE_83__["IndexComponent"],
-            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_84__["HomeTopComponent"],
-            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_85__["HomeSliderComponent"],
-            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_86__["HomeSearchComponent"],
-            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_87__["HomePopCatComponent"],
-            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_88__["HomeAccountComponent"],
-            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_89__["HomeJobsComponent"],
-            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_90__["HomeCandidatesComponent"],
-            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_91__["HomeCompaniesComponent"],
-            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_92__["HomeTipsComponent"],
-            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_93__["HomeQuestionComponent"],
+            _views_home__WEBPACK_IMPORTED_MODULE_84__["IndexComponent"],
+            _views_home_parts_top__WEBPACK_IMPORTED_MODULE_85__["HomeTopComponent"],
+            _views_home_parts_slider__WEBPACK_IMPORTED_MODULE_86__["HomeSliderComponent"],
+            _views_home_parts_search__WEBPACK_IMPORTED_MODULE_87__["HomeSearchComponent"],
+            _views_home_parts_popcat__WEBPACK_IMPORTED_MODULE_88__["HomePopCatComponent"],
+            _views_home_parts_account__WEBPACK_IMPORTED_MODULE_89__["HomeAccountComponent"],
+            _views_home_parts_jobs__WEBPACK_IMPORTED_MODULE_90__["HomeJobsComponent"],
+            _views_home_parts_candidates__WEBPACK_IMPORTED_MODULE_91__["HomeCandidatesComponent"],
+            _views_home_parts_companies__WEBPACK_IMPORTED_MODULE_92__["HomeCompaniesComponent"],
+            _views_home_parts_tips__WEBPACK_IMPORTED_MODULE_93__["HomeTipsComponent"],
+            _views_home_parts_question__WEBPACK_IMPORTED_MODULE_94__["HomeQuestionComponent"],
             //Blog
-            _views_blog__WEBPACK_IMPORTED_MODULE_94__["BlogIndexComponent"],
-            _views_blog_parts_list_pager__WEBPACK_IMPORTED_MODULE_95__["BlogListPagerComponent"],
-            _views_blog_parts_left__WEBPACK_IMPORTED_MODULE_96__["BlogLeftComponent"],
-            _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_97__["BlogSearchComponent"],
-            _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_98__["BlogCategoriesComponent"],
-            _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_99__["BlogRecentComponent"],
-            _views_blog_detail__WEBPACK_IMPORTED_MODULE_100__["BlogDetailComponent"],
+            _views_blog__WEBPACK_IMPORTED_MODULE_95__["BlogIndexComponent"],
+            _views_blog_parts_list_pager__WEBPACK_IMPORTED_MODULE_96__["BlogListPagerComponent"],
+            _views_blog_parts_left__WEBPACK_IMPORTED_MODULE_97__["BlogLeftComponent"],
+            _views_blog_parts_search__WEBPACK_IMPORTED_MODULE_98__["BlogSearchComponent"],
+            _views_blog_parts_categories__WEBPACK_IMPORTED_MODULE_99__["BlogCategoriesComponent"],
+            _views_blog_parts_recent__WEBPACK_IMPORTED_MODULE_100__["BlogRecentComponent"],
+            _views_blog_detail__WEBPACK_IMPORTED_MODULE_101__["BlogDetailComponent"],
             //��erik
-            _views_content__WEBPACK_IMPORTED_MODULE_101__["ContentIndexComponent"],
-            _views_content_contact__WEBPACK_IMPORTED_MODULE_102__["ContactComponent"],
+            _views_content__WEBPACK_IMPORTED_MODULE_102__["ContentIndexComponent"],
             _views_content_about__WEBPACK_IMPORTED_MODULE_103__["AboutComponent"],
-            _views_content_register__WEBPACK_IMPORTED_MODULE_104__["RegisterComponent"],
-            _views_content_pricing__WEBPACK_IMPORTED_MODULE_105__["PricingComponent"],
+            _views_content_parts_about_counts__WEBPACK_IMPORTED_MODULE_104__["AboutCountsComponent"],
+            _views_content_parts_about_services__WEBPACK_IMPORTED_MODULE_105__["AboutServicesComponent"],
+            _views_content_contact__WEBPACK_IMPORTED_MODULE_106__["ContactComponent"],
+            _views_content_parts_contact_form__WEBPACK_IMPORTED_MODULE_107__["ContactFormComponent"],
+            _views_content_register__WEBPACK_IMPORTED_MODULE_108__["RegisterComponent"],
+            _views_content_pricing__WEBPACK_IMPORTED_MODULE_109__["PricingComponent"],
             //�lan
-            _views_job__WEBPACK_IMPORTED_MODULE_106__["JobIndexComponent"],
-            _views_job_parts_list_top__WEBPACK_IMPORTED_MODULE_107__["JobListTopComponent"],
-            _views_job_parts_list_left__WEBPACK_IMPORTED_MODULE_108__["JobListLeftComponent"],
-            _views_job_parts_list_controls__WEBPACK_IMPORTED_MODULE_109__["JobListControlsComponent"],
-            _views_job_parts_list_pager__WEBPACK_IMPORTED_MODULE_110__["JobListPagerComponent"],
-            _views_job_detail__WEBPACK_IMPORTED_MODULE_111__["JobDetailComponent"],
-            _views_job_parts_detail_recent__WEBPACK_IMPORTED_MODULE_112__["JobDetailRecentComponent"],
-            _views_job_parts_detail_overview__WEBPACK_IMPORTED_MODULE_113__["JobDetailOverviewComponent"],
-            _views_job_parts_detail_contact__WEBPACK_IMPORTED_MODULE_114__["JobDetailContactComponent"],
-            _views_job_parts_detail_extra__WEBPACK_IMPORTED_MODULE_115__["JobDetailExtraComponent"],
+            _views_job__WEBPACK_IMPORTED_MODULE_110__["JobIndexComponent"],
+            _views_job_parts_list_top__WEBPACK_IMPORTED_MODULE_111__["JobListTopComponent"],
+            _views_job_parts_list_left__WEBPACK_IMPORTED_MODULE_112__["JobListLeftComponent"],
+            _views_job_parts_list_controls__WEBPACK_IMPORTED_MODULE_113__["JobListControlsComponent"],
+            _views_job_parts_list_pager__WEBPACK_IMPORTED_MODULE_114__["JobListPagerComponent"],
+            _views_job_detail__WEBPACK_IMPORTED_MODULE_115__["JobDetailComponent"],
+            _views_job_parts_detail_recent__WEBPACK_IMPORTED_MODULE_116__["JobDetailRecentComponent"],
+            _views_job_parts_detail_overview__WEBPACK_IMPORTED_MODULE_117__["JobDetailOverviewComponent"],
+            _views_job_parts_detail_contact__WEBPACK_IMPORTED_MODULE_118__["JobDetailContactComponent"],
+            _views_job_parts_detail_extra__WEBPACK_IMPORTED_MODULE_119__["JobDetailExtraComponent"],
             //�al��an
-            _views_candidate__WEBPACK_IMPORTED_MODULE_116__["CandidateIndexComponent"],
-            _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_117__["CandidateDashboardComponent"],
-            _views_candidate_detail__WEBPACK_IMPORTED_MODULE_118__["CandidateDetailComponent"],
-            _views_candidate_login__WEBPACK_IMPORTED_MODULE_119__["CandidateLoginComponent"],
-            _views_candidate_profile__WEBPACK_IMPORTED_MODULE_120__["CandidateProfileComponent"],
-            _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_121__["CandidateChangePasswordComponent"],
-            _views_candidate_resume__WEBPACK_IMPORTED_MODULE_122__["CandidateResumeComponent"],
-            _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_123__["CandidateResumeAddComponent"],
-            _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_124__["CandidateResumeEditComponent"],
-            _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_125__["CandidateResumeDetailComponent"],
-            _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_126__["CandidateResumeCoverLetterComponent"],
-            _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_127__["CandidateJobListComponent"],
-            _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_128__["CandidateJobApplyComponent"],
-            _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_129__["CandidateJobFavoritesComponent"],
-            _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_130__["CandidateJobAlertComponent"],
+            _views_candidate__WEBPACK_IMPORTED_MODULE_120__["CandidateIndexComponent"],
+            _views_candidate_dashboard__WEBPACK_IMPORTED_MODULE_121__["CandidateDashboardComponent"],
+            _views_candidate_detail__WEBPACK_IMPORTED_MODULE_122__["CandidateDetailComponent"],
+            _views_candidate_login__WEBPACK_IMPORTED_MODULE_123__["CandidateLoginComponent"],
+            _views_candidate_profile__WEBPACK_IMPORTED_MODULE_124__["CandidateProfileComponent"],
+            _views_candidate_profile_changepassword__WEBPACK_IMPORTED_MODULE_125__["CandidateChangePasswordComponent"],
+            _views_candidate_resume__WEBPACK_IMPORTED_MODULE_126__["CandidateResumeComponent"],
+            _views_candidate_resume_add__WEBPACK_IMPORTED_MODULE_127__["CandidateResumeAddComponent"],
+            _views_candidate_resume_edit__WEBPACK_IMPORTED_MODULE_128__["CandidateResumeEditComponent"],
+            _views_candidate_resume_detail__WEBPACK_IMPORTED_MODULE_129__["CandidateResumeDetailComponent"],
+            _views_candidate_resume_coverletter__WEBPACK_IMPORTED_MODULE_130__["CandidateResumeCoverLetterComponent"],
+            _views_candidate_job_list__WEBPACK_IMPORTED_MODULE_131__["CandidateJobListComponent"],
+            _views_candidate_job_apply__WEBPACK_IMPORTED_MODULE_132__["CandidateJobApplyComponent"],
+            _views_candidate_job_favorites__WEBPACK_IMPORTED_MODULE_133__["CandidateJobFavoritesComponent"],
+            _views_candidate_job_alert__WEBPACK_IMPORTED_MODULE_134__["CandidateJobAlertComponent"],
             //Firma
-            _views_employer__WEBPACK_IMPORTED_MODULE_131__["EmployerIndexComponent"],
-            _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_132__["EmployerDashboardComponent"],
-            _views_employer_detail__WEBPACK_IMPORTED_MODULE_133__["EmployerDetailComponent"],
-            _views_employer_profile__WEBPACK_IMPORTED_MODULE_135__["EmployerProfileComponent"],
-            _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_136__["EmployerChangePasswordComponent"],
-            _views_employer_login__WEBPACK_IMPORTED_MODULE_134__["EmployerLoginComponent"],
-            _views_employer_job_list__WEBPACK_IMPORTED_MODULE_137__["EmployerJobListComponent"],
-            _views_employer_job_add__WEBPACK_IMPORTED_MODULE_138__["EmployerJobAddComponent"],
-            _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_139__["EmployerJobEditComponent"],
-            _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_140__["EmployerJobApplyComponent"],
-            _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_141__["EmployerJobAlertComponent"],
-            _views_employer_package__WEBPACK_IMPORTED_MODULE_142__["EmployerPackageComponent"],
-            _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_143__["EmployerTransactionsComponent"],
+            _views_employer__WEBPACK_IMPORTED_MODULE_135__["EmployerIndexComponent"],
+            _views_employer_dashboard__WEBPACK_IMPORTED_MODULE_136__["EmployerDashboardComponent"],
+            _views_employer_detail__WEBPACK_IMPORTED_MODULE_137__["EmployerDetailComponent"],
+            _views_employer_profile__WEBPACK_IMPORTED_MODULE_139__["EmployerProfileComponent"],
+            _views_employer_profile_changepassword__WEBPACK_IMPORTED_MODULE_140__["EmployerChangePasswordComponent"],
+            _views_employer_login__WEBPACK_IMPORTED_MODULE_138__["EmployerLoginComponent"],
+            _views_employer_job_list__WEBPACK_IMPORTED_MODULE_141__["EmployerJobListComponent"],
+            _views_employer_job_add__WEBPACK_IMPORTED_MODULE_142__["EmployerJobAddComponent"],
+            _views_employer_job_edit__WEBPACK_IMPORTED_MODULE_143__["EmployerJobEditComponent"],
+            _views_employer_job_apply__WEBPACK_IMPORTED_MODULE_144__["EmployerJobApplyComponent"],
+            _views_employer_job_alert__WEBPACK_IMPORTED_MODULE_145__["EmployerJobAlertComponent"],
+            _views_employer_package__WEBPACK_IMPORTED_MODULE_146__["EmployerPackageComponent"],
+            _views_employer_package_transactions__WEBPACK_IMPORTED_MODULE_147__["EmployerTransactionsComponent"],
             //Admin
             _admin_views_shared_layoutAdmin__WEBPACK_IMPORTED_MODULE_8__["AdminLayoutComponent"],
             _admin_views_home_login__WEBPACK_IMPORTED_MODULE_9__["AdminLoginComponent"],
@@ -20187,22 +20243,40 @@ let Lib = class Lib {
         let currentUrl = router.url;
         router.navigate([changeUrl], { skipLocationChange: skipChangeLocation }).then(() => { router.navigate([currentUrl]); });
     }
-    static ComboChange(id) {
-        var select = $("#" + id);
-        var selectUL = $("#" + id).next(".chosen-container").find(".chosen-results");
-        select.next(".chosen-container").children("a.chosen-single").off("click").on("click", function () {
-            selectUL.children("li").off("click").on("click", function () {
-                var index = parseInt($(this).attr("data-option-array-index"));
-                select.children("option").removeAttr("selected");
-                select.children("option").eq(index).attr("selected", "selected");
+    static ComboChange(classid, time = 2500) {
+        setTimeout(() => {
+            var select = $(classid);
+            var selectUL = $(classid).next(".chosen-container").find(".chosen-results");
+            select.next(".chosen-container").children("a.chosen-single").off("click").on("click", function () {
+                selectUL.children("li").off("click").on("click", function () {
+                    var index = parseInt($(this).attr("data-option-array-index"));
+                    select.children("option").removeAttr("selected");
+                    select.children("option").eq(index).attr("selected", "selected");
+                });
             });
-        });
+        }, time);
     }
 };
 Lib = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
 ], Lib);
 
+
+
+/***/ }),
+
+/***/ "./src/app/models/Link.ts":
+/*!********************************!*\
+  !*** ./src/app/models/Link.ts ***!
+  \********************************/
+/*! exports provided: Link */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return Link; });
+class Link {
+}
 
 
 /***/ }),
@@ -20655,10 +20729,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CandidateLoginComponent", function() { return CandidateLoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+
 
 
 let CandidateLoginComponent = class CandidateLoginComponent {
     ngOnInit() {
+        this.FillLinks();
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        let linkLogin = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkLogin.Title = "Giriş";
+        linkLogin.Link = "/IsArayan/Giris";
+        this.links.push(linkHome);
+        this.links.push(linkLogin);
     }
 };
 CandidateLoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -20879,10 +20967,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+
 
 
 let AboutComponent = class AboutComponent {
     ngOnInit() {
+        this.FillLinks();
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        let linkAbout = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkAbout.Title = "Hakkımızda";
+        linkAbout.Link = "/Hakkimizda";
+        this.links.push(linkHome);
+        this.links.push(linkAbout);
     }
 };
 AboutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -20907,10 +21009,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactComponent", function() { return ContactComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+
 
 
 let ContactComponent = class ContactComponent {
     ngOnInit() {
+        this.FillLinks();
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        let linkContact = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkContact.Title = "İletişim";
+        linkContact.Link = "/Iletisim";
+        this.links.push(linkHome);
+        this.links.push(linkContact);
     }
 };
 ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -20935,10 +21051,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentIndexComponent", function() { return ContentIndexComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+
 
 
 let ContentIndexComponent = class ContentIndexComponent {
+    constructor() {
+        this.title = 'İçerik Sayfası';
+        this.message = 'Mesaj';
+    }
     ngOnInit() {
+        this.FillLinks();
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        this.links.push(linkHome);
     }
 };
 ContentIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -20946,6 +21076,93 @@ ContentIndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./index.html */ "./node_modules/raw-loader/index.js!./src/app/views/content/index.html")
     })
 ], ContentIndexComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/content/parts/about/counts.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/views/content/parts/about/counts.ts ***!
+  \*****************************************************/
+/*! exports provided: AboutCountsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutCountsComponent", function() { return AboutCountsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AboutCountsComponent = class AboutCountsComponent {
+    ngOnInit() {
+    }
+};
+AboutCountsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-aboutcounts',
+        template: __webpack_require__(/*! raw-loader!./counts.html */ "./node_modules/raw-loader/index.js!./src/app/views/content/parts/about/counts.html")
+    })
+], AboutCountsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/content/parts/about/services.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/views/content/parts/about/services.ts ***!
+  \*******************************************************/
+/*! exports provided: AboutServicesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutServicesComponent", function() { return AboutServicesComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AboutServicesComponent = class AboutServicesComponent {
+    ngOnInit() {
+    }
+};
+AboutServicesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-aboutservices',
+        template: __webpack_require__(/*! raw-loader!./services.html */ "./node_modules/raw-loader/index.js!./src/app/views/content/parts/about/services.html")
+    })
+], AboutServicesComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/content/parts/contact/form.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/views/content/parts/contact/form.ts ***!
+  \*****************************************************/
+/*! exports provided: ContactFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactFormComponent", function() { return ContactFormComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let ContactFormComponent = class ContactFormComponent {
+    ngOnInit() {
+    }
+};
+ContactFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-contactform',
+        template: __webpack_require__(/*! raw-loader!./form.html */ "./node_modules/raw-loader/index.js!./src/app/views/content/parts/contact/form.html")
+    })
+], ContactFormComponent);
 
 
 
@@ -20963,10 +21180,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PricingComponent", function() { return PricingComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+
 
 
 let PricingComponent = class PricingComponent {
     ngOnInit() {
+        this.FillLinks();
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        let linkContact = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkContact.Title = "Paketler";
+        linkContact.Link = "/Paketler";
+        this.links.push(linkHome);
+        this.links.push(linkContact);
     }
 };
 PricingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -20991,10 +21222,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+/* harmony import */ var _shared_controls_scripts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/controls/scripts */ "./src/app/views/shared/controls/scripts.ts");
+/* harmony import */ var _lib_methods__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/methods */ "./src/app/lib/methods.ts");
+
+
+
 
 
 let RegisterComponent = class RegisterComponent {
     ngOnInit() {
+        this.FillLinks();
+        _shared_controls_scripts__WEBPACK_IMPORTED_MODULE_3__["ScriptsComponent"].Select(".chosen");
+        _lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].ComboChange("#slcSpecial");
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        let linkRegister = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkRegister.Title = "Kayıt Ol";
+        linkRegister.Link = "/Kayit";
+        this.links.push(linkHome);
+        this.links.push(linkRegister);
     }
 };
 RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -21243,10 +21494,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployerLoginComponent", function() { return EmployerLoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _models_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/Link */ "./src/app/models/Link.ts");
+
 
 
 let EmployerLoginComponent = class EmployerLoginComponent {
     ngOnInit() {
+        this.FillLinks();
+    }
+    FillLinks() {
+        this.links = new Array();
+        let linkHome = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkHome.Title = "Ana Sayfa";
+        linkHome.Link = "/";
+        let linkLogin = new _models_Link__WEBPACK_IMPORTED_MODULE_2__["Link"]();
+        linkLogin.Title = "Giriş";
+        linkLogin.Link = "/IsVeren/Giris";
+        this.links.push(linkHome);
+        this.links.push(linkLogin);
     }
 };
 EmployerLoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -21657,9 +21922,7 @@ let HomeSearchComponent = class HomeSearchComponent {
             City: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
         });
         _shared_controls_scripts__WEBPACK_IMPORTED_MODULE_5__["ScriptsComponent"].Select(".chosen-city");
-        setTimeout(() => {
-            _lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].ComboChange("slcCity");
-        }, 2500);
+        _lib_methods__WEBPACK_IMPORTED_MODULE_4__["Lib"].ComboChange("#slcCity");
     }
     onClick() {
         this.data = new Object();
@@ -21991,10 +22254,8 @@ __webpack_require__.r(__webpack_exports__);
 let JobListControlsComponent = class JobListControlsComponent {
     ngOnInit() {
         _shared_controls_scripts__WEBPACK_IMPORTED_MODULE_2__["ScriptsComponent"].Select(".chosen");
-        setTimeout(() => {
-            _lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].ComboChange("slcSort");
-            _lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].ComboChange("slcPager");
-        }, 2500);
+        _lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].ComboChange("#slcSort");
+        _lib_methods__WEBPACK_IMPORTED_MODULE_3__["Lib"].ComboChange("#slcPager");
     }
 };
 JobListControlsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -22243,6 +22504,44 @@ BannerPictureComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./bannerpicture.html */ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/bannerpicture.html")
     })
 ], BannerPictureComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/shared/controls/breadcrumbs.ts":
+/*!******************************************************!*\
+  !*** ./src/app/views/shared/controls/breadcrumbs.ts ***!
+  \******************************************************/
+/*! exports provided: BreadCrumbsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BreadCrumbsComponent", function() { return BreadCrumbsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let BreadCrumbsComponent = class BreadCrumbsComponent {
+    ngOnInit() {
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], BreadCrumbsComponent.prototype, "title", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], BreadCrumbsComponent.prototype, "message", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], BreadCrumbsComponent.prototype, "links", void 0);
+BreadCrumbsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'hr-breadcrumbs',
+        template: __webpack_require__(/*! raw-loader!./breadcrumbs.html */ "./node_modules/raw-loader/index.js!./src/app/views/shared/controls/breadcrumbs.html")
+    })
+], BreadCrumbsComponent);
 
 
 

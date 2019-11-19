@@ -7,13 +7,11 @@ import { Lib } from '../../../../lib/methods';
     templateUrl: './controls.html'
 })
 
-export class JobListControlsComponent{ 
+export class JobListControlsComponent {
     ngOnInit() {
         ScriptsComponent.Select(".chosen");
 
-        setTimeout(() => {
-            Lib.ComboChange("slcSort");
-            Lib.ComboChange("slcPager");
-        }, 2500);
+        Lib.ComboChange("#slcSort");
+        Lib.ComboChange("#slcPager");
     }
 }

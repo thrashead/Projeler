@@ -26,10 +26,7 @@ export class HomeSearchComponent {
         });
 
         ScriptsComponent.Select(".chosen-city");
-
-        setTimeout(() => {
-            Lib.ComboChange("slcCity");
-        }, 2500);
+        Lib.ComboChange("#slcCity");
     }
 
     onClick() {

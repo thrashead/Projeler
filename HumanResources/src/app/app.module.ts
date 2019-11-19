@@ -100,6 +100,7 @@ import { HeaderComponent } from './views/shared/controls/header';
 import { MenuComponent } from './views/shared/controls/menu';
 import { FooterComponent } from './views/shared/controls/footer';
 import { ScriptsComponent } from './views/shared/controls/scripts';
+import { BreadCrumbsComponent } from './views/shared/controls/breadcrumbs';
 import { BannerComponent } from './views/shared/controls/banner';
 import { BannerPictureComponent } from './views/shared/controls/bannerpicture';
 import { ModalAlertComponent } from './views/shared/common/modalalert';
@@ -134,8 +135,11 @@ import { BlogDetailComponent } from './views/blog/detail';
 
 //Ýçerik
 import { ContentIndexComponent } from './views/content';
-import { ContactComponent } from './views/content/contact';
 import { AboutComponent } from './views/content/about';
+import { AboutCountsComponent } from './views/content/parts/about/counts';
+import { AboutServicesComponent } from './views/content/parts/about/services';
+import { ContactComponent } from './views/content/contact';
+import { ContactFormComponent } from './views/content/parts/contact/form';
 import { RegisterComponent } from './views/content/register';
 import { PricingComponent } from './views/content/pricing';
 
@@ -193,6 +197,7 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
         MenuComponent,
         FooterComponent,
         ScriptsComponent,
+        BreadCrumbsComponent,
         BannerComponent,
         BannerPictureComponent,
         ModalAlertComponent,
@@ -227,8 +232,11 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
 
         //Ýçerik
         ContentIndexComponent,
-        ContactComponent,
         AboutComponent,
+        AboutCountsComponent,
+        AboutServicesComponent,
+        ContactComponent,
+        ContactFormComponent,
         RegisterComponent,
         PricingComponent,
 
