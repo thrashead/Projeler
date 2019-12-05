@@ -1,10 +1,10 @@
 ﻿import { Component } from "@angular/core";
 
 @Component({
-    templateUrl: './dashboard.html'
+    templateUrl: './list.html'
 })
 
-export class CandidateDashboardComponent{ 
+export class CandidateListComponent{ 
     ngOnInit() {
     }
 }

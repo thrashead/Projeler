@@ -19,7 +19,11 @@
 .job-head-wide .apply-alternative span {width: 100%;text-align: center;cursor: pointer;}
 .job-head-wide .apply-alternative span i.la {float:none;}
 .bcbanner {margin-top: 100px;}
+.emply-resume-list.active {z-index:999;}
+.text-socail a {color:#000;}
+.action-inner.style2 a {color:#000;}
+.action-inner .download-cv a {border-color:#000;}
 
 @media (max-width:1200px) {
-.bcbanner {margin-top: 0px;}
+    .bcbanner {margin-top: 0px;}
 }

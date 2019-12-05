@@ -7691,12 +7691,12 @@ table.alrt-table tbody td > span {
     margin-top: 30px;
 }
 .big-icon {
-    font-size: 290px;
+    font-size: 290px !important;
     color: #EFEFEF;
     text-align: center;
     width: 100%;
     float: left;
-    line-height: 413px;
+    line-height: 413px !important;
     margin-bottom: 80px;
 }
 .shortlists {

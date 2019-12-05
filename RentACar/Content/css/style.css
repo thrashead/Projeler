@@ -12,7 +12,7 @@
 .b-info__aside > a span {font-size:14px!important;}
 .b-count__item-circle span {font-size:40px!important;}
 .b-topBar__lang {padding-left: 20px;}
-ul.h-lang > li > a.m-langLink > img {width:28px;height:18px;}
+ul.h-lang > li > a.m-langLink > img, .b-topBar__lang > .dropdown > .m-langLink.dropdown-toggle > img {width:22px;height:15px;}
 .b-search {background-color:none!important;}
 .b-search * {text-transform:none!important;}
 .b-search__main-type-svg {width:108px;height:42px;background-repeat:no-repeat;background-position:center center;cursor:pointer;}

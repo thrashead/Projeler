@@ -29,6 +29,7 @@ ul.footer-blog li {margin-bottom: 0px;}
 .sort-by-list li.active a {background-color:#FDC600!important;border-color:#FDC600!important;}
 .sort-by-list li a i.fa {color:#d27e04!important;}
 .sort-by-list li.active a i.fa {color:#FFF!important;}
+.header-half.header-social > .list-inline > li > a.btnLang > img {width:22px;height:15px;}
 
 input[type='checkbox'] {-webkit-appearance: none;height: 20px!important;width: 20px!important;border:2px solid lightgray;background-size: 20px 20px;cursor:pointer;}
 input[type='checkbox']:active, input[type='checkbox']:focus {border-color:#FDC600;}

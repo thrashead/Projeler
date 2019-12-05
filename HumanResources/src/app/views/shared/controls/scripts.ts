@@ -304,4 +304,49 @@ export class ScriptsComponent implements AfterViewChecked {
 	static Select(classid: string) {
 		$(classid).chosen({ disable_search_threshold: 10 });
 	}
+
+	static Select2() {
+		$('.action-center > span').off('click').on('click', function () {
+			var active = $(this).parent().parent().parent().hasClass('active');
+
+			if (!active) {
+				$('.action-center ul').fadeOut();
+				$('.emply-resume-list').removeClass('active');
+				$(this).next('ul').fadeIn();
+				$(this).parent().parent().parent().addClass('active');
+			}
+			else {
+				$('.action-center ul').fadeOut();
+				$('.emply-resume-list').removeClass('active');
+			}
+		});
+		$('body').off('click').on('click', function () {
+			$('.action-center ul').fadeOut();
+			$('.emply-resume-list').removeClass('active');
+		});
+		$(".action-center").off('click').on("click", function (e) {
+			e.stopPropagation();
+		});
+	}
+
+	static CircleProgress(classid: string) {
+		$(classid).circleProgress({
+			startAngle: -Math.PI / 8 * 0,
+			value: 0.8,
+			emptyFill: 'rgba(0, 0, 0, 0)',
+			fill: { gradient: ['#fa3979', '#e22d68'] }
+		}).on('circle-animation-progress', function (event, progress) {
+			$(this).find('strong').html(Math.round(100 * progress) + '<i>%</i>');
+		});
+	}
+
+	static ToggleMenu(classid: string) {
+		$(classid + '.open').next().slideDown();
+		$(classid + '.closed').next().slideUp();
+		$(classid).off('click').on('click', function () {
+			$(this).next().slideToggle();
+			$(this).toggleClass('active');
+			$(this).toggleClass('closed');
+		});
+	}
 }

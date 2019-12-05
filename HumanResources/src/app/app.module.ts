@@ -146,7 +146,7 @@ import { PricingComponent } from './views/content/pricing';
 //Ýlan
 import { JobIndexComponent } from './views/job';
 import { JobListTopComponent } from './views/job/parts/list/top';
-import { JobListLeftComponent } from './views/job/parts/list/left';
+import { JobListSearchComponent } from './views/job/parts/list/search';
 import { JobListControlsComponent } from './views/job/parts/list/controls';
 import { JobListPagerComponent } from './views/job/parts/list/pager';
 import { JobDetailComponent } from './views/job/detail';
@@ -155,37 +155,70 @@ import { JobDetailOverviewComponent } from './views/job/parts/detail/overview';
 import { JobDetailContactComponent } from './views/job/parts/detail/contact';
 import { JobDetailExtraComponent } from './views/job/parts/detail/extra';
 
-//Çalýþan
-import { CandidateIndexComponent } from './views/candidate';
-import { CandidateDashboardComponent } from './views/candidate/dashboard';
-import { CandidateDetailComponent } from './views/candidate/detail';
-import { CandidateLoginComponent } from './views/candidate/login';
-import { CandidateProfileComponent } from './views/candidate/profile';
-import { CandidateChangePasswordComponent } from './views/candidate/profile/changepassword';
-import { CandidateResumeComponent } from './views/candidate/resume';
-import { CandidateResumeAddComponent } from './views/candidate/resume/add';
-import { CandidateResumeEditComponent } from './views/candidate/resume/edit';
-import { CandidateResumeDetailComponent } from './views/candidate/resume/detail';
-import { CandidateResumeCoverLetterComponent } from './views/candidate/resume/coverletter';
-import { CandidateJobListComponent } from './views/candidate/job/list';
-import { CandidateJobApplyComponent } from './views/candidate/job/apply';
-import { CandidateJobFavoritesComponent } from './views/candidate/job/favorites';
-import { CandidateJobAlertComponent } from './views/candidate/job/alert';
-
 //Firma
 import { EmployerIndexComponent } from './views/employer';
-import { EmployerDashboardComponent } from './views/employer/dashboard';
+import { EmployerLeftMenuComponent } from './views/employer/parts/leftmenu';
+import { EmployerListComponent } from './views/employer/list';
+import { EmployerListSearchComponent } from './views/employer/parts/list/search';
+import { EmployerListTopFilterComponent } from './views/employer/parts/list/topfilter';
 import { EmployerDetailComponent } from './views/employer/detail';
+import { EmployerDetailTopComponent } from './views/employer/parts/detail/top';
+import { EmployerDetailJobsComponent } from './views/employer/parts/detail/jobs';
+import { EmployerDetailInfoComponent } from './views/employer/parts/detail/info';
+import { EmployerDetailContactComponent } from './views/employer/parts/detail/contact';
 import { EmployerLoginComponent } from './views/employer/login';
 import { EmployerProfileComponent } from './views/employer/profile';
+import { EmployerProfileSocialComponent } from './views/employer/profile/parts/social';
+import { EmployerProfileContactComponent } from './views/employer/profile/parts/contact';
 import { EmployerChangePasswordComponent } from './views/employer/profile/changepassword';
 import { EmployerJobListComponent } from './views/employer/job/list';
 import { EmployerJobAddComponent } from './views/employer/job/add';
 import { EmployerJobEditComponent } from './views/employer/job/edit';
+import { EmployerJobAppliesComponent } from './views/employer/job/applies';
 import { EmployerJobApplyComponent } from './views/employer/job/apply';
 import { EmployerJobAlertComponent } from './views/employer/job/alert';
 import { EmployerPackageComponent } from './views/employer/package';
 import { EmployerTransactionsComponent } from './views/employer/package/transactions';
+
+//Çalýþan
+import { CandidateIndexComponent } from './views/candidate';
+import { CandidateLeftMenuComponent } from './views/candidate/parts/leftmenu';
+import { CandidateSkillComponent } from './views/candidate/parts/skill';
+import { CandidateListComponent } from './views/candidate/list';
+import { CandidateListSearchComponent } from './views/candidate/parts/list/search';
+import { CandidateDetailComponent } from './views/candidate/detail';
+import { CandidateDetailBannerComponent } from './views/candidate/parts/detail/banner';
+import { CandidateDetailTopComponent } from './views/candidate/parts/detail/top';
+import { CandidateDetailRightComponent } from './views/candidate/parts/detail/right';
+import { CandidateDetailOverviewComponent } from './views/candidate/parts/detail/overview';
+import { CandidateDetailEducationComponent } from './views/candidate/parts/detail/education';
+import { CandidateDetailPortfolioComponent } from './views/candidate/parts/detail/portfolio';
+import { CandidateDetailSkillsComponent } from './views/candidate/parts/detail/skills';
+import { CandidateDetailAwardsComponent } from './views/candidate/parts/detail/awards';
+import { CandidateDetailFollowsComponent } from './views/candidate/parts/detail/follows';
+import { CandidateLoginComponent } from './views/candidate/login';
+import { CandidateProfileComponent } from './views/candidate/profile';
+import { CandidateProfileContactComponent } from './views/candidate/profile/parts/contact';
+import { CandidateProfileSocialComponent } from './views/candidate/profile/parts/social';
+import { CandidateProfileInfoComponent } from './views/candidate/profile/parts/info';
+import { CandidateProfilePictureComponent } from './views/candidate/profile/parts/picture';
+import { CandidateChangePasswordComponent } from './views/candidate/profile/changepassword';
+import { CandidateResumeComponent } from './views/candidate/resume';
+import { CandidateResumeEducationComponent } from './views/candidate/resume/parts/education';
+import { CandidateResumeExperienceComponent } from './views/candidate/resume/parts/experience';
+import { CandidateResumePortfolioComponent } from './views/candidate/resume/parts/portfolio';
+import { CandidateResumeSkillsComponent } from './views/candidate/resume/parts/skills';
+import { CandidateResumeCertificatesComponent } from './views/candidate/resume/parts/certificates';
+import { CandidateResumeEditComponent } from './views/candidate/resume/edit';
+import { CandidateResumeEditCertificatesComponent } from './views/candidate/resume/parts/edit/certificates';
+import { CandidateResumeEditEducationComponent } from './views/candidate/resume/parts/edit/education';
+import { CandidateResumeEditExperienceComponent } from './views/candidate/resume/parts/edit/experience';
+import { CandidateResumeEditPortfolioComponent } from './views/candidate/resume/parts/edit/portfolio';
+import { CandidateResumeEditSkillsComponent } from './views/candidate/resume/parts/edit/skills';
+import { CandidateResumeCoverLetterComponent } from './views/candidate/resume/coverletter';
+import { CandidateJobListComponent } from './views/candidate/job/list';
+import { CandidateJobFavoritesComponent } from './views/candidate/job/favorites';
+import { CandidateJobAlertComponent } from './views/candidate/job/alert';
 
 @NgModule({
     declarations: [
@@ -243,7 +276,7 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
         //Ýlan
         JobIndexComponent,
         JobListTopComponent,
-        JobListLeftComponent,
+        JobListSearchComponent,
         JobListControlsComponent,
         JobListPagerComponent,
         JobDetailComponent,
@@ -252,37 +285,70 @@ import { EmployerTransactionsComponent } from './views/employer/package/transact
         JobDetailContactComponent,
         JobDetailExtraComponent,
 
-        //Çalýþan
-        CandidateIndexComponent,
-        CandidateDashboardComponent,
-        CandidateDetailComponent,
-        CandidateLoginComponent,
-        CandidateProfileComponent,
-        CandidateChangePasswordComponent,
-        CandidateResumeComponent,
-        CandidateResumeAddComponent,
-        CandidateResumeEditComponent,
-        CandidateResumeDetailComponent,
-        CandidateResumeCoverLetterComponent,
-        CandidateJobListComponent,
-        CandidateJobApplyComponent,
-        CandidateJobFavoritesComponent,
-        CandidateJobAlertComponent,
-
         //Firma
         EmployerIndexComponent,
-        EmployerDashboardComponent,
+        EmployerLeftMenuComponent,
+        EmployerListComponent,
+        EmployerListSearchComponent,
+        EmployerListTopFilterComponent, 
         EmployerDetailComponent,
+        EmployerDetailTopComponent,
+        EmployerDetailJobsComponent,
+        EmployerDetailInfoComponent,
+        EmployerDetailContactComponent,
         EmployerProfileComponent,
+        EmployerProfileSocialComponent,
+        EmployerProfileContactComponent,
         EmployerChangePasswordComponent,
         EmployerLoginComponent,
         EmployerJobListComponent,
         EmployerJobAddComponent,
         EmployerJobEditComponent,
+        EmployerJobAppliesComponent,
         EmployerJobApplyComponent,
         EmployerJobAlertComponent,
         EmployerPackageComponent,
         EmployerTransactionsComponent,
+
+        //Çalýþan
+        CandidateIndexComponent,
+        CandidateLeftMenuComponent,
+        CandidateSkillComponent,
+        CandidateListComponent,
+        CandidateListSearchComponent,
+        CandidateDetailComponent,
+        CandidateDetailBannerComponent,
+        CandidateDetailTopComponent,
+        CandidateDetailRightComponent,
+        CandidateDetailOverviewComponent,
+        CandidateDetailEducationComponent,
+        CandidateDetailPortfolioComponent,
+        CandidateDetailSkillsComponent,
+        CandidateDetailAwardsComponent,
+        CandidateDetailFollowsComponent,
+        CandidateLoginComponent,
+        CandidateProfileComponent,
+        CandidateProfileContactComponent,
+        CandidateProfileSocialComponent,
+        CandidateProfileInfoComponent,
+        CandidateProfilePictureComponent,
+        CandidateChangePasswordComponent,
+        CandidateResumeComponent,
+        CandidateResumeEducationComponent,
+        CandidateResumeExperienceComponent,
+        CandidateResumePortfolioComponent,
+        CandidateResumeSkillsComponent,
+        CandidateResumeCertificatesComponent,
+        CandidateResumeEditComponent,
+        CandidateResumeEditCertificatesComponent,
+        CandidateResumeEditEducationComponent,
+        CandidateResumeEditExperienceComponent,
+        CandidateResumeEditPortfolioComponent,
+        CandidateResumeEditSkillsComponent,
+        CandidateResumeCoverLetterComponent,
+        CandidateJobListComponent,
+        CandidateJobFavoritesComponent,
+        CandidateJobAlertComponent,
 
         //Admin
         AdminLayoutComponent,

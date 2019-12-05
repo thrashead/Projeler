@@ -6,6 +6,7 @@ declare global {
         typeahead(obj: any): JQuery;
         slick(obj: any): JQuery;
         chosen(obj: any): JQuery;
+        circleProgress(obj: any): JQuery;
     }
 }
 

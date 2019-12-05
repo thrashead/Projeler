@@ -90,26 +90,9 @@ import { PricingComponent } from './views/content/pricing';
 import { JobIndexComponent } from './views/job';
 import { JobDetailComponent } from './views/job/detail';
 
-//Çalýþan
-import { CandidateIndexComponent } from './views/candidate';
-import { CandidateDashboardComponent } from './views/candidate/dashboard';
-import { CandidateDetailComponent } from './views/candidate/detail';
-import { CandidateLoginComponent } from './views/candidate/login';
-import { CandidateProfileComponent } from './views/candidate/profile';
-import { CandidateChangePasswordComponent } from './views/candidate/profile/changepassword';
-import { CandidateResumeComponent } from './views/candidate/resume';
-import { CandidateResumeAddComponent } from './views/candidate/resume/add';
-import { CandidateResumeEditComponent } from './views/candidate/resume/edit';
-import { CandidateResumeDetailComponent } from './views/candidate/resume/detail';
-import { CandidateResumeCoverLetterComponent } from './views/candidate/resume/coverletter';
-import { CandidateJobListComponent } from './views/candidate/job/list';
-import { CandidateJobApplyComponent } from './views/candidate/job/apply';
-import { CandidateJobFavoritesComponent } from './views/candidate/job/favorites';
-import { CandidateJobAlertComponent } from './views/candidate/job/alert';
-
 //Firma
 import { EmployerIndexComponent } from './views/employer';
-import { EmployerDashboardComponent } from './views/employer/dashboard';
+import { EmployerListComponent } from './views/employer/list';
 import { EmployerDetailComponent } from './views/employer/detail';
 import { EmployerLoginComponent } from './views/employer/login';
 import { EmployerProfileComponent } from './views/employer/profile';
@@ -117,10 +100,25 @@ import { EmployerChangePasswordComponent } from './views/employer/profile/change
 import { EmployerJobListComponent } from './views/employer/job/list';
 import { EmployerJobAddComponent } from './views/employer/job/add';
 import { EmployerJobEditComponent } from './views/employer/job/edit';
+import { EmployerJobAppliesComponent } from './views/employer/job/applies';
 import { EmployerJobApplyComponent } from './views/employer/job/apply';
 import { EmployerJobAlertComponent } from './views/employer/job/alert';
 import { EmployerPackageComponent } from './views/employer/package';
 import { EmployerTransactionsComponent } from './views/employer/package/transactions';
+
+//Çalýþan
+import { CandidateIndexComponent } from './views/candidate';
+import { CandidateListComponent } from './views/candidate/list';
+import { CandidateDetailComponent } from './views/candidate/detail';
+import { CandidateLoginComponent } from './views/candidate/login';
+import { CandidateProfileComponent } from './views/candidate/profile';
+import { CandidateChangePasswordComponent } from './views/candidate/profile/changepassword';
+import { CandidateResumeComponent } from './views/candidate/resume';
+import { CandidateResumeEditComponent } from './views/candidate/resume/edit';
+import { CandidateResumeCoverLetterComponent } from './views/candidate/resume/coverletter';
+import { CandidateJobListComponent } from './views/candidate/job/list';
+import { CandidateJobFavoritesComponent } from './views/candidate/job/favorites';
+import { CandidateJobAlertComponent } from './views/candidate/job/alert';
 
 const routes: Routes = [
     { path: 'Admin/Login', component: AdminLoginComponent },
@@ -148,38 +146,35 @@ const routes: Routes = [
             { path: 'Ilan/Liste/:url', component: JobIndexComponent },
             { path: 'Ilan/Detay/:url', component: JobDetailComponent },
 
-            { path: 'IsArayan', component: CandidateIndexComponent },
-            { path: 'IsArayan/Liste', component: CandidateIndexComponent },
-            { path: 'IsArayan/Detay/:url', component: CandidateDetailComponent },
-            { path: 'IsArayan/Giris', component: CandidateLoginComponent },
-            { path: 'IsArayan/Panel', component: CandidateDashboardComponent },
-            { path: 'IsArayan/Profil', component: CandidateProfileComponent },
-            { path: 'IsArayan/Profil/SifreDegistir', component: CandidateChangePasswordComponent },
-            { path: 'IsArayan/Ozgecmis', component: CandidateResumeComponent },
-            { path: 'IsArayan/Ozgecmis/Liste', component: CandidateResumeComponent },
-            { path: 'IsArayan/Ozgecmis/Detay/:url', component: CandidateResumeDetailComponent },
-            { path: 'IsArayan/Ozgecmis/Ekle', component: CandidateResumeAddComponent },
-            { path: 'IsArayan/Ozgecmis/Duzenle/:url', component: CandidateResumeEditComponent },
-            { path: 'IsArayan/Ozgecmis/Onyazi', component: CandidateResumeCoverLetterComponent },
-            { path: 'IsArayan/Ilan/Liste', component: CandidateJobListComponent },
-            { path: 'IsArayan/Ilan/Basvuru/:url', component: CandidateJobApplyComponent },
-            { path: 'IsArayan/Ilan/Alarm', component: CandidateJobAlertComponent },
-            { path: 'IsArayan/Ilan/Favori', component: CandidateJobFavoritesComponent },
-
             { path: 'IsVeren', component: EmployerIndexComponent },
-            { path: 'IsVeren/Liste', component: EmployerIndexComponent },
+            { path: 'IsVeren/Panel', component: EmployerIndexComponent },
+            { path: 'IsVeren/Liste', component: EmployerListComponent },
             { path: 'IsVeren/Detay/:url', component: EmployerDetailComponent },
             { path: 'IsVeren/Giris', component: EmployerLoginComponent },
-            { path: 'IsVeren/Panel', component: EmployerDashboardComponent },
             { path: 'IsVeren/Profil', component: EmployerProfileComponent },
             { path: 'IsVeren/Profil/SifreDegistir', component: EmployerChangePasswordComponent },
             { path: 'IsVeren/Ilan/Liste', component: EmployerJobListComponent },
             { path: 'IsVeren/Ilan/Ekle', component: EmployerJobAddComponent },
             { path: 'IsVeren/Ilan/Duzenle/:url', component: EmployerJobEditComponent },
+            { path: 'IsVeren/Ilan/Basvurular', component: EmployerJobAppliesComponent },
             { path: 'IsVeren/Ilan/Basvuru/:url', component: EmployerJobApplyComponent },
             { path: 'IsVeren/Ilan/Alarm', component: EmployerJobAlertComponent },
             { path: 'IsVeren/Paket/Liste', component: EmployerPackageComponent },
             { path: 'IsVeren/Paket/Odemeler', component: EmployerTransactionsComponent },
+
+            { path: 'IsArayan', component: CandidateIndexComponent },
+            { path: 'IsArayan/Panel', component: CandidateIndexComponent },
+            { path: 'IsArayan/Liste', component: CandidateListComponent },
+            { path: 'IsArayan/Detay/:url', component: CandidateDetailComponent },
+            { path: 'IsArayan/Giris', component: CandidateLoginComponent },
+            { path: 'IsArayan/Profil', component: CandidateProfileComponent },
+            { path: 'IsArayan/Profil/SifreDegistir', component: CandidateChangePasswordComponent },
+            { path: 'IsArayan/Ozgecmis', component: CandidateResumeComponent },
+            { path: 'IsArayan/Ozgecmis/Duzenle', component: CandidateResumeEditComponent },
+            { path: 'IsArayan/Ozgecmis/Onyazi', component: CandidateResumeCoverLetterComponent },
+            { path: 'IsArayan/Ilan/Liste', component: CandidateJobListComponent },
+            { path: 'IsArayan/Ilan/Alarm', component: CandidateJobAlertComponent },
+            { path: 'IsArayan/Ilan/Favori', component: CandidateJobFavoritesComponent },
         ]
     },
 

@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 
 @Component({
-    templateUrl: './edit.html'
+    templateUrl: './coverletter.html'
 })
 
 export class CandidateResumeCoverLetterComponent{ 
