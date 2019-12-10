@@ -175,7 +175,6 @@ import { EmployerJobListComponent } from './views/employer/job/list';
 import { EmployerJobAddComponent } from './views/employer/job/add';
 import { EmployerJobEditComponent } from './views/employer/job/edit';
 import { EmployerJobAppliesComponent } from './views/employer/job/applies';
-import { EmployerJobApplyComponent } from './views/employer/job/apply';
 import { EmployerJobAlertComponent } from './views/employer/job/alert';
 import { EmployerPackageComponent } from './views/employer/package';
 import { EmployerTransactionsComponent } from './views/employer/package/transactions';
@@ -194,7 +193,7 @@ import { CandidateDetailOverviewComponent } from './views/candidate/parts/detail
 import { CandidateDetailEducationComponent } from './views/candidate/parts/detail/education';
 import { CandidateDetailPortfolioComponent } from './views/candidate/parts/detail/portfolio';
 import { CandidateDetailSkillsComponent } from './views/candidate/parts/detail/skills';
-import { CandidateDetailAwardsComponent } from './views/candidate/parts/detail/awards';
+import { CandidateDetailCertificatesComponent } from './views/candidate/parts/detail/certificates';
 import { CandidateDetailFollowsComponent } from './views/candidate/parts/detail/follows';
 import { CandidateLoginComponent } from './views/candidate/login';
 import { CandidateProfileComponent } from './views/candidate/profile';
@@ -305,7 +304,6 @@ import { CandidateJobAlertComponent } from './views/candidate/job/alert';
         EmployerJobAddComponent,
         EmployerJobEditComponent,
         EmployerJobAppliesComponent,
-        EmployerJobApplyComponent,
         EmployerJobAlertComponent,
         EmployerPackageComponent,
         EmployerTransactionsComponent,
@@ -324,7 +322,7 @@ import { CandidateJobAlertComponent } from './views/candidate/job/alert';
         CandidateDetailEducationComponent,
         CandidateDetailPortfolioComponent,
         CandidateDetailSkillsComponent,
-        CandidateDetailAwardsComponent,
+        CandidateDetailCertificatesComponent,
         CandidateDetailFollowsComponent,
         CandidateLoginComponent,
         CandidateProfileComponent,

@@ -23,7 +23,18 @@
 .text-socail a {color:#000;}
 .action-inner.style2 a {color:#000;}
 .action-inner .download-cv a {border-color:#000;}
+.shortlists.favorite {float: right;margin: 20px 0px 0px 0px;width: 150px;}
 
-@media (max-width:1200px) {
-    .bcbanner {margin-top: 0px;}
-}
+    @media (max-width:1200px) {
+        .bcbanner {
+            margin-top: 0px;
+        }
+    }
+
+
+    @media (max-width:520px) {
+        .shortlists.favorite {
+            float:none;
+            display:inline-table;
+        }
+    }

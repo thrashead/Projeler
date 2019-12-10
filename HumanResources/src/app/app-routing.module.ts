@@ -101,7 +101,6 @@ import { EmployerJobListComponent } from './views/employer/job/list';
 import { EmployerJobAddComponent } from './views/employer/job/add';
 import { EmployerJobEditComponent } from './views/employer/job/edit';
 import { EmployerJobAppliesComponent } from './views/employer/job/applies';
-import { EmployerJobApplyComponent } from './views/employer/job/apply';
 import { EmployerJobAlertComponent } from './views/employer/job/alert';
 import { EmployerPackageComponent } from './views/employer/package';
 import { EmployerTransactionsComponent } from './views/employer/package/transactions';
@@ -130,10 +129,10 @@ const routes: Routes = [
             { path: '', component: IndexComponent, pathMatch: 'full' },
             { path: 'Index', component: IndexComponent },
 
-            { path: 'Blog', component: BlogIndexComponent },
-            { path: 'Blog/Liste', component: BlogIndexComponent },
-            { path: 'Blog/Liste/:url', component: BlogIndexComponent },
-            { path: 'Blog/Detay/:url', component: BlogDetailComponent },
+            { path: 'Haber', component: BlogIndexComponent },
+            { path: 'Haber/Liste', component: BlogIndexComponent },
+            { path: 'Haber/Liste/:url', component: BlogIndexComponent },
+            { path: 'Haber/Detay/:url', component: BlogDetailComponent },
 
             { path: 'Icerik/:url', component: ContentIndexComponent },
             { path: 'Hakkimizda', component: AboutComponent },
@@ -148,8 +147,8 @@ const routes: Routes = [
 
             { path: 'IsVeren', component: EmployerIndexComponent },
             { path: 'IsVeren/Panel', component: EmployerIndexComponent },
-            { path: 'IsVeren/Liste', component: EmployerListComponent },
-            { path: 'IsVeren/Detay/:url', component: EmployerDetailComponent },
+            { path: 'IsVeren/Ozgecmis/Liste', component: CandidateListComponent },
+            { path: 'IsVeren/Ozgecmis/Detay/:url', component: CandidateDetailComponent },
             { path: 'IsVeren/Giris', component: EmployerLoginComponent },
             { path: 'IsVeren/Profil', component: EmployerProfileComponent },
             { path: 'IsVeren/Profil/SifreDegistir', component: EmployerChangePasswordComponent },
@@ -157,22 +156,21 @@ const routes: Routes = [
             { path: 'IsVeren/Ilan/Ekle', component: EmployerJobAddComponent },
             { path: 'IsVeren/Ilan/Duzenle/:url', component: EmployerJobEditComponent },
             { path: 'IsVeren/Ilan/Basvurular', component: EmployerJobAppliesComponent },
-            { path: 'IsVeren/Ilan/Basvuru/:url', component: EmployerJobApplyComponent },
             { path: 'IsVeren/Ilan/Alarm', component: EmployerJobAlertComponent },
             { path: 'IsVeren/Paket/Liste', component: EmployerPackageComponent },
             { path: 'IsVeren/Paket/Odemeler', component: EmployerTransactionsComponent },
 
             { path: 'IsArayan', component: CandidateIndexComponent },
             { path: 'IsArayan/Panel', component: CandidateIndexComponent },
-            { path: 'IsArayan/Liste', component: CandidateListComponent },
-            { path: 'IsArayan/Detay/:url', component: CandidateDetailComponent },
+            { path: 'IsArayan/Firma/Liste', component: EmployerListComponent },
+            { path: 'IsArayan/Firma/Detay/:url', component: EmployerDetailComponent },
             { path: 'IsArayan/Giris', component: CandidateLoginComponent },
             { path: 'IsArayan/Profil', component: CandidateProfileComponent },
             { path: 'IsArayan/Profil/SifreDegistir', component: CandidateChangePasswordComponent },
             { path: 'IsArayan/Ozgecmis', component: CandidateResumeComponent },
             { path: 'IsArayan/Ozgecmis/Duzenle', component: CandidateResumeEditComponent },
             { path: 'IsArayan/Ozgecmis/Onyazi', component: CandidateResumeCoverLetterComponent },
-            { path: 'IsArayan/Ilan/Liste', component: CandidateJobListComponent },
+            { path: 'IsArayan/Ilan/Basvurular', component: CandidateJobListComponent },
             { path: 'IsArayan/Ilan/Alarm', component: CandidateJobAlertComponent },
             { path: 'IsArayan/Ilan/Favori', component: CandidateJobFavoritesComponent },
         ]
