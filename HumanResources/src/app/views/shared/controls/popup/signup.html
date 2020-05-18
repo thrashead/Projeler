@@ -3,14 +3,14 @@
 <div class="account-popup-area signup-popup-box">
     <div class="account-popup">
         <span class="close-popup"><i class="la la-close"></i></span>
-        <h3>Sign Up</h3>
+        <h3>Kayıt Ol</h3>
         <div class="select-user">
-            <span>Candidate</span>
-            <span>Employer</span>
+            <span>İş Arayan</span>
+            <span>İş Veren</span>
         </div>
         <form [formGroup]="signupForm">
             <div class="cfield">
-                <input type="text" placeholder="Username" name="Username" formControlName="Username" />
+                <input type="text" placeholder="Kullanıcı Adı" name="Username" formControlName="Username" />
                 <i class="la la-user"></i>
             </div>
             <div class="cfield">
@@ -18,22 +18,22 @@
                 <i class="la la-key"></i>
             </div>
             <div class="cfield">
-                <input type="text" placeholder="Email" name="Email" formControlName="Email" />
+                <input type="text" placeholder="E-Posta" name="Email" formControlName="Email" />
                 <i class="la la-envelope-o"></i>
             </div>
             <div class="dropdown-field">
                 <select data-placeholder="Uzmanlık Seçiniz" class="chosen" formControlName="Speciality">
-                    <option selected="selected" value="1">Web Development</option>
-                    <option value="2">Web Designing</option>
-                    <option value="3">Art & Culture</option>
-                    <option value="4">Reading & Writing</option>
+                    <option selected="selected" value="1">Web Yazılım</option>
+                    <option value="2">Web Dizayn</option>
+                    <option value="3">Kültür ve Sanat</option>
+                    <option value="4">Okuma ve Yazma</option>
                 </select>
             </div>
             <div class="cfield">
-                <input type="text" placeholder="Phone Number" name="Phone" formControlName="Phone" />
+                <input type="text" placeholder="Telefon" name="Phone" formControlName="Phone" />
                 <i class="la la-phone"></i>
             </div>
-            <button type="submit" (click)="onClick()" [disabled]="!signupForm.valid">Signup</button>
+            <button type="submit" (click)="onClick()" [disabled]="!signupForm.valid">Kayıt Ol</button>
         </form>
     </div>
 </div>
