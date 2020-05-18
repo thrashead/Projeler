@@ -1,4 +1,4 @@
 ﻿<form [formGroup]="searchForm" class="res-search">
-    <input type="text" placeholder="Job title, keywords or company name" name="Words" formControlName="Words" />
+    <input type="text" placeholder="İş unvanı, anahtar kelimeler veya şirket adı" name="Words" formControlName="Words" />
     <button type="submit" (click)="onClick()" [disabled]="!searchForm.valid"><i class="la la-search"></i></button>
 </form>
