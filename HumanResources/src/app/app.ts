@@ -7,6 +7,7 @@ declare global {
         slick(obj: any): JQuery;
         chosen(obj: any): JQuery;
         circleProgress(obj: any): JQuery;
+        nstSlider(obj: any): JQuery;
     }
 }
 

@@ -9,5 +9,6 @@ import { ScriptsComponent } from '../../../shared/controls/scripts';
 export class EmployerListSearchComponent{ 
     ngOnInit() {
         ScriptsComponent.ToggleMenu(".sb-title");
+        ScriptsComponent.Slider(".nstSlider");
     }
 }

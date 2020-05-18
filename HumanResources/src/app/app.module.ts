@@ -83,10 +83,6 @@ import { AdminUsersChangeGroupComponent } from './admin/views/general/users/chan
 
 import { AdminVisitorsIndexComponent } from './admin/views/humanresources/visitors';
 
-//Admin HumanResources
-
-
-
 //Services
 import { SharedService } from './admin/services/shared';
 import { ModelService } from './admin/services/model';
@@ -170,6 +166,8 @@ import { EmployerLoginComponent } from './views/employer/login';
 import { EmployerProfileComponent } from './views/employer/profile';
 import { EmployerProfileSocialComponent } from './views/employer/profile/parts/social';
 import { EmployerProfileContactComponent } from './views/employer/profile/parts/contact';
+import { EmployerProfileInfoComponent } from './views/employer/profile/parts/info';
+import { EmployerProfilePictureComponent } from './views/employer/profile/parts/picture';
 import { EmployerChangePasswordComponent } from './views/employer/profile/changepassword';
 import { EmployerJobListComponent } from './views/employer/job/list';
 import { EmployerJobAddComponent } from './views/employer/job/add';
@@ -298,6 +296,8 @@ import { CandidateJobAlertComponent } from './views/candidate/job/alert';
         EmployerProfileComponent,
         EmployerProfileSocialComponent,
         EmployerProfileContactComponent,
+        EmployerProfileInfoComponent,
+        EmployerProfilePictureComponent,
         EmployerChangePasswordComponent,
         EmployerLoginComponent,
         EmployerJobListComponent,
