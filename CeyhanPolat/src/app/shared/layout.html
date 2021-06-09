@@ -42,7 +42,7 @@
                             <button type="submit" id="searchpoetry">Ara</button>
                             <ul #siirsearchlist id="siirsearchlist" style="display:none;">
                                 <li *ngFor="let item of siirAramaListe">
-                                    <a [routerLink]="['/Siirleri/' + item.RouteUrl]" [innerHtml]="item.ContentName"></a>
+                                    <a [routerLink]="['/Siirleri/' + item?.RouteUrl]" [innerHtml]="item?.ContentName"></a>
                                 </li>
                             </ul>
                         </form>

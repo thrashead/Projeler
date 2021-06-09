@@ -10,10 +10,6 @@ import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminCityIndexComponent } from './admin/views/humanresources/city';
-import { AdminCityInsertComponent } from './admin/views/humanresources/city/insert';
-import { AdminCityUpdateComponent } from './admin/views/humanresources/city/update';
-
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
 import { AdminContentUpdateComponent } from './admin/views/general/content/update';
@@ -188,11 +184,6 @@ const routes: Routes = [
             { path: 'Admin/Category/Index', component: AdminCategoryIndexComponent },
             { path: 'Admin/Category/Insert', component: AdminCategoryInsertComponent },
             { path: 'Admin/Category/Update/:id', component: AdminCategoryUpdateComponent },
-
-            { path: 'Admin/City', component: AdminCityIndexComponent },
-            { path: 'Admin/City/Index', component: AdminCityIndexComponent },
-            { path: 'Admin/City/Insert', component: AdminCityInsertComponent },
-            { path: 'Admin/City/Update/:id', component: AdminCityUpdateComponent },
 
             { path: 'Admin/Content', component: AdminContentIndexComponent },
             { path: 'Admin/Content/Index', component: AdminContentIndexComponent },

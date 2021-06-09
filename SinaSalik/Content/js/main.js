@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     $("#addFav").click(function () {
-        favoriekle('Sina SALIK Web Sayfası', 'http://www.sinasalik.net/');
+        favoriekle('Sina SALIK Web Sayfası', 'http://localhost/SinaSalik/');
     });
 });
 

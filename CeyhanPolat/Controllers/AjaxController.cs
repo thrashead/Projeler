@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using CeyhanPolat.Lib;
 using CeyhanPolat.Models;
@@ -114,7 +113,8 @@ namespace CeyhanPolat.Controllers
 
                 SearchPoetryJson _searchPoetry = Session["SearchPoetry"] as SearchPoetryJson;
 
-                _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_searchPoetry.PoetryName.ToUpper())).ToList();
+                if (!_searchPoetry.PoetryName.IsNull())
+                    _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_searchPoetry.PoetryName.ToUpper())).ToList();
 
                 if (!String.IsNullOrEmpty(_searchPoetry.PoetryName))
                 {
@@ -226,21 +226,19 @@ namespace CeyhanPolat.Controllers
             return rankpoints;
         }
 
-        [HttpGet]
-        public JsonResult YorumGonder(string yorum)
+        [HttpPost]
+        public JsonResult YorumGonder([System.Web.Http.FromBody] RankReviewJson yorum)
         {
-            RankReviewJson _yorum = JsonConvert.DeserializeObject<RankReviewJson>(yorum);
-
-            int? result = entity.sp_SendReview(_yorum.RankID.ToInteger(),
-                                               _yorum.Point.ToInteger(),
+            int? result = entity.sp_SendReview(yorum.RankID.ToInteger(),
+                                               yorum.Point.ToInteger(),
                                                Request.UserHostAddress,
-                                               _yorum.NameSurname,
+                                               yorum.NameSurname,
                                                DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(),
                                                "",
-                                               _yorum.Message,
+                                               yorum.Message,
                                                false).FirstOrDefault();
 
-            return Json(result > 0 ? true : false, JsonRequestBehavior.AllowGet);
+            return Json(result > 0 ? true : false);
         }
 
         public class RankReviewJson
@@ -283,11 +281,9 @@ namespace CeyhanPolat.Controllers
             public string PoetryName { get; set; }
         }
 
-        [HttpGet]
-        public JsonResult SiirArama(string kelime)
+        [HttpPost]
+        public JsonResult SiirArama([System.Web.Http.FromBody] SearchPoetryJson kelime)
         {
-            SearchPoetryJson _kelime = JsonConvert.DeserializeObject<SearchPoetryJson>(kelime);
-
             string result = "N";
 
             List<Poetries> _poetryListTemp = new List<Poetries>();
@@ -296,26 +292,27 @@ namespace CeyhanPolat.Controllers
             List<Poetries> _poetryListYear;
             List<Poetries> _poetryList = System.Web.HttpContext.Current.Application["Poetries"] as List<Poetries>;
 
-            _poetryList = _poetryList.Where(a => a.PoetryName.Contains(_kelime.PoetryName.ToUpper())).ToList();
+            if (!kelime.PoetryName.IsNull())
+                _poetryList = _poetryList.Where(a => a.PoetryName.Contains(kelime.PoetryName.ToUpper())).ToList();
 
             _poetryListDate = _poetryList.Where(a => a.Date.Length > 4).ToList();
-            if (!String.IsNullOrEmpty(_kelime.FirstDate))
+            if (!String.IsNullOrEmpty(kelime.FirstDate))
             {
-                _poetryListDate = _poetryListDate.Where(a => Convert.ToDateTime(a.Date) >= Convert.ToDateTime(_kelime.FirstDate)).ToList();
+                _poetryListDate = _poetryListDate.Where(a => Convert.ToDateTime(a.Date) >= Convert.ToDateTime(kelime.FirstDate)).ToList();
             }
-            if (!String.IsNullOrEmpty(_kelime.LastDate))
+            if (!String.IsNullOrEmpty(kelime.LastDate))
             {
-                _poetryListDate = _poetryListDate.Where(a => Convert.ToDateTime(a.Date) <= Convert.ToDateTime(_kelime.LastDate)).ToList();
+                _poetryListDate = _poetryListDate.Where(a => Convert.ToDateTime(a.Date) <= Convert.ToDateTime(kelime.LastDate)).ToList();
             }
 
             _poetryListYear = _poetryList.Where(a => a.Date.Length == 4).ToList();
-            if (!String.IsNullOrEmpty(_kelime.FirstDate))
+            if (!String.IsNullOrEmpty(kelime.FirstDate))
             {
-                _poetryListYear = _poetryListYear.Where(a => Convert.ToInt32(a.Date) >= Convert.ToDateTime(_kelime.FirstDate).Year).ToList();
+                _poetryListYear = _poetryListYear.Where(a => Convert.ToInt32(a.Date) >= Convert.ToDateTime(kelime.FirstDate).Year).ToList();
             }
-            if (!String.IsNullOrEmpty(_kelime.LastDate))
+            if (!String.IsNullOrEmpty(kelime.LastDate))
             {
-                _poetryListYear = _poetryListYear.Where(a => Convert.ToInt32(a.Date) <= Convert.ToDateTime(_kelime.LastDate).Year).ToList();
+                _poetryListYear = _poetryListYear.Where(a => Convert.ToInt32(a.Date) <= Convert.ToDateTime(kelime.LastDate).Year).ToList();
             }
 
             _poetryListTemp.AddRange(_poetryListDate);
@@ -333,7 +330,7 @@ namespace CeyhanPolat.Controllers
             {
                 result = "Y";
                 System.Web.HttpContext.Current.Session["SearchResult"] = _poetryList;
-                System.Web.HttpContext.Current.Session["SearchPoetry"] = _kelime;
+                System.Web.HttpContext.Current.Session["SearchPoetry"] = kelime;
             }
             else
             {
@@ -341,7 +338,7 @@ namespace CeyhanPolat.Controllers
                 System.Web.HttpContext.Current.Session["SearchPoetry"] = null;
             }
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result);
         }
 
         [HttpGet]

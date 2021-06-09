@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormGroup, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { CPService } from '../cp.service';
+import { AramaData } from "../models/AramaData";
 
 @Component({
     selector: 'app-layout',
@@ -12,7 +13,7 @@ import { CPService } from '../cp.service';
 export class LayoutComponent {
     menu: any;
     slider: any;
-    aramaData: any;
+    aramaData: AramaData;
     siirArama: any;
     siirAramaListe: any;
     errorMsg: string;
@@ -32,21 +33,19 @@ export class LayoutComponent {
             this.router.navigate(['/Biyografi']).then(() => { this.router.navigate(['/Siirleri']) });
         }
         else {
-            this.aramaData = {
-                "FirstDate": fd,
-                "LastDate": ld,
-                "PoetryName": pn,
-            };
+            this.aramaData = {} as AramaData;
+            this.aramaData.FirstDate = fd;
+            this.aramaData.LastDate = ld;
+            this.aramaData.PoetryName = pn;
 
-            this._cpService.getSiirArama(this.aramaData)
-                .subscribe((resSiirAramaData) => {
-                    this.siirArama = resSiirAramaData;
+            this._cpService.setSiirArama(this.aramaData).subscribe((resSiirAramaData: any) => {
+                this.siirArama = resSiirAramaData;
 
-                    if (this.siirArama == "Y") {
-                        this.router.navigate(['/Biyografi']).then(() => { this.router.navigate(['/Siirleri']) });
-                    }
-                },
-                    resError => this.errorMsg = resError);
+                if (this.siirArama == "Y") {
+                    this.router.navigate(['/Biyografi']).then(() => { this.router.navigate(['/Siirleri']) });
+                }
+            },
+                resError => this.errorMsg = resError);
         }
     }
 
@@ -55,15 +54,14 @@ export class LayoutComponent {
     }
 
     onKeyUp(kelime: string) {
-        this._cpService.getSiirAramaListe(kelime)
-            .subscribe((resSiirAramaListeData) => {
-                this.siirAramaListe = resSiirAramaListeData
+        this._cpService.getSiirAramaListe(kelime).subscribe((resSiirAramaListeData) => {
+            this.siirAramaListe = resSiirAramaListeData
 
-                if (this.siirAramaListe.length > 0) {
-                    $("#siirsearchlist").css("display", "");
-                }
-            },
-                resError => this.errorMsg = resError);
+            if (this.siirAramaListe.length > 0) {
+                $("#siirsearchlist").css("display", "");
+            }
+        },
+            resError => this.errorMsg = resError);
     }
 
     onFocus() {
@@ -78,7 +76,7 @@ export class LayoutComponent {
         if ($("#siirsearchlist li").length > 0) {
             setTimeout(function () {
                 $("#siirsearchlist").css("display", "none");
-            }, 100);
+            }, 500);
         }
     }
 
@@ -94,7 +92,6 @@ export class LayoutComponent {
                 this.slider = resSliderData;
 
                 setTimeout(function () {
-                    var d = new Date();
                     $("#firstdate").datepicker({ dateFormat: "dd.mm.yy", defaultDate: new Date("03/30/1944") });
                     $("#lastdate").datepicker({ dateFormat: "dd.mm.yy", defaultDate: new Date("01/06/1982") });
 

@@ -35,6 +35,10 @@ namespace CeyhanPolat.Lib
         public string City { get; set; }
         public string RouteUrl { get; set; }
         public string Picture { get; set; }
+        public string SrcPoetryName { get; set; }
+        public string SrcFirstDate { get; set; }
+        public string SrcLastDate { get; set; }
+
         public List<RankPoint> Reviews { get; set; }
         public int? Queue { get; set; }
         public ClearPoetrySearch CPoetryName { get; set; }

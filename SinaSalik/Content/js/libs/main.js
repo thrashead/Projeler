@@ -69,7 +69,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
 
 ﻿$(document).ready(function () {
     $("#addFav").click(function () {
-        favoriekle('Sina SALIK Web Sayfası', 'http://www.sinasalik.net/');
+        favoriekle('Sina SALIK Web Sayfası', 'http://localhost/SinaSalik/');
     });
 });
 
@@ -156,7 +156,7 @@ module.exports = "<div class=\"anaickisim\">\r\n    <img src=\"Content/img/giris
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"gitarickisim\">\r\n    <object data=\"data:application/x-silverlight-2,\" type=\"application/x-silverlight-2\" width=\"1000\" height=\"350\">\r\n        <param name=\"source\" value=\"Content/files/gitarscalesilver.xap\" />\r\n        <param name=\"onError\" value=\"onSilverlightError\" />\r\n        <param name=\"background\" value=\"black\" />\r\n        <param name=\"minRuntimeVersion\" value=\"3.0.40624.0\" />\r\n        <param name=\"autoUpgrade\" value=\"true\" />\r\n    </object>\r\n    <!--<br /><br /><center><a href=\"http://gitar.sinasalik.net/\" target=\"_blank\">Gitar Scales Web Versiyonu</a></center>-->\r\n</div>"
+module.exports = "<div class=\"gitarickisim\">\r\n    <object data=\"data:application/x-silverlight-2,\" type=\"application/x-silverlight-2\" width=\"1000\" height=\"350\">\r\n        <param name=\"source\" value=\"Content/files/gitarscalesilver.xap\" />\r\n        <param name=\"onError\" value=\"onSilverlightError\" />\r\n        <param name=\"background\" value=\"black\" />\r\n        <param name=\"minRuntimeVersion\" value=\"3.0.40624.0\" />\r\n        <param name=\"autoUpgrade\" value=\"true\" />\r\n    </object>\r\n    <!--<br /><br /><center><a href=\"http://gitar.sinasalik.site/\" target=\"_blank\">Gitar Scales Web Versiyonu</a></center>-->\r\n</div>"
 
 /***/ }),
 

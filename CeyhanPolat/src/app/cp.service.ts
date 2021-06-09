@@ -1,6 +1,5 @@
 ﻿import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from "rxjs";
 
 @Injectable()
 export class CPService {
@@ -55,8 +54,7 @@ export class CPService {
     }
 
     setYorum(yorum: any) {
-        let params = new HttpParams().set("yorum", JSON.stringify(yorum));
-        return this._http.get(this.yorumGonderLink, { params: params });
+        return this._http.post(this.yorumGonderLink, yorum);
     }
 
     getSiirAramaListe(kelime: string) {
@@ -64,9 +62,8 @@ export class CPService {
         return this._http.get(this.siirAramaListeLink, { params: params });
     }
 
-    getSiirArama(kelime: any) {
-        let params = new HttpParams().set("kelime", JSON.stringify(kelime));
-        return this._http.get(this.siirAramaLink, { params: params });
+    setSiirArama(kelime: any) {
+        return this._http.post(this.siirAramaLink, kelime);
     }
 
     getSiirAramaTemizle() {

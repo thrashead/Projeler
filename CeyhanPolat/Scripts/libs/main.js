@@ -832,7 +832,7 @@ module.exports = "<div class=\"frame yellow bgwhite\">\r\n    <div class=\"mainf
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"frame bgyellow\">\r\n    <div class=\"mainframe\">\r\n        <div class=\"header\" data-href=\"ana-sayfa\">\r\n\r\n            <div class=\"menu\">\r\n                <div class=\"container\">\r\n                    <h1>Ceyhan Polat</h1>\r\n                    <ul>\r\n                        <li *ngFor=\"let item of menu\">\r\n                            <a [routerLink]=\"['/' + item?.RouteUrl]\">{{ item?.CategoryName }}</a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"slider\">\r\n                <div id=\"slider\">\r\n                    <ul class=\"slides\">\r\n                        <li *ngFor=\"let item of slider\">\r\n                            <a href=\"#\">\r\n                                <img src=\"Uploads/Gallery/{{item}}\" alt=\"\" />\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <div id=\"sliderframe\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"frame bgpink\">\r\n    <div class=\"mainframe\">\r\n        <div id=\"searchcontainer\" class=\"frame white bgpink\">\r\n            <div class=\"mainframe\">\r\n                <div class=\"maincontent\">\r\n                    <div class=\"mainsearch\">\r\n                        <form [formGroup]=\"searchForm\" (ngSubmit)=\"onSubmit($event)\">\r\n                            <input type=\"text\" #firstdate id=\"firstdate\" formControlName=\"firstdate\" data-type=\"date\" autocomplete=\"off\" placeholder=\"İlk Tarih\" />\r\n                            <input type=\"text\" #lastdate id=\"lastdate\" formControlName=\"lastdate\" data-type=\"date\" autocomplete=\"off\" placeholder=\"Son Tarih\" />\r\n                            <input type=\"text\" #poetryname id=\"poetryname\" formControlName=\"poetryname\" autocomplete=\"off\" placeholder=\"Şiir İsmi\" (keyup)=\"onKeyUp(poetryname.value)\" (focus)=\"onFocus()\" (blur)=\"onBlur()\" />\r\n                            <button type=\"submit\" id=\"searchpoetry\">Ara</button>\r\n                            <ul #siirsearchlist id=\"siirsearchlist\" style=\"display:none;\">\r\n                                <li *ngFor=\"let item of siirAramaListe\">\r\n                                    <a [routerLink]=\"['/Siirleri/' + item.RouteUrl]\" [innerHtml]=\"item.ContentName\"></a>\r\n                                </li>\r\n                            </ul>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<app-scripts></app-scripts>"
+module.exports = "<div class=\"frame bgyellow\">\r\n    <div class=\"mainframe\">\r\n        <div class=\"header\" data-href=\"ana-sayfa\">\r\n\r\n            <div class=\"menu\">\r\n                <div class=\"container\">\r\n                    <h1>Ceyhan Polat</h1>\r\n                    <ul>\r\n                        <li *ngFor=\"let item of menu\">\r\n                            <a [routerLink]=\"['/' + item?.RouteUrl]\">{{ item?.CategoryName }}</a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"slider\">\r\n                <div id=\"slider\">\r\n                    <ul class=\"slides\">\r\n                        <li *ngFor=\"let item of slider\">\r\n                            <a href=\"#\">\r\n                                <img src=\"Uploads/Gallery/{{item}}\" alt=\"\" />\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <div id=\"sliderframe\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"frame bgpink\">\r\n    <div class=\"mainframe\">\r\n        <div id=\"searchcontainer\" class=\"frame white bgpink\">\r\n            <div class=\"mainframe\">\r\n                <div class=\"maincontent\">\r\n                    <div class=\"mainsearch\">\r\n                        <form [formGroup]=\"searchForm\" (ngSubmit)=\"onSubmit($event)\">\r\n                            <input type=\"text\" #firstdate id=\"firstdate\" formControlName=\"firstdate\" data-type=\"date\" autocomplete=\"off\" placeholder=\"İlk Tarih\" />\r\n                            <input type=\"text\" #lastdate id=\"lastdate\" formControlName=\"lastdate\" data-type=\"date\" autocomplete=\"off\" placeholder=\"Son Tarih\" />\r\n                            <input type=\"text\" #poetryname id=\"poetryname\" formControlName=\"poetryname\" autocomplete=\"off\" placeholder=\"Şiir İsmi\" (keyup)=\"onKeyUp(poetryname.value)\" (focus)=\"onFocus()\" (blur)=\"onBlur()\" />\r\n                            <button type=\"submit\" id=\"searchpoetry\">Ara</button>\r\n                            <ul #siirsearchlist id=\"siirsearchlist\" style=\"display:none;\">\r\n                                <li *ngFor=\"let item of siirAramaListe\">\r\n                                    <a [routerLink]=\"['/Siirleri/' + item?.RouteUrl]\" [innerHtml]=\"item?.ContentName\"></a>\r\n                                </li>\r\n                            </ul>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<app-scripts></app-scripts>"
 
 /***/ }),
 
@@ -1110,16 +1110,14 @@ let CPService = class CPService {
         return this._http.get(this.siirLink, { params: params });
     }
     setYorum(yorum) {
-        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("yorum", JSON.stringify(yorum));
-        return this._http.get(this.yorumGonderLink, { params: params });
+        return this._http.post(this.yorumGonderLink, yorum);
     }
     getSiirAramaListe(kelime) {
         let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("kelime", kelime);
         return this._http.get(this.siirAramaListeLink, { params: params });
     }
-    getSiirArama(kelime) {
-        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set("kelime", JSON.stringify(kelime));
-        return this._http.get(this.siirAramaLink, { params: params });
+    setSiirArama(kelime) {
+        return this._http.post(this.siirAramaLink, kelime);
     }
     getSiirAramaTemizle() {
         return this._http.get(this.siirAramaTemizleLink);
@@ -1315,13 +1313,11 @@ let LayoutComponent = class LayoutComponent {
             this.router.navigate(['/Biyografi']).then(() => { this.router.navigate(['/Siirleri']); });
         }
         else {
-            this.aramaData = {
-                "FirstDate": fd,
-                "LastDate": ld,
-                "PoetryName": pn,
-            };
-            this._cpService.getSiirArama(this.aramaData)
-                .subscribe((resSiirAramaData) => {
+            this.aramaData = {};
+            this.aramaData.FirstDate = fd;
+            this.aramaData.LastDate = ld;
+            this.aramaData.PoetryName = pn;
+            this._cpService.setSiirArama(this.aramaData).subscribe((resSiirAramaData) => {
                 this.siirArama = resSiirAramaData;
                 if (this.siirArama == "Y") {
                     this.router.navigate(['/Biyografi']).then(() => { this.router.navigate(['/Siirleri']); });
@@ -1330,8 +1326,7 @@ let LayoutComponent = class LayoutComponent {
         }
     }
     onKeyUp(kelime) {
-        this._cpService.getSiirAramaListe(kelime)
-            .subscribe((resSiirAramaListeData) => {
+        this._cpService.getSiirAramaListe(kelime).subscribe((resSiirAramaListeData) => {
             this.siirAramaListe = resSiirAramaListeData;
             if (this.siirAramaListe.length > 0) {
                 $("#siirsearchlist").css("display", "");
@@ -1349,7 +1344,7 @@ let LayoutComponent = class LayoutComponent {
         if ($("#siirsearchlist li").length > 0) {
             setTimeout(function () {
                 $("#siirsearchlist").css("display", "none");
-            }, 100);
+            }, 500);
         }
     }
     ngOnInit() {
@@ -1361,7 +1356,6 @@ let LayoutComponent = class LayoutComponent {
             .subscribe((resSliderData) => {
             this.slider = resSliderData;
             setTimeout(function () {
-                var d = new Date();
                 $("#firstdate").datepicker({ dateFormat: "dd.mm.yy", defaultDate: new Date("03/30/1944") });
                 $("#lastdate").datepicker({ dateFormat: "dd.mm.yy", defaultDate: new Date("01/06/1982") });
                 $('#slider').flexslider({
@@ -1428,14 +1422,12 @@ let SiirComponent = class SiirComponent {
         });
     }
     onSubmit() {
-        this.yorumData = {
-            "RankID": $("#hdnRankID").val(),
-            "NameSurname": this.reviewForm.get("adsoyad").value,
-            "Point": this.reviewForm.get("puan").value,
-            "Message": this.reviewForm.get("mesaj").value,
-        };
-        this._cpService.setYorum(this.yorumData)
-            .subscribe((answer) => {
+        this.yorum = {};
+        this.yorum.RankID = $("#hdnRankID").val().toString();
+        this.yorum.NameSurname = this.reviewForm.get("adsoyad").value;
+        this.yorum.Point = this.reviewForm.get("puan").value;
+        this.yorum.Message = this.reviewForm.get("mesaj").value;
+        this._cpService.setYorum(this.yorum).subscribe((answer) => {
             if (answer == true) {
                 alert("Mesajınız gönderilmiştir. Onaylandığı takdirde yayınlanacaktır.");
                 $("#txtSender").val("");
@@ -1492,11 +1484,6 @@ let SiirleriComponent = class SiirleriComponent {
         $(this).attr("disabled", "disabled");
         $("#processframe").css("display", "block");
         if (id == "" || id == null) {
-            this.kelime = {
-                "FirstDate": "",
-                "LastDate": "",
-                "PoetryName": "",
-            };
             this._cpService.getSiirAramaTemizle()
                 .subscribe((result) => {
                 if (result == true) {
@@ -1512,11 +1499,10 @@ let SiirleriComponent = class SiirleriComponent {
             let fd = id != "clearfirstdate" ? $("#clearfirstdate").text().replace(" [x]", "") : "";
             let ld = id != "clearlastdate" ? $("#clearlastdate").text().replace(" [x]", "") : "";
             let pn = id != "clearpoetryname" ? $("#clearpoetryname").text().replace(" [x]", "") : "";
-            this.kelime = {
-                "FirstDate": fd,
-                "LastDate": ld,
-                "PoetryName": pn,
-            };
+            this.aramaData = {};
+            this.aramaData.FirstDate = fd;
+            this.aramaData.LastDate = ld;
+            this.aramaData.PoetryName = pn;
             if (fd == "" && ld == "" && pn == "") {
                 this._cpService.getSiirAramaTemizle()
                     .subscribe((result) => {
@@ -1530,8 +1516,7 @@ let SiirleriComponent = class SiirleriComponent {
                 }, resError => this.errorMsg = resError);
             }
             else {
-                this._cpService.getSiirArama(this.kelime)
-                    .subscribe((result) => {
+                this._cpService.setSiirArama(this.aramaData).subscribe((result) => {
                     if (result == "Y") {
                         this.router.navigate(['/Biyografi']).then(() => { this.router.navigate(['/Siirleri']); });
                     }

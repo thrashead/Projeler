@@ -2,6 +2,7 @@
 import { CPService } from "../cp.service";
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { YorumData } from "../models/YorumData";
 
 @Component({
     templateUrl: './siir.html',
@@ -13,7 +14,7 @@ export class SiirComponent {
     public link: string;
     errorMsg: string;
     reviewForm: FormGroup;
-    yorumData: any;
+    yorum: YorumData;
 
     constructor(private _cpService: CPService, private route: ActivatedRoute, private _formBuilder: FormBuilder) {
     }
@@ -35,15 +36,14 @@ export class SiirComponent {
     }
 
     onSubmit() {
-        this.yorumData = {
-            "RankID": $("#hdnRankID").val(),
-            "NameSurname": this.reviewForm.get("adsoyad").value,
-            "Point": this.reviewForm.get("puan").value,
-            "Message": this.reviewForm.get("mesaj").value,
-        };
+        this.yorum = {} as YorumData;
 
-        this._cpService.setYorum(this.yorumData)
-            .subscribe((answer) => {
+        this.yorum.RankID = $("#hdnRankID").val().toString();
+        this.yorum.NameSurname = this.reviewForm.get("adsoyad").value;
+        this.yorum.Point = this.reviewForm.get("puan").value;
+        this.yorum.Message = this.reviewForm.get("mesaj").value;
+
+        this._cpService.setYorum(this.yorum).subscribe((answer: any) => {
                 if (answer == true) {
                     alert("Mesajınız gönderilmiştir. Onaylandığı takdirde yayınlanacaktır.");
                     $("#txtSender").val("");

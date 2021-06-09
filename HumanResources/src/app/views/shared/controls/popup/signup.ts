@@ -23,7 +23,6 @@ export class PopupSignupComponent {
         this.signupForm = this.formBuilder.group({
             Username: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
             Password: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
-            Speciality: new FormControl(null, [Validators.required, Validators.min(1)]),
             Email: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
             Phone: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(15)]),
         });
@@ -40,7 +39,6 @@ export class PopupSignupComponent {
 
         this.data.Username = this.signupForm.get("Username").value;
         this.data.Password = this.signupForm.get("Password").value;
-        this.data.Speciality = this.signupForm.get("Phone").value;
         this.data.Email = this.signupForm.get("Email").value;
         this.data.Phone = this.signupForm.get("Phone").value;
 

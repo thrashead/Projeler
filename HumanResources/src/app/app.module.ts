@@ -22,10 +22,6 @@ import { AdminCategoryIndexComponent } from './admin/views/general/category';
 import { AdminCategoryInsertComponent } from './admin/views/general/category/insert';
 import { AdminCategoryUpdateComponent } from './admin/views/general/category/update';
 
-import { AdminCityIndexComponent } from './admin/views/humanresources/city';
-import { AdminCityInsertComponent } from './admin/views/humanresources/city/insert';
-import { AdminCityUpdateComponent } from './admin/views/humanresources/city/update';
-
 import { AdminContentIndexComponent } from './admin/views/general/content';
 import { AdminContentInsertComponent } from './admin/views/general/content/insert';
 import { AdminContentUpdateComponent } from './admin/views/general/content/update';
@@ -362,10 +358,6 @@ import { CandidateJobAlertComponent } from './views/candidate/job/alert';
         AdminCategoryIndexComponent,
         AdminCategoryInsertComponent,
         AdminCategoryUpdateComponent,
-
-        AdminCityIndexComponent,
-        AdminCityInsertComponent,
-        AdminCityUpdateComponent,
 
         AdminContentIndexComponent,
         AdminContentInsertComponent,
