@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
-import { SiteService } from '../../services/site';
+import { SiteService } from "../../services/site";
 import { LangItem } from '../../models/LangItem';
-import { Lib } from '../../lib/methods';
+import { Lib } from "../../lib/methods";
 
 @Component({
     templateUrl: './index.html'

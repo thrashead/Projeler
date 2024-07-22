@@ -31,7 +31,7 @@ namespace Lib
                     alici.Send(mesaj);
                     HttpContext.Current.Session["Mail"] = true;
                 }
-                catch (Exception ex)
+                catch
                 {
                     kontrol = MailDurum.Basarisiz;
                 }
